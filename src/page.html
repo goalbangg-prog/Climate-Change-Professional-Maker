@@ -332,7 +332,7 @@ function reveal(){
   document.querySelectorAll(".rv:not(.in)").forEach(n=>revealObs.observe(n));
 }
 function theme(){const r=document.documentElement,c=r.getAttribute("data-theme");const dark=c?c==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.setAttribute("data-theme",dark?"light":"dark");try{localStorage.setItem("cd-theme",dark?"light":"dark")}catch(e){}}
-$("#tog").onclick=theme;try{const t=localStorage.getItem("cd-theme");document.documentElement.setAttribute("data-theme",t||"dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}
+$("#tog").onclick=theme;try{let t=localStorage.getItem("cd-theme");if(!localStorage.getItem("cd-theme-v44")){t="dark";localStorage.setItem("cd-theme","dark");localStorage.setItem("cd-theme-v44","1")}document.documentElement.setAttribute("data-theme",t||"dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}
 
 /* ---------- LEARN ---------- */
 const GORDER=["map","std","meas","reg","prac","co"];
@@ -810,8 +810,9 @@ function nodeById(id){for(const tid in COURSES)for(const ch of COURSES[tid])for(
 /* ---- class pick ---- */
 function startView(){
   const box=$("#startBox");
-  box.innerHTML=`<div class="classes">${TRACKS.map((T,i)=>{const C=COURSES[T.id]||[];const nn=C.reduce((a,c)=>a+c.nodes.length,0);const na=C.reduce((a,c)=>a+c.nodes.filter(n=>n.t==="assign").length,0);const M=CLASS_META[T.id];
-    return `<button type="button" class="cls" data-t="${T.id}" style="--c:${classColor(T.id)};--i:${i}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${M.icon}"/></svg><span class="tag">${esc(M.tag)}</span><h3>${esc(T.name)}</h3><span class="alias">${esc(T.alias||"")}</span><p>${esc(M.blurb)}</p><div class="st"><span><b>${C.length}</b>챕터</span><span><b>${nn}</b>노드</span><span><b>${na}</b>과제</span></div><span class="jl">${T.jobs.slice(0,2).map(j=>esc(j)).join(" · ")}</span><span class="go">이 클래스로 시작 →</span></button>`}).join("")}</div>`;
+  const T0=TRACK();const st0=T0?courseState(T0.id):null;
+  box.innerHTML=(T0?`<a class="cont" href="#course" style="--c:${classColor(T0.id)}"><span class="k">현재 클래스 · 레벨 ${st0.level}</span><b>${esc(T0.name)} 코스 이어서 하기</b><span class="s">${st0.done}/${st0.total} 노드 · ${Math.round(st0.done/st0.total*100)}%${st0.cur?` · 다음: ${NODE_NAME[st0.cur.node.t]} · ${esc(st0.cur.node.name)}`:""}</span><span class="go">계속 →</span></a>`:"")+`<div class="classes">${TRACKS.map((T,i)=>{const C=COURSES[T.id]||[];const nn=C.reduce((a,c)=>a+c.nodes.length,0);const na=C.reduce((a,c)=>a+c.nodes.filter(n=>n.t==="assign").length,0);const M=CLASS_META[T.id];
+    return `<button type="button" class="cls" data-t="${T.id}" style="--c:${classColor(T.id)};--i:${i}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${M.icon}"/></svg><span class="tag">${esc(M.tag)}</span><h3>${esc(T.name)}</h3><span class="alias">${esc(T.alias||"")}</span><p>${esc(M.blurb)}</p><div class="st"><span><b>${C.length}</b>챕터</span><span><b>${nn}</b>노드</span><span><b>${na}</b>과제</span></div><span class="jl">${T.jobs.slice(0,2).map(j=>esc(j)).join(" · ")}</span><span class="go">${S.track===T.id?"현재 클래스 · 다시 선택":"이 클래스로 시작 →"}</span>${S.track===T.id?`<span class="now">현재</span>`:""}</button>`}).join("")}</div>`;
   document.querySelectorAll(".cls").forEach(b=>b.onclick=()=>{document.querySelectorAll(".cls").forEach(x=>x.classList.add(x===b?"picked":"faded"));setTimeout(()=>{S.track=b.dataset.t;S.v42=true;S.mode="learner";S.xpSeen=0;save();applyAccent();applyMode();go("course")},650)});
 }
 function applyAccent(){const t=TRACKS.find(x=>x.id===S.track);const r=document.documentElement;if(!t){r.style.removeProperty("--acc");r.removeAttribute("data-class");return}r.setAttribute("data-class",t.id);r.style.setProperty("--acc",classColor(t.id))}
@@ -1075,9 +1076,9 @@ function go(v){if(location.hash!=="#"+v)location.hash=v;else route()}
 function route(){
   const h=(location.hash||"").slice(1);const dash=h.indexOf("-");const base=dash>0?h.slice(0,dash):h;const rest=dash>0?h.slice(dash+1):"";
   view=VIEWS.includes(base)?base:"home";sub=rest;
-  if(view==="home")view=S.track?"course":"start";
+  if(view==="home")view="start";
   if(view==="drill"){startDrill(sub);view="practice"}else if(view!=="practice")drill=null;
-  if((!S.track||!S.v42)&&!["start","about","map","glossary"].includes(view))view="start";
+  if(!S.track&&!["start","about","map","glossary"].includes(view))view="start";
   if(view==="practice"&&MOD[sub]&&!MOD[sub].missing){mod=sub;flv=0;draft={}}
   if(view==="lesson"&&!MOD[sub])view="learn";
   VIEWS.forEach(k=>{const el=$("#v-"+k);if(!el)return;el.hidden=k!==view;if(k===view){el.classList.remove("enter");void el.offsetWidth;el.classList.add("enter")}});
