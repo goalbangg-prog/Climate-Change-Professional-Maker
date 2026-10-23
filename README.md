@@ -7,6 +7,13 @@
 
 ![홈](docs/screenshots/01-home.png)
 
+## v4.5 — 교재 중심 과정, 진단, 진로 3개
+
+- **진로 3개**: 기후공시 컨설턴트 · 온실가스 컨설턴트 · LCA 컨설턴트. 각 과정은 **실제 업무 흐름 순서**의 장(예: LCA는 목표·범위 정의 → LCI → LCIA·해석 → 탄소발자국·EPD → 공급망·규제 → 보고서 연결)으로 다시 짰다.
+- **교재** (`data/textbook/<track>.json`, 규격 `data/TEXTBOOK_SCHEMA.md`): 3권 22장 **117쪽**. 장마다 "실무에서는"(이 단계에서 신입이 받는 일) → 개념 → 그림·표 → 두 보고서의 실제 예(쪽 링크) → 읽은 것 점검 1~2문항. 점검을 풀어야 다음 쪽이 열린다. 공식 자료로 대조했고, 2차 자료만 연 곳은 본문에 "(2차 자료 기준)"으로 표시.
+- **배경지식 진단** 10문항 → 8점 이상이면 '기초 다지기' 장을 건너뛴다.
+- 게임 용어 제거(진로·과정·단계·진행 점수), 본문 17px·다크 대비 상향, 용어 검색은 제목 시작 → 제목 포함 → 설명 순, 다크/라이트 글자 토글.
+
 ## v4.3 — 전직과 노드 보드 (디아블로·GT7식)
 
 - 첫 실행은 **클래스 선택**: 기후공시 컨설턴트 / 온실가스 컨설턴트 / LCA 컨설턴트 / 기후변화 컨설턴트(통합). 카드에 공고에서 보는 다른 이름(ESG 공시, 배출권거래제, 탄소발자국…)을 함께 적음.
@@ -107,7 +114,10 @@ data/modules/*.json     15개 모듈 (lesson + items) · lessons-v1.json (v1 모
 data/v1/*.json          v1 모듈(KSSB·ESRS·GRI·SASB·ESG 평가·기준 지도) · ifrs-s2-data.js
 data/companies/         kia.json (회사 팩) · keys.json (질문 key ↔ 현대차 문항) · BRIEF.md (회사 팩 규격)
 data/assignments.json   업무 과제 8종 (유형·회사·기준·행 문항 id)
-data/tracks.json        취업 경로 4개 (단계·모듈·난이도·목표)
+data/tracks.json        진로 3개 (직함·별칭·직무)
+data/courses.json       진로별 과정 — 장(업무 단계)과 단계(교재·해 보기·과제·케이스·비교)
+data/textbook/*.json    교재 3권 (장·쪽·그림·예·점검) · TEXTBOOK_SCHEMA.md 규격
+data/diagnostic.json    배경지식 진단 10문항
 data/exclude.json       연습에서 뺀 외우기용 문항 id와 사유
 data/check.json         빌드 검사 결과 (문항 수, 신뢰도 집계, 경고)
 reports/                기아 보고서 원문 PDF (판정 문항의 '원문 열기'가 쪽 단위로 연결)
