@@ -1,0 +1,170 @@
+{
+ "k0": [
+  "kssb-06",
+  "kssb-01",
+  "kssb-02",
+  "kssb-04"
+ ],
+ "k1-1": [
+  "ifrs-s1-01",
+  "ifrs-s1-06"
+ ],
+ "k1-2": [],
+ "k1-3": [
+  "ifrs-s1-02",
+  "ifrs-s1-18",
+  "ifrs-s1-19",
+  "ifrs-s1-04"
+ ],
+ "k1-4": [
+  "ifrs-s1-12"
+ ],
+ "k1-5": [
+  "ifrs-s1-03",
+  "kia-j40"
+ ],
+ "k1-6": [
+  "ifrs-s1-30"
+ ],
+ "k1-7": [
+  "kssb-07"
+ ],
+ "k1-8": [
+  "ifrs-s1-11"
+ ],
+ "k1-9": [
+  "ifrs-s1-08",
+  "ifrs-s1-13",
+  "ifrs-s1-09",
+  "ifrs-s1-21"
+ ],
+ "k1-10": [
+  "ifrs-s1-14",
+  "ifrs-s1-15",
+  "practice-29"
+ ],
+ "k1-11": [
+  "ifrs-s1-17"
+ ],
+ "k2-1": [
+  "ifrs-s1-06",
+  "physical-02"
+ ],
+ "k2-2": [
+  "ifrs-s2x-01",
+  "ifrs-s2x-02",
+  "ifrs-s2x-09",
+  "ifrs-s2x-23"
+ ],
+ "k2-3": [
+  "kssb-11",
+  "kia-j19",
+  "ifrs-s2x-03"
+ ],
+ "k2-4": [
+  "ifrs-s2x-11",
+  "ifrs-s2x-04",
+  "ifrs-s2x-05",
+  "ifrs-s2x-12"
+ ],
+ "k2-5": [
+  "ifrs-s2x-32",
+  "ifrs-s2x-13",
+  "ifrs-s2x-14",
+  "kia-j21"
+ ],
+ "k2-6": [
+  "ifrs-s2x-06",
+  "ifrs-s2x-15",
+  "ifrs-s2x-28",
+  "scenario-25"
+ ],
+ "k2-7": [
+  "ifrs-s2x-16",
+  "ifrs-s2x-25"
+ ],
+ "k2-8": [
+  "kssb-08",
+  "kssb-09",
+  "ifrs-j6",
+  "ifrs-j8"
+ ],
+ "k2-9": [
+  "kssb-10",
+  "kia-j39",
+  "ifrs-s2x-07",
+  "ifrs-j11"
+ ],
+ "k2-10": [
+  "ifrs-j12",
+  "ifrs-j14",
+  "ifrs-j15",
+  "ifrs-j16"
+ ],
+ "k2-11": [
+  "kssb-07",
+  "kia-j38"
+ ],
+ "s2-0": [
+  "kssb-06",
+  "ifrs-s1-27"
+ ],
+ "s2-1": [
+  "ifrs-s1-01",
+  "scenario-03"
+ ],
+ "s2-2": [
+  "ifrs-s2x-01",
+  "ifrs-s2x-02",
+  "ifrs-s2x-09",
+  "kia-j18"
+ ],
+ "s2-3": [
+  "ifrs-s2x-10",
+  "ifrs-s2x-24",
+  "ifrs-s2x-11"
+ ],
+ "s2-4": [
+  "ifrs-s2x-04",
+  "targets-08",
+  "targets-32",
+  "kia-j68"
+ ],
+ "s2-5": [
+  "ifrs-s2x-26",
+  "scenario-10",
+  "korea-31"
+ ],
+ "s2-6": [
+  "scenario-09",
+  "ifrs-s2x-27",
+  "scenario-27",
+  "kia-j23"
+ ],
+ "s2-7": [
+  "ifrs-s2x-16",
+  "kia-j20"
+ ],
+ "s2-8": [
+  "ifrs-j4",
+  "kia-j07",
+  "ifrs-s2x-18",
+  "ifrs-s2x-29"
+ ],
+ "s2-9": [
+  "kia-j10",
+  "ifrs-s2x-17",
+  "ifrs-s2x-31",
+  "kia-j11"
+ ],
+ "s2-10": [
+  "ifrs-s2x-20",
+  "kia-j13",
+  "kia-j15",
+  "kia-j61"
+ ],
+ "s2-11": [
+  "kssb-07",
+  "finance-24"
+ ]
+}
