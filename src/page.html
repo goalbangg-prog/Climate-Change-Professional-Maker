@@ -7,7 +7,12 @@
 <header class="nav"><div class="wrap">
   <a class="brand" href="#home"><i aria-hidden="true"><b style="background:var(--m-ifrs)"></b><b style="background:var(--m-kssb)"></b><b style="background:var(--m-esrs)"></b><b style="background:var(--m-gri-sasb)"></b></i><span>기후공시 연습장</span></a>
   <nav aria-label="메뉴">
-    <a href="#home" data-v="home">홈</a><a href="#assign" data-v="assign" class="learner">과제</a><a href="#cases" data-v="cases" class="learner">케이스</a><a href="#compare" data-v="compare" class="learner">기업 비교</a><a href="#practice" data-v="practice" class="learner">판정 연습</a><a href="#path" data-v="path" class="learner">내 경로</a><a href="#review" data-v="review" class="learner">복습</a><a href="#portfolio" data-v="portfolio" class="learner">포트폴리오</a><a href="#learn" data-v="learn" class="learner">모듈</a><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어</a><a href="#record" data-v="record" class="learner">내 기록</a><a href="#teach" data-v="teach" class="teacher">강의실</a><a href="#teach-content" data-v="teach" class="teacher">콘텐츠 관리</a><a href="#about" data-v="about">만든 방법</a>
+    <a href="#home" data-v="home">홈</a>
+    <a href="#assign" data-v="assign" class="learner">과제</a><a href="#cases" data-v="cases" class="learner">케이스</a><a href="#compare" data-v="compare" class="learner">비교</a>
+    <a href="#teach" data-v="teach" class="teacher">강의실</a><a href="#teach-content" data-v="teach" class="teacher">콘텐츠</a>
+    <div class="dd learner"><button type="button" aria-expanded="false" data-group="practice,review,learn,path">연습 ▾</button><div class="menu"><a href="#practice" data-v="practice">판정·계산 연습</a><a href="#review" data-v="review">복습 큐</a><a href="#learn" data-v="learn">모듈과 입문 글</a><a href="#path" data-v="path">내 경로</a></div></div>
+    <div class="dd learner"><button type="button" aria-expanded="false" data-group="portfolio,record">나 ▾</button><div class="menu"><a href="#portfolio" data-v="portfolio">포트폴리오</a><a href="#record" data-v="record">내 기록</a></div></div>
+    <div class="dd"><button type="button" aria-expanded="false" data-group="map,glossary,about">참고 ▾</button><div class="menu"><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어집</a><a href="#about" data-v="about">만든 방법</a></div></div>
   </nav>
   <button class="mode" id="modeBtn" type="button" title="수강자/교육자 모드 전환"><span></span></button>
   <button class="tog" id="tog" type="button" aria-label="밝게/어둡게 바꾸기" title="밝게/어둡게"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.4A7 7 0 0 1 12 3z"/></svg></button>
@@ -1042,7 +1047,10 @@ async function exportXlsx(a,s,rows){
 }
 /* ---------- V4: MODE + TEACHER ---------- */
 function applyMode(){const t=S.mode==="teacher";document.documentElement.setAttribute("data-mode",S.mode);const b=$("#modeBtn");if(b){b.querySelector("span").textContent=t?"교육자":"수강자";b.setAttribute("aria-pressed",t)}
-  document.querySelectorAll(".nav nav a.learner").forEach(a=>a.hidden=t);document.querySelectorAll(".nav nav a.teacher").forEach(a=>a.hidden=!t)}
+  document.querySelectorAll(".nav nav .learner").forEach(a=>a.hidden=t);document.querySelectorAll(".nav nav .teacher").forEach(a=>a.hidden=!t)}
+document.querySelectorAll(".nav .dd > button").forEach(b=>b.onclick=e=>{e.stopPropagation();const d=b.parentElement;const open=!d.classList.contains("open");document.querySelectorAll(".nav .dd").forEach(x=>{x.classList.remove("open");x.querySelector("button").setAttribute("aria-expanded","false")});if(open){d.classList.add("open");b.setAttribute("aria-expanded","true")}});
+document.addEventListener("click",()=>document.querySelectorAll(".nav .dd.open").forEach(d=>{d.classList.remove("open");d.querySelector("button").setAttribute("aria-expanded","false")}));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".nav .dd.open").forEach(d=>{d.classList.remove("open");d.querySelector("button").setAttribute("aria-expanded","false")})});
 $("#modeBtn").onclick=()=>{S.mode=S.mode==="teacher"?"learner":"teacher";save();applyMode();toast(S.mode==="teacher"?"교육자 모드. 강의실은 4.0에서 자리만 잡았다.":"수강자 모드");if(S.mode==="teacher"&&!["teach","about","map","glossary","home"].includes(view))go("teach");if(S.mode==="learner"&&view==="teach")go("home")};
 function teachView(sub){
   const box=$("#teachBox");
@@ -1067,6 +1075,7 @@ function route(){
   if(view==="lesson"&&!MOD[sub])view="learn";
   VIEWS.forEach(k=>$("#v-"+k).hidden=k!==view);
   document.querySelectorAll(".nav nav a").forEach(a=>{let on=a.dataset.v===view||(view==="lesson"&&a.dataset.v==="learn");if(view==="teach"&&on)on=(a.getAttribute("href")==="#teach-content")===(sub==="content");a.setAttribute("aria-current",on?"page":"false")});
+  document.querySelectorAll(".nav .dd").forEach(d=>{const on=[...d.querySelectorAll("a")].some(a=>a.getAttribute("aria-current")==="page");d.querySelector("button").setAttribute("aria-current",on?"page":"false");d.classList.remove("open");d.querySelector("button").setAttribute("aria-expanded","false")});
   if(view==="home"){heroStats();works();jobs();tracks();twist();drawPrism();spectrum();clock();authorStrip()}
   if(view==="portfolio")pfView();if(view==="assign")assignView(sub);if(view==="teach")teachView(sub);
   applyMode();

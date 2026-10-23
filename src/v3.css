@@ -254,3 +254,14 @@ code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 
 @media (max-width:1000px){.alist{grid-template-columns:1fr}.arow .body{grid-template-columns:1fr}.repsum .kpi4{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:560px){.arow{grid-template-columns:1fr}.arow .n{display:none}.arow .fields{grid-template-columns:1fr}}
 @media print{.atabs,.asubmit,.exam-bar,.brief,.rephead .actions{display:none!important}.reptable{font-size:11px}}
+
+/* ===== nav dropdowns ===== */
+.nav nav{overflow:visible;align-items:center}
+.nav .dd{position:relative}
+.nav .dd>button{all:unset;cursor:pointer;padding:8px 12px;font-size:14px;color:var(--ink2);border-radius:6px;white-space:nowrap}
+.nav .dd>button:hover{background:var(--bg2)}
+.nav .dd>button[aria-current="page"]{color:var(--ink);font-weight:700;background:var(--bg3)}
+.nav .dd .menu{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:180px;background:var(--bg);border:1px solid var(--rule);border-radius:10px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.12);z-index:30;flex-direction:column}
+.nav .dd.open .menu{display:flex}
+.nav .dd .menu a{display:block;padding:9px 12px;border-radius:6px;font-size:14px}
+@media (max-width:760px){.nav nav{overflow-x:auto}.nav .dd .menu{position:fixed;left:16px;right:16px;top:64px;min-width:0}}
