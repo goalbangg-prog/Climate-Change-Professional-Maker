@@ -1,0 +1,810 @@
+<title>기후공시 연습장</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@800;900&display=swap">
+<style>
+/* Layout: 연습장 — 형광펜 하이라이트가 있는 흰 종이 위에, 기준마다 고유 색(라벨 동반)으로 구분되는 5개 모듈. 홈(프리즘·스펙트럼) → 연습(카드) → 기준 지도(행렬) → 기록(대시보드) */
+:root{
+  --bg:#ffffff; --bg2:#f4f5f6; --bg3:#eceef0; --ink:#111417; --ink2:#4a525b; --muted:#7f8790; --rule:#e3e6ea; --rule2:#c9cfd6;
+  --mark:#ffe27a; --mark-ink:#111417;
+  --good:#006300; --good-bg:#e6f3e6; --bad:#c23434; --bad-bg:#fbeaea;
+  --m-ifrs:#2a78d6; --m-kssb:#eb6834; --m-esrs:#1baf7a; --m-gri-sasb:#eda100; --m-ratings:#e87ba4;
+  --hero:#0f1720; --hero-ink:#eef2f6; --hero-muted:#93a1b0;
+  --display:"Noto Sans KR","Apple SD Gothic Neo",sans-serif; --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121518; --bg2:#191d21; --bg3:#20252a; --ink:#eef1f4; --ink2:#c0c7cf; --muted:#8c95a0; --rule:#262c33; --rule2:#38414a;
+  --mark:#6b5a12; --mark-ink:#fff6cc;
+  --good:#0ca30c; --good-bg:#132a14; --bad:#e46a6a; --bad-bg:#341a1a;
+  --m-ifrs:#3987e5; --m-kssb:#d95926; --m-esrs:#199e70; --m-gri-sasb:#c98500; --m-ratings:#d55181;
+  --hero:#0b1016; --hero-ink:#eef2f6; --hero-muted:#8a99a8; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121518; --bg2:#191d21; --bg3:#20252a; --ink:#eef1f4; --ink2:#c0c7cf; --muted:#8c95a0; --rule:#262c33; --rule2:#38414a;
+  --mark:#6b5a12; --mark-ink:#fff6cc;
+  --good:#0ca30c; --good-bg:#132a14; --bad:#e46a6a; --bad-bg:#341a1a;
+  --m-ifrs:#3987e5; --m-kssb:#d95926; --m-esrs:#199e70; --m-gri-sasb:#c98500; --m-ratings:#d55181;
+  --hero:#0b1016; --hero-ink:#eef2f6; --hero-muted:#8a99a8; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{text-wrap:balance;letter-spacing:-.03em}
+button,input,textarea{font-family:inherit;font-size:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--m-ifrs);outline-offset:2px}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:0}
+.mk{background:linear-gradient(transparent 58%,var(--mark) 58%,var(--mark) 92%,transparent 92%);color:inherit;padding:0 .08em}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:58px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap}
+.brand i{width:22px;height:22px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.brand i b{border-radius:2px}
+.nav nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.nav nav::-webkit-scrollbar{display:none}
+.nav nav a{text-decoration:none;padding:8px 12px;font-size:14px;color:var(--ink2);border-radius:6px;white-space:nowrap}
+.nav nav a:hover{background:var(--bg2)}
+.nav nav a[aria-current="page"]{color:var(--ink);font-weight:700;background:var(--bg3)}
+
+/* buttons */
+.btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:8px;background:var(--ink);color:var(--bg);font-weight:700;font-size:15px;line-height:1.2}
+.btn:hover{opacity:.9}
+.btn.line{background:transparent;color:var(--ink);border:1px solid var(--rule2)}
+.btn.line:hover{background:var(--bg2)}
+.btn.sm{padding:8px 14px;font-size:13px}
+.btn[disabled]{opacity:.35;cursor:default}
+.btn:focus-visible{outline:2px solid var(--m-ifrs);outline-offset:2px}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-ink);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:40px;align-items:center;padding-block:64px 56px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--hero-muted);text-transform:uppercase}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(34px,5vw,58px);line-height:1.12;margin-top:14px}
+.hero h1 em{font-style:normal;color:#ffe27a}
+.hero .lead{color:#c3cdd8;margin-top:18px;max-width:46ch;font-size:16px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.hero .btn{background:#ffe27a;color:#111417}
+.hero .btn.line{background:transparent;color:var(--hero-ink);border-color:#3a4654}
+.hero .btn.line:hover{background:#1a2430}
+.prism{width:100%;height:auto;display:block;overflow:visible}
+.prism text{font-family:var(--sans)}
+@media (prefers-reduced-motion:no-preference){
+  .prism .ray{animation:rayin .9s ease both;animation-delay:calc(.15s + var(--i)*.1s)}
+  .prism .lab{animation:fade .6s ease both;animation-delay:calc(.8s + var(--i)*.09s)}
+}
+@keyframes rayin{from{opacity:.25}to{opacity:1}}
+@keyframes fade{from{opacity:.3}to{opacity:1}}
+.hero-list{display:none}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #253140;margin-top:0}
+.stats div{padding:18px 18px 4px 0;display:flex;flex-direction:column;gap:2px}
+.stats div + div{padding-left:18px;border-left:1px solid #253140}
+.stats b{font-family:var(--mono);font-size:28px;font-weight:600;color:#fff}
+.stats > div > span{font-size:13px;color:var(--hero-muted)}
+.hero .wrap.statwrap{display:block;padding-block:0 44px}
+
+/* sections */
+.sec{padding-block:72px;border-bottom:1px solid var(--rule)}
+.sec.alt{background:var(--bg2)}
+.sh{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;max-width:720px}
+.sh .k{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.sh h2{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.2vw,34px);line-height:1.3}
+.sh p{color:var(--ink2)}
+
+/* module cards */
+.mods{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.mod{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:12px;padding:18px;border:1px solid var(--rule);border-radius:12px;background:var(--bg);position:relative;min-width:0;transition:border-color .15s,transform .15s}
+.mod:hover{border-color:var(--rule2);transform:translateY(-2px)}
+.mod .bar{position:absolute;left:0;right:0;top:0;height:4px;border-radius:12px 12px 0 0}
+.mod .nm{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;margin-top:4px}
+.mod .who{font-size:12px;color:var(--muted)}
+.mod p{font-size:13.5px;color:var(--ink2);line-height:1.6;flex:1}
+.mod .ft{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.mod .cnt{font-size:12px;color:var(--muted)}
+.ring{width:44px;height:44px;flex:none}
+.ring text{font-family:var(--mono);font-size:11px;fill:var(--ink)}
+
+/* spectrum */
+.spec{background:var(--bg);border:1px solid var(--rule);border-radius:12px;padding:24px;overflow-x:auto}
+.spec svg{width:100%;min-width:640px;height:auto;display:block}
+.spec text{font-family:var(--sans)}
+
+/* map preview + map */
+.topics{display:flex;gap:8px;flex-wrap:wrap}
+.chip{all:unset;box-sizing:border-box;cursor:pointer;padding:7px 13px;border:1px solid var(--rule2);border-radius:999px;font-size:13.5px;background:var(--bg);white-space:nowrap}
+.chip:hover{background:var(--bg2)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mapfact{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;padding:18px 20px;background:var(--bg2);border-radius:12px;margin-top:18px}
+.mapfact .lb{font-size:12px;color:var(--muted)}
+.mapfact .v{font-size:18px;font-weight:700}
+.mapfact p{flex-basis:100%;color:var(--ink2);font-size:14px}
+.fwgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.fw{border:1px solid var(--rule);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;min-width:0;background:var(--bg)}
+.fw .h{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700}
+.fw .ref{font-size:15px;font-weight:700;line-height:1.5}
+.fw.na .ref{color:var(--muted);font-weight:400;font-family:var(--sans)}
+.fw .unv{font-size:11px;color:var(--muted)}
+.diff{margin-top:14px;padding:14px 18px;border-left:4px solid var(--mark);background:color-mix(in srgb,var(--mark) 22%,var(--bg))}
+.diff b{display:block;font-size:12px;color:var(--ink2);margin-bottom:2px}
+.matrix{overflow-x:auto;margin-top:12px}
+.matrix table{border-collapse:separate;border-spacing:3px;min-width:760px;width:100%;font-size:12.5px}
+.matrix th{font-weight:600;text-align:left;padding:6px 8px;color:var(--ink2);white-space:nowrap}
+.matrix td{padding:8px 10px;border-radius:6px;background:var(--bg2);font-size:12.5px;line-height:1.5;vertical-align:top;cursor:pointer}
+.matrix td.na{background:transparent;border:1px dashed var(--rule2);color:var(--muted);font-family:var(--sans)}
+.matrix td:hover{outline:1px solid var(--rule2)}
+.matrix tr.on th{color:var(--ink)}
+.matrix tr.on td{background:color-mix(in srgb,var(--mark) 35%,var(--bg))}
+.matrix td.na:hover{outline:none}
+
+/* practice */
+.ptabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.ptab{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-width:150px;padding:12px 14px;border:1px solid var(--rule);border-radius:10px;background:var(--bg)}
+.ptab .t{display:flex;align-items:center;gap:7px;font-weight:700;font-size:14px;white-space:nowrap}
+.ptab .pb{height:4px;background:var(--bg3);border-radius:2px;display:flex;overflow:hidden}
+.ptab .pb i{display:block;height:100%}
+.ptab .c{font-size:11.5px;color:var(--muted)}
+.ptab[aria-selected="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.work{display:grid;grid-template-columns:232px minmax(0,1fr);gap:28px;padding-block:24px 72px;align-items:start}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 74px);display:flex;flex-direction:column;gap:14px}
+.side .lb{font-size:12px;color:var(--muted)}
+.ftype{display:flex;gap:4px;flex-wrap:wrap}
+.ftype .chip{padding:4px 10px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.grid button{all:unset;box-sizing:border-box;cursor:pointer;aspect-ratio:1;display:grid;place-items:center;font-family:var(--mono);font-size:12.5px;border:1px solid var(--rule2);border-radius:6px;background:var(--bg);position:relative}
+.grid button.ok{background:var(--good-bg);border-color:var(--good);color:var(--good);font-weight:600}
+.grid button.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad);font-weight:600}
+.grid button[aria-current="true"]{outline:2px solid var(--ink);outline-offset:1px}
+.grid button .ty{position:absolute;right:2px;top:0;font-size:8px;color:var(--muted);font-family:var(--sans)}
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--ink2)}
+.legend span{display:inline-flex;gap:5px;align-items:center}
+.legend i{width:11px;height:11px;border-radius:3px;border:1px solid var(--rule2);display:inline-block}
+.card{background:var(--bg);border:1px solid var(--rule);border-radius:14px;padding:30px clamp(18px,3.4vw,40px);display:flex;flex-direction:column;gap:20px;min-width:0;box-shadow:0 1px 0 var(--rule)}
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:var(--bg2);font-weight:600}
+.tag.ref{font-family:var(--mono);font-weight:500;background:transparent;border:1px solid var(--rule2)}
+.qno{font-family:var(--mono);color:var(--muted);margin-left:auto}
+.q{font-size:clamp(19px,2.3vw,23px);line-height:1.55;font-weight:700;letter-spacing:-.025em}
+.look{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--ink2);padding:12px 14px;border-radius:8px;background:var(--bg2)}
+.look a{font-weight:700;color:var(--ink);text-underline-offset:3px}
+.choice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.choice button,.opts button{all:unset;box-sizing:border-box;cursor:pointer;border:1px solid var(--rule2);border-radius:10px;background:var(--bg)}
+.choice button{text-align:center;padding:14px 8px;font-weight:700;font-size:16px}
+.choice small{display:block;font-weight:400;font-size:11.5px;color:var(--muted)}
+.choice button:hover:not(:disabled),.opts button:hover:not(:disabled){background:var(--bg2)}
+.choice button[aria-pressed="true"],.opts button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:var(--bg2)}
+.choice button:disabled,.opts button:disabled{cursor:default}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opts button{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:start;padding:12px 14px;font-size:15px;line-height:1.55}
+.opts .l{font-family:var(--mono);font-weight:600;color:var(--muted)}
+.opts button.right{border-color:var(--good);background:var(--good-bg)}
+.opts button.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opts .st{font-size:12px;font-weight:700}
+.opts button.right .st{color:var(--good)}.opts button.wrong .st{color:var(--bad)}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink2)}
+textarea,input[type=text]{width:100%;border:1px solid var(--rule2);border-radius:8px;background:var(--bg);padding:10px 12px;font-weight:400;line-height:1.6}
+textarea{min-height:70px;resize:vertical}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.hint{font-size:13px;color:var(--muted)}
+.reveal{display:flex;flex-direction:column;gap:18px;border-top:1px solid var(--rule);padding-top:22px}
+.verdict{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 16px;border-radius:10px}
+.verdict.ok{background:var(--good-bg)}.verdict.bad{background:var(--bad-bg)}
+.verdict b{font-size:16px}.verdict.ok b{color:var(--good)}.verdict.bad b{color:var(--bad)}
+.verdict span{color:var(--ink2);font-size:14px}
+.blk h4{font-size:12px;letter-spacing:.04em;color:var(--muted);font-weight:700;margin-bottom:6px}
+.blk p{max-width:68ch}
+blockquote{margin:0;padding:14px 18px;border-left:3px solid var(--rule2);background:var(--bg2);border-radius:0 8px 8px 0;font-size:15px;line-height:1.8}
+blockquote cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px}
+.trap{background:color-mix(in srgb,var(--mark) 30%,var(--bg));padding:14px 16px;border-radius:10px}
+.trap h4{color:var(--ink2)}
+.mine{font-size:14px;color:var(--ink2);border:1px dashed var(--rule2);border-radius:8px;padding:10px 12px}
+.srcs{display:flex;flex-direction:column;gap:4px;font-size:13px}
+.srcs a{color:var(--ink2);text-underline-offset:3px}
+.given{overflow-x:auto}
+.given table{border-collapse:collapse;width:100%;font-size:14px}
+.given td{padding:8px 10px;border-bottom:1px solid var(--rule)}
+.given td.n{text-align:right;font-family:var(--mono);white-space:nowrap}
+.given td.p{color:var(--muted);font-size:12px;white-space:nowrap;text-align:right}
+.ansrow{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.ansrow label{flex:1 1 220px;max-width:300px}
+.ansrow input{font-family:var(--mono);font-size:18px}
+.ansrow .u{color:var(--ink2);padding-bottom:10px}
+ol.sol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:13.5px}
+.navrow{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--rule);padding-top:18px}
+
+/* record */
+.rgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.panel{background:var(--bg);border:1px solid var(--rule);border-radius:14px;padding:24px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.panel h3{font-size:17px}
+.panel .sub{font-size:13px;color:var(--muted);margin-top:-8px}
+.radar{width:100%;max-width:380px;height:auto;display:block;margin:0 auto;overflow:visible}
+.radar text{font-family:var(--sans);font-size:12px}
+.mbars{display:flex;flex-direction:column;gap:12px}
+.mbar{display:grid;grid-template-columns:96px minmax(0,1fr) 64px;gap:12px;align-items:center;font-size:13.5px}
+.mbar .t{height:14px;background:var(--bg3);border-radius:4px;display:flex;overflow:hidden;gap:2px}
+.mbar .t i{display:block;height:100%}
+.mbar .v{font-family:var(--mono);text-align:right;font-size:13px}
+.mbar .n{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.lean{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lean div{padding:14px;border-radius:10px;background:var(--bg2)}
+.lean b{font-family:var(--mono);font-size:26px;display:block}
+.lean span{font-size:13px;color:var(--ink2)}
+.notes{display:flex;flex-direction:column;gap:10px}
+.note{border:1px solid var(--rule);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.note .h{display:flex;gap:8px;align-items:center;font-size:12.5px;flex-wrap:wrap}
+.note p{font-size:14px;color:var(--ink2)}
+.note button{all:unset;cursor:pointer;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px;align-self:flex-start}
+.seg{display:inline-flex;border:1px solid var(--rule2);border-radius:8px;overflow:hidden}
+.seg button{all:unset;cursor:pointer;padding:7px 14px;font-size:13px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);font-weight:700}
+.empty{color:var(--muted);font-size:14px;padding:18px;border:1px dashed var(--rule2);border-radius:10px}
+.owner{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:14px 16px;border-radius:10px;background:var(--bg2);font-size:14px}
+
+/* about */
+.credit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.credit div{border:1px solid var(--rule);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
+.credit h3{font-size:15px}
+.credit p,.credit li{font-size:14px;color:var(--ink2)}
+.credit ul{margin:0;padding-left:18px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s;border-top:2px solid var(--ink)}
+.steps div{padding:16px 16px 0 0;display:flex;flex-direction:column;gap:6px}
+.steps div + div{padding-left:16px;border-left:1px solid var(--rule)}
+.steps b{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.steps h3{font-size:15px}.steps p{font-size:13.5px;color:var(--ink2)}
+
+footer{padding-block:28px 56px;font-size:12.5px;color:var(--muted)}
+footer a{color:var(--ink2)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(22px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:8px;font-size:13.5px;z-index:40;max-width:90vw}
+.view[hidden]{display:none!important}
+.view{animation:vin .35s ease both}
+@keyframes vin{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+.rv{transition:none}
+@media (prefers-reduced-motion:no-preference){
+  .rv.in{animation:rv .7s cubic-bezier(.2,.7,.2,1) both}
+  .rv.in.d1{animation-delay:.08s}.rv.in.d2{animation-delay:.16s}.rv.in.d3{animation-delay:.24s}.rv.in.d4{animation-delay:.32s}
+}
+@keyframes rv{from{opacity:.25;transform:translateY(18px)}to{opacity:1;transform:none}}
+/* twist stats */
+.twist{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.twist > div{padding:22px 18px 0 0;display:flex;flex-direction:column;gap:8px;min-width:0;position:relative}
+.twist > div + div{padding-left:18px;border-left:1px solid var(--rule)}
+.twist .big{font-family:var(--display);font-weight:900;font-size:clamp(34px,3.6vw,46px);line-height:1;letter-spacing:-.04em}
+.twist .big small{font-size:.5em;font-weight:700;margin-left:2px}
+.twist h3{font-size:15px;line-height:1.5}
+.twist p{font-size:13.5px;color:var(--ink2)}
+.twist .so{font-size:12px;color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px;margin-top:auto}
+.twist .so b{color:var(--ink2)}
+.twist a{font-size:12px;font-weight:700;text-decoration:none;color:var(--ink);background:var(--bg2);padding:4px 10px;border-radius:999px;align-self:flex-start}
+.twist a:hover{background:var(--bg3)}
+/* timeline */
+.tl{background:var(--bg);border:1px solid var(--rule);border-radius:14px;padding:26px 24px 18px;overflow-x:auto}
+.tl svg{width:100%;min-width:720px;height:auto;display:block;overflow:visible}
+.tl text{font-family:var(--sans)}
+.tl .pulse{animation:pulse 2.2s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes pulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:0;transform:scale(2.4)}}
+/* hero extras */
+.hero{position:relative}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:60%;height:140%;background:radial-gradient(closest-side,rgba(42,120,214,.22),transparent 70%);pointer-events:none}
+.hero::after{content:"";position:absolute;left:-10%;bottom:-40%;width:50%;height:120%;background:radial-gradient(closest-side,rgba(255,226,122,.10),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative}
+.cnt{display:inline-block;min-width:1ch}
+.tog{all:unset;cursor:pointer;width:34px;height:34px;border-radius:8px;display:grid;place-items:center;color:var(--ink2);margin-left:6px;flex:none}
+.tog:hover{background:var(--bg2)}
+.tog svg{width:18px;height:18px}
+.mod .bar{transition:height .18s}.mod:hover .bar{height:7px}
+.mod:hover{box-shadow:0 10px 30px -18px rgba(0,0,0,.35)}
+.card{animation:cardin .3s ease both}
+@keyframes cardin{from{opacity:.5;transform:translateY(6px)}to{opacity:1;transform:none}}
+.verdict{animation:pop .35s cubic-bezier(.2,.9,.3,1.3) both}
+@keyframes pop{from{transform:scale(.96);opacity:.5}to{transform:none;opacity:1}}
+.grid button{transition:transform .12s}.grid button:hover{transform:translateY(-2px)}
+
+.ptab .pb i{transition:width .5s ease}
+.ring circle:last-of-type{transition:stroke-dasharray .6s ease}
+.hero-list{gap:8px}
+@media (max-width:1000px){.twist{grid-template-columns:repeat(3,minmax(0,1fr))}.twist > div:nth-child(4){padding-left:0;border-left:none}.twist > div:nth-child(n+4){border-top:1px solid var(--rule);margin-top:16px}}
+@media (max-width:560px){.twist{grid-template-columns:1fr 1fr}.twist > div:nth-child(3){padding-left:0;border-left:none}.twist > div:nth-child(n+3){border-top:1px solid var(--rule);margin-top:16px}.twist > div:nth-child(4){padding-left:18px;border-left:1px solid var(--rule)}}
+@media (prefers-reduced-motion:reduce){.view,.card,.verdict{animation:none}}
+
+@media (max-width:1000px){
+  .mods{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .credit{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}.steps div:nth-child(3){padding-left:0;border-left:none}
+}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:28px;padding-block:44px 32px}
+  .work{grid-template-columns:1fr;gap:16px}
+  .side{position:static}
+  .grid{grid-template-columns:repeat(10,minmax(0,1fr))}
+  .fwgrid{grid-template-columns:1fr 1fr}
+  .rgrid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(3){padding-left:0;border-left:none}
+}
+@media (max-width:560px){
+  .prism{display:none}.hero-list{display:flex;flex-direction:column;gap:8px}
+  .mods{grid-template-columns:1fr}
+  .fwgrid{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(7,minmax(0,1fr))}
+  .choice{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}.steps div + div{padding-left:0;border-left:none;border-top:1px solid var(--rule);padding-top:14px;margin-top:14px}
+  .mbar{grid-template-columns:76px minmax(0,1fr) 54px}
+  .nav .wrap{gap:10px}.brand span{display:none}
+  .sec{padding-block:52px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#home"><i aria-hidden="true"><b style="background:var(--m-ifrs)"></b><b style="background:var(--m-kssb)"></b><b style="background:var(--m-esrs)"></b><b style="background:var(--m-gri-sasb)"></b></i><span>기후공시 연습장</span></a>
+  <nav aria-label="메뉴">
+    <a href="#home" data-v="home">홈</a><a href="#practice" data-v="practice">연습</a><a href="#map" data-v="map">기준 지도</a><a href="#record" data-v="record">내 기록</a><a href="#about" data-v="about">만든 방법</a>
+  </nav>
+  <button class="tog" id="tog" type="button" aria-label="밝게/어둡게 바꾸기" title="밝게/어둡게"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path id="togIcon" d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.4A7 7 0 0 1 12 3z"/></svg></button>
+</div></header>
+
+<main>
+<!-- HOME -->
+<div class="view" id="v-home">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">현대자동차 FY2025 · 원문 163쪽 · 기준 5개</div>
+        <h1>보고서 하나를<br><em>다섯 개의 기준</em>으로<br>읽어 보는 연습장</h1>
+        <p class="lead">같은 Scope 3 숫자라도 IFRS S2, KSSB, ESRS, GRI, CDP는 각자 다른 것을 묻는다. 실제 보고서 원문을 열어 직접 판정하고, 계산하고, 기준끼리 비교해 본다.</p>
+        <div class="cta"><a class="btn" href="#practice">연습 시작하기 →</a><a class="btn line" href="#map">기준 지도 보기</a></div>
+      </div>
+      <div>
+        <svg class="prism" id="prism" viewBox="0 0 640 400" role="img" aria-label="하나의 Scope 3 숫자가 다섯 기준의 서로 다른 요구로 갈라지는 모습"></svg>
+        <div class="hero-list" id="heroList"></div>
+      </div>
+    </div>
+    <div class="wrap statwrap"><div class="stats rv" id="heroStats"></div></div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Five twists</span><h2>숫자로 보는 반전 5가지</h2><p>현대자동차 FY2025 보고서를 다섯 기준으로 읽으며 찾아낸 것들이다. 각 숫자는 연습 문항에서 직접 계산하거나 판정하게 된다.</p></div>
+      <div class="twist" id="twist"></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Modules</span><h2>기준마다 묻는 사람이 다르다</h2><p>모듈을 고르면 그 기준의 판정·개념·계산 문제가 열린다. 링의 숫자는 이 브라우저에서 푼 비율이다.</p></div>
+      <div class="mods rv" id="mods"></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Materiality lens</span><h2>누구를 위한 공시인가에 따라 질문이 바뀐다</h2><p>투자자에게 회사의 재무 위험을 알리는 기준과, 회사가 사회·환경에 주는 영향을 알리는 기준은 같은 데이터를 다르게 읽는다. 평가기관은 그 둘 위에서 점수를 매긴다.</p></div>
+      <div class="spec rv"><svg id="spectrum" viewBox="0 0 980 300" role="img" aria-label="기준별 중대성 관점 스펙트럼"></svg></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Regulatory clock</span><h2>다섯 기준이 같은 시계 위에 있다</h2><p>2027년에 세 기준이 동시에 바뀌고, 2028년에 한국 첫 의무공시가 온다. 연습장의 문항은 이 시계에 맞춰 골랐다.</p></div>
+      <div class="tl rv"><svg id="clock" viewBox="0 0 1000 340" role="img" aria-label="기준별 주요 일정"></svg></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Framework map</span><h2>숫자 하나, 기준별로 다른 문단</h2><p>공시 주제를 고르면 각 기준의 해당 조항과 현대차 보고서의 실제 값이 함께 보인다.</p></div>
+      <div id="mapMini" class="rv"></div>
+      <div style="margin-top:20px"><a class="btn line sm" href="#map">전체 기준 지도 열기 →</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="authorStrip" hidden>
+    <div class="wrap">
+      <div class="sh"><span class="k">Learning record</span><h2>작성자 김수현의 공개 학습 기록</h2><p>작성자가 직접 풀고 저장한 기록이다. 문제는 AI와 함께 만들었고, 풀이와 판단 근거는 작성자의 것이다.</p></div>
+      <div id="authorSum"></div>
+    </div>
+  </section>
+</div>
+
+<!-- PRACTICE -->
+<div class="view" id="v-practice" hidden>
+  <section class="sec" style="padding-block:36px 0;border:none">
+    <div class="wrap">
+      <div class="sh" style="margin-bottom:18px"><span class="k">Practice</span><h2>먼저 풀고, 그다음 원문과 대조한다</h2></div>
+      <div class="ptabs" id="ptabs" role="tablist" aria-label="모듈"></div>
+    </div>
+  </section>
+  <div class="wrap"><div class="work">
+    <aside class="side" id="side"></aside>
+    <section class="card" id="card" aria-live="polite"></section>
+  </div></div>
+</div>
+
+<!-- MAP -->
+<div class="view" id="v-map" hidden>
+  <section class="sec" style="padding-block:40px 64px">
+    <div class="wrap">
+      <div class="sh"><span class="k">Framework map</span><h2>기준 지도</h2><p>공시 주제 8개를 기준 6개에 대응시켰다. 칸을 누르면 그 주제가 위에 펼쳐진다. 점선 칸은 해당 기준에 대응 조항이 없는 곳이다.</p></div>
+      <div id="mapFull"></div>
+      <div class="matrix" id="matrix"></div>
+      <p class="hint" style="margin-top:12px">'확인 필요' 표시는 공식 문서에서 조항 번호까지 확인하지 못한 칸이다.</p>
+    </div>
+  </section>
+</div>
+
+<!-- RECORD -->
+<div class="view" id="v-record" hidden>
+  <section class="sec" style="padding-block:40px 64px">
+    <div class="wrap">
+      <div class="sh"><span class="k">Record</span><h2>내 기록</h2><p>푼 문제가 쌓이면 어느 기준에 강하고 약한지, 판정을 후하게 하는지 박하게 하는지가 보인다.</p></div>
+      <div id="recTop" style="margin-bottom:18px"></div>
+      <div id="recBody"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div class="view" id="v-about" hidden>
+  <section class="sec" style="padding-block:40px 64px">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+      <div class="sh" style="margin-bottom:0"><span class="k">About</span><h2>이 연습장을 만든 방법</h2><p>컨설턴트가 처음 맡는 일은 기준서와 보고서를 나란히 놓고 '있는지, 충분한지'를 판단하는 일이다. 그 판단을 반복해서 연습할 수 있게 만들었다.</p></div>
+      <div class="steps">
+        <div><b>01</b><h3>원문에서 근거 뽑기</h3><p>현대자동차 2026 지속가능성 보고서 국문판(163쪽)에서 쪽 번호와 원문 문장을 그대로 가져왔다.</p></div>
+        <div><b>02</b><h3>기준서와 대조</h3><p>각 기준의 공식 문서와 감독기관 자료로 조항 번호와 요구 내용을 확인했다.</p></div>
+        <div><b>03</b><h3>숫자는 코드로 검산</h3><p>계산 문제의 모든 답과 풀이 단계는 Python으로 다시 계산했다.</p></div>
+        <div><b>04</b><h3>독립 검토</h3><p>문제를 만들지 않은 별도 검토자가 인용문·숫자·조항을 원문과 다시 대조하고, 지적 사항을 반영했다.</p></div>
+      </div>
+      <div class="credit">
+        <div><h3>AI(Claude)가 한 일</h3><ul><li>원문·기준서 대조와 문제·해설 작성</li><li>계산 검산과 독립 검토</li><li>웹앱 설계와 구현</li></ul></div>
+        <div><h3>김수현이 한 일</h3><ul><li>채용공고 업무 범위에 맞춘 기준 선정과 확장 기획</li><li>문제 풀이와 판단 근거 기록(내 기록)</li><li>기준서 검색용 RAG 직접 구현(진행 중)</li></ul></div>
+        <div><h3>한계</h3><ul><li>정답은 원문과 기준서를 대조한 해석이며 전문가마다 '일부'와 '없음'의 경계가 다를 수 있다.</li><li>KSSB·ESRS는 개정과 간소화가 진행 중이라 최신 원문 확인이 필요하다.</li><li>평가기관의 세부 채점 기준은 비공개 부분이 있다.</li></ul></div>
+      </div>
+      <div id="srcList"></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer><div class="wrap">
+  원문: <a href="https://www.hyundai.com/content/dam/hyundai/kr/ko/data/company-report/2026/07/15/hmc-sr-kor-2026.pdf" target="_blank" rel="noopener">현대자동차, 2026 지속가능성 보고서(FY2025) 국문판</a> · 학습용 개인 프로젝트이며 현대자동차·각 기준 제정기관과 무관하다. 기록은 이 브라우저에 저장된다.
+</div></footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const MODS=[{"id":"ifrs","name":"IFRS S2","short":"IFRS S2","who":"투자자 · 재무 중대성","desc":"ISSB의 기후 공시 기준. 현대차 보고서의 지표·목표 공시를 문단 단위로 판정하고 숫자를 직접 계산한다."},{"id":"kssb","name":"KSSB 제2호","short":"KSSB","who":"국내 투자자 · 의무공시","desc":"IFRS S2를 바탕으로 한 한국 기준. 누가 언제부터 공시하는지, 무엇이 유예되는지 같은 국내 제도를 다룬다."},{"id":"esrs","name":"ESRS E1","short":"ESRS","who":"EU · 이중 중대성","desc":"EU 기업지속가능성보고지침(CSRD)의 기후 기준. 재무 영향과 사회·환경 영향을 함께 보는 이중 중대성을 다룬다."},{"id":"gri-sasb","name":"GRI · SASB","short":"GRI·SASB","who":"보고서 작성 실무","desc":"지속가능경영보고서의 뼈대. GRI 305 배출 공시와 SASB 자동차 산업 지표를 현대차 색인과 대조한다."},{"id":"ratings","name":"ESG 평가","short":"ESG 평가","who":"평가기관 대응","desc":"CDP, EcoVadis, S&P CSA, KCGS. 공시 기준과 달리 바깥에서 점수를 매기는 평가가 무엇을 보는지 다룬다."}];
+const ITEMS=[{"id":"ifrs-j1","module":"ifrs","type":"judge","ref":"IFRS S2 문단 29(a)(i)","topic":"총배출량","q":"Scope 1, Scope 2, Scope 3 총배출량을 각각 절대량(톤)으로 공시하는가?","look":"38쪽 '온실가스 배출량' 표","page":38,"ans":"있음","quote":"Scope 1 729,974 → 720,642 / Scope 2(시장 기반) 1,468,432 → 1,190,442 / Scope 3 203,863,854 → 199,704,253 (단위 tCO2-eq, 2024년 → 2025년)","why":"세 Scope 모두 2개년 절대량이 표로 나와 있다. 요구사항을 그대로 충족한다.","trap":"원단위(0.464 t/대)는 추가 정보일 뿐 총배출량을 대신하지 못한다. 원단위만 있고 총량이 없으면 '없음'이다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-j2","module":"ifrs","type":"judge","ref":"IFRS S2 부록 A 정의 · 문단 29(a)(i)","topic":"대상 온실가스","q":"IFRS S2가 정한 7대 온실가스(CO2, CH4, N2O, HFCs, NF3, PFCs, SF6)를 모두 반영했다고 밝히는가?","look":"38쪽 가운데 '배출량 측정을 위한 접근법' 문단","page":38,"ans":"일부","quote":"이산화탄소(CO₂), 메탄(CH₄), 아산화질소(N₂O), 수소불화탄소(HFCs), 과불화탄소(PFCs), 육불화황(SF6)의 6대 온실가스를 대상으로 하였습니다.","why":"IFRS S2는 교토의정서 7대 온실가스를 기준으로 하는데, 보고서는 6대만 적었다. 삼불화질소(NF3)가 빠졌다. 자동차 제조에서 NF3 배출이 없거나 아주 작을 수 있지만, 그렇다면 그 사실을 밝혀야 요구사항을 다 채운다.","trap":"국내 배출권거래제와 온실가스관리기사 시험은 6대 온실가스를 쓰기 때문에 익숙해서 놓치기 쉽다. 이전 AI 체크리스트도 이 항목을 놓쳤다. KSSB 제2호 원문의 온실가스 정의도 직접 확인해 볼 것.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-j3","module":"ifrs","type":"judge","ref":"IFRS S2 문단 29(a)(ii)","topic":"측정 기준","q":"GHG 프로토콜 기업 표준에 따라 배출량을 측정했는가?","look":"38쪽 '배출량 측정을 위한 접근법'","page":38,"ans":"있음","quote":"「The Greenhouse Gas Protocol: A Corporate Accounting and Reporting Standard (Revised Edition)」과 「The Greenhouse Gas Protocol: Scope 2 Guidance」를 근거로 산정하였으며, 국내 「탄소중립기본법」 및 「온실가스 배출권거래제의 배출량 보고 및 인증에 관한 지침」을 준수하였습니다.","why":"적용한 기준을 정확한 이름으로 밝혔다. 국내 법령을 함께 지킨 것은 GHG 프로토콜 위반이 아니다.","trap":"법령이 다른 측정 방법을 요구하면 그 방법을 쓸 수 있다는 경감은 원래부터 있었다. 2025년 12월 개정(2027년 1월 1일 이후 시작하는 연도부터 적용)은 이 경감이 회사 '일부'에도 적용된다고 명확히 했다. 어느 부분에 어떤 방법을 썼는지는 측정 방법을 설명하라는 문단 29(a)(iii)에 따라 드러나야 하는데, 지금 문장은 '둘 다 지켰다'고만 한다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"ISSB, IFRS S2 개정 발표 (2025.12)","url":"https://www.ifrs.org/news-and-events/news/2025/12/issb-issues-targeted-amendments-ifrs-s2/"}]},{"id":"ifrs-j4","module":"ifrs","type":"judge","ref":"IFRS S2 적용지침 (GWP 환산)","topic":"지구온난화지수","q":"CO2 환산 때 보고일 기준 최신 IPCC 평가보고서의 100년 지구온난화지수(GWP)를 썼는가?","look":"38쪽 '배출량 측정을 위한 접근법' 끝부분","page":38,"ans":"일부","quote":"IPCC(Intergovernmental Panel on Climate Change) 제5차 및 제6차 평가보고서에서 제시한 100년 기준 지구온난화지수(GWP, Global Warming Potential)를 적용하여 이산화탄소 환산량(tCO₂-eq)으로 변환하여 수치 값을 산정하였습니다.","why":"최신은 6차 보고서다. 5차 값도 함께 썼다면 어느 범위(예: 국내 배출권거래제 대상분)에 5차를 썼는지 밝혀야 하는데 그 설명이 없다.","trap":"'6차가 들어 있으니 됐다'로 넘기기 쉽다. 2025년 12월 개정(2027년부터 적용)으로 법령이 요구하는 GWP 값을 쓸 수 있는 경감이 새로 생겼다. 그래도 어느 범위에 어떤 값을 썼는지는 측정 방법·가정 설명(문단 29(a)(iii))으로 드러나야 한다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"ISSB, IFRS S2 개정 발표 (2025.12)","url":"https://www.ifrs.org/news-and-events/news/2025/12/issb-issues-targeted-amendments-ifrs-s2/"}]},{"id":"ifrs-j5","module":"ifrs","type":"judge","ref":"IFRS S2 문단 29(a)(iii)","topic":"측정 방법·가정","q":"측정 방법, 투입 데이터, 가정을 설명하는가?","look":"39~40쪽 '투입변수 및 가정'","page":39,"ans":"있음","quote":"고정연소 배출량은 액화천연가스(LNG), 경유, 등유, 프로판 등 연료 사용량을 활동 데이터로 활용하였고, 배출계수는 2006년 IPCC 국가 온실가스 인벤토리 가이드라인에서 제시한 기본 배출계수를 적용하여 산정하였습니다.","why":"Scope 1·2와 Scope 3 카테고리마다 활동자료, 배출계수, 주요 가정(승용차 생애 주행거리 20만km, 상용차 40만km 등)을 적었다.","trap":"카테고리 이름만 나열돼 있으면 '일부'다. 여기는 카테고리별 계산 방식까지 있어서 '있음'이다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.39","url":"report"}]},{"id":"ifrs-j6","module":"ifrs","type":"judge","ref":"IFRS S2 문단 29(a)(iv)","topic":"연결 실체 구분","q":"Scope 1·2 배출량을 '연결 실체'와 '그 밖의 투자기업(관계기업·공동기업 등)'으로 나눠 공시하는가?","look":"38쪽 '배출량 측정을 위한 접근법'과 '배출량 차이에 대한 분석'","page":38,"ans":"일부","quote":"조직 경계 설정에 있어서는 통제력 기준(Control Approach) 중 운영통제력(Operational Control)을 사용하여, 회사가 운영을 통제하는 사업장과 활동에서 발생하는 온실가스 배출을 산정 범위에 포함하였습니다. / … 온실가스 관리의 정합성과 국제 기준 부합성을 제고하기 위해 조직경계를 연결기준으로 설정하였습니다.","why":"같은 쪽에 경계 설명이 두 번 나온다. '연결기준' 문장대로라면 Scope 1·2는 모두 연결 실체 몫이고, 그 밖의 투자기업은 Category 15(투자)로 갔다고 읽을 수 있다. 그래서 '일부'로 본다. 하지만 운영통제 문장과 어떻게 맞물리는지 정리돼 있지 않고, 두 집단으로 나눈 숫자나 '그 밖의 투자기업 몫은 0'이라는 명시도 없다.","trap":"'숫자를 요구하는데 숫자가 없으니 없음'으로 볼 수도 있다. 경계 설명이 답을 간접적으로 주는지, 아닌지가 판단의 갈림길이다. 또 157~160쪽의 국내·해외 구분은 지역 구분이지 이 요구사항(연결 실체 대 그 밖의 투자기업)이 아니다. 둘을 헷갈리기 쉽다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-j7","module":"ifrs","type":"judge","ref":"IFRS S2 문단 29(a)(v)","topic":"Scope 2 지역 기반","q":"Scope 2를 지역 기반으로 공시하고, 재생에너지 계약(PPA·인증서) 정보도 주는가?","look":"38쪽 표, 25쪽 '재생에너지 전환'","page":38,"ans":"있음","quote":"Scope 2 (지역 기반) 1,786,324 → 1,858,897 (38쪽 표) / 현대자동차는 2024년 444MW 규모의 전력구매계약(PPA)을 체결하여 2025년부터 순차적으로 재생에너지를 도입하고 있습니다. (25쪽)","why":"IFRS S2가 반드시 요구하는 건 지역 기반 숫자다. 여기에 계약 정보(PPA, 인증서, 지분투자형 PPA)가 함께 있어 시장 기반 숫자를 이해할 수 있다.","trap":"시장 기반 숫자만 보고 '있음'을 주면 안 된다. 필수는 지역 기반이고, 시장 기반은 계약 정보로 보완하는 자리다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-j8","module":"ifrs","type":"judge","ref":"IFRS S2 문단 29(a)(vi)","topic":"Scope 3 범위","q":"Scope 3에 어떤 카테고리를 넣고 뺐는지, 뺀 이유를 밝히는가?","look":"38쪽 표, 40쪽 Category 8·9 설명","page":40,"ans":"있음","quote":"지역별 시장 구조의 차이와 데이터 가용성 및 신뢰성의 한계로 인해, 2025년부터 본 카테고리에 대한 배출량은 산정하지 않습니다. (Category 9)","why":"15개 중 13개를 산정했고, 빠진 Category 8(Scope 1·2와 중복)과 Category 9(데이터 한계)의 이유를 각각 밝혔다.","trap":"사유를 밝히라는 요구는 충족했지만, Category 9를 2025년부터 빼서 전년(56.8만 t)과 범위가 달라진 건 별도의 비교 가능성 문제다. '있음'과 '문제없음'은 다른 말이다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.40","url":"report"}]},{"id":"ifrs-j9","module":"ifrs","type":"judge","ref":"IFRS S1 비교 정보 규정","topic":"전년도 재산정","q":"전년도 수치를 다시 계산했다면, 그 사실과 이유, 그리고 영향을 밝히는가?","look":"38쪽 표 아래 각주 1)~3)","page":38,"ans":"일부","quote":"2024년 온실가스 배출량은 SBTi 승인 기준과 연계하여 기준년도(2024년) 배출량을 재산정함에 따라 직전년도 보고 데이터와 차이가 발생함. / 2024년 대비 2025년 산정 대상 해외법인 5개(HMGICS 등) 추가됨.","why":"재산정한 사실과 이유는 있다. 하지만 직전 보고서 수치와 얼마나 달라졌는지 차이 규모(수치)가 없고, 2025년에만 해외법인 5개가 들어가 같은 범위로 비교할 수 없다.","trap":"범위가 넓어졌는데도 배출이 줄었다는 뜻이라, 같은 범위로 보면 실제 감축은 13.1%보다 클 가능성이 높다. 결론을 '비교 불가'에서 멈추지 말고 '같은 범위 기준 수치를 함께 공시하라'까지 가야 한다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-j10","module":"ifrs","type":"judge","ref":"IFRS S2 문단 29(f)","topic":"내부탄소가격","q":"내부탄소가격을 쓰는지, 어떻게 쓰는지, 톤당 가격이 얼마인지 밝히는가?","look":"41쪽 '내부 탄소 가격'","page":41,"ans":"있음","quote":"2025년 기준의 내부 탄소 가격은 사업장이 위치한 지역의 온실가스 배출권 거래제(ETS) 거래 가격 기반으로 USD 7~84/tCO2-eq 범위 내에서 차등 적용됩니다.","why":"쓰는지(Scope 1·2 대상 Shadow Price), 어떻게 쓰는지(에너지 효율 개선, 저탄소 투자 검토, 비용 편익 분석), 톤당 가격(USD 7~84)까지 모두 있다.","trap":"이전 AI 1차 검토가 웹 요약본만 읽고 '미공시'로 틀렸던 항목이다. 원문 전체를 확인하기 전에는 '없음'을 쉽게 주지 않는다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.41","url":"report"}]},{"id":"ifrs-j11","module":"ifrs","type":"judge","ref":"IFRS S2 문단 29(g)(ii)","topic":"보상 연동 비율","q":"당기 경영진 보상 중 기후와 연계된 비율(%)을 공시하는가? (문단 29(g)의 두 번째 요구)","look":"23쪽 '보상'과 '기후변화 성과 연계 보상' 표","page":23,"ans":"없음","quote":"매년 주요 지표에 대한 달성률 및 이행평가를 통하여 연봉의 일정 비율을 해당 성과에 대한 금전적 인센티브로 제공하고 있습니다.","why":"문단 29(g)는 두 가지를 요구한다. (i) 기후 고려사항이 경영진 보상에 반영되는지, 어떻게 반영되는지 설명하고, (ii) 그 비율(%)을 밝히라는 것. 23쪽은 연계 구조와 KPI(탄소중립 이행률, RE100 달성률 등)를 자세히 적어 (i)은 충족하지만, (ii)의 비율은 '연봉의 일정 비율'이라고만 해서 숫자가 없다.","trap":"질문이 (ii) 비율만 물었으니 답은 '없음'이다. 문단 29(g) 전체로 판정한다면 (i)은 있고 (ii)가 없으니 '일부'가 된다. 판정할 때는 요구사항을 하위 항목까지 쪼개서, 어느 조각이 있고 어느 조각이 없는지 먼저 나눠 보자.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.23","url":"report"}]},{"id":"ifrs-j12","module":"ifrs","type":"judge","ref":"IFRS S2 문단 33","topic":"목표의 기본 요소","q":"목표의 지표, 목적, 적용 범위, 기간, 기준연도를 밝히는가?","look":"40쪽 '탄소중립 목표'","page":40,"ans":"있음","quote":"사업장 운영 과정에서 발생하는 Scope 1+2 배출량은 기준연도인 2024년 대비 2030년까지 약 42% 감축하는 것을 목표로 설정하였습니다. / Scope 3 – Category 11은 기준연도인 2024년 대비 2035년까지 63% 감축하는 것을 목표로 SBTi의 승인을 받았습니다.","why":"지표(배출량), 목적(1.5℃ 감축), 범위(Scope 1+2, Category 11), 기간(2030·2035), 기준연도(2024)가 모두 있다.","trap":"'약 42%'의 '약'을 놓치지 말 것. 승인받은 목표값이 정확히 몇 %인지는 SBTi 공개 목록에서 확인할 수 있다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.40","url":"report"}]},{"id":"ifrs-j13","module":"ifrs","type":"judge","ref":"IFRS S2 문단 34(a)","topic":"목표 제3자 검토","q":"목표를 제3자가 검토·검증했는가?","look":"41쪽 '설정된 목표의 제3자 검증 여부'","page":41,"ans":"있음","quote":"2025년에는 Scope 1+2 배출량과 Scope 3 (Category 11) 배출량의 단기 감축 목표에 대해 SBTi 승인을 받았습니다.","why":"두 목표 모두 SBTi 승인을 받았다고 밝혔다.","trap":"SBTi 승인은 '목표가 과학 기반인지'를 본 것이지 '배출량 숫자가 맞는지'를 본 게 아니다. 배출량 검증은 157~160쪽 검증의견서에서 따로 본다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.41","url":"report"}]},{"id":"ifrs-j14","module":"ifrs","type":"judge","ref":"IFRS S2 문단 35","topic":"목표 대비 성과","q":"목표 대비 성과와 추세를 분석해 보여주는가?","look":"38쪽 표, 40쪽 목표","page":38,"ans":"일부","quote":"Scope 1+2 합계 2,198,406 → 1,911,084 (38쪽 표) / 기준연도인 2024년 대비 2030년까지 약 42% 감축하는 것을 목표 (40쪽)","why":"두 해의 숫자와 목표는 있지만, '목표까지 얼마나 왔는지', '경로보다 빠른지 느린지'를 설명한 문장은 없다. 읽는 사람이 직접 계산해야 한다.","trap":"숫자 표가 있다고 성과 분석이 있는 건 아니다. 계산 연습 4번과 6번에서 직접 진척률을 구해 보자.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-j15","module":"ifrs","type":"judge","ref":"IFRS S2 문단 36(c)","topic":"총량·순량 구분","q":"목표가 총량(gross) 기준인지, 상쇄를 뺀 순량(net) 기준인지 밝히는가?","look":"40쪽 '탄소중립 목표' 마지막 문단","page":40,"ans":"일부","quote":"목표연도인 2045년 잔여 탄소 배출을 처리하기 위해 탄소 포집과 활용 기술인 CCUS(…)에 투자하고, 폐배터리를 에너지저장장치로 재활용하거나 해양 생태계를 복원하는 등의 탄소 상쇄 활동을 지속적으로 추진할 것입니다.","why":"2030·2035 감축 목표는 SBTi 성격상 총량 감축이지만, 그렇다고 쓴 문장이 없다. 2045 탄소중립은 상쇄를 포함하는 순량 개념인데 그 구분도 없다. 순량 목표가 있으면 짝이 되는 총량 목표도 따로 밝혀야 한다.","trap":"'SBTi니까 당연히 총량'이라고 넘기기 쉽다. 공시는 '당연함'이 아니라 '적혀 있음'을 본다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.40","url":"report"}]},{"id":"ifrs-j16","module":"ifrs","type":"judge","ref":"IFRS S2 문단 36(e)","topic":"탄소 크레딧 의존","q":"목표 달성에 탄소 크레딧을 얼마나, 어떤 종류로 쓸 계획인지 밝히는가?","look":"41쪽 '탄소 상쇄 및 제거'","page":41,"ans":"일부","quote":"해조류 기반 블루카본을 중심으로 바다숲 조성사업에 참여하여 해양 생태계 복원과 탄소흡수 기능을 동시에 확보하고 있으며, 유관 기관과의 협력을 통해 블루카본 확산 및 제도화를 지원하겠습니다.","why":"상쇄 활동은 설명했지만, 크레딧에 얼마나 기댈지, 어떤 인증 체계인지, 흡수·제거형인지 감축형인지가 없다.","trap":"상쇄 '활동'을 하는 것과 목표 달성에 크레딧을 '쓸 계획'을 밝히는 것은 다르다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.41","url":"report"}]},{"id":"ifrs-j17","module":"ifrs","type":"judge","ref":"공시 인증 대비 (KSSB 의무화 로드맵)","topic":"보증 수준","q":"Scope 1·2·3 전체가 합리적 보증을 받았는가?","look":"157쪽(DNV), 159쪽(LRQA) 검증의견서","page":159,"ans":"일부","quote":"DNV: 합리적 보증수준 하에서 수행되었습니다 … 중요성 평가 기준 2.5% (157쪽, 국내 사업장) / LRQA: 제한적 보증 수준 및 5%의 중요성 기준으로 수행되었습니다. (159쪽, 해외 Scope 1·2와 글로벌 Scope 3)","why":"국내 Scope 1·2(1,564,218 t, Scope 1+2의 약 82%)만 합리적 보증이다. 해외 Scope 1·2와 Scope 3 전체는 제한적 보증이고, 판매 부문의 Category 2·5·6·7은 권역 본사만 검증 범위에 들어갔다.","trap":"'제3자 검증을 받았다' 한 줄로 끝내기 쉽다. 누가, 어느 범위를, 어느 수준(합리적/제한적)으로, 몇 % 중요성으로 봤는지까지 읽어야 한다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.159","url":"report"}]},{"id":"ifrs-c1","module":"ifrs","type":"calc","ref":"계산 · 지역 기반 합계","topic":"지역 기반 합계","q":"Scope 2를 지역 기반으로 넣으면 2025년 Scope 1+2 합계는 몇 톤인가?","given":[["Scope 1 (2025)","720,642 t","38쪽"],["Scope 2 지역 기반 (2025)","1,858,897 t","38쪽"]],"ans":2579539,"tol":1,"unit":"t","dec":0,"steps":["720,642 + 1,858,897 = 2,579,539 t"],"insight":"공시된 합계 1,911,084 t은 시장 기반이다. 두 값의 차이 668,455 t은 주로 재생에너지 조달(PPA·인증서) 효과다. 시장 기반은 공급자별 계수나 잔여 전력 믹스 계수도 쓰기 때문에 전부를 재생에너지 효과로 볼 수는 없다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-c2","module":"ifrs","type":"calc","ref":"계산 · 전년 대비 감축률","topic":"전년 대비 감축률","q":"Scope 1+2(시장 기반)는 2024년보다 몇 % 줄었나? (숫자만, 예: 12.5)","given":[["2024년 (재산정)","2,198,406 t","38쪽"],["2025년","1,911,084 t","38쪽"]],"ans":13.07,"tol":0.1,"unit":"%","dec":2,"abs":true,"steps":["줄어든 양: 2,198,406 − 1,911,084 = 287,322 t","감축률: 287,322 ÷ 2,198,406 = 0.1307 → 13.07%"],"insight":"2025년에는 해외법인 5개가 새로 들어갔다. 범위가 넓어졌는데도 13.1% 줄었다는 점을 함께 읽어야 한다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-c3","module":"ifrs","type":"calc","ref":"계산 · 2030 목표 배출량","topic":"2030 목표 배출량","q":"'2024년 대비 2030년까지 42% 감축'을 톤으로 바꾸면 2030년 목표 배출량은?","given":[["2024년 기준연도","2,198,406 t","38쪽"],["감축 목표","42%","40쪽"]],"ans":1275075,"tol":2,"unit":"t","dec":0,"steps":["2,198,406 × (1 − 0.42) = 2,198,406 × 0.58 = 1,275,075 t"],"insight":"목표를 % 대신 톤으로 바꿔 두면 매년 실적과 바로 비교할 수 있다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.40","url":"report"}]},{"id":"ifrs-c4","module":"ifrs","type":"calc","ref":"계산 · 목표 진척률","topic":"목표 진척률","q":"2030년까지 줄여야 할 총량 가운데 2025년까지 줄인 비율은 몇 %인가?","given":[["2024년","2,198,406 t","38쪽"],["2025년","1,911,084 t","38쪽"],["2030년 목표","1,275,075 t","계산 3번"]],"ans":31.12,"tol":0.3,"unit":"%","dec":1,"steps":["줄여야 할 총량: 2,198,406 − 1,275,075 = 923,331 t","2025년까지 줄인 양: 287,322 t","진척률: 287,322 ÷ 923,331 = 31.1%"],"insight":"6년 중 1년(약 17%)이 지났는데 31%를 달성했다. 직선 경로보다 약 13.3만 t 앞서 있다. 다만 다음 계산처럼 감축이 어디서 왔는지 확인해야 이 속도가 이어질지 판단할 수 있다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.3","url":"report"}]},{"id":"ifrs-c5","module":"ifrs","type":"calc","ref":"계산 · 재생에너지 효과의 출처","topic":"재생에너지 효과의 출처","q":"Scope 2 '지역 기반 − 시장 기반' 차이 가운데 해외 사업장이 차지하는 비율은 몇 %인가?","given":[["국내 Scope 2 지역 기반","1,084,648 t","158쪽"],["국내 Scope 2 시장 기반","1,084,521 t","158쪽"],["해외 Scope 2 지역 기반","774,249 t","160쪽"],["해외 Scope 2 시장 기반","105,921 t","160쪽"]],"ans":99.98,"tol":0.05,"unit":"%","dec":2,"steps":["국내 차이: 1,084,648 − 1,084,521 = 127 t","해외 차이: 774,249 − 105,921 = 668,328 t","해외 비율: 668,328 ÷ (668,328 + 127) = 99.98%"],"insight":"2025년 재생에너지 효과는 거의 전부 해외에서 나왔다. 25쪽에 국내 444MW PPA로 연간 약 28만 t 감축이 기대된다고 했지만, 2025년 국내 시장 기반 숫자에는 아직 거의 나타나지 않는다. 국내 효과가 언제부터 숫자에 잡히는지가 다음 해에 볼 포인트다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.158","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.160","url":"report"}]},{"id":"ifrs-c6","module":"ifrs","type":"calc","ref":"계산 · Category 11 감축 속도","topic":"Category 11 감축 속도","q":"Category 11의 2025년 감축량은 2035년 목표(−63%)까지 직선으로 갈 때 필요한 연간 감축량의 몇 %인가?","given":[["2024년 Category 11","165,447,364 t","38쪽"],["2025년 Category 11","157,799,559 t","38쪽"],["목표","2024년 대비 2035년까지 63% 감축","40쪽"]],"ans":80.71,"tol":0.5,"unit":"%","dec":1,"steps":["2035년 목표: 165,447,364 × 0.37 = 61,215,525 t","연간 필요 감축량(11년): (165,447,364 − 61,215,525) ÷ 11 = 9,475,622 t","2025년 실제 감축량: 165,447,364 − 157,799,559 = 7,647,805 t","비율: 7,647,805 ÷ 9,475,622 = 80.7%"],"insight":"Scope 1+2와 달리 Category 11은 직선 경로보다 느리다. 19쪽에서 회사가 꼽은 '전기차 수요 정체(캐즘)' 위험이 바로 이 숫자와 이어진다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.40","url":"report"}]},{"id":"ifrs-c7","module":"ifrs","type":"calc","ref":"계산 · Category 11 비중","topic":"Category 11 비중","q":"2025년 Scope 3에서 Category 11(판매된 제품의 사용)이 차지하는 비율은?","given":[["Category 11 (2025)","157,799,559 t","38쪽"],["Scope 3 합계 (2025)","199,704,253 t","38쪽"]],"ans":79.02,"tol":0.2,"unit":"%","dec":1,"steps":["157,799,559 ÷ 199,704,253 = 79.0%"],"insight":"Scope 3의 약 79%, 전체 배출(Scope 1+2+3)의 약 78%가 차량 사용 단계다. 자동차 회사의 기후 전략이 결국 전동화로 모이는 이유다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-c8","module":"ifrs","type":"calc","ref":"계산 · 배출권거래제 대상 비중","topic":"배출권거래제 대상 비중","q":"Scope 1+2(시장 기반) 가운데 국내 사업장 몫은 몇 %인가?","given":[["국내 Scope 1+2 (시장 기반)","1,564,218 t","157~158쪽"],["전체 Scope 1+2 (시장 기반)","1,911,084 t","38쪽"]],"ans":81.85,"tol":0.2,"unit":"%","dec":1,"steps":["1,564,218 ÷ 1,911,084 = 81.8%"],"insight":"국내 배출권거래제 비용을 추정할 때는 국내분만 써야 한다. 엄밀히는 DNV가 검증한 배출량 명세서(157쪽) 값이 기준이다. 전체 합계를 넣으면 비용이 약 22% 커진다. 앞서 만든 포트폴리오 계산기가 바로 이 실수를 했다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.157","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"ifrs-c9","module":"ifrs","type":"calc","ref":"계산 · 내부탄소가격 비용 감각","topic":"내부탄소가격 비용 감각","q":"Scope 1+2(시장 기반) 전체에 내부탄소가격 최고값(USD 84/t)을 적용하면 잠재 비용은 몇 백만 달러인가?","given":[["Scope 1+2 (2025, 시장 기반)","1,911,084 t","38쪽"],["내부탄소가격 범위","USD 7~84/t","41쪽"]],"ans":160.53,"tol":0.5,"unit":"백만 달러","dec":1,"steps":["1,911,084 × 84 = 160,531,056 달러 ≈ 160.5백만 달러","같은 방식으로 최저값(USD 7)을 적용하면 약 13.4백만 달러"],"insight":"실제로는 지역마다 다른 가격을 차등 적용하므로 이 값은 상한선이다. 범위를 톤과 곱해 보는 습관이 있으면 '이 가격이 투자 판단에 얼마나 영향을 줄까'를 빠르게 감 잡을 수 있다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.41","url":"report"}]},{"id":"ifrs-c10","module":"ifrs","type":"calc","ref":"계산 · Scope 3 합계 검산","topic":"Scope 3 합계 검산","q":"2025년 Scope 3 카테고리 값을 모두 더하면 몇 톤인가? 공시된 합계와 일치하는지 확인하자.","given":[["Cat.1","30,976,380","38쪽"],["Cat.2","2,013,738",""],["Cat.3","639,111",""],["Cat.4","2,345,209",""],["Cat.5","231,554",""],["Cat.6","118,532",""],["Cat.7","2,316,276",""],["Cat.10","9,470",""],["Cat.11","157,799,559",""],["Cat.12","1,711,368",""],["Cat.13","11,546",""],["Cat.14","25,376",""],["Cat.15","1,506,134",""]],"ans":199704253,"tol":1,"unit":"t","dec":0,"steps":["13개 카테고리 합계 = 199,704,253 t","공시된 Scope 3 합계 199,704,253 t과 정확히 일치한다."],"insight":"검산은 검증 업무의 기본이다. 2024년 값도 더해 보면 203,863,854 t으로 일치한다. 맞지 않는 곳을 찾는 눈은 이런 반복에서 생긴다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"}]},{"id":"kssb-01","module":"kssb","type":"mc","ref":"금융위 최종안(2026.7.8) · 공시 대상","topic":"첫 의무공시 대상과 시기","q":"금융위원회 최종안(2026년 7월 8일)에 따르면, 기후 공시를 가장 먼저 의무로 해야 하는 회사와 시기는 무엇인가?","options":["코스피 상장사 중 연결 자산총액 30조원 이상, 2026회계연도분부터","코스피 상장사 중 연결 자산총액 10조원 이상, 2027회계연도분(2028년 공시)부터","모든 상장사, 2028회계연도분부터","코스닥 포함 연결 자산총액 2조원 이상, 2027회계연도분부터"],"ans":1,"quote":"'28년(FY27) 연결자산총액 10조원 이상 → '29년 5조원 이상 → '30년 2조원 이상 확대 검토","why":"최종안은 코스피 상장사 중 연결 자산총액 10조원 이상 회사부터 2027회계연도 정보를 2028년에 공시하게 한다. 이후 2029년 5조원 이상으로 넓히고, 2030년 2조원 이상 확대를 검토한다.","trap":"2월 초안의 '30조원 이상'을 그대로 외우는 실수가 많다. 7월 최종안에서 10조원으로 낮아져 첫해 대상(종속회사 포함 약 291개사)이 크게 늘었다.","sources":[{"label":"금융위원회 보도자료 '지속가능성(ESG) 공시 제도화 방안' 최종안 (2026.7.8)","url":"https://www.fsc.go.kr/po010101/87280"},{"label":"포비스 마자르, 금융위원회 지속가능성(ESG) 공시 제도화 방안 핵심 Q&A","url":"https://www.forvismazars.com/kr/ko/insights/5/1/esg-q-a"}],"confidence":"high","refFull":"금융위원회 ESG 공시 제도화 방안 최종안(2026.7.8) 공시 대상"},{"id":"kssb-02","module":"kssb","type":"mc","ref":"금융위 최종안 · Scope 3 유예","topic":"Scope 3 유예 기간","q":"최종안에서 Scope 3(회사 밖 가치사슬에서 나오는 간접 배출) 공시는 어떻게 다루는가? 연결 자산 10조원 이상 회사 기준으로 고르시오.","options":["처음부터 Scope 1·2와 함께 공시한다","공시대상별로 1년 유예하여 2029년 공시부터 한다","공시대상별로 3년 유예하여 2031년 공시(2030회계연도분)부터 한다","Scope 3는 영구히 자율 공시로 둔다"],"ans":2,"quote":"공시대상별로 3년 유예 — '31년 10조원 이상, '32년 5조원 이상, '33년 2조원(잠정) 이상","why":"최종안은 Scope 3를 공시대상별로 3년 늦춘다. 10조원 이상 회사는 2028년에 공시를 시작하므로 Scope 3는 3년 뒤인 2031년 공시(2030회계연도분)부터 적용된다.","trap":"'2031년'은 공시하는 해이고, 대상 데이터는 2030회계연도분이다. 또 IFRS S2의 첫해 Scope 3 면제(1년)와 헷갈려 '1년 유예'로 답하기 쉽다.","sources":[{"label":"금융위원회 보도자료 '지속가능성(ESG) 공시 제도화 방안' 최종안 (2026.7.8)","url":"https://www.fsc.go.kr/po010101/87280"},{"label":"삼일PwC, 2월 의견수렴안 대비 주요 변경사항과 기업의 대응 과제","url":"https://www.pwc.com/kr/ko/services/sustainability-platform/insights/sustainability-disclosure-roadmap.html"},{"label":"포비스 마자르, 금융위원회 지속가능성(ESG) 공시 제도화 방안 핵심 Q&A","url":"https://www.forvismazars.com/kr/ko/insights/5/1/esg-q-a"}],"confidence":"high","refFull":"금융위원회 ESG 공시 제도화 방안 최종안 Scope 3 유예"},{"id":"kssb-03","module":"kssb","type":"mc","ref":"금융위 최종안 · 공시 방식","topic":"공시가 실리는 곳","q":"최종안에서 의무 지속가능성(기후) 공시는 어디에 싣는가?","options":["자본시장법상 사업보고서(법정공시)에 바로 싣는다","먼저 거래소 자율공시로 시작하고 몇 년 뒤 사업보고서로 옮긴다","회사 홈페이지의 지속가능경영보고서에만 싣는다","환경부 온실가스 종합정보센터에 제출한다"],"ans":0,"quote":"자본시장법상 사업보고서 공시로 즉시 시행","why":"최종안은 거래소 공시 단계를 건너뛰고 처음부터 사업보고서 기재사항(법정공시)으로 넣는다. 그래서 3월 말 사업보고서 일정에 맞춰 준비해야 한다.","trap":"2월 초안은 '거래소 공시 먼저, 나중에 법정공시'였다. 최종안에서 바뀐 점을 놓치면 공시 책임과 일정을 가볍게 보게 된다. 의무 대상이 아닌 회사는 거래소 자율공시를 계속 쓸 수 있다.","sources":[{"label":"금융위원회 보도자료 '지속가능성(ESG) 공시 제도화 방안' 최종안 (2026.7.8)","url":"https://www.fsc.go.kr/po010101/87280"},{"label":"삼일PwC, 2월 의견수렴안 대비 주요 변경사항과 기업의 대응 과제","url":"https://www.pwc.com/kr/ko/services/sustainability-platform/insights/sustainability-disclosure-roadmap.html"},{"label":"포비스 마자르, 금융위원회 지속가능성(ESG) 공시 제도화 방안 핵심 Q&A","url":"https://www.forvismazars.com/kr/ko/insights/5/1/esg-q-a"}],"confidence":"high","refFull":"금융위원회 ESG 공시 제도화 방안 최종안 공시 방식"},{"id":"kssb-04","module":"kssb","type":"mc","ref":"금융위 최종안 · 인증","topic":"제3자 인증 의무화 시점","q":"최종안에서 지속가능성 공시에 대한 제3자 인증(외부 기관이 내용을 확인해 주는 것)은 언제부터 의무인가?","options":["공시 첫해인 2028년부터","공시 의무화 2년 후인 2030년부터","2035년 이후 검토","인증 의무는 없고 계속 자율이다"],"ans":1,"quote":"공시 의무화 2년 후인 '30년부터 인증을 의무화할 방침","why":"시장에 인증 경험이 아직 부족하므로, 공시 의무화(2028년) 2년 뒤인 2030년부터 인증을 의무로 한다. 인증 범위·수준·인증기관 요건은 이후 시행령 등에서 정한다.","trap":"'2030년'을 회계연도로 착각하기 쉽다. 최종안은 '공시 의무화 2년 후인 2030년부터'라고만 했는데, 공시 의무화가 2028년 공시(2027회계연도분)부터이므로 2030년에 내는 공시(2029회계연도분)부터로 해석된다. 인증 수준(제한적 vs 합리적)은 아직 정해지지 않았다.","sources":[{"label":"금융위원회 보도자료 '지속가능성(ESG) 공시 제도화 방안' 최종안 (2026.7.8)","url":"https://www.fsc.go.kr/po010101/87280"},{"label":"경향신문 기고 (2026.8.5)","url":"https://www.khan.co.kr/article/202608051959005/amp"},{"label":"삼일PwC, 2월 의견수렴안 대비 주요 변경사항과 기업의 대응 과제","url":"https://www.pwc.com/kr/ko/services/sustainability-platform/insights/sustainability-disclosure-roadmap.html"}],"confidence":"high","refFull":"금융위원회 ESG 공시 제도화 방안 최종안 인증 도입"},{"id":"kssb-05","module":"kssb","type":"mc","ref":"금융위 최종안 · 제재 면책","topic":"초기 면책과 세이프하버","q":"최종안의 공시 책임(제재) 설계로 옳은 것은?","options":["첫해부터 모든 오류에 형사처벌을 적용한다","도입 초기 3년간 손해배상·행정제재·형사처벌을 면제하되 고의적 그린워싱은 예외로 한다","면책은 전혀 없다","Scope 3 정보만 영구 면책한다"],"ans":1,"quote":"도입 초기 3년간은 공시정보 전체에 대해 손해배상, 행정제재, 형사처벌을 면제(고의적 그린워싱 예외)","why":"초기 3년은 넓게 면책하되 일부러 속이는 그린워싱은 책임을 묻는다. 그 뒤에는 미래 예측 정보, 온실가스 배출량 같은 추정 정보, 회사가 통제할 수 없는 제3자 정보에 대해 합리적 근거와 선의가 있으면 책임을 덜어 주는 세이프하버(안전 장치)가 적용된다.","trap":"'3년 면책'을 '3년간 아무렇게나 써도 된다'로 오해하면 안 된다. 고의적 그린워싱은 처음부터 민사·행정 책임 대상이다.","sources":[{"label":"금융위원회 보도자료 '지속가능성(ESG) 공시 제도화 방안' 최종안 (2026.7.8)","url":"https://www.fsc.go.kr/po010101/87280"},{"label":"경향신문 기고 (2026.8.5)","url":"https://www.khan.co.kr/article/202608051959005/amp"}],"confidence":"high","refFull":"금융위원회 ESG 공시 제도화 방안 최종안 제재 면책"},{"id":"kssb-06","module":"kssb","type":"mc","ref":"KSSB 제1·2호 (2026.2.26 확정)","topic":"KSSB 제2호와 IFRS S2 관계","q":"KSSB 지속가능성 공시기준 제2호 '기후 관련 공시'에 대한 설명으로 옳은 것은?","options":["GRI 305를 바탕으로 만든 기준이다","IFRS S2를 바탕으로 만들었고 2026년 2월 26일 KSSB에서 최종 확정되었다","EU ESRS E1을 그대로 번역한 기준이다","아직 공개초안 단계이다"],"ans":1,"quote":"제1호 '일반사항'은 IFRS S1, 제2호 '기후 관련 공시'는 IFRS S2를 기반으로 하며, 2026년 2월 26일 최종 확정","why":"KSSB(한국회계기준원 지속가능성기준위원회)는 ISSB 기준을 바탕으로 제1호(일반, IFRS S1 기반)와 제2호(기후, IFRS S2 기반)를 2026년 2월 26일 확정했다. 거버넌스·전략·위험관리·지표 및 목표의 4가지 틀도 같다. 초안에 있던 정책공시(제101호)는 빠졌다.","trap":"'IFRS S2 기반'이 '똑같다'는 뜻은 아니다. 선택공시 항목, 측정 방법별 구분 공시 같은 한국만의 차이가 있다.","sources":[{"label":"삼일PwC, 지속가능성 공시 제도 로드맵 초안 및 확정 공시기준 주요 내용 (2026.3)","url":"https://www.pwc.com/kr/ko/insights/issue-brief/samilpwc_esg-disclosure-roadmap.pdf"},{"label":"삼일PwC, 2월 의견수렴안 대비 주요 변경사항과 기업의 대응 과제","url":"https://www.pwc.com/kr/ko/services/sustainability-platform/insights/sustainability-disclosure-roadmap.html"},{"label":"경향신문 기고 (2026.8.5)","url":"https://www.khan.co.kr/article/202608051959005/amp"}],"confidence":"high","refFull":"KSSB 지속가능성 공시기준 제1호·제2호 (2026.2.26 확정)"},{"id":"kssb-07","module":"kssb","type":"mc","ref":"KSSB 제2호 국내 기준 선택 공시 항목","topic":"IFRS S2 대비 선택공시","q":"IFRS S2에서는 요구되지만, 확정된 KSSB 기준에서는 '선택 공시'로 허용된 항목은 무엇인가?","options":["Scope 1·2 온실가스 배출량","산업기반 지표(예: 자동차 평균연비)와 톤당 내부탄소가격","기후 관련 거버넌스(이사회 감독)","기후 관련 위험과 기회의 식별"],"ans":1,"quote":"선택 공시: 기후 외 주제, 톤당 내부탄소가격, 산업별 지표(예: 반도체-물소비량, 자동차-평균연비)","why":"KSSB는 국내 수용성을 고려해 산업기반 지표와 톤당 내부탄소가격을 선택 공시로 두었다. 기후 외 E·S·G 주제도 선택이다. Scope 1·2, 거버넌스, 위험·기회는 핵심 요구사항이다.","trap":"'선택'이라고 무시하면 안 된다. 투자자·평가기관은 여전히 이 정보를 찾으며, 자동차 회사라면 평균연비 같은 지표는 공시하는 편이 비교에 유리하다.","sources":[{"label":"삼일PwC, 지속가능성 공시 제도 로드맵 초안 및 확정 공시기준 주요 내용 (2026.3)","url":"https://www.pwc.com/kr/ko/insights/issue-brief/samilpwc_esg-disclosure-roadmap.pdf"}],"confidence":"high"},{"id":"kssb-08","module":"kssb","type":"mc","ref":"KSSB 제2호 · 측정 방법","topic":"측정 방법별 구분 공시","q":"한국 회사는 배출권거래제 지침(국내법)과 GHG 프로토콜(국제 기준)을 함께 쓰는 경우가 많다. 확정된 KSSB 기준이 이 부분에 대해 추가로 요구하는 것은?","options":["GHG 프로토콜만 쓰고 국내 지침 값은 버린다","온실가스 배출량을 측정할 때 쓴 방법별로 배출량을 나누어 공시한다","국내 지침 값만 쓰고 측정 방법은 밝히지 않는다","두 값의 평균을 공시한다"],"ans":1,"quote":"온실가스 배출량 측정 시 사용한 방법별로 배출량 구분 공시","why":"IFRS S2는 원칙적으로 GHG 프로토콜을 쓰되, 관할 당국이나 거래소가 다른 방법을 요구하면 그 방법을 쓸 수 있게 한다. KSSB는 여기에 더해 쓴 방법별로 배출량을 나눠 보여 주도록 해, 투자자가 숫자 차이를 이해할 수 있게 한다.","trap":"배출권거래제 명세서 값(국내 사업장 중심)과 GHG 프로토콜 값(연결·운영통제 기준)은 범위가 달라 숫자가 다르다. 한 숫자만 내고 출처를 밝히지 않으면 요구사항을 못 채운다.","sources":[{"label":"삼일PwC, 지속가능성 공시 제도 로드맵 초안 및 확정 공시기준 주요 내용 (2026.3)","url":"https://www.pwc.com/kr/ko/insights/issue-brief/samilpwc_esg-disclosure-roadmap.pdf"},{"label":"IFRS 재단, IFRS S2 온실가스 배출량 교육자료(한국어)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/ifrs-s2/ko-ghg-ifrs-s2-educational-material.pdf"}],"confidence":"medium","refFull":"KSSB 제2호 온실가스 측정 방법 / IFRS S2 문단 29(1)(나)"},{"id":"kssb-09","module":"kssb","type":"judge","ref":"KSSB 제2호 온실가스 측정 방법별 구분 공시","topic":"현대차 측정 방법별 구분","q":"현대자동차 2025년 보고서는 KSSB가 요구하는 '측정 방법별 배출량 구분 공시'를 충족할 준비가 되어 있는가?","look":"38쪽 '배출량 측정을 위한 접근법'과 157쪽 온실가스 검증의견서","page":38,"ans":"일부","quote":"Scope 1 및 Scope 2 배출량은 「The Greenhouse Gas Protocol: A Corporate Accounting and Reporting Standard (Revised Edition)」과 「The Greenhouse Gas Protocol: Scope 2 Guidance」를 근거로 산정하였으며, 국내 「탄소중립기본법」 및 「온실가스 배출권거래제의 배출량 보고 및 인증에 관한 지침」을 준수하였습니다.","why":"38쪽은 쓴 기준(GHG 프로토콜, 배출권거래제 지침, IPCC)을 모두 밝히지만, 배출량 표는 하나(2025년 Scope 1+2 1,911,084 tCO2-eq)뿐이다. 배출권거래제 기준 국내 사업장 값(1,564,345 tCO2-eq 등)은 157쪽 검증의견서에만 따로 있어, 방법별로 나눈 표로 정리돼 있지는 않다.","trap":"'여러 기준을 적용했다'는 문장만 보고 '있음'으로 판단하기 쉽다. KSSB는 방법별로 숫자를 나눠 보여 주라는 것이므로 기준 목록만으로는 부족하다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.157","url":"report"},{"label":"삼일PwC, 지속가능성 공시 제도 로드맵 초안 및 확정 공시기준 주요 내용 (2026.3)","url":"https://www.pwc.com/kr/ko/insights/issue-brief/samilpwc_esg-disclosure-roadmap.pdf"}],"confidence":"medium"},{"id":"kssb-10","module":"kssb","type":"judge","ref":"KSSB 제2호 선택공시 — 톤당 내부탄소가격","topic":"현대차 내부탄소가격 공시","q":"KSSB에서 선택 공시인 '톤당 내부탄소가격'을 현대자동차 2025년 보고서는 공시하고 있는가?","look":"41쪽 '내부 탄소 가격'","page":41,"ans":"있음","quote":"2025년 기준의 내부 탄소 가격은 사업장이 위치한 지역의 온실가스 배출권 거래제(ETS) 거래 가격 기반으로 USD 7~84/tCO2-eq 범위 내에서 차등 적용됩니다.","why":"현대차는 Scope 1·2 배출량에 그림자 가격(Shadow Price) 방식의 내부 탄소 가격을 쓰고, 톤당 USD 7~84 범위와 의사결정 활용처를 밝힌다. 선택 항목이지만 이미 공시하고 있다.","trap":"가격이 하나가 아니라 범위(지역별 차등)로 나오므로, '톤당 가격'을 하나의 숫자로만 찾다가 '없음'으로 오판하기 쉽다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.41","url":"report"},{"label":"삼일PwC, 지속가능성 공시 제도 로드맵 초안 및 확정 공시기준 주요 내용 (2026.3)","url":"https://www.pwc.com/kr/ko/insights/issue-brief/samilpwc_esg-disclosure-roadmap.pdf"}],"confidence":"high"},{"id":"kssb-11","module":"kssb","type":"judge","ref":"KSSB 제2호 단기·중기·장기 정의","topic":"현대차 시간 범위 정의","q":"KSSB 기준은 단기(1년)·중기(1~5년)·장기(5년)를 예시로 주되 산업 특성에 따라 다르게 정할 수 있게 한다. 현대자동차 보고서는 기후 위험·기회의 시간 범위를 정의하고 있는가?","look":"23쪽 '기후 위험 및 기회 관리 적용기간 및 범위'","page":23,"ans":"있음","quote":"단기(0-3년) / 중기(3-10년) / 장기(10-25년)","why":"현대차는 단기 0~3년, 중기 3~10년, 장기 10~25년으로 정의한다. KSSB 예시보다 길지만, 자동차는 설비 수명과 제품 개발 주기가 길어 산업 특성에 맞춘 정의로 볼 수 있다.","trap":"KSSB 예시(1년/1~5년/5년)와 다르다고 '미충족'으로 보면 틀린다. 다른 정의를 써도 되지만 왜 그렇게 정했는지 설명이 있는지는 따로 확인해야 한다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.23","url":"report"},{"label":"삼일PwC, 지속가능성 공시 제도 로드맵 초안 및 확정 공시기준 주요 내용 (2026.3)","url":"https://www.pwc.com/kr/ko/insights/issue-brief/samilpwc_esg-disclosure-roadmap.pdf"}],"confidence":"medium"},{"id":"esrs-01","module":"esrs","type":"mc","ref":"ESRS 1 ¶37·43·49 (2023)","topic":"이중 중대성의 두 축","q":"ESRS의 '이중 중대성(double materiality)'을 가장 바르게 설명한 것은 무엇인가?","options":["회사가 사람·환경에 주는 영향(영향 중대성)과, 지속가능성 이슈가 회사 재무에 주는 영향(재무 중대성) 두 가지를 모두 본다.","투자자 판단에 영향을 주는 재무 정보만 중요하다고 본다.","같은 이슈를 경영진과 이사회가 두 번 평가하는 절차를 말한다.","올해와 작년, 두 해의 중대성 결과를 비교하는 방식이다."],"ans":0,"quote":"ESRS 1은 이중 중대성이 '영향 중대성'과 '재무 중대성' 두 차원으로 이루어진다고 정한다(문단 37).","why":"ESRS 1 문단 43은 회사가 사람·환경에 주는 실제·잠재 영향을, 문단 49는 회사 재무에 중대한 영향을 주거나 줄 것으로 합리적으로 예상되는 경우를 기준으로 삼는다. 반면 IFRS S2(국내 KSSB도 같은 구조)는 투자자 관점의 재무 중대성만 쓴다. 2026년 개정 ESRS도 이중 중대성 원칙은 그대로 유지했다.","trap":"'이중'을 두 번 평가한다는 뜻으로 오해하기 쉽다. 또 IFRS S2만 공부한 사람은 영향 중대성(바깥으로 미치는 영향)을 빠뜨리기 쉽다.","sources":[{"label":"EUR-Lex 위임규정 (EU) 2023/2772 (ESRS Set 1)","url":"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2772"},{"label":"EY — 개정 ESRS 채택 (이중 중대성 유지)","url":"https://www.ey.com/en_gl/technical/csrd-technical-resources/eu-adopts-revised-esrs-for-sustainability-reporting"}],"confidence":"high","refFull":"ESRS 1 문단 37·43·49 (2023년 채택 ESRS 기준)"},{"id":"esrs-02","module":"esrs","type":"mc","ref":"ESRS E1-6 vs IFRS S2 29(a)","topic":"E1-6과 IFRS S2 차이","q":"2023년 채택 ESRS 기준 E1-6(온실가스 배출량)은 요구하지만 IFRS S2 문단 29(a)는 요구하지 않는 항목으로 옳은 것은 무엇인가?","options":["Scope 1 총배출량(gross)","지역 기반(location-based) Scope 2 배출량","순매출액(net revenue) 대비 총 온실가스 배출 집약도와, 시장 기반(market-based) Scope 2 배출량","Scope 3 배출량"],"ans":2,"quote":"ESRS E1 문단 53: GHG 배출 집약도는 'total GHG emissions per net revenue'로 정의된다.","why":"Set 1 E1-6은 Scope 1·2·3과 총합(total GHG, 문단 44), Scope 2 지역 기반·시장 기반 두 가지(문단 49), 순매출액 대비 집약도(문단 53)를 요구한다. IFRS S2 29(a)는 Scope 1·2·3 총배출량과 지역 기반 Scope 2, 그리고 계약상 수단(재생에너지 계약 등)에 대한 '정보'만 요구하고 시장 기반 수치는 의무가 아니다.","trap":"보기 1·2·4는 두 기준 모두 요구한다. 또 2026년 개정 ESRS에서는 총합과 매출 대비 집약도가 삭제되었으므로, 이 차이는 '2023년 기준'이라는 전제에서만 성립한다.","sources":[{"label":"EFRAG Q&A 509 (문단 53 순매출액 대비 집약도)","url":"https://knowledgehub.efrag.org/eng/qa-table/509"},{"label":"BDO — AASB/IFRS S2 Scope 2 시장 기반은 의무 아님","url":"https://www.bdo.com.au/en-au/insights/esg-sustainability/understanding-market-based-scope-2-emissions-under-aasb-s2"},{"label":"EUR-Lex 위임규정 (EU) 2023/2772","url":"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2772"}],"confidence":"high","refFull":"ESRS E1 공시요구사항 E1-6 문단 44·49·53 (2023년 채택 ESRS 기준) vs IFRS S2 문단 29(a)"},{"id":"esrs-03","module":"esrs","type":"mc","ref":"ESRS E1-7 ¶56 (2023)","topic":"제거량과 탄소크레딧","q":"2023년 채택 ESRS 기준 E1-7(온실가스 제거와 탄소크레딧)에 대한 설명으로 옳은 것은 무엇인가?","options":["구매한 탄소크레딧은 Scope 1 총배출량에서 빼고 순배출량만 공시한다.","자체 운영·가치사슬 안의 제거량과, 가치사슬 밖 감축 사업에 돈을 대서 산 탄소크레딧 양을 총배출량과 따로 공시한다.","탄소크레딧은 ESRS 공시 대상이 아니다.","탄소크레딧을 사면 감축 목표(E1-4)를 달성한 것으로 본다."],"ans":1,"why":"E1-7은 (a) 자체 운영이나 가치사슬에서 나온 제거·저장량과 (b) 가치사슬 밖 완화 사업에서 크레딧 구매로 재원을 댄(또는 댈) 감축·제거량을 tCO2eq로 따로 내게 한다. 감축 목표는 제거량·크레딧·회피배출을 빼기 전 '총량(gross)' 기준이며, 이 원칙은 2026년 개정 ESRS(AR 12)에도 남았다.","trap":"크레딧으로 배출량을 '상쇄'해서 총배출량을 줄여 보이는 것이 가장 흔한 실수다. 개정 ESRS에서는 공시요구사항 번호가 바뀌었으니 최신 위임규정에서 번호를 다시 확인하자.","sources":[{"label":"EUR-Lex 위임규정 (EU) 2023/2772","url":"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2772"},{"label":"EY EU Sustainability Developments (2026.07, AR 12 총량 목표)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-eu-sustainability-developments-v2-07-2026.pdf"},{"label":"NUS Consulting — 간소화 E1 초안 변경점 (E1-9 번호)","url":"https://www.nusconsulting.com/energy-news/esrs-e1-changes-in-recent-draft-standards/"}],"confidence":"high","refFull":"ESRS E1 공시요구사항 E1-7 문단 56 (2023년 채택 ESRS 기준)"},{"id":"esrs-04","module":"esrs","type":"mc","ref":"개정 ESRS E1 (2026.7.3)","topic":"개정 ESRS E1 변경점","q":"EFRAG 간소화안(2025.12)을 바탕으로 2026년 7월 집행위원회가 채택한 개정 ESRS E1에 대한 설명으로 옳지 않은 것은 무엇인가?","options":["온실가스 배출량 요구사항 번호가 E1-6에서 E1-8로 바뀌었다.","총 온실가스 배출량(total GHG)과 순매출액 대비 배출 집약도 항목이 삭제되었다.","조직경계는 연결재무제표와 맞춘 재무통제 방식이 출발점이 되었다.","이중 중대성이 폐지되고 재무 중대성만 남았다."],"ans":3,"why":"개정 ESRS는 이중 중대성을 유지했다. 반면 E1-6→E1-8 번호 변경, 총합·매출 대비 집약도 삭제(E1.31), 재무통제 기준 조직경계는 EFRAG 간소화안과 EY의 위임법 정리에 나온다. 집행위원회는 의무 데이터포인트가 60% 넘게 줄었다고 밝혔다.","trap":"'간소화'를 '이중 중대성 폐지'로 오해하기 쉽다. 줄어든 것은 데이터포인트 수이고, 영향과 재무 두 축으로 보는 틀은 그대로다.","sources":[{"label":"EY EU Sustainability Developments (2026.07)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-eu-sustainability-developments-v2-07-2026.pdf"},{"label":"EY — EFRAG의 ESRS 간소화안 (2026.01)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"},{"label":"EY — 개정 ESRS 채택","url":"https://www.ey.com/en_gl/technical/csrd-technical-resources/eu-adopts-revised-esrs-for-sustainability-reporting"}],"confidence":"high","refFull":"개정 ESRS 위임규정 (2026.07.03 채택) — ESRS E1"},{"id":"esrs-05","module":"esrs","type":"mc","ref":"개정 ESRS · 적용 시기","topic":"개정 ESRS 적용 시점","q":"2026년 10월 현재, 개정 ESRS의 적용 시점에 대한 설명으로 옳은 것은 무엇인가?","options":["2025 회계연도부터 모든 기업에 의무 적용된다.","2027년 1월 1일 이후 시작하는 회계연도부터 의무이고, 2026 회계연도는 기존 ESRS(Set 1)나 개정본을 고를 수 있다.","유럽의회가 거부해 폐기되었다.","EU 밖 그룹(제3국 그룹)도 같은 개정 ESRS를 2027년부터 쓴다."],"ans":1,"why":"집행위원회는 2026년 7월 3일 개정 ESRS를 채택했다. FY2027부터 의무(보고는 2028년)이며, FY2026은 기존 Set 1 유지 또는 조기 적용 중 고를 수 있고 어느 버전을 썼는지 밝혀야 한다. EY는 발효 예정일을 2026년 11월 10일로 안내했다.","trap":"EU 밖 모회사 그룹(회계지침 제40a조)은 개정 ESRS가 아니라 별도 '제3국 그룹용 ESRS'를 쓰며, 이 기준은 아직 채택 전이다. 관보 게재 여부는 최신 자료로 다시 확인하자.","sources":[{"label":"Linklaters — 개정 ESRS·자발적 기준 채택 (심사 종료 노트 포함)","url":"https://sustainablefutures.linklaters.com/post/102n88h/eu-commission-adopts-revised-esrs-and-voluntary-reporting-standard"},{"label":"EY — 개정 ESRS 채택","url":"https://www.ey.com/en_gl/technical/csrd-technical-resources/eu-adopts-revised-esrs-for-sustainability-reporting"}],"confidence":"high","refFull":"개정 ESRS 위임규정 (2026.07.03 채택) — 적용 시기"},{"id":"esrs-06","module":"esrs","type":"mc","ref":"Omnibus I · CSRD 적용 범위","topic":"옴니버스 이후 CSRD 대상","q":"옴니버스 I 이후 CSRD 적용 범위에 대한 설명으로 옳은 것은 무엇인가?","options":["EU 기업·그룹은 직원 250명 초과 또는 매출 5,000만 유로 초과면 대상이다.","EU 기업·그룹은 직원 1,000명 초과이면서 순매출 4억 5,000만 유로 초과일 때 대상이다.","EU 밖 모회사 그룹은 EU에 자회사만 있으면 매출과 상관없이 대상이다.","상장 중소기업(SME)은 모두 의무 대상이다."],"ans":1,"why":"옴니버스 I 지침은 2026년 2월 26일 EU 관보에 실리고 3월 18일 발효했다. EU 기업은 직원 1,000명 초과와 순매출 4.5억 유로 초과를 모두 충족해야 한다. EU 밖 그룹은 2년 연속 EU 내 순매출 4.5억 유로 초과이면서 EU 자회사·지점 하나가 순매출 2억 유로를 넘으면 대상이다. 회원국은 2027년 3월 19일까지 국내법에 반영해야 한다.","trap":"'1,000명 또는 4.5억'으로 기억하면 틀린다. 두 조건을 함께 충족해야 한다. 옛 기준(250명)을 그대로 외운 자료가 아직 많다.","sources":[{"label":"Latham & Watkins — 옴니버스 관보 게재","url":"https://www.lw.com/en/insights/EU-Sustainability-Omnibus-Published-in-the-Official-Journal"},{"label":"EY EU Sustainability Developments (2026.07)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-eu-sustainability-developments-v2-07-2026.pdf"}],"confidence":"high","refFull":"Omnibus I 지침 (2026.02.26 관보 게재, 2026.03.18 발효) — CSRD 적용 범위"},{"id":"esrs-07","module":"esrs","type":"mc","ref":"ISSB–EFRAG 상호운용성 지침","topic":"ESRS–ISSB 상호운용성","q":"2024년 5월 IFRS 재단과 EFRAG가 낸 상호운용성 지침의 핵심 메시지로 옳은 것은 무엇인가?","options":["ESRS로 기후 공시를 하는 기업은 매우 적은 추가 고려사항만 챙기면 ISSB 기후 기준도 충족할 수 있다.","ESRS와 ISSB 기준은 서로 맞지 않아 두 보고서를 따로 써야 한다.","ISSB 기준을 따르면 ESRS 공시가 자동으로 끝난다.","상호운용성 지침은 이중 중대성을 ISSB에 도입했다."],"ans":0,"why":"EFRAG는 ESRS를 쓰는 기업이 '매우 제한된 수의 고려사항'만으로 ISSB 기후 기준을 충족할 수 있다고 했고, 그 고려사항은 지침 3장에 있다. 반대로 ISSB 기준을 쓰는 기업은 이를 기본선으로 삼고 EU가 요구하는 추가 공시를 더해야 한다.","trap":"'상호운용'을 '같은 기준'으로 오해하면 안 된다. ISSB는 재무 중대성만 쓰므로 ISSB 공시만으로는 ESRS의 영향 중대성 정보가 채워지지 않는다. 2026년 개정 ESRS의 상호운용성은 간소화 목적에 맞는 범위에서만 추진되었다.","sources":[{"label":"IFRS — IFRS 재단과 EFRAG 상호운용성 지침 발표","url":"https://www.ifrs.org/news-and-events/news/2024/05/ifrs-foundation-and-efrag-publish-interoperability-guidance/"},{"label":"IBR-IRE — 집행위원회 최종 위임법 vs EFRAG 권고 비교","url":"https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"}],"confidence":"high","refFull":"IFRS 재단·EFRAG ESRS–ISSB 상호운용성 지침 (2024.05.02)"},{"id":"esrs-08","module":"esrs","type":"judge","ref":"ESRS 1 ¶37 · ESRS 2 IRO-1","topic":"현대차 이중 중대성 두 축","q":"현대자동차 FY2025 보고서는 ESRS의 이중 중대성처럼 '바깥으로 미치는 영향'과 '회사 재무에 들어오는 위험·기회'를 모두 평가했는가?","look":"16쪽 Materiality Assessment 도입 문단","page":16,"ans":"있음","quote":"현대자동차가 환경·사회에 미치는 영향을 분석하는 영향(Outward Impact) 평가와 외부 이해관계자가 현대자동차의 재무 상태에 미치는 영향을 분석하는 위험 및 기회(Risk & Opportunity) 평가를 동시에 진행합니다.","why":"영향(Outward Impact) 평가는 ESRS 영향 중대성에, 위험 및 기회(Risk & Opportunity) 평가는 재무 중대성에 해당한다. 같은 쪽에서 주제 선별 단계에 'EU CSRD 지속가능성보고표준(ESRS)'을 분류 기준으로 썼고, 영향은 심각성·발생가능성, 재무는 잠재 재무영향 크기·발생가능성으로 점수화했다고 밝힌다.","trap":"ESRS를 '참고'해 중대성을 평가했다고 해서 보고서가 ESRS를 준수했다는 뜻은 아니다. 현대차 보고서는 ESRS 보고서가 아니라 이중 중대성 방법론만 ESRS를 따른 것이다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.16","url":"report"}],"confidence":"high","refFull":"ESRS 1 문단 37 (이중 중대성) / ESRS 2 IRO-1"},{"id":"esrs-09","module":"esrs","type":"judge","ref":"ESRS 1 ¶28","topic":"중대 주제 선정 규칙","q":"ESRS는 영향 중대성과 재무 중대성 '둘 중 하나라도' 기준을 넘으면 그 주제를 중대하다고 본다. 현대자동차는 이 규칙대로 최종 중대 이슈를 골랐는가?","look":"17쪽 '2026 중대성 평가 결과 상세' 첫 문단","page":17,"ans":"있음","quote":"특정 주제가 ①환경·사회 영향 관점 중대성과 ②재무적 관점 중대성 두 가지 측면 중 어느 하나라도 임계값 이상의 점수를 획득하였을 경우 최종 중대 이슈로 선정하였습니다.","why":"ESRS 1 문단 28은 영향 중대성 기준, 재무 중대성 기준, 또는 둘 다를 충족하면 중대하다고 본다. 현대차는 '어느 하나라도'(합집합) 규칙을 써서 영향 측면 3개, 위험·기회 측면 6개(영향 측면 3개 포함) 주제를 골랐다(16쪽).","trap":"두 축 모두 넘어야 중대하다고(교집합) 생각하는 실수가 많다. 그러면 '에너지'처럼 재무 측면에서만 중대한 주제가 빠진다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.17","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.16","url":"report"},{"label":"EUR-Lex 위임규정 (EU) 2023/2772 (ESRS 1)","url":"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2772"}],"confidence":"high","refFull":"ESRS 1 문단 28 (영향 또는 재무 중 하나라도 중대하면 중대)"},{"id":"esrs-10","module":"esrs","type":"judge","ref":"ESRS E1-6 ¶49 (2023)","topic":"Scope 2 두 방식 공시","q":"2023년 채택 ESRS 기준 E1-6 문단 49는 Scope 2를 지역 기반과 시장 기반 두 방식으로 모두 공시하라고 한다. 현대자동차 FY2025 보고서는 두 방식을 모두 냈는가?","look":"38쪽 '온실가스 배출량' 표","page":38,"ans":"있음","quote":"Scope 2 (지역 기반) 1,786,324 1,858,897 Scope 2 (시장 기반) 1,468,432 1,190,442","why":"38쪽 표에 2024년·2025년 Scope 2가 지역 기반(2025년 1,858,897 tCO2-eq)과 시장 기반(1,190,442 tCO2-eq)으로 함께 나온다. 시장 기반이 더 낮은 것은 재생에너지 조달(PPA, 인증서 등)을 반영했기 때문이며, 차이의 대부분은 해외 사업장에서 나온다.","trap":"IFRS S2는 지역 기반만 의무이므로, KSSB·ISSB 기준으로는 시장 기반이 '추가 정보'다. 또 현대차는 조직경계에 운영통제를 썼는데, 개정 ESRS는 재무통제를 출발점으로 하되 운영통제·지분 방식도 허용한다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.157","url":"report"},{"label":"IBR-IRE — 최종 위임법 조직경계(E1-8 문단 30(c))","url":"https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"}],"confidence":"high","refFull":"ESRS E1 공시요구사항 E1-6 문단 49 (2023년 채택 ESRS 기준)"},{"id":"esrs-11","module":"esrs","type":"judge","ref":"ESRS E1-8 ¶62–63 (2023)","topic":"현대차 내부 탄소가격","q":"2023년 채택 ESRS 기준 E1-8은 내부 탄소가격의 종류, 적용 범위, tCO2eq당 가격, 그 가격이 적용되는 배출량 규모를 공시하라고 한다. 현대자동차 FY2025 보고서는 이를 얼마나 공시했는가?","look":"41쪽 '내부 탄소 가격' 문단","page":41,"ans":"일부","quote":"내부 탄소 가격은 Shadow Price 방식으로 탄소 배출에 따른 잠재적 비용을 가정하여 에너지 효율 개선, 저탄소 투자 검토, 저탄소 사업기회 발굴, 비용 편익 분석 등 일부 사업 의사결정 과정에 활용됩니다. 2025년 기준의 내부 탄소 가격은 사업장이 위치한 지역의 온실가스 배출권 거래제(ETS) 거래 가격 기반으로 USD 7~84/tCO2-eq 범위 내에서 차등 적용됩니다.","why":"종류(그림자 가격), 대상(Scope 1·2), 쓰임새(투자 검토·비용편익 분석), 가격(USD 7~84/tCO2-eq)은 나와 있다. 그러나 이 가격이 실제로 적용되는 배출량(tCO2eq)이나 전체 배출량 중 비율은 나와 있지 않아 '일부'다.","trap":"가격 숫자만 있으면 다 공시했다고 보기 쉽다. 적용 배출량 규모가 빠지면 정보 이용자가 그 가격이 얼마나 넓게 쓰이는지 알 수 없다. 개정 ESRS에서는 이 요구사항의 번호가 바뀌고 간소화되었다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.41","url":"report"},{"label":"NUS Consulting — 간소화 E1 초안 (내부 탄소가격 E1-10)","url":"https://www.nusconsulting.com/energy-news/esrs-e1-changes-in-recent-draft-standards/"}],"confidence":"medium","refFull":"ESRS E1 공시요구사항 E1-8 문단 62–63 (2023년 채택 ESRS 기준)"},{"id":"esrs-12","module":"esrs","type":"calc","ref":"ESRS E1-6 ¶44(d)·53 (2023)","topic":"매출 대비 배출 집약도","q":"2023년 채택 ESRS 기준 E1-6은 총 온실가스 배출량(Scope 1+2+3)과 순매출액 대비 배출 집약도를 요구한다. 현대자동차 FY2025 숫자로 시장 기반 총배출량의 순매출액 100만 원당 집약도(tCO2-eq/백만 원)를 구하라.","given":[["Scope 1 (2025)","720,642 tCO2-eq","p.38"],["Scope 2 시장 기반 (2025)","1,190,442 tCO2-eq","p.38"],["Scope 3 (2025)","199,704,253 tCO2-eq","p.38"],["매출액(연결, 2025)","186,254 십억 원","p.134"]],"ans":1.082,"tol":0.002,"unit":"tCO2-eq/백만 원","dec":3,"steps":["시장 기반 총배출량 = 720,642 + 1,190,442 + 199,704,253 = 201,615,337 tCO2-eq","매출액 186,254 십억 원 = 186,254,000 백만 원","집약도 = 201,615,337 ÷ 186,254,000 ≈ 1.082 tCO2-eq/백만 원","(참고) 지역 기반 총배출량 = 720,642 + 1,858,897 + 199,704,253 = 202,283,792 tCO2-eq → 약 1.086 tCO2-eq/백만 원"],"why":"Set 1 문단 44(d)는 총배출량을, 문단 53은 총배출량을 순매출액으로 나눈 집약도를 요구하며, 지역 기반·시장 기반 두 값을 모두 낸다. 현대차는 38쪽에 생산 대수 기준 집약도만 내고 매출 기준 집약도는 내지 않으므로 직접 계산해야 한다.","trap":"Scope 3를 빼고 Scope 1+2만 나누거나, 별도 매출(78,767 십억 원)을 쓰는 실수가 흔하다. 현대차는 2025년부터 배출량 경계를 연결 기준으로 잡았으므로 연결 매출을 쓴다. 또 2026년 개정 ESRS에서는 이 총합·집약도 항목이 삭제되었다.","insight":"총배출량의 약 99%가 Scope 3(주로 판매 차량 운행)이므로, 매출 100만 원당 약 1톤이라는 집약도는 거의 전부 제품 사용 단계에서 나온다. 공장 효율보다 전동화 속도가 이 숫자를 좌우한다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.134","url":"report"},{"label":"EFRAG Q&A 509 (순매출액 정의, 문단 53)","url":"https://knowledgehub.efrag.org/eng/qa-table/509"}],"confidence":"high","refFull":"ESRS E1 공시요구사항 E1-6 문단 44(d)·53 (2023년 채택 ESRS 기준)"},{"id":"gs-01","module":"gri-sasb","type":"mc","ref":"GRI 1 · 요구사항 1~9","topic":"in accordance vs with reference","q":"회사가 GRI 기준을 '준수하여(in accordance with)' 보고했다고 말하려면 무엇이 필요한가?","options":["GRI 콘텐츠 인덱스만 만들고 GRI에 알리면 된다","9가지 요구사항(보고 원칙 적용, GRI 2 전체 공시, 중대 주제 결정과 GRI 3 공시, 주제별 공시, 생략 사유 제시, 인덱스, 사용 선언문, GRI 통보)을 모두 지켜야 한다","관심 있는 주제 몇 개만 골라 공시하면 된다","제3자 검증만 받으면 자동으로 인정된다"],"ans":1,"quote":"9가지 요구사항 중 하나라도 지키지 못하면 'in accordance'라고 주장할 수 없다(GRI 1 요약).","why":"'in accordance'는 9가지 요구사항을 모두 지켜야 하는 높은 수준이다. 반면 'with reference to'는 콘텐츠 인덱스, 사용 선언문, GRI 통보 3가지만 지키면 되는 가벼운 방식이다.","trap":"인덱스 표만 있으면 'in accordance'라고 착각하기 쉽다. 사용 선언문 문구도 다르다('has reported in accordance with' vs 'with reference to').","sources":[{"label":"GRI 1: Foundation 2021","url":"https://www.globalreporting.org/publications/documents/english/gri-1-foundation-2021"}],"confidence":"high","refFull":"GRI 1: Foundation 2021 Section 3 (요구사항 1~9)"},{"id":"gs-02","module":"gri-sasb","type":"mc","ref":"GRI 3 · 3-1~3-3","topic":"GRI 3 중대 주제","q":"GRI에서 '중대 주제(material topic)'를 고르는 기준으로 맞는 것은?","options":["회사 매출과 이익에 가장 큰 영향을 주는 주제","회사가 경제·환경·사람에게 미치는 가장 큰 영향(임팩트)을 나타내는 주제","투자자 설문에서 가장 많이 나온 주제","경쟁사 보고서에 공통으로 나온 주제"],"ans":1,"quote":"material topics: \"topics that represent the organization's most significant impacts on the economy, environment, and people\" (GRI 1 용어집)","why":"GRI는 '회사가 바깥 세상에 주는 영향'을 기준으로 중대 주제를 고른다(임팩트 관점). 그리고 3-1(결정 과정), 3-2(주제 목록), 3-3(주제별 관리 방법)을 공시해야 한다.","trap":"현대차처럼 '이중 중대성'으로 평가하는 회사도 많지만, GRI가 요구하는 것은 그중 임팩트 쪽이다. 재무 영향 기준만으로 고르면 GRI 취지와 맞지 않는다.","sources":[{"label":"GRI 1: Foundation 2021","url":"https://www.globalreporting.org/publications/documents/english/gri-1-foundation-2021"}],"confidence":"high","refFull":"GRI 3: Material Topics 2021 (3-1, 3-2, 3-3) / GRI 1 용어집"},{"id":"gs-03","module":"gri-sasb","type":"mc","ref":"GRI 305-4, 305-5","topic":"GRI 305 공시 번호 구분","q":"GRI 305에서 '온실가스 배출 집약도(예: 차 1대당 배출량)'를 다루는 공시 번호는?","options":["305-2","305-3","305-4","305-5"],"ans":2,"quote":"305-4 a. \"GHG emissions intensity ratio for the organization.\" b. 분모로 쓴 회사 고유 지표를 밝혀야 한다.","why":"305-1은 직접 배출(Scope 1), 305-2는 전력 등 간접 배출(Scope 2), 305-3은 그 밖의 가치사슬 배출(Scope 3), 305-4는 집약도, 305-5는 감축 활동으로 줄인 양이다. 305-4는 분모(예: 생산대수)를 반드시 밝혀야 한다.","trap":"305-5를 '전년 대비 감소량'으로 착각하기 쉽다. 305-5는 감축 활동 덕분에 직접 줄어든 양이다. 현대차 집약도(0.464 tCO2-eq/대)는 판매대수가 아니라 생산대수 기준이다(p.136 각주).","sources":[{"label":"GRI 305: Emissions 2016 (PDF)","url":"https://www.globalreporting.org/pdf.ashx?id=12510"},{"label":"현대자동차 2026 지속가능성 보고서 p.136","url":"report"}],"confidence":"high"},{"id":"gs-04","module":"gri-sasb","type":"mc","ref":"GRI 305-1c·305-3c·102-5c","topic":"바이오매스 기원 CO2","q":"나무 칩 같은 바이오매스를 태워 나온 CO2(생물 기원 CO2)는 GRI에서 어떻게 보고하는가?","options":["Scope 1 총배출량에 그냥 더한다","보고하지 않아도 된다","Scope 1(또는 Scope 3) 총배출량과 따로 떼어 별도 숫자로 보고한다","탄소상쇄로 간주해 배출량에서 뺀다"],"ans":2,"quote":"305-1 c. \"Biogenic CO2 emissions in metric tons of CO2 equivalent.\"","why":"GRI 305는 생물 기원 CO2를 총배출량과 분리해 따로 보고하도록 한다. 새 GRI 102(102-5 c)도 같은 방식을 유지한다.","trap":"'탄소중립 연료라서 0'으로 처리하거나 아예 빼먹기 쉽다. 숫자를 안 섞을 뿐, 별도로 공개해야 한다.","sources":[{"label":"GRI 305: Emissions 2016 (PDF)","url":"https://www.globalreporting.org/pdf.ashx?id=12510"},{"label":"GRI 102: Climate Change 2025 (PDF)","url":"https://globalreporting.org/pdf.ashx?id=29514"}],"confidence":"high","refFull":"GRI 305-1 c / 305-3 c, GRI 102-5 c"},{"id":"gs-05","module":"gri-sasb","type":"mc","ref":"GRI 102·103 (2025)","topic":"GRI 102·103 시행 시점","q":"새로 나온 GRI 102(기후변화)와 GRI 103(에너지)에 대한 설명으로 맞는 것은?","options":["2023년에 발표되어 이미 2024년 보고서부터 의무 적용됐다","2025년 6월 발표되었고, 2027년 1월 1일 이후 발행되는 보고서부터 적용된다. GRI 102는 GRI 305의 305-1~305-5를 대체한다","아직 공개초안 단계라 확정되지 않았다","GRI 305는 계속 쓰이고 GRI 102는 금융회사만 쓴다"],"ans":1,"quote":"\"This Standard is effective for reports or other materials published on or after 1 January 2027.\" (GRI 102, GRI 103)","why":"GRI는 2025년 6월 두 기준을 발표했다. 시행일은 '보고 기간'이 아니라 '발행일' 기준으로 2027년 1월 1일 이후다. GRI 305 문서에는 305-1~305-5가 GRI 102로 대체된다고 적혀 있다. GRI 102는 전환계획(102-1), 적응(102-2), 정의로운 전환(102-3), 탄소크레딧(102-10) 등을 새로 묻는다.","trap":"일부 해설은 '2027년 1월 1일 시작하는 보고 기간부터'라고 쓰지만 원문은 '발행일' 기준이다. 2026년에 나온 현대차 FY2025 보고서가 GRI 305를 쓰는 것은 문제없다.","sources":[{"label":"GRI 102: Climate Change 2025 (PDF)","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"GRI 103: Energy 2025 (PDF)","url":"https://globalreporting.org/pdf.ashx?id=29537"},{"label":"GRI 305: Emissions 2016 (PDF)","url":"https://www.globalreporting.org/pdf.ashx?id=12510"},{"label":"GRI 뉴스: New Climate Standards (2025.6.26)","url":"https://globalreporting.org/news/news-center/new-climate-standards-can-unlock-actionable-and-streamlined-reporting-on-impacts/"}],"confidence":"high","refFull":"GRI 102: Climate Change 2025, GRI 103: Energy 2025 (시행일)"},{"id":"gs-06","module":"gri-sasb","type":"mc","ref":"GRI 1 · IFRS S2 · SASB","topic":"GRI vs IFRS S2·SASB 독자","q":"GRI와 IFRS S2(SASB 포함)의 차이를 가장 잘 설명한 것은?","options":["둘 다 투자자만을 위한 기준이다","GRI는 회사가 경제·환경·사람에 주는 영향을 여러 이해관계자에게 알리는 것이고, IFRS S2는 투자자 등 재무보고 이용자의 자원 제공 결정에 쓸 정보다. SASB는 지금 ISSB가 관리하며 IFRS S2 산업별 지침의 바탕이다","SASB는 GRI가 관리하는 산업별 부록이다","IFRS S2를 쓰면 GRI 온실가스 공시는 절대 쓸 수 없다"],"ans":1,"quote":"IFRS S2는 \"industry-based disclosure requirements derived from SASB Standards\"를 담고 있다(IFRS 내비게이터).","why":"GRI는 '바깥 세상에 주는 영향'(임팩트), IFRS S2는 '회사 재무에 주는 영향'에 초점을 둔다. SASB 기준은 ISSB가 유지·개선하며, IFRS S2의 산업별 지침이 SASB에서 나왔다. GRI는 IFRS S2의 Scope 1·2·3 공시로 GRI 102의 해당 요구를 채울 수 있다고 밝혔다(GHG Protocol로 산정하고 인덱스에 위치를 적는 조건).","trap":"두 기준이 경쟁 관계라 하나만 골라야 한다고 생각하기 쉽다. 실제로는 함께 쓰는 보완 관계이고, 같은 배출량 숫자를 양쪽에 쓸 수 있다.","sources":[{"label":"GRI 1: Foundation 2021","url":"https://www.globalreporting.org/publications/documents/english/gri-1-foundation-2021"},{"label":"IFRS S2 Climate-related Disclosures (IFRS 내비게이터)","url":"https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/"},{"label":"IFRS Foundation — SASB Standards","url":"https://www.ifrs.org/issued-standards/sasb-standards/"},{"label":"GRI 뉴스: New Climate Standards (2025.6.26)","url":"https://globalreporting.org/news/news-center/new-climate-standards-can-unlock-actionable-and-streamlined-reporting-on-impacts/"}],"confidence":"high","refFull":"GRI 1 Section 1 / IFRS S2 목적, SASB Standards"},{"id":"gs-07","module":"gri-sasb","type":"mc","ref":"SASB 자동차(TR-AU) 공시 주제","topic":"SASB TR-AU 공시 주제","q":"SASB 자동차 산업 기준(TR-AU)의 공시 주제가 아닌 것은?","options":["제품 안전(Product Safety)","연비 및 사용 단계 배출(Fuel Economy & Use-phase Emissions)","원자재 조달 / 원자재 효율과 재활용","사업장 생물다양성 보호"],"ans":3,"quote":"TR-AU-410a.2: \"Number of (1) zero emission vehicles (ZEV), (2) hybrid vehicles, and (3) plug-in hybrid vehicles sold\"","why":"TR-AU 주제는 제품 안전(250a), 노동 관행(310a), 연비·사용 단계 배출(410a), 원자재 조달(440a), 원자재 효율·재활용(440b) 5개와 활동 지표(생산·판매 대수)다. 생물다양성은 TR-AU 주제가 아니다.","trap":"자동차 회사의 가장 큰 배출은 차를 '쓰는 단계'(Scope 3 범주 11)라서 SASB는 사업장 배출보다 연비·무배출차 판매를 묻는다. 사업장 Scope 1·2 지표를 찾으면 헛수고다.","sources":[{"label":"ISSB 공개초안 B63 Automobiles (TR-AU 기후 지표)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"Mazda SASB 대조표 (TR-AU 지표 전체 목록, 2차 자료)","url":"https://www.mazda.com/en/sustainability/guidelines/sasb/"},{"label":"현대자동차 2026 지속가능성 보고서 p.153","url":"report"},{"label":"IFRS 재단 · SASB Standards (산업별 기준 내려받기)","url":"https://sasb.ifrs.org/standards/download/"}],"confidence":"high"},{"id":"gs-08","module":"gri-sasb","type":"judge","ref":"GRI 1 요구사항 6 (생략 사유) / GRI 2-8","topic":"GRI 생략 사유 기재","q":"현대차는 GRI 2-8(임직원이 아닌 근로자)에 대해 국내 수치(142쪽)만 내고 나머지는 생략했다. 생략한 부분에 대해 GRI 1이 허용하는 형식의 '생략 사유'를 적었는가?","look":"149쪽 GRI Index 표 하단 각주","page":149,"ans":"있음","quote":"미공시 사유: 기밀제한 / 피고용자가 아닌 근로자에 대한 데이터는 관리하고 있으나, 당사 임직원이 아닌 근로자의 정보를 공시하는 것은 회사규정상 어려움.","why":"142쪽에 국내 소속 외 근로자 현황(2025년 4,706명)은 있지만, 그 밖의 범위는 생략했다. GRI 1은 생략 사유로 '해당 없음, 법적 금지, 기밀 제한, 정보 없음/불완전' 네 가지만 허용하고, 기밀 제한이면 구체적 내용을 설명하라고 한다. 현대차는 생략한 부분에 '기밀제한'을 고르고 이유를 적었다. 2-1~2-5, 3-1~3-2는 생략 자체가 불가능하지만 2-8은 생략이 가능하다.","trap":"색인의 '미공시 사유' 각주만 보고 아예 공시하지 않았다고 판단하기 쉽다. 색인이 가리키는 쪽(142쪽)을 열어 어디까지 냈는지부터 확인해야 한다. '회사 규정상 어렵다'가 충분히 구체적인지는 검토자가 따져볼 부분이다.","sources":[{"label":"GRI 1: Foundation 2021","url":"https://www.globalreporting.org/publications/documents/english/gri-1-foundation-2021"},{"label":"GRI 2: General Disclosures 2021 (PDF)","url":"https://globalreporting.org/pdf.ashx?id=12358"},{"label":"현대자동차 2026 지속가능성 보고서 p.149","url":"report"}],"confidence":"high"},{"id":"gs-09","module":"gri-sasb","type":"judge","ref":"GRI 305-2 a, b","topic":"Scope 2 두 가지 방식","q":"GRI 305-2는 Scope 2를 '지역 기반(location-based)'으로 보고하고, 재생에너지 계약 같은 수단이 있으면 '시장 기반(market-based)'도 보고하라고 한다. 현대차 인덱스가 305-2로 연결한 38쪽에 두 숫자가 모두 있는가?","look":"38쪽 '온실가스 배출량' 표 (GRI Index p.150에서 305-2 → 38, 136)","page":38,"ans":"있음","quote":"Scope 2 (지역 기반) 1,786,324 1,858,897 Scope 2 (시장 기반) 1,468,432 1,190,442","why":"38쪽 표에 2024·2025년의 지역 기반과 시장 기반 Scope 2가 모두 있다. 같은 쪽에 GHG Protocol 사용, 운영통제 기준, 기준연도 2024년 재산정 이유도 있어 305-2의 다른 항목(d, f, g)도 대부분 채운다.","trap":"136쪽 표에는 시장 기반 숫자만 나오고 'Scope 1+2 합계'도 시장 기반이다. 136쪽만 보면 지역 기반이 없다고 잘못 판단하기 쉽다.","sources":[{"label":"GRI 305: Emissions 2016 (PDF)","url":"https://www.globalreporting.org/pdf.ashx?id=12510"},{"label":"현대자동차 2026 지속가능성 보고서 p.38","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.136","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.150","url":"report"}],"confidence":"high"},{"id":"gs-10","module":"gri-sasb","type":"judge","ref":"SASB TR-AU-410a.2","topic":"무배출·하이브리드 판매 공시","q":"SASB TR-AU-410a.2는 (1) 무배출차(ZEV), (2) 하이브리드, (3) 플러그인 하이브리드 판매 대수를 각각 요구한다. 현대차 SASB 인덱스는 이를 다 채웠는가?","look":"153쪽 SASB Index 표 TR-AU-410a.2 행","page":153,"ans":"일부","quote":"구분 HEV/PHEV EV FCEV 총계 Global 679(70.6%) 276(28.7%) 7(0.7%) 962(100%)","why":"EV(전기차)와 FCEV(수소차)는 둘 다 무배출차라 (1)은 더해서 구할 수 있다. 하지만 하이브리드(HEV)와 플러그인 하이브리드(PHEV)를 'HEV/PHEV' 한 칸으로 묶어 (2)와 (3)을 따로 알 수 없다.","trap":"표가 있다고 '있음'으로 체크하기 쉽다. 지표가 요구하는 칸을 하나씩 대조해야 한다. 참고로 136쪽에는 HEV와 PHEV '매출 비율'은 따로 있지만 판매 대수는 아니다.","sources":[{"label":"ISSB 공개초안 B63 Automobiles (TR-AU 기후 지표)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"현대자동차 2026 지속가능성 보고서 p.153","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.136","url":"report"},{"label":"IFRS 재단 · SASB Standards (산업별 기준 내려받기)","url":"https://sasb.ifrs.org/standards/download/"}],"confidence":"high"},{"id":"gs-11","module":"gri-sasb","type":"calc","ref":"SASB TR-AU-410a.2, TR-AU-000.B","topic":"무배출차 판매 비중","q":"2025년 현대차 전체 판매 대수 중 무배출차(EV+FCEV) 비중은 몇 %인가?","given":[["EV 판매(도매)","275,669대","p.8"],["FCEV 판매(도매)","7,126대","p.8"],["전체 차량 판매대수(도매, TR-AU-000.B)","4,138,389대","p.5"]],"ans":6.83,"tol":0.05,"unit":"%","dec":2,"steps":["무배출차 = 275,669 + 7,126 = 282,795대","282,795 ÷ 4,138,389 = 0.06833","× 100 = 약 6.83%"],"insight":"전동화 차량 전체(약 96.2만 대)는 판매의 약 23%지만, 그중 70% 이상이 하이브리드다. 배출이 아예 없는 차는 판매 100대 중 약 7대다.","why":"SASB의 무배출차(ZEV)는 배터리 전기차와 수소연료전지차만 뜻한다. 그래서 EV와 FCEV만 더하고 하이브리드는 뺀다.","trap":"'전동화 비중 23%'를 무배출차 비중으로 착각하기 쉽다. 하이브리드는 엔진을 쓰므로 ZEV가 아니다. 분자와 분모가 같은 '도매 기준'인지도 확인해야 한다(p.5, p.8 모두 도매 기준).","sources":[{"label":"ISSB 공개초안 B63 Automobiles (TR-AU 기후 지표)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"현대자동차 2026 지속가능성 보고서 p.5","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.8","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.153","url":"report"},{"label":"IFRS 재단 · SASB Standards (산업별 기준 내려받기)","url":"https://sasb.ifrs.org/standards/download/"}],"confidence":"high"},{"id":"gs-12","module":"gri-sasb","type":"calc","ref":"SASB TR-AU-410a.1","topic":"EU 평균 CO2 배출 변화","q":"현대차의 EU 판매 차량 평균 CO2 배출량(g/km)은 2024년 대비 2025년에 몇 % 바뀌었는가?","given":[["EU 평균 CO2 배출량 2024","111.3 g/km","p.28"],["EU 평균 CO2 배출량 2025","98.6 g/km","p.28"]],"ans":-11.4,"tol":0.1,"unit":"%","dec":1,"steps":["변화량 = 98.6 − 111.3 = −12.7 g/km","−12.7 ÷ 111.3 = −0.1141","× 100 = 약 −11.4%"],"insight":"1년 만에 약 11% 줄었지만, 같은 쪽에 적힌 2030년 EU 목표 49.5 g/km까지는 아직 절반 가까이 더 줄여야 한다.","why":"TR-AU-410a.1은 판매 비중으로 가중한 지역별 평균 연비(또는 g/km)를 묻는다. 현대차는 28쪽과 153쪽에 EU g/km, 중국 L/100km, 미국 mpg로 공시했다.","trap":"같은 지표가 쪽마다 다를 수 있다. 2022년 값이 28쪽은 101.4, 153쪽은 106.0으로 다르다. 계산 전에 두 쪽의 숫자가 맞는지 먼저 확인해야 한다(2024·2025년 값은 두 쪽이 같다).","sources":[{"label":"ISSB 공개초안 B63 Automobiles (TR-AU 기후 지표)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"현대자동차 2026 지속가능성 보고서 p.28","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.153","url":"report"},{"label":"IFRS 재단 · SASB Standards (산업별 기준 내려받기)","url":"https://sasb.ifrs.org/standards/download/"}],"confidence":"high"},{"id":"rt-01","module":"ratings","type":"mc","ref":"CDP 채점 방법론","topic":"CDP 점수 4단계","q":"CDP는 기업의 답변을 4단계로 나누어 점수를 매긴다. 낮은 단계부터 높은 단계로 바르게 나열한 것은?","ans":0,"options":["공개(Disclosure, D) → 인식(Awareness, C) → 관리(Management, B) → 리더십(Leadership, A)","인식(Awareness) → 공개(Disclosure) → 리더십(Leadership) → 관리(Management)","관리(Management) → 공개(Disclosure) → 인식(Awareness) → 리더십(Leadership)","공개(Disclosure) → 관리(Management) → 인식(Awareness) → 리더십(Leadership)"],"quote":"Disclosers progress through four levels: Disclosure (D/D–), Awareness (C/C–), Management (B/B–), and Leadership (A/A–).","why":"CDP는 먼저 '얼마나 빠짐없이 답했는가(공개)'를 보고, 그다음 위험을 알고 있는지(인식), 실제로 관리하는지(관리), 모범 수준인지(리더십)를 차례로 본다. 한 단계의 최소 점수와 필수 기준(Essential Criteria)을 모두 넘어야 다음 단계 점수를 인정받고, 못 넘으면 이전 단계 등급에 머문다.","trap":"점수가 단순 합산이라고 생각하기 쉽다. 리더십 단계 점수가 높아도 아래 단계의 필수 기준을 하나 놓치면 등급이 그 아래에서 멈춘다. 또 요청을 받고도 답하지 않은 기업은 D가 아니라 별도 상태(2024년 문서는 F, 현재 FAQ는 'Did not disclose')로 표시된다.","sources":[{"label":"CDP Help Center KA-01160 Corporate scoring","url":"https://help.cdp.net/en-US/knowledgebase/article/KA-01160"},{"label":"CDP Full Corporate Scoring Introduction 2024","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/365/original/CDP_Full_Corporate_Scoring_Introduction.pdf"},{"label":"CDP FAQ (Scores, Questionnaire)","url":"https://www.cdp.net/en/faqs"}],"confidence":"high","refFull":"CDP Corporate Scoring (KA-01160), Full Corporate Scoring Introduction"},{"id":"rt-02","module":"ratings","type":"mc","ref":"CDP 필수 기준 2024 · A리스트","topic":"CDP A리스트 검증 요건(2024)","q":"CDP 2024 기후변화 필수 기준(Essential Criteria)에서 A리스트에 들기 위한 온실가스 배출량 제3자 검증 요건으로 맞는 것은?","ans":0,"options":["Scope 1·2 배출량 100% 검증, Scope 3는 최소 1개 카테고리의 70% 이상 검증","Scope 1 배출량만 50% 이상 검증하면 된다","Scope 1·2·3 전체를 100% 검증해야 한다","검증은 필요 없고 배출량 숫자만 공개하면 된다"],"quote":"The organization has third-party verification of 100% of Scope 1 emissions.","why":"2024 필수 기준 문서는 A리스트 요건으로 Scope 1과 Scope 2 배출량 100% 제3자 검증, 그리고 Scope 3 중 최소 1개 카테고리의 70% 이상 검증을 요구한다. 리더십 단계 자체의 기준은 이보다 낮아서 Scope 1·2의 95% 검증과 Scope 3 1개 카테고리 검증이다. 이 밖에 1.5°C에 맞춘 전환계획 공개, SBTi 승인 또는 1.5°C에 맞는 감축목표 같은 요건도 있다.","trap":"'리더십 A를 받을 기준'과 'A리스트에 올라갈 기준'을 같은 것으로 착각하기 쉽다. A리스트 요건이 더 엄격하다(95%가 아니라 100%). 숫자는 2024년 문서 기준이므로 매년 새로 나오는 문서로 다시 확인해야 한다.","sources":[{"label":"CDP Full Climate Change Essential Criteria 2024","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/405/original/CDP_Climate_Change_Scoring_Essential_Criteria.pdf"}],"confidence":"medium","refFull":"CDP Full Climate Change Essential Criteria 2024 (A List 요건, 질문 7.9.1~7.9.3 관련)"},{"id":"rt-03","module":"ratings","type":"mc","ref":"CDP 통합 질문서(2024~)","topic":"CDP 질문서와 IFRS S2","q":"CDP 질문서와 IFRS S2(국제 기후공시 기준)의 관계를 가장 바르게 설명한 것은?","ans":0,"options":["2024년부터 기후변화·산림·수자원 질문서가 하나로 합쳐졌고, CDP는 질문서가 IFRS S2와 맞춰져 있다고 밝힌다. 다만 CDP는 답변을 '평가'해 점수를 주는 곳이고, IFRS S2는 '무엇을 공시할지' 정한 기준이다.","CDP 질문서가 IFRS S2를 대체하므로 CDP에 답하면 법정 공시 의무가 끝난다","CDP는 지금도 기후변화·산림·수자원 질문서를 따로따로 운영한다","IFRS S2도 CDP처럼 기업에 A~D 등급을 매긴다"],"quote":"In 2024, this replaced CDP's three separate questionnaires focused on climate change, forests and water security. / Our questionnaire is aligned with the International Financial Reporting Standards (IFRS) S2 standard.","why":"CDP FAQ는 2024년에 세 개의 질문서가 하나의 통합 질문서로 바뀌었고, 질문서가 IFRS S2와 맞춰져 있다고 설명한다. 그래도 역할은 다르다. 평가(rating)는 바깥 기관이 기업을 점수로 판단하는 것이고, 공시 기준(standard)은 기업이 보고서에 무엇을 써야 하는지 정한 규칙이다.","trap":"'내용이 맞춰져 있다'를 '같은 것이다'로 이해하면 안 된다. CDP 답변을 잘 해도 KSSB·IFRS S2에 따른 공시 의무가 따로 남고, 반대로 공시를 잘 해도 CDP 점수는 CDP 채점 기준에 따라 따로 나온다.","sources":[{"label":"CDP FAQ (Scores, Questionnaire)","url":"https://www.cdp.net/en/faqs"}],"confidence":"high","refFull":"CDP FAQ: Questionnaire (2024 통합 질문서, IFRS S2 정렬)"},{"id":"rt-04","module":"ratings","type":"judge","ref":"CDP 질문 7.6·7.7·7.8","topic":"보고서의 CDP 문항 연결","q":"현대자동차 보고서는 기후 관련 공시 항목이 CDP 질문서의 어떤 문항과 연결되는지 표시하고 있는가?","look":"152쪽 TCFD Index 표의 오른쪽 'CDP 연계 문항' 칸","page":152,"ans":"있음","quote":"Scope 1, Scope 2 그리고 Scope 3 온실가스 배출량 및 관련 위험 ... CDP 연계 문항: 7.6, 7.7, 7.8, 7.8.1 / 1) CDP 2026 문항 기준","why":"152쪽 TCFD Index는 지배구조·전략·위험관리·지표와 감축목표의 각 항목마다 CDP 연계 문항 번호를 적고, 각주에서 'CDP 2026 문항 기준'이라고 밝힌다. 이렇게 하면 평가기관에 답할 때와 보고서를 쓸 때 같은 내용을 쓸 수 있다. 현대자동차는 2025 CDP 평가에서 기후변화 부문 '리더십 A'를 3년 연속 받았다고 그룹 뉴스에서 밝혔다.","trap":"TCFD Index에 CDP 번호가 붙어 있다고 해서 CDP 답변 전체가 보고서에 실린 것은 아니다. 문항 번호는 해마다 바뀔 수 있으니 'CDP 2026 문항 기준'처럼 기준 연도를 꼭 확인한다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.152","url":"report"},{"label":"현대자동차그룹 뉴스: 2025 CDP 코리아 어워드","url":"https://www.hyundaimotorgroup.com/ko/news/hyundai-kia-2025-cdp-korea-award"}],"confidence":"high","refFull":"CDP 2026 질문 7.6·7.7·7.8 (Scope 1·2·3 배출량)"},{"id":"rt-05","module":"ratings","type":"mc","ref":"EcoVadis 평가 방법론","topic":"EcoVadis 4개 주제와 근거","q":"EcoVadis 평가에 대한 설명으로 맞는 것은?","ans":0,"options":["환경, 노동·인권, 윤리, 지속가능한 조달의 4개 주제(21개 기준)를 보며, 주로 기업이 낸 증빙 문서와 외부 정보(360° Watch)를 바탕으로 0~100점을 준다","환경, 사회, 지배구조 3개 주제만 보고 설문 응답 내용만으로 점수를 준다","공개된 지속가능성 보고서만 읽고 점수를 주므로 기업이 따로 제출할 것이 없다","온실가스 배출량 하나만 보고 점수를 준다"],"quote":"Rated companies are scored based primarily on evidence in the form of management system documentation.","why":"EcoVadis는 4개 주제에 걸친 21개 지속가능성 기준으로 평가하고, 4개 주제 점수를 가중 평균해 0~100점 종합 점수를 낸다. 점수의 주된 근거는 기업이 낸 관리 체계 증빙 문서이고, 뉴스·감시 목록 등 10만 개가 넘는 외부 출처를 보는 360° Watch로 바깥 이해관계자의 시각도 반영한다.","trap":"설문에 '예'라고만 답하면 점수가 오른다고 생각하기 쉽다. 정책·절차·실적을 보여주는 문서가 없으면 점수로 인정받기 어렵다.","sources":[{"label":"EcoVadis Ratings Methodology Overview and Principles","url":"https://resources.ecovadis.com/ecovadis-solution-materials/ecovadis-ratings-methodology-overview-and-principles-2022-neutral"},{"label":"EcoVadis Medals Methodology disclosure document (2026)","url":"https://ecovadis.com/wp-content/uploads/2026/06/EcoVadis-Medals-Methodology-disclosure-document-for-the-public-rating-users-and-rated-items.pdf"}],"confidence":"high","refFull":"EcoVadis Ratings Methodology Overview; Medals Methodology disclosure document 2.3, 3.2"},{"id":"rt-06","module":"ratings","type":"mc","ref":"EcoVadis 메달 기준","topic":"EcoVadis 메달 기준","q":"현재 EcoVadis 메달(플래티넘·골드·실버·브론즈) 기준으로 맞는 것은?","ans":0,"options":["2024년부터 정해진 점수 대신 백분위 순위로 정한다. 플래티넘 상위 1%, 골드 상위 5%, 실버 상위 15%, 브론즈 상위 35%이고, 4개 주제 중 하나라도 30점 미만이면 받을 수 없다","종합 점수 70점 이상이면 무조건 골드를 받는다","같은 산업 안의 기업끼리만 비교해 상위 10%에게 골드를 준다","메달은 한 번 받으면 기한 없이 쓸 수 있다"],"quote":"Since 2024, EcoVadis medals are based on percentile rank rather than fixed score thresholds that require annual updates.","why":"메달은 점수표가 발표될 때의 백분위 순위로 정해지며, 비교 대상은 지난 12개월 동안 평가받은 모든 산업의 기업이다. 4개 주제 중 하나라도 30/100 미만이거나, 360° Watch 지표가 한 주제에서 0점 또는 두 주제 이상에서 25점이면 받을 수 없다. 메달은 받은 날부터 12개월 동안 유효하다.","trap":"옛 자료에 나오는 '몇 점 이상이면 골드' 같은 고정 점수 기준은 이제 쓰지 않는다. EcoVadis는 메달을 받는 데 필요한 점수를 공개하지 않는다. 기준선이 해마다 달라질 수 있기 때문이다.","sources":[{"label":"EcoVadis Support: Understanding EcoVadis Medals and Badges","url":"https://support.ecovadis.com/hc/en-us/articles/210460227-Understanding-EcoVadis-Medals-and-Badges"},{"label":"EcoVadis Medals Methodology disclosure document (2026)","url":"https://ecovadis.com/wp-content/uploads/2026/06/EcoVadis-Medals-Methodology-disclosure-document-for-the-public-rating-users-and-rated-items.pdf"}],"confidence":"high","refFull":"EcoVadis Medals Methodology disclosure document 1.3, 2.1"},{"id":"rt-07","module":"ratings","type":"judge","ref":"EcoVadis · 협력사 평가","topic":"협력사 EcoVadis 평가","q":"현대자동차 보고서는 협력사 ESG 관리에 EcoVadis를 활용했다고 밝히고 있는가?","look":"75쪽 공급망 인권·환경 관리 본문, 77쪽 '평가 시 활용한 기준' 상자","page":75,"ans":"있음","quote":"이와 더불어 2025년에는 국내 전체 1차 협력사를 대상으로 글로벌 ESG 평가 플랫폼인 EcoVadis 평가를 실시하여 국제적 정합성에 대해 추가 검증을 완료하였습니다.","why":"75쪽은 2025년에 국내 1차 협력사 전체를 EcoVadis로 평가해 자체 협력사 진단이 국제 기준과 맞는지 다시 확인했다고 쓴다. 77쪽도 자체 공급망 지속가능성 평가 지표를 만들 때 쓴 기준으로 EcoVadis, RBA, Drive Sustainability 등을 적고 있다. 여기서 현대자동차는 EcoVadis를 '받는' 회사가 아니라 협력사를 평가하는 '구매사'로 쓰고 있다.","trap":"이 문장을 '현대자동차가 EcoVadis 메달을 받았다'로 읽으면 틀린다. 보고서는 협력사 평가 도구로 썼다고 말할 뿐 현대자동차 자신의 EcoVadis 점수는 밝히지 않는다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.75","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.77","url":"report"}],"confidence":"high","refFull":"EcoVadis 평가 활용 (공급망 지속가능성 평가)"},{"id":"rt-08","module":"ratings","type":"mc","ref":"S&P CSA 방법론 2026","topic":"S&P CSA 점수 구조","q":"S&P Global 기업 지속가능성 평가(CSA)에 대한 설명으로 맞는 것은?","ans":0,"options":["산업별 질문서(2026년 62개 산업)에 답한 내용을 문항→기준→영역 순으로 가중치를 주어 더해 0~100점 CSA 점수를 낸다. 정보를 내지 않은 문항은 0점이고, 일부 문항은 정보가 공개되어 있어야만 점수를 준다","모든 산업에 똑같은 질문과 가중치를 쓴다","답하지 않은 문항은 산업 평균 점수로 채워 CSA 점수에 넣는다","기업 내부 자료만 보면 되고 공개 여부는 상관없다"],"quote":"Each company receives a S&P Global CSA Score ranging from 0–100.","why":"CSA는 GICS를 바탕으로 한 62개 산업별 방법을 쓰고, 공통 기준이 약 40~50%, 나머지는 산업별 기준이다. 정보를 주지 않은 문항에는 0점을 주고, 일부 문항은 공개된 자료로 확인될 때만 점수를 준다. 참여하지 않은 기업의 빈칸을 추정으로 채우는 것은 CSA 점수가 아니라 이를 바탕으로 한 S&P Global ESG Score 쪽이다.","trap":"'내부 문서를 내면 된다'고 생각하기 쉽지만, 공개를 요구하는 문항은 보고서·홈페이지에 실제로 공개되어 있어야 점수가 나온다. 그래서 CSA 대응은 공시 개선과 함께 가야 한다.","sources":[{"label":"S&P Global CSA Methodology - Measuring Sustainability Performance 2026","url":"https://portal.s1.spglobal.com/survey/documents/CSA_Measuring_Sustainability_Performance.pdf"},{"label":"S&P Global CSA Methodology (policies & guidelines)","url":"https://www.spglobal.com/sustainable1/en/csa/policies-guidelines"}],"confidence":"high","refFull":"S&P Global CSA Methodology - Measuring Sustainability Performance 2026"},{"id":"rt-09","module":"ratings","type":"mc","ref":"S&P MSA 가이드북","topic":"CSA 미디어·이해관계자 분석","q":"CSA의 미디어·이해관계자 분석(MSA, Media & Stakeholder Analysis)에 대한 설명으로 맞는 것은?","ans":0,"options":["언론 등에 보도된 ESG 논란(사고·부패·인권 침해 등)을 보고, 해당 기준 점수를 '깎는 방향으로만' 조정한다. 논란이 없으면 점수는 그대로다","좋은 언론 보도가 많으면 점수를 올려준다","MSA는 CSA와 상관없는 별도 등급이라 점수에 영향이 없다","논란이 생기면 회사의 대응과 상관없이 같은 비율로 깎는다"],"quote":"If a company has no MSA cases identified, the criteria score will remain unchanged.","why":"MSA는 공개적으로 보도된 ESG 논란을 계속 지켜보고, 영향받은 CSA 기준 점수에 'MSA 배수'를 곱해 낮춘다. 배수는 사건의 심각도와 회사 대응의 충실도에 따라 달라지며, 심각한 사건에 대응이 없으면 가장 크게 깎인다. 예시에서는 80점에 0.20을 곱해 16점이 된다.","trap":"MSA를 단순한 '평판 점수'로 보면 안 된다. 특정 기준(예: 산업안전, 공급망) 점수를 직접 깎으므로, 사건이 생기면 S&P가 연락할 때 충실히 대응하는 것이 실제 점수에 중요하다.","sources":[{"label":"S&P Global MSA Methodology Guidebook","url":"https://portal.s1.spglobal.com/survey/documents/MSA_Methodology_Guidebook.pdf"},{"label":"S&P Global CSA Methodology - Measuring Sustainability Performance 2026","url":"https://portal.s1.spglobal.com/survey/documents/CSA_Measuring_Sustainability_Performance.pdf"}],"confidence":"high","refFull":"S&P Global MSA Methodology Guidebook"},{"id":"rt-10","module":"ratings","type":"mc","ref":"S&P CSA · DJ Best in Class","topic":"CSA와 DJSI 관계","q":"'DJSI 편입'을 목표로 하는 기업이 알아야 할 내용으로 맞는 것은?","ans":0,"options":["DJSI는 지금 'Dow Jones Best in Class' 지수로 이름이 바뀌었고, 구성 기업은 S&P Global CSA 점수를 바탕으로 같은 업종에서 앞선 기업을 고르는 방식(Best-in-class)으로 뽑는다","DJSI는 MSCI 등급으로 구성 기업을 고른다","DJSI는 CDP 점수가 A인 기업만 자동으로 넣는다","DJSI 편입은 매출 규모 순서로만 정해진다"],"quote":"Notable examples include the Dow Jones Best in Class index family (formerly known as DJSI)","why":"S&P Global은 1999년에 시작된 CSA 결과가 Dow Jones Best in Class 지수(예전 이름 DJSI) 등 200개가 넘는 지속가능성·기후 지수의 구성 기업을 고르는 핵심 자료라고 설명한다. 지수 방법론은 S&P Global CSA 점수를 바탕으로 업종 안에서 앞선 기업을 고른다고 밝힌다. CSA 결과는 S&P Global 지속가능성 연감(Sustainability Yearbook)에 들어갈 자격을 정하는 데도 쓰인다.","trap":"'DJSI'라는 옛 이름만 알고 있으면 최신 자료를 찾지 못한다. 또 지수마다 잘라내는 비율(백분위)이 다르므로 '상위 몇 %'라는 숫자는 해당 지수 방법론 문서로 확인해야 한다.","sources":[{"label":"S&P Global: Dow Jones Best in Class index family","url":"https://spglobal.com/esg/csa/indices/djsi-index-family"},{"label":"S&P DJI: Dow Jones Best-in-Class Indices Methodology","url":"https://spglobal.com/spdji/en/methodology/article/dow-jones-best-in-class-indices-methodology/"},{"label":"S&P Global CSA Methodology - Measuring Sustainability Performance 2026","url":"https://portal.s1.spglobal.com/survey/documents/CSA_Measuring_Sustainability_Performance.pdf"}],"confidence":"high","refFull":"S&P Global CSA: Dow Jones Best in Class index family"},{"id":"rt-11","module":"ratings","type":"mc","ref":"KCGS ESG 평가 등급","topic":"KCGS 등급 체계","q":"한국ESG기준원(KCGS, 옛 한국기업지배구조원) ESG 평가 등급 체계로 맞는 것은?","ans":0,"options":["S, A+, A, B+, B, C, D의 7단계","AAA부터 CCC까지 7단계","A, B, C, D, F의 5단계","1등급부터 10등급까지 10단계"],"why":"KCGS는 S, A+, A, B+, B, C, D의 7단계로 등급을 준다. 2025년 평가(2025년 11월 공표, 언론 보도 기준)에서는 상장회사 1,024개사의 ESG 전 영역과 비상장 금융회사 66개사의 지배구조를 평가했고, 가장 높은 S등급을 받은 회사는 2년 연속 없었다. D등급은 210개사에서 236개사로 늘었는데, KCGS는 지배구조 평가 모형을 바꾸고 기준을 강화했기 때문이라고 설명했다.","trap":"AAA~CCC는 MSCI 등급 체계이다. 국내 평가와 해외 평가의 등급 표기를 섞어 쓰면 보고서·답변서에서 바로 틀린 것이 드러난다. 수치는 2025년 평가 기준 언론 보도이며, 2026년 결과가 나오면 KCGS 공표 자료로 다시 확인하자.","sources":[{"label":"스마트투데이: 한국ESG기준원 2025년 ESG 통합등급 (2025.11)","url":"https://www.smarttoday.co.kr/ko-kr/articles/96658"},{"label":"한국경제: HDC현산 한국ESG기준원 통합 A (2025.11)","url":"https://www.hankyung.com/article/2025112411036"}],"confidence":"medium","refFull":"한국ESG기준원(KCGS) 2025 ESG 평가 결과 (2025.11 공표)"},{"id":"rt-12","module":"ratings","type":"mc","ref":"KCGS 영역별·통합 등급","topic":"KCGS 영역별·통합등급","q":"KCGS ESG 평가 결과의 형태로 맞는 것은?","ans":0,"options":["환경(E)·사회(S)·지배구조(G) 영역별 등급과 이를 종합한 통합등급을 함께 준다 (예: 환경 A+, 사회 A+, 통합 A)","통합등급 하나만 주고 영역별 등급은 없다","지배구조 등급만 준다","영역별 등급의 평균을 올림해서 통합등급을 정한다는 공식이 공개되어 있다"],"why":"2025년 평가 결과 보도에서 HDC현대산업개발은 환경 A+, 사회 A+, 통합 A를, 카카오게임즈는 환경 A, 사회 A+, 지배구조 A, 통합 A를 받았다. 이처럼 KCGS는 영역별 등급과 통합등급을 나눠서 준다. 영역 등급이 높아도 통합등급이 더 낮을 수 있다.","trap":"영역 등급을 단순 평균하면 통합등급이 나온다고 생각하기 쉽다. 위 예처럼 E·S가 A+여도 통합은 A일 수 있으니, 약한 영역(특히 기준이 강화된 지배구조)을 따로 점검해야 한다. 수치는 2025년 평가 기준 언론 보도이며, 2026년 결과가 나오면 KCGS 공표 자료로 다시 확인하자.","sources":[{"label":"한국경제: HDC현산 한국ESG기준원 통합 A (2025.11)","url":"https://www.hankyung.com/article/2025112411036"},{"label":"디지털데일리: 카카오게임즈 KCGS 통합 A (2025.11)","url":"https://m.ddaily.co.kr/page/view/2025112016595303858"},{"label":"스마트투데이: 한국ESG기준원 2025년 ESG 통합등급 (2025.11)","url":"https://www.smarttoday.co.kr/ko-kr/articles/96658"}],"confidence":"medium","refFull":"한국ESG기준원(KCGS) ESG 평가 (영역별 등급과 통합등급)"},{"id":"rt-13","module":"ratings","type":"judge","ref":"평가기관 지표 활용","topic":"평가지표와 중대성 평가","q":"현대자동차 보고서는 중대성 평가(중요한 주제를 고르는 과정)의 주제 후보를 고를 때 ESG 평가기관의 지표를 참고했다고 밝히고 있는가?","look":"16쪽 이중 중대성 평가 프로세스 중 '선별(Selection)' 단계와 Long List 선별 기준","page":16,"ans":"있음","quote":"지속가능성 공시 및 평가지표: SASB, MSCI, Sustainalytics 등","why":"16쪽은 39개 관련 주제를 고르는 '선별' 단계에서 ESRS, 회사 내부자료와 함께 '지속가능성 공시 및 평가 지표'를 활용했다고 쓰고, 그 예로 SASB(공시 기준)와 MSCI·Sustainalytics(평가기관)를 든다. 15쪽에서도 글로벌 ESG 평가기관과 정기적으로 소통(인게이지먼트)한다고 밝힌다. 평가기관이 무엇을 보는지가 회사의 중요 주제 선정에 들어간다는 뜻이다.","trap":"SASB와 MSCI를 같은 종류로 보면 안 된다. SASB는 무엇을 공시할지 정한 기준이고, MSCI·Sustainalytics는 기업을 점수로 평가하는 기관이다. 또 이 쪽은 현대자동차의 MSCI·Sustainalytics 등급 자체를 밝히지는 않는다.","sources":[{"label":"현대자동차 2026 지속가능성 보고서 p.16","url":"report"},{"label":"현대자동차 2026 지속가능성 보고서 p.15","url":"report"}],"confidence":"high","refFull":"평가기관 지표의 중대성 평가 활용 (MSCI·Sustainalytics)"}];
+const MAP=[{"topic":"Scope 1 온실가스 배출량","plain":"회사가 직접 연료를 태우거나 공정에서 내보내는 온실가스 양이다.","ifrs":"29(a)(i)(1)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"E1-6 ¶44(a), ¶48(a)(Scope 1 총량)·¶48(b)(배출권거래제 적용 비율)","gri":"305-1 (GRI 305: Emissions 2016) → GRI 102-5 (2027.1.1 시행)","sasb":"해당 없음","cdp":"7.6","hyundai":{"page":38,"pageLabel":"p.38","fact":"2025년 Scope 1 720,642 tCO2-eq (2024년 729,974), 운영통제 기준·기준연도 2024년"},"diff":"ESRS는 Scope 1 중 배출권거래제 적용 비율과 연결범위 밖 운영통제 배출까지 따로 요구하지만, IFRS S2·GRI는 GHG 프로토콜 총량 중심이다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"}],"key":"scope1","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 배출량 공시가 E1-8로 이동, Scope 1 ETS 비율은 EU ETS로 한정","short":null},{"topic":"Scope 2 온실가스 배출량(지역 기반/시장 기반)","plain":"회사가 사서 쓴 전기·열을 만들 때 나온 온실가스 양으로, 지역 평균값(지역 기반)과 실제 구매 계약값(시장 기반) 두 가지로 계산한다.","ifrs":"29(a)(i)(2), 29(a)(v)(지역 기반 + 계약상 수단 정보)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"E1-6 ¶44(b), ¶49(a) 지역 기반·¶49(b) 시장 기반, ¶52 합계(두 기준 각각)","gri":"305-2 → GRI 102-6 (지역 기반 필수, 해당 시 시장 기반)","sasb":"해당 없음","cdp":"7.7 (7.10.2에서 성과 계산 기준이 지역/시장 기반인지 표시)","hyundai":{"page":38,"pageLabel":"p.38","fact":"2025년 Scope 2 지역 기반 1,858,897 t, 시장 기반 1,190,442 t (2024년 1,786,324 / 1,468,432)"},"diff":"IFRS S2는 지역 기반만 필수이고 시장 기반은 선택(계약 정보는 공시)인데, ESRS는 두 기준을 모두 필수로 요구한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"}],"key":"scope2","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 배출량 공시가 E1-8로 이동, 총배출량·매출 대비 집약도 항목 삭제 (Scope 2 두 기준 유지 여부 미확인)","short":null},{"topic":"Scope 3 온실가스 배출량","plain":"원료 구매부터 판매한 차의 운행·폐기까지, 회사 밖 가치사슬 전체에서 나오는 온실가스 양이다.","ifrs":"29(a)(i)(3), 29(a)(vi)(포함 카테고리; (2)는 금융배출량)","kssb":"IFRS S2와 같은 구조 (확인 필요); 금융위 로드맵: Scope 3 공시 3년 유예","esrs":"E1-6 ¶44(c), ¶51(유의적 카테고리별), AR46(포함·제외 카테고리)","gri":"305-3 → GRI 102-7","sasb":"해당 없음 (관련: TR-AU-410a.1 판매가중 평균 연비, TR-AU-410a.2 ZEV·HEV·PHEV 판매대수)","cdp":"7.8","hyundai":{"page":38,"pageLabel":"p.38","fact":"2025년 Scope 3 199,704,253 t (2024년 203,863,854); Category 11(판매 제품 사용)을 Well-to-Wheel로 확대, Cat.4·10·14 신규 산정"},"diff":"ESRS는 포함·제외 카테고리와 그 이유를 목록으로 요구하고, IFRS S2는 측정 프레임워크와 실무상 불가능 시 면제(B57)를 두며, 금융위원회 로드맵은 국내 Scope 3 공시를 3년 유예한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"경향신문 기고(KSSB 최종안·Scope 3 유예, 2026.8.5)","url":"https://www.khan.co.kr/article/202608051959005/amp"},{"label":"금융위원회 지속가능성 공시 제도화 방안 최종안 (2026.7.8)","url":"https://www.fsc.go.kr/po010101/87280"}],"key":"scope3","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): E1-8로 이동, 유의적 카테고리별 별도 보고경계 항목 삭제","short":{"ifrs":"29(a)(vi) 카테고리 명시","kssb":"Scope 3 공시 3년 유예","esrs":"E1-6 ¶51 → 개정 E1-8","gri":"305-3 → 102-7 (2027~)","cdp":"질문 7.8"}},{"topic":"온실가스 감축 목표","plain":"언제까지 배출량을 얼마나 줄이겠다는 회사의 약속과 그 진행 상황이다.","ifrs":"33–36 (GHG 목표는 36, 탄소크레딧 사용 계획 36(e))","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"E1-4 ¶30, ¶33–34 (ESRS 2 MDR-T ¶79–80)","gri":"305-5(감축 실적) → GRI 102-4 (감축 목표와 진척)","sasb":"해당 없음 (TR-AU-410a.3 전략 논의에서 연비·배출 목표를 선택적으로 언급 가능)","cdp":"7.53 / 7.53.1(절대 목표), 7.54.3(넷제로 목표)","hyundai":{"page":40,"pageLabel":"p.40","fact":"Scope 1+2: 2024년 대비 2030년까지 약 42% 감축, Scope 3 Cat.11: 2035년까지 63% 감축(모두 SBTi 승인), 2045년 전 밸류체인 탄소중립"},"diff":"ESRS는 탄소크레딧·제거량을 빼기 전 총량 기준 절대 목표를 요구하지만, IFRS S2는 순(net) 목표도 허용하고 크레딧 사용 계획만 공시하게 한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"EY: EFRAG 간소화 ESRS 요약(2026.1)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"},{"label":"IBR-IRE: 집행위 최종 위임법 vs EFRAG 비교","url":"https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"}],"key":"targets","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 총량(gross) 절대 목표 유지, 넷제로 목표는 E1-6로 이동, 목표 기간 규정·5년 갱신 요건 삭제(EFRAG 기술자문 기준)","short":null},{"topic":"기후 전환 계획","plain":"저탄소 경제로 바뀌는 흐름에 맞춰 회사가 사업과 투자를 어떻게 바꿀지 담은 실행 계획이다.","ifrs":"14(a)(iv) (핵심 가정·의존성 포함), 14(a)(v)(목표 달성 계획)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"E1-1 ¶14, ¶16(a)–(j), ¶17(계획 없을 때), AR1–AR5","gri":"GRI 102-1 (기후변화 완화 전환계획)","sasb":"해당 없음 (가장 가까운 항목: TR-AU-410a.3 연비·배출 위험·기회 관리 전략 논의)","cdp":"5.2 (관련: 5.3.1, 5.3.2, 7.53.1)","hyundai":{"page":24,"pageLabel":"pp.24–33 (요약 KPI p.20)","fact":"ZERO 에너지 팩토리(2021–2030년 1,112억 원 투자), 2045년 RE100, 전동화 전환(2030년 전동화 차량 330만 대·판매비중 60% 목표, p.20)"},"diff":"ESRS는 전환계획 유무와 1.5°C 정합성 설명을 명시적으로 요구하지만, IFRS S2는 '계획이 있다면' 그 내용을 공시하게 한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"IBR-IRE: 집행위 최종 위임법 vs EFRAG 비교","url":"https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"},{"label":"GRI 102와 IFRS S2 동시 보고 성명(globalreporting.org)","url":"https://globalreporting.org/media/swwndqbn/gri-102-and-ifrs-s2-statement-on-reporting-on-both-standards-and-equivalence.pdf"}],"key":"transition","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): E1-1 유지, 1.5°C 비정합 시 설명 의무 추가(위임법 ¶12(a)), 고착 배출(locked-in) 가이던스 삭제","short":null},{"topic":"기후 시나리오 분석 / 회복력","plain":"온도가 1.5°C 또는 4°C 오르는 등 여러 미래를 가정해 회사 전략이 버틸 수 있는지 시험해 보는 분석이다.","ifrs":"22 (22(a) 회복력 평가, 22(b) 시나리오 분석 방법·시점)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"ESRS 2 SBM-3 관련 E1 ¶19(회복력), IRO-1 관련 E1 ¶20–21(시나리오 분석), AR6–AR13","gri":"GRI 102-1-b(전환계획에 쓴 시나리오 출처), 102-2-b-ii(적응계획 시나리오)","sasb":"해당 없음","cdp":"5.1, 5.1.1, 5.1.2","hyundai":{"page":34,"pageLabel":"pp.34–35","fact":"전환: IEA NZE·APS·STEPS·CPS (2035년 배출부채 959억~3,318억 원), 물리: SSP1-2.6/5-8.5로 32개 사업장 분석, 2030년 연간 손실 약 2,200억~3,000억 원"},"diff":"IFRS S2는 시나리오 분석을 반드시 하라고 하지만, 간소화 ESRS는 분석을 했을 때만 공시하고 대신 고배출·1.5°C 시나리오 사용 여부를 밝히게 한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"EY: EFRAG 간소화 ESRS 요약(2026.1)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"},{"label":"EFRAG 간소화 ESRS 페이지","url":"https://www.efrag.org/en/draft-simplified-esrs"}],"key":"scenario","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): E1-2(위험 식별·시나리오 분석)·E1-3(회복력)로 신설, 시나리오 분석은 수행한 경우에만 공시(EFRAG 기술자문 기준)","short":null},{"topic":"내부 탄소 가격","plain":"회사가 투자·사업 결정을 할 때 온실가스 1톤에 스스로 매기는 가상의 가격이다.","ifrs":"29(f) (의사결정 적용 방식, 톤당 가격)","kssb":"IFRS S2와 같은 구조 (확인 필요); 톤당 내부탄소가격은 선택공시 항목","esrs":"E1-8 ¶62–63 (63(a) 유형, 63(c) 가정, 63(d) 적용 배출량)","gri":"GRI 102-1-e 가이던스(권고: 내부탄소가격 운영 여부·톤당 가격) — 필수 요건 아님","sasb":"해당 없음","cdp":"5.10, 5.10.1","hyundai":{"page":41,"pageLabel":"p.41","fact":"Scope 1·2 대상 Shadow Price 방식, 사업장 지역 ETS 가격 기반 USD 7~84/tCO2-eq 차등 적용"},"diff":"IFRS S2·ESRS는 필수 공시지만, KSSB는 톤당 가격을 선택공시로 두고 GRI는 권고(가이던스)에 그친다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"법무법인 태평양(BKL) 뉴스레터 — KSSB 선택공시 항목","url":"https://www.bkl.co.kr/law/insight/newsletter/6643"}],"key":"icp","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 공시 내용 간소화(의사결정 활용·손상검사 가격과의 일관성·톤당 가격), 새 DR 번호","short":null},{"topic":"기후 연계 경영진 보상","plain":"경영진의 보너스나 연봉이 기후 목표 달성 정도와 얼마나 연결되어 있는지다.","ifrs":"29(g)(i) 반영 여부·방법, 29(g)(ii) 연계된 보상 비율(%)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"ESRS 2 GOV-3 ¶29 + E1 ¶13 (보상 비율, GHG 목표 대비 평가 여부)","gri":"GRI 2-19 (보상 정책); GRI 102-1-d 가이던스에서 2-19 참조","sasb":"해당 없음","cdp":"4.5, 4.5.1","hyundai":{"page":23,"pageLabel":"p.23","fact":"CEO·권역본부장·공장장 KPI에 탄소중립 이행률·RE100 달성률·Scope 3 데이터 관리 등 포함, 상여금 산정에 반영; 보상 연계 비율(%)은 공시 안 함"},"diff":"IFRS S2·ESRS(2023)는 기후와 연계된 보상의 비율(%)까지 요구하는데, GRI는 보상 정책 설명 위주라 현대차처럼 비율 없이 KPI만 밝히면 IFRS S2 29(g)(ii)에는 부족한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"EY: EFRAG 간소화 ESRS 요약(2026.1)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"}],"key":"pay","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 인센티브 DR 삭제, ESRS 2 GOV-2로 통합(EFRAG 기술자문 기준)","short":null}];
+const PDF="https://www.hyundai.com/content/dam/hyundai/kr/ko/data/company-report/2026/07/15/hmc-sr-kor-2026.pdf";
+const KEY="cd-drill-v1";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=(n,d)=>Number(n).toLocaleString("ko-KR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const NS="http://www.w3.org/2000/svg";
+const MOD=Object.fromEntries(MODS.map(m=>[m.id,m]));
+const TYPE={judge:"판정",mc:"개념",calc:"계산"};
+const RANK={"없음":0,"일부":1,"있음":2};
+
+let S={a:{}};
+try{const r=localStorage.getItem(KEY);if(r){const o=JSON.parse(r);S.a=o.a||{};
+  // 이전 버전(IFRS S2 단일 연습장) 기록 옮기기
+  for(const k in (o.j||{}))if(!S.a["ifrs-"+k])S.a["ifrs-"+k]=o.j[k];
+  for(const k in (o.c||{}))if(!S.a["ifrs-"+k])S.a["ifrs-"+k]=o.c[k];}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a}))}catch(e){}}
+
+let view="home",mod="ifrs",cur={},ftype="all",draft={},mapTopic=0,recSrc="me",author=null,artifactNS=null,canEdit=false,arm=false;
+MODS.forEach(m=>cur[m.id]=0);
+
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2600)}
+const items=m=>ITEMS.filter(x=>x.module===m);
+const listFor=m=>items(m).filter(x=>ftype==="all"||x.type===ftype);
+function stat(list,rec){rec=rec||S.a;const d=list.filter(x=>rec[x.id]);const o=d.filter(x=>rec[x.id].ok);return {n:list.length,d:d.length,o:o.length}}
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function tx(p,x,y,s,a={}){const e=el("text",Object.assign({x,y},a),p);e.style.fill=a.fill||css("--muted");e.textContent=s;return e}
+function ring(p,col){const r=17,c=2*Math.PI*r;return `<svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="${r}" fill="none" stroke="var(--bg3)" stroke-width="4"/><circle cx="22" cy="22" r="${r}" fill="none" stroke="${col}" stroke-width="4" stroke-linecap="round" stroke-dasharray="${c*p} ${c}" transform="rotate(-90 22 22)"/><text x="22" y="26" text-anchor="middle">${Math.round(p*100)}</text></svg>`}
+function srcLink(s,page){if(s.url==="report")return `<a href="${PDF}#page=${(String(s.label).match(/p\.(\d+)/)||[])[1]||page||1}" target="_blank" rel="noopener">${esc(s.label)}</a>`;return `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`}
+
+/* ---------- HOME ---------- */
+function drawPrism(){
+  const s=$("#prism");s.innerHTML="";
+  const t=MAP.find(x=>x.key==="scope3")||MAP[2];
+  const sh=t.short||{};const rays=[["ifrs","IFRS S2",sh.ifrs||t.ifrs],["kssb","KSSB",sh.kssb||t.kssb],["esrs","ESRS",sh.esrs||t.esrs],["gri-sasb","GRI",sh.gri||t.gri],["ratings","CDP",sh.cdp||t.cdp]];
+  const W=640,cx=250,cy=200;
+  // input beam
+  el("rect",{x:0,y:150,width:150,height:100,rx:10,fill:"#17222e",stroke:"#2a3846"},s);
+  tx(s,14,176,"현대차 Scope 3 (FY2025)",{fill:"#93a1b0","font-size":"12"});
+  tx(s,14,206,"199,704,253",{fill:"#ffffff","font-size":"22","font-weight":"700","font-family":"IBM Plex Mono"});
+  tx(s,14,230,"tCO₂eq · 보고서 p.38",{fill:"#93a1b0","font-size":"12"});
+  el("line",{x1:150,y1:200,x2:cx-30,y2:200,stroke:"#ffe27a","stroke-width":3},s);
+  el("path",{d:`M${cx-36},${cy+56} L${cx},${cy-62} L${cx+36},${cy+56} Z`,fill:"rgba(255,255,255,.06)",stroke:"#cfd8e2","stroke-width":1.5},s);
+  rays.forEach(([m,name,ref],i)=>{
+    const y=26+i*78,x2=W-196;
+    const len=Math.hypot(x2-(cx+8),y+24-cy)+20;
+    const r=el("path",{class:"ray",d:`M${cx+8},${cy} L${x2},${y+24}`,stroke:css("--m-"+m),"stroke-width":2.5,fill:"none",style:`--len:${len};--i:${i}`},s);
+    const g=el("g",{class:"lab",style:`--i:${i}`},s);
+    el("rect",{x:x2,y:y,width:196,height:48,rx:9,fill:"#17222e",stroke:css("--m-"+m),"stroke-width":1.2},g);
+    el("circle",{cx:x2+15,cy:y+17,r:4.5,fill:css("--m-"+m)},g);
+    tx(g,x2+27,y+21,name,{fill:"#eef2f6","font-size":"14","font-weight":"700"});
+    tx(g,x2+14,y+39,clip(clean(ref),22),{fill:"#b5c2cf","font-size":"12.5"});
+  });
+  $("#heroList").innerHTML=rays.map(([m,name,ref])=>`<div style="display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid #2a3846;border-radius:8px"><span class="dot" style="background:var(--m-${m})"></span><b style="font-size:13px">${name}</b><span class="mono" style="font-size:12px;color:#93a1b0">${esc(clean(ref))}</span></div>`).join("");
+}
+const clean=s=>String(s||"").replace(/\s*\(미확인\)/g,"");
+const clip=(s,n)=>s.length>n?s.slice(0,n-1)+"…":s;
+function heroStats(){
+  const pages=new Set(ITEMS.filter(x=>x.page).map(x=>x.page));
+  const srcs=new Set();ITEMS.forEach(x=>(x.sources||[]).forEach(s=>{if(s.url!=="report")srcs.add(s.url)}));
+  $("#heroStats").innerHTML=`<div><b><span class="cnt" data-n="${ITEMS.length}">${ITEMS.length}</span></b><span>문항 (판정 ${ITEMS.filter(x=>x.type==="judge").length} · 개념 ${ITEMS.filter(x=>x.type==="mc").length} · 계산 ${ITEMS.filter(x=>x.type==="calc").length})</span></div>
+  <div><b>${MODS.length}</b><span>기준 모듈</span></div><div><b><span class="cnt" data-n="${pages.size}">${pages.size}</span></b><span>근거로 쓴 원문 쪽</span></div><div><b><span class="cnt" data-n="${srcs.size}">${srcs.size}</span></b><span>대조한 공식·공개 자료</span></div>`;
+}
+function modsView(){
+  $("#mods").innerHTML=MODS.map(m=>{const st=stat(items(m.id));const its=items(m.id);
+    return `<button class="mod" type="button" data-m="${m.id}"><span class="bar" style="background:var(--m-${m.id})"></span>
+    <span class="nm"><span class="dot" style="background:var(--m-${m.id})"></span>${esc(m.name)}</span><span class="who">${esc(m.who)}</span>
+    <p>${esc(m.desc)}</p>
+    <span class="ft"><span class="cnt">${["judge","mc","calc"].map(t=>{const n=its.filter(x=>x.type===t).length;return n?TYPE[t]+" "+n:""}).filter(Boolean).join(" · ")}</span>${ring(st.n?st.d/st.n:0,`var(--m-${m.id})`)}</span></button>`}).join("");
+  document.querySelectorAll(".mod").forEach(b=>b.onclick=()=>{mod=b.dataset.m;ftype="all";go("practice")});
+}
+function spectrum(){
+  const s=$("#spectrum");s.innerHTML="";const L=150,R=950,y0=60;
+  tx(s,L,24,"재무 중대성",{fill:css("--ink"),"font-size":"13","font-weight":"700"});
+  tx(s,L,42,"기후가 회사에 미치는 영향 · 투자자",{"font-size":"12"});
+  tx(s,R,24,"영향 중대성",{fill:css("--ink"),"font-size":"13","font-weight":"700","text-anchor":"end"});
+  tx(s,R,42,"회사가 사회·환경에 미치는 영향 · 다중 이해관계자",{"font-size":"12","text-anchor":"end"});
+  const g=el("defs",{},s);const lg=el("linearGradient",{id:"sg",x1:"0",x2:"1"},g);
+  el("stop",{offset:"0","stop-color":css("--m-ifrs")},lg);el("stop",{offset:"1","stop-color":css("--m-esrs")},lg);
+  el("rect",{x:L,y:y0,width:R-L,height:4,rx:2,fill:"url(#sg)",opacity:.5},s);
+  const rows=[["공시 기준",[["IFRS S2","ifrs",0,.18],["KSSB 제2호","kssb",0,.18],["SASB","gri-sasb",.02,.22],["ESRS E1","esrs",0,1],["GRI","gri-sasb",.78,1]]],["ESG 평가",[["CDP","ratings",.05,.55],["S&P CSA","ratings",0,.45],["EcoVadis","ratings",.45,1],["KCGS","ratings",.3,.8]]]];
+  let y=y0+34;
+  rows.forEach(([lab,list])=>{
+    tx(s,0,y+16,lab,{fill:css("--ink2"),"font-size":"13","font-weight":"700"});
+    list.forEach(([n,m,a,b],i)=>{const yy=y+i*0;const x1=L+(R-L)*a,x2=L+(R-L)*b;
+      const row=y+ (i%2)*0;
+    });
+    // stack rows
+    list.forEach(([n,m,a,b],i)=>{const yy=y+i*24;const x1=L+(R-L)*a,x2=L+(R-L)*b;
+      const r=el("rect",{x:x1,y:yy,width:Math.max(x2-x1,60),height:18,rx:9,fill:css("--m-"+m),opacity:.22},s);
+      el("rect",{x:x1,y:yy,width:4,height:18,rx:2,fill:css("--m-"+m)},s);
+      tx(s,x1+10,yy+13,n,{fill:css("--ink"),"font-size":"12","font-weight":"600"});
+    });
+    y+=list.length*24+22;
+  });
+  tx(s,L,y+4,"막대 길이는 각 기준이 다루는 관점의 범위를 나타낸 개념도이며, 정량 측정값이 아니다.",{"font-size":"11.5"});
+  s.setAttribute("viewBox",`0 0 980 ${y+14}`);
+}
+const TWIST=[
+ {n:"7−6",u:"",t:"보고서는 6대 온실가스만 센다",d:"IFRS S2는 삼불화질소(NF3)까지 7대 온실가스를 요구한다. 보고서는 6대로 적었다.",so:"IFRS S2 부록 A · 보고서 p.38",m:"ifrs",go:{mod:"ifrs",id:"ifrs-j2"}},
+ {n:"99.98",u:"%",t:"재생에너지 효과는 거의 전부 해외에서 났다",d:"Scope 2 지역·시장 기반 차이 668,455 t 중 국내 몫은 127 t뿐이다.",so:"보고서 p.158, p.160",m:"ifrs",go:{mod:"ifrs",id:"ifrs-c5"}},
+ {n:"81",u:"%",t:"판매 차량 배출은 목표 속도의 81%로 줄고 있다",d:"Category 11은 2035년 −63%까지 직선으로 갈 때 필요한 연간 감축량의 81%만 줄었다.",so:"보고서 p.38, p.40",m:"ifrs",go:{mod:"ifrs",id:"ifrs-c6"}},
+ {n:"0",u:"%",t:"보상 연동 비율은 숫자가 없다",d:"경영진 KPI에 기후 목표가 들어 있지만, IFRS S2 29(g)(ii)가 묻는 비율(%)은 '연봉의 일정 비율'이라고만 적혀 있다.",so:"IFRS S2 29(g) · 보고서 p.23",m:"kssb",go:{mod:"ifrs",id:"ifrs-j11"}},
+ {n:"82",u:"%",t:"합리적 보증은 배출량의 82%만 받았다",d:"국내 Scope 1·2(1,564,218 t)만 합리적 보증이고, 해외와 Scope 3 전체는 제한적 보증이다.",so:"보고서 p.157, p.159",m:"ratings",go:{mod:"ifrs",id:"ifrs-j17"}}];
+function twist(){
+  $("#twist").innerHTML=TWIST.map((t,i)=>`<div class="rv d${i}"><span class="big" style="color:var(--m-${t.m})"><span class="cnt" data-n="${t.n}">${t.n}</span><small>${t.u}</small></span><h3>${esc(t.t)}</h3><p>${esc(t.d)}</p><span class="so"><b>근거</b> ${esc(t.so)}</span><a href="#practice" data-mod="${t.go.mod}" data-id="${t.go.id}">이 문제 풀기 →</a></div>`).join("");
+  document.querySelectorAll("#twist a").forEach(a=>a.onclick=e=>{e.preventDefault();jumpTo(a.dataset.mod,a.dataset.id)});
+}
+function jumpTo(m,id){mod=m;ftype="all";const idx=items(m).findIndex(x=>x.id===id);cur[m]=idx<0?0:idx;draft={};go("practice")}
+function countUp(root){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  root.querySelectorAll(".cnt[data-n]").forEach(el=>{const raw=el.dataset.n;const num=parseFloat(raw.replace(/[^0-9.]/g,""));if(isNaN(num)||/−|-/.test(raw))return;
+    const dec=(raw.split(".")[1]||"").length,t0=performance.now(),dur=900;
+    const f=now=>{const k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=(num*e).toFixed(dec);if(k<1)requestAnimationFrame(f);else el.textContent=raw};requestAnimationFrame(f)});
+}
+function clock(){
+  const s=$("#clock");s.innerHTML="";const L=120,R=985,x=d=>L+(d-2025.4)/6.1*(R-L);
+  for(let y=2026;y<=2031;y++){el("line",{x1:x(y),x2:x(y),y1:44,y2:320,stroke:css("--rule")},s);tx(s,x(y)+6,36,y,{fill:css("--ink2"),"font-weight":"700","font-size":"13"})}
+  const now=2026+(9.7/12);el("line",{x1:x(now),x2:x(now),y1:44,y2:320,stroke:css("--ink"),"stroke-dasharray":"3 4"},s);const tb=el("rect",{x:x(now)-44,y:44,width:88,height:20,rx:10,fill:css("--ink")},s);tx(s,x(now),58,"오늘 · 2026.10",{fill:css("--bg"),"font-size":"11.5","font-weight":"700","text-anchor":"middle"});
+  const rows=[["kssb","KSSB · 한국",[[2026.15,"기준 확정",0],[2026.52,"금융위 최종안",0],[2028.2,"첫 의무공시 (FY2027)",1],[2030,"인증 의무",1],[2031.1,"Scope 3 유예 종료",0]]],
+   ["ifrs","IFRS S2",[[2025.95,"GHG 공시 개정 발표",0],[2027.25,"개정 적용 시작 (2027.1~)",1]]],
+   ["esrs","ESRS · EU",[[2026.2,"옴니버스 발효",0],[2026.5,"개정 ESRS 채택",0],[2027.4,"개정 ESRS 의무 (FY2027)",1]]],
+   ["gri-sasb","GRI · SASB",[[2025.45,"GRI 102·103 발표",0],[2027.05,"GRI 102 시행",1]]],
+   ["ratings","ESG 평가",[[2026.4,"CDP 질문서 (매년)",0],[2026.9,"KCGS 결과 (매년 11월)",0]]]];
+  rows.forEach(([m,name,ev],ri)=>{const y=96+ri*52;const c=css("--m-"+m);
+    tx(s,0,y+4,name,{fill:css("--ink"),"font-weight":"700","font-size":"13","text-anchor":"start"});
+    el("line",{x1:L,x2:R,y1:y,y2:y,stroke:c,"stroke-width":2,opacity:.35},s);
+    ev.forEach(([d,l,big],i)=>{const xx=x(d);
+      if(big)el("circle",{cx:xx,cy:y,r:7,fill:c,class:"pulse"},s);
+      el("circle",{cx:xx,cy:y,r:big?6:4,fill:big?c:css("--bg"),stroke:c,"stroke-width":2},s);
+      const up=(i+ri)%2===0;const anc=xx<L+40?"start":"middle";tx(s,anc==="start"?xx-6:xx,up?y-14:y+23,l,{fill:big?css("--ink"):css("--ink2"),"font-size":big?"12":"11.5","font-weight":big?"700":"400","text-anchor":anc});
+    });
+  });
+}
+let revealObs=null;
+function reveal(){
+  if(!("IntersectionObserver" in window))return;
+  if(!revealObs)revealObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");if(e.target.id==="twist"||e.target.closest("#twist"))countUp($("#twist"));if(e.target.id==="heroStats")countUp(e.target);revealObs.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll(".rv:not(.in)").forEach(n=>revealObs.observe(n));
+}
+function theme(){
+  const r=document.documentElement,cur=r.getAttribute("data-theme");
+  const dark=cur?cur==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+  r.setAttribute("data-theme",dark?"light":"dark");try{localStorage.setItem("cd-theme",dark?"light":"dark")}catch(e){}
+}
+$("#tog").onclick=theme;
+try{const t=localStorage.getItem("cd-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}
+/* ---------- MAP ---------- */
+const FW=[["ifrs","IFRS S2","ifrs"],["kssb","KSSB 제2호","kssb"],["esrs","ESRS E1","esrs"],["gri","GRI","gri-sasb"],["sasb","SASB 자동차","gri-sasb"],["cdp","CDP","ratings"]];
+const isNA=v=>/해당 없음|없음$/.test(String(v||""));
+function mapDetail(t,compact){
+  const T=MAP[t];
+  return `<div class="topics" role="group" aria-label="공시 주제">${MAP.map((x,i)=>`<button class="chip" type="button" data-t="${i}" aria-pressed="${i===t}">${esc(x.topic)}</button>`).join("")}</div>
+  <div class="mapfact"><span class="lb">현대차 FY2025</span><span class="v">${esc(T.hyundai.fact)}</span><a href="${PDF}#page=${T.hyundai.page}" target="_blank" rel="noopener" style="font-size:13px">보고서 ${esc(String(T.hyundai.pageLabel||T.hyundai.page).replace(/^p+\.?/,""))}쪽 열기 ↗</a><p>${esc(T.plain)}</p></div>
+  <div class="fwgrid">${FW.filter(f=>!compact||f[0]!=="sasb").map(([k,n,m])=>{const v=T[k]||"";const na=isNA(v);const unv=/미확인|확인 필요/.test(v);
+    return `<div class="fw ${na?"na":""}"><span class="h"><span class="dot" style="background:var(--m-${m})"></span>${n}</span><span class="ref">${esc(clean(v).replace(/\s*\(?확인 필요\)?/,""))}</span>${unv?`<span class="unv">확인 필요</span>`:""}${k==="esrs"&&T.esrsNote?`<span class="unv">${esc(T.esrsNote)}</span>`:""}</div>`}).join("")}</div>
+  <div class="diff"><b>가장 큰 차이</b>${esc(T.diff)}</div>`;
+}
+function mapView(){
+  $("#mapMini").innerHTML=mapDetail(mapTopic,true);
+  $("#mapFull").innerHTML=mapDetail(mapTopic,false);
+  document.querySelectorAll("#mapMini .chip,#mapFull .chip").forEach(b=>b.onclick=()=>{mapTopic=+b.dataset.t;mapView()});
+  $("#matrix").innerHTML=`<table><thead><tr><th>주제</th>${FW.map(f=>`<th><span class="dot" style="background:var(--m-${f[2]});margin-right:6px"></span>${f[1]}</th>`).join("")}</tr></thead><tbody>${MAP.map((T,i)=>`<tr class="${i===mapTopic?"on":""}"><th>${esc(T.topic)}</th>${FW.map(([k])=>{const v=T[k]||"";return `<td class="${isNA(v)?"na":""}" data-t="${i}">${esc(clip(clean(v),26))}</td>`}).join("")}</tr>`).join("")}</tbody></table>`;
+  document.querySelectorAll("#matrix td").forEach(td=>td.onclick=()=>{mapTopic=+td.dataset.t;mapView();$("#mapFull").scrollIntoView({behavior:"smooth",block:"start"})});
+}
+/* ---------- PRACTICE ---------- */
+function ptabs(){
+  $("#ptabs").innerHTML=MODS.map(m=>{const st=stat(items(m.id));return `<button class="ptab" role="tab" type="button" data-m="${m.id}" aria-selected="${m.id===mod}"><span class="t"><span class="dot" style="background:var(--m-${m.id})"></span>${esc(m.name)}</span><span class="pb"><i style="width:${st.n?st.o/st.n*100:0}%;background:var(--good)"></i><i style="width:${st.n?(st.d-st.o)/st.n*100:0}%;background:var(--bad)"></i></span><span class="c">${st.d} / ${st.n} 풀이</span></button>`}).join("");
+  document.querySelectorAll(".ptab").forEach(b=>b.onclick=()=>{mod=b.dataset.m;ftype="all";draft={};renderPractice()});
+}
+function side(){
+  const L=listFor(mod);if(cur[mod]>=L.length)cur[mod]=0;
+  const types=["all",...["judge","mc","calc"].filter(t=>items(mod).some(x=>x.type===t))];
+  $("#side").innerHTML=`<span class="lb">문제 유형</span><div class="ftype">${types.map(t=>`<button class="chip" type="button" data-f="${t}" aria-pressed="${t===ftype}">${t==="all"?"전체":TYPE[t]}</button>`).join("")}</div>
+  <span class="lb">${esc(MOD[mod].name)} · ${L.length}문항</span>
+  <div class="grid">${L.map((x,i)=>{const r=S.a[x.id];return `<button type="button" class="${r?(r.ok?"ok":"bad"):""}" aria-current="${i===cur[mod]}" title="${esc(x.topic)}" aria-label="${i+1}번 ${esc(x.topic)}${r?(r.ok?", 맞음":", 틀림"):""}" data-i="${i}">${i+1}<span class="ty">${TYPE[x.type][0]}</span></button>`}).join("")}</div>
+  <div class="legend"><span><i style="background:var(--good-bg);border-color:var(--good)"></i>맞음</span><span><i style="background:var(--bad-bg);border-color:var(--bad)"></i>틀림</span><span><i></i>아직</span></div>
+  <p class="hint">칸 오른쪽 위 글자: 판·개·계 = 판정·개념·계산</p>`;
+  document.querySelectorAll("#side .ftype .chip").forEach(b=>b.onclick=()=>{ftype=b.dataset.f;cur[mod]=0;draft={};renderPractice()});
+  document.querySelectorAll("#side .grid button").forEach(b=>b.onclick=()=>{cur[mod]=+b.dataset.i;draft={};renderPractice()});
+}
+function parseNum(s){const v=String(s).replace(/[,\s%t원$]/g,"").replace(/[^0-9.\-]/g,"");return v===""||v==="-"||v==="."?NaN:Number(v)}
+function card(){
+  const L=listFor(mod),i=cur[mod],x=L[i];if(!x){$("#card").innerHTML=`<p class="empty">이 유형의 문제가 없다.</p>`;return}
+  const r=S.a[x.id],m=MOD[x.module];
+  let h=`<div class="meta"><span class="tag"><span class="dot" style="background:var(--m-${x.module})"></span>${esc(m.name)}</span><span class="tag ref" title="${esc(x.refFull||x.ref)}">${esc(x.ref)}</span><span class="tag">${TYPE[x.type]}</span><span class="qno">${i+1} / ${L.length}</span></div>
+  <h2 class="q">${esc(x.q)}</h2>`;
+  if(x.type==="judge")h+=`<div class="look"><span>어디를 볼까 · ${esc(x.look)}</span><a href="${PDF}#page=${x.page}" target="_blank" rel="noopener">${x.page}쪽 원문 열기 ↗</a></div>`;
+  if(x.type==="calc")h+=`<div class="given"><table><tbody>${x.given.map(g=>`<tr><td>${esc(g[0])}</td><td class="n">${esc(g[1])}</td><td class="p">${g[2]?esc(g[2]):""}</td></tr>`).join("")}</tbody></table></div>`;
+  if(x.type==="judge"){
+    const pick=r?r.pick:draft.pick;
+    h+=`<div class="choice" role="group" aria-label="판정">${[["있음","요구한 내용이 다 있음"],["일부","일부 요소가 빠짐"],["없음","찾을 수 없음"]].map(([v,d])=>`<button type="button" data-v="${v}" aria-pressed="${pick===v}" ${r?"disabled":""}>${v}<small>${d}</small></button>`).join("")}</div>`;
+  }
+  if(x.type==="mc"){
+    const pick=r?r.pick:draft.pick;
+    h+=`<div class="opts" role="group" aria-label="보기">${x.options.map((o,k)=>{let cls="",st="";if(r){if(k===x.ans){cls="right";st="정답"}else if(k===r.pick){cls="wrong";st="내 선택"}}
+      return `<button type="button" data-k="${k}" aria-pressed="${pick===k}" class="${cls}" ${r?"disabled":""}><span class="l">${"ABCD"[k]}</span><span>${esc(o)}</span><span class="st">${st}</span></button>`}).join("")}</div>`;
+  }
+  if(!r){
+    if(x.type==="calc")h+=`<div class="ansrow"><label class="f" for="ans">내 답<input type="text" id="ans" inputmode="decimal" autocomplete="off" value="${esc(draft.val||"")}" placeholder="숫자만"></label><span class="u">${esc(x.unit)}</span></div>`;
+    h+=`<label class="f" for="note">내 근거 한 줄 ${x.type==="judge"?"(원문에서 본 것)":"(왜 그렇게 생각했는지)"}<textarea id="note" placeholder="틀렸을 때 비교하기 좋게 짧게라도 적어 두자">${esc(draft.note||"")}</textarea></label>
+    <div class="actions"><button class="btn" type="button" id="check">답 확인</button>${x.type==="calc"?`<button class="btn line" type="button" id="give">풀이 먼저 보기</button>`:""}<span class="hint" id="hint"></span></div>`;
+  }else{
+    let verdict;
+    if(x.type==="judge")verdict=`내 판정 ${esc(r.pick)} · 정답 ${esc(x.ans)}`;
+    else if(x.type==="mc")verdict=`정답 ${"ABCD"[x.ans]}`;
+    else verdict=`${r.gave?"":"내 답 "+esc(r.val)+" "+esc(x.unit)+" · "}정답 ${fmt(x.ans,x.dec)} ${esc(x.unit)}`;
+    h+=`<div class="reveal"><div class="verdict ${r.ok?"ok":"bad"}"><b>${r.ok?"✓ 맞았다":r.gave?"풀이를 먼저 봤다":"✕ 다르게 봤다"}</b><span>${verdict}</span></div>
+    ${r.note?`<div class="mine">내 근거 · ${esc(r.note)}</div>`:""}
+    ${x.quote?`<div class="blk"><h4>${x.type==="judge"?"보고서 원문":"기준·출처 원문"}</h4><blockquote>${esc(x.quote)}${x.type==="judge"?`<cite>현대자동차 2026 지속가능성 보고서 ${x.page}쪽</cite>`:""}</blockquote></div>`:""}
+    ${x.steps?`<div class="blk"><h4>풀이</h4><ol class="sol">${x.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol></div>`:""}
+    <div class="blk"><h4>${x.type==="calc"?"이 숫자가 말해주는 것":"왜 이렇게 판정하나"}</h4><p>${esc(x.type==="calc"?x.insight:x.why)}</p></div>
+    ${x.trap?`<div class="blk trap"><h4>빠지기 쉬운 함정</h4><p>${esc(x.trap)}</p></div>`:""}
+    ${x.sources&&x.sources.length?`<div class="blk"><h4>출처</h4><div class="srcs">${x.sources.map(s=>srcLink(s,x.page)).join("")}</div></div>`:""}
+    <div class="actions"><button class="btn line sm" type="button" id="retry">다시 풀기</button></div></div>`;
+  }
+  h+=`<div class="navrow"><button class="btn line sm" type="button" id="prev" ${i===0?"disabled":""}>← 이전</button><button class="btn sm" type="button" id="next" ${i===L.length-1?"disabled":""}>다음 문제 →</button></div>`;
+  $("#card").innerHTML=h;
+  if(!r){
+    const note=$("#note");note.oninput=e=>draft.note=e.target.value;
+    document.querySelectorAll(".choice button").forEach(b=>b.onclick=()=>{draft.pick=b.dataset.v;card()});
+    document.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{draft.pick=+b.dataset.k;card()});
+    const inp=$("#ans");if(inp){inp.oninput=e=>draft.val=e.target.value;inp.onkeydown=e=>{if(e.key==="Enter")check()}}
+    const need=x.type==="calc"?"":(draft.pick===undefined?"먼저 답을 골라야 정답이 열린다.":"");
+    $("#hint").textContent=need;$("#check").disabled=!!need;
+    $("#check").onclick=check;
+    const g=$("#give");if(g)g.onclick=()=>{S.a[x.id]={ok:false,gave:true,val:"",note:(note.value||"").trim(),t:Date.now()};save();draft={};renderPractice()};
+    function check(){
+      const n=(note.value||"").trim();
+      if(x.type==="calc"){const v=parseNum(inp.value);if(isNaN(v)){toast("숫자를 입력해 줘");return}const vv=x.abs?Math.abs(v):v;S.a[x.id]={val:inp.value.trim(),ok:Math.abs(vv-x.ans)<=x.tol,note:n,t:Date.now()}}
+      else{if(draft.pick===undefined)return;S.a[x.id]={pick:draft.pick,ok:draft.pick===x.ans,note:n,t:Date.now()}}
+      save();draft={};renderPractice();
+    }
+  }else $("#retry").onclick=()=>{delete S.a[x.id];save();draft={};renderPractice()};
+  $("#prev").onclick=()=>{if(cur[mod]>0){cur[mod]--;draft={};renderPractice()}};
+  $("#next").onclick=()=>{if(cur[mod]<L.length-1){cur[mod]++;draft={};renderPractice();window.scrollTo({top:$("#ptabs").getBoundingClientRect().top+scrollY-80,behavior:"smooth"})}};
+}
+function renderPractice(){ptabs();side();card()}
+/* ---------- RECORD ---------- */
+function radar(rec){
+  const s=el("svg",{class:"radar",viewBox:"-150 -140 300 290",role:"img","aria-label":"모듈별 정답률"});
+  const n=MODS.length,R=100,ang=i=>-Math.PI/2+i*2*Math.PI/n,pt=(i,r)=>[Math.cos(ang(i))*r,Math.sin(ang(i))*r];
+  [.25,.5,.75,1].forEach(f=>el("polygon",{points:MODS.map((m,i)=>pt(i,R*f).join(",")).join(" "),fill:"none",stroke:css("--rule"),"stroke-width":1},s));
+  MODS.forEach((m,i)=>{const[x,y]=pt(i,R);el("line",{x1:0,y1:0,x2:x,y2:y,stroke:css("--rule")},s)});
+  const vals=MODS.map(m=>{const st=stat(items(m.id),rec);return st.d?st.o/st.d:0});
+  const cov=MODS.map(m=>{const st=stat(items(m.id),rec);return st.n?st.d/st.n:0});
+  el("polygon",{points:MODS.map((m,i)=>pt(i,R*cov[i]).join(",")).join(" "),fill:css("--muted"),"fill-opacity":.12,stroke:css("--muted"),"stroke-width":1.5,"stroke-dasharray":"4 3"},s);
+  el("polygon",{points:MODS.map((m,i)=>pt(i,R*vals[i]).join(",")).join(" "),fill:css("--m-ifrs"),"fill-opacity":.18,stroke:css("--m-ifrs"),"stroke-width":2},s);
+  MODS.forEach((m,i)=>{const[x,y]=pt(i,R*vals[i]);if(vals[i])el("circle",{cx:x,cy:y,r:4,fill:css("--m-ifrs"),stroke:css("--bg"),"stroke-width":2},s);
+    const[lx,ly]=pt(i,R+22);const t=tx(s,lx,ly+4,m.short,{fill:css("--ink"),"font-weight":"700","text-anchor":Math.abs(lx)<10?"middle":lx>0?"start":"end"});
+    tx(s,lx,ly+19,cov[i]?Math.round(vals[i]*100)+"%":"–",{fill:css("--ink2"),"font-family":"IBM Plex Mono","text-anchor":Math.abs(lx)<10?"middle":lx>0?"start":"end"});});
+  return s;
+}
+function recView(){
+  const rec=recSrc==="author"&&author?author.a:S.a;
+  const all=ITEMS.filter(x=>rec[x.id]);
+  $("#recTop").innerHTML=`<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+    ${author?`<div class="seg" role="group" aria-label="기록 선택"><button type="button" data-s="me" aria-pressed="${recSrc==="me"}">이 브라우저의 기록</button><button type="button" data-s="author" aria-pressed="${recSrc==="author"}">작성자 공개 기록</button></div>`:"<span></span>"}
+    ${canEdit&&recSrc==="me"?`<div class="owner"><span>작성자 모드 · 지금 기록을 포트폴리오에 공개 기록으로 저장할 수 있다.</span><button class="btn sm" type="button" id="pub">공개 기록으로 저장</button></div>`:""}</div>`;
+  document.querySelectorAll("#recTop .seg button").forEach(b=>b.onclick=()=>{recSrc=b.dataset.s;recView()});
+  const pb=$("#pub");if(pb)pb.onclick=publishRec;
+  if(!all.length){$("#recBody").innerHTML=`<div class="empty">아직 푼 문제가 없다. <a href="#practice">연습</a>에서 IFRS S2 1번부터 시작해 보자. 문제를 풀면 여기에 모듈별 정답률, 판정 경향, 다시 볼 함정 노트가 모인다.</div>`;return}
+  const ok=all.filter(x=>rec[x.id].ok).length;
+  const judged=all.filter(x=>x.type==="judge"&&!rec[x.id].ok);
+  const over=judged.filter(x=>RANK[rec[x.id].pick]>RANK[x.ans]).length,under=judged.length-over;
+  const wrong=all.filter(x=>!rec[x.id].ok).sort((a,b)=>(rec[b.id].t||0)-(rec[a.id].t||0));
+  $("#recBody").innerHTML=`<div class="rgrid">
+   <div class="panel"><h3>모듈별 정답률</h3><p class="sub">실선: 푼 문제 중 정답 비율 · 점선: 푼 비율</p><div id="radarBox"></div></div>
+   <div class="panel"><h3>진도</h3><p class="sub">전체 ${ITEMS.length}문항 중 ${all.length}문항, 정답 ${ok}개 (${Math.round(ok/all.length*100)}%)</p>
+    <div class="mbars">${MODS.map(m=>{const st=stat(items(m.id),rec);return `<div class="mbar"><span class="n"><span class="dot" style="background:var(--m-${m.id})"></span>${esc(m.short)}</span><span class="t" title="맞음 ${st.o} · 틀림 ${st.d-st.o} · 남음 ${st.n-st.d}"><i style="width:${st.o/st.n*100}%;background:var(--good)"></i><i style="width:${(st.d-st.o)/st.n*100}%;background:var(--bad)"></i></span><span class="v">${st.d}/${st.n}</span></div>`}).join("")}</div>
+    <div class="legend"><span><i style="background:var(--good);border-color:var(--good)"></i>맞음</span><span><i style="background:var(--bad);border-color:var(--bad)"></i>틀림</span><span><i style="background:var(--bg3)"></i>남음</span></div></div>
+   <div class="panel"><h3>판정 경향</h3><p class="sub">'있음·일부·없음' 판정에서 틀린 ${judged.length}문항의 방향</p>
+    <div class="lean"><div><b>${over}</b><span>정답보다 후하게 판정</span></div><div><b>${under}</b><span>정답보다 박하게 판정</span></div></div>
+    <p style="font-size:14px;color:var(--ink2)">${!judged.length?"판정 문제에서 틀린 게 아직 없다.":over>under?"설명이 길면 충족했다고 보는 경향이 보인다. 요구사항을 하위 항목으로 쪼개서 하나씩 확인해 보자.":under>over?"요구사항보다 더 많은 걸 기대하는 경향이 보인다. 기준이 실제로 요구하는 문장으로 돌아가 보자.":"후하게·박하게 틀린 횟수가 같다."}</p></div>
+   <div class="panel"><h3>다시 볼 함정 노트</h3><p class="sub">틀린 문제의 함정만 모았다. 면접 전에 훑어보기 좋다.</p>
+    <div class="notes">${wrong.length?wrong.slice(0,8).map(x=>`<div class="note"><div class="h"><span class="tag"><span class="dot" style="background:var(--m-${x.module})"></span>${esc(MOD[x.module].short)}</span><span class="tag ref">${esc(x.ref)}</span></div><p><b>${esc(x.topic)}</b> · ${esc(x.trap||x.insight||x.why)}</p>${recSrc==="me"?`<button type="button" data-id="${x.id}">다시 풀기 →</button>`:""}</div>`).join(""):`<p class="hint">틀린 문제가 없다.</p>`}</div></div>
+  </div>`;
+  $("#radarBox").appendChild(radar(rec));
+  document.querySelectorAll(".note button").forEach(b=>b.onclick=()=>{const x=ITEMS.find(y=>y.id===b.dataset.id);delete S.a[x.id];save();mod=x.module;ftype="all";cur[mod]=items(mod).indexOf(x);go("practice")});
+  if(recSrc==="me")$("#recBody").insertAdjacentHTML("beforeend",`<div class="actions" style="margin-top:20px"><button class="btn line sm" type="button" id="reset">${arm?"한 번 더 누르면 이 브라우저 기록이 지워진다":"이 브라우저 기록 지우기"}</button></div>`);
+  const rs=$("#reset");if(rs)rs.onclick=()=>{if(!arm){arm=true;recView();setTimeout(()=>{arm=false;if(view==="record")recView()},4000);return}arm=false;S.a={};save();toast("기록을 지웠다");recView()};
+}
+async function publishRec(){
+  if(!artifactNS)return;const b=$("#pub");b.disabled=true;b.textContent="저장 중…";
+  const a={};for(const k in S.a){const r=S.a[k];a[k]={ok:r.ok,pick:r.pick,val:r.val,gave:r.gave,note:r.note,t:r.t}}
+  const today=new Date();const d=today.getFullYear()+"-"+String(today.getMonth()+1).padStart(2,"0")+"-"+String(today.getDate()).padStart(2,"0");
+  try{await artifactNS.publish({"data/record.json":{content:JSON.stringify({updated:d,a}),contentType:"application/json"}});toast("공개 기록으로 저장했다. 보는 사람 화면에도 반영된다.")}
+  catch(e){const c=e&&e.code;
+    if(c==="conflict")toast("다른 곳에서 먼저 저장돼 새 버전을 불러온다. 이 브라우저 기록은 그대로 남아 있다.");
+    else if(["not_writer","not_granted","capability_disabled","consent_required","not_declared"].includes(c)){canEdit=false;toast("이 화면에서는 저장할 수 없다.");recView()}
+    else if(c==="rate_limited")toast("저장이 너무 잦다. 잠시 후 다시 눌러 줘.");
+    else toast("저장하지 못했다. 잠시 후 다시 시도해 줘.")}
+  finally{if($("#pub")){$("#pub").disabled=false;$("#pub").textContent="공개 기록으로 저장"}}
+}
+function authorStrip(){
+  if(!author||!Object.keys(author.a||{}).length){$("#authorStrip").hidden=true;return}
+  $("#authorStrip").hidden=false;const a=author.a,d=ITEMS.filter(x=>a[x.id]),o=d.filter(x=>a[x.id].ok);
+  const notes=d.filter(x=>a[x.id].note).slice(-3);
+  $("#authorSum").innerHTML=`<div class="rgrid"><div class="panel"><h3>${d.length}문항 풀이 · 정답 ${o.length}개</h3><p class="sub">마지막 저장 ${esc(author.updated||"")}</p><div class="mbars">${MODS.map(m=>{const st=stat(items(m.id),a);return `<div class="mbar"><span class="n"><span class="dot" style="background:var(--m-${m.id})"></span>${esc(m.short)}</span><span class="t"><i style="width:${st.o/st.n*100}%;background:var(--good)"></i><i style="width:${(st.d-st.o)/st.n*100}%;background:var(--bad)"></i></span><span class="v">${st.d}/${st.n}</span></div>`}).join("")}</div></div>
+  <div class="panel"><h3>작성자가 남긴 판단 근거</h3><div class="notes">${notes.length?notes.map(x=>`<div class="note"><div class="h"><span class="tag ref">${esc(x.ref)}</span></div><p>${esc(a[x.id].note)}</p></div>`).join(""):`<p class="hint">남긴 근거가 아직 없다.</p>`}</div><a class="btn line sm" href="#record" id="seeAuthor" style="align-self:flex-start">전체 기록 보기</a></div></div>`;
+  $("#seeAuthor").onclick=()=>{recSrc="author"};
+}
+/* ---------- ABOUT ---------- */
+function about(){
+  const m={};ITEMS.forEach(x=>(x.sources||[]).forEach(s=>{if(s.url!=="report"){(m[x.module]=m[x.module]||new Map()).set(s.url,s.label)}}));
+  $("#srcList").innerHTML=`<div class="sh" style="margin-bottom:12px"><span class="k">Sources</span><h2 style="font-size:22px">대조한 자료</h2></div><div class="credit">${MODS.map(md=>`<div><h3><span class="dot" style="background:var(--m-${md.id});margin-right:6px"></span>${esc(md.name)}</h3><ul>${[...(m[md.id]||new Map()).entries()].slice(0,10).map(([u,l])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a></li>`).join("")||"<li>현대자동차 보고서 원문</li>"}</ul></div>`).join("")}</div>`;
+}
+/* ---------- ROUTER ---------- */
+const VIEWS=["home","practice","map","record","about"];
+function go(v){if(location.hash!=="#"+v)location.hash=v;else route()}
+function route(){
+  const h=(location.hash||"").slice(1);view=VIEWS.includes(h)?h:"home";
+  VIEWS.forEach(k=>$("#v-"+k).hidden=k!==view);
+  document.querySelectorAll(".nav nav a").forEach(a=>a.setAttribute("aria-current",a.dataset.v===view?"page":"false"));
+  if(view==="home"){heroStats();twist();modsView();drawPrism();spectrum();clock();mapView();authorStrip()}
+  requestAnimationFrame(reveal);
+  if(view==="practice")renderPractice();
+  if(view==="map")mapView();
+  if(view==="record")recView();
+  if(view==="about")about();
+  window.scrollTo(0,0);
+}
+addEventListener("hashchange",route);
+route();
+(async function(){
+  try{const r=await fetch("data/record.json",{cache:"no-store"});if(r.ok){author=await r.json();if(view==="home")authorStrip();if(view==="record")recView()}}catch(e){}
+  try{if(window.claude&&claude.use){const[art,user]=await Promise.all([claude.use("artifact"),claude.use("user")]);if(art&&user&&await user.canEdit()){artifactNS=art;canEdit=true;if(view==="record")recView()}}}catch(e){}
+})();
+const redraw=()=>{if(view==="home"){drawPrism();spectrum();clock()}if(view==="record")recView()};
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",redraw);
+new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+</script>

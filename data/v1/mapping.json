@@ -1,0 +1,402 @@
+[
+ {
+  "topic": "Scope 1 온실가스 배출량",
+  "plain": "회사가 직접 연료를 태우거나 공정에서 내보내는 온실가스 양이에요.",
+  "ifrs": "29(a)(i)(1)",
+  "kssb": "IFRS S2와 동일 구조(문단 번호 확인 필요)",
+  "esrs": "E1-6 ¶44(a), ¶48(a)(Scope 1 총량)·¶48(b)(배출권거래제 적용 비율) / 간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 배출량 공시가 E1-8로 이동, Scope 1 ETS 비율은 EU ETS로 한정",
+  "gri": "305-1 (GRI 305: Emissions 2016) → GRI 102-5 (2027.1.1 시행)",
+  "sasb": "해당 없음",
+  "cdp": "7.6",
+  "hyundai": {
+   "page": "p.38",
+   "fact": "2025년 Scope 1 720,642 tCO2-eq (2024년 729,974), 운영통제 기준·기준연도 2024년"
+  },
+  "diff": "ESRS는 Scope 1 중 배출권거래제 적용 비율과 연결범위 밖 운영통제 배출까지 따로 요구하지만, IFRS S2·GRI는 GHG 프로토콜 총량 중심이에요.",
+  "sources": [
+   {
+    "label": "IFRS S2 본문(ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"
+   },
+   {
+    "label": "ESRS–ISSB 상호운용성 가이던스(2024.5)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+   },
+   {
+    "label": "ESRS E1 2023 위임법(EFRAG Knowledge Hub)",
+    "url": "https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   },
+   {
+    "label": "SASB Automobiles 지표(ISSB B63, ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "CDP–IFRS S2 매핑(cdp.net)",
+    "url": "https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"
+   },
+   {
+    "label": "CDP 2025 질문서 응답 예시(질문 번호 확인용)",
+    "url": "https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"
+   }
+  ]
+ },
+ {
+  "topic": "Scope 2 온실가스 배출량(지역 기반/시장 기반)",
+  "plain": "회사가 사서 쓴 전기·열을 만들 때 나온 온실가스 양으로, 지역 평균값(지역 기반)과 실제 구매 계약값(시장 기반) 두 가지로 계산해요.",
+  "ifrs": "29(a)(i)(2), 29(a)(v)(지역 기반 + 계약상 수단 정보)",
+  "kssb": "IFRS S2와 동일 구조(문단 번호 확인 필요)",
+  "esrs": "E1-6 ¶44(b), ¶49(a) 지역 기반·¶49(b) 시장 기반, ¶52 합계(두 기준 각각) / 간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 배출량 공시가 E1-8로 이동, 총배출량·매출 대비 집약도 항목 삭제 (Scope 2 두 기준 유지 여부 미확인)",
+  "gri": "305-2 → GRI 102-6 (지역 기반 필수, 해당 시 시장 기반)",
+  "sasb": "해당 없음",
+  "cdp": "7.7 (7.10.2에서 성과 계산 기준이 지역/시장 기반인지 표시)",
+  "hyundai": {
+   "page": "p.38",
+   "fact": "2025년 Scope 2 지역 기반 1,858,897 t, 시장 기반 1,190,442 t (2024년 1,786,324 / 1,468,432)"
+  },
+  "diff": "IFRS S2는 지역 기반만 필수이고 시장 기반은 선택(계약 정보는 공시)인데, ESRS는 두 기준을 모두 필수로 요구해요.",
+  "sources": [
+   {
+    "label": "IFRS S2 본문(ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"
+   },
+   {
+    "label": "ESRS–ISSB 상호운용성 가이던스(2024.5)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+   },
+   {
+    "label": "ESRS E1 2023 위임법(EFRAG Knowledge Hub)",
+    "url": "https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   },
+   {
+    "label": "SASB Automobiles 지표(ISSB B63, ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "CDP–IFRS S2 매핑(cdp.net)",
+    "url": "https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"
+   },
+   {
+    "label": "CDP 2025 질문서 응답 예시(질문 번호 확인용)",
+    "url": "https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"
+   }
+  ]
+ },
+ {
+  "topic": "Scope 3 온실가스 배출량",
+  "plain": "원료 구매부터 판매한 차의 운행·폐기까지, 회사 밖 가치사슬 전체에서 나오는 온실가스 양이에요.",
+  "ifrs": "29(a)(i)(3), 29(a)(vi)(포함 카테고리; (2)는 금융배출량)",
+  "kssb": "IFRS S2와 동일 구조(문단 번호 확인 필요); 금융위 로드맵: Scope 3 공시 3년 유예",
+  "esrs": "E1-6 ¶44(c), ¶51(유의적 카테고리별), AR46(포함·제외 카테고리) / 간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): E1-8로 이동, 유의적 카테고리별 별도 보고경계 항목 삭제",
+  "gri": "305-3 → GRI 102-7",
+  "sasb": "해당 없음 (관련: TR-AU-410a.1 판매가중 평균 연비, TR-AU-410a.2 ZEV·HEV·PHEV 판매대수)",
+  "cdp": "7.8",
+  "hyundai": {
+   "page": "p.38",
+   "fact": "2025년 Scope 3 199,704,253 t (2024년 203,863,854); Category 11(판매 제품 사용)을 Well-to-Wheel로 확대, Cat.4·10·14 신규 산정"
+  },
+  "diff": "ESRS는 포함·제외 카테고리와 그 이유를 목록으로 요구하고, IFRS S2는 측정 프레임워크와 실무상 불가능 시 면제(B57)를 두며, 금융위원회 로드맵은 국내 Scope 3 공시를 3년 유예해요.",
+  "sources": [
+   {
+    "label": "IFRS S2 본문(ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"
+   },
+   {
+    "label": "ESRS–ISSB 상호운용성 가이던스(2024.5)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+   },
+   {
+    "label": "ESRS E1 2023 위임법(EFRAG Knowledge Hub)",
+    "url": "https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   },
+   {
+    "label": "SASB Automobiles 지표(ISSB B63, ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "CDP–IFRS S2 매핑(cdp.net)",
+    "url": "https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"
+   },
+   {
+    "label": "CDP 2025 질문서 응답 예시(질문 번호 확인용)",
+    "url": "https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"
+   },
+   {
+    "label": "경향신문 기고(KSSB 최종안·Scope 3 유예, 2026.8.5)",
+    "url": "https://www.khan.co.kr/article/202608051959005/amp"
+   },
+   {
+    "label": "금융위원회 지속가능성 공시 제도화 방안 최종안 (2026.7.8)",
+    "url": "https://www.fsc.go.kr/po010101/87280"
+   }
+  ]
+ },
+ {
+  "topic": "온실가스 감축 목표",
+  "plain": "언제까지 배출량을 얼마나 줄이겠다는 회사의 약속과 그 진행 상황이에요.",
+  "ifrs": "33–36 (GHG 목표는 36, 탄소크레딧 사용 계획 36(e))",
+  "kssb": "IFRS S2와 동일 구조(문단 번호 확인 필요)",
+  "esrs": "E1-4 ¶30, ¶33–34 (ESRS 2 MDR-T ¶79–80) / 간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 총량(gross) 절대 목표 유지, 넷제로 목표는 E1-6로 이동, 목표 기간 규정·5년 갱신 요건 삭제(EFRAG 기술자문 기준)",
+  "gri": "305-5(감축 실적) → GRI 102-4 (감축 목표와 진척)",
+  "sasb": "해당 없음 (TR-AU-410a.3 전략 논의에서 연비·배출 목표를 선택적으로 언급 가능)",
+  "cdp": "7.53 / 7.53.1(절대 목표), 7.54.3(넷제로 목표)",
+  "hyundai": {
+   "page": "p.40",
+   "fact": "Scope 1+2: 2024년 대비 2030년까지 약 42% 감축, Scope 3 Cat.11: 2035년까지 63% 감축(모두 SBTi 승인), 2045년 전 밸류체인 탄소중립"
+  },
+  "diff": "ESRS는 탄소크레딧·제거량을 빼기 전 총량 기준 절대 목표를 요구하지만, IFRS S2는 순(net) 목표도 허용하고 크레딧 사용 계획만 공시하게 해요.",
+  "sources": [
+   {
+    "label": "IFRS S2 본문(ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"
+   },
+   {
+    "label": "ESRS–ISSB 상호운용성 가이던스(2024.5)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+   },
+   {
+    "label": "ESRS E1 2023 위임법(EFRAG Knowledge Hub)",
+    "url": "https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   },
+   {
+    "label": "SASB Automobiles 지표(ISSB B63, ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "CDP–IFRS S2 매핑(cdp.net)",
+    "url": "https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"
+   },
+   {
+    "label": "CDP 2025 질문서 응답 예시(질문 번호 확인용)",
+    "url": "https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"
+   },
+   {
+    "label": "EY: EFRAG 간소화 ESRS 요약(2026.1)",
+    "url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"
+   },
+   {
+    "label": "IBR-IRE: 집행위 최종 위임법 vs EFRAG 비교",
+    "url": "https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"
+   }
+  ]
+ },
+ {
+  "topic": "기후 전환 계획",
+  "plain": "저탄소 경제로 바뀌는 흐름에 맞춰 회사가 사업과 투자를 어떻게 바꿀지 담은 실행 계획이에요.",
+  "ifrs": "14(a)(iv) (핵심 가정·의존성 포함), 14(a)(v)(목표 달성 계획)",
+  "kssb": "IFRS S2와 동일 구조(문단 번호 확인 필요)",
+  "esrs": "E1-1 ¶14, ¶16(a)–(j), ¶17(계획 없을 때), AR1–AR5 / 간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): E1-1 유지, 1.5°C 비정합 시 설명 의무 추가(위임법 ¶12(a)), 고착 배출(locked-in) 가이던스 삭제",
+  "gri": "GRI 102-1 (기후변화 완화 전환계획)",
+  "sasb": "해당 없음 (가장 가까운 항목: TR-AU-410a.3 연비·배출 위험·기회 관리 전략 논의)",
+  "cdp": "5.2 (관련: 5.3.1, 5.3.2, 7.53.1)",
+  "hyundai": {
+   "page": "pp.24–33 (요약 KPI p.20)",
+   "fact": "ZERO 에너지 팩토리(2021–2030년 1,112억 원 투자), 2045년 RE100, 전동화 전환(2030년 전동화 차량 330만 대·판매비중 60% 목표, p.20)"
+  },
+  "diff": "ESRS는 전환계획 유무와 1.5°C 정합성 설명을 명시적으로 요구하지만, IFRS S2는 '계획이 있다면' 그 내용을 공시하게 해요.",
+  "sources": [
+   {
+    "label": "IFRS S2 본문(ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"
+   },
+   {
+    "label": "ESRS–ISSB 상호운용성 가이던스(2024.5)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+   },
+   {
+    "label": "ESRS E1 2023 위임법(EFRAG Knowledge Hub)",
+    "url": "https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   },
+   {
+    "label": "SASB Automobiles 지표(ISSB B63, ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "CDP–IFRS S2 매핑(cdp.net)",
+    "url": "https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"
+   },
+   {
+    "label": "CDP 2025 질문서 응답 예시(질문 번호 확인용)",
+    "url": "https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"
+   },
+   {
+    "label": "IBR-IRE: 집행위 최종 위임법 vs EFRAG 비교",
+    "url": "https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"
+   },
+   {
+    "label": "GRI 102와 IFRS S2 동시 보고 성명(globalreporting.org)",
+    "url": "https://globalreporting.org/media/swwndqbn/gri-102-and-ifrs-s2-statement-on-reporting-on-both-standards-and-equivalence.pdf"
+   }
+  ]
+ },
+ {
+  "topic": "기후 시나리오 분석 / 회복력",
+  "plain": "온도가 1.5°C 또는 4°C 오르는 등 여러 미래를 가정해 회사 전략이 버틸 수 있는지 시험해 보는 분석이에요.",
+  "ifrs": "22 (22(a) 회복력 평가, 22(b) 시나리오 분석 방법·시점)",
+  "kssb": "IFRS S2와 동일 구조(문단 번호 확인 필요)",
+  "esrs": "ESRS 2 SBM-3 관련 E1 ¶19(회복력), IRO-1 관련 E1 ¶20–21(시나리오 분석), AR6–AR13 / 간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): E1-2(위험 식별·시나리오 분석)·E1-3(회복력)로 신설, 시나리오 분석은 수행한 경우에만 공시(EFRAG 기술자문 기준)",
+  "gri": "GRI 102-1-b(전환계획에 쓴 시나리오 출처), 102-2-b-ii(적응계획 시나리오)",
+  "sasb": "해당 없음",
+  "cdp": "5.1, 5.1.1, 5.1.2",
+  "hyundai": {
+   "page": "pp.34–35",
+   "fact": "전환: IEA NZE·APS·STEPS·CPS (2035년 배출부채 959억~3,318억 원), 물리: SSP1-2.6/5-8.5로 32개 사업장 분석, 2030년 연간 손실 약 2,200억~3,000억 원"
+  },
+  "diff": "IFRS S2는 시나리오 분석을 반드시 하라고 하지만, 간소화 ESRS는 분석을 했을 때만 공시하고 대신 고배출·1.5°C 시나리오 사용 여부를 밝히게 해요.",
+  "sources": [
+   {
+    "label": "IFRS S2 본문(ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"
+   },
+   {
+    "label": "ESRS–ISSB 상호운용성 가이던스(2024.5)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+   },
+   {
+    "label": "ESRS E1 2023 위임법(EFRAG Knowledge Hub)",
+    "url": "https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   },
+   {
+    "label": "SASB Automobiles 지표(ISSB B63, ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "CDP–IFRS S2 매핑(cdp.net)",
+    "url": "https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"
+   },
+   {
+    "label": "CDP 2025 질문서 응답 예시(질문 번호 확인용)",
+    "url": "https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"
+   },
+   {
+    "label": "EY: EFRAG 간소화 ESRS 요약(2026.1)",
+    "url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"
+   },
+   {
+    "label": "EFRAG 간소화 ESRS 페이지",
+    "url": "https://www.efrag.org/en/draft-simplified-esrs"
+   }
+  ]
+ },
+ {
+  "topic": "내부 탄소 가격",
+  "plain": "회사가 투자·사업 결정을 할 때 온실가스 1톤에 스스로 매기는 가상의 가격이에요.",
+  "ifrs": "29(f) (의사결정 적용 방식, 톤당 가격)",
+  "kssb": "IFRS S2와 동일 구조(문단 번호 확인 필요); 톤당 내부탄소가격은 선택공시 항목",
+  "esrs": "E1-8 ¶62–63 (63(a) 유형, 63(c) 가정, 63(d) 적용 배출량) / 간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 공시 내용 간소화(의사결정 활용·손상검사 가격과의 일관성·톤당 가격), 새 DR 번호",
+  "gri": "GRI 102-1-e 가이던스(권고: 내부탄소가격 운영 여부·톤당 가격) — 필수 요건 아님",
+  "sasb": "해당 없음",
+  "cdp": "5.10, 5.10.1",
+  "hyundai": {
+   "page": "p.41",
+   "fact": "Scope 1·2 대상 Shadow Price 방식, 사업장 지역 ETS 가격 기반 USD 7~84/tCO2-eq 차등 적용"
+  },
+  "diff": "IFRS S2·ESRS는 필수 공시지만, KSSB는 톤당 가격을 선택공시로 두고 GRI는 권고(가이던스)에 그쳐요.",
+  "sources": [
+   {
+    "label": "IFRS S2 본문(ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"
+   },
+   {
+    "label": "ESRS–ISSB 상호운용성 가이던스(2024.5)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+   },
+   {
+    "label": "ESRS E1 2023 위임법(EFRAG Knowledge Hub)",
+    "url": "https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   },
+   {
+    "label": "SASB Automobiles 지표(ISSB B63, ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "CDP–IFRS S2 매핑(cdp.net)",
+    "url": "https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"
+   },
+   {
+    "label": "CDP 2025 질문서 응답 예시(질문 번호 확인용)",
+    "url": "https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"
+   },
+   {
+    "label": "법무법인 태평양(BKL) 뉴스레터 — KSSB 선택공시 항목",
+    "url": "https://www.bkl.co.kr/law/insight/newsletter/6643"
+   }
+  ]
+ },
+ {
+  "topic": "기후 연계 경영진 보상",
+  "plain": "경영진의 보너스나 연봉이 기후 목표 달성 정도와 얼마나 연결되어 있는지예요.",
+  "ifrs": "29(g)(i) 반영 여부·방법, 29(g)(ii) 연계된 보상 비율(%)",
+  "kssb": "IFRS S2와 동일 구조(문단 번호 확인 필요)",
+  "esrs": "ESRS 2 GOV-3 ¶29 + E1 ¶13 (보상 비율, GHG 목표 대비 평가 여부) / 간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 인센티브 DR 삭제, ESRS 2 GOV-2로 통합(EFRAG 기술자문 기준)",
+  "gri": "GRI 2-19 (보상 정책); GRI 102-1-d 가이던스에서 2-19 참조",
+  "sasb": "해당 없음",
+  "cdp": "4.5, 4.5.1",
+  "hyundai": {
+   "page": "p.23",
+   "fact": "CEO·권역본부장·공장장 KPI에 탄소중립 이행률·RE100 달성률·Scope 3 데이터 관리 등 포함, 상여금 산정에 반영; 보상 연계 비율(%)은 공시 안 함"
+  },
+  "diff": "IFRS S2·ESRS(2023)는 기후와 연계된 보상의 비율(%)까지 요구하는데, GRI는 보상 정책 설명 위주라 현대차처럼 비율 없이 KPI만 밝히면 IFRS S2 29(g)(ii)에는 부족해요.",
+  "sources": [
+   {
+    "label": "IFRS S2 본문(ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"
+   },
+   {
+    "label": "ESRS–ISSB 상호운용성 가이던스(2024.5)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+   },
+   {
+    "label": "ESRS E1 2023 위임법(EFRAG Knowledge Hub)",
+    "url": "https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   },
+   {
+    "label": "SASB Automobiles 지표(ISSB B63, ifrs.org)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "CDP–IFRS S2 매핑(cdp.net)",
+    "url": "https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"
+   },
+   {
+    "label": "CDP 2025 질문서 응답 예시(질문 번호 확인용)",
+    "url": "https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"
+   },
+   {
+    "label": "EY: EFRAG 간소화 ESRS 요약(2026.1)",
+    "url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"
+   }
+  ]
+ }
+]

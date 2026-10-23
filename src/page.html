@@ -1,0 +1,576 @@
+<title>기후공시 연습장</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@800;900&display=swap">
+/*STYLE*/
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#home"><i aria-hidden="true"><b style="background:var(--m-ifrs)"></b><b style="background:var(--m-kssb)"></b><b style="background:var(--m-esrs)"></b><b style="background:var(--m-gri-sasb)"></b></i><span>기후공시 연습장</span></a>
+  <nav aria-label="메뉴">
+    <a href="#home" data-v="home">홈</a><a href="#learn" data-v="learn">배우기</a><a href="#practice" data-v="practice">연습</a><a href="#review" data-v="review">복습</a><a href="#exam" data-v="exam">모의시험</a><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어</a><a href="#record" data-v="record">내 기록</a><a href="#about" data-v="about">만든 방법</a>
+  </nav>
+  <button class="tog" id="tog" type="button" aria-label="밝게/어둡게 바꾸기" title="밝게/어둡게"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.4A7 7 0 0 1 12 3z"/></svg></button>
+</div></header>
+
+<main>
+<!-- HOME -->
+<div class="view" id="v-home">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">기후공시 전 영역 · 20개 모듈 · 원문과 공식 자료로 검증</div>
+        <h1>어떤 기후공시<br>문제가 나와도<br><em>풀 수 있게</em></h1>
+        <p class="lead">IFRS S2·KSSB·ESRS·GRI부터 GHG 프로토콜, 배출권거래제, 검증, 시나리오, LCA, 탄소시장까지. 실제 보고서를 열어 판정하고, 숫자를 계산하고, 틀린 문제를 다시 만난다.</p>
+        <div class="cta"><a class="btn" href="#learn">학습 경로 보기 →</a><a class="btn line" href="#exam">모의시험</a></div>
+      </div>
+      <div>
+        <svg class="prism" id="prism" viewBox="0 0 640 400" role="img" aria-label="하나의 Scope 3 숫자가 다섯 기준의 서로 다른 요구로 갈라지는 모습"></svg>
+        <div class="hero-list" id="heroList"></div>
+      </div>
+    </div>
+    <div class="wrap statwrap"><div class="stats rv" id="heroStats"></div></div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Learning paths</span><h2>세 단계 학습 경로</h2><p>입문에서 전문가까지, 같은 모듈을 난이도별로 다시 만난다. 진행률은 이 브라우저의 기록으로 계산한다.</p></div>
+      <div class="tracks rv" id="tracks"></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Five twists</span><h2>숫자로 보는 반전 5가지</h2><p>현대자동차 FY2025 보고서를 여러 기준으로 읽으며 찾아낸 것들이다. 각 숫자는 연습 문항에서 직접 계산하거나 판정하게 된다.</p></div>
+      <div class="twist" id="twist"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Materiality lens</span><h2>누구를 위한 공시인가에 따라 질문이 바뀐다</h2><p>투자자에게 회사의 재무 위험을 알리는 기준과, 회사가 사회·환경에 주는 영향을 알리는 기준은 같은 데이터를 다르게 읽는다. 평가기관은 그 둘 위에서 점수를 매긴다.</p></div>
+      <div class="spec rv"><svg id="spectrum" viewBox="0 0 980 300" role="img" aria-label="기준별 중대성 관점 스펙트럼"></svg></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Regulatory clock</span><h2>다섯 기준이 같은 시계 위에 있다</h2><p>2027년에 세 기준이 동시에 바뀌고, 2028년에 한국 첫 의무공시가 온다.</p></div>
+      <div class="tl rv"><svg id="clock" viewBox="0 0 1000 340" role="img" aria-label="기준별 주요 일정"></svg></div>
+    </div>
+  </section>
+
+  <section class="sec" id="authorStrip" hidden>
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Learning record</span><h2>작성자 김수현의 공개 학습 기록</h2><p>작성자가 직접 풀고 저장한 기록이다. 문제는 AI와 함께 만들었고, 풀이와 판단 근거는 작성자의 것이다.</p></div>
+      <div id="authorSum"></div>
+    </div>
+  </section>
+</div>
+
+<!-- LEARN (curriculum) -->
+<div class="view" id="v-learn" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Curriculum</span><h2>20개 모듈, 4개 영역</h2><p>모듈마다 쉬운 말로 쓴 입문 글과 용어, 그리고 난이도별 문항이 있다. 막대는 입문·실무·전문가 문항 중 이 브라우저에서 맞힌 비율이다.</p></div>
+      <div class="curr" id="curr"></div>
+    </div>
+  </section>
+</div>
+
+<!-- LESSON -->
+<div class="view" id="v-lesson" hidden>
+  <div class="wrap"><div class="lesson" id="lessonBox"></div></div>
+</div>
+
+<!-- PRACTICE -->
+<div class="view" id="v-practice" hidden>
+  <section class="sec" style="padding-block:36px 0;border:none">
+    <div class="wrap">
+      <div class="sh" style="margin-bottom:14px"><span class="k">Practice</span><h2>먼저 풀고, 그다음 원문과 대조한다</h2></div>
+      <div class="phead">
+        <select id="modSel" aria-label="모듈 선택"></select>
+        <div class="lvchip" role="group" aria-label="난이도"><button type="button" data-l="0">전체</button><button type="button" data-l="1">입문</button><button type="button" data-l="2">실무</button><button type="button" data-l="3">전문가</button></div>
+        <a class="btn line sm" id="lessonLink" href="#learn">이 모듈 입문 글</a>
+      </div>
+    </div>
+  </section>
+  <div class="wrap"><div class="work">
+    <aside class="side" id="side"></aside>
+    <section class="card" id="card" aria-live="polite"></section>
+  </div></div>
+</div>
+
+<!-- REVIEW -->
+<div class="view" id="v-review" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Spaced review</span><h2>복습 큐</h2><p>틀린 문제는 바로, 맞힌 문제는 1일 → 3일 → 7일 → 14일 뒤에 다시 나온다. 네 번 연속 맞히면 졸업이다.</p></div>
+      <div id="reviewBox"></div>
+    </div>
+  </section>
+</div>
+
+<!-- EXAM -->
+<div class="view" id="v-exam" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Mock exam</span><h2>모의시험</h2><p>영역과 난이도를 골라 무작위로 출제한다. 시험 중에는 정답이 보이지 않고, 끝나면 한꺼번에 채점한다. 시험 기록은 복습 큐에도 반영된다.</p></div>
+      <div id="examBox"></div>
+    </div>
+  </section>
+</div>
+
+<!-- MAP -->
+<div class="view" id="v-map" hidden>
+  <section class="sec" style="padding-block:40px 64px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Framework map</span><h2>기준 지도</h2><p>공시 주제 8개를 기준 6개에 대응시켰다. 칸을 누르면 그 주제가 위에 펼쳐진다.</p></div>
+      <div id="mapFull"></div>
+      <div class="matrix" id="matrix"></div>
+      <p class="hint" style="margin-top:12px">'확인 필요' 표시는 공식 문서에서 조항 번호까지 확인하지 못한 칸이다.</p>
+    </div>
+  </section>
+</div>
+
+<!-- GLOSSARY -->
+<div class="view" id="v-glossary" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Glossary</span><h2>용어집</h2><p>모듈 입문 글에서 모은 용어다. 검색하거나 영역으로 거른다.</p></div>
+      <input class="search" id="gq" type="search" placeholder="용어나 설명으로 검색 (예: 잔여 전력 믹스)" aria-label="용어 검색">
+      <div class="az" id="gmods"></div>
+      <div class="gloss" id="gloss"></div>
+    </div>
+  </section>
+</div>
+
+<!-- RECORD -->
+<div class="view" id="v-record" hidden>
+  <section class="sec" style="padding-block:40px 64px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Record</span><h2>내 기록</h2><p>어느 영역에 강하고 약한지, 어떤 난이도에서 막히는지, 판정을 후하게 하는지 박하게 하는지가 보인다.</p></div>
+      <div id="recTop" style="margin-bottom:18px"></div>
+      <div id="recBody"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div class="view" id="v-about" hidden>
+  <section class="sec" style="padding-block:40px 64px;border:none">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+      <div class="sh" style="margin-bottom:0"><span class="k">About</span><h2>이 연습장을 만든 방법</h2><p>컨설턴트가 처음 맡는 일은 기준서와 보고서를 나란히 놓고 '있는지, 충분한지'를 판단하는 일이다. 그 판단을 영역 전체에서 반복해 연습할 수 있게 만들었다.</p></div>
+      <div class="steps">
+        <div><b>01</b><h3>영역 나누기</h3><p>기후공시 컨설턴트의 업무를 공시 기준·측정과 검증·제도와 시장·실무와 평가의 4개 영역, 20개 모듈로 나눴다.</p></div>
+        <div><b>02</b><h3>공식 자료로 대조</h3><p>모듈마다 기준 제정기관, 감독기관, 법령의 공개 문서를 열어 조항과 숫자를 확인했다. 확인 못 한 것은 뺐다.</p></div>
+        <div><b>03</b><h3>숫자는 코드로 검산</h3><p>계산 문항의 답과 풀이 단계는 Python으로 다시 계산했다. 현대차 숫자는 보고서 쪽을 함께 적었다.</p></div>
+        <div><b>04</b><h3>독립 검토</h3><p>문제를 만들지 않은 별도 검토자가 인용문·숫자·조항을 다시 대조하고, 지적 사항을 반영했다.</p></div>
+      </div>
+      <div class="credit">
+        <div><h3>AI(Claude)가 한 일</h3><ul><li>영역 설계, 원문·기준서 대조, 문항·입문 글 작성</li><li>계산 검산과 독립 검토</li><li>웹앱 설계와 구현</li></ul></div>
+        <div><h3>김수현이 한 일</h3><ul><li>채용공고 업무 범위에 맞춘 기준 선정과 전 영역 확장 기획</li><li>문제 풀이와 판단 근거 기록(내 기록)</li><li>기준서 검색용 RAG 직접 구현(진행 중)</li></ul></div>
+        <div><h3>한계</h3><ul><li>정답은 공개 자료를 대조한 해석이며, '일부'와 '없음'의 경계는 전문가마다 다를 수 있다.</li><li>KSSB·ESRS·GHG 프로토콜은 개정이 진행 중이라 문항에 적힌 기준 연도를 확인해야 한다.</li><li>평가기관의 세부 채점 기준과 일부 유료 기준서 원문은 확인하지 못했다.</li></ul></div>
+      </div>
+      <div id="srcList"></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer><div class="wrap">
+  원문: <a href="https://www.hyundai.com/content/dam/hyundai/kr/ko/data/company-report/2026/07/15/hmc-sr-kor-2026.pdf" target="_blank" rel="noopener">현대자동차, 2026 지속가능성 보고서(FY2025) 국문판</a> · 학습용 개인 프로젝트이며 현대자동차·각 기준 제정기관과 무관하다. 기록은 이 브라우저에 저장된다.
+</div></footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/*DATA*/
+const PDF="https://www.hyundai.com/content/dam/hyundai/kr/ko/data/company-report/2026/07/15/hmc-sr-kor-2026.pdf";
+const KEY="cd-drill-v2",KEY1="cd-drill-v1";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=(n,d)=>Number(n).toLocaleString("ko-KR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const NS="http://www.w3.org/2000/svg";
+const MOD=Object.fromEntries(MODS.map(m=>[m.id,m]));
+const TYPE={judge:"판정",mc:"개념",calc:"계산"};
+const LV={1:"입문",2:"실무",3:"전문가"};
+const RANK={"없음":0,"일부":1,"있음":2};
+const DAY=86400000,GAP=[0,1,3,7,14];
+const col=m=>`var(--m-${MOD[m]?MOD[m].color:"ifrs"})`;
+
+/* ---------- state ---------- */
+let S={a:{}};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));
+  else{const o=JSON.parse(localStorage.getItem(KEY1)||"null");if(o){S.a=o.a||{};for(const k in (o.j||{}))S.a["ifrs-"+k]=o.j[k];for(const k in (o.c||{}))S.a["ifrs-"+k]=o.c[k]}}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a}))}catch(e){}}
+function record(x,res){const prev=S.a[x.id]||{};let box=prev.box||0;box=res.ok?Math.min(box+1,4):0;
+  S.a[x.id]=Object.assign({},res,{t:Date.now(),box,due:Date.now()+GAP[box]*DAY,n:(prev.n||0)+1});save()}
+let view="home",sub="",mod="landscape",cur={},flv=0,draft={},mapTopic=0,recSrc="me",author=null,artifactNS=null,canEdit=false,arm=false;
+MODS.forEach(m=>cur[m.id]=0);
+let exam=null; // {ids,i,answers:{},start,limit,done}
+
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2600)}
+const items=m=>ITEMS.filter(x=>x.module===m);
+const avail=MODS.filter(m=>!m.missing);
+function stat(list,rec){rec=rec||S.a;const d=list.filter(x=>rec[x.id]);const o=d.filter(x=>rec[x.id].ok);return {n:list.length,d:d.length,o:o.length}}
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function tx(p,x,y,s,a={}){const e=el("text",Object.assign({x,y},a),p);e.style.fill=a.fill||css("--muted");e.textContent=s;return e}
+function srcLink(s,page){if(s.url==="report")return `<a href="${PDF}#page=${(String(s.label).match(/p\.(\d+)/)||[])[1]||page||1}" target="_blank" rel="noopener">${esc(s.label)}</a>`;return `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`}
+const clean=s=>String(s||"").replace(/\s*\(미확인\)/g,"");
+const clip=(s,n)=>s.length>n?s.slice(0,n-1)+"…":s;
+const lvbar=(list,rec)=>[1,2,3].map(l=>{const st=stat(list.filter(x=>x.level===l),rec);return `<i style="flex:${Math.max(st.n,1)};background:${st.n?`linear-gradient(90deg,var(--good) ${st.o/st.n*100}%,var(--bad) ${st.o/st.n*100}% ${st.d/st.n*100}%,var(--bg3) ${st.d/st.n*100}%)`:"var(--bg3)"}" title="${LV[l]} ${st.o}/${st.n}"></i>`}).join("");
+
+/* ---------- HOME ---------- */
+function drawPrism(){
+  const s=$("#prism");s.innerHTML="";
+  const t=MAP.find(x=>x.key==="scope3")||MAP[2]||{};
+  const sh=t.short||{};const rays=[["ifrs","IFRS S2",sh.ifrs||t.ifrs||""],["kssb","KSSB",sh.kssb||t.kssb||""],["esrs","ESRS",sh.esrs||t.esrs||""],["gri-sasb","GRI",sh.gri||t.gri||""],["ratings","CDP",sh.cdp||t.cdp||""]];
+  const W=640,cx=250,cy=200;
+  el("rect",{x:0,y:150,width:150,height:100,rx:10,fill:"#17222e",stroke:"#2a3846"},s);
+  tx(s,14,176,"현대차 Scope 3 (FY2025)",{fill:"#93a1b0","font-size":"12"});
+  tx(s,14,206,"199,704,253",{fill:"#ffffff","font-size":"22","font-weight":"700","font-family":"IBM Plex Mono"});
+  tx(s,14,230,"tCO₂eq · 보고서 p.38",{fill:"#93a1b0","font-size":"12"});
+  el("line",{x1:150,y1:200,x2:cx-30,y2:200,stroke:"#ffe27a","stroke-width":3},s);
+  el("path",{d:`M${cx-36},${cy+56} L${cx},${cy-62} L${cx+36},${cy+56} Z`,fill:"rgba(255,255,255,.06)",stroke:"#cfd8e2","stroke-width":1.5},s);
+  rays.forEach(([m,name,ref],i)=>{const y=26+i*78,x2=W-196;
+    el("path",{class:"ray",d:`M${cx+8},${cy} L${x2},${y+24}`,stroke:css("--m-"+m),"stroke-width":2.5,fill:"none",style:`--i:${i}`},s);
+    const g=el("g",{class:"lab",style:`--i:${i}`},s);
+    el("rect",{x:x2,y:y,width:196,height:48,rx:9,fill:"#17222e",stroke:css("--m-"+m),"stroke-width":1.2},g);
+    el("circle",{cx:x2+15,cy:y+17,r:4.5,fill:css("--m-"+m)},g);
+    tx(g,x2+27,y+21,name,{fill:"#eef2f6","font-size":"14","font-weight":"700"});
+    tx(g,x2+14,y+39,clip(clean(ref),22),{fill:"#b5c2cf","font-size":"12.5"});});
+  $("#heroList").innerHTML=rays.map(([m,name,ref])=>`<div style="display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid #2a3846;border-radius:8px"><span class="dot" style="background:var(--m-${m})"></span><b style="font-size:13px">${name}</b><span class="mono" style="font-size:12px;color:#93a1b0">${esc(clean(ref))}</span></div>`).join("");
+}
+function heroStats(){
+  const srcs=new Set();ITEMS.forEach(x=>(x.sources||[]).forEach(s=>{if(s.url!=="report")srcs.add(s.url)}));
+  const terms=Object.values(LESSONS).reduce((a,l)=>a+((l&&l.terms)||[]).length,0);
+  $("#heroStats").innerHTML=`<div><b><span class="cnt" data-n="${ITEMS.length}">${ITEMS.length}</span></b><span>문항 (판정 ${ITEMS.filter(x=>x.type==="judge").length} · 개념 ${ITEMS.filter(x=>x.type==="mc").length} · 계산 ${ITEMS.filter(x=>x.type==="calc").length})</span></div>
+  <div><b><span class="cnt" data-n="${avail.length}">${avail.length}</span></b><span>모듈 · 4개 영역</span></div><div><b><span class="cnt" data-n="${terms}">${terms}</span></b><span>용어</span></div><div><b><span class="cnt" data-n="${srcs.size}">${srcs.size}</span></b><span>대조한 공식·공개 자료</span></div>`;
+}
+function tracks(){
+  const T=[[1,"입문","정의와 구조를 안다","각 기준이 무엇을, 누구에게, 왜 요구하는지. 온실가스관리기사 지식 위에 공시의 뼈대를 얹는다."],[2,"실무","보고서에 적용한다","실제 보고서를 열어 판정하고 숫자를 계산한다. 컨설턴트가 매일 하는 일이다."],[3,"전문가","경계와 예외를 다룬다","개정 사항, 기준 간 충돌, 애매한 사례를 시니어의 논리로 판단한다."]];
+  $("#tracks").innerHTML=T.map(([l,n,h,d],i)=>{const list=ITEMS.filter(x=>x.level===l),st=stat(list);
+    return `<div class="track l${l} rv d${i}"><span class="lv">LEVEL ${l} · ${n}</span><h3>${h}</h3><p>${d}</p><div class="pb"><i style="width:${st.o/st.n*100}%;background:var(--good)"></i><i style="width:${(st.d-st.o)/st.n*100}%;background:var(--bad)"></i></div><div class="ft"><span>${list.length}문항 · ${avail.length}개 모듈</span><span>${st.d}/${st.n} 풀이</span></div><a class="btn sm" href="#practice" data-l="${l}">이 단계로 연습 →</a></div>`}).join("");
+  document.querySelectorAll("#tracks a").forEach(a=>a.onclick=e=>{e.preventDefault();flv=+a.dataset.l;mod=nextModFor(flv);draft={};go("practice")});
+}
+function nextModFor(l){const m=avail.find(m=>items(m.id).some(x=>(l===0||x.level===l)&&!S.a[x.id]));return m?m.id:avail[0].id}
+const TWIST=[
+ {n:"7−6",u:"",t:"보고서는 6대 온실가스만 센다",d:"IFRS S2는 삼불화질소(NF3)까지 7대 온실가스를 요구한다. 보고서는 6대로 적었다.",so:"IFRS S2 부록 A · 보고서 p.38",m:"ifrs",id:"ifrs-j2"},
+ {n:"99.98",u:"%",t:"재생에너지 효과는 거의 전부 해외에서 났다",d:"Scope 2 지역·시장 기반 차이 668,455 t 중 국내 몫은 127 t뿐이다.",so:"보고서 p.158, p.160",m:"ifrs",id:"ifrs-c5"},
+ {n:"81",u:"%",t:"판매 차량 배출은 목표 속도의 81%로 줄고 있다",d:"Category 11은 2035년 −63%까지 직선으로 갈 때 필요한 연간 감축량의 81%만 줄었다.",so:"보고서 p.38, p.40",m:"ifrs",id:"ifrs-c6"},
+ {n:"0",u:"%",t:"보상 연동 비율은 숫자가 없다",d:"경영진 KPI에 기후 목표가 들어 있지만, IFRS S2 29(g)(ii)가 묻는 비율(%)은 '연봉의 일정 비율'이라고만 적혀 있다.",so:"IFRS S2 29(g) · 보고서 p.23",m:"kssb",id:"ifrs-j11"},
+ {n:"82",u:"%",t:"합리적 보증은 배출량의 82%만 받았다",d:"국내 Scope 1·2(1,564,218 t)만 합리적 보증이고, 해외와 Scope 3 전체는 제한적 보증이다.",so:"보고서 p.157, p.159",m:"ratings",id:"ifrs-j17"}];
+function twist(){
+  $("#twist").innerHTML=TWIST.map((t,i)=>`<div class="rv d${i}"><span class="big" style="color:var(--m-${t.m})"><span class="cnt" data-n="${t.n}">${t.n}</span><small>${t.u}</small></span><h3>${esc(t.t)}</h3><p>${esc(t.d)}</p><span class="so"><b>근거</b> ${esc(t.so)}</span><a href="#practice" data-id="${t.id}">이 문제 풀기 →</a></div>`).join("");
+  document.querySelectorAll("#twist a").forEach(a=>a.onclick=e=>{e.preventDefault();jumpTo(a.dataset.id)});
+}
+function jumpTo(id){const x=ITEMS.find(y=>y.id===id);if(!x)return;mod=x.module;flv=0;cur[mod]=items(mod).indexOf(x);draft={};go("practice")}
+function countUp(root){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  root.querySelectorAll(".cnt[data-n]").forEach(el=>{const raw=el.dataset.n;const num=parseFloat(raw.replace(/[^0-9.]/g,""));if(isNaN(num)||/−|-/.test(raw))return;
+    const dec=(raw.split(".")[1]||"").length,t0=performance.now(),dur=900;
+    const f=now=>{const k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=(num*e).toFixed(dec);if(k<1)requestAnimationFrame(f);else el.textContent=raw};requestAnimationFrame(f)});
+}
+function spectrum(){
+  const s=$("#spectrum");s.innerHTML="";const L=150,R=950,y0=60;
+  tx(s,L,24,"재무 중대성",{fill:css("--ink"),"font-size":"13","font-weight":"700"});tx(s,L,42,"기후가 회사에 미치는 영향 · 투자자",{"font-size":"12"});
+  tx(s,R,24,"영향 중대성",{fill:css("--ink"),"font-size":"13","font-weight":"700","text-anchor":"end"});tx(s,R,42,"회사가 사회·환경에 미치는 영향 · 다중 이해관계자",{"font-size":"12","text-anchor":"end"});
+  const g=el("defs",{},s);const lg=el("linearGradient",{id:"sg",x1:"0",x2:"1"},g);el("stop",{offset:"0","stop-color":css("--m-ifrs")},lg);el("stop",{offset:"1","stop-color":css("--m-esrs")},lg);
+  el("rect",{x:L,y:y0,width:R-L,height:4,rx:2,fill:"url(#sg)",opacity:.5},s);
+  const rows=[["공시 기준",[["IFRS S1·S2 / KSSB","ifrs",0,.18],["SASB","gri-sasb",.02,.22],["ESRS","esrs",0,1],["GRI","gri-sasb",.78,1]]],["ESG 평가",[["CDP","ratings",.05,.55],["S&P CSA","ratings",0,.45],["EcoVadis","ratings",.45,1],["KCGS","ratings",.3,.8]]]];
+  let y=y0+34;
+  rows.forEach(([lab,list])=>{tx(s,0,y+16,lab,{fill:css("--ink2"),"font-size":"13","font-weight":"700"});
+    list.forEach(([n,m,a,b],i)=>{const yy=y+i*24;const x1=L+(R-L)*a,x2=L+(R-L)*b;
+      el("rect",{x:x1,y:yy,width:Math.max(x2-x1,60),height:18,rx:9,fill:css("--m-"+m),opacity:.22},s);el("rect",{x:x1,y:yy,width:4,height:18,rx:2,fill:css("--m-"+m)},s);
+      tx(s,x1+10,yy+13,n,{fill:css("--ink"),"font-size":"12","font-weight":"600"});});
+    y+=list.length*24+22;});
+  tx(s,L,y+4,"막대 길이는 각 기준이 다루는 관점의 범위를 나타낸 개념도이며, 정량 측정값이 아니다.",{"font-size":"11.5"});
+  s.setAttribute("viewBox",`0 0 980 ${y+14}`);
+}
+function clock(){
+  const s=$("#clock");s.innerHTML="";const L=120,R=985,x=d=>L+(d-2025.4)/6.1*(R-L);
+  for(let y=2026;y<=2031;y++){el("line",{x1:x(y),x2:x(y),y1:44,y2:320,stroke:css("--rule")},s);tx(s,x(y)+6,36,y,{fill:css("--ink2"),"font-weight":"700","font-size":"13"})}
+  const now=2026+(9.7/12);el("line",{x1:x(now),x2:x(now),y1:44,y2:320,stroke:css("--ink"),"stroke-dasharray":"3 4"},s);el("rect",{x:x(now)-44,y:44,width:88,height:20,rx:10,fill:css("--ink")},s);tx(s,x(now),58,"오늘 · 2026.10",{fill:css("--bg"),"font-size":"11.5","font-weight":"700","text-anchor":"middle"});
+  const rows=[["kssb","KSSB · 한국",[[2026.15,"기준 확정",0],[2026.52,"금융위 최종안",0],[2028.2,"첫 의무공시 (FY2027)",1],[2030,"인증 의무",1],[2031.1,"Scope 3 유예 종료",0]]],
+   ["ifrs","IFRS S2",[[2025.95,"GHG 공시 개정 발표",0],[2027.25,"개정 적용 시작 (2027.1~)",1]]],
+   ["esrs","ESRS · EU",[[2026.2,"옴니버스 발효",0],[2026.5,"개정 ESRS 채택",0],[2027.4,"개정 ESRS 의무 (FY2027)",1]]],
+   ["gri-sasb","GRI · SASB",[[2025.45,"GRI 102·103 발표",0],[2027.05,"GRI 102 시행",1]]],
+   ["ratings","ESG 평가",[[2026.4,"CDP 질문서 (매년)",0],[2026.9,"KCGS 결과 (매년 11월)",0]]]];
+  rows.forEach(([m,name,ev],ri)=>{const y=96+ri*52;const c=css("--m-"+m);
+    tx(s,0,y+4,name,{fill:css("--ink"),"font-weight":"700","font-size":"13"});el("line",{x1:L,x2:R,y1:y,y2:y,stroke:c,"stroke-width":2,opacity:.35},s);
+    ev.forEach(([d,l,big],i)=>{const xx=x(d);if(big)el("circle",{cx:xx,cy:y,r:7,fill:c,class:"pulse"},s);el("circle",{cx:xx,cy:y,r:big?6:4,fill:big?c:css("--bg"),stroke:c,"stroke-width":2},s);
+      const up=(i+ri)%2===0;const anc=xx<L+40?"start":"middle";tx(s,anc==="start"?xx-6:xx,up?y-14:y+23,l,{fill:big?css("--ink"):css("--ink2"),"font-size":big?"12":"11.5","font-weight":big?"700":"400","text-anchor":anc});});});
+}
+let revealObs=null;
+function reveal(){
+  if(!("IntersectionObserver" in window))return;
+  if(!revealObs)revealObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");if(e.target.id==="twist"||e.target.closest("#twist"))countUp($("#twist"));if(e.target.id==="heroStats")countUp(e.target);revealObs.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll(".rv:not(.in)").forEach(n=>revealObs.observe(n));
+}
+function theme(){const r=document.documentElement,c=r.getAttribute("data-theme");const dark=c?c==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.setAttribute("data-theme",dark?"light":"dark");try{localStorage.setItem("cd-theme",dark?"light":"dark")}catch(e){}}
+$("#tog").onclick=theme;try{const t=localStorage.getItem("cd-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}
+
+/* ---------- LEARN ---------- */
+function learn(){
+  const order=["map","std","meas","reg","prac"];
+  $("#curr").innerHTML=order.map(g=>`<div class="cgroup"><h3><span class="dot" style="background:var(--m-${GROUPS[g].color})"></span>${GROUPS[g].name}</h3><div class="cgrid">${MODS.filter(m=>m.g===g).map(m=>{const its=items(m.id);const st=stat(its);
+    return `<div class="cm ${m.missing?"soon":""}"><span class="nm">${esc(m.name)}</span><span class="who">${esc(m.who)}</span><p>${esc(m.desc)}</p>
+    ${m.missing?`<span class="ms">준비 중</span>`:`<div class="lv">${lvbar(its)}</div><span class="ms">${its.length}문항 · ${st.d} 풀이 · 입문 ${its.filter(x=>x.level===1).length} / 실무 ${its.filter(x=>x.level===2).length} / 전문가 ${its.filter(x=>x.level===3).length}</span>
+    <div class="acts">${LESSONS[m.id]?`<a href="#lesson-${m.id}">입문 글</a>`:""}<a class="primary" href="#practice-${m.id}">연습 →</a></div>`}</div>`}).join("")}</div></div>`).join("");
+}
+function lesson(id){
+  const m=MOD[id],L=LESSONS[id];const box=$("#lessonBox");
+  if(!m||!L){box.innerHTML=`<p class="empty">이 모듈의 입문 글은 준비 중이다. <a href="#learn">배우기</a>로 돌아가기.</p>`;return}
+  const its=items(id);
+  box.innerHTML=`<article><div><span class="tag"><span class="dot" style="background:${col(id)}"></span>${esc(GROUPS[m.g].name)} · ${esc(m.name)}</span></div><h2>${esc(L.title||m.name)}</h2><p class="sum">${esc(L.summary||"")}</p>
+    ${(L.sections||[]).map(s=>`<section><h3>${esc(s.h)}</h3><p>${esc(s.body)}</p></section>`).join("")}
+    <div class="actions"><a class="btn" href="#practice-${id}">이 모듈 연습하기 →</a><a class="btn line" href="#learn">배우기 목록</a></div>
+    ${L.sources&&L.sources.length?`<div class="blk"><h4>이 글의 출처</h4><div class="srcs">${L.sources.map(s=>srcLink(s)).join("")}</div></div>`:""}</article>
+  <aside><span class="lb" style="font-size:12px;color:var(--muted)">핵심 용어 ${(L.terms||[]).length}개</span><div class="terms">${(L.terms||[]).map(t=>`<div><b>${esc(t.t)}<em>${esc(t.en||"")}</em></b><span>${esc(t.d)}</span></div>`).join("")}</div>
+  <div class="cm"><span class="nm">문항 ${its.length}개</span><div class="lv">${lvbar(its)}</div><span class="ms">입문 ${its.filter(x=>x.level===1).length} · 실무 ${its.filter(x=>x.level===2).length} · 전문가 ${its.filter(x=>x.level===3).length}</span></div></aside>`;
+}
+/* ---------- PRACTICE ---------- */
+const listFor=m=>items(m).filter(x=>flv===0||x.level===flv);
+function phead(){
+  const sel=$("#modSel");sel.innerHTML=["map","std","meas","reg","prac"].map(g=>`<optgroup label="${GROUPS[g].name}">${avail.filter(m=>m.g===g).map(m=>`<option value="${m.id}" ${m.id===mod?"selected":""}>${esc(m.name)} (${stat(items(m.id)).d}/${items(m.id).length})</option>`).join("")}</optgroup>`).join("");
+  sel.onchange=()=>{mod=sel.value;draft={};renderPractice()};
+  document.querySelectorAll(".lvchip button").forEach(b=>{b.setAttribute("aria-pressed",+b.dataset.l===flv);b.onclick=()=>{flv=+b.dataset.l;cur[mod]=0;draft={};renderPractice()}});
+  $("#lessonLink").href=LESSONS[mod]?"#lesson-"+mod:"#learn";$("#lessonLink").hidden=!LESSONS[mod];
+}
+function side(){
+  const L=listFor(mod);if(cur[mod]>=L.length)cur[mod]=0;
+  $("#side").innerHTML=`<span class="lb">${esc(MOD[mod].name)} · ${L.length}문항${flv?" · "+LV[flv]:""}</span>
+  <div class="grid">${L.map((x,i)=>{const r=S.a[x.id];return `<button type="button" class="${r?(r.ok?"ok":"bad"):""}" aria-current="${i===cur[mod]}" title="${esc(x.topic)}" aria-label="${i+1}번 ${esc(x.topic)}${r?(r.ok?", 맞음":", 틀림"):""}" data-i="${i}">${i+1}<span class="ty">${TYPE[x.type][0]}</span></button>`}).join("")}</div>
+  <div class="legend"><span><i style="background:var(--good-bg);border-color:var(--good)"></i>맞음</span><span><i style="background:var(--bad-bg);border-color:var(--bad)"></i>틀림</span><span><i></i>아직</span></div>
+  <p class="hint">칸 오른쪽 위 글자: 판·개·계 = 판정·개념·계산</p>`;
+  document.querySelectorAll("#side .grid button").forEach(b=>b.onclick=()=>{cur[mod]=+b.dataset.i;draft={};renderPractice()});
+}
+function parseNum(s){const v=String(s).replace(/[,\s%t원$]/g,"").replace(/[^0-9.\-]/g,"");return v===""||v==="-"||v==="."?NaN:Number(v)}
+function qBody(x,r,pick,examMode){
+  let h="";
+  if(x.type==="judge")h+=`<div class="look"><span>어디를 볼까 · ${esc(x.look||"")}</span><a href="${PDF}#page=${x.page}" target="_blank" rel="noopener">${x.page}쪽 원문 열기 ↗</a></div>`;
+  if(x.type==="calc")h+=`<div class="given"><table><tbody>${(x.given||[]).map(g=>`<tr><td>${esc(g[0])}</td><td class="n">${esc(g[1])}</td><td class="p">${g[2]?esc(g[2]):""}</td></tr>`).join("")}</tbody></table></div>`;
+  if(x.type==="judge")h+=`<div class="choice" role="group" aria-label="판정">${[["있음","요구한 내용이 다 있음"],["일부","일부 요소가 빠짐"],["없음","찾을 수 없음"]].map(([v,d])=>`<button type="button" data-v="${v}" aria-pressed="${pick===v}" ${r?"disabled":""}>${v}<small>${d}</small></button>`).join("")}</div>`;
+  if(x.type==="mc")h+=`<div class="opts" role="group" aria-label="보기">${x.options.map((o,k)=>{let cls="",st="";if(r&&!examMode){if(k===x.ans){cls="right";st="정답"}else if(k===r.pick){cls="wrong";st="내 선택"}}
+    return `<button type="button" data-k="${k}" aria-pressed="${pick===k}" class="${cls}" ${r?"disabled":""}><span class="l">${"ABCD"[k]}</span><span>${esc(o)}</span><span class="st">${st}</span></button>`}).join("")}</div>`;
+  return h;
+}
+function revealBlock(x,r){
+  let verdict;
+  if(x.type==="judge")verdict=`내 판정 ${esc(r.pick)} · 정답 ${esc(x.ans)}`;else if(x.type==="mc")verdict=`정답 ${"ABCD"[x.ans]}`;else verdict=`${r.gave?"":"내 답 "+esc(r.val)+" "+esc(x.unit)+" · "}정답 ${fmt(x.ans,x.dec)} ${esc(x.unit)}`;
+  const box=r.box||0;
+  return `<div class="reveal"><div class="verdict ${r.ok?"ok":"bad"}"><b>${r.ok?"✓ 맞았다":r.gave?"풀이를 먼저 봤다":"✕ 다르게 봤다"}</b><span>${verdict}</span><span class="box" title="복습 단계">${[1,2,3,4].map(i=>`<i class="${box>=i?"on":""}"></i>`).join("")} ${box>=4?"졸업":"다음 복습 "+(GAP[box]||0)+"일 뒤"}</span></div>
+  ${r.note?`<div class="mine">내 근거 · ${esc(r.note)}</div>`:""}
+  ${x.quote?`<div class="blk"><h4>${x.type==="judge"?"보고서 원문":"기준·출처 원문"}</h4><blockquote>${esc(x.quote)}${x.type==="judge"?`<cite>현대자동차 2026 지속가능성 보고서 ${x.page}쪽</cite>`:""}</blockquote></div>`:""}
+  ${x.steps?`<div class="blk"><h4>풀이</h4><ol class="sol">${x.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol></div>`:""}
+  <div class="blk"><h4>${x.type==="calc"?"이 숫자가 말해주는 것":"왜 이렇게 판정하나"}</h4><p>${esc(x.type==="calc"?(x.insight||x.why):x.why)}</p></div>
+  ${x.trap?`<div class="blk trap"><h4>빠지기 쉬운 함정</h4><p>${esc(x.trap)}</p></div>`:""}
+  ${x.sources&&x.sources.length?`<div class="blk"><h4>출처</h4><div class="srcs">${x.sources.map(s=>srcLink(s,x.page)).join("")}</div></div>`:""}</div>`;
+}
+function meta(x,i,n){return `<div class="meta"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(MOD[x.module].short)}</span><span class="tag ref" title="${esc(x.refFull||x.ref)}">${esc(x.ref)}</span><span class="tag l${x.level}">${LV[x.level]}</span><span class="tag">${TYPE[x.type]}</span>${n?`<span class="qno">${i+1} / ${n}</span>`:""}</div>`}
+function card(){
+  const L=listFor(mod),i=cur[mod],x=L[i];if(!x){$("#card").innerHTML=`<p class="empty">이 난이도의 문제가 없다.</p>`;return}
+  const r=S.a[x.id];const pick=r?r.pick:draft.pick;
+  let h=meta(x,i,L.length)+`<h2 class="q">${esc(x.q)}</h2>`+qBody(x,r,pick,false);
+  if(!r){
+    if(x.type==="calc")h+=`<div class="ansrow"><label class="f" for="ans">내 답<input type="text" id="ans" inputmode="decimal" autocomplete="off" value="${esc(draft.val||"")}" placeholder="숫자만"></label><span class="u">${esc(x.unit)}</span></div>`;
+    h+=`<label class="f" for="note">내 근거 한 줄 ${x.type==="judge"?"(원문에서 본 것)":"(왜 그렇게 생각했는지)"}<textarea id="note" placeholder="틀렸을 때 비교하기 좋게 짧게라도 적어 두자">${esc(draft.note||"")}</textarea></label>
+    <div class="actions"><button class="btn" type="button" id="check">답 확인</button>${x.type==="calc"?`<button class="btn line" type="button" id="give">풀이 먼저 보기</button>`:""}<span class="hint" id="hint"></span></div>`;
+  }else h+=revealBlock(x,r)+`<div class="actions"><button class="btn line sm" type="button" id="retry">다시 풀기</button></div>`;
+  h+=`<div class="navrow"><button class="btn line sm" type="button" id="prev" ${i===0?"disabled":""}>← 이전</button><button class="btn sm" type="button" id="next" ${i===L.length-1?"disabled":""}>다음 문제 →</button></div>`;
+  $("#card").innerHTML=h;
+  if(!r){
+    const note=$("#note");note.oninput=e=>draft.note=e.target.value;
+    document.querySelectorAll(".choice button").forEach(b=>b.onclick=()=>{draft.pick=b.dataset.v;card()});
+    document.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{draft.pick=+b.dataset.k;card()});
+    const inp=$("#ans");if(inp){inp.oninput=e=>draft.val=e.target.value;inp.onkeydown=e=>{if(e.key==="Enter")check()}}
+    const need=x.type==="calc"?"":(draft.pick===undefined?"먼저 답을 골라야 정답이 열린다.":"");
+    $("#hint").textContent=need;$("#check").disabled=!!need;$("#check").onclick=check;
+    const g=$("#give");if(g)g.onclick=()=>{record(x,{ok:false,gave:true,val:"",note:(note.value||"").trim()});draft={};renderPractice()};
+    function check(){const n=(note.value||"").trim();
+      if(x.type==="calc"){const v=parseNum(inp.value);if(isNaN(v)){toast("숫자를 입력해 줘");return}const vv=x.abs?Math.abs(v):v;record(x,{val:inp.value.trim(),ok:Math.abs(vv-x.ans)<=x.tol,note:n})}
+      else{if(draft.pick===undefined)return;record(x,{pick:draft.pick,ok:draft.pick===x.ans,note:n})}
+      draft={};renderPractice()}
+  }else $("#retry").onclick=()=>{const b=(S.a[x.id].box||0);delete S.a[x.id];save();draft={};renderPractice()};
+  $("#prev").onclick=()=>{if(cur[mod]>0){cur[mod]--;draft={};renderPractice()}};
+  $("#next").onclick=()=>{if(cur[mod]<L.length-1){cur[mod]++;draft={};renderPractice();window.scrollTo({top:$("#modSel").getBoundingClientRect().top+scrollY-80,behavior:"smooth"})}};
+}
+function renderPractice(){phead();side();card()}
+/* ---------- REVIEW ---------- */
+let rv=null;
+function dueList(){const now=Date.now();return ITEMS.filter(x=>{const r=S.a[x.id];return r&&(r.box||0)<4&&(r.due||0)<=now}).sort((a,b)=>(S.a[a.id].due||0)-(S.a[b.id].due||0))}
+function reviewView(){
+  const box=$("#reviewBox");const due=dueList();const soon=ITEMS.filter(x=>{const r=S.a[x.id];return r&&(r.box||0)<4&&(r.due||0)>Date.now()}).length;
+  const grad=ITEMS.filter(x=>(S.a[x.id]||{}).box>=4).length;
+  if(rv&&rv.x){ // reviewing one
+    const x=rv.x,r=rv.r,pick=r?r.pick:draft.pick;
+    let h=`<div class="exam-bar"><span>복습 ${rv.i+1} / ${rv.ids.length}</span><div class="pb"><i style="width:${rv.i/rv.ids.length*100}%"></i></div><button class="btn line sm" type="button" id="rvQuit">그만하기</button></div><div class="card">`+meta(x)+`<h2 class="q">${esc(x.q)}</h2>`+qBody(x,r,pick,false);
+    if(!r){if(x.type==="calc")h+=`<div class="ansrow"><label class="f" for="ans">내 답<input type="text" id="ans" inputmode="decimal" autocomplete="off" value="${esc(draft.val||"")}" placeholder="숫자만"></label><span class="u">${esc(x.unit)}</span></div>`;
+      h+=`<div class="actions"><button class="btn" type="button" id="check">답 확인</button><span class="hint" id="hint"></span></div>`}
+    else h+=revealBlock(x,r)+`<div class="actions"><button class="btn" type="button" id="rvNext">${rv.i+1<rv.ids.length?"다음 복습 →":"복습 끝내기"}</button></div>`;
+    box.innerHTML=h+"</div>";
+    $("#rvQuit").onclick=()=>{rv=null;draft={};reviewView()};
+    if(!r){document.querySelectorAll(".choice button").forEach(b=>b.onclick=()=>{draft.pick=b.dataset.v;reviewView()});document.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{draft.pick=+b.dataset.k;reviewView()});
+      const inp=$("#ans");if(inp){inp.oninput=e=>draft.val=e.target.value;inp.onkeydown=e=>{if(e.key==="Enter")$("#check").click()}}
+      const need=x.type==="calc"?"":(draft.pick===undefined?"먼저 답을 골라야 정답이 열린다.":"");$("#hint").textContent=need;$("#check").disabled=!!need;
+      $("#check").onclick=()=>{let res;if(x.type==="calc"){const v=parseNum(inp.value);if(isNaN(v)){toast("숫자를 입력해 줘");return}res={val:inp.value.trim(),ok:Math.abs((x.abs?Math.abs(v):v)-x.ans)<=x.tol}}else res={pick:draft.pick,ok:draft.pick===x.ans};
+        res.note=(S.a[x.id]||{}).note||"";record(x,res);rv.r=S.a[x.id];draft={};reviewView()}}
+    else $("#rvNext").onclick=()=>{rv.i++;if(rv.i>=rv.ids.length){rv=null;toast("오늘 복습을 마쳤다")}else{rv.x=ITEMS.find(y=>y.id===rv.ids[rv.i]);rv.r=null}draft={};reviewView();window.scrollTo(0,0)};
+    return;
+  }
+  box.innerHTML=`<div class="kpi4"><div><b>${due.length}</b><span>지금 복습할 문제</span></div><div><b>${soon}</b><span>기다리는 문제</span></div><div><b>${grad}</b><span>졸업한 문제</span></div><div><b>${ITEMS.filter(x=>S.a[x.id]).length}</b><span>한 번이라도 푼 문제</span></div></div>
+  ${due.length?`<div class="actions" style="margin-bottom:16px"><button class="btn" type="button" id="rvStart">복습 시작 (${Math.min(due.length,20)}문항) →</button></div><div class="due">${due.slice(0,20).map(x=>{const r=S.a[x.id];return `<div class="row"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(MOD[x.module].short)}</span><div><b>${esc(x.topic)}</b><div class="s">${esc(x.ref)} · ${LV[x.level]} · ${r.ok?"지난번 맞음":"지난번 틀림"} · 단계 ${r.box||0}/4</div></div><span class="s">${r.n||1}회</span></div>`}).join("")}</div>`
+  :`<div class="empty">지금 복습할 문제가 없다. ${ITEMS.filter(x=>S.a[x.id]).length?"기다리는 문제가 때가 되면 여기에 나타난다.":"<a href='#practice'>연습</a>에서 문제를 풀면 복습 큐가 쌓인다."}</div>`}`;
+  const b=$("#rvStart");if(b)b.onclick=()=>{const ids=due.slice(0,20).map(x=>x.id);rv={ids,i:0,x:ITEMS.find(y=>y.id===ids[0]),r:null};draft={};reviewView();window.scrollTo(0,0)};
+}
+/* ---------- EXAM ---------- */
+function examView(){
+  const box=$("#examBox");
+  if(!exam){
+    box.innerHTML=`<div class="exam-setup"><label>영역<select id="exG"><option value="all">전체</option>${["std","meas","reg","prac","map"].map(g=>`<option value="${g}">${GROUPS[g].name}</option>`).join("")}${avail.map(m=>`<option value="m:${m.id}">모듈 · ${esc(m.name)}</option>`).join("")}</select></label>
+    <label>난이도<select id="exL"><option value="0">섞어서</option><option value="1">입문</option><option value="2">실무</option><option value="3">전문가</option></select></label>
+    <label>문항 수<select id="exN"><option>10</option><option selected>20</option><option>30</option><option>50</option></select></label>
+    <label>제한 시간(분, 0이면 없음)<input id="exT" type="number" min="0" max="180" value="20"></label></div>
+    <div class="actions" style="margin-top:16px"><button class="btn" type="button" id="exStart">시험 시작 →</button><span class="hint">판정·개념·계산이 섞여 나온다.</span></div>
+    ${S.exams&&S.exams.length?`<div style="margin-top:28px"><h3 style="font-size:16px;margin-bottom:10px">지난 시험</h3><div class="due">${S.exams.slice(-5).reverse().map(e=>`<div class="row"><span class="tag">${esc(e.label)}</span><div><b>${e.ok}/${e.n} (${Math.round(e.ok/e.n*100)}%)</b><div class="s">${new Date(e.t).toLocaleDateString("ko-KR")} · ${Math.round(e.sec/60)}분</div></div><span></span></div>`).join("")}</div></div>`:""}`;
+    $("#exStart").onclick=()=>{const g=$("#exG").value,l=+$("#exL").value,n=+$("#exN").value,t=+$("#exT").value;
+      let pool=ITEMS.filter(x=>(g==="all")||(g.startsWith("m:")?x.module===g.slice(2):MOD[x.module].g===g)).filter(x=>l===0||x.level===l);
+      if(pool.length<5){toast("문항이 너무 적다. 범위를 넓혀 줘");return}
+      pool=pool.slice().sort(()=>Math.random()-.5).slice(0,Math.min(n,pool.length));
+      exam={ids:pool.map(x=>x.id),i:0,answers:{},start:Date.now(),limit:t*60,done:false,label:(g==="all"?"전체":g.startsWith("m:")?MOD[g.slice(2)].short:GROUPS[g].name)+(l?" · "+LV[l]:"")};
+      draft={};examView();window.scrollTo(0,0);tick()};
+    return;
+  }
+  if(exam.done){
+    const res=exam.ids.map(id=>{const x=ITEMS.find(y=>y.id===id);const a=exam.answers[id];return {x,a,ok:!!(a&&a.ok)}});const ok=res.filter(r=>r.ok).length;
+    const byM={};res.forEach(r=>{const m=r.x.module;byM[m]=byM[m]||{n:0,o:0};byM[m].n++;if(r.ok)byM[m].o++});
+    box.innerHTML=`<div class="result"><div><b>${ok} / ${res.length}</b><span>맞은 문항</span></div><div><b>${Math.round(ok/res.length*100)}%</b><span>정답률 · ${exam.label}</span></div><div><b>${Math.round(exam.sec/60)}분</b><span>걸린 시간</span></div></div>
+    <div class="mbars" style="margin:22px 0">${Object.entries(byM).map(([m,v])=>`<div class="mbar"><span class="n"><span class="dot" style="background:${col(m)}"></span>${esc(MOD[m].short)}</span><span class="t"><i style="width:${v.o/v.n*100}%;background:var(--good)"></i><i style="width:${(v.n-v.o)/v.n*100}%;background:var(--bad)"></i></span><span class="v">${v.o}/${v.n}</span></div>`).join("")}</div>
+    <h3 style="font-size:16px;margin-bottom:10px">문항별 해설</h3><div style="display:flex;flex-direction:column;gap:14px">${res.map((r,i)=>`<div class="card" style="padding:22px">${meta(r.x,i,res.length)}<h2 class="q" style="font-size:17px">${esc(r.x.q)}</h2>${qBody(r.x,r.a||{ok:false,pick:undefined},r.a?r.a.pick:undefined,false)}${r.a?revealBlock(r.x,Object.assign({},r.a,{box:(S.a[r.x.id]||{}).box||0})):`<div class="verdict bad"><b>답하지 않음</b><span>정답 ${r.x.type==="mc"?"ABCD"[r.x.ans]:r.x.type==="calc"?fmt(r.x.ans,r.x.dec)+" "+esc(r.x.unit):esc(r.x.ans)}</span></div>`}</div>`).join("")}</div>
+    <div class="actions" style="margin-top:20px"><button class="btn" type="button" id="exAgain">새 시험</button><a class="btn line" href="#review">틀린 문제 복습하기</a></div>`;
+    $("#exAgain").onclick=()=>{exam=null;examView()};return;
+  }
+  const x=ITEMS.find(y=>y.id===exam.ids[exam.i]),a=exam.answers[x.id];const pick=a?a.pick:draft.pick;
+  const left=exam.limit?Math.max(0,exam.limit-Math.floor((Date.now()-exam.start)/1000)):null;
+  let h=`<div class="exam-bar"><span>${exam.i+1} / ${exam.ids.length}</span><div class="pb"><i style="width:${(exam.i)/exam.ids.length*100}%"></i></div>${left!==null?`<span class="t" id="exClock">${Math.floor(left/60)}:${String(left%60).padStart(2,"0")}</span>`:""}<button class="btn line sm" type="button" id="exSubmit">제출하고 채점</button></div>
+  <div class="card">${meta(x)}<h2 class="q">${esc(x.q)}</h2>${qBody(x,null,pick,true)}
+  ${x.type==="calc"?`<div class="ansrow"><label class="f" for="ans">내 답<input type="text" id="ans" inputmode="decimal" autocomplete="off" value="${esc(draft.val!==undefined?draft.val:(a?a.val:""))}" placeholder="숫자만"></label><span class="u">${esc(x.unit)}</span></div>`:""}
+  <div class="navrow"><button class="btn line sm" type="button" id="exPrev" ${exam.i===0?"disabled":""}>← 이전</button><button class="btn sm" type="button" id="exNext">${exam.i===exam.ids.length-1?"마지막 · 제출":"저장하고 다음 →"}</button></div></div>`;
+  box.innerHTML=h;
+  document.querySelectorAll(".choice button").forEach(b=>b.onclick=()=>{draft.pick=b.dataset.v;examView()});
+  document.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{draft.pick=+b.dataset.k;examView()});
+  const inp=$("#ans");if(inp)inp.oninput=e=>draft.val=e.target.value;
+  const stash=()=>{if(x.type==="calc"){const v=parseNum(inp.value);if(!isNaN(v))exam.answers[x.id]={val:inp.value.trim(),ok:Math.abs((x.abs?Math.abs(v):v)-x.ans)<=x.tol}}else if(draft.pick!==undefined)exam.answers[x.id]={pick:draft.pick,ok:draft.pick===x.ans}};
+  $("#exPrev").onclick=()=>{stash();exam.i--;draft={};examView()};
+  $("#exNext").onclick=()=>{stash();if(exam.i===exam.ids.length-1)finishExam();else{exam.i++;draft={};examView();window.scrollTo(0,0)}};
+  $("#exSubmit").onclick=()=>{stash();if(!arm){arm=true;$("#exSubmit").textContent="한 번 더 누르면 채점";setTimeout(()=>{arm=false;const b=$("#exSubmit");if(b)b.textContent="제출하고 채점"},3000);return}arm=false;finishExam()};
+}
+function finishExam(){exam.done=true;exam.sec=Math.floor((Date.now()-exam.start)/1000);let ok=0;
+  exam.ids.forEach(id=>{const x=ITEMS.find(y=>y.id===id),a=exam.answers[id];const res=a?Object.assign({},a):{ok:false,pick:undefined};res.note=(S.a[id]||{}).note||"";record(x,res);if(res.ok)ok++});
+  S.exams=(S.exams||[]).concat([{t:Date.now(),n:exam.ids.length,ok,sec:exam.sec,label:exam.label}]).slice(-20);save();draft={};examView();window.scrollTo(0,0)}
+function tick(){if(!exam||exam.done||!exam.limit)return;const left=exam.limit-Math.floor((Date.now()-exam.start)/1000);const c=$("#exClock");if(c)c.textContent=`${Math.max(0,Math.floor(left/60))}:${String(Math.max(0,left)%60).padStart(2,"0")}`;if(left<=0){toast("시간이 끝나 채점한다");finishExam();return}setTimeout(tick,1000)}
+/* ---------- MAP ---------- */
+const FW=[["ifrs","IFRS S2","ifrs"],["kssb","KSSB 제2호","kssb"],["esrs","ESRS E1","esrs"],["gri","GRI","gri-sasb"],["sasb","SASB 자동차","gri-sasb"],["cdp","CDP","ratings"]];
+const isNA=v=>/해당 없음|없음$/.test(String(v||""));
+function mapDetail(t){const T=MAP[t];if(!T)return "";
+  return `<div class="topics" role="group" aria-label="공시 주제">${MAP.map((x,i)=>`<button class="chip" type="button" data-t="${i}" aria-pressed="${i===t}">${esc(x.topic)}</button>`).join("")}</div>
+  <div class="mapfact"><span class="lb">현대차 FY2025</span><span class="v">${esc(T.hyundai.fact)}</span><a href="${PDF}#page=${T.hyundai.page}" target="_blank" rel="noopener" style="font-size:13px">보고서 ${esc(String(T.hyundai.pageLabel||T.hyundai.page).replace(/^p+\.?/,""))}쪽 열기 ↗</a><p>${esc(T.plain)}</p></div>
+  <div class="fwgrid">${FW.map(([k,n,m])=>{const v=T[k]||"";const na=isNA(v);const unv=/미확인|확인 필요/.test(v);
+    return `<div class="fw ${na?"na":""}"><span class="h"><span class="dot" style="background:var(--m-${m})"></span>${n}</span><span class="ref">${esc(clean(v).replace(/\s*\(?확인 필요\)?/,""))}</span>${unv?`<span class="unv">확인 필요</span>`:""}${k==="esrs"&&T.esrsNote?`<span class="unv">${esc(T.esrsNote)}</span>`:""}</div>`}).join("")}</div>
+  <div class="diff"><b>가장 큰 차이</b>${esc(T.diff)}</div>`}
+function mapView(){
+  $("#mapFull").innerHTML=mapDetail(mapTopic);
+  document.querySelectorAll("#mapFull .chip").forEach(b=>b.onclick=()=>{mapTopic=+b.dataset.t;mapView()});
+  $("#matrix").innerHTML=`<table><thead><tr><th>주제</th>${FW.map(f=>`<th><span class="dot" style="background:var(--m-${f[2]});margin-right:6px"></span>${f[1]}</th>`).join("")}</tr></thead><tbody>${MAP.map((T,i)=>`<tr class="${i===mapTopic?"on":""}"><th>${esc(T.topic)}</th>${FW.map(([k])=>{const v=T[k]||"";return `<td class="${isNA(v)?"na":""}" data-t="${i}">${esc(clip(clean(v),26))}</td>`}).join("")}</tr>`).join("")}</tbody></table>`;
+  document.querySelectorAll("#matrix td").forEach(td=>td.onclick=()=>{mapTopic=+td.dataset.t;mapView();$("#mapFull").scrollIntoView({behavior:"smooth",block:"start"})});
+}
+/* ---------- GLOSSARY ---------- */
+let gq="",gm="all";
+function glossary(){
+  const all=[];for(const id in LESSONS){((LESSONS[id]||{}).terms||[]).forEach(t=>all.push(Object.assign({m:id},t)))}
+  all.sort((a,b)=>a.t.localeCompare(b.t,"ko"));
+  $("#gmods").innerHTML=`<button type="button" data-m="all" aria-pressed="${gm==="all"}">전체 ${all.length}</button>`+avail.filter(m=>LESSONS[m.id]).map(m=>`<button type="button" data-m="${m.id}" aria-pressed="${gm===m.id}">${esc(m.short)}</button>`).join("");
+  document.querySelectorAll("#gmods button").forEach(b=>b.onclick=()=>{gm=b.dataset.m;glossary()});
+  const q=gq.trim().toLowerCase();const list=all.filter(t=>(gm==="all"||t.m===gm)&&(!q||(t.t+" "+t.d+" "+(t.en||"")).toLowerCase().includes(q)));
+  $("#gloss").innerHTML=list.length?list.map(t=>`<div class="g"><b>${esc(t.t)}<em>${esc(t.en||"")}</em></b><p>${esc(t.d)}</p><span class="m"><span class="dot" style="background:${col(t.m)};width:7px;height:7px;margin-right:4px"></span>${esc(MOD[t.m].short)}</span></div>`).join(""):`<p class="empty">맞는 용어가 없다.</p>`;
+  const inp=$("#gq");if(inp.value!==gq)inp.value=gq;inp.oninput=e=>{gq=e.target.value;glossary();inp.focus()};
+}
+/* ---------- RECORD ---------- */
+function radar(rec){
+  const groups=["std","meas","reg","prac"];const s=el("svg",{class:"radar",viewBox:"-150 -140 300 290",role:"img","aria-label":"영역별 정답률"});
+  const n=groups.length,R=100,ang=i=>-Math.PI/2+i*2*Math.PI/n,pt=(i,r)=>[Math.cos(ang(i))*r,Math.sin(ang(i))*r];
+  [.25,.5,.75,1].forEach(f=>el("polygon",{points:groups.map((g,i)=>pt(i,R*f).join(",")).join(" "),fill:"none",stroke:css("--rule")},s));
+  groups.forEach((g,i)=>{const[x,y]=pt(i,R);el("line",{x1:0,y1:0,x2:x,y2:y,stroke:css("--rule")},s)});
+  const lst=g=>ITEMS.filter(x=>MOD[x.module].g===g);
+  const vals=groups.map(g=>{const st=stat(lst(g),rec);return st.d?st.o/st.d:0}),cov=groups.map(g=>{const st=stat(lst(g),rec);return st.n?st.d/st.n:0});
+  el("polygon",{points:groups.map((g,i)=>pt(i,R*cov[i]).join(",")).join(" "),fill:css("--muted"),"fill-opacity":.12,stroke:css("--muted"),"stroke-width":1.5,"stroke-dasharray":"4 3"},s);
+  el("polygon",{points:groups.map((g,i)=>pt(i,R*vals[i]).join(",")).join(" "),fill:css("--m-ifrs"),"fill-opacity":.18,stroke:css("--m-ifrs"),"stroke-width":2},s);
+  groups.forEach((g,i)=>{const[x,y]=pt(i,R*vals[i]);if(vals[i])el("circle",{cx:x,cy:y,r:4,fill:css("--m-ifrs"),stroke:css("--bg"),"stroke-width":2},s);
+    const[lx,ly]=pt(i,R+24);const an=Math.abs(lx)<10?"middle":lx>0?"start":"end";tx(s,lx,ly+4,GROUPS[g].name,{fill:css("--ink"),"font-weight":"700","text-anchor":an});tx(s,lx,ly+19,cov[i]?Math.round(vals[i]*100)+"%":"–",{fill:css("--ink2"),"font-family":"IBM Plex Mono","text-anchor":an})});
+  return s;
+}
+function recView(){
+  const rec=recSrc==="author"&&author?author.a:S.a;const all=ITEMS.filter(x=>rec[x.id]);
+  $("#recTop").innerHTML=`<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between">${author?`<div class="seg" role="group"><button type="button" data-s="me" aria-pressed="${recSrc==="me"}">이 브라우저의 기록</button><button type="button" data-s="author" aria-pressed="${recSrc==="author"}">작성자 공개 기록</button></div>`:"<span></span>"}${canEdit&&recSrc==="me"?`<div class="owner"><span>작성자 모드 · 지금 기록을 공개 기록으로 저장할 수 있다.</span><button class="btn sm" type="button" id="pub">공개 기록으로 저장</button></div>`:""}</div>`;
+  document.querySelectorAll("#recTop .seg button").forEach(b=>b.onclick=()=>{recSrc=b.dataset.s;recView()});const pb=$("#pub");if(pb)pb.onclick=publishRec;
+  if(!all.length){$("#recBody").innerHTML=`<div class="empty">아직 푼 문제가 없다. <a href="#learn">배우기</a>에서 모듈을 고르거나 <a href="#practice">연습</a>을 시작해 보자.</div>`;return}
+  const ok=all.filter(x=>rec[x.id].ok).length,judged=all.filter(x=>x.type==="judge"&&!rec[x.id].ok),over=judged.filter(x=>RANK[rec[x.id].pick]>RANK[x.ans]).length,under=judged.length-over;
+  const wrong=all.filter(x=>!rec[x.id].ok).sort((a,b)=>(rec[b.id].t||0)-(rec[a.id].t||0));
+  const mastery=m=>{const its=items(m),d=its.filter(x=>rec[x.id]);return d.length?d.reduce((a,x)=>a+((rec[x.id].box||0)/4),0)/its.length:0};
+  const weak=avail.map(m=>{const st=stat(items(m.id),rec);return {m,st,rate:st.d?st.o/st.d:null,cov:st.d/st.n}}).sort((a,b)=>{const ra=a.rate===null?-1:a.rate,rb=b.rate===null?-1:b.rate;return (ra-rb)||(a.cov-b.cov)}).slice(0,4);
+  $("#recBody").innerHTML=`<div class="kpi4"><div><b>${all.length}</b><span>푼 문항 / ${ITEMS.length}</span></div><div><b>${Math.round(ok/all.length*100)}%</b><span>정답률</span></div><div><b>${ITEMS.filter(x=>(rec[x.id]||{}).box>=4).length}</b><span>졸업(4연속 정답)</span></div><div><b>${(S.exams||[]).length}</b><span>모의시험 횟수</span></div></div>
+  <div class="rgrid">
+   <div class="panel"><h3>영역별 정답률</h3><p class="sub">실선: 푼 문제 중 정답 비율 · 점선: 푼 비율</p><div id="radarBox"></div></div>
+   <div class="panel"><h3>모듈 × 난이도 숙련도</h3><p class="sub">칸 = 그 난이도에서 맞힌 비율 (푼 문제 기준)</p><div class="heat"><span></span><span class="h">입문</span><span class="h">실무</span><span class="h">전문가</span>${avail.map(m=>`<span class="n" title="${esc(m.name)}">${esc(m.short)}</span>${[1,2,3].map(l=>{const st=stat(items(m.id).filter(x=>x.level===l),rec);const r=st.d?st.o/st.d:null;return `<span class="c" style="${r===null?"":`background:color-mix(in srgb,${r>=.7?"var(--good)":r>=.4?"var(--m-gri-sasb)":"var(--bad)"} ${Math.round(25+r*55)}%,var(--bg));color:var(--ink)`}" title="${st.o}/${st.d} (전체 ${st.n})">${r===null?(st.n?"–":""):Math.round(r*100)+"%"}</span>`}).join("")}`).join("")}</div></div>
+   <div class="panel"><h3>판정 경향</h3><p class="sub">'있음·일부·없음' 판정에서 틀린 ${judged.length}문항의 방향</p><div class="lean"><div><b>${over}</b><span>정답보다 후하게</span></div><div><b>${under}</b><span>정답보다 박하게</span></div></div><p style="font-size:14px;color:var(--ink2)">${!judged.length?"판정 문제에서 틀린 게 아직 없다.":over>under?"설명이 길면 충족했다고 보는 경향이 보인다. 요구사항을 하위 항목으로 쪼개서 하나씩 확인해 보자.":under>over?"요구사항보다 더 많은 걸 기대하는 경향이 보인다. 기준이 실제로 요구하는 문장으로 돌아가 보자.":"후하게·박하게 틀린 횟수가 같다."}</p>
+    <h3 style="margin-top:8px">다음에 할 것</h3><div class="reco">${weak.map(w=>`<a href="#practice-${w.m.id}"><span style="color:var(--ink)"><span class="dot" style="background:${col(w.m.id)};margin-right:6px"></span>${esc(w.m.name)}</span><span>${w.rate===null?"아직 안 풂":"정답률 "+Math.round(w.rate*100)+"% · "+w.st.d+"/"+w.st.n}</span></a>`).join("")}</div></div>
+   <div class="panel"><h3>다시 볼 함정 노트</h3><p class="sub">틀린 문제의 함정만 모았다.</p><div class="notes">${wrong.length?wrong.slice(0,8).map(x=>`<div class="note"><div class="h"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(MOD[x.module].short)}</span><span class="tag ref">${esc(x.ref)}</span><span class="tag l${x.level}">${LV[x.level]}</span></div><p><b>${esc(x.topic)}</b> · ${esc(x.trap||x.insight||x.why)}</p>${recSrc==="me"?`<button type="button" data-id="${x.id}">다시 풀기 →</button>`:""}</div>`).join(""):`<p class="hint">틀린 문제가 없다.</p>`}</div></div>
+  </div>${recSrc==="me"?`<div class="actions" style="margin-top:20px"><button class="btn line sm" type="button" id="reset">${arm?"한 번 더 누르면 이 브라우저 기록이 지워진다":"이 브라우저 기록 지우기"}</button></div>`:""}`;
+  $("#radarBox").appendChild(radar(rec));
+  document.querySelectorAll(".note button").forEach(b=>b.onclick=()=>{const x=ITEMS.find(y=>y.id===b.dataset.id);delete S.a[x.id];save();jumpTo(x.id)});
+  const rs=$("#reset");if(rs)rs.onclick=()=>{if(!arm){arm=true;recView();setTimeout(()=>{arm=false;if(view==="record")recView()},4000);return}arm=false;S={a:{}};save();toast("기록을 지웠다");recView()};
+}
+async function publishRec(){
+  if(!artifactNS)return;const b=$("#pub");b.disabled=true;b.textContent="저장 중…";
+  const a={};for(const k in S.a){const r=S.a[k];a[k]={ok:r.ok,pick:r.pick,val:r.val,gave:r.gave,note:r.note,t:r.t,box:r.box}}
+  const d=new Date(),ds=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  try{await artifactNS.publish({"data/record.json":{content:JSON.stringify({updated:ds,a,exams:S.exams||[]}),contentType:"application/json"}});toast("공개 기록으로 저장했다.")}
+  catch(e){const c=e&&e.code;if(c==="conflict")toast("다른 곳에서 먼저 저장돼 새 버전을 불러온다.");else if(["not_writer","not_granted","capability_disabled","consent_required","not_declared"].includes(c)){canEdit=false;toast("이 화면에서는 저장할 수 없다.");recView()}else if(c==="rate_limited")toast("저장이 너무 잦다. 잠시 후 다시.");else toast("저장하지 못했다.")}
+  finally{if($("#pub")){$("#pub").disabled=false;$("#pub").textContent="공개 기록으로 저장"}}
+}
+function authorStrip(){
+  if(!author||!Object.keys(author.a||{}).length){$("#authorStrip").hidden=true;return}
+  $("#authorStrip").hidden=false;const a=author.a,d=ITEMS.filter(x=>a[x.id]),o=d.filter(x=>a[x.id].ok),notes=d.filter(x=>a[x.id].note).slice(-3);
+  $("#authorSum").innerHTML=`<div class="rgrid"><div class="panel"><h3>${d.length}문항 풀이 · 정답 ${o.length}개</h3><p class="sub">마지막 저장 ${esc(author.updated||"")}</p><div class="mbars">${["std","meas","reg","prac"].map(g=>{const st=stat(ITEMS.filter(x=>MOD[x.module].g===g),a);return `<div class="mbar"><span class="n"><span class="dot" style="background:var(--m-${GROUPS[g].color})"></span>${GROUPS[g].name}</span><span class="t"><i style="width:${st.o/st.n*100}%;background:var(--good)"></i><i style="width:${(st.d-st.o)/st.n*100}%;background:var(--bad)"></i></span><span class="v">${st.d}/${st.n}</span></div>`}).join("")}</div></div>
+  <div class="panel"><h3>작성자가 남긴 판단 근거</h3><div class="notes">${notes.length?notes.map(x=>`<div class="note"><div class="h"><span class="tag ref">${esc(x.ref)}</span></div><p>${esc(a[x.id].note)}</p></div>`).join(""):`<p class="hint">남긴 근거가 아직 없다.</p>`}</div><a class="btn line sm" href="#record" id="seeAuthor" style="align-self:flex-start">전체 기록 보기</a></div></div>`;
+  $("#seeAuthor").onclick=()=>{recSrc="author"};
+}
+function about(){
+  const m={};ITEMS.forEach(x=>(x.sources||[]).forEach(s=>{if(s.url!=="report"){(m[x.module]=m[x.module]||new Map()).set(s.url,s.label)}}));
+  for(const id in LESSONS)((LESSONS[id]||{}).sources||[]).forEach(s=>{if(s.url&&s.url!=="report")(m[id]=m[id]||new Map()).set(s.url,s.label)});
+  $("#srcList").innerHTML=`<div class="sh" style="margin-bottom:12px"><span class="k">Sources</span><h2 style="font-size:22px">대조한 자료</h2></div><div class="credit">${avail.map(md=>`<div><h3><span class="dot" style="background:${col(md.id)};margin-right:6px"></span>${esc(md.name)}</h3><ul>${[...(m[md.id]||new Map()).entries()].slice(0,12).map(([u,l])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a></li>`).join("")||"<li>현대자동차 보고서 원문</li>"}</ul></div>`).join("")}</div>`;
+}
+/* ---------- ROUTER ---------- */
+const VIEWS=["home","learn","lesson","practice","review","exam","map","glossary","record","about"];
+function go(v){if(location.hash!=="#"+v)location.hash=v;else route()}
+function route(){
+  const h=(location.hash||"").slice(1);const dash=h.indexOf("-");const base=dash>0?h.slice(0,dash):h;const rest=dash>0?h.slice(dash+1):"";
+  view=VIEWS.includes(base)?base:"home";sub=rest;
+  if(view==="practice"&&MOD[sub]&&!MOD[sub].missing){mod=sub;flv=0;draft={}}
+  if(view==="lesson"&&!MOD[sub])view="learn";
+  VIEWS.forEach(k=>$("#v-"+k).hidden=k!==view);
+  document.querySelectorAll(".nav nav a").forEach(a=>a.setAttribute("aria-current",a.dataset.v===view||(view==="lesson"&&a.dataset.v==="learn")?"page":"false"));
+  if(view==="home"){heroStats();tracks();twist();drawPrism();spectrum();clock();authorStrip()}
+  if(view==="learn")learn();if(view==="lesson")lesson(sub);if(view==="practice")renderPractice();if(view==="review"){rv=null;draft={};reviewView()}
+  if(view==="exam")examView();if(view==="map")mapView();if(view==="glossary")glossary();if(view==="record")recView();if(view==="about")about();
+  requestAnimationFrame(reveal);window.scrollTo(0,0);
+}
+addEventListener("hashchange",route);route();
+(async function(){
+  try{const r=await fetch("data/record.json",{cache:"no-store"});if(r.ok){author=await r.json();if(view==="home")authorStrip();if(view==="record")recView()}}catch(e){}
+  try{if(window.claude&&claude.use){const[art,user]=await Promise.all([claude.use("artifact"),claude.use("user")]);if(art&&user&&await user.canEdit()){artifactNS=art;canEdit=true;if(view==="record")recView()}}}catch(e){}
+})();
+const redraw=()=>{if(view==="home"){drawPrism();spectrum();clock()}if(view==="record")recView()};
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",redraw);
+new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+</script>

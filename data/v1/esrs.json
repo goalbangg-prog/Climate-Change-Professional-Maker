@@ -1,0 +1,374 @@
+[
+ {
+  "id": "esrs-01",
+  "module": "esrs",
+  "type": "mc",
+  "ref": "ESRS 1 문단 37·43·49 (2023년 채택 ESRS 기준)",
+  "topic": "이중 중대성의 두 축",
+  "q": "ESRS의 '이중 중대성(double materiality)'을 가장 바르게 설명한 것은 무엇인가?",
+  "options": [
+   "회사가 사람·환경에 주는 영향(영향 중대성)과, 지속가능성 이슈가 회사 재무에 주는 영향(재무 중대성) 두 가지를 모두 본다.",
+   "투자자 판단에 영향을 주는 재무 정보만 중요하다고 본다.",
+   "같은 이슈를 경영진과 이사회가 두 번 평가하는 절차를 말한다.",
+   "올해와 작년, 두 해의 중대성 결과를 비교하는 방식이다."
+  ],
+  "ans": 0,
+  "quote": "ESRS 1은 이중 중대성이 '영향 중대성'과 '재무 중대성' 두 차원으로 이루어진다고 정한다(문단 37).",
+  "why": "ESRS 1 문단 43은 회사가 사람·환경에 주는 실제·잠재 영향을, 문단 49는 회사 재무에 중대한 영향을 주거나 줄 것으로 합리적으로 예상되는 경우를 기준으로 삼는다. 반면 IFRS S2(국내 KSSB도 같은 구조)는 투자자 관점의 재무 중대성만 쓴다. 2026년 개정 ESRS도 이중 중대성 원칙은 그대로 유지했다.",
+  "trap": "'이중'을 두 번 평가한다는 뜻으로 오해하기 쉽다. 또 IFRS S2만 공부한 사람은 영향 중대성(바깥으로 미치는 영향)을 빠뜨리기 쉽다.",
+  "sources": [
+   {
+    "label": "EUR-Lex 위임규정 (EU) 2023/2772 (ESRS Set 1)",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2772"
+   },
+   {
+    "label": "EY — 개정 ESRS 채택 (이중 중대성 유지)",
+    "url": "https://www.ey.com/en_gl/technical/csrd-technical-resources/eu-adopts-revised-esrs-for-sustainability-reporting"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-02",
+  "module": "esrs",
+  "type": "mc",
+  "ref": "ESRS E1 공시요구사항 E1-6 문단 44·49·53 (2023년 채택 ESRS 기준) vs IFRS S2 문단 29(a)",
+  "topic": "E1-6과 IFRS S2 차이",
+  "q": "2023년 채택 ESRS 기준 E1-6(온실가스 배출량)은 요구하지만 IFRS S2 문단 29(a)는 요구하지 않는 항목으로 옳은 것은 무엇인가?",
+  "options": [
+   "Scope 1 총배출량(gross)",
+   "지역 기반(location-based) Scope 2 배출량",
+   "순매출액(net revenue) 대비 총 온실가스 배출 집약도와, 시장 기반(market-based) Scope 2 배출량",
+   "Scope 3 배출량"
+  ],
+  "ans": 2,
+  "quote": "ESRS E1 문단 53: GHG 배출 집약도는 'total GHG emissions per net revenue'로 정의된다.",
+  "why": "Set 1 E1-6은 Scope 1·2·3과 총합(total GHG, 문단 44), Scope 2 지역 기반·시장 기반 두 가지(문단 49), 순매출액 대비 집약도(문단 53)를 요구한다. IFRS S2 29(a)는 Scope 1·2·3 총배출량과 지역 기반 Scope 2, 그리고 계약상 수단(재생에너지 계약 등)에 대한 '정보'만 요구하고 시장 기반 수치는 의무가 아니다.",
+  "trap": "보기 1·2·4는 두 기준 모두 요구한다. 또 2026년 개정 ESRS에서는 총합과 매출 대비 집약도가 삭제되었으므로, 이 차이는 '2023년 기준'이라는 전제에서만 성립한다.",
+  "sources": [
+   {
+    "label": "EFRAG Q&A 509 (문단 53 순매출액 대비 집약도)",
+    "url": "https://knowledgehub.efrag.org/eng/qa-table/509"
+   },
+   {
+    "label": "BDO — AASB/IFRS S2 Scope 2 시장 기반은 의무 아님",
+    "url": "https://www.bdo.com.au/en-au/insights/esg-sustainability/understanding-market-based-scope-2-emissions-under-aasb-s2"
+   },
+   {
+    "label": "EUR-Lex 위임규정 (EU) 2023/2772",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2772"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-03",
+  "module": "esrs",
+  "type": "mc",
+  "ref": "ESRS E1 공시요구사항 E1-7 문단 56 (2023년 채택 ESRS 기준)",
+  "topic": "제거량과 탄소크레딧",
+  "q": "2023년 채택 ESRS 기준 E1-7(온실가스 제거와 탄소크레딧)에 대한 설명으로 옳은 것은 무엇인가?",
+  "options": [
+   "구매한 탄소크레딧은 Scope 1 총배출량에서 빼고 순배출량만 공시한다.",
+   "자체 운영·가치사슬 안의 제거량과, 가치사슬 밖 감축 사업에 돈을 대서 산 탄소크레딧 양을 총배출량과 따로 공시한다.",
+   "탄소크레딧은 ESRS 공시 대상이 아니다.",
+   "탄소크레딧을 사면 감축 목표(E1-4)를 달성한 것으로 본다."
+  ],
+  "ans": 1,
+  "why": "E1-7은 (a) 자체 운영이나 가치사슬에서 나온 제거·저장량과 (b) 가치사슬 밖 완화 사업에서 크레딧 구매로 재원을 댄(또는 댈) 감축·제거량을 tCO2eq로 따로 내게 한다. 감축 목표는 제거량·크레딧·회피배출을 빼기 전 '총량(gross)' 기준이며, 이 원칙은 2026년 개정 ESRS(AR 12)에도 남았다.",
+  "trap": "크레딧으로 배출량을 '상쇄'해서 총배출량을 줄여 보이는 것이 가장 흔한 실수다. 개정 ESRS에서는 공시요구사항 번호가 바뀌었으니 최신 위임규정에서 번호를 다시 확인하자.",
+  "sources": [
+   {
+    "label": "EUR-Lex 위임규정 (EU) 2023/2772",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2772"
+   },
+   {
+    "label": "EY EU Sustainability Developments (2026.07, AR 12 총량 목표)",
+    "url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-eu-sustainability-developments-v2-07-2026.pdf"
+   },
+   {
+    "label": "NUS Consulting — 간소화 E1 초안 변경점 (E1-9 번호)",
+    "url": "https://www.nusconsulting.com/energy-news/esrs-e1-changes-in-recent-draft-standards/"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-04",
+  "module": "esrs",
+  "type": "mc",
+  "ref": "개정 ESRS 위임규정 (2026.07.03 채택) — ESRS E1",
+  "topic": "개정 ESRS E1 변경점",
+  "q": "EFRAG 간소화안(2025.12)을 바탕으로 2026년 7월 집행위원회가 채택한 개정 ESRS E1에 대한 설명으로 옳지 않은 것은 무엇인가?",
+  "options": [
+   "온실가스 배출량 요구사항 번호가 E1-6에서 E1-8로 바뀌었다.",
+   "총 온실가스 배출량(total GHG)과 순매출액 대비 배출 집약도 항목이 삭제되었다.",
+   "조직경계는 연결재무제표와 맞춘 재무통제 방식이 출발점이 되었다.",
+   "이중 중대성이 폐지되고 재무 중대성만 남았다."
+  ],
+  "ans": 3,
+  "why": "개정 ESRS는 이중 중대성을 유지했다. 반면 E1-6→E1-8 번호 변경, 총합·매출 대비 집약도 삭제(E1.31), 재무통제 기준 조직경계는 EFRAG 간소화안과 EY의 위임법 정리에 나온다. 집행위원회는 의무 데이터포인트가 60% 넘게 줄었다고 밝혔다.",
+  "trap": "'간소화'를 '이중 중대성 폐지'로 오해하기 쉽다. 줄어든 것은 데이터포인트 수이고, 영향과 재무 두 축으로 보는 틀은 그대로다.",
+  "sources": [
+   {
+    "label": "EY EU Sustainability Developments (2026.07)",
+    "url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-eu-sustainability-developments-v2-07-2026.pdf"
+   },
+   {
+    "label": "EY — EFRAG의 ESRS 간소화안 (2026.01)",
+    "url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"
+   },
+   {
+    "label": "EY — 개정 ESRS 채택",
+    "url": "https://www.ey.com/en_gl/technical/csrd-technical-resources/eu-adopts-revised-esrs-for-sustainability-reporting"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-05",
+  "module": "esrs",
+  "type": "mc",
+  "ref": "개정 ESRS 위임규정 (2026.07.03 채택) — 적용 시기",
+  "topic": "개정 ESRS 적용 시점",
+  "q": "2026년 10월 현재, 개정 ESRS의 적용 시점에 대한 설명으로 옳은 것은 무엇인가?",
+  "options": [
+   "2025 회계연도부터 모든 기업에 의무 적용된다.",
+   "2027년 1월 1일 이후 시작하는 회계연도부터 의무이고, 2026 회계연도는 기존 ESRS(Set 1)나 개정본을 고를 수 있다.",
+   "유럽의회가 거부해 폐기되었다.",
+   "EU 밖 그룹(제3국 그룹)도 같은 개정 ESRS를 2027년부터 쓴다."
+  ],
+  "ans": 1,
+  "why": "집행위원회는 2026년 7월 3일 개정 ESRS를 채택했다. FY2027부터 의무(보고는 2028년)이며, FY2026은 기존 Set 1 유지 또는 조기 적용 중 고를 수 있고 어느 버전을 썼는지 밝혀야 한다. EY는 발효 예정일을 2026년 11월 10일로 안내했다.",
+  "trap": "EU 밖 모회사 그룹(회계지침 제40a조)은 개정 ESRS가 아니라 별도 '제3국 그룹용 ESRS'를 쓰며, 이 기준은 아직 채택 전이다. 관보 게재 여부는 최신 자료로 다시 확인하자.",
+  "sources": [
+   {
+    "label": "Linklaters — 개정 ESRS·자발적 기준 채택 (심사 종료 노트 포함)",
+    "url": "https://sustainablefutures.linklaters.com/post/102n88h/eu-commission-adopts-revised-esrs-and-voluntary-reporting-standard"
+   },
+   {
+    "label": "EY — 개정 ESRS 채택",
+    "url": "https://www.ey.com/en_gl/technical/csrd-technical-resources/eu-adopts-revised-esrs-for-sustainability-reporting"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-06",
+  "module": "esrs",
+  "type": "mc",
+  "ref": "Omnibus I 지침 (2026.02.26 관보 게재, 2026.03.18 발효) — CSRD 적용 범위",
+  "topic": "옴니버스 이후 CSRD 대상",
+  "q": "옴니버스 I 이후 CSRD 적용 범위에 대한 설명으로 옳은 것은 무엇인가?",
+  "options": [
+   "EU 기업·그룹은 직원 250명 초과 또는 매출 5,000만 유로 초과면 대상이다.",
+   "EU 기업·그룹은 직원 1,000명 초과이면서 순매출 4억 5,000만 유로 초과일 때 대상이다.",
+   "EU 밖 모회사 그룹은 EU에 자회사만 있으면 매출과 상관없이 대상이다.",
+   "상장 중소기업(SME)은 모두 의무 대상이다."
+  ],
+  "ans": 1,
+  "why": "옴니버스 I 지침은 2026년 2월 26일 EU 관보에 실리고 3월 18일 발효했다. EU 기업은 직원 1,000명 초과와 순매출 4.5억 유로 초과를 모두 충족해야 한다. EU 밖 그룹은 2년 연속 EU 내 순매출 4.5억 유로 초과이면서 EU 자회사·지점 하나가 순매출 2억 유로를 넘으면 대상이다. 회원국은 2027년 3월 19일까지 국내법에 반영해야 한다.",
+  "trap": "'1,000명 또는 4.5억'으로 기억하면 틀린다. 두 조건을 함께 충족해야 한다. 옛 기준(250명)을 그대로 외운 자료가 아직 많다.",
+  "sources": [
+   {
+    "label": "Latham & Watkins — 옴니버스 관보 게재",
+    "url": "https://www.lw.com/en/insights/EU-Sustainability-Omnibus-Published-in-the-Official-Journal"
+   },
+   {
+    "label": "EY EU Sustainability Developments (2026.07)",
+    "url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-eu-sustainability-developments-v2-07-2026.pdf"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-07",
+  "module": "esrs",
+  "type": "mc",
+  "ref": "IFRS 재단·EFRAG ESRS–ISSB 상호운용성 지침 (2024.05.02)",
+  "topic": "ESRS–ISSB 상호운용성",
+  "q": "2024년 5월 IFRS 재단과 EFRAG가 낸 상호운용성 지침의 핵심 메시지로 옳은 것은 무엇인가?",
+  "options": [
+   "ESRS로 기후 공시를 하는 기업은 매우 적은 추가 고려사항만 챙기면 ISSB 기후 기준도 충족할 수 있다.",
+   "ESRS와 ISSB 기준은 서로 맞지 않아 두 보고서를 따로 써야 한다.",
+   "ISSB 기준을 따르면 ESRS 공시가 자동으로 끝난다.",
+   "상호운용성 지침은 이중 중대성을 ISSB에 도입했다."
+  ],
+  "ans": 0,
+  "why": "EFRAG는 ESRS를 쓰는 기업이 '매우 제한된 수의 고려사항'만으로 ISSB 기후 기준을 충족할 수 있다고 했고, 그 고려사항은 지침 3장에 있다. 반대로 ISSB 기준을 쓰는 기업은 이를 기본선으로 삼고 EU가 요구하는 추가 공시를 더해야 한다.",
+  "trap": "'상호운용'을 '같은 기준'으로 오해하면 안 된다. ISSB는 재무 중대성만 쓰므로 ISSB 공시만으로는 ESRS의 영향 중대성 정보가 채워지지 않는다. 2026년 개정 ESRS의 상호운용성은 간소화 목적에 맞는 범위에서만 추진되었다.",
+  "sources": [
+   {
+    "label": "IFRS — IFRS 재단과 EFRAG 상호운용성 지침 발표",
+    "url": "https://www.ifrs.org/news-and-events/news/2024/05/ifrs-foundation-and-efrag-publish-interoperability-guidance/"
+   },
+   {
+    "label": "IBR-IRE — 집행위원회 최종 위임법 vs EFRAG 권고 비교",
+    "url": "https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-08",
+  "module": "esrs",
+  "type": "judge",
+  "ref": "ESRS 1 문단 37 (이중 중대성) / ESRS 2 IRO-1",
+  "topic": "현대차 이중 중대성 두 축",
+  "q": "현대자동차 FY2025 보고서는 ESRS의 이중 중대성처럼 '바깥으로 미치는 영향'과 '회사 재무에 들어오는 위험·기회'를 모두 평가했는가?",
+  "look": "16쪽 Materiality Assessment 도입 문단",
+  "page": 16,
+  "ans": "있음",
+  "quote": "현대자동차가 환경·사회에 미치는 영향을 분석하는 영향(Outward Impact) 평가와 외부 이해관계자가 현대자동차의 재무 상태에 미치는 영향을 분석하는 위험 및 기회(Risk & Opportunity) 평가를 동시에 진행합니다.",
+  "why": "영향(Outward Impact) 평가는 ESRS 영향 중대성에, 위험 및 기회(Risk & Opportunity) 평가는 재무 중대성에 해당한다. 같은 쪽에서 주제 선별 단계에 'EU CSRD 지속가능성보고표준(ESRS)'을 분류 기준으로 썼고, 영향은 심각성·발생가능성, 재무는 잠재 재무영향 크기·발생가능성으로 점수화했다고 밝힌다.",
+  "trap": "ESRS를 '참고'해 중대성을 평가했다고 해서 보고서가 ESRS를 준수했다는 뜻은 아니다. 현대차 보고서는 ESRS 보고서가 아니라 이중 중대성 방법론만 ESRS를 따른 것이다.",
+  "sources": [
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.16",
+    "url": "report"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-09",
+  "module": "esrs",
+  "type": "judge",
+  "ref": "ESRS 1 문단 28 (영향 또는 재무 중 하나라도 중대하면 중대)",
+  "topic": "중대 주제 선정 규칙",
+  "q": "ESRS는 영향 중대성과 재무 중대성 '둘 중 하나라도' 기준을 넘으면 그 주제를 중대하다고 본다. 현대자동차는 이 규칙대로 최종 중대 이슈를 골랐는가?",
+  "look": "17쪽 '2026 중대성 평가 결과 상세' 첫 문단",
+  "page": 17,
+  "ans": "있음",
+  "quote": "특정 주제가 ①환경·사회 영향 관점 중대성과 ②재무적 관점 중대성 두 가지 측면 중 어느 하나라도 임계값 이상의 점수를 획득하였을 경우 최종 중대 이슈로 선정하였습니다.",
+  "why": "ESRS 1 문단 28은 영향 중대성 기준, 재무 중대성 기준, 또는 둘 다를 충족하면 중대하다고 본다. 현대차는 '어느 하나라도'(합집합) 규칙을 써서 영향 측면 3개, 위험·기회 측면 6개(영향 측면 3개 포함) 주제를 골랐다(16쪽).",
+  "trap": "두 축 모두 넘어야 중대하다고(교집합) 생각하는 실수가 많다. 그러면 '에너지'처럼 재무 측면에서만 중대한 주제가 빠진다.",
+  "sources": [
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.17",
+    "url": "report"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.16",
+    "url": "report"
+   },
+   {
+    "label": "EUR-Lex 위임규정 (EU) 2023/2772 (ESRS 1)",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2772"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-10",
+  "module": "esrs",
+  "type": "judge",
+  "ref": "ESRS E1 공시요구사항 E1-6 문단 49 (2023년 채택 ESRS 기준)",
+  "topic": "Scope 2 두 방식 공시",
+  "q": "2023년 채택 ESRS 기준 E1-6 문단 49는 Scope 2를 지역 기반과 시장 기반 두 방식으로 모두 공시하라고 한다. 현대자동차 FY2025 보고서는 두 방식을 모두 냈는가?",
+  "look": "38쪽 '온실가스 배출량' 표",
+  "page": 38,
+  "ans": "있음",
+  "quote": "Scope 2 (지역 기반) 1,786,324 1,858,897 Scope 2 (시장 기반) 1,468,432 1,190,442",
+  "why": "38쪽 표에 2024년·2025년 Scope 2가 지역 기반(2025년 1,858,897 tCO2-eq)과 시장 기반(1,190,442 tCO2-eq)으로 함께 나온다. 시장 기반이 더 낮은 것은 재생에너지 조달(PPA, 인증서 등)을 반영했기 때문이며, 차이의 대부분은 해외 사업장에서 나온다.",
+  "trap": "IFRS S2는 지역 기반만 의무이므로, KSSB·ISSB 기준으로는 시장 기반이 '추가 정보'다. 또 현대차는 조직경계에 운영통제를 썼는데, 개정 ESRS는 재무통제를 출발점으로 하되 운영통제·지분 방식도 허용한다.",
+  "sources": [
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.38",
+    "url": "report"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.157",
+    "url": "report"
+   },
+   {
+    "label": "IBR-IRE — 최종 위임법 조직경계(E1-8 문단 30(c))",
+    "url": "https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "esrs-11",
+  "module": "esrs",
+  "type": "judge",
+  "ref": "ESRS E1 공시요구사항 E1-8 문단 62–63 (2023년 채택 ESRS 기준)",
+  "topic": "현대차 내부 탄소가격",
+  "q": "2023년 채택 ESRS 기준 E1-8은 내부 탄소가격의 종류, 적용 범위, tCO2eq당 가격, 그 가격이 적용되는 배출량 규모를 공시하라고 한다. 현대자동차 FY2025 보고서는 이를 얼마나 공시했는가?",
+  "look": "41쪽 '내부 탄소 가격' 문단",
+  "page": 41,
+  "ans": "일부",
+  "quote": "내부 탄소 가격은 Shadow Price 방식으로 탄소 배출에 따른 잠재적 비용을 가정하여 에너지 효율 개선, 저탄소 투자 검토, 저탄소 사업기회 발굴, 비용 편익 분석 등 일부 사업 의사결정 과정에 활용됩니다. 2025년 기준의 내부 탄소 가격은 사업장이 위치한 지역의 온실가스 배출권 거래제(ETS) 거래 가격 기반으로 USD 7~84/tCO2-eq 범위 내에서 차등 적용됩니다.",
+  "why": "종류(그림자 가격), 대상(Scope 1·2), 쓰임새(투자 검토·비용편익 분석), 가격(USD 7~84/tCO2-eq)은 나와 있다. 그러나 이 가격이 실제로 적용되는 배출량(tCO2eq)이나 전체 배출량 중 비율은 나와 있지 않아 '일부'다.",
+  "trap": "가격 숫자만 있으면 다 공시했다고 보기 쉽다. 적용 배출량 규모가 빠지면 정보 이용자가 그 가격이 얼마나 넓게 쓰이는지 알 수 없다. 개정 ESRS에서는 이 요구사항의 번호가 바뀌고 간소화되었다.",
+  "sources": [
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.41",
+    "url": "report"
+   },
+   {
+    "label": "NUS Consulting — 간소화 E1 초안 (내부 탄소가격 E1-10)",
+    "url": "https://www.nusconsulting.com/energy-news/esrs-e1-changes-in-recent-draft-standards/"
+   }
+  ],
+  "confidence": "medium"
+ },
+ {
+  "id": "esrs-12",
+  "module": "esrs",
+  "type": "calc",
+  "ref": "ESRS E1 공시요구사항 E1-6 문단 44(d)·53 (2023년 채택 ESRS 기준)",
+  "topic": "매출 대비 배출 집약도",
+  "q": "2023년 채택 ESRS 기준 E1-6은 총 온실가스 배출량(Scope 1+2+3)과 순매출액 대비 배출 집약도를 요구한다. 현대자동차 FY2025 숫자로 시장 기반 총배출량의 순매출액 100만 원당 집약도(tCO2-eq/백만 원)를 구하라.",
+  "given": [
+   [
+    "Scope 1 (2025)",
+    "720,642 tCO2-eq",
+    "p.38"
+   ],
+   [
+    "Scope 2 시장 기반 (2025)",
+    "1,190,442 tCO2-eq",
+    "p.38"
+   ],
+   [
+    "Scope 3 (2025)",
+    "199,704,253 tCO2-eq",
+    "p.38"
+   ],
+   [
+    "매출액(연결, 2025)",
+    "186,254 십억 원",
+    "p.134"
+   ]
+  ],
+  "ans": 1.082,
+  "tol": 0.002,
+  "unit": "tCO2-eq/백만 원",
+  "dec": 3,
+  "steps": [
+   "시장 기반 총배출량 = 720,642 + 1,190,442 + 199,704,253 = 201,615,337 tCO2-eq",
+   "매출액 186,254 십억 원 = 186,254,000 백만 원",
+   "집약도 = 201,615,337 ÷ 186,254,000 ≈ 1.082 tCO2-eq/백만 원",
+   "(참고) 지역 기반 총배출량 = 720,642 + 1,858,897 + 199,704,253 = 202,283,792 tCO2-eq → 약 1.086 tCO2-eq/백만 원"
+  ],
+  "why": "Set 1 문단 44(d)는 총배출량을, 문단 53은 총배출량을 순매출액으로 나눈 집약도를 요구하며, 지역 기반·시장 기반 두 값을 모두 낸다. 현대차는 38쪽에 생산 대수 기준 집약도만 내고 매출 기준 집약도는 내지 않으므로 직접 계산해야 한다.",
+  "trap": "Scope 3를 빼고 Scope 1+2만 나누거나, 별도 매출(78,767 십억 원)을 쓰는 실수가 흔하다. 현대차는 2025년부터 배출량 경계를 연결 기준으로 잡았으므로 연결 매출을 쓴다. 또 2026년 개정 ESRS에서는 이 총합·집약도 항목이 삭제되었다.",
+  "insight": "총배출량의 약 99%가 Scope 3(주로 판매 차량 운행)이므로, 매출 100만 원당 약 1톤이라는 집약도는 거의 전부 제품 사용 단계에서 나온다. 공장 효율보다 전동화 속도가 이 숫자를 좌우한다.",
+  "sources": [
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.38",
+    "url": "report"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.134",
+    "url": "report"
+   },
+   {
+    "label": "EFRAG Q&A 509 (순매출액 정의, 문단 53)",
+    "url": "https://knowledgehub.efrag.org/eng/qa-table/509"
+   }
+  ],
+  "confidence": "high"
+ }
+]

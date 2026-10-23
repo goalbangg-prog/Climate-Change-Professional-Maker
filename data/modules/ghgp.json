@@ -1,0 +1,1379 @@
+{
+ "module": "ghgp",
+ "lesson": {
+  "title": "GHG 프로토콜 기업 회계 — 경계 설정부터 Scope 3, 2025–2026 개정까지",
+  "summary": "GHG 프로토콜은 기업이 온실가스 배출량을 '어디까지, 어떤 규칙으로' 세는지 정한 세계 공통 규칙서다. IFRS S2·KSSB 같은 공시 기준은 배출량 산정 방법을 직접 정하지 않고 이 프로토콜을 빌려 쓰기 때문에, 기후공시 컨설턴트는 공시 기준보다 먼저 이 규칙을 몸에 익혀야 한다. 지금은 2004년판 기업 표준·2015년 Scope 2 지침·2011년 Scope 3 표준이 모두 ISO와 합쳐지는 큰 개정 중이라, '현행 규칙'과 '개정 방향'을 구분해서 알아야 한다.",
+  "sections": [
+   {
+    "h": "다섯 가지 원칙",
+    "body": "기업 표준은 모든 산정의 바탕이 되는 5원칙을 둔다. 관련성(Relevance)은 인벤토리가 회사의 실제 배출을 잘 비추고 이용자의 판단에 쓸모 있어야 한다는 뜻이다. 완전성(Completeness)은 정한 경계 안의 모든 배출원을 다 넣고, 빠진 것은 밝히고 이유를 대야 한다는 것이다. 일관성(Consistency)은 해마다 같은 방법을 써서 비교가 되게 하라는 것, 투명성(Transparency)은 추적 가능한 근거 자료(감사 추적)를 남기라는 것, 정확성(Accuracy)은 체계적으로 과대·과소 산정하지 말고 불확실성을 줄이라는 것이다."
+   },
+   {
+    "h": "조직 경계: 지분 vs 통제",
+    "body": "조직 경계는 '어느 회사의 배출을 내 것으로 세는가'다. 지분 접근법(equity share)은 지분율만큼만 센다. 통제 접근법(control)은 통제하는 사업은 100%, 통제 못 하는 사업은 0%로 센다. 통제는 다시 재무통제(재무·운영 정책을 좌우할 권한, 보통 연결 자회사)와 운영통제(운영 정책을 도입·실행할 완전한 권한)로 나뉜다. 같은 합작회사라도 지분 50%면 지분법 50%, 운영자가 아니면 운영통제 0%처럼 결과가 크게 달라진다. 2025년 12월 개정 작업 초안은 지분 접근법을 없애고 통제 기반만 남기는 방향을 제시했다."
+   },
+   {
+    "h": "운영 경계: Scope 1·2·3",
+    "body": "운영 경계는 '내 회사 안에서 어떤 종류의 배출을 어느 Scope에 넣는가'다. Scope 1은 소유·통제 설비의 직접 배출, Scope 2는 구매한 전기·열·증기의 간접 배출, Scope 3은 그 밖의 가치사슬 간접 배출이다. 세 Scope는 한 회사 안에서 서로 겹치지 않게 설계돼 있다. 발전사의 Scope 1은 전기 사용자의 Scope 2이고, 그 전기를 쓰는 가전제품 제조사에게는 Scope 3(판매 제품 사용)이 되는 식으로 회사 사이에서는 같은 배출이 여러 번 보고되는 것이 정상이다."
+   },
+   {
+    "h": "기준연도와 재산정",
+    "body": "기준연도(base year)는 감축 실적을 비교하는 출발점으로, 검증 가능한 데이터가 있는 해를 골라야 한다. 회사는 재산정 정책과 '유의성 기준(significance threshold)'을 스스로 정하고 밝혀야 하며, 검증기관은 그 정책을 지켰는지 확인한다. 인수·합병·매각·외주 전환 같은 구조 변화, 산정 방법이나 배출계수의 변경, 유의한 오류 발견이 있으면 기준연도를 다시 계산한다. 반대로 생산량 증감, 제품 구성 변화, 신규 공장 개설·폐쇄 같은 '유기적 성장·감소'는 재산정 사유가 아니다."
+   },
+   {
+    "h": "Scope 2 지침: 두 가지 방법과 품질 기준",
+    "body": "2015년 Scope 2 지침은 계약 수단 정보가 있는 시장에서 활동하는 회사에게 지역 기반·시장 기반 두 숫자를 모두 보고하도록 요구한다. 시장 기반 방법에 쓰는 REC·PPA·공급사 배출계수 같은 계약 수단은 8가지 품질 기준(Quality Criteria)을 모두 만족해야 한다. 핵심은 속성을 하나의 수단만 담을 것, 보고 회사 명의로 소각될 것, 소비 시기와 가깝게 발행·소각될 것, 전력을 소비하는 같은 시장에서 나올 것이다. 계약이 없는 전력에는 잔여 믹스(residual mix, 남이 가져가지 않은 전기의 평균 배출계수)를 쓰고, 잔여 믹스가 없으면 그 사실을 밝히고 지역 평균 계수를 쓴다."
+   },
+   {
+    "h": "Scope 3 표준: 15개 카테고리와 산정 방법",
+    "body": "Scope 3 표준은 가치사슬 배출을 업스트림 8개(1~8)와 다운스트림 7개(9~15)로 나눈다. 회사는 모든 Scope 3 배출을 산정하되, 제외하는 것이 있으면 밝히고 이유를 대야 한다. 카테고리마다 '최소 경계(minimum boundary)'가 있어 예컨대 Cat 11은 판매 제품의 직접 사용 단계 배출은 필수, 간접 사용 단계는 선택이다. 산정 방법은 공급사 고유 데이터, 혼합(hybrid), 평균 데이터, 지출 기반(spend-based) 순으로 구체성이 낮아진다. 데이터 품질은 기술·시간·지리 대표성, 완전성, 신뢰성의 다섯 지표로 평가한다."
+   },
+   {
+    "h": "배출계수와 불확실성",
+    "body": "배출계수는 활동량(연료 L, 전력 kWh, 지출 금액)을 배출량으로 바꾸는 숫자다. 연료 연소는 IPCC 2006 국가 인벤토리 가이드라인의 기본계수나 국가 고유계수, 영국 DESNZ(옛 DEFRA) 연간 변환계수, 제품·소재의 전과정 배출은 ecoinvent 같은 LCI 데이터베이스가 흔히 쓰인다. 불확실성은 과학적 불확실성과 추정 불확실성으로 나뉘고, 추정 불확실성은 다시 모델 불확실성과 매개변수 불확실성으로 나뉜다. 기업이 실제로 수치화할 수 있는 것은 매개변수 불확실성이며, 곱셈으로 결합할 때는 상대 오차의 제곱합의 제곱근을 쓴다."
+   },
+   {
+    "h": "2025–2026 개정 현황 한눈에",
+    "body": "Scope 2 공개 의견수렴은 2025년 10월 20일부터 2026년 1월 31일까지 진행됐고, 시간별 매칭·전달 가능성(같은 전력망)·신규성 요건이 제안됐다. 2026년 7월 독립표준위원회(ISB)는 요건이 다른 두 가지 시장 기반 방법(Method 1·2)을 개발하는 방향을 지지했다. 2026년 7월 29일 GHG 프로토콜은 ISO와 기업 표준·Scope 2·Scope 3·ISO 14064-1을 하나로 합치기로 발표했고, 통합 공개 의견수렴은 2027년 2분기, 최종 발간은 2028년 4분기로 예정됐다. 토지 부문·제거 표준(LSR)은 2026년 1월 30일 발간돼 2027년 1월 1일부터 적용된다."
+   }
+  ],
+  "terms": [
+   {
+    "t": "지분 접근법",
+    "d": "회사가 가진 지분율만큼만 해당 사업의 배출을 자기 것으로 세는 방식이다.",
+    "en": "Equity share approach"
+   },
+   {
+    "t": "운영통제",
+    "d": "회사가 그 사업의 운영 정책을 도입하고 실행할 완전한 권한을 가진 상태로, 통제하면 배출 100%를 센다.",
+    "en": "Operational control"
+   },
+   {
+    "t": "재무통제",
+    "d": "회사가 그 사업의 재무·운영 정책을 좌우해 경제적 이익을 얻을 수 있는 상태다.",
+    "en": "Financial control"
+   },
+   {
+    "t": "기준연도",
+    "d": "감축 실적을 비교하는 출발점이 되는 해로, 검증 가능한 데이터가 있어야 한다.",
+    "en": "Base year"
+   },
+   {
+    "t": "유의성 기준",
+    "d": "기준연도를 다시 계산해야 할 만큼 큰 변화인지 판단하는 문턱값으로, 회사가 스스로 정해 밝힌다.",
+    "en": "Significance threshold"
+   },
+   {
+    "t": "지역 기반 방법",
+    "d": "전기를 쓰는 지역 전력망의 평균 배출계수로 Scope 2를 계산하는 방법이다.",
+    "en": "Location-based method"
+   },
+   {
+    "t": "시장 기반 방법",
+    "d": "회사가 계약으로 고른 전기(REC·PPA·공급사 계수 등)의 배출계수로 Scope 2를 계산하는 방법이다.",
+    "en": "Market-based method"
+   },
+   {
+    "t": "잔여 믹스",
+    "d": "다른 회사가 계약으로 가져가지 않은 전기의 평균 배출계수다.",
+    "en": "Residual mix"
+   },
+   {
+    "t": "에너지 속성 인증서",
+    "d": "전기 1MWh의 발전 속성(재생에너지 여부 등)을 담은 거래 가능한 증서로, REC·GO가 대표적이다.",
+    "en": "Energy attribute certificate (EAC)"
+   },
+   {
+    "t": "최소 경계",
+    "d": "각 Scope 3 카테고리에서 반드시 포함해야 하는 활동의 범위다.",
+    "en": "Minimum boundary"
+   },
+   {
+    "t": "지출 기반 방법",
+    "d": "구매 금액에 산업별 환경확장 투입산출(EEIO) 계수를 곱해 배출량을 어림하는 방법이다.",
+    "en": "Spend-based method"
+   },
+   {
+    "t": "환경확장 투입산출 계수",
+    "d": "산업 부문별로 매출 1원(또는 1달러)당 공급망 배출량을 나타내는 계수다.",
+    "en": "EEIO emission factor"
+   },
+   {
+    "t": "직접 사용 단계 배출",
+    "d": "판매 제품이 쓰이는 동안 연료·전기를 직접 소비하거나 온실가스를 내뿜어 생기는 배출이다.",
+    "en": "Direct use-phase emissions"
+   },
+   {
+    "t": "매개변수 불확실성",
+    "d": "활동량·배출계수 같은 입력값이 얼마나 정확한지에 따른 불확실성으로, 기업이 수치화할 수 있는 부분이다.",
+    "en": "Parameter uncertainty"
+   },
+   {
+    "t": "독립표준위원회",
+    "d": "GHG 프로토콜 개정안의 방향을 결정하고 승인하는 기구다.",
+    "en": "Independent Standards Board (ISB)"
+   }
+  ],
+  "sources": [
+   {
+    "label": "GHG Protocol Corporate Standard (Revised Edition)",
+    "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+   },
+   {
+    "label": "GHG Protocol Scope 2 Guidance Executive Summary",
+    "url": "https://ghgprotocol.org/sites/default/files/Scope2_ExecSum_Final.pdf"
+   },
+   {
+    "label": "GHG Protocol Scope 3 Standard (2011)",
+    "url": "https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard_041613_2.pdf"
+   },
+   {
+    "label": "Scope 3 Technical Guidance",
+    "url": "https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf"
+   },
+   {
+    "label": "Scope 2 Market-Based Method Update (2026-10-16)",
+    "url": "https://ghgprotocol.org/blog/scope-2-market-based-method-update-2025-2026-public-consultation-current-status"
+   },
+   {
+    "label": "Corporate Standard Phase 1 Progress Update (2025-12)",
+    "url": "https://ghgprotocol.org/sites/default/files/2025-12/CS-Phase1-ProgressUpdate.pdf"
+   },
+   {
+    "label": "GHG Protocol–ISO 통합 발표 FAQ (2026-07-29)",
+    "url": "https://ghgprotocol.org/blog/ghg-protocol-announces-key-standard-development-updates-faq-resource"
+   },
+   {
+    "label": "Land Sector and Removals Standard",
+    "url": "https://ghgprotocol.org/land-sector-and-removals-standard"
+   },
+   {
+    "label": "GHG Protocol Uncertainty Guidance",
+    "url": "https://ghgprotocol.org/sites/default/files/2023-03/ghg-uncertainty.pdf"
+   }
+  ]
+ },
+ "items": [
+  {
+   "id": "ghgp-01",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "5원칙",
+    "기업 표준"
+   ],
+   "ref": "GHG 프로토콜 기업 표준 1장 (원칙)",
+   "topic": "완전성 원칙",
+   "q": "한 회사가 해외 소규모 창고 세 곳의 연료 사용 배출을 인벤토리에서 빼면서, 보고서에 그 사실과 이유를 적었다. 이 처리와 가장 직접 관련된 GHG 프로토콜 원칙은 무엇인가?",
+   "options": [
+    "관련성 — 이용자의 판단에 필요한 정보만 담으면 된다",
+    "완전성 — 경계 안의 모든 배출원을 담고, 특정 제외는 밝히고 이유를 대야 한다",
+    "일관성 — 매년 같은 창고를 빼면 문제없다",
+    "정확성 — 작은 배출원은 정확성에 영향이 없으므로 자유롭게 뺄 수 있다"
+   ],
+   "ans": 1,
+   "quote": "Account for and report on all GHG emission sources and activities within the chosen inventory boundary. Disclose and justify any specific exclusions.",
+   "why": "완전성 원칙은 경계 안의 모든 배출원을 넣는 것이 기본이고, 어쩔 수 없이 빼는 것이 있으면 '무엇을, 왜' 뺐는지 밝히라고 한다. 제외 자체를 금지하는 것이 아니라 투명한 제외를 요구한다.",
+   "trap": "초보자는 작은 배출원 제외를 '정확성'이나 '관련성' 문제로 보기 쉽지만, 표준은 제외의 공개·정당화를 완전성 원칙 아래 둔다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Corporate Standard ch.1",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-02",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "조직 경계",
+    "지분 접근법"
+   ],
+   "ref": "GHG 프로토콜 기업 표준 3장",
+   "topic": "지분 접근법 정의",
+   "q": "GHG 프로토콜 기업 표준에서 '지분 접근법(equity share approach)'으로 조직 경계를 정하면 어떤 배출을 자기 것으로 세는가?",
+   "options": [
+    "운영 정책을 좌우하는 사업의 배출 100%",
+    "재무 정책을 좌우하는 사업의 배출 100%",
+    "각 사업에 가진 지분율(경제적 이익 비율)만큼의 배출",
+    "연결재무제표에 들어가는 자회사의 배출 100%와 관계회사 배출 50%"
+   ],
+   "ans": 2,
+   "quote": "Under the equity share approach, a company accounts for GHG emissions from operations according to its share of equity in the operation.",
+   "why": "지분 접근법은 경제적 이익의 비율, 보통은 지분율대로 배출을 나눠 센다. 100% 또는 0%로 세는 것은 통제 접근법이다.",
+   "trap": "재무제표의 연결 범위(100% 연결)와 지분법 회계를 섞어 생각하면 틀린다. 지분 접근법은 재무 연결과 달리 지분율 비례로만 센다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Corporate Standard ch.3",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-03",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "조직 경계",
+    "운영통제",
+    "재무통제"
+   ],
+   "ref": "GHG 프로토콜 기업 표준 3장",
+   "topic": "운영통제 vs 재무통제",
+   "q": "기업 표준이 말하는 '운영통제(operational control)'가 있다고 보는 기준은 무엇인가?",
+   "options": [
+    "그 사업의 재무·운영 정책을 좌우해 경제적 이익을 얻을 수 있는 권한",
+    "그 사업에서 운영 정책을 도입하고 실행할 완전한 권한",
+    "그 사업의 지분을 50% 넘게 보유한 상태",
+    "그 사업이 연결재무제표에 자회사로 들어가는 상태"
+   ],
+   "ans": 1,
+   "quote": "A company has operational control over an operation if the former or one of its subsidiaries has the full authority to introduce and implement its operating policies at the operation.",
+   "why": "운영통제는 '운영 정책을 도입·실행할 완전한 권한'이고, 재무통제는 '재무·운영 정책을 좌우할 권한(보통 연결 자회사)'이다. 두 통제 모두 통제하면 100%, 못 하면 0%로 센다.",
+   "trap": "지분율 50%를 통제의 기준으로 외우면 안 된다. 지분이 50% 미만이어도 운영자(operator)이면 운영통제가 있을 수 있고, 반대도 가능하다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Corporate Standard ch.3",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-04",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "Scope 3",
+    "15개 카테고리"
+   ],
+   "ref": "GHG 프로토콜 Scope 3 표준 5장 표 5.4",
+   "topic": "업스트림·다운스트림 구분",
+   "q": "Scope 3 표준의 15개 카테고리는 업스트림(1~8)과 다운스트림(9~15)으로 나뉜다. 다음 중 '업스트림' 카테고리는 어느 것인가?",
+   "options": [
+    "Cat 13 다운스트림 임대 자산(회사가 소유해 남에게 빌려준 자산)",
+    "Cat 8 업스트림 임차 자산(회사가 남에게서 빌려 쓰는 자산)",
+    "Cat 11 판매된 제품의 사용",
+    "Cat 15 투자"
+   ],
+   "ans": 1,
+   "why": "임차(lessee, 빌려 쓰는 쪽)는 업스트림 Cat 8, 임대(lessor, 빌려주는 쪽)는 다운스트림 Cat 13이다. 같은 '리스'라도 회사가 어느 쪽인지로 카테고리가 갈린다.",
+   "trap": "한국어로 둘 다 '임대'라고 부르는 경우가 많아 Cat 8과 Cat 13을 뒤바꾸는 실수가 잦다. 빌려 쓰면 8, 빌려주면 13으로 기억한다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Scope 3 FAQ",
+     "url": "https://ghgprotocol.org/scope-3-frequently-asked-questions"
+    },
+    {
+     "label": "GHG Protocol Scope 3 Standard table 5.4",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard_041613_2.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-05",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "Scope 3",
+    "Cat 3",
+    "Scope 2"
+   ],
+   "ref": "Scope 3 기술 지침 Cat 3 표 3.1",
+   "topic": "Cat 3와 Scope 2의 경계",
+   "q": "회사가 전기를 구매해 쓴다. 다음 중 Scope 2가 아니라 Scope 3 Cat 3(연료·에너지 관련 활동)에 들어가는 배출은 무엇인가?",
+   "options": [
+    "구매한 전기를 발전소에서 만들 때 나온 연소 배출",
+    "송배전 과정에서 손실된 전기를 만들 때 나온 배출(T&D 손실)",
+    "회사 보일러에서 LNG를 태울 때 나온 배출",
+    "회사 소유 차량이 쓴 경유의 연소 배출"
+   ],
+   "ans": 1,
+   "why": "구매 전기의 발전 연소 배출은 Scope 2이고, 그 연료를 캐고 운반하는 상류 배출과 송배전 손실분의 발전 배출은 Cat 3로 '최종 사용자'가 보고한다. 자기 설비·차량의 연료 연소는 Scope 1이다.",
+   "trap": "T&D 손실을 Scope 2에 더해 버리거나, 반대로 발전 배출 자체를 Cat 3에 넣어 이중 계산하는 실수가 흔하다. Cat 3는 'Scope 1·2에 아직 안 들어간' 에너지 관련 배출만 담는다.",
+   "sources": [
+    {
+     "label": "Scope 3 Technical Guidance Cat 3",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-06",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "기준연도",
+    "고정 기준연도"
+   ],
+   "ref": "GHG 프로토콜 기업 표준 5장",
+   "topic": "기준연도 선택 요건",
+   "q": "기업 표준이 기준연도(base year)를 고를 때 '반드시(shall)' 지키라고 한 것은 무엇인가?",
+   "options": [
+    "회사 설립 첫해를 기준연도로 삼아야 한다",
+    "검증 가능한 배출 데이터가 있는 해를 골라 보고해야 한다",
+    "항상 직전 연도를 기준연도로 삼는 '이동(rolling)' 방식을 써야 한다",
+    "배출량이 가장 많았던 해를 골라야 한다"
+   ],
+   "ans": 1,
+   "quote": "Companies shall choose and report a base year for which verifiable emissions data are available.",
+   "why": "필수 요건은 '검증 가능한 데이터가 있는 해'다. 가능한 가장 이른 신뢰할 수 있는 해를 고르는 것은 권고(should)다. 고정 기준연도가 일반적이고 대부분의 배출권·등록 프로그램이 이를 요구하지만, 이동 기준연도 정책도 표준상 가능하다.",
+   "trap": "'고정 기준연도가 필수'라고 외우면 틀린다. 필수는 데이터 검증 가능성이고, 고정이냐 이동이냐는 회사 정책 선택이다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Corporate Standard ch.5",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-07",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "Scope 2",
+    "이중 보고"
+   ],
+   "ref": "GHG 프로토콜 Scope 2 지침 (이중 보고 요건)",
+   "topic": "이중 보고 대상 회사",
+   "q": "2015년 Scope 2 지침에 따라 지역 기반과 시장 기반 두 방법으로 모두 보고해야(shall) 하는 회사는 어떤 회사인가?",
+   "options": [
+    "재생에너지 인증서(REC)를 실제로 구매한 회사만",
+    "계약 수단(공급사 배출계수·인증서 등) 정보가 제공되는 시장에서 사업을 하는 모든 회사",
+    "연간 전력 사용량이 1GWh를 넘는 회사만",
+    "상장회사만"
+   ],
+   "ans": 1,
+   "quote": "companies shall report scope 2 according to a location-based method and a market-based method",
+   "why": "이중 보고 의무는 '재생에너지를 샀는지'가 아니라 '시장에 계약 수단 정보가 있는지'로 정해진다. 재생에너지를 전혀 사지 않아도 공급사 계수나 잔여 믹스가 있는 시장이면 두 숫자를 다 내야 한다.",
+   "trap": "'우리는 REC를 안 샀으니 지역 기반 하나만 내면 된다'는 판단이 가장 흔한 오류다. 계약 정보가 없으면 시장 기반 숫자에 잔여 믹스나 지역 평균 계수를 쓰면 된다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Scope 2 Guidance Executive Summary",
+     "url": "https://ghgprotocol.org/sites/default/files/Scope2_ExecSum_Final.pdf"
+    },
+    {
+     "label": "Top ten questions about Scope 2 Guidance",
+     "url": "https://ghgprotocol.org/blog/top-ten-questions-about-scope-2-guidance"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-08",
+   "module": "ghgp",
+   "type": "calc",
+   "level": 1,
+   "tags": [
+    "Scope 3",
+    "Cat 7",
+    "평균 데이터"
+   ],
+   "ref": "Scope 3 기술 지침 Cat 7 식 7.2",
+   "topic": "통근 배출 평균 데이터법",
+   "q": "임직원 12,000명인 회사가 통근(Cat 7) 배출을 평균 데이터 방법으로 구한다. 60%는 자가용(편도 18km), 30%는 대중교통(편도 22km), 10%는 도보·자전거(배출 0)로 통근하고 연간 근무일은 230일이다. 연간 통근 배출량(tCO2e)은 얼마인가?",
+   "given": [
+    [
+     "임직원 수",
+     "12,000명",
+     "가정값"
+    ],
+    [
+     "자가용 비중 / 편도 거리 / 배출계수",
+     "60% / 18km / 0.17 kgCO2e/km",
+     "가정값"
+    ],
+    [
+     "대중교통 비중 / 편도 거리 / 배출계수",
+     "30% / 22km / 0.04 kgCO2e/인·km",
+     "가정값"
+    ],
+    [
+     "연간 근무일",
+     "230일",
+     "가정값"
+    ],
+    [
+     "식 7.2",
+     "임직원 수 × 수단 비중 × 편도거리 × 2 × 근무일 × 수단 배출계수",
+     "Scope 3 기술 지침"
+    ]
+   ],
+   "ans": 11592,
+   "tol": 30,
+   "unit": "tCO2e",
+   "dec": 0,
+   "steps": [
+    "자가용: 12,000 × 0.6 × 18 × 2 × 230 × 0.17 = 10,134,720 kgCO2e",
+    "대중교통: 12,000 × 0.3 × 22 × 2 × 230 × 0.04 = 1,457,280 kgCO2e",
+    "도보·자전거: 0",
+    "합계 11,592,000 kg = 11,592 tCO2e"
+   ],
+   "insight": "편도 거리에 ×2를 빠뜨리는 실수가 가장 잦다. 재택근무 배출은 선택 항목이며, 포함할 때도 집에서 일하면서 '추가로' 쓴 에너지만 센다.",
+   "why": "평균 데이터법은 설문으로 얻은 수단별 비중·평균 거리에 수단별 배출계수를 곱한다. 식 7.2가 왕복(×2)과 근무일을 명시한다.",
+   "trap": "편도만 계산하거나 근무일 대신 365일을 쓰는 실수. 또 회사 통근버스처럼 회사가 소유·통제하는 차량은 Scope 1이므로 Cat 7에서 빼야 한다.",
+   "sources": [
+    {
+     "label": "Scope 3 Technical Guidance ch.7 (Employee Commuting)",
+     "url": "https://ghgprotocol.org/sites/default/files/standards_supporting/Chapter7.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-09",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "기준연도",
+    "재산정",
+    "유기적 성장"
+   ],
+   "ref": "GHG 프로토콜 기업 표준 5장",
+   "topic": "재산정을 요구하지 않는 변화",
+   "q": "다음 중 GHG 프로토콜 기업 표준에서 기준연도 재산정 사유가 '아닌' 것은 무엇인가?",
+   "options": [
+    "경쟁사의 기존 공장을 인수했다(그 공장은 기준연도에도 가동 중이었다)",
+    "배출계수를 더 정확한 값으로 바꿨고 그 영향이 유의하다",
+    "생산량이 크게 늘어 배출이 20% 증가했고, 새 공장 하나를 신설했다",
+    "지난 인벤토리에서 유의한 누적 오류가 발견됐다"
+   ],
+   "ans": 2,
+   "quote": "Base year emissions and any historic data are not recalculated for organic growth or decline.",
+   "why": "생산량 증감, 제품 구성 변화, 소유·통제 설비의 신설·폐쇄는 '유기적 성장·감소'로서 재산정하지 않는다. 그래야 실제 배출 변화가 감축 실적에 그대로 드러난다. 인수·합병·매각 같은 구조 변화, 방법론·계수 변경, 유의한 오류 발견은 재산정 사유다.",
+   "trap": "신규 공장 건설을 '인수'와 같은 구조 변화로 착각하는 경우가 많다. 기준연도에 존재하지 않던 설비를 새로 짓거나 인수하는 것은 기준연도 숫자를 바꾸지 않는다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Corporate Standard ch.5",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-10",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "기준연도",
+    "재산정",
+    "구조 변화"
+   ],
+   "ref": "GHG 프로토콜 기업 표준 5장",
+   "topic": "연중 인수 시 재산정 시점",
+   "q": "한 회사가 보고연도 7월 1일에 다른 회사의 공장을 인수했다. 이 인수가 유의성 기준을 넘는다면, 기준연도와 당해연도 배출량은 어떻게 처리해야 하는가?",
+   "options": [
+    "기준연도는 그대로 두고, 당해연도에는 7~12월 배출만 더한다",
+    "기준연도와 당해연도 모두 그 공장의 '1년 전체' 배출을 넣어 재산정한다",
+    "기준연도만 재산정하고 당해연도는 7~12월 배출만 넣는다",
+    "다음 연도부터 반영하고 당해연도는 반영하지 않는다"
+   ],
+   "ans": 1,
+   "quote": "When significant structural changes occur during the middle of the year, the base year emissions should be recalculated for the entire year, rather than only for the remainder of the reporting period after the structural change occurred.",
+   "why": "연중 구조 변화가 있으면 기준연도와 당해연도 모두 '1년 전체'로 재산정하라고 권고한다. 그래야 다음 해에 또 재산정하는 일을 피하고 비교 일관성이 유지된다.",
+   "trap": "회계처럼 인수 시점 이후 기간만 더하면 기준연도와 당해연도의 경계가 어긋나 감축률이 왜곡된다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Corporate Standard ch.5",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-11",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Scope 2",
+    "품질 기준",
+    "REC"
+   ],
+   "ref": "GHG 프로토콜 Scope 2 지침 7장 품질 기준 표",
+   "topic": "다른 시장 REC의 사용 가능 여부",
+   "q": "한국 공장의 전력 사용 배출을 줄이기 위해 회사가 미국 텍사스에서 발행된 비번들(unbundled) REC를 사서 소각했다. 2015년 Scope 2 지침의 품질 기준에 따르면 이 REC로 한국 공장의 시장 기반 Scope 2를 0에 가깝게 보고할 수 있는가?",
+   "options": [
+    "가능하다 — REC는 소각만 보고 회사 명의로 했으면 어디서 발행됐든 쓸 수 있다",
+    "불가능하다 — 계약 수단은 전력을 소비하는 사업장이 있는 '같은 시장'에서 나와야 한다는 기준(기준 5)에 어긋난다",
+    "가능하다 — 비번들 REC는 전력 거래와 분리돼 있어 지역 제한을 받지 않는다",
+    "불가능하다 — 비번들 REC 자체가 시장 기반 방법에서 인정되지 않는다"
+   ],
+   "ans": 1,
+   "quote": "Be sourced from the same market in which the reporting entity's electricity-consuming operations are located and to which the instrument is applied.",
+   "why": "8개 품질 기준 중 하나가 '소비 사업장이 있는 같은 시장에서 나온 수단'이다. 비번들 REC 자체는 인정되는 수단이지만, 시장 경계를 넘으면 쓸 수 없다. 참고로 2025–26년 개정안은 이 '시장' 개념을 '전달 가능성(같은 전력망)'으로 더 좁히는 쪽으로 논의 중이다.",
+   "trap": "'소각 증명서가 있으면 된다'는 생각이 흔한 오류다. 소각(기준 3)은 여러 기준 중 하나일 뿐이고, 시장 일치·시기 근접·속성 단일성 등을 모두 만족해야 한다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Scope 2 Guidance Executive Summary (Quality Criteria)",
+     "url": "https://ghgprotocol.org/sites/default/files/Scope2_ExecSum_Final.pdf"
+    },
+    {
+     "label": "Scope 2 Market-Based Method Update (2026-10)",
+     "url": "https://ghgprotocol.org/blog/scope-2-market-based-method-update-2025-2026-public-consultation-current-status"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-12",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Scope 2",
+    "잔여 믹스"
+   ],
+   "ref": "GHG 프로토콜 Scope 2 지침 (잔여 믹스)",
+   "topic": "잔여 믹스가 없는 시장",
+   "q": "회사의 동남아 공장이 있는 나라에는 공급사 배출계수도, 공식 잔여 믹스(residual mix)도 없다. 이 공장의 시장 기반 Scope 2는 어떻게 보고해야 하는가?",
+   "options": [
+    "시장 기반 숫자를 비워 두고 지역 기반만 보고한다",
+    "잔여 믹스가 없다는 사실을 밝히고, 지역 평균(grid average) 배출계수를 시장 기반 계산에 쓴다",
+    "인접 국가의 잔여 믹스를 가져다 쓴다",
+    "배출계수 0을 적용한다"
+   ],
+   "ans": 1,
+   "quote": "you can use a residual mix (if available) or grid average emission factors",
+   "why": "품질 기준 8은 잔여 믹스가 제공되어야 하되, 없으면 그 '부재를 공개'하라고 한다. 이 경우 지역 평균 계수를 시장 기반 계산에 써도 지침 위반이 아니며, 두 방법 결과가 같아지는 것은 잔여 믹스가 갖춰지기 전의 과도기 현상으로 본다.",
+   "trap": "잔여 믹스가 없으니 시장 기반 보고 의무가 사라진다고 보거나, 다른 나라 잔여 믹스를 임의로 가져다 쓰는 것은 모두 틀린 처리다.",
+   "sources": [
+    {
+     "label": "Top ten questions about Scope 2 Guidance",
+     "url": "https://ghgprotocol.org/blog/top-ten-questions-about-scope-2-guidance"
+    },
+    {
+     "label": "GHG Protocol Scope 2 Guidance Executive Summary",
+     "url": "https://ghgprotocol.org/sites/default/files/Scope2_ExecSum_Final.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-13",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Scope 2",
+    "추가성",
+    "상쇄"
+   ],
+   "ref": "GHG 프로토콜 Scope 2 지침 FAQ",
+   "topic": "추가성과 상쇄의 구분",
+   "q": "고객사 담당자가 '우리가 산 REC는 추가성(additionality)이 입증되지 않았으니 Scope 2에 못 쓰는 것 아니냐'고 묻는다. 2015년 Scope 2 지침 기준으로 맞는 답은?",
+   "options": [
+    "맞다 — 모든 계약 수단은 추가성을 입증해야 한다",
+    "틀리다 — Scope 2는 귀속(attributional) 회계이므로 추가성은 요건이 아니고, 품질 기준 충족만 요구된다. 추가성은 상쇄 크레딧의 개념이다",
+    "맞다 — 추가성이 없으면 지역 기반 방법으로만 보고해야 한다",
+    "틀리다 — REC는 상쇄 크레딧의 일종이므로 Scope 1·2·3 어디서든 차감할 수 있다"
+   ],
+   "ans": 1,
+   "why": "Scope 2 지침은 '내가 쓴 전기의 속성이 무엇인가'를 묻는 귀속 회계여서 추가성을 요구하지 않는다. 추가성은 프로젝트 기반 상쇄 크레딧의 핵심 개념이다. 다만 2025–26년 개정 논의에서는 신규성(incrementality) 요건을 넣는 Method 1이 제안되어 이 경계가 바뀔 수 있다.",
+   "trap": "REC와 상쇄 크레딧을 섞는 것이 가장 흔한 실수다. REC는 전력 속성을 옮기는 수단으로 Scope 2 시장 기반 계산에만 쓰이고, 상쇄는 인벤토리와 별도로 보고한다.",
+   "sources": [
+    {
+     "label": "Top ten questions about Scope 2 Guidance",
+     "url": "https://ghgprotocol.org/blog/top-ten-questions-about-scope-2-guidance"
+    },
+    {
+     "label": "Scope 2 Market-Based Method Update (2026-10)",
+     "url": "https://ghgprotocol.org/blog/scope-2-market-based-method-update-2025-2026-public-consultation-current-status"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-14",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "Cat 8",
+    "운영통제"
+   ],
+   "ref": "GHG 프로토콜 Scope 3 FAQ (임차 자산)",
+   "topic": "Cat 8과 Scope 1·2의 경계",
+   "q": "운영통제 접근법을 쓰는 회사가 영업용 차량 300대를 리스로 빌려 직접 운행한다. 이 차량의 연료 연소 배출은 어디에 보고하는가?",
+   "options": [
+    "Scope 3 Cat 8(업스트림 임차 자산) — 소유하지 않으므로 항상 Scope 3이다",
+    "Scope 1 — 운영통제 접근법에서는 소유 여부가 아니라 통제 여부로 정해지므로 직접 운행하는 리스 차량은 Scope 1이다",
+    "Scope 3 Cat 13(다운스트림 임대 자산)",
+    "Scope 2 — 외부에서 빌린 자산의 배출은 간접 배출이다"
+   ],
+   "ans": 1,
+   "why": "통제 접근법에서는 소유하지 않아도 통제하는 자산은 Scope 1·2에 들어간다. Cat 8은 조직 경계 때문에 Scope 1·2에서 빠진 임차 자산만 담는 자리다. 그래서 운영통제를 쓰는 회사의 Cat 8은 대개 0이거나 매우 작고, 그 사실을 밝히면 된다.",
+   "trap": "'리스 = 남의 자산 = Scope 3'로 단순화하면 Scope 1이 과소, Cat 8이 과대 계산된다. 먼저 조직 경계(통제 여부)를 보고, 거기서 빠진 것만 Cat 8로 보낸다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Scope 3 FAQ",
+     "url": "https://ghgprotocol.org/scope-3-frequently-asked-questions"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-15",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "Cat 11",
+    "최소 경계"
+   ],
+   "ref": "Scope 3 기술 지침 Cat 11 표 11.1",
+   "topic": "직접 vs 간접 사용 단계 배출",
+   "q": "의류 회사가 Cat 11(판매된 제품의 사용)을 산정한다. 옷을 세탁·건조할 때 소비자가 쓰는 전기·물 가열 배출은 Scope 3 표준에서 어떻게 다루는가?",
+   "options": [
+    "직접 사용 단계 배출이므로 최소 경계에 포함해 반드시 산정한다",
+    "간접 사용 단계 배출이므로 산정은 선택(optional)이며, 포함하면 전형적 사용 프로필을 만들어 계산한다",
+    "제품이 에너지를 직접 쓰지 않으므로 Cat 11은 해당 없음으로 처리한다",
+    "Cat 12(판매된 제품의 폐기)에 포함한다"
+   ],
+   "ans": 1,
+   "quote": "The direct use-phase emissions of sold products over their expected lifetime (required); The indirect use-phase emissions of sold products over their expected lifetime (optional)",
+   "why": "제품이 사용 중 연료·전기를 '직접' 소비하거나 온실가스를 내뿜으면 직접 사용 단계 배출로 필수다. 옷처럼 제품 자체는 에너지를 쓰지 않지만 사용 과정에서 세탁 등으로 에너지가 들어가면 간접 사용 단계 배출로 선택 사항이다.",
+   "trap": "자동차·가전은 직접, 의류·식품·세제는 간접이라는 구분을 놓치고 모두 필수로 보거나 모두 빼는 실수가 많다. 간접을 포함할 때는 '선택 포함'임을 밝혀야 비교 가능성이 유지된다.",
+   "sources": [
+    {
+     "label": "Scope 3 Technical Guidance ch.11 (Use of Sold Products)",
+     "url": "https://ghgprotocol.org/sites/default/files/standards_supporting/Chapter11.pdf"
+    },
+    {
+     "label": "GHG Protocol Scope 3 FAQ",
+     "url": "https://ghgprotocol.org/scope-3-frequently-asked-questions"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-16",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "데이터 품질"
+   ],
+   "ref": "GHG 프로토콜 Scope 3 표준 7장 Box 7.2",
+   "topic": "데이터 품질 지표 다섯 가지",
+   "q": "Scope 3 표준이 데이터 품질을 평가할 때 쓰는 다섯 가지 지표를 올바르게 나열한 것은?",
+   "options": [
+    "기술적 대표성, 시간적 대표성, 지리적 대표성, 완전성, 신뢰성",
+    "정확성, 정밀성, 비용 효율성, 적시성, 비교 가능성",
+    "1차 데이터 비율, 검증 여부, 공급사 응답률, 데이터 연령, 단위 일치",
+    "관련성, 완전성, 일관성, 투명성, 정확성"
+   ],
+   "ans": 0,
+   "quote": "Data quality is defined by: Technology, Time, Geography representativeness, Completeness and Reliability.",
+   "why": "다섯 지표는 '이 데이터가 내 공급망의 기술·시기·지역을 얼마나 잘 대표하는가, 표본이 충분한가, 측정·검증은 어떻게 됐는가'를 묻는다. 2025년 Scope 3 개정 작업반은 이 위에 '특정(Specific)/비특정/EEIO' 3단계 티어 보고를 추가하는 안을 논의했다.",
+   "trap": "마지막 보기(관련성·완전성·일관성·투명성·정확성)는 기업 표준의 5원칙이다. 원칙과 데이터 품질 지표를 섞어 외우면 틀린다.",
+   "sources": [
+    {
+     "label": "Scope 3 TWG Meeting 3 presentation (2025-05-29)",
+     "url": "https://ghgprotocol.org/sites/default/files/2025-06/S3-Meeting3-Presentation-20250529_1.pdf"
+    },
+    {
+     "label": "GHG Protocol Scope 3 Standard",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard_041613_2.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-17",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "이중 계산"
+   ],
+   "ref": "GHG 프로토콜 Scope 3 표준 5.1절",
+   "topic": "회사 간 이중 계산",
+   "q": "자동차 부품사 A의 Scope 1 배출이 완성차사 B의 Scope 3 Cat 1에도 들어간다. 고객사가 '이중 계산 아니냐'고 묻는다. Scope 3 표준의 입장은?",
+   "options": [
+    "이중 계산이므로 B는 A가 보고한 배출을 Cat 1에서 빼야 한다",
+    "회사 간에 같은 배출이 여러 번 보고되는 것은 가치사슬 회계에서 정상이며, 다만 여러 회사의 Scope 3를 더해 지역 총량을 구하면 안 된다",
+    "A와 B가 합의해 한쪽만 보고해야 한다",
+    "B는 Cat 1을 A의 Scope 1을 뺀 Scope 2·3 부분만 보고한다"
+   ],
+   "ans": 1,
+   "quote": "scope 3 emissions should not be aggregated across companies to determine total emissions in a given region",
+   "why": "Scope 1·2·3는 '한 회사 안에서' 서로 배타적일 뿐, 회사 사이에서는 같은 배출이 한쪽의 Scope 1, 다른 쪽의 Scope 3로 보고되는 것이 설계 의도다. 그래서 여러 회사 Scope 3를 합산하면 안 되고, 감축 '실적·크레딧'을 서로 주장할 때만 이중 주장이 문제가 된다.",
+   "trap": "회사 간 이중 계산을 없애려고 Cat 1에서 공급사 Scope 1을 빼면 표준 위반이다. 조심해야 할 것은 '회사 내' 카테고리 간 중복(예: Cat 1과 Cat 2)이다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Scope 3 Standard §5.1",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard_041613_2.pdf"
+    },
+    {
+     "label": "GHG Protocol Scope 3 FAQ",
+     "url": "https://ghgprotocol.org/scope-3-frequently-asked-questions"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-18",
+   "module": "ghgp",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "조직 경계",
+    "지분 접근법",
+    "운영통제"
+   ],
+   "ref": "GHG 프로토콜 기업 표준 3장 표 2 (Holland Industr…",
+   "topic": "지분 접근법 연결 계산",
+   "q": "모회사 P는 자회사 A(지분 100%, 연 10,000 tCO2e)와 자회사 B(지분 60%, 재무·운영통제 보유, 연 20,000 tCO2e)를 갖고 있고, 합작회사 C(지분 40%, 운영자는 파트너사, 연 50,000 tCO2e)에도 참여한다. 지분 접근법으로 P의 Scope 1+2 합계는 몇 tCO2e인가?",
+   "given": [
+    [
+     "A: 지분 100%, 배출",
+     "10,000 tCO2e",
+     "가정값"
+    ],
+    [
+     "B: 지분 60%, P가 통제, 배출",
+     "20,000 tCO2e",
+     "가정값"
+    ],
+    [
+     "C: 지분 40%, 파트너가 운영, 배출",
+     "50,000 tCO2e",
+     "가정값"
+    ],
+    [
+     "규칙",
+     "지분 접근법 = 각 사업 배출 × 지분율",
+     "기업 표준 3장"
+    ]
+   ],
+   "ans": 42000,
+   "tol": 10,
+   "unit": "tCO2e",
+   "dec": 0,
+   "steps": [
+    "A: 10,000 × 100% = 10,000",
+    "B: 20,000 × 60% = 12,000",
+    "C: 50,000 × 40% = 20,000",
+    "합계 = 42,000 tCO2e (참고: 운영통제 접근법이면 A 100% + B 100% + C 0% = 30,000)"
+   ],
+   "insight": "같은 회사라도 접근법에 따라 42,000과 30,000으로 달라진다. 통제하지 않는 큰 합작회사가 있으면 지분 접근법 숫자가 더 커지고, 지분이 적지만 통제하는 사업이 많으면 반대가 된다.",
+   "why": "지분 접근법은 통제 여부와 상관없이 지분율로만 나눈다. Holland Industries 예시처럼 모회사→자회사→손자회사 구조면 지분율을 곱해 내려간다(예: 83% × 50% = 41.5%).",
+   "trap": "지분 접근법에서 '통제하는 자회사 B는 100%'로 세는 실수. 통제 여부는 통제 접근법에서만 따진다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Corporate Standard ch.3 table 2",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "GHG 프로토콜 기업 표준 3장 표 2 (Holland Industries 예시 구조)"
+  },
+  {
+   "id": "ghgp-19",
+   "module": "ghgp",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "Scope 2",
+    "시장 기반",
+    "REC",
+    "잔여 믹스"
+   ],
+   "ref": "GHG 프로토콜 Scope 2 지침 (시장 기반 계산)",
+   "topic": "REC 부분 충당 시 시장 기반 Scope 2",
+   "q": "한 공장이 연간 120,000 MWh의 전기를 썼다. 회사는 품질 기준을 모두 충족하는 같은 시장의 재생에너지 REC 70,000 MWh를 소각했다. 나머지 전력에는 공식 잔여 믹스 계수 0.52 tCO2e/MWh를 적용한다. 시장 기반 Scope 2 배출량(tCO2e)은?",
+   "given": [
+    [
+     "전력 사용량",
+     "120,000 MWh",
+     "가정값"
+    ],
+    [
+     "소각한 REC(재생, 배출계수 0)",
+     "70,000 MWh",
+     "가정값"
+    ],
+    [
+     "잔여 믹스 배출계수",
+     "0.52 tCO2e/MWh",
+     "가정값"
+    ],
+    [
+     "지역 평균 배출계수(참고)",
+     "0.45 tCO2e/MWh",
+     "가정값"
+    ]
+   ],
+   "ans": 26000,
+   "tol": 10,
+   "unit": "tCO2e",
+   "dec": 0,
+   "steps": [
+    "REC로 덮은 전력: 70,000 MWh × 0 = 0",
+    "계약 없는 전력: 120,000 − 70,000 = 50,000 MWh",
+    "50,000 × 0.52 = 26,000 tCO2e",
+    "참고 지역 기반: 120,000 × 0.45 = 54,000 tCO2e → 두 숫자를 모두 보고"
+   ],
+   "insight": "잔여 믹스(0.52)가 지역 평균(0.45)보다 높은 것은 재생에너지 속성을 남들이 가져간 뒤 남은 전기가 더 '더럽기' 때문이다. 그래서 REC를 안 사는 회사는 시장 기반 숫자가 지역 기반보다 커질 수 있다.",
+   "why": "시장 기반 방법은 계약 수단이 덮는 전력에는 그 수단의 계수(재생이면 0)를, 덮지 못한 전력에는 잔여 믹스를 적용한다. 이중 보고 요건에 따라 지역 기반 54,000도 함께 보고한다.",
+   "trap": "REC로 덮지 못한 50,000 MWh에 잔여 믹스 대신 지역 평균(0.45)을 쓰면 22,500으로 과소 계산된다. 잔여 믹스가 있으면 반드시 그것을 쓴다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Scope 2 Guidance Executive Summary",
+     "url": "https://ghgprotocol.org/sites/default/files/Scope2_ExecSum_Final.pdf"
+    },
+    {
+     "label": "Top ten questions about Scope 2 Guidance",
+     "url": "https://ghgprotocol.org/blog/top-ten-questions-about-scope-2-guidance"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-20",
+   "module": "ghgp",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "Cat 1",
+    "지출 기반",
+    "EEIO"
+   ],
+   "ref": "Scope 3 기술 지침 Cat 1 지출 기반 방법",
+   "topic": "지출 기반 Cat 1 산정과 물가 보정",
+   "q": "회사가 2025년에 전자부품을 1,200만 달러어치 구매했다. 쓸 수 있는 EEIO 배출계수는 2021년 달러 기준 0.42 kgCO2e/USD이고, 2021→2025년 해당 부문 물가지수 비율은 1.18이다. 기술 지침대로 물가를 보정해 구한 Cat 1 배출량(tCO2e)은?",
+   "given": [
+    [
+     "2025년 구매 금액",
+     "12,000,000 USD(2025년 가격)",
+     "가정값"
+    ],
+    [
+     "EEIO 배출계수",
+     "0.42 kgCO2e/USD(2021년 가격)",
+     "가정값"
+    ],
+    [
+     "물가지수 비율 2025/2021",
+     "1.18",
+     "가정값"
+    ],
+    [
+     "규칙",
+     "계수 연도와 지출 연도가 다르면 물가 데이터로 금액을 환산",
+     "Scope 3 기술 지침"
+    ]
+   ],
+   "ans": 4271,
+   "tol": 15,
+   "unit": "tCO2e",
+   "dec": 0,
+   "steps": [
+    "2025년 금액을 2021년 가격으로 환산: 12,000,000 ÷ 1.18 = 10,169,492 USD(2021)",
+    "배출량: 10,169,492 × 0.42 = 4,271,186 kgCO2e",
+    "= 약 4,271 tCO2e (보정 없이 계산하면 5,040 t로 18% 과대)"
+   ],
+   "insight": "지출 기반은 네 가지 방법 중 가장 구체성이 낮아 선별(screening)용으로 쓰고, 큰 항목은 공급사 고유 데이터나 평균 데이터로 올려가야 한다. 물가 보정을 빼면 인플레이션만큼 배출이 늘어난 것처럼 보인다.",
+   "why": "기술 지침은 지출 기반 식을 '구매 금액 × 단위 금액당 EEIO 배출계수'로 두고, 계수 기준 연도와 지출 연도가 다르면 물가 데이터로 금액을 환산하라고 한다.",
+   "trap": "명목 금액에 바로 계수를 곱하는 실수. 또 지출 기반으로 구한 값을 공급사가 보낸 실측 데이터와 합쳐 같은 품목을 두 번 세는 일도 잦다.",
+   "sources": [
+    {
+     "label": "Scope 3 Technical Guidance Cat 1",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-21",
+   "module": "ghgp",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "불확실성",
+    "오차 전파"
+   ],
+   "ref": "GHG 프로토콜 불확실성 평가 지침",
+   "topic": "매개변수 불확실성 결합",
+   "q": "한 사업장의 Scope 1 배출 80,000 tCO2e는 '연료 사용량 × 배출계수'로 구했다. 연료 사용량의 95% 신뢰구간 상대 불확실성은 ±5%, 배출계수는 ±10%다. GHG 프로토콜 불확실성 지침의 곱셈 결합 규칙으로 구한 배출량의 상대 불확실성(%)은?",
+   "given": [
+    [
+     "배출량",
+     "80,000 tCO2e",
+     "가정값"
+    ],
+    [
+     "연료 사용량 불확실성",
+     "±5% (95% 신뢰구간)",
+     "가정값"
+    ],
+    [
+     "배출계수 불확실성",
+     "±10% (95% 신뢰구간)",
+     "가정값"
+    ],
+    [
+     "규칙",
+     "곱셈: 각 요소 상대 불확실성의 제곱합의 제곱근(정규분포, 각 60% 미만일 때)",
+     "불확실성 지침"
+    ]
+   ],
+   "ans": 11.2,
+   "tol": 0.2,
+   "unit": "%",
+   "dec": 1,
+   "steps": [
+    "√(5² + 10²) = √(25 + 100) = √125",
+    "≈ 11.18% → 약 11.2%",
+    "절대값으로는 80,000 × 11.18% ≈ ±8,944 tCO2e"
+   ],
+   "insight": "결합 불확실성은 가장 큰 요소(배출계수 10%)에 가까워진다. 그래서 불확실성을 줄이려면 가장 부정확한 입력값을 먼저 개선하는 것이 효율적이다.",
+   "why": "지침은 곱으로 결합되는 값의 상대 불확실성을 제곱합의 제곱근으로 구하라고 한다. 이는 매개변수 불확실성에만 적용되며, 모델·과학적 불확실성은 대부분 기업이 수치화할 수 없다.",
+   "trap": "5% + 10% = 15%로 단순 합산하는 실수. 또 이 규칙은 정규분포이고 각 불확실성이 60% 미만일 때만 쓸 수 있다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Guidance on Uncertainty Assessment",
+     "url": "https://ghgprotocol.org/sites/default/files/2023-03/ghg-uncertainty.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-22",
+   "module": "ghgp",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "Cat 8",
+    "현대차 보고서"
+   ],
+   "ref": "GHG 프로토콜 Scope 3 표준 (제외의 공개·정당화)",
+   "topic": "Cat 8 제외 사유 공개",
+   "q": "Scope 3 표준은 최소 경계 안의 배출을 빼려면 그 사실과 이유를 밝히라고 한다. 현대자동차 2026 지속가능성 보고서는 Cat 8(임차 자산)을 '-'로 표시했는데, 그 이유를 조직 경계 원칙과 연결해 설명하고 있는가?",
+   "look": "p.40 '투입변수 및 가정 – Scope 3'의 Category 8 설명",
+   "page": 40,
+   "ans": "있음",
+   "quote": "현대자동차가 임차하여 운영하는 자산에서 발생하는 배출량은 회사의 조직 경계 설정 원칙에 따라 이미 Scope 1 및 Scope 2에 포함되어 있으므로, 중복 산정을 방지하기 위해 본 카테고리에서는 제외하였습니다.",
+   "why": "운영통제 접근법을 쓰면 직접 운영하는 임차 자산은 Scope 1·2에 들어가므로 Cat 8이 비는 것이 정상이다. 보고서는 그 논리(조직 경계 원칙, 중복 산정 방지)를 명시해 '제외의 공개·정당화' 요건을 충족한다.",
+   "trap": "Cat 8이 '-'인 것을 '누락'으로 지적하면 틀린 리뷰다. 먼저 조직 경계 접근법(p.38: 운영통제)을 확인하고 그 논리와 맞는지 보아야 한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    },
+    {
+     "label": "GHG Protocol Scope 3 FAQ",
+     "url": "https://ghgprotocol.org/scope-3-frequently-asked-questions"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-23",
+   "module": "ghgp",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "Cat 15",
+    "지분 비례",
+    "현대차 보고서"
+   ],
+   "ref": "Scope 3 기술 지침 Cat 15 (지분 투자 식)",
+   "topic": "Cat 15 지분 비례 산정",
+   "q": "Scope 3 표준은 지분 투자의 Cat 15 배출을 '피투자회사 Scope 1+2 × 지분율'로 계산하라고 한다. 현대자동차 보고서는 Cat 15를 이 방식으로 산정한다고 밝히고 있는가?",
+   "look": "p.40 Category 15. 투자 설명",
+   "page": 40,
+   "ans": "있음",
+   "quote": "현대자동차의 지분율을 투자 대상 기업이 보고한 Scope 1 및 Scope 2 배출량에 적용하는 지분 기반 접근법으로 산정합니다.",
+   "why": "운영통제를 쓰는 회사는 통제하지 않는 피투자회사의 지분을 Cat 15에 넣고, 피투자회사 Scope 1+2에 지분율을 곱한다. 보고서는 이 식과 기업 데이터가 없을 때 산업 평균 계수를 보조로 쓴다는 점까지 밝혀 표준과 맞는다.",
+   "trap": "Cat 15는 금융기관용 카테고리로만 생각해 제조업에서 빼는 실수. 통제 접근법을 쓰는 제조사도 통제 밖 지분 투자(합작·관계회사)는 Cat 15에 넣어야 한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    },
+    {
+     "label": "Scope 3 Technical Guidance ch.15 (Investments)",
+     "url": "https://ghgprotocol.org/sites/default/files/standards_supporting/Chapter15.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-24",
+   "module": "ghgp",
+   "type": "calc",
+   "level": 3,
+   "tags": [
+    "기준연도",
+    "유의성 기준",
+    "재산정"
+   ],
+   "ref": "GHG 프로토콜 기업 표준 5장 (유의성 기준)",
+   "topic": "유의성 기준 적용과 재산정 금액",
+   "q": "한 회사의 기준연도(2022년) Scope 1+2 배출은 500,000 tCO2e이고, 재산정 정책은 '단일 구조 변화가 기준연도 배출의 5% 이상이면 재산정'이다. 2026년에 기준연도부터 가동 중이던 공장을 인수했는데, 그 공장의 2022년 배출은 32,000 tCO2e였다. 재산정이 필요하다면 새 기준연도 배출량(tCO2e)은 얼마인가? (필요 없으면 500,000)",
+   "given": [
+    [
+     "기준연도 배출",
+     "500,000 tCO2e",
+     "가정값"
+    ],
+    [
+     "회사 유의성 기준",
+     "단일 변화 ≥ 5%",
+     "회사 정책(가정)"
+    ],
+    [
+     "인수 공장의 기준연도(2022) 배출",
+     "32,000 tCO2e",
+     "가정값"
+    ],
+    [
+     "규칙",
+     "유의성 기준은 회사가 정하고, 검증기관이 준수 여부를 확인",
+     "기업 표준 5장"
+    ]
+   ],
+   "ans": 532000,
+   "tol": 10,
+   "unit": "tCO2e",
+   "dec": 0,
+   "steps": [
+    "영향 비율: 32,000 ÷ 500,000 = 6.4%",
+    "6.4% ≥ 5% → 유의한 구조 변화 → 재산정 필요",
+    "새 기준연도 배출 = 500,000 + 32,000 = 532,000 tCO2e",
+    "(인수 공장이 2022년에 존재하지 않았다면 재산정하지 않음)"
+   ],
+   "insight": "유의성 기준은 GHG 프로토콜이 숫자를 정해주지 않고 회사가 정해 공개한다. 실무에서 5%가 흔히 쓰이고, 작은 변화가 여러 건 쌓여 기준을 넘는 '누적' 조항을 함께 두는 회사가 많다.",
+   "why": "기준연도부터 존재한 설비를 인수하면 기준연도에도 그 설비 배출을 더해야 '같은 범위'로 비교할 수 있다. 회사 정책의 문턱값(5%)을 넘으므로 재산정 의무가 생긴다.",
+   "trap": "인수 공장의 '2026년' 배출을 기준연도에 더하는 실수. 기준연도에 더하는 것은 그 설비의 '기준연도 당시' 배출이다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Corporate Standard ch.5",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-25",
+   "module": "ghgp",
+   "type": "calc",
+   "level": 3,
+   "tags": [
+    "Scope 3",
+    "Cat 11",
+    "사용 단계",
+    "자동차"
+   ],
+   "ref": "Scope 3 기술 지침 Cat 11 식 11.1",
+   "topic": "판매 차량 생애 사용 단계 배출",
+   "q": "완성차사가 보고연도에 휘발유 승용차 50,000대를 팔았다. 생애 주행거리를 200,000km, 평균 연료 소비를 6.5 L/100km, 휘발유 배출계수를 2.31 kgCO2e/L로 가정하면, 이 차량들의 Cat 11 직접 사용 단계(Tank-to-Wheel) 배출량(tCO2e)은? (Scope 3 표준은 생애 전체 배출을 판매 연도에 한 번에 보고한다)",
+   "given": [
+    [
+     "판매 대수",
+     "50,000대",
+     "가정값"
+    ],
+    [
+     "생애 주행거리",
+     "200,000 km/대",
+     "현대차 보고서 p.40의 승용차 가정과 동일"
+    ],
+    [
+     "연료 소비",
+     "6.5 L/100km",
+     "가정값"
+    ],
+    [
+     "휘발유 배출계수",
+     "2.31 kgCO2e/L",
+     "가정값"
+    ]
+   ],
+   "ans": 1501500,
+   "tol": 1000,
+   "unit": "tCO2e",
+   "dec": 0,
+   "steps": [
+    "대당 생애 연료: 200,000 km × 6.5/100 = 13,000 L",
+    "대당 생애 배출: 13,000 × 2.31 = 30,030 kgCO2e = 30.03 t",
+    "총: 30.03 × 50,000 = 1,501,500 tCO2e",
+    "(Well-to-Tank 상류 배출을 더하면 WTW 값이 되고, 전기차는 TTW 0 + 전력 계수 × 전력 소비로 계산)"
+   ],
+   "insight": "Cat 11은 '올해 판 제품이 앞으로 내뿜을 배출'을 올해에 모두 잡으므로 판매량과 생애 주행거리 가정이 숫자를 지배한다. 현대차는 승용 200,000km·상용 400,000km를 가정하고 2025년부터 WTT를 더한 WTW로 범위를 넓혔다.",
+   "why": "식 11.1은 '생애 예상 사용 횟수(거리) × 판매 수 × 사용당 연료 × 연료 배출계수'다. 자동차는 연료를 직접 소비하는 제품이므로 직접 사용 단계 배출로 최소 경계에 들어간다.",
+   "trap": "연간 주행거리(예: 15,000km)만 곱해 1년치 배출을 보고하는 실수. 또 생애 주행거리 가정을 바꾸면 방법론 변경으로 기준연도 재산정 사유가 될 수 있다.",
+   "sources": [
+    {
+     "label": "Scope 3 Technical Guidance ch.11 (Use of Sold Products)",
+     "url": "https://ghgprotocol.org/sites/default/files/standards_supporting/Chapter11.pdf"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-26",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "Scope 3",
+    "Cat 15",
+    "조직 경계"
+   ],
+   "ref": "Scope 3 기술 지침 Cat 15",
+   "topic": "Cat 15와 조직 경계의 연결",
+   "q": "한 제조회사가 운영통제 접근법으로 Scope 1·2를 보고한다. 이 회사는 합작회사 J(지분 45%, 파트너가 운영)와 상장 관계회사 K(지분 20%)를 갖고 있다. Cat 15 처리로 맞는 것은?",
+   "options": [
+    "J·K 모두 Scope 1·2에 지분율만큼 넣고 Cat 15는 보고하지 않는다",
+    "J·K의 Scope 1+2에 각각 45%·20%를 곱해 Cat 15에 넣고, 유의하면 피투자회사의 Scope 3도 포함을 검토한다",
+    "Cat 15는 금융기관 전용이므로 제조회사는 해당 없음으로 표시한다",
+    "J는 지분이 45%로 크므로 Scope 1·2에 100% 넣고, K만 Cat 15에 넣는다"
+   ],
+   "ans": 1,
+   "quote": "∑ (scope 1 and scope 2 emissions of equity investment × share of equity (%))",
+   "why": "통제 접근법을 쓰면 통제 밖 지분 투자는 Scope 1·2에서 빠지므로 Cat 15에 '피투자회사 Scope 1+2 × 지분율'로 넣는다. Cat 15가 금융기관을 '주로' 겨냥한 것은 맞지만, 투자 자산이 있는 모든 회사에 적용된다. 피투자회사의 Scope 3가 유의하면 포함을 검토해야 한다.",
+   "trap": "반대로 지분 접근법을 쓰는 회사는 지분 투자가 이미 Scope 1·2에 지분율로 들어가므로 같은 것을 Cat 15에 또 넣으면 회사 내 이중 계산이다. 조직 경계 접근법에 따라 Cat 15의 내용이 달라진다.",
+   "sources": [
+    {
+     "label": "Scope 3 Technical Guidance ch.15 (Investments)",
+     "url": "https://ghgprotocol.org/sites/default/files/standards_supporting/Chapter15.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-27",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "Scope 3",
+    "Cat 13",
+    "운영통제"
+   ],
+   "ref": "GHG 프로토콜 Scope 3 FAQ (임대 자산)",
+   "topic": "임대인의 Cat 13 판단",
+   "q": "운영통제 접근법을 쓰는 회사가 본사 건물의 3개 층을 외부 회사에 임대했다. 임차인이 자기 사무실의 전기 계약과 운영을 직접 한다. 이 3개 층의 전기 사용 배출은 임대인 회사의 어디에 보고하는가?",
+   "options": [
+    "Scope 2 — 건물 소유자이므로 건물 전체 전기가 Scope 2다",
+    "Scope 3 Cat 13(다운스트림 임대 자산) — 소유하지만 운영을 통제하지 않는 자산의 배출이다",
+    "Scope 3 Cat 8(업스트림 임차 자산)",
+    "보고하지 않는다 — 임차인이 자기 Scope 2로 보고하므로 이중 계산이다"
+   ],
+   "ans": 1,
+   "why": "통제 접근법에서는 소유해도 운영을 통제하지 않으면 Scope 1·2에서 빠지고, 빌려준 쪽(lessor)이므로 Cat 13에 들어간다. 임차인이 같은 배출을 Scope 2로 보고하는 것은 회사 간 중복으로 허용된다. 현대차도 임대 면적 비율로 Scope 1·2를 할당해 Cat 13을 산정한다.",
+   "trap": "'소유 = Scope 1·2'로 보는 것이 가장 흔한 실수다. 통제 접근법은 소유가 아니라 통제를 묻는다. 반대로 임대인이 공용 설비(중앙 냉난방)를 직접 운영하면 그 부분은 임대인의 Scope 1·2다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Scope 3 FAQ",
+     "url": "https://ghgprotocol.org/scope-3-frequently-asked-questions"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-28",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "Scope 2",
+    "개정",
+    "시간별 매칭"
+   ],
+   "ref": "GHG 프로토콜 Scope 2 시장 기반 방법 업데이트 (2026-1…",
+   "topic": "Scope 2 개정 현황 (2026년 10월)",
+   "q": "2026년 10월 현재 GHG 프로토콜 Scope 2 개정의 진행 상황으로 맞는 것은?",
+   "options": [
+    "시간별 매칭을 의무화한 새 Scope 2 표준이 2026년 1월 확정·발간되어 바로 적용 중이다",
+    "2025년 10월 20일~2026년 1월 31일 공개 의견수렴을 거쳐, 2026년 7월 ISB가 요건이 다른 두 시장 기반 방법(시간별 매칭·전달 가능성·신규성을 담은 Method 1과 2015년 요건을 유지한 Method 2)을 개발하는 방향을 지지했고, 어느 쪽이 의무인지는 아직 미정이다",
+    "시간별 매칭 제안은 의견수렴에서 철회되어 2015년 지침이 그대로 유지된다",
+    "지역 기반 방법이 폐지되고 시장 기반 방법만 남기는 것으로 확정됐다"
+   ],
+   "ans": 1,
+   "why": "의견수렴 결과 의견이 두 갈래(정밀한 매칭 지지 vs 연간 매칭·넓은 시장 유지 지지)로 갈려, ISB는 2026년 7월 두 방법을 병행 개발하는 방향을 택했다. 2026년 9월 논의 방향은 'Method 2는 특정 시점까지 허용(may), Method 1을 권고(should), 그 이후 데이터가 있으면 Method 1 사용'이지만 shall/should/may 문구는 미정이다. 최종안은 2027년 2분기 통합 의견수렴, 2028년 4분기 발간 예정이다.",
+   "trap": "언론 보도만 보고 '시간별 매칭이 이미 의무'라고 고객에게 말하면 틀린다. 2026년 10월 현재 현행 규칙은 여전히 2015년 지침(연간 매칭)이다.",
+   "sources": [
+    {
+     "label": "Scope 2 Market-Based Method Update (ghgprotocol.org, 2026-10-16)",
+     "url": "https://ghgprotocol.org/blog/scope-2-market-based-method-update-2025-2026-public-consultation-current-status"
+    },
+    {
+     "label": "EY: What the GHG Protocol Scope 2 consultation means",
+     "url": "https://www.ey.com/en_gl/insights/ifrs/what-the-ghg-protocol-scope-2-consultation-means"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "GHG 프로토콜 Scope 2 시장 기반 방법 업데이트 (2026-10-16)"
+  },
+  {
+   "id": "ghgp-29",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "기업 표준",
+    "개정",
+    "조직 경계"
+   ],
+   "ref": "Corporate Standard Phase 1 Progress Up…",
+   "topic": "기업 표준 개정 작업 초안의 방향",
+   "q": "2025년 12월 공개된 GHG 프로토콜 기업 표준 개정 1단계 진행 보고(작업 초안, 확정 아님)에 담긴 방향으로 맞는 것은?",
+   "options": [
+    "지분 접근법을 기본 방법으로 승격하고 통제 접근법을 폐지한다",
+    "연결은 통제 기반으로만 하여 지분 접근법을 없애고, 재무통제를 1차 기준으로 권고하며, Scope 3 보고를 필수로 하되 제외 한도를 5%(Scope 1·2는 각 1%)로 둔다",
+    "Scope 3 보고는 계속 선택 사항으로 두고, '유의한(significant)' 배출만 보고하도록 한다",
+    "5원칙 중 '정확성'을 삭제하고 '보수성'으로 대체한다"
+   ],
+   "ans": 1,
+   "why": "진행 보고는 조직 경계를 통제 기반으로 통일(지분 접근법 삭제), 재무통제를 1차 기준으로 권고, 운영통제는 독립 선택지로 유지하는 안을 담았다. 운영 경계에서는 '유의한'이라는 모호한 표현을 빼고 Scope 3 제외 5%, Scope 1·2 각 1%라는 숫자 문턱을 제안했다. 보수성은 정확성 원칙의 권고 지침으로 들어간다.",
+   "trap": "이것은 작업 초안이며 변경될 수 있다. 또 일정은 2026년 7월 ISO 통합 발표로 바뀌어, 통합 의견수렴 2027년 2분기·발간 2028년 4분기가 최신 계획이다. 고객에게 '지분 접근법이 이미 폐지됐다'고 말하면 안 된다.",
+   "sources": [
+    {
+     "label": "Corporate Standard Phase 1 Progress Update (2025-12)",
+     "url": "https://ghgprotocol.org/sites/default/files/2025-12/CS-Phase1-ProgressUpdate.pdf"
+    },
+    {
+     "label": "GHG Protocol key standard development updates FAQ (2026-07-29)",
+     "url": "https://ghgprotocol.org/blog/ghg-protocol-announces-key-standard-development-updates-faq-resource"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "Corporate Standard Phase 1 Progress Update (2025-12)"
+  },
+  {
+   "id": "ghgp-30",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "개정",
+    "ISO",
+    "통합 표준"
+   ],
+   "ref": "GHG Protocol–ISO 통합 발표 FAQ (2026-07-29)",
+   "topic": "GHG 프로토콜·ISO 통합 일정",
+   "q": "2026년 7월 29일 GHG 프로토콜 발표에 따른 기업 회계 표준 통합 계획으로 맞는 것은?",
+   "options": [
+    "기업 표준(2004), Scope 2 지침(2015), Scope 3 표준(2011), 행동·시장수단(AMI) 작업과 ISO 14064-1을 하나의 통합 표준으로 합치며, 통합 공개 의견수렴은 2027년 2분기, 발간은 2028년 4분기 예정이다",
+    "ISO 14064-1이 폐지되고 GHG 프로토콜 기업 표준 3판이 2026년 말 단독 발간된다",
+    "Scope 2 지침만 ISO와 통합하고 기업 표준·Scope 3 표준은 별도로 유지한다",
+    "통합 표준은 2026년 12월 발간되어 2027년 보고연도부터 즉시 의무 적용된다"
+   ],
+   "ans": 0,
+   "why": "양 기관 거버넌스가 승인한 새 표준 개발 계획은 두 부분 구조의 단일 통합 표준과 별도 이행 지침을 목표로 한다. 2025년 12월 진행 보고의 '2026년 중반 의견수렴·2027년 말 발간' 일정은 이 발표로 2027년 2분기·2028년 4분기로 늦춰졌다.",
+   "trap": "2025년 자료의 일정(2026년 중반 의견수렴)을 그대로 인용하면 틀린다. 또 발간과 적용은 다르며, 발간 후에도 현행 2004년판·2015년 지침이 당분간 유효하다.",
+   "sources": [
+    {
+     "label": "GHG Protocol key standard development updates FAQ (2026-07-29)",
+     "url": "https://ghgprotocol.org/blog/ghg-protocol-announces-key-standard-development-updates-faq-resource"
+    },
+    {
+     "label": "Scope 2 Market-Based Method Update (2026-10-16)",
+     "url": "https://ghgprotocol.org/blog/scope-2-market-based-method-update-2025-2026-public-consultation-current-status"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ghgp-31",
+   "module": "ghgp",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "토지 부문",
+    "제거",
+    "LSR"
+   ],
+   "ref": "GHG Protocol Land Sector and Removals …",
+   "topic": "토지 부문·제거 표준의 발간과 적용",
+   "q": "GHG 프로토콜 토지 부문·제거 표준(LSR Standard)에 대해 맞는 것은?",
+   "options": [
+    "2024년 발간되어 2025년부터 적용 중이며 산림 탄소 회계는 영구 제외됐다",
+    "v1.0이 2026년 1월 30일 발간됐고, 2026년 6월 비실질적 수정을 담은 v1.1이 참조 버전이 됐으며, 적용일(effective date)은 2027년 1월 1일이다",
+    "아직 초안 단계로 2028년 통합 표준과 함께 발간될 예정이다",
+    "기업 표준을 대체하여 모든 기업이 Scope 1·2·3 대신 토지 기준으로 보고해야 한다"
+   ],
+   "ans": 1,
+   "why": "LSR 표준은 토지 관리·토지 이용 변화, 토지·지질 저장소에 저장되는 CO2 제거, 바이오 제품과 기술적 CO2 제거 유래 제품의 가치사슬 배출을 다룬다. 기업 표준·Scope 3 표준을 대체하는 것이 아니라 보완하며, 기업 인벤토리에 배출과 CO2 제거를 함께 보고할 수 있게 한다.",
+   "trap": "2024년 작업 업데이트에 적힌 '2025년 1분기 발간 예정'을 사실로 인용하면 틀린다. 실제 발간은 2026년 1월 30일이다. 또 v1.0 PDF는 보관(archived) 처리되어 v1.1을 봐야 한다.",
+   "sources": [
+    {
+     "label": "GHG Protocol Land Sector and Removals Standard page",
+     "url": "https://ghgprotocol.org/land-sector-and-removals-standard"
+    },
+    {
+     "label": "Corporate Standard Phase 1 Progress Update (2025-12)",
+     "url": "https://ghgprotocol.org/sites/default/files/2025-12/CS-Phase1-ProgressUpdate.pdf"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "GHG Protocol Land Sector and Removals Standard"
+  },
+  {
+   "id": "ghgp-32",
+   "module": "ghgp",
+   "type": "judge",
+   "level": 3,
+   "tags": [
+    "Scope 3",
+    "Cat 9",
+    "제외 정당화",
+    "현대차 보고서"
+   ],
+   "ref": "GHG 프로토콜 Scope 3 표준 (최소 경계 제외의 공개·정당화)",
+   "topic": "Cat 9 산정 중단의 공개",
+   "q": "Scope 3 표준은 최소 경계 안의 활동을 빼려면 제외 사실과 이유를 밝히라고 한다. 현대자동차는 2024년 568,043 tCO2e를 보고했던 Cat 9(다운스트림 운송·유통)를 2025년부터 산정하지 않는다. 보고서에 그 제외와 이유가 적혀 있는가?",
+   "look": "p.40 Category 9. 다운스트림 운송 및 유통 설명 (수치는 p.38 표)",
+   "page": 40,
+   "ans": "있음",
+   "quote": "지역별 시장 구조의 차이와 데이터 가용성 및 신뢰성의 한계로 인해, 2025년부터 본 카테고리에 대한 배출량은 산정하지 않습니다.",
+   "why": "제외 사실과 이유(시장 구조 차이, 데이터 가용성·신뢰성)가 명시되어 공개 요건은 충족한다. 다만 컨설턴트는 이 제외가 2024년 기준 Scope 3 총량의 약 0.3% 수준이라는 규모 정보와, 데이터 한계가 '산정 불가'가 아니라 '추정 가능'은 아닌지(평균 데이터·지출 기반 등)를 함께 검토·권고해야 한다.",
+   "trap": "'제외 사유가 적혀 있으니 끝'으로 보는 것과, 반대로 '최소 경계 제외는 무조건 위반'으로 보는 것 둘 다 틀리다. 표준은 공개·정당화를 조건으로 제외를 허용하되, 특정 카테고리의 선택적 제외가 반복되면 완전성 원칙 문제로 지적한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    },
+    {
+     "label": "GHG Protocol Scope 3 Standard §5.4",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard_041613_2.pdf"
+    }
+   ],
+   "confidence": "medium"
+  }
+ ]
+}

@@ -1,0 +1,427 @@
+[
+ {
+  "id": "gs-01",
+  "module": "gri-sasb",
+  "type": "mc",
+  "ref": "GRI 1: Foundation 2021 Section 3 (요구사항 1~9)",
+  "topic": "in accordance vs with reference",
+  "q": "회사가 GRI 기준을 '준수하여(in accordance with)' 보고했다고 말하려면 무엇이 필요한가?",
+  "options": [
+   "GRI 콘텐츠 인덱스만 만들고 GRI에 알리면 된다",
+   "9가지 요구사항(보고 원칙 적용, GRI 2 전체 공시, 중대 주제 결정과 GRI 3 공시, 주제별 공시, 생략 사유 제시, 인덱스, 사용 선언문, GRI 통보)을 모두 지켜야 한다",
+   "관심 있는 주제 몇 개만 골라 공시하면 된다",
+   "제3자 검증만 받으면 자동으로 인정된다"
+  ],
+  "ans": 1,
+  "quote": "9가지 요구사항 중 하나라도 지키지 못하면 'in accordance'라고 주장할 수 없다(GRI 1 요약).",
+  "why": "'in accordance'는 9가지 요구사항을 모두 지켜야 하는 높은 수준이다. 반면 'with reference to'는 콘텐츠 인덱스, 사용 선언문, GRI 통보 3가지만 지키면 되는 가벼운 방식이다.",
+  "trap": "인덱스 표만 있으면 'in accordance'라고 착각하기 쉽다. 사용 선언문 문구도 다르다('has reported in accordance with' vs 'with reference to').",
+  "sources": [
+   {
+    "label": "GRI 1: Foundation 2021",
+    "url": "https://www.globalreporting.org/publications/documents/english/gri-1-foundation-2021"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-02",
+  "module": "gri-sasb",
+  "type": "mc",
+  "ref": "GRI 3: Material Topics 2021 (3-1, 3-2, 3-3) / GRI 1 용어집",
+  "topic": "GRI 3 중대 주제",
+  "q": "GRI에서 '중대 주제(material topic)'를 고르는 기준으로 맞는 것은?",
+  "options": [
+   "회사 매출과 이익에 가장 큰 영향을 주는 주제",
+   "회사가 경제·환경·사람에게 미치는 가장 큰 영향(임팩트)을 나타내는 주제",
+   "투자자 설문에서 가장 많이 나온 주제",
+   "경쟁사 보고서에 공통으로 나온 주제"
+  ],
+  "ans": 1,
+  "quote": "material topics: \"topics that represent the organization's most significant impacts on the economy, environment, and people\" (GRI 1 용어집)",
+  "why": "GRI는 '회사가 바깥 세상에 주는 영향'을 기준으로 중대 주제를 고른다(임팩트 관점). 그리고 3-1(결정 과정), 3-2(주제 목록), 3-3(주제별 관리 방법)을 공시해야 한다.",
+  "trap": "현대차처럼 '이중 중대성'으로 평가하는 회사도 많지만, GRI가 요구하는 것은 그중 임팩트 쪽이다. 재무 영향 기준만으로 고르면 GRI 취지와 맞지 않는다.",
+  "sources": [
+   {
+    "label": "GRI 1: Foundation 2021",
+    "url": "https://www.globalreporting.org/publications/documents/english/gri-1-foundation-2021"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-03",
+  "module": "gri-sasb",
+  "type": "mc",
+  "ref": "GRI 305-4, 305-5",
+  "topic": "GRI 305 공시 번호 구분",
+  "q": "GRI 305에서 '온실가스 배출 집약도(예: 차 1대당 배출량)'를 다루는 공시 번호는?",
+  "options": [
+   "305-2",
+   "305-3",
+   "305-4",
+   "305-5"
+  ],
+  "ans": 2,
+  "quote": "305-4 a. \"GHG emissions intensity ratio for the organization.\" b. 분모로 쓴 회사 고유 지표를 밝혀야 한다.",
+  "why": "305-1은 직접 배출(Scope 1), 305-2는 전력 등 간접 배출(Scope 2), 305-3은 그 밖의 가치사슬 배출(Scope 3), 305-4는 집약도, 305-5는 감축 활동으로 줄인 양이다. 305-4는 분모(예: 생산대수)를 반드시 밝혀야 한다.",
+  "trap": "305-5를 '전년 대비 감소량'으로 착각하기 쉽다. 305-5는 감축 활동 덕분에 직접 줄어든 양이다. 현대차 집약도(0.464 tCO2-eq/대)는 판매대수가 아니라 생산대수 기준이다(p.136 각주).",
+  "sources": [
+   {
+    "label": "GRI 305: Emissions 2016 (PDF)",
+    "url": "https://www.globalreporting.org/pdf.ashx?id=12510"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.136",
+    "url": "report"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-04",
+  "module": "gri-sasb",
+  "type": "mc",
+  "ref": "GRI 305-1 c / 305-3 c, GRI 102-5 c",
+  "topic": "바이오매스 기원 CO2",
+  "q": "나무 칩 같은 바이오매스를 태워 나온 CO2(생물 기원 CO2)는 GRI에서 어떻게 보고하는가?",
+  "options": [
+   "Scope 1 총배출량에 그냥 더한다",
+   "보고하지 않아도 된다",
+   "Scope 1(또는 Scope 3) 총배출량과 따로 떼어 별도 숫자로 보고한다",
+   "탄소상쇄로 간주해 배출량에서 뺀다"
+  ],
+  "ans": 2,
+  "quote": "305-1 c. \"Biogenic CO2 emissions in metric tons of CO2 equivalent.\"",
+  "why": "GRI 305는 생물 기원 CO2를 총배출량과 분리해 따로 보고하도록 한다. 새 GRI 102(102-5 c)도 같은 방식을 유지한다.",
+  "trap": "'탄소중립 연료라서 0'으로 처리하거나 아예 빼먹기 쉽다. 숫자를 안 섞을 뿐, 별도로 공개해야 한다.",
+  "sources": [
+   {
+    "label": "GRI 305: Emissions 2016 (PDF)",
+    "url": "https://www.globalreporting.org/pdf.ashx?id=12510"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025 (PDF)",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-05",
+  "module": "gri-sasb",
+  "type": "mc",
+  "ref": "GRI 102: Climate Change 2025, GRI 103: Energy 2025 (시행일)",
+  "topic": "GRI 102·103 시행 시점",
+  "q": "새로 나온 GRI 102(기후변화)와 GRI 103(에너지)에 대한 설명으로 맞는 것은?",
+  "options": [
+   "2023년에 발표되어 이미 2024년 보고서부터 의무 적용됐다",
+   "2025년 6월 발표되었고, 2027년 1월 1일 이후 발행되는 보고서부터 적용된다. GRI 102는 GRI 305의 305-1~305-5를 대체한다",
+   "아직 공개초안 단계라 확정되지 않았다",
+   "GRI 305는 계속 쓰이고 GRI 102는 금융회사만 쓴다"
+  ],
+  "ans": 1,
+  "quote": "\"This Standard is effective for reports or other materials published on or after 1 January 2027.\" (GRI 102, GRI 103)",
+  "why": "GRI는 2025년 6월 두 기준을 발표했다. 시행일은 '보고 기간'이 아니라 '발행일' 기준으로 2027년 1월 1일 이후다. GRI 305 문서에는 305-1~305-5가 GRI 102로 대체된다고 적혀 있다. GRI 102는 전환계획(102-1), 적응(102-2), 정의로운 전환(102-3), 탄소크레딧(102-10) 등을 새로 묻는다.",
+  "trap": "일부 해설은 '2027년 1월 1일 시작하는 보고 기간부터'라고 쓰지만 원문은 '발행일' 기준이다. 2026년에 나온 현대차 FY2025 보고서가 GRI 305를 쓰는 것은 문제없다.",
+  "sources": [
+   {
+    "label": "GRI 102: Climate Change 2025 (PDF)",
+    "url": "https://globalreporting.org/pdf.ashx?id=29514"
+   },
+   {
+    "label": "GRI 103: Energy 2025 (PDF)",
+    "url": "https://globalreporting.org/pdf.ashx?id=29537"
+   },
+   {
+    "label": "GRI 305: Emissions 2016 (PDF)",
+    "url": "https://www.globalreporting.org/pdf.ashx?id=12510"
+   },
+   {
+    "label": "GRI 뉴스: New Climate Standards (2025.6.26)",
+    "url": "https://globalreporting.org/news/news-center/new-climate-standards-can-unlock-actionable-and-streamlined-reporting-on-impacts/"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-06",
+  "module": "gri-sasb",
+  "type": "mc",
+  "ref": "GRI 1 Section 1 / IFRS S2 목적, SASB Standards",
+  "topic": "GRI vs IFRS S2·SASB 독자",
+  "q": "GRI와 IFRS S2(SASB 포함)의 차이를 가장 잘 설명한 것은?",
+  "options": [
+   "둘 다 투자자만을 위한 기준이다",
+   "GRI는 회사가 경제·환경·사람에 주는 영향을 여러 이해관계자에게 알리는 것이고, IFRS S2는 투자자 등 재무보고 이용자의 자원 제공 결정에 쓸 정보다. SASB는 지금 ISSB가 관리하며 IFRS S2 산업별 지침의 바탕이다",
+   "SASB는 GRI가 관리하는 산업별 부록이다",
+   "IFRS S2를 쓰면 GRI 온실가스 공시는 절대 쓸 수 없다"
+  ],
+  "ans": 1,
+  "quote": "IFRS S2는 \"industry-based disclosure requirements derived from SASB Standards\"를 담고 있다(IFRS 내비게이터).",
+  "why": "GRI는 '바깥 세상에 주는 영향'(임팩트), IFRS S2는 '회사 재무에 주는 영향'에 초점을 둔다. SASB 기준은 ISSB가 유지·개선하며, IFRS S2의 산업별 지침이 SASB에서 나왔다. GRI는 IFRS S2의 Scope 1·2·3 공시로 GRI 102의 해당 요구를 채울 수 있다고 밝혔다(GHG Protocol로 산정하고 인덱스에 위치를 적는 조건).",
+  "trap": "두 기준이 경쟁 관계라 하나만 골라야 한다고 생각하기 쉽다. 실제로는 함께 쓰는 보완 관계이고, 같은 배출량 숫자를 양쪽에 쓸 수 있다.",
+  "sources": [
+   {
+    "label": "GRI 1: Foundation 2021",
+    "url": "https://www.globalreporting.org/publications/documents/english/gri-1-foundation-2021"
+   },
+   {
+    "label": "IFRS S2 Climate-related Disclosures (IFRS 내비게이터)",
+    "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/"
+   },
+   {
+    "label": "IFRS Foundation — SASB Standards",
+    "url": "https://www.ifrs.org/issued-standards/sasb-standards/"
+   },
+   {
+    "label": "GRI 뉴스: New Climate Standards (2025.6.26)",
+    "url": "https://globalreporting.org/news/news-center/new-climate-standards-can-unlock-actionable-and-streamlined-reporting-on-impacts/"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-07",
+  "module": "gri-sasb",
+  "type": "mc",
+  "ref": "SASB 자동차(TR-AU) 공시 주제",
+  "topic": "SASB TR-AU 공시 주제",
+  "q": "SASB 자동차 산업 기준(TR-AU)의 공시 주제가 아닌 것은?",
+  "options": [
+   "제품 안전(Product Safety)",
+   "연비 및 사용 단계 배출(Fuel Economy & Use-phase Emissions)",
+   "원자재 조달 / 원자재 효율과 재활용",
+   "사업장 생물다양성 보호"
+  ],
+  "ans": 3,
+  "quote": "TR-AU-410a.2: \"Number of (1) zero emission vehicles (ZEV), (2) hybrid vehicles, and (3) plug-in hybrid vehicles sold\"",
+  "why": "TR-AU 주제는 제품 안전(250a), 노동 관행(310a), 연비·사용 단계 배출(410a), 원자재 조달(440a), 원자재 효율·재활용(440b) 5개와 활동 지표(생산·판매 대수)다. 생물다양성은 TR-AU 주제가 아니다.",
+  "trap": "자동차 회사의 가장 큰 배출은 차를 '쓰는 단계'(Scope 3 범주 11)라서 SASB는 사업장 배출보다 연비·무배출차 판매를 묻는다. 사업장 Scope 1·2 지표를 찾으면 헛수고다.",
+  "sources": [
+   {
+    "label": "ISSB 공개초안 B63 Automobiles (TR-AU 기후 지표)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "Mazda SASB 대조표 (TR-AU 지표 전체 목록, 2차 자료)",
+    "url": "https://www.mazda.com/en/sustainability/guidelines/sasb/"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.153",
+    "url": "report"
+   },
+   {
+    "label": "IFRS 재단 · SASB Standards (산업별 기준 내려받기)",
+    "url": "https://sasb.ifrs.org/standards/download/"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-08",
+  "module": "gri-sasb",
+  "type": "judge",
+  "ref": "GRI 1 요구사항 6 (생략 사유) / GRI 2-8",
+  "topic": "GRI 생략 사유 기재",
+  "q": "현대차는 GRI 2-8(임직원이 아닌 근로자)에 대해 국내 수치(142쪽)만 내고 나머지는 생략했다. 생략한 부분에 대해 GRI 1이 허용하는 형식의 '생략 사유'를 적었는가?",
+  "look": "149쪽 GRI Index 표 하단 각주",
+  "page": 149,
+  "ans": "있음",
+  "quote": "미공시 사유: 기밀제한 / 피고용자가 아닌 근로자에 대한 데이터는 관리하고 있으나, 당사 임직원이 아닌 근로자의 정보를 공시하는 것은 회사규정상 어려움.",
+  "why": "142쪽에 국내 소속 외 근로자 현황(2025년 4,706명)은 있지만, 그 밖의 범위는 생략했다. GRI 1은 생략 사유로 '해당 없음, 법적 금지, 기밀 제한, 정보 없음/불완전' 네 가지만 허용하고, 기밀 제한이면 구체적 내용을 설명하라고 한다. 현대차는 생략한 부분에 '기밀제한'을 고르고 이유를 적었다. 2-1~2-5, 3-1~3-2는 생략 자체가 불가능하지만 2-8은 생략이 가능하다.",
+  "trap": "색인의 '미공시 사유' 각주만 보고 아예 공시하지 않았다고 판단하기 쉽다. 색인이 가리키는 쪽(142쪽)을 열어 어디까지 냈는지부터 확인해야 한다. '회사 규정상 어렵다'가 충분히 구체적인지는 검토자가 따져볼 부분이다.",
+  "sources": [
+   {
+    "label": "GRI 1: Foundation 2021",
+    "url": "https://www.globalreporting.org/publications/documents/english/gri-1-foundation-2021"
+   },
+   {
+    "label": "GRI 2: General Disclosures 2021 (PDF)",
+    "url": "https://globalreporting.org/pdf.ashx?id=12358"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.149",
+    "url": "report"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-09",
+  "module": "gri-sasb",
+  "type": "judge",
+  "ref": "GRI 305-2 a, b",
+  "topic": "Scope 2 두 가지 방식",
+  "q": "GRI 305-2는 Scope 2를 '지역 기반(location-based)'으로 보고하고, 재생에너지 계약 같은 수단이 있으면 '시장 기반(market-based)'도 보고하라고 한다. 현대차 인덱스가 305-2로 연결한 38쪽에 두 숫자가 모두 있는가?",
+  "look": "38쪽 '온실가스 배출량' 표 (GRI Index p.150에서 305-2 → 38, 136)",
+  "page": 38,
+  "ans": "있음",
+  "quote": "Scope 2 (지역 기반) 1,786,324 1,858,897 Scope 2 (시장 기반) 1,468,432 1,190,442",
+  "why": "38쪽 표에 2024·2025년의 지역 기반과 시장 기반 Scope 2가 모두 있다. 같은 쪽에 GHG Protocol 사용, 운영통제 기준, 기준연도 2024년 재산정 이유도 있어 305-2의 다른 항목(d, f, g)도 대부분 채운다.",
+  "trap": "136쪽 표에는 시장 기반 숫자만 나오고 'Scope 1+2 합계'도 시장 기반이다. 136쪽만 보면 지역 기반이 없다고 잘못 판단하기 쉽다.",
+  "sources": [
+   {
+    "label": "GRI 305: Emissions 2016 (PDF)",
+    "url": "https://www.globalreporting.org/pdf.ashx?id=12510"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.38",
+    "url": "report"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.136",
+    "url": "report"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.150",
+    "url": "report"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-10",
+  "module": "gri-sasb",
+  "type": "judge",
+  "ref": "SASB TR-AU-410a.2",
+  "topic": "무배출·하이브리드 판매 공시",
+  "q": "SASB TR-AU-410a.2는 (1) 무배출차(ZEV), (2) 하이브리드, (3) 플러그인 하이브리드 판매 대수를 각각 요구한다. 현대차 SASB 인덱스는 이를 다 채웠는가?",
+  "look": "153쪽 SASB Index 표 TR-AU-410a.2 행",
+  "page": 153,
+  "ans": "일부",
+  "quote": "구분 HEV/PHEV EV FCEV 총계 Global 679(70.6%) 276(28.7%) 7(0.7%) 962(100%)",
+  "why": "EV(전기차)와 FCEV(수소차)는 둘 다 무배출차라 (1)은 더해서 구할 수 있다. 하지만 하이브리드(HEV)와 플러그인 하이브리드(PHEV)를 'HEV/PHEV' 한 칸으로 묶어 (2)와 (3)을 따로 알 수 없다.",
+  "trap": "표가 있다고 '있음'으로 체크하기 쉽다. 지표가 요구하는 칸을 하나씩 대조해야 한다. 참고로 136쪽에는 HEV와 PHEV '매출 비율'은 따로 있지만 판매 대수는 아니다.",
+  "sources": [
+   {
+    "label": "ISSB 공개초안 B63 Automobiles (TR-AU 기후 지표)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.153",
+    "url": "report"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.136",
+    "url": "report"
+   },
+   {
+    "label": "IFRS 재단 · SASB Standards (산업별 기준 내려받기)",
+    "url": "https://sasb.ifrs.org/standards/download/"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-11",
+  "module": "gri-sasb",
+  "type": "calc",
+  "ref": "SASB TR-AU-410a.2, TR-AU-000.B",
+  "topic": "무배출차 판매 비중",
+  "q": "2025년 현대차 전체 판매 대수 중 무배출차(EV+FCEV) 비중은 몇 %인가?",
+  "given": [
+   [
+    "EV 판매(도매)",
+    "275,669대",
+    "p.8"
+   ],
+   [
+    "FCEV 판매(도매)",
+    "7,126대",
+    "p.8"
+   ],
+   [
+    "전체 차량 판매대수(도매, TR-AU-000.B)",
+    "4,138,389대",
+    "p.5"
+   ]
+  ],
+  "ans": 6.83,
+  "tol": 0.05,
+  "unit": "%",
+  "dec": 2,
+  "steps": [
+   "무배출차 = 275,669 + 7,126 = 282,795대",
+   "282,795 ÷ 4,138,389 = 0.06833",
+   "× 100 = 약 6.83%"
+  ],
+  "insight": "전동화 차량 전체(약 96.2만 대)는 판매의 약 23%지만, 그중 70% 이상이 하이브리드다. 배출이 아예 없는 차는 판매 100대 중 약 7대다.",
+  "why": "SASB의 무배출차(ZEV)는 배터리 전기차와 수소연료전지차만 뜻한다. 그래서 EV와 FCEV만 더하고 하이브리드는 뺀다.",
+  "trap": "'전동화 비중 23%'를 무배출차 비중으로 착각하기 쉽다. 하이브리드는 엔진을 쓰므로 ZEV가 아니다. 분자와 분모가 같은 '도매 기준'인지도 확인해야 한다(p.5, p.8 모두 도매 기준).",
+  "sources": [
+   {
+    "label": "ISSB 공개초안 B63 Automobiles (TR-AU 기후 지표)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.5",
+    "url": "report"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.8",
+    "url": "report"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.153",
+    "url": "report"
+   },
+   {
+    "label": "IFRS 재단 · SASB Standards (산업별 기준 내려받기)",
+    "url": "https://sasb.ifrs.org/standards/download/"
+   }
+  ],
+  "confidence": "high"
+ },
+ {
+  "id": "gs-12",
+  "module": "gri-sasb",
+  "type": "calc",
+  "ref": "SASB TR-AU-410a.1",
+  "topic": "EU 평균 CO2 배출 변화",
+  "q": "현대차의 EU 판매 차량 평균 CO2 배출량(g/km)은 2024년 대비 2025년에 몇 % 바뀌었는가?",
+  "given": [
+   [
+    "EU 평균 CO2 배출량 2024",
+    "111.3 g/km",
+    "p.28"
+   ],
+   [
+    "EU 평균 CO2 배출량 2025",
+    "98.6 g/km",
+    "p.28"
+   ]
+  ],
+  "ans": -11.4,
+  "tol": 0.1,
+  "unit": "%",
+  "dec": 1,
+  "steps": [
+   "변화량 = 98.6 − 111.3 = −12.7 g/km",
+   "−12.7 ÷ 111.3 = −0.1141",
+   "× 100 = 약 −11.4%"
+  ],
+  "insight": "1년 만에 약 11% 줄었지만, 같은 쪽에 적힌 2030년 EU 목표 49.5 g/km까지는 아직 절반 가까이 더 줄여야 한다.",
+  "why": "TR-AU-410a.1은 판매 비중으로 가중한 지역별 평균 연비(또는 g/km)를 묻는다. 현대차는 28쪽과 153쪽에 EU g/km, 중국 L/100km, 미국 mpg로 공시했다.",
+  "trap": "같은 지표가 쪽마다 다를 수 있다. 2022년 값이 28쪽은 101.4, 153쪽은 106.0으로 다르다. 계산 전에 두 쪽의 숫자가 맞는지 먼저 확인해야 한다(2024·2025년 값은 두 쪽이 같다).",
+  "sources": [
+   {
+    "label": "ISSB 공개초안 B63 Automobiles (TR-AU 기후 지표)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.28",
+    "url": "report"
+   },
+   {
+    "label": "현대자동차 2026 지속가능성 보고서 p.153",
+    "url": "report"
+   },
+   {
+    "label": "IFRS 재단 · SASB Standards (산업별 기준 내려받기)",
+    "url": "https://sasb.ifrs.org/standards/download/"
+   }
+  ],
+  "confidence": "high"
+ }
+]

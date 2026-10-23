@@ -1,0 +1,1353 @@
+{
+ "module": "lca",
+ "lesson": {
+  "title": "전과정평가(LCA)·제품 탄소발자국·EPD",
+  "summary": "전과정평가(LCA)는 제품이 태어나서(원료 채취) 버려질 때까지(폐기) 환경에 끼치는 영향을 숫자로 세는 방법이다. 기업 단위 배출량(Scope 1·2·3)과 달리 '제품 1개' 또는 '기능 1단위'가 기준이며, 제품 탄소발자국·EPD(환경성적표지)·EU 배터리 규정·Scope 3 산정이 모두 이 위에 서 있다. 기후공시 컨설턴트는 고객의 제품 데이터가 어떤 규칙(기준·경계·할당)으로 만들어졌는지 읽어낼 수 있어야 한다.",
+  "sections": [
+   {
+    "h": "ISO 14040/14044의 네 단계",
+    "body": "LCA의 뼈대는 ISO 14040(원칙·틀)과 ISO 14044(요구사항·지침)이다. 둘 다 2006년판이 현행이고 2022년 재확인되었다. 네 단계는 ① 목표·범위 정의(무엇을, 왜, 어디까지 셀지 정하기) ② 전과정 목록분석(LCI, 투입·배출 자료 모으기) ③ 전과정 영향평가(LCIA, 자료를 지구온난화 같은 영향 지표로 바꾸기) ④ 해석(결과의 의미와 한계 정리)이다. 단계는 한 방향이 아니라 서로 되돌아가며 다듬는 '반복' 구조다."
+   },
+   {
+    "h": "기능단위와 기준흐름, 시스템 경계",
+    "body": "기능단위(functional unit)는 '제품이 해주는 일'을 숫자로 적은 기준이다(예: 벽 100㎡를 10년 덮기). 기준흐름(reference flow)은 그 기능을 채우는 데 실제로 필요한 제품 양(예: 페인트 20L)이다. 시스템 경계는 어디까지 셀지 정한 선으로, 원료부터 공장 출문까지면 cradle-to-gate, 폐기까지면 cradle-to-grave다. 차량 연료·전기는 생산(Well-to-Tank)과 주행(Tank-to-Wheel)을 합쳐 Well-to-Wheel이라 한다. 작은 흐름을 빼는 컷오프 기준은 질량·에너지·환경적 중요성 세 축으로 정하고 이유를 적는다."
+   },
+   {
+    "h": "할당(allocation)과 귀속형·결과형",
+    "body": "한 공정에서 제품이 둘 이상 나오면 배출량을 나눠야 하는데 이를 할당이라 한다. ISO 14044의 순서는 ① 공정을 더 잘게 나누거나 시스템을 확장해 할당을 피한다 ② 피할 수 없으면 질량·에너지 같은 물리적 관계로 나눈다 ③ 그것도 안 되면 경제적 가치 등 다른 관계로 나눈다. 귀속형(attributional) LCA는 '지금 이 제품에 붙은 몫'을 세고, 결과형(consequential)은 '이 제품을 더 만들면 세상 배출이 어떻게 변하나'를 본다. GHG 프로토콜 제품 기준은 귀속형을 요구한다."
+   },
+   {
+    "h": "데이터 품질과 LCI 데이터베이스",
+    "body": "ISO 14044는 범위 정의 때 데이터 품질 요구사항을 적게 한다. 핵심 세 축은 시간(자료가 몇 년 것인지), 지역(어느 나라 자료인지), 기술(같은 기술인지 평균인지)이고, 정밀도·완전성·대표성·일관성·재현성·출처·불확실성도 포함된다. 직접 재지 못한 배경 공정은 LCI 데이터베이스를 쓴다. 대표적인 ecoinvent는 26,000개 이상의 데이터셋을 담고(현재 v3.12), 재활용·부산물 처리 방식이 다른 세 가지 시스템 모델(컷오프, APOS, 결과형)을 제공한다."
+   },
+   {
+    "h": "제품 탄소발자국 기준: ISO 14067·GHG 프로토콜·PAS 2050",
+    "body": "LCA 중 기후변화 한 가지 영향만 떼어 센 것이 제품 탄소발자국(CFP)이다. ISO 14067:2018은 CFP의 '산정'만 다루고 상쇄(offset)와 홍보용 소통은 범위 밖이다. GHG 프로토콜 제품 기준(2011)은 최종제품에 cradle-to-grave를 요구하고, 상쇄·회피배출을 결과에 넣지 못하게 하며, 1·3자 검증을 요구한다. 영국 BSI의 PAS 2050:2011도 지구온난화 단일 범주를 다룬다. 2025년 9월 ISO와 GHG 프로토콜은 두 제품기준을 공동 관리하기로 했고 2026년 2월 공동 작업반이 출범했다."
+   },
+   {
+    "h": "EPD와 한국 환경성적표지·저탄소제품",
+    "body": "EPD(환경성적표지)는 LCA 결과를 제품 분류 규칙(PCR)에 따라 정리하고 제3자가 검증한 '제품 환경 성적표'다. 국제 기준 ISO 14025는 2026년 6월 개정되어 제목이 'Type III 환경선언'에서 'EPD'로 바뀌었다. 건설제품은 EN 15804가 핵심 PCR이다. 한국 환경성적표지는 환경기술 및 환경산업 지원법 제18조에 근거해 환경부·한국환경산업기술원이 운영하며 탄소발자국·물발자국·자원발자국·산성비·부영양화·오존층영향·광화학스모그 7개 범주를 표시한다. 저탄소제품은 그중 탄소발자국이 최대허용탄소배출량 이하이거나 최소탄소감축률(3.3%) 이상인 제품이다."
+   },
+   {
+    "h": "영향 범주와 특성화계수(GWP 등)",
+    "body": "LCIA는 목록 자료에 특성화계수를 곱해 영향 지표로 바꾼다. 기후변화는 GWP100(100년 지구온난화지수)을 쓰며, IPCC AR6 값은 CH4 29.8(화석 기원)·27.0(비화석), N2O 273, SF6 24,300이다. 그 밖에 산성화(AP), 부영양화(EP), 오존층파괴(ODP), 광화학 오존생성(POCP), 자원고갈(ADP) 등이 있다. EU PEF 방법(권고 2021/2279)은 16개 영향 범주를 쓰고, 현대자동차는 이 EF 3.1 방법으로 13개 지표를 평가한다."
+   },
+   {
+    "h": "규제와 공시 연결: EU 배터리 규정·그린워싱·Scope 3",
+    "body": "EU 배터리 규정(2023/1542) 제7조는 전기차 배터리에 모델·공장별 탄소발자국 신고를 요구한다. 단위는 '수명 동안 공급한 총 전력 kWh당 kg CO2e'이고 사용 단계는 빼고 원료·제조·유통·폐기 네 단계로 나눠 적는다. 적용일은 2025년 2월 18일 '또는 위임법 발효 12개월 뒤 중 늦은 날'인데, 위임법이 2026년 10월 현재 미채택이라 의무가 아직 시작되지 않았다. EU 지침 2024/825는 2026년 9월 27일부터 상쇄에 기댄 '탄소중립 제품' 주장을 금지한다. 기업 공시에서 cradle-to-gate 제품 발자국은 Scope 3 카테고리 1, 차량 생애 주행 배출은 카테고리 11로 들어간다."
+   }
+  ],
+  "terms": [
+   {
+    "t": "전과정평가(LCA)",
+    "d": "제품의 원료 채취부터 폐기까지 전 과정의 환경영향을 정량적으로 평가하는 방법이다.",
+    "en": "Life Cycle Assessment"
+   },
+   {
+    "t": "기능단위",
+    "d": "제품이 제공하는 성능을 숫자로 적은 비교 기준이다(예: 100㎡를 10년 덮기).",
+    "en": "Functional unit"
+   },
+   {
+    "t": "기준흐름",
+    "d": "기능단위를 채우기 위해 필요한 제품의 실제 양이다.",
+    "en": "Reference flow"
+   },
+   {
+    "t": "시스템 경계",
+    "d": "어떤 공정까지 평가에 넣을지 정한 범위다(cradle-to-gate, cradle-to-grave 등).",
+    "en": "System boundary"
+   },
+   {
+    "t": "컷오프 기준",
+    "d": "질량·에너지·환경적 중요성이 작은 흐름을 평가에서 빼는 기준이다.",
+    "en": "Cut-off criteria"
+   },
+   {
+    "t": "할당",
+    "d": "여러 제품이 함께 나오는 공정의 투입·배출을 제품별로 나누는 일이다.",
+    "en": "Allocation"
+   },
+   {
+    "t": "시스템 확장",
+    "d": "부산물의 기능까지 시스템에 넣어 할당을 피하는 방법이다.",
+    "en": "System expansion"
+   },
+   {
+    "t": "귀속형 LCA",
+    "d": "현재 제품 시스템에 귀속되는 환경 부하를 세는 방식이다.",
+    "en": "Attributional LCA"
+   },
+   {
+    "t": "결과형 LCA",
+    "d": "의사결정으로 생기는 시스템 변화의 결과를 평가하는 방식이다.",
+    "en": "Consequential LCA"
+   },
+   {
+    "t": "전과정 목록분석(LCI)",
+    "d": "투입물과 배출물 자료를 모아 정리하는 LCA 두 번째 단계다.",
+    "en": "Life Cycle Inventory"
+   },
+   {
+    "t": "전과정 영향평가(LCIA)",
+    "d": "목록 자료에 특성화계수를 곱해 환경영향 지표로 바꾸는 단계다.",
+    "en": "Life Cycle Impact Assessment"
+   },
+   {
+    "t": "특성화계수",
+    "d": "물질별 배출량을 공통 단위(예: CO2e)로 바꾸는 계수다(예: GWP100).",
+    "en": "Characterization factor"
+   },
+   {
+    "t": "제품 탄소발자국(CFP)",
+    "d": "제품 전과정에서 나온 온실가스를 CO2e로 합한 값이다.",
+    "en": "Carbon Footprint of a Product"
+   },
+   {
+    "t": "EPD(환경성적표지)",
+    "d": "PCR에 따라 산정하고 제3자가 검증한 제품 환경정보 공개 문서다.",
+    "en": "Environmental Product Declaration"
+   },
+   {
+    "t": "제품 분류 규칙(PCR)",
+    "d": "같은 종류 제품의 EPD를 비교 가능하게 만드는 산정 규칙 묶음이다.",
+    "en": "Product Category Rules"
+   },
+   {
+    "t": "Well-to-Wheel",
+    "d": "연료·전기의 생산(WTT)과 차량 주행(TTW) 배출을 합친 범위다.",
+    "en": "Well-to-Wheel"
+   }
+  ],
+  "sources": [
+   {
+    "label": "ISO 14040:2006 (ISO 공식 페이지)",
+    "url": "https://www.iso.org/standard/37456.html"
+   },
+   {
+    "label": "ISO 14044:2006 (ISO 공식 페이지)",
+    "url": "https://www.iso.org/standard/38498.html"
+   },
+   {
+    "label": "ISO 14067:2018 (ISO 공식 페이지)",
+    "url": "https://www.iso.org/standard/71206.html"
+   },
+   {
+    "label": "ISO 14025:2026 (ISO 공식 페이지)",
+    "url": "https://www.iso.org/standard/14025"
+   },
+   {
+    "label": "GHG 프로토콜 제품 기준(Product Standard) PDF",
+    "url": "https://ghgprotocol.org/sites/default/files/standards/Product-Life-Cycle-Accounting-Reporting-Standard_041613.pdf"
+   },
+   {
+    "label": "GHG 프로토콜 GWP 값 표(2024.8)",
+    "url": "https://ghgprotocol.org/sites/default/files/2024-08/Global-Warming-Potential-Values %28August 2024%29.pdf"
+   },
+   {
+    "label": "Commission Recommendation (EU) 2021/2279 (PEF/OEF) EUR-Lex",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32021H2279"
+   },
+   {
+    "label": "EU 배터리 규정 (EU) 2023/1542 통합본(2026-08-13) 제7조",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02023R1542-20260813"
+   },
+   {
+    "label": "Directive (EU) 2024/825 (소비자 그린전환 권한 강화) EUR-Lex",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024L0825"
+   },
+   {
+    "label": "환경성적표지 누리집 – 저탄소제품 소개",
+    "url": "https://www.greenproduct.go.kr/epd/epd/lowCarbonIntro.do"
+   },
+   {
+    "label": "서울시 환경 누리집 – 녹색제품(환경성적표지·저탄소제품)",
+    "url": "https://news.seoul.go.kr/env/archives/10609"
+   },
+   {
+    "label": "ecoinvent – 시스템 모델 설명",
+    "url": "https://support.ecoinvent.org/system-models"
+   }
+  ]
+ },
+ "items": [
+  {
+   "id": "lca-01",
+   "module": "lca",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "ISO 14040",
+    "LCA 단계"
+   ],
+   "ref": "ISO 14040:2006 개요(초록)",
+   "topic": "LCA의 네 단계",
+   "q": "ISO 14040/14044가 정한 전과정평가(LCA)의 네 단계에 들어가지 않는 것은 무엇인가?",
+   "options": [
+    "목표 및 범위 정의",
+    "전과정 목록분석(LCI)",
+    "탄소상쇄(offset) 구매량 산정",
+    "전과정 해석"
+   ],
+   "ans": 2,
+   "why": "ISO 14040은 LCA를 목표·범위 정의, 목록분석(LCI), 영향평가(LCIA), 해석의 네 단계로 짠다. 상쇄는 LCA 결과를 바꾸는 요소가 아니며, ISO 14067도 상쇄를 범위 밖으로 둔다.",
+   "trap": "'영향평가'와 '해석'을 한 단계로 묶어 세는 실수를 한다. 해석은 결과의 의미와 한계를 정리하는 별도 단계다.",
+   "sources": [
+    {
+     "label": "ISO 14040:2006 (ISO 공식 페이지)",
+     "url": "https://www.iso.org/standard/37456.html"
+    },
+    {
+     "label": "ISO 14067:2018 (ISO 공식 페이지)",
+     "url": "https://www.iso.org/standard/71206.html"
+    }
+   ],
+   "confidence": "high",
+   "quote": "ISO 14040은 LCA 기술을 자세히 기술하지 않고 원칙과 틀을 제시한다(ISO 초록)."
+  },
+  {
+   "id": "lca-02",
+   "module": "lca",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "기능단위",
+    "기준흐름"
+   ],
+   "ref": "ISO 14044 목표·범위 정의",
+   "topic": "기능단위 vs 기준흐름",
+   "q": "'벽 100㎡를 10년 동안 덮는다'는 비교 기준을 정하고, 이를 채우려면 페인트 20L가 필요하다고 계산했다. 20L는 무엇에 해당하나?",
+   "options": [
+    "기능단위",
+    "기준흐름",
+    "시스템 경계",
+    "컷오프 기준"
+   ],
+   "ans": 1,
+   "why": "기능단위는 제품이 해주는 일(100㎡·10년)을 숫자로 적은 기준이고, 기준흐름은 그 기능을 채우는 데 실제로 필요한 제품 양(20L)이다. ISO 14044는 기능단위를 '기준 단위로 쓰기 위해 정량화한 제품 시스템의 성능'으로 정의한다.",
+   "trap": "제품 '1개' 또는 '1kg'을 그대로 기능단위라 부르기 쉽다. 수명과 성능이 다른 제품을 비교할 때는 기능(해주는 일) 기준으로 잡아야 한다.",
+   "sources": [
+    {
+     "label": "NCSU LCA 강의자료 – ISO 14044 목표·범위 정의",
+     "url": "https://faculty.cnr.ncsu.edu/richardvenditti/wp-content/uploads/sites/24/2018/08/2016Lecture5Goalandscope.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-03",
+   "module": "lca",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "시스템 경계",
+    "cradle-to-gate"
+   ],
+   "ref": "GHG 프로토콜 제품 기준 7장(경계)",
+   "topic": "경계 선택 규칙",
+   "q": "GHG 프로토콜 제품 기준에서 '최종 소비자가 쓰는 완제품'의 시스템 경계로 요구되는 것은?",
+   "options": [
+    "공장 출문까지(cradle-to-gate)",
+    "원료부터 폐기까지(cradle-to-grave)",
+    "사용 단계만(gate-to-grave)",
+    "회사가 자유롭게 선택"
+   ],
+   "ans": 1,
+   "why": "기준은 최종제품의 경계는 cradle-to-grave 전체 생애를 포함해야 한다고 쓴다. 중간재는 최종 용도를 알면 cradle-to-grave를 권하고, 모르면 cradle-to-gate로 정한 뒤 그 이유를 공개한다.",
+   "trap": "부품 회사가 쓰는 cradle-to-gate 발자국을 완제품 발자국처럼 비교·홍보하는 실수가 잦다.",
+   "sources": [
+    {
+     "label": "GHG 프로토콜 제품 기준(Product Standard) PDF",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Product-Life-Cycle-Accounting-Reporting-Standard_041613.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "The boundary for final products shall include the complete life cycle, from cradle-to-grave."
+  },
+  {
+   "id": "lca-04",
+   "module": "lca",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "ISO 14067",
+    "탄소발자국"
+   ],
+   "ref": "ISO 14067:2018 범위(초록)",
+   "topic": "ISO 14067이 다루는 것",
+   "q": "ISO 14067:2018(제품 탄소발자국)에 대한 설명으로 맞는 것은?",
+   "options": [
+    "기후변화 외에 산성화·부영양화 등 모든 영향 범주를 다룬다",
+    "탄소상쇄를 반영한 '넷제로 제품' 산정 방법을 정한다",
+    "기후변화 한 가지 영향 범주의 산정만 다루고, 상쇄와 소통(마케팅)은 범위 밖이다",
+    "ISO 14040/14044와 별개의 독자적인 방법론이다"
+   ],
+   "ans": 2,
+   "why": "ISO 14067은 ISO 14040/14044와 일관되게 제품 탄소발자국(전체 또는 부분)의 산정·보고 원칙을 정하며, 기후변화 한 범주만 다룬다. 상쇄와 CFP 정보의 소통은 범위 밖이다. 2013년 TS를 대체했고 현재 개정(ISO/WD 14067.2)이 진행 중이다.",
+   "trap": "'ISO 14067 인증 받은 탄소중립 제품'이라는 문구는 기준 범위를 벗어난 표현이다. 상쇄는 이 기준으로 다루지 않는다.",
+   "sources": [
+    {
+     "label": "ISO 14067:2018 (ISO 공식 페이지)",
+     "url": "https://www.iso.org/standard/71206.html"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-05",
+   "module": "lca",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "환경성적표지",
+    "영향 범주"
+   ],
+   "ref": "환경성적표지 제도(환경부·한국환경산업기술원)",
+   "topic": "환경성적표지 7개 범주",
+   "q": "한국 환경성적표지가 표시하는 7개 환경영향 범주에 들어가지 않는 것은?",
+   "options": [
+    "탄소발자국",
+    "물발자국",
+    "토지이용",
+    "광화학 스모그"
+   ],
+   "ans": 2,
+   "why": "환경성적표지 7개 범주는 탄소발자국·물발자국·자원발자국·산성비·부영양화·오존층영향·광화학스모그다. 토지이용은 EU PEF의 16개 범주에는 있지만 한국 환경성적표지 범주는 아니다.",
+   "trap": "EU PEF나 EN 15804의 지표 목록을 그대로 한국 제도에 대입하는 실수를 한다. 제도마다 범주 수와 이름이 다르다.",
+   "sources": [
+    {
+     "label": "비건뉴스 – 환경성적표지 7개 범주와 저탄소제품 기준(2026.8)",
+     "url": "https://www.vegannews.co.kr/news/article.html?no=385268"
+    },
+    {
+     "label": "서울시 환경 누리집 – 녹색제품(환경성적표지·저탄소제품)",
+     "url": "https://news.seoul.go.kr/env/archives/10609"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "lca-06",
+   "module": "lca",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "저탄소제품",
+    "환경성적표지"
+   ],
+   "ref": "환경기술 및 환경산업 지원법 제18조·저탄소제품 기준 고시",
+   "topic": "저탄소제품의 전제",
+   "q": "'저탄소제품' 인증을 받으려는 회사가 먼저 갖추어야 하는 것은?",
+   "options": [
+    "해당 제품의 환경성적표지 인증",
+    "RE100 가입",
+    "ISO 14001 인증",
+    "온실가스 배출권 보유"
+   ],
+   "ans": 0,
+   "why": "저탄소제품은 '환경성적표지 인증을 받은 제품 중 저탄소제품 기준 고시에 적합한 제품'이다. 즉 환경성적표지(1단계)가 있어야 저탄소제품(2단계)을 신청할 수 있다. 법적 근거는 환경기술 및 환경산업 지원법 제18조이다.",
+   "trap": "저탄소제품을 별도의 독립 인증으로 보고 바로 신청하려는 경우가 있다. 탄소발자국 값은 환경성적표지에서 나온다.",
+   "sources": [
+    {
+     "label": "환경성적표지 누리집 – 저탄소제품 소개",
+     "url": "https://www.greenproduct.go.kr/epd/epd/lowCarbonIntro.do"
+    },
+    {
+     "label": "서울시 환경 누리집 – 녹색제품(환경성적표지·저탄소제품)",
+     "url": "https://news.seoul.go.kr/env/archives/10609"
+    }
+   ],
+   "confidence": "high",
+   "quote": "환경성적표지 인증을 받은 제품 중 '저탄소제품 기준' 고시에 적합한 제품을 말합니다."
+  },
+  {
+   "id": "lca-07",
+   "module": "lca",
+   "type": "calc",
+   "level": 1,
+   "tags": [
+    "GWP100",
+    "AR6",
+    "특성화"
+   ],
+   "ref": "IPCC AR6 GWP100 (GHG 프로토콜 GWP 표)",
+   "topic": "CH4의 CO2e 환산",
+   "q": "천연가스 배관에서 1년간 메탄(CH4) 12.5t이 누출되었다. IPCC AR6 100년 GWP(화석 기원 메탄)를 적용한 CO2e는 몇 tCO2e인가?",
+   "given": [
+    [
+     "CH4 누출량",
+     "12.5 tCH4",
+     "현장 측정"
+    ],
+    [
+     "GWP100 CH4(화석 기원, AR6)",
+     "29.8",
+     "GHG 프로토콜 GWP 표"
+    ],
+    [
+     "참고: GWP100 CH4(비화석, AR6)",
+     "27.0",
+     "GHG 프로토콜 GWP 표"
+    ]
+   ],
+   "ans": 372.5,
+   "tol": 0.5,
+   "unit": "tCO2e",
+   "dec": 1,
+   "steps": [
+    "AR6에서 화석 기원 메탄의 GWP100은 29.8이다",
+    "12.5 × 29.8 = 372.5 tCO2e",
+    "비화석(27.0)을 잘못 쓰면 337.5가 되어 35 t 적게 나온다"
+   ],
+   "insight": "AR6는 메탄을 화석/비화석으로 나눈다. 천연가스 누출은 화석 기원이므로 29.8을 쓴다.",
+   "why": "GHG 프로토콜 GWP 표는 AR6 CH4를 화석 29.8, 비화석 27.0, N2O 273으로 적는다. 화석 값은 화석연료 누출과 일부 공정에 쓴다.",
+   "trap": "AR5 값(28/30)과 AR6 값을 섞어 쓰거나, 모든 메탄에 27.0을 적용하는 실수를 한다.",
+   "sources": [
+    {
+     "label": "GHG 프로토콜 GWP 값 표(2024.8)",
+     "url": "https://ghgprotocol.org/sites/default/files/2024-08/Global-Warming-Potential-Values %28August 2024%29.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-08",
+   "module": "lca",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "EPD",
+    "ISO 14025",
+    "PCR"
+   ],
+   "ref": "ISO 14025·International EPD System",
+   "topic": "EPD의 기본 성격",
+   "q": "EPD(환경성적표지)에 대한 설명으로 맞는 것은?",
+   "options": [
+    "EPD가 있으면 그 제품이 경쟁 제품보다 환경적으로 우수함을 뜻한다",
+    "같은 PCR(제품 분류 규칙)로 만든 EPD끼리는 비교할 수 있지만, EPD 자체가 우수성을 뜻하지는 않는다",
+    "EPD는 회사가 스스로 작성하고 검증 없이 공개한다",
+    "EPD는 소비자(B2C) 소통만을 위한 라벨이다"
+   ],
+   "ans": 1,
+   "why": "EPD는 ISO 14025에 바탕을 두고 PCR(할당 규칙·데이터 품질·시스템 경계)을 따라 산정한 뒤 독립 검증인이 확인한다. 같은 PCR을 쓴 제품군 안에서는 비교가 가능하지만, EPD를 가졌다는 것이 환경적 우수성을 뜻하지는 않는다. ",
+   "trap": "'EPD 보유 = 친환경 제품'으로 광고 문구를 쓰는 실수가 많다. EPD는 성적표이지 합격증이 아니다.",
+   "sources": [
+    {
+     "label": "International EPD System – The EPD",
+     "url": "https://www.environdec.com/all-about-epds/the-epd"
+    },
+    {
+     "label": "ISO 14025:2006 (철회, ISO 공식 페이지)",
+     "url": "https://www.iso.org/standard/38131.html"
+    }
+   ],
+   "confidence": "high",
+   "quote": "having an EPD does however not imply that the declared product is environmentally superior to alternatives."
+  },
+  {
+   "id": "lca-09",
+   "module": "lca",
+   "type": "calc",
+   "level": 1,
+   "tags": [
+    "EPD",
+    "Scope 3 Cat 1",
+    "배출계수"
+   ],
+   "ref": "GHG 프로토콜 Scope 3 기술지침 Cat 1(공급자 특정 방법)",
+   "topic": "EPD 계수 × 물량",
+   "q": "건설회사가 Scope 3 카테고리 1을 공급자 특정 방법으로 산정한다. 레미콘 EPD 탄소발자국 320 kgCO2e/㎥, 철근 EPD 1.85 kgCO2e/kg일 때, 레미콘 1,250㎥와 철근 95,000kg의 cradle-to-gate 배출량 합계는 몇 tCO2e인가?",
+   "given": [
+    [
+     "레미콘 탄소발자국(EPD)",
+     "320 kgCO2e/㎥",
+     "공급자 EPD"
+    ],
+    [
+     "레미콘 사용량",
+     "1,250 ㎥",
+     "구매 기록"
+    ],
+    [
+     "철근 탄소발자국(EPD)",
+     "1.85 kgCO2e/kg",
+     "공급자 EPD"
+    ],
+    [
+     "철근 사용량",
+     "95,000 kg",
+     "구매 기록"
+    ]
+   ],
+   "ans": 575.75,
+   "tol": 1.0,
+   "unit": "tCO2e",
+   "dec": 2,
+   "steps": [
+    "레미콘: 320 × 1,250 = 400,000 kgCO2e = 400.0 t",
+    "철근: 1.85 × 95,000 = 175,750 kgCO2e = 175.75 t",
+    "합계 575.75 tCO2e"
+   ],
+   "insight": "EPD 값은 보통 cradle-to-gate(A1–A3) 범위이므로 Cat 1 최소 경계와 맞는다. 운송은 Cat 4로 따로 간다.",
+   "why": "Scope 3 기술지침은 Cat 1 최소 경계를 '구매 제품의 모든 상류(cradle-to-gate) 배출'로 두고, 공급자 제품 단위 cradle-to-gate 자료를 쓰는 공급자 특정 방법을 가장 구체적인 방법으로 둔다.",
+   "trap": "EPD 값에 사용·폐기 단계까지 들어있는지 확인하지 않고 곱하거나, 1차 공급자 운송을 Cat 1에 중복으로 넣는다.",
+   "sources": [
+    {
+     "label": "GHG 프로토콜 Scope 3 산정 기술지침 PDF",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf"
+    },
+    {
+     "label": "International EPD System – The EPD",
+     "url": "https://www.environdec.com/all-about-epds/the-epd"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-10",
+   "module": "lca",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "할당",
+    "ISO 14044"
+   ],
+   "ref": "ISO 14044 4.3.4 할당 절차",
+   "topic": "할당 우선순위",
+   "q": "한 공정에서 주제품과 부산물이 함께 나온다. ISO 14044가 정한 할당 절차의 올바른 순서는?",
+   "options": [
+    "경제적 가치 → 물리적 관계 → 할당 회피",
+    "물리적 관계 → 경제적 가치 → 시스템 확장",
+    "할당 회피(공정 세분화·시스템 확장) → 물리적 관계 → 경제적 가치 등 다른 관계",
+    "회사가 가장 유리한 방법을 자유롭게 선택"
+   ],
+   "ans": 2,
+   "why": "1단계는 공정을 더 잘게 나누거나 시스템을 확장해 할당 자체를 피하는 것이다. 2단계는 질량·에너지 같은 물리적 관계로 나누고, 3단계는 경제적 가치 등 다른 관계로 나눈다. GHG 프로토콜 제품 기준도 같은 순서를 요구한다.",
+   "trap": "가격 자료가 구하기 쉽다는 이유로 처음부터 경제적 할당을 쓰는 경우가 많다. 경제적 할당은 마지막 수단이고 가격 변동에 결과가 흔들린다.",
+   "sources": [
+    {
+     "label": "NCSU LCA 강의자료 – ISO 14044 목표·범위 정의",
+     "url": "https://faculty.cnr.ncsu.edu/richardvenditti/wp-content/uploads/sites/24/2018/08/2016Lecture5Goalandscope.pdf"
+    },
+    {
+     "label": "GHG 프로토콜 제품 기준(Product Standard) PDF",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Product-Life-Cycle-Accounting-Reporting-Standard_041613.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-11",
+   "module": "lca",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "할당",
+    "경제적 할당"
+   ],
+   "ref": "ISO 14044 4.3.4 할당 절차(3단계)",
+   "topic": "경제적 할당 계산",
+   "q": "한 공정의 연간 배출량은 1,000 tCO2e이고 주제품 800t(톤당 120만 원)과 부산물 200t(톤당 30만 원)이 나온다. 물리적 관계로 나눌 수 없어 경제적 할당을 쓴다면 주제품에 배분되는 배출량은 몇 tCO2e인가?",
+   "given": [
+    [
+     "공정 총 배출량",
+     "1,000 tCO2e",
+     "사업장 산정"
+    ],
+    [
+     "주제품 생산량·단가",
+     "800 t × 1,200,000원/t",
+     "판매 기록"
+    ],
+    [
+     "부산물 생산량·단가",
+     "200 t × 300,000원/t",
+     "판매 기록"
+    ]
+   ],
+   "ans": 941.18,
+   "tol": 0.5,
+   "unit": "tCO2e",
+   "dec": 2,
+   "steps": [
+    "주제품 매출 = 800 × 1,200,000 = 9.6억 원",
+    "부산물 매출 = 200 × 300,000 = 0.6억 원",
+    "주제품 비중 = 9.6 / (9.6+0.6) = 0.9412",
+    "1,000 × 0.9412 = 941.18 tCO2e (주제품 1t당 약 1.18 tCO2e)"
+   ],
+   "insight": "질량으로 나누면 주제품 몫은 800 t(80%)이지만 경제적 할당은 94%가 된다. 할당 기준 하나로 결과가 14%p 움직인다.",
+   "why": "경제적 할당은 매출 비중으로 배출을 나눈다. ISO 14044는 이를 물리적 관계를 쓸 수 없을 때의 마지막 단계로 둔다.",
+   "trap": "가격 대신 수량만 곱하거나, 해당 연도 가격이 아닌 임의 시점 가격을 쓰고도 근거를 적지 않는다.",
+   "sources": [
+    {
+     "label": "NCSU LCA 강의자료 – ISO 14044 목표·범위 정의",
+     "url": "https://faculty.cnr.ncsu.edu/richardvenditti/wp-content/uploads/sites/24/2018/08/2016Lecture5Goalandscope.pdf"
+    },
+    {
+     "label": "GHG 프로토콜 제품 기준(Product Standard) PDF",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Product-Life-Cycle-Accounting-Reporting-Standard_041613.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-12",
+   "module": "lca",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "컷오프",
+    "데이터 범위"
+   ],
+   "ref": "ISO 14044 컷오프 기준·GHG 프로토콜 제품 기준",
+   "topic": "컷오프 기준의 세 축",
+   "q": "LCA에서 작은 투입물을 평가에서 제외하는 컷오프 기준을 정할 때 ISO 14044가 제시하는 판단 축이 아닌 것은?",
+   "options": [
+    "질량 기여도",
+    "에너지 기여도",
+    "환경적 중요성",
+    "구매 금액 기준 공급자 수"
+   ],
+   "ans": 3,
+   "why": "컷오프 기준은 질량·에너지·환경적 중요성 세 축으로 정하며, 제외는 반드시 이유를 밝히고 전체 결론에 큰 영향이 없어야 한다. GHG 프로토콜 제품 기준은 참고로 질량·에너지·GHG 중요성 1% 미만을 '비중요'의 경험칙으로 든다.",
+   "trap": "질량만 보고 1% 미만이라 빼는데, 질량은 작아도 배출이 큰 물질(예: 냉매, 희토류)이 있다. 환경적 중요성 축을 반드시 함께 본다.",
+   "sources": [
+    {
+     "label": "NCSU LCA 강의자료 – ISO 14044 목표·범위 정의",
+     "url": "https://faculty.cnr.ncsu.edu/richardvenditti/wp-content/uploads/sites/24/2018/08/2016Lecture5Goalandscope.pdf"
+    },
+    {
+     "label": "GHG 프로토콜 제품 기준(Product Standard) PDF",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Product-Life-Cycle-Accounting-Reporting-Standard_041613.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-13",
+   "module": "lca",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "데이터 품질",
+    "ISO 14044"
+   ],
+   "ref": "ISO 14044 데이터 품질 요구사항",
+   "topic": "데이터 품질 세 축",
+   "q": "LCA 범위 정의 때 적는 데이터 품질 요구사항 중 '시간·지역·기술' 세 축에 대한 설명으로 맞는 것은?",
+   "options": [
+    "세 축은 2차 데이터(DB)를 쓸 때만 적고 1차 측정 데이터에는 적용하지 않는다",
+    "자료의 연령(시간), 지역 범위, 기술 범위(특정 기술인지 평균인지)를 각각 밝혀야 하며, 정밀도·완전성·대표성·일관성·재현성·출처·불확실성도 함께 적는다",
+    "ISO 14044는 데이터 품질을 요구하지 않고 검증기관이 임의로 판단한다",
+    "지역 축은 전력 배출계수에만 해당한다"
+   ],
+   "ans": 1,
+   "why": "ISO 14044는 범위 정의에서 데이터의 연령, 지역 범위, 기술 범위, 정밀도, 완전성, 대표성, 일관성, 재현성, 출처, 불확실성을 데이터 품질 요구사항으로 적게 한다. 한국 제품을 유럽 평균 DB로 계산하면 지역·기술 축에서 대표성이 떨어진다.",
+   "trap": "DB 데이터셋 이름만 적고 '어느 해, 어느 나라, 어떤 기술' 자료인지를 보고서에 빠뜨리는 경우가 많다.",
+   "sources": [
+    {
+     "label": "NCSU LCA 강의자료 – ISO 14044 목표·범위 정의",
+     "url": "https://faculty.cnr.ncsu.edu/richardvenditti/wp-content/uploads/sites/24/2018/08/2016Lecture5Goalandscope.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-14",
+   "module": "lca",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "기능단위",
+    "비교 LCA"
+   ],
+   "ref": "ISO 14044 기능단위·기준흐름",
+   "topic": "기능단위로 정규화",
+   "q": "페인트 A는 1L로 10㎡를 덮고 5년을 버티며 L당 2.4 kgCO2e다. 기능단위를 '벽 100㎡를 10년 덮기'로 두면 페인트 A의 기능단위당 배출량은 몇 kgCO2e인가?",
+   "given": [
+    [
+     "도포 면적",
+     "10 ㎡/L",
+     "제품 사양"
+    ],
+    [
+     "내구 수명",
+     "5년",
+     "제품 사양"
+    ],
+    [
+     "L당 탄소발자국",
+     "2.4 kgCO2e/L",
+     "EPD"
+    ],
+    [
+     "기능단위",
+     "100㎡ × 10년",
+     "목표·범위 정의"
+    ]
+   ],
+   "ans": 48.0,
+   "tol": 0.5,
+   "unit": "kgCO2e",
+   "dec": 1,
+   "steps": [
+    "1회 도장에 필요한 양 = 100 ÷ 10 = 10 L",
+    "10년 동안 필요한 도장 횟수 = 10 ÷ 5 = 2회 → 기준흐름 20 L",
+    "20 × 2.4 = 48.0 kgCO2e"
+   ],
+   "insight": "L당 값(2.4)이 더 낮아도 수명이 짧아 두 번 칠해야 하므로, 8㎡/L·10년·3.0 kgCO2e/L인 제품 B(12.5 L × 3.0 = 37.5)보다 많이 배출한다.",
+   "why": "비교는 제품 단위가 아니라 기능단위에서 해야 한다. 기준흐름(필요 수량)이 수명과 성능에 따라 달라지기 때문이다.",
+   "trap": "L당 배출량만 비교해 A가 더 낫다고 결론 내리는 실수를 한다.",
+   "sources": [
+    {
+     "label": "NCSU LCA 강의자료 – ISO 14044 목표·범위 정의",
+     "url": "https://faculty.cnr.ncsu.edu/richardvenditti/wp-content/uploads/sites/24/2018/08/2016Lecture5Goalandscope.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-15",
+   "module": "lca",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "사용 단계",
+    "전력 배출계수",
+    "자동차 LCA"
+   ],
+   "ref": "GHG 프로토콜 Scope 3 기술지침 Cat 11",
+   "topic": "전기차 사용 단계 배출",
+   "q": "전기차 1대가 생애 200,000 km를 달리고 충전 손실 포함 전력 소비가 16 kWh/100km이다. 전력 배출계수 0.40 kgCO2e/kWh일 때 사용 단계(WTT 전력 생산 포함) 배출량은 몇 tCO2e인가?",
+   "given": [
+    [
+     "생애 주행거리",
+     "200,000 km",
+     "업계 관행(현대차 승용차 가정과 동일)"
+    ],
+    [
+     "전력 소비",
+     "16 kWh/100km",
+     "인증 전비, 충전 손실 포함"
+    ],
+    [
+     "전력 배출계수",
+     "0.40 kgCO2e/kWh",
+     "국가 전력계수(가정)"
+    ]
+   ],
+   "ans": 12.8,
+   "tol": 0.1,
+   "unit": "tCO2e",
+   "dec": 1,
+   "steps": [
+    "총 전력 = 200,000 ÷ 100 × 16 = 32,000 kWh",
+    "32,000 × 0.40 = 12,800 kgCO2e = 12.8 tCO2e",
+    "계수가 0.20이면 6.4 t, 즉 전력 계수에 정비례한다"
+   ],
+   "insight": "전기차의 TTW 배출은 0이므로 사용 단계 배출은 전부 전력 생산(WTT)에서 온다. 그래서 전력 계수가 LCA 결론을 좌우하는 가장 민감한 변수다.",
+   "why": "Scope 3 Cat 11은 판매 제품의 '예상 수명 전체'에 걸친 직접 사용 단계 배출을 요구한다. 전기차는 전력 소비량 × 전력 배출계수로 센다. 현대차는 승용차 200,000 km를 가정한다.",
+   "trap": "보고연도 1년 주행분만 넣거나, 충전 손실을 빼거나, 미래 전력믹스 변화를 가정하면서 근거를 밝히지 않는다.",
+   "sources": [
+    {
+     "label": "GHG 프로토콜 Scope 3 산정 기술지침 PDF",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-16",
+   "module": "lca",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Well-to-Wheel",
+    "Scope 3 Cat 11",
+    "현대차"
+   ],
+   "ref": "현대자동차 2026 지속가능성 보고서 p.40",
+   "topic": "WTW의 구성",
+   "q": "현대자동차는 Scope 3 카테고리 11을 Well-to-Wheel(WTW)로 산정한다. WTW에 대한 설명으로 맞는 것은?",
+   "options": [
+    "연료 연소(주행) 배출만 포함하며 연료 생산은 제외한다",
+    "연료·전력의 생산·가공·유통(WTT)과 차량 주행 중 연료 연소(TTW)를 합친 것이다",
+    "차량 제조와 폐기까지 포함한 전과정 배출이다",
+    "전기차에는 적용할 수 없는 개념이다"
+   ],
+   "ans": 1,
+   "why": "보고서는 WTW를 WTT(연료·전력 생산·가공·유통)와 TTW(주행 중 연료 연소 직접 배출)로 나눠 산정하고, 전기차·수소차는 TTW를 0으로 처리하되 국가별 전력계수나 수소 생산 방식을 WTT에 반영한다고 밝힌다.",
+   "trap": "WTW를 '전과정'으로 오해해 차량 제조 배출(Cat 1)까지 들어간 것으로 읽는 실수를 한다. WTW는 사용 단계만의 범위다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    }
+   ],
+   "confidence": "high",
+   "quote": "WTW 배출량은 Well-to-Tank(WTT)와 Tank-to-Wheel(TTW)로 구분하여 산정합니다."
+  },
+  {
+   "id": "lca-17",
+   "module": "lca",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GHG 프로토콜 제품 기준",
+    "상쇄",
+    "검증"
+   ],
+   "ref": "GHG 프로토콜 제품 기준 (요구사항)",
+   "topic": "제품 기준의 금지·요구",
+   "q": "GHG 프로토콜 제품 기준에 따라 제품 탄소발자국을 보고할 때 맞는 처리는?",
+   "options": [
+    "구매한 탄소크레딧(상쇄)을 빼서 '순 배출량'으로 보고한다",
+    "재생에너지 설비 덕분에 피한 '회피배출'을 결과에서 차감한다",
+    "상쇄·회피배출은 결과에 넣지 않고, 분석단위당 총 CO2e를 보고하며 1자 또는 3자 검증을 받는다",
+    "검증은 선택이며 상쇄는 별도 표로 넣으면 차감할 수 있다"
+   ],
+   "ans": 2,
+   "why": "기준은 '결과 산정 시 상쇄와 회피배출을 포함하지 않는다'고 명시하고, 분석단위당 총 결과(생물 기원·비생물 기원·토지이용변화 포함)를 보고하며, 재고는 1자 또는 3자 검증을 받아야 한다고 요구한다.",
+   "trap": "기업 탄소중립 선언 논리를 제품에 그대로 적용해 상쇄를 뺀 '카본 뉴트럴 제품' 값을 만드는 실수를 한다.",
+   "sources": [
+    {
+     "label": "GHG 프로토콜 제품 기준(Product Standard) PDF",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Product-Life-Cycle-Accounting-Reporting-Standard_041613.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "The product GHG inventory shall be assured by a first or third party."
+  },
+  {
+   "id": "lca-18",
+   "module": "lca",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "ecoinvent",
+    "시스템 모델",
+    "재활용"
+   ],
+   "ref": "ecoinvent 시스템 모델 설명",
+   "topic": "컷오프 모델의 재활용 처리",
+   "q": "ecoinvent '컷오프(Allocation, cut-off by classification)' 시스템 모델에서 재활용 소재는 어떻게 다뤄지나?",
+   "options": [
+    "1차 생산자가 재활용 가치만큼 크레딧(차감)을 받는다",
+    "재활용 소재는 수집·재활용 공정의 부하만 지고 투입 시 부담 없이(burden-free) 들어오며, 1차 생산자는 크레딧을 받지 않는다",
+    "폐기물 처리 부하를 생산자와 하류 사용자가 나눠 진다(APOS 방식)",
+    "모든 부산물을 대체 생산물로 보고 음(-)의 투입으로 처리한다"
+   ],
+   "ans": 1,
+   "why": "컷오프 모델은 폐기물 처리는 발생자가 전부 지고(오염자 부담), 재활용 가능 소재는 생산 활동 끝에서 끊어 재활용 소재가 부담 없이 공급되게 한다. 일반 부산물은 경제적 할당이다. APOS는 처리 부하를 나누고, 결과형 모델은 대체(substitution)를 쓴다.",
+   "trap": "같은 제품을 컷오프와 APOS로 계산한 값을 비교 표에 섞어 넣는 실수를 한다. 시스템 모델이 다르면 결과를 나란히 둘 수 없다.",
+   "sources": [
+    {
+     "label": "ecoinvent – 시스템 모델 설명",
+     "url": "https://support.ecoinvent.org/system-models"
+    },
+    {
+     "label": "ecoinvent 데이터베이스 소개",
+     "url": "https://ecoinvent.org/database/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-19",
+   "module": "lca",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "자동차 LCA",
+    "손익분기",
+    "배터리"
+   ],
+   "ref": "ISO 14044 비교 LCA·GHG 프로토콜 Scope 3 Cat 11",
+   "topic": "EV vs ICE 손익분기 주행거리",
+   "q": "전기차 제조(배터리 포함) 배출은 12.0 tCO2e, 동급 내연기관차 제조는 7.0 tCO2e다. 주행 시 전기차는 0.16 kWh/km × 0.45 kgCO2e/kWh, 내연기관차는 7 L/100km × 2.8 kgCO2e/L(WTW)이다. 두 차의 누적 배출이 같아지는 주행거리는 몇 km인가?",
+   "given": [
+    [
+     "EV 제조 배출",
+     "12.0 tCO2e",
+     "제조사 LCA"
+    ],
+    [
+     "ICE 제조 배출",
+     "7.0 tCO2e",
+     "제조사 LCA"
+    ],
+    [
+     "EV 주행",
+     "0.16 kWh/km × 0.45 kgCO2e/kWh",
+     "전비·전력계수(가정)"
+    ],
+    [
+     "ICE 주행",
+     "0.07 L/km × 2.8 kgCO2e/L(WTW)",
+     "연비·연료 WTW 계수(가정)"
+    ]
+   ],
+   "ans": 40323,
+   "tol": 500,
+   "unit": "km",
+   "dec": 0,
+   "steps": [
+    "EV 주행 배출 = 0.16 × 0.45 = 0.072 kgCO2e/km",
+    "ICE 주행 배출 = 0.07 × 2.8 = 0.196 kgCO2e/km",
+    "km당 차이 = 0.124 kgCO2e",
+    "제조 차이 5,000 kg ÷ 0.124 = 40,323 km"
+   ],
+   "insight": "약 4만 km(생애 20만 km의 1/5) 지점부터 전기차가 유리해진다. 전력계수가 0.2로 떨어지면 차이가 0.164가 되어 손익분기는 약 3만 km로 당겨진다.",
+   "why": "제조 단계 배출 차이를 주행 단계 km당 배출 차이로 나누면 손익분기 주행거리가 나온다. 현대차도 넥쏘 LCA에서 원소재 채취 단계는 높지만 운행 단계에서 역전되는 구조를 보여준다.",
+   "trap": "내연기관차는 TTW(연소)만, 전기차는 WTT(발전)만 넣어 경계를 다르게 두고 비교하는 실수를 한다. 둘 다 WTW로 맞춰야 한다.",
+   "sources": [
+    {
+     "label": "GHG 프로토콜 Scope 3 산정 기술지침 PDF",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.29",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-20",
+   "module": "lca",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "귀속형",
+    "결과형",
+    "LCA 접근법"
+   ],
+   "ref": "GHG 프로토콜 제품 기준·ecoinvent 시스템 모델",
+   "topic": "귀속형 vs 결과형",
+   "q": "'우리 공장이 생산을 늘리면 전력시장의 한계 발전원이 달라져 세상 전체 배출이 얼마나 변하나'를 묻는 LCA는 어떤 접근법이며, GHG 프로토콜 제품 기준은 무엇을 요구하나?",
+   "options": [
+    "귀속형이며, 제품 기준도 귀속형을 요구한다",
+    "결과형이며, 제품 기준은 결과형을 요구한다",
+    "결과형이며, 제품 기준은 귀속형(attributional)을 요구한다",
+    "귀속형이며, 제품 기준은 접근법을 정하지 않는다"
+   ],
+   "ans": 2,
+   "why": "변화의 결과(한계 공급, 대체)를 보는 것은 결과형이다. GHG 프로토콜 제품 기준은 '전과정 및 귀속형 접근을 따라야 한다'고 명시해 결과형을 쓰지 않는다. ecoinvent 결과형 모델은 대체·장기 한계 기술을 가정한다.",
+   "trap": "결과형 DB(대체 크레딧 포함)로 계산한 값을 EPD나 Scope 3에 그대로 넣는 실수를 한다. 공시·EPD는 귀속형이 기본이다.",
+   "sources": [
+    {
+     "label": "GHG 프로토콜 제품 기준(Product Standard) PDF",
+     "url": "https://ghgprotocol.org/sites/default/files/standards/Product-Life-Cycle-Accounting-Reporting-Standard_041613.pdf"
+    },
+    {
+     "label": "ecoinvent – 시스템 모델 설명",
+     "url": "https://support.ecoinvent.org/system-models"
+    }
+   ],
+   "confidence": "high",
+   "quote": "A GHG product inventory shall follow the life cycle and attributional approaches."
+  },
+  {
+   "id": "lca-21",
+   "module": "lca",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "현대차",
+    "LCA 방법론",
+    "EF 3.1"
+   ],
+   "ref": "ISO 14044 보고 요구사항(방법·영향 범주 공개)",
+   "topic": "현대차 LCA 방법 공개",
+   "q": "현대자동차 보고서는 제품 LCA에 쓴 국제표준, 영향평가 방법론, 평가 지표 수를 밝히고 있는가?",
+   "look": "기후변화 대응 > 전략 > 전과정평가(LCA 방법론)",
+   "page": 29,
+   "ans": "있음",
+   "quote": "LCA는 EU PEF1)에서 채택하고 있는 EF(Environmental Footprint) 3.1 방법론을 적용하여, 총 13개 지표에 대해서 평가하고 있습니다.",
+   "why": "ISO 14040/14044 기반, EF 3.1 방법론, 13개 지표(지구온난화·오존층파괴·미세먼지 등), 외부기관(TÜV Rheinland) 프로세스 인증까지 한 페이지에 적혀 있어 방법 공개는 충실하다. 전기차 운행 단계에 전력수급기본계획의 미래 전력믹스를 반영한 점도 밝혔다.",
+   "trap": "방법론이 적혀 있다고 끝내지 말고, 비교 주장(넥쏘 vs 가솔린 SUV)에 쓴 기능단위·주행거리 가정이 같은 페이지에 있는지도 확인해야 한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.29",
+     "url": "report"
+    },
+    {
+     "label": "ISO 14040:2006 (ISO 공식 페이지)",
+     "url": "https://www.iso.org/standard/37456.html"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-22",
+   "module": "lca",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "저탄소제품",
+    "감축률"
+   ],
+   "ref": "저탄소제품 기준 고시(최소탄소감축률)",
+   "topic": "저탄소제품 감축률 판정",
+   "q": "한 제품의 직전 환경성적표지 탄소발자국은 12.4 kgCO2e/개였고, 이번 갱신 산정값은 11.9 kgCO2e/개다. 동종제품 최대허용탄소배출량 기준이 없다면 적용되는 최소탄소감축률 기준과 비교해 감축률은 몇 %인가?",
+   "given": [
+    [
+     "직전 탄소발자국",
+     "12.4 kgCO2e/개",
+     "기존 환경성적표지"
+    ],
+    [
+     "이번 탄소발자국",
+     "11.9 kgCO2e/개",
+     "갱신 산정"
+    ],
+    [
+     "최소탄소감축률",
+     "3.3%",
+     "저탄소제품 기준(환경성적표지 누리집·해설)"
+    ]
+   ],
+   "ans": 4.03,
+   "tol": 0.05,
+   "unit": "%",
+   "dec": 2,
+   "steps": [
+    "감축량 = 12.4 − 11.9 = 0.5 kgCO2e",
+    "감축률 = 0.5 ÷ 12.4 × 100 = 4.03%",
+    "4.03% ≥ 3.3% → 최소탄소감축률 기준 충족"
+   ],
+   "insight": "최대허용탄소배출량(동종제품 평균 기반) 기준이 있으면 그것을 먼저 보고, 없을 때 감축률 3.3%를 적용한다. 갱신 때 발자국이 늘면 기준 미달이다.",
+   "why": "저탄소제품은 탄소발자국이 최대허용탄소배출량 이하이거나 최소탄소감축률 이상이어야 한다. 환경성적표지 누리집은 두 기준을 정의하고, 해설 자료는 최소탄소감축률을 3.3%로 적는다.",
+   "trap": "두 기준을 '모두' 충족해야 한다고 오해하거나, 감축률 분모를 새 값(11.9)으로 잡는다.",
+   "sources": [
+    {
+     "label": "환경성적표지 누리집 – 저탄소제품 소개",
+     "url": "https://www.greenproduct.go.kr/epd/epd/lowCarbonIntro.do"
+    },
+    {
+     "label": "에코와이즈 – 저탄소제품 인증 기준(최소탄소감축률 3.3%)",
+     "url": "https://www.ecowise.kr/low-carbon/"
+    },
+    {
+     "label": "비건뉴스 – 환경성적표지 7개 범주와 저탄소제품 기준(2026.8)",
+     "url": "https://www.vegannews.co.kr/news/article.html?no=385268"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "lca-23",
+   "module": "lca",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "EU 배터리 규정",
+    "탄소발자국 신고"
+   ],
+   "ref": "Regulation (EU) 2023/1542 제7조·부속서 II",
+   "topic": "배터리 탄소발자국 신고 내용",
+   "q": "EU 배터리 규정 제7조의 전기차 배터리 탄소발자국 신고서에 대한 설명으로 맞는 것은?",
+   "options": [
+    "배터리 용량 kWh당 kg CO2e로 적고 사용 단계를 포함한다",
+    "수명 동안 공급하는 총 전력 kWh당 kg CO2e로 적고, 원료 채취·제조·유통·폐기 네 단계로 나누되 사용 단계는 뺀다",
+    "회사 전체 평균값 하나로 모든 모델·공장을 대표한다",
+    "검증 없이 제조사가 자율 신고한다"
+   ],
+   "ans": 1,
+   "why": "신고서는 배터리 모델·제조공장별로 작성하고, 탄소발자국을 '수명 동안 배터리가 공급하는 총 전력 kWh당 kg CO2e'로 적으며, 부속서 II의 네 단계(원료 채취·전처리, 주제품 생산, 유통, 폐기·재활용)별 값과 공개 연구 링크, 적합성 선언 번호를 담는다. 독립기관 검증을 거친다.",
+   "trap": "용량 kWh당 값과 수명 전력 kWh당 값은 수천 배 차이가 나므로 단위를 반드시 확인한다.",
+   "sources": [
+    {
+     "label": "EU 배터리 규정 (EU) 2023/1542 통합본(2026-08-13) 제7조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02023R1542-20260813"
+    },
+    {
+     "label": "Batteriepasswerk – 배터리 탄소발자국 제7조 현황(2026.10)",
+     "url": "https://www.batteriepasswerk.com/en/knowledge/battery-carbon-footprint"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-24",
+   "module": "lca",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "EU 배터리 규정",
+    "위임법",
+    "시행 시점"
+   ],
+   "ref": "Regulation (EU) 2023/1542 제7조(1) 통합본 2026-08-13",
+   "topic": "배터리 신고 의무 개시 시점",
+   "q": "2026년 10월, 한 배터리 제조사가 '전기차 배터리 탄소발자국 신고 의무는 2025년 2월 18일에 이미 시작됐으니 우리는 법을 위반 중'이라며 급히 신고서를 요구했다. 컨설턴트의 맞는 판단은?",
+   "options": [
+    "맞다. 2025년 2월 18일부터 모든 EV 배터리에 신고가 의무다",
+    "틀리다. 의무 개시일은 2025년 2월 18일 또는 산정 방법 위임법 발효 후 12개월 중 늦은 날인데, 2026년 10월 현재 위임법이 채택되지 않아 의무가 아직 시작되지 않았다",
+    "틀리다. 신고 의무는 2027년 2월 18일 배터리 패스포트와 함께 시작된다",
+    "틀리다. EV 배터리는 면제이고 산업용 배터리만 대상이다"
+   ],
+   "ans": 1,
+   "why": "제7조(1)은 EV 배터리 적용일을 '2025년 2월 18일 또는 관련 위임법·이행법 발효 후 12개월 중 가장 늦은 날'로 둔다(산업용·LMT는 18개월). 집행위가 2024년 2월까지 채택해야 했던 산정 방법 위임법은 2024년 4월 초안 의견수렴 뒤 2026년 10월에도 관보에 실리지 않아, 성능등급(2026.8.18 기준일)과 상한(2028.2.18 기준일)도 모두 밀려 있다. 다만 준비는 지금 해야 한다. (위임법 미채택은 2026년 10월 업계 모니터링 기준이다.)",
+   "trap": "규정 본문의 날짜만 보고 '늦은 날' 조건을 놓친다. 반대로 '아직 의무가 아니니 준비도 미룬다'는 것도 잘못이다. 위임법 발효 후 12개월은 짧다.",
+   "sources": [
+    {
+     "label": "EU 배터리 규정 (EU) 2023/1542 통합본(2026-08-13) 제7조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02023R1542-20260813"
+    },
+    {
+     "label": "Traceable – 배터리 탄소발자국 신고 의무 미개시(2026.9)",
+     "url": "https://traceable.digital/resources/blog/battery-carbon-footprint-declaration-deadline-not-started/"
+    },
+    {
+     "label": "Batteriepasswerk – 배터리 탄소발자국 제7조 현황(2026.10)",
+     "url": "https://www.batteriepasswerk.com/en/knowledge/battery-carbon-footprint"
+    },
+    {
+     "label": "ComplianceGate – EU 배터리 규정 일정표",
+     "url": "https://www.compliancegate.com/eu-batteries-regulation-timeline-and-dates/"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "lca-25",
+   "module": "lca",
+   "type": "calc",
+   "level": 3,
+   "tags": [
+    "EU 배터리 규정",
+    "기능단위",
+    "배터리"
+   ],
+   "ref": "Regulation (EU) 2023/1542 제7조(1)(d)",
+   "topic": "배터리 수명 전력 기준 환산",
+   "q": "75 kWh 전기차 배터리의 제조 탄소발자국(사용 단계 제외)이 5,250 kgCO2e로 산정되었다. 수명 동안 1,500회 완전 충방전(사이클당 75 kWh 공급)을 가정하면 EU 배터리 규정 신고 단위인 '수명 동안 공급한 총 전력 kWh당 kg CO2e'는 얼마인가?",
+   "given": [
+    [
+     "배터리 용량",
+     "75 kWh",
+     "제품 사양"
+    ],
+    [
+     "제조 탄소발자국(사용 단계 제외)",
+     "5,250 kgCO2e",
+     "LCA 결과"
+    ],
+    [
+     "수명 사이클",
+     "1,500회(사이클당 75 kWh)",
+     "내구 시험 가정"
+    ]
+   ],
+   "ans": 0.047,
+   "tol": 0.002,
+   "unit": "kgCO2e/kWh",
+   "dec": 3,
+   "steps": [
+    "용량 기준 발자국 = 5,250 ÷ 75 = 70 kgCO2e/kWh(용량)",
+    "수명 동안 공급 전력 = 75 × 1,500 = 112,500 kWh",
+    "5,250 ÷ 112,500 = 0.0467 kgCO2e/kWh"
+   ],
+   "insight": "같은 배터리라도 수명 사이클 가정이 1,000회면 0.07, 2,000회면 0.035로 바뀐다. 신고 값은 제조 배출뿐 아니라 '수명 가정'에 크게 좌우된다.",
+   "why": "제7조(1)(d)는 탄소발자국을 수명 동안 공급하는 총 전력 kWh당 kg CO2e로 적게 하며, 용량 kWh당 값과 다르다. 현황 해설도 68.3(용량 기준) → 0.046(1,500 사이클)으로 바뀌는 예를 든다.",
+   "trap": "업계에서 흔히 쓰는 용량 기준(kg CO2e/kWh 용량)을 그대로 신고 단위로 적는다.",
+   "sources": [
+    {
+     "label": "EU 배터리 규정 (EU) 2023/1542 통합본(2026-08-13) 제7조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02023R1542-20260813"
+    },
+    {
+     "label": "Batteriepasswerk – 배터리 탄소발자국 제7조 현황(2026.10)",
+     "url": "https://www.batteriepasswerk.com/en/knowledge/battery-carbon-footprint"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-26",
+   "module": "lca",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "그린워싱",
+    "Directive 2024/825",
+    "탄소중립 주장"
+   ],
+   "ref": "Directive (EU) 2024/825 제4조·부속서 I 4a·4c",
+   "topic": "EU 시장 탄소중립 제품 주장",
+   "q": "한국 제조사가 2026년 11월 EU에서 'LCA로 산정한 발자국을 전량 상쇄 크레딧으로 상쇄했으니 Carbon Neutral 제품'이라 광고하려 한다. 맞는 조언은?",
+   "options": [
+    "Green Claims 지침이 아직 미채택이므로 EU에는 제한이 없다",
+    "ISO 14067 기반 LCA가 있으면 어떤 표현도 가능하다",
+    "지침 2024/825가 2026년 9월 27일부터 적용되어, 상쇄에 기반해 제품이 기후에 중립·저감·긍정 영향이 있다는 주장은 블랙리스트 금지행위이므로 쓸 수 없다",
+    "2027년 배터리 패스포트 시행 전까지는 허용된다"
+   ],
+   "ans": 2,
+   "why": "지침 2024/825는 회원국이 2026년 3월 27일까지 국내법으로 옮기고 2026년 9월 27일부터 적용한다. 부속서 I은 상쇄에 기반한 중립·저감·긍정 영향 주장(4c), 입증 못 하는 포괄적 환경 주장(4a), 인증제도나 공공기관에 근거하지 않은 지속가능성 라벨(2a)을 금지하고, 미래 성과 주장은 검증된 이행계획이 있어야 한다. 별도의 Green Claims 지침은 집행위 페이지에 2026년 10월 현재 '검토 중(pending)'으로 남아 있다.",
+   "trap": "Green Claims 지침 하나만 보고 '아직 규제 없다'고 판단한다. 이미 적용 중인 2024/825가 상쇄 기반 주장을 직접 금지한다.",
+   "sources": [
+    {
+     "label": "Directive (EU) 2024/825 (소비자 그린전환 권한 강화) EUR-Lex",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024L0825"
+    },
+    {
+     "label": "EU 집행위 – Green Claims 페이지",
+     "url": "https://environment.ec.europa.eu/topics/circular-economy/green-claims_en"
+    }
+   ],
+   "confidence": "high",
+   "quote": "Claiming, based on the offsetting of greenhouse gas emissions, that a product has a neutral, reduced or positive impact …"
+  },
+  {
+   "id": "lca-27",
+   "module": "lca",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "ISO 14025",
+    "2026 개정",
+    "EPD"
+   ],
+   "ref": "ISO 14025:2026 (2026-06-24 발행)",
+   "topic": "ISO 14025 개정",
+   "q": "2026년 하반기 EPD 작성 지침을 검토하는 컨설턴트가 확인해야 할 ISO 14025의 최신 상황은?",
+   "options": [
+    "ISO 14025:2006이 현행이며 개정 계획이 없다",
+    "ISO 14025는 2024년 철회되어 EN 15804로 완전히 대체되었다",
+    "ISO 14025:2026(2판)이 2026년 6월 24일 발행되어 2006년판을 대체했고, 제목이 'Type III 환경선언'에서 '환경 제품 선언(EPD)'으로 바뀌었다",
+    "ISO 14025:2026은 LCA 대신 ISO 14067 탄소발자국만 요구한다"
+   ],
+   "ans": 2,
+   "why": "ISO 공식 페이지는 ISO 14025:2006을 2026-06-24 철회(withdrawn)로, ISO 14025:2026(Environmental statements and programmes for products — Environmental product declarations (EPDs))을 2판 현행으로 표시한다. 새 판도 LCA에 ISO 14040/14044를 적용하고, 사회·경제 LCA 지표는 범위 밖이지만 관련 정보를 부가 정보로 적을 수 있다.",
+   "trap": "오래된 자료의 'ISO 14025:2006' 인용을 그대로 복사한다. 2026년 이후 제안서·PCR 개정 문서는 새 판 번호와 제목을 써야 한다.",
+   "sources": [
+    {
+     "label": "ISO 14025:2026 (ISO 공식 페이지)",
+     "url": "https://www.iso.org/standard/14025"
+    },
+    {
+     "label": "ISO 14025:2006 (철회, ISO 공식 페이지)",
+     "url": "https://www.iso.org/standard/38131.html"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "lca-28",
+   "module": "lca",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "PEF",
+    "EF 3.1",
+    "데이터셋"
+   ],
+   "ref": "EU 집행위 EF 데이터 페이지·권고 2021/2279",
+   "topic": "EF 데이터 공백기 대응",
+   "q": "고객이 2026년 하반기 EU PEF 방법으로 제품 환경발자국 연구를 하려는데 쓸 수 있는 EF 적합(EF-compliant) 데이터셋이 부족하다. 맞는 대응은?",
+   "options": [
+    "PEF는 2013년 권고가 유일한 근거이므로 2013 데이터셋을 쓴다",
+    "EF 3.1 데이터셋 유효기간(2021–2025)이 끝나고 EF 4.0은 2028년 예정인 공백기(2025–2028)이므로, 집행위의 과도기 지침(2026년 7월)과 데이터 위계(EF 프록시 → ILCD-EL 등 대체 데이터셋)를 따르고 비적합 데이터 사용을 보고서에 밝힌다",
+    "데이터가 없으면 PEF 대신 임의의 상용 DB로 계산하고 PEF 적합이라고 쓴다",
+    "PEFCR이 없는 제품은 PEF 연구를 할 수 없다"
+   ],
+   "ans": 1,
+   "why": "현행 근거는 2021년 12월 15일 권고 (EU) 2021/2279(2013/179/EU 폐지)이고, EF 데이터셋은 EF 2.0(2018–2021), EF 3.1(2021–2025), EF 4.0(2028 예정) 순이다. 집행위는 2025–2028 과도기용 대체 데이터셋 지침을 2026년 7월 냈고, 비적합 데이터셋을 쓰면 EF 보고서에 면책 표기가 필요할 수 있다고 안내한다. 배터리 PEFCR은 아직 작성 중이다.",
+   "trap": "'PEF = 16개 영향 범주 계산'으로만 이해하고, 데이터셋 적합성·버전 요건을 보고서에 적지 않는다.",
+   "sources": [
+    {
+     "label": "EU 집행위 – EF 데이터(EF 3.1·4.0) 페이지",
+     "url": "https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/data-ef-methods_en"
+    },
+    {
+     "label": "Commission Recommendation (EU) 2021/2279 (PEF/OEF) EUR-Lex",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32021H2279"
+    },
+    {
+     "label": "EU 집행위 – PEF method 페이지",
+     "url": "https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "lca-29",
+   "module": "lca",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "ISO·GHG 프로토콜",
+    "제품 기준 통합",
+    "2026"
+   ],
+   "ref": "ISO–GHG 프로토콜 공동 작업반(2026.2)",
+   "topic": "제품 기준의 공동 관리",
+   "q": "고객이 '제품 탄소발자국은 ISO 14067로 할지 GHG 프로토콜 제품 기준으로 할지 하나만 골라 10년 쓰겠다'고 한다. 2026년 기준으로 가장 정확한 조언은?",
+   "options": [
+    "두 기준은 서로 무관하므로 하나만 고르면 끝이다",
+    "PAS 2050이 두 기준을 이미 대체했다",
+    "2025년 9월 ISO와 GHG 프로토콜이 ISO 14067과 제품 기준을 공동 관리하기로 했고, 2026년 2월 통합 제품 기준을 만들 공동 작업반(JWG)이 출범했으므로 통합 기준으로의 전환을 전제로 설계해야 한다",
+    "GHG 프로토콜 제품 기준은 2026년에 폐지되었다"
+   ],
+   "ans": 2,
+   "why": "XBRL 뉴스(2026.4)는 2025년 9월 파트너십으로 ISO 14067과 GHG 프로토콜 제품 기준이 공동 거버넌스에 들어갔고, 2026년 2월 50개국 450여 지원자 중 JWG 참여자가 선정되었다고 전한다. GHG 프로토콜 페이지도 'ISO와 통합·조화된 제품 수준 기준'을 개발한다고 밝힌다. 발행 시점은 아직 공표되지 않았다. PAS 2050:2011은 BSI에서 여전히 현행이다.",
+   "trap": "두 기준의 차이(예: 상쇄 금지, 검증 요구)를 외우는 데 그치고, 통합 기준이 나오면 PCR·사내 지침을 바꿔야 한다는 점을 설계에 반영하지 않는다.",
+   "sources": [
+    {
+     "label": "XBRL 뉴스 – ISO·GHG 프로토콜 공동 제품기준 작업반(2026.4)",
+     "url": "https://www.xbrl.org/news/iso-and-ghg-protocol-advance-joint-product-level-ghg-accounting-standard/"
+    },
+    {
+     "label": "GHG 프로토콜 Product Standard 페이지",
+     "url": "https://ghgprotocol.org/product-standard"
+    },
+    {
+     "label": "BSI PAS 2050:2011 (BSI Knowledge)",
+     "url": "https://knowledge.bsigroup.com/products/specification-for-the-assessment-of-the-life-cycle-greenhouse-gas-emissions-of-goods-and-services"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "lca-30",
+   "module": "lca",
+   "type": "judge",
+   "level": 3,
+   "tags": [
+    "현대차",
+    "비교 LCA",
+    "기능단위"
+   ],
+   "ref": "ISO 14044 비교 주장 보고(기능단위·가정 공개)",
+   "topic": "현대차 비교 LCA의 가정 공개",
+   "q": "현대자동차 보고서는 넥쏘와 동급 가솔린 SUV를 비교한 LCA 결과(대당 tCO2-eq)를 제시하면서, 그 LCA 페이지에서 비교의 기준이 되는 생애 주행거리와 사용 단계 가정을 함께 밝히고 있는가?",
+   "look": "기후변화 대응 > 전략 > 전과정평가(LCA 결과·넥쏘 Business Case)",
+   "page": 29,
+   "ans": "일부",
+   "quote": "운행 단계는 ‘전력수급 기본계획’에 따른 미래의 전력 생산 구조의 변화를 반영하여 평가하였습니다.",
+   "why": "p.29는 ISO 14040/44·EF 3.1·13개 지표와 전력믹스 가정, 단계별 결과(가솔린 SUV 47.8 vs 넥쏘 39.2 tCO2-eq/대, 약 18% 낮음)를 적지만, 비교 결과를 좌우하는 생애 주행거리는 LCA 페이지가 아닌 Scope 3 Cat 11 설명(p.40, 승용차 200,000 km)에만 나온다. 비교 주장의 기능단위(대당·주행거리)를 한곳에서 읽을 수 없어 '일부'다.",
+   "trap": "숫자 표가 있으면 '있음'으로 넘긴다. 비교 LCA는 기능단위와 주행거리·전력 가정이 같은 자리에 있어야 독자가 공정한 비교인지 판단할 수 있다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.29",
+     "url": "report"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    },
+    {
+     "label": "ISO 14044:2006 (ISO 공식 페이지)",
+     "url": "https://www.iso.org/standard/38498.html"
+    }
+   ],
+   "confidence": "high"
+  }
+ ]
+}

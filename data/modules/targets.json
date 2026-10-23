@@ -1,0 +1,1320 @@
+{
+ "module": "targets",
+ "lesson": {
+  "title": "감축목표·넷제로·전환계획: 숫자를 '믿을 수 있는 약속'으로 만드는 규칙",
+  "summary": "감축목표는 '언제까지, 어느 기준연도 대비, 어느 범위의 배출을, 몇 % 줄이겠다'는 약속이다. 기후공시 컨설턴트는 이 약속이 과학(1.5°C 경로)에 맞는지, 탄소크레딧으로 눈속임한 것은 아닌지, 실제 실행계획(전환계획)과 돈(투자)이 붙어 있는지를 SBTi·ISSB·UN HLEG 같은 기준으로 점검한다. 2026년에는 SBTi 넷제로 표준 V2.0이 공표되어 규칙이 크게 바뀌었으므로 '어느 버전 기준인지'를 항상 확인해야 한다.",
+  "sections": [
+   {
+    "h": "1. 넷제로 목표의 뼈대: 단기 + 장기 + 잔여배출 중립화",
+    "body": "SBTi(과학기반 감축목표 이니셔티브)가 말하는 '넷제로 목표'는 세 조각으로 이루어진다. 첫째 단기목표(near-term): 5~10년 안에(V2.0에서는 5년 주기) 빠르게 줄이는 약속이다. 둘째 장기목표(long-term): 늦어도 2050년까지 배출을 '잔여 수준'(보통 기준연도의 약 10% 이하)으로 떨어뜨리는 약속이다. 셋째 중립화(neutralization): 그래도 남는 잔여배출을 대기에서 탄소를 빼내는 '제거(removal)'로 상쇄하는 것이다. 즉 넷제로는 '90% 줄이고, 남은 10%는 제거로 없앤다'가 기본 그림이다."
+   },
+   {
+    "h": "2. 1.5°C 정렬과 연 4.2% 선형 감축",
+    "body": "목표가 과학에 맞는지 보는 가장 쉬운 잣대는 '절대량 수축 접근(ACA, Absolute Contraction Approach)'이다. SBTi V1.3.1 방법 부록은 1.5°C 경로의 최소 선형 감축률을 연 4.2%(Scope 1, 2 및 Scope 3 1.5°C), Scope 3 '2°C 훨씬 아래(WB2C)'는 연 2.5%, FLAG(산림·토지·농업)는 연 3.03%로 정한다. 기준연도에서 목표연도까지 연수에 이 비율을 곱하면 최소 감축률이 나온다. 2026년 4월 SBTi는 최신 기준연도를 쓰는 기업이 과도한 연간 감축률을 요구받던 문제를 고치기 위해 ACA 계산 방식을 조정했지만, 4.2%라는 하한선 자체는 유지했다."
+   },
+   {
+    "h": "3. 어디까지 세는가: 경계·Scope 3 포함 규칙·기준연도",
+    "body": "V1.3.1 기준으로 Scope 1+2 목표는 전체의 95% 이상을 덮어야 하고(제외 5% 이내), Scope 3가 전체 배출의 40% 이상이면 단기목표에 Scope 3를 반드시 넣어야 한다. 이때 Scope 3 단기목표는 Scope 3 배출의 67% 이상, 장기목표는 90% 이상을 덮어야 한다. 기준연도는 2015년 이전으로 거슬러 갈 수 없다. V2.0은 이 숫자들을 바꿨다. 67%라는 고정 비율 대신 'Scope 3 카테고리 1~14 중 5% 이상인 카테고리는 모두 포함'이라는 유의성 기준으로 바뀌었고, 기준연도는 '가장 최근의 완전한 데이터 연도'로 정하도록 했다. 또 Scope 1 목표(100%)와 Scope 2 목표(100%, 위치기반 인벤토리 기준)를 따로 세우게 했다."
+   },
+   {
+    "h": "4. 절대량 목표와 집약도 목표, 그리고 SDA",
+    "body": "절대량 목표는 'tCO2e를 몇 % 줄인다'이고, 집약도 목표는 '제품 1개·매출 1원당 배출을 몇 % 줄인다'이다. 집약도 목표는 생산이 늘면 절대 배출이 늘어도 달성될 수 있어, SBTi는 Scope 1+2 집약도 목표에 승인된 1.5°C 섹터 경로를 쓰도록 요구한다(V1.3.1 C21). 섹터 경로를 쓰는 방식이 SDA(Sectoral Decarbonization Approach, 섹터별 탈탄소화 접근)로, 업종별 물리적 집약도(예: 자동차는 차량 1km당 gCO2e)가 2050년에 수렴해야 하는 값을 정해준다. 자동차 업계는 2024년 3월 육상운송 가이던스에 따라 Scope 3 카테고리 11(판매차량 사용)을 1.5°C에 맞춰야 하며, 2026년 2~3월 2차 공개협의를 거친 '자동차 섹터 넷제로 표준' 초안은 카테고리 11 집약도 목표 또는 ZEV(무배출차) 판매비중 목표 중 하나를 고르게 한다."
+   },
+   {
+    "h": "5. 탄소크레딧·제거·BVCM: 무엇이 감축이고 무엇이 아닌가",
+    "body": "SBTi는 일관되게 '탄소크레딧(상쇄)은 감축 실적으로 셀 수 없다'고 정한다(V1.3.1 C12, V2.0 C26.2). 크레딧은 자기 가치사슬 밖에서 하는 추가 기여, 즉 BVCM(Beyond Value Chain Mitigation, 가치사슬 외 감축)으로만 권고된다(R12). 반면 '제거(removal)'는 잔여배출을 중립화하는 데만 쓸 수 있다. UN 고위전문가그룹(HLEG)의 '진실성이 중요하다(Integrity Matters, 2022 COP27)' 보고서도 크레딧은 고품질이어야 하고 중간목표 달성에 셈하면 안 된다고 권고했다. 크레딧 자체의 품질은 ICVCM의 핵심 탄소원칙(CCP, 10개)으로, 크레딧을 쓴 '주장'의 품질은 VCMI 클레임 코드로 본다. V2.0은 '지속 배출 책임(OER)'이라는 자발적 인정 프로그램을 새로 두고, Category A 기업에는 2035년부터 제거 지원을 의무화할 예정이다."
+   },
+   {
+    "h": "6. 전환계획: 목표를 실행으로 바꾸는 문서",
+    "body": "전환계획(transition plan)은 '목표를 어떻게 달성할지'를 보여주는 전략 문서다. 영국 TPT(Transition Plan Taskforce)의 2023년 10월 공시 프레임워크는 야심·실행·책임성(Ambition, Action, Accountability) 3원칙과 기반(Foundations)·실행전략·이해관계자 참여전략·지표와 목표·거버넌스 5요소로 구성된다. IFRS 재단은 2024년 TPT의 공시 자료 책임을 넘겨받았고, 2025년 6월 'IFRS S2에 따른 전환 정보 공시 가이던스'를 냈다. 핵심은 IFRS S2가 전환계획을 '가지라고' 요구하지는 않지만, 가지고 있다면 문단 14(a)(iv)에 따라 핵심 가정과 의존성을 포함해 공시해야 한다는 점이다. SBTi V2.0은 한 걸음 더 나가 전환계획 수립·이사회 승인·5년마다 검토를 기준(C2)으로 의무화했다."
+   },
+   {
+    "h": "7. 재산정과 진척 관리",
+    "body": "회사 경계가 바뀌면(인수·매각·새 자회사 포함) 기준연도 배출량을 다시 계산해야 목표가 공정하게 비교된다. SBTi는 누적 변화가 어느 한 Scope의 기준연도 배출을 5% 이상 바꾸면 재산정하도록 한다(V1.3.1 C33, V2.0 C8.3). 진척률은 '지금까지 줄인 양 ÷ 목표연도까지 줄여야 할 양'으로 간단히 볼 수 있다. V2.0은 5년마다 하던 의무 재검토를 없애고 대신 매년 보고, 주기 종료 시 평가, Category A 기업은 인벤토리와 목표 지표에 대한 제한적 보증(limited assurance)을 의무화했다."
+   },
+   {
+    "h": "8. 회피배출(avoided emissions)은 별도의 이야기",
+    "body": "회피배출은 '우리 제품을 쓰면 다른 대안보다 사회 전체 배출이 이만큼 줄어든다'는 비교 계산이다(WBCSD 가이던스 v2.0, 2025년 7월). 이는 회사 자신의 Scope 1·2·3 인벤토리를 줄인 것이 아니므로, 감축목표 달성 실적과 섞어 쓰면 안 된다. 전기차를 파는 자동차회사가 '우리 차 덕분에 줄어든 배출'을 내세울 때 반드시 Scope 3 카테고리 11 감축과 구분해 적어야 한다."
+   }
+  ],
+  "terms": [
+   {
+    "t": "단기목표",
+    "d": "5~10년 안에 달성하는 감축 약속으로, SBTi V2.0에서는 5년 단위로 세운다.",
+    "en": "Near-term target"
+   },
+   {
+    "t": "장기목표",
+    "d": "늦어도 2050년까지 배출을 잔여 수준(약 10% 이하)으로 낮추는 약속이다.",
+    "en": "Long-term target"
+   },
+   {
+    "t": "잔여배출",
+    "d": "할 수 있는 감축을 다 하고도 남는 배출로, 넷제로 연도에 제거로 중립화해야 한다.",
+    "en": "Residual emissions"
+   },
+   {
+    "t": "중립화",
+    "d": "잔여배출만큼 대기에서 탄소를 빼내어(제거) 순배출을 0으로 맞추는 것이다.",
+    "en": "Neutralization"
+   },
+   {
+    "t": "절대량 수축 접근",
+    "d": "모든 회사가 같은 연간 비율(1.5°C는 연 4.2%)로 절대 배출을 줄이는 목표 설정법이다.",
+    "en": "Absolute Contraction Approach (ACA)"
+   },
+   {
+    "t": "섹터별 탈탄소화 접근",
+    "d": "업종별 물리적 집약도 경로에 회사 집약도를 수렴시키는 목표 설정법이다.",
+    "en": "Sectoral Decarbonization Approach (SDA)"
+   },
+   {
+    "t": "FLAG",
+    "d": "산림·토지·농업 관련 배출로, SBTi에서 별도 목표(연 3.03%, 2050년 72%)를 세워야 한다.",
+    "en": "Forest, Land and Agriculture"
+   },
+   {
+    "t": "가치사슬 외 감축",
+    "d": "자기 가치사슬 밖에서 돈을 내어 돕는 감축으로, 목표 달성에 셈하지 않는 추가 기여다.",
+    "en": "Beyond Value Chain Mitigation (BVCM)"
+   },
+   {
+    "t": "지속 배출 책임",
+    "d": "SBTi V2.0이 도입한, 아직 남아 있는 배출에 대해 제거 등으로 책임지는 자발적 인정 프로그램이다.",
+    "en": "Ongoing Emissions Responsibility (OER)"
+   },
+   {
+    "t": "핵심 탄소원칙",
+    "d": "ICVCM이 정한 고품질 탄소크레딧의 10가지 기준으로, 거버넌스·배출영향·지속가능영향 3묶음이다.",
+    "en": "Core Carbon Principles (CCP)"
+   },
+   {
+    "t": "전환계획",
+    "d": "저탄소 경제로 가기 위한 회사의 목표·행동·자원을 담은 전략의 한 부분이다(IFRS S2 부록 A).",
+    "en": "Climate-related transition plan"
+   },
+   {
+    "t": "TPT 공시 프레임워크",
+    "d": "영국 전환계획 태스크포스가 2023년 10월 낸 전환계획 공시 틀로, 3원칙·5요소로 되어 있다.",
+    "en": "TPT Disclosure Framework"
+   },
+   {
+    "t": "기준연도 재산정",
+    "d": "경계·방법 변화가 기준연도 배출을 5% 이상 바꾸면 기준연도 수치를 다시 계산하는 것이다.",
+    "en": "Base year recalculation"
+   },
+   {
+    "t": "위치기반 Scope 2",
+    "d": "전력망 평균 배출계수로 계산한 Scope 2로, SBTi V2.0은 Scope 2 목표를 이 수치 기준으로 세우게 한다.",
+    "en": "Location-based Scope 2"
+   },
+   {
+    "t": "회피배출",
+    "d": "저탄소 제품 덕분에 대안 시나리오보다 줄어든 사회적 배출을 비교 계산한 값으로, 인벤토리 감축과 다르다.",
+    "en": "Avoided emissions"
+   }
+  ],
+  "sources": [
+   {
+    "label": "SBTi Corporate Net-Zero Standard V2.0 (2026.6)",
+    "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-version-2.pdf"
+   },
+   {
+    "label": "SBTi CNZS V2.0 Criteria",
+    "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Criteria.pdf"
+   },
+   {
+    "label": "SBTi CNZS V2 Main Changes Document",
+    "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Main-Changes-Document.pdf"
+   },
+   {
+    "label": "SBTi Net-Zero Standard Criteria V1.3.1 (2026.4)",
+    "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+   },
+   {
+    "label": "SBTi CNZS V1.3.1 Method Appendix",
+    "url": "https://files.sciencebasedtargets.org/production/files/CNZS-V1.3.1-Method-Appendix.pdf"
+   },
+   {
+    "label": "SBTi V1.3.1→V2 전환 안내문",
+    "url": "https://files.sciencebasedtargets.org/production/files/Continuing-Use-of-Corporate-Net-Zero-Standard-Version-1.3.1-and-Transition-to-Corporate-Net-Zero-Standard-Version-2.pdf"
+   },
+   {
+    "label": "SBTi Land Transport 섹터 페이지",
+    "url": "https://sciencebasedtargets.org/sectors/land-transport"
+   },
+   {
+    "label": "SBTi 자동차 섹터 표준 2차 협의 주요 변경 문서 (2026.2)",
+    "url": "https://files.sciencebasedtargets.org/production/files/Automotive-Sector-Net-Zero-Standard-V0.1-Second-Public-Consultation-Main-Changes-Document.pdf"
+   },
+   {
+    "label": "IFRS 재단 전환계획 공시 가이던스 관련 SSAF 자료 (2025.9)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2025/september/ssaf/ap3-guidance-transition-plans.pdf"
+   },
+   {
+    "label": "IFRS 재단 이해관계자 브리핑 노트 (2025.2)",
+    "url": "https://ifrs.org/content/dam/ifrs/events-and-conferences/2025/february/stakeholder-event/briefing-note.pdf"
+   },
+   {
+    "label": "UN HLEG Integrity Matters",
+    "url": "https://www.un.org/en/climatechange/high-level-expert-group"
+   },
+   {
+    "label": "ICVCM Core Carbon Principles",
+    "url": "https://icvcm.org/core-carbon-principles/"
+   },
+   {
+    "label": "VCMI Claims Code of Practice",
+    "url": "https://vcmintegrity.org/vcmi-claims-code-of-practice/"
+   },
+   {
+    "label": "ISO Net Zero Guidelines (IWA 42:2022)",
+    "url": "https://www.iso.org/netzero"
+   },
+   {
+    "label": "WBCSD Guidance on Avoided Emissions v2.0",
+    "url": "https://www.wbcsd.org/resources/guidance-on-avoided-emissions/"
+   }
+  ]
+ },
+ "items": [
+  {
+   "id": "targets-01",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "넷제로",
+    "SBTi",
+    "목표 구조"
+   ],
+   "ref": "SBTi CNZS V2.0 Table 1 / V1.3.1 C14",
+   "topic": "넷제로 목표의 세 조각",
+   "q": "SBTi 기업 넷제로 표준에서 '넷제로 목표'를 이루는 구성요소로 맞는 것은?",
+   "options": [
+    "단기목표 + 장기목표 + 넷제로 연도의 잔여배출 중립화",
+    "단기목표 + 탄소크레딧 구매 계획",
+    "장기목표 하나만 있으면 충분하다",
+    "재생에너지 100% 조달 서약 + 상쇄"
+   ],
+   "ans": 0,
+   "why": "SBTi는 넷제로 목표를 '단기목표(빠른 감축) + 장기목표(2050년까지 잔여 수준으로) + 남는 잔여배출의 중립화' 세 조각으로 정의한다. 세 조각이 모두 있어야 '넷제로 목표'라고 부를 수 있다.",
+   "trap": "장기목표(2050 넷제로 선언)만 있고 단기목표가 없는 회사를 '넷제로 목표가 있다'고 평가하는 실수가 흔하다.",
+   "sources": [
+    {
+     "label": "SBTi CNZS V2.0",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-version-2.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-02",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "단기목표",
+    "SBTi",
+    "목표 기간"
+   ],
+   "ref": "SBTi 넷제로 기준 V1.3.1 C17 / V2.0 C9.2",
+   "topic": "단기목표 기간 규칙",
+   "q": "SBTi 넷제로 표준 V1.3.1에서 단기(near-term) 목표의 목표연도는 제출 시점부터 몇 년 안이어야 하는가? (V2.0에서 바뀐 점도 함께 고르라)",
+   "options": [
+    "V1.3.1은 5~10년, V2.0은 5년 주기로 고정",
+    "V1.3.1은 3~5년, V2.0은 10년",
+    "V1.3.1은 10~15년, V2.0은 변동 없음",
+    "둘 다 2030년으로 고정"
+   ],
+   "ans": 0,
+   "why": "V1.3.1 C17은 단기목표를 5~10년 안으로, 장기목표는 늦어도 2050년으로 정한다. V2.0 C9.2는 단기목표를 최근 보고기간 시작 시점부터 5년으로 고정했다(첫 검증은 더 짧을 수 있다).",
+   "trap": "2030년을 모든 회사의 단기목표 연도로 당연시하면, 2026년에 제출하는 회사에게 V2.0 기준으로는 2030~2031년 전후가 되어야 한다는 점을 놓친다.",
+   "sources": [
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    },
+    {
+     "label": "SBTi CNZS V2.0 Criteria",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Criteria.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-03",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "기준연도",
+    "SBTi"
+   ],
+   "ref": "SBTi 넷제로 기준 V1.3.1 C16 / V2.0 C4.1",
+   "topic": "기준연도 선택 규칙",
+   "q": "SBTi 넷제로 표준에서 기준연도(base year) 선택 규칙으로 맞는 것은?",
+   "options": [
+    "V1.3.1은 2015년 이전은 불가, V2.0은 '가장 최근의 완전한 데이터가 있는 연도'를 쓴다",
+    "두 버전 모두 회사가 원하는 과거 연도를 자유롭게 고를 수 있다",
+    "두 버전 모두 2020년으로 고정이다",
+    "V2.0은 기준연도 개념을 없앴다"
+   ],
+   "ans": 0,
+   "why": "V1.3.1 C16은 기준연도를 2015년 이전으로 잡지 못하게 한다. V2.0 C4.1은 '포괄적 데이터가 있는 가장 최근 연도'를 목표 기준연도로 삼고 주기마다 갱신하도록 바꿨다. 과거의 배출이 많던 해를 골라 감축률을 부풀리는 길을 막은 것이다.",
+   "trap": "배출이 많았던 옛 연도를 기준연도로 골라 '이미 30% 줄였다'고 쓰는 방식은 V2.0에서는 통하지 않는다.",
+   "sources": [
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    },
+    {
+     "label": "SBTi CNZS V2 Main Changes Document",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Main-Changes-Document.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-04",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "탄소크레딧",
+    "상쇄",
+    "SBTi"
+   ],
+   "ref": "SBTi 넷제로 기준 V1.3.1 C12",
+   "topic": "크레딧과 감축 실적",
+   "q": "SBTi 과학기반 목표에서 구매한 탄소크레딧(상쇄)은 어떻게 다루는가?",
+   "options": [
+    "목표 달성을 위한 감축 실적으로 셀 수 없다",
+    "Scope 3 감축 실적으로만 셀 수 있다",
+    "전체 감축의 20%까지 셀 수 있다",
+    "제3자 검증을 받으면 자유롭게 셀 수 있다"
+   ],
+   "ans": 0,
+   "why": "V1.3.1 C12는 탄소크레딧을 목표 달성의 감축 실적으로 '셀 수 없다'고 명시한다. 크레딧은 가치사슬 밖 추가 기여(BVCM)로 권고(R12)될 뿐이고, 잔여배출 중립화에는 크레딧이 아닌 '제거'가 쓰인다.",
+   "trap": "'상쇄 후 순배출'을 SBTi 목표 진척률에 넣어 보고서를 쓰는 실수가 흔하다. 진척률은 총배출(gross) 기준으로만 계산한다.",
+   "sources": [
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "크레딧은 목표를 향한 배출 감축으로 셀 수 없다(must not be counted as emission reductions)."
+  },
+  {
+   "id": "targets-05",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "목표 경계",
+    "Scope 1+2",
+    "SBTi"
+   ],
+   "ref": "SBTi 넷제로 기준 V1.3.1 C5",
+   "topic": "Scope 1+2 경계 95% 규칙",
+   "q": "SBTi 넷제로 표준 V1.3.1에서 Scope 1+2 목표가 최소한 덮어야 하는 배출 비율은?",
+   "options": [
+    "95% 이상(제외는 5% 이내)",
+    "67% 이상",
+    "90% 이상",
+    "100%만 허용"
+   ],
+   "ans": 0,
+   "why": "V1.3.1 C5는 Scope 1+2 목표에서 제외할 수 있는 양을 5%로 제한하므로, 목표가 덮는 비율은 보고배출+제외배출의 95% 이상이어야 한다. 참고로 V2.0은 Scope 1과 Scope 2를 각각 100% 덮는 별도 목표로 바꿨다.",
+   "trap": "67%는 Scope 3 단기목표 커버리지 숫자다. Scope 1+2와 Scope 3의 비율을 뒤바꿔 외우는 경우가 많다.",
+   "sources": [
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    },
+    {
+     "label": "SBTi CNZS V2.0 Criteria",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Criteria.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-06",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "1.5°C",
+    "절대량 수축",
+    "감축률"
+   ],
+   "ref": "SBTi CNZS V1.3.1 Method Appendix Table 2",
+   "topic": "1.5°C 최소 선형 감축률",
+   "q": "SBTi 절대량 수축 접근(ACA)에서 1.5°C 경로에 맞는 최소 연간 선형 감축률은?",
+   "options": [
+    "연 4.2%",
+    "연 2.5%",
+    "연 7.0%",
+    "연 1.5%"
+   ],
+   "ans": 0,
+   "why": "V1.3.1 방법 부록 표 2는 Scope 1, Scope 2, Scope 3(1.5°C) 모두 최소 연 4.2%의 선형 감축을 요구한다. 연 2.5%는 Scope 3를 '2°C 훨씬 아래(WB2C)'로 맞출 때의 하한선이다.",
+   "trap": "4.2%를 '복리'로 곱하면 안 된다. 선형(기준연도 배출의 4.2%씩 매년 똑같이)으로 계산한다.",
+   "sources": [
+    {
+     "label": "SBTi CNZS V1.3.1 Method Appendix",
+     "url": "https://files.sciencebasedtargets.org/production/files/CNZS-V1.3.1-Method-Appendix.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-07",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "전환계획",
+    "TPT"
+   ],
+   "ref": "TPT 공시 프레임워크 (2023.10)",
+   "topic": "TPT 프레임워크 5요소",
+   "q": "영국 전환계획 태스크포스(TPT) 공시 프레임워크(2023년 10월)의 다섯 가지 공시 요소에 들어가지 않는 것은?",
+   "options": [
+    "시나리오 분석",
+    "기반(Foundations)",
+    "실행 전략(Implementation strategy)",
+    "이해관계자 참여 전략(Engagement strategy)"
+   ],
+   "ans": 0,
+   "why": "TPT 5요소는 기반, 실행 전략, 참여 전략, 지표와 목표, 거버넌스다. 세 가지 원칙은 야심·실행·책임성(Ambition, Action, Accountability)이다. 시나리오 분석은 IFRS S2 전략 공시의 일부이지만 TPT 5요소의 이름은 아니다.",
+   "trap": "TPT 5요소를 TCFD 4요소(거버넌스·전략·위험관리·지표와 목표)와 섞어 '위험관리'를 넣는 실수가 흔하다.",
+   "sources": [
+    {
+     "label": "Grant Thornton: TPT final disclosure framework",
+     "url": "https://www.grantthornton.global/en/insights/articles/transition-plan-taskforce-has-published-its-final-disclosure-framework/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-08",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "IFRS S2",
+    "전환계획"
+   ],
+   "ref": "IFRS S2 문단 14(a)(iv), 부록 A",
+   "topic": "IFRS S2와 전환계획 보유 의무",
+   "q": "IFRS S2에서 기후 전환계획에 대한 요구를 가장 정확히 설명한 것은?",
+   "options": [
+    "전환계획을 '가질 것'을 요구하지는 않지만, 가지고 있다면 핵심 가정과 의존성을 포함해 공시해야 한다",
+    "모든 기업이 전환계획을 수립해 공시해야 한다",
+    "전환계획은 금융회사만 공시한다",
+    "전환계획 공시는 완전히 자발적이며 어떤 기준도 없다"
+   ],
+   "ans": 0,
+   "why": "IFRS 재단 자료는 IFRS S2가 '전환계획을 가질 것을 요구하지 않는다'고 밝히면서, 문단 14(a)(iv)에 따라 회사가 가진 전환계획이 있으면 개발에 쓴 핵심 가정과 계획이 의존하는 요소를 공시하도록 한다고 설명한다. 부록 A는 전환계획을 '저탄소 경제로의 전환을 위한 목표·행동·자원을 담은 전략의 한 부분'으로 정의한다.",
+   "trap": "'IFRS S2가 전환계획을 의무화했다'고 고객에게 말하면 틀린 조언이다. 의무는 '있는 계획에 대한 정보 공시'다.",
+   "sources": [
+    {
+     "label": "IFRS 재단 브리핑 노트 (2025.2)",
+     "url": "https://ifrs.org/content/dam/ifrs/events-and-conferences/2025/february/stakeholder-event/briefing-note.pdf"
+    },
+    {
+     "label": "IFRS SSAF AP3 전환계획 가이던스 (2025.9)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2025/september/ssaf/ap3-guidance-transition-plans.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "IFRS S2는 기업이 가진 전환계획에 대한 정보 공시를 요구하는 것이지, 전환계획 자체를 요구하는 것이 아니다."
+  },
+  {
+   "id": "targets-09",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "탄소크레딧",
+    "ICVCM",
+    "CCP"
+   ],
+   "ref": "ICVCM Core Carbon Principles",
+   "topic": "핵심 탄소원칙(CCP) 10개",
+   "q": "ICVCM 핵심 탄소원칙(CCP) 10개 중 '배출 영향(Emissions Impact)' 묶음에 들어가는 원칙이 아닌 것은?",
+   "options": [
+    "효과적인 거버넌스",
+    "추가성(Additionality)",
+    "영속성(Permanence)",
+    "이중계산 금지"
+   ],
+   "ans": 0,
+   "why": "CCP는 거버넌스(효과적 거버넌스·추적·투명성·독립 검증), 배출 영향(추가성·영속성·견고한 정량화·이중계산 금지), 지속가능 영향(지속가능발전 편익과 안전장치·넷제로 전환 기여) 세 묶음 10개다. '효과적 거버넌스'는 거버넌스 묶음이다.",
+   "trap": "CCP 라벨은 '프로그램+크레딧 카테고리' 단위로 승인되므로, 라벨이 붙은 등록소라도 모든 크레딧이 CCP 적격인 것은 아니다.",
+   "sources": [
+    {
+     "label": "ICVCM Core Carbon Principles",
+     "url": "https://icvcm.org/core-carbon-principles/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-10",
+   "module": "targets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "집약도 목표",
+    "절대량 목표",
+    "SDA"
+   ],
+   "ref": "SBTi 넷제로 기준 V1.3.1 C21, C25",
+   "topic": "집약도 목표의 조건",
+   "q": "SBTi 넷제로 표준 V1.3.1에서 Scope 1+2를 '집약도(원단위) 목표'로 세울 때의 조건은?",
+   "options": [
+    "승인된 1.5°C 섹터 경로(SDA)를 따라야 한다",
+    "어떤 분모(매출·생산량)든 자유롭게 써도 된다",
+    "집약도 목표는 Scope 1+2에 허용되지 않는다",
+    "연 2% 이상만 줄이면 된다"
+   ],
+   "ans": 0,
+   "why": "C21은 Scope 1+2 집약도 목표에 승인된 1.5°C 섹터 경로를 요구한다. 생산이 늘면 집약도는 떨어져도 절대 배출이 늘 수 있기 때문에, 섹터 경로로 그 허점을 막는 것이다. Scope 3는 C25에 따라 물리적·경제적 집약도 접근을 쓸 수 있다.",
+   "trap": "'매출당 배출'이 줄었다는 것만으로 1.5°C 정렬을 주장하면 안 된다. 분모가 매출이면 가격 인상만으로도 집약도가 개선된다.",
+   "sources": [
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-11",
+   "module": "targets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "커버리지",
+    "SBTi"
+   ],
+   "ref": "SBTi 넷제로 기준 V1.3.1 C4, C6, C7",
+   "topic": "Scope 3 포함과 커버리지 규칙",
+   "q": "한 제조회사의 Scope 3가 전체 배출(Scope 1+2+3)의 55%다. SBTi 넷제로 표준 V1.3.1에서 이 회사의 Scope 3 목표 요구로 맞는 것은?",
+   "options": [
+    "단기목표에 Scope 3를 넣어야 하고, 단기는 Scope 3의 67% 이상, 장기는 90% 이상을 덮어야 한다",
+    "Scope 3가 50%를 넘어도 단기목표에는 넣지 않아도 된다",
+    "단기·장기 모두 Scope 3의 95% 이상을 덮어야 한다",
+    "Scope 3는 장기목표에만 넣으면 된다"
+   ],
+   "ans": 0,
+   "why": "C4는 Scope 3가 전체의 40% 이상이면 단기목표에 Scope 3를 포함하도록 한다. C6은 단기 Scope 3 목표가 Scope 3의 67% 이상, C7은 장기목표가 90% 이상을 덮도록 한다. V2.0은 67% 고정비율을 없애고 '5% 이상인 카테고리 모두 포함'으로 바꿨다.",
+   "trap": "40%는 '포함 여부'를 가르는 문턱이고 67%/90%는 '얼마나 덮는지'의 비율이다. 세 숫자의 역할을 섞으면 틀린다.",
+   "sources": [
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-12",
+   "module": "targets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "야심 수준",
+    "WB2C"
+   ],
+   "ref": "SBTi 넷제로 기준 V1.3.1 C19, C22",
+   "topic": "Scope별 요구 온도 정렬",
+   "q": "SBTi 넷제로 표준 V1.3.1에서 Scope 3 목표에 요구되는 최소 온도 정렬은?",
+   "options": [
+    "단기는 '2°C 훨씬 아래(WB2C)', 장기는 1.5°C",
+    "단기·장기 모두 1.5°C",
+    "단기·장기 모두 2°C",
+    "Scope 3에는 온도 정렬 요구가 없다"
+   ],
+   "ans": 0,
+   "why": "C19는 Scope 1+2에 최소 1.5°C를, C22는 Scope 3 단기목표에 WB2C, 장기목표에 1.5°C를 요구한다. 방법 부록에서 WB2C 절대량 목표의 최소 선형 감축률은 연 2.5%, 장기 수준은 75%다.",
+   "trap": "Scope 3 단기목표를 WB2C로 세워도 '1.5°C 정렬 기업'이라고 광고하면 과장이다. 장기목표까지 1.5°C로 승인받았는지 확인해야 한다.",
+   "sources": [
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    },
+    {
+     "label": "SBTi CNZS V1.3.1 Method Appendix",
+     "url": "https://files.sciencebasedtargets.org/production/files/CNZS-V1.3.1-Method-Appendix.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-13",
+   "module": "targets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "감축목표",
+    "Scope 1+2",
+    "목표값"
+   ],
+   "ref": "현대자동차 2026 지속가능성 보고서 p.38, 40",
+   "topic": "2030 Scope 1+2 목표 배출량",
+   "q": "현대자동차의 2024년(기준연도) Scope 1+2 배출량과 SBTi 승인 목표(2030년까지 42% 감축)를 바탕으로, 2030년 Scope 1+2 목표 배출량(tCO2e)을 구하라.",
+   "given": [
+    [
+     "2024년 Scope 1+2 합계(기준연도)",
+     "2,198,406 tCO2e",
+     "현대자동차 2026 지속가능성 보고서 p.38"
+    ],
+    [
+     "감축 목표",
+     "2030년까지 42% 감축",
+     "현대자동차 2026 지속가능성 보고서 p.40"
+    ]
+   ],
+   "ans": 1275075,
+   "tol": 1500,
+   "unit": "tCO2e",
+   "dec": 0,
+   "steps": [
+    "목표연도 배출 = 기준연도 배출 × (1 − 감축률)",
+    "2,198,406 × (1 − 0.42) = 2,198,406 × 0.58",
+    "= 1,275,075 tCO2e"
+   ],
+   "insight": "목표를 '%'로만 적으면 독자가 실제 허용 배출량을 알 수 없다. 공시에서는 기준연도 수치와 목표연도 절대값을 함께 보여주는 것이 좋다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.38",
+     "url": "report"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-14",
+   "module": "targets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "진척률",
+    "Scope 1+2",
+    "목표 관리"
+   ],
+   "ref": "현대자동차 2026 지속가능성 보고서 p.38, 40",
+   "topic": "목표 진척률 계산",
+   "q": "현대자동차의 2024년 기준연도 Scope 1+2 배출량, 2025년 실적, 2030년 42% 감축 목표를 바탕으로 2025년 말 기준 목표 진척률(%)을 구하라. 진척률 = (기준연도 − 당해연도) ÷ (기준연도 − 목표연도 목표) × 100",
+   "given": [
+    [
+     "2024년 Scope 1+2 합계",
+     "2,198,406 tCO2e",
+     "현대자동차 2026 지속가능성 보고서 p.38"
+    ],
+    [
+     "2025년 Scope 1+2 합계",
+     "1,911,084 tCO2e",
+     "현대자동차 2026 지속가능성 보고서 p.38"
+    ],
+    [
+     "2030년 목표",
+     "2024년 대비 42% 감축",
+     "현대자동차 2026 지속가능성 보고서 p.40"
+    ]
+   ],
+   "ans": 31.1,
+   "tol": 0.5,
+   "unit": "%",
+   "dec": 1,
+   "steps": [
+    "줄여야 할 총량 = 2,198,406 × 0.42 = 923,331 tCO2e",
+    "지금까지 줄인 양 = 2,198,406 − 1,911,084 = 287,322 tCO2e",
+    "진척률 = 287,322 ÷ 923,331 × 100 = 31.1%"
+   ],
+   "insight": "6년 목표 기간 중 1년이 지난 시점에 31%를 달성했으니 선형 경로(약 17%)보다 앞서 있다. 다만 2025년에는 해외법인 5개가 새로 포함되었으므로 경계 변화 영향을 함께 설명해야 한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.38",
+     "url": "report"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-15",
+   "module": "targets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "Scope 3",
+    "Category 11",
+    "연간 감축률"
+   ],
+   "ref": "현대자동차 2026 지속가능성 보고서 p.40; SBTi Method…",
+   "topic": "Scope 3 목표의 연간 선형 감축률",
+   "q": "현대자동차는 Scope 3 Category 11(판매차량 사용)을 2024년 대비 2035년까지 63% 감축하는 목표를 SBTi 승인받았다. 이 목표가 요구하는 연간 선형 감축률(%/년)을 구하라.",
+   "given": [
+    [
+     "Category 11 감축 목표",
+     "2024년 대비 2035년까지 63%",
+     "현대자동차 2026 지속가능성 보고서 p.40"
+    ],
+    [
+     "기간",
+     "2035 − 2024 = 11년",
+     "계산"
+    ],
+    [
+     "SBTi 1.5°C 최소 선형 감축률(참고)",
+     "연 4.2%",
+     "SBTi CNZS V1.3.1 Method Appendix Table 2"
+    ]
+   ],
+   "ans": 5.73,
+   "tol": 0.05,
+   "unit": "%/년",
+   "dec": 2,
+   "steps": [
+    "연간 선형 감축률 = 총 감축률 ÷ 연수",
+    "63% ÷ 11년 = 5.73%/년",
+    "비교: 1.5°C 최소 하한 4.2%/년, WB2C 하한 2.5%/년을 모두 넘는다"
+   ],
+   "insight": "Scope 3 단기목표는 WB2C(연 2.5%)만 넘으면 되지만, 이 목표는 1.5°C 하한(연 4.2%)도 넘는다. 자동차회사의 Cat.11은 전동화 판매비중이 핵심 수단이다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    },
+    {
+     "label": "SBTi CNZS V1.3.1 Method Appendix",
+     "url": "https://files.sciencebasedtargets.org/production/files/CNZS-V1.3.1-Method-Appendix.pdf"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "현대자동차 2026 지속가능성 보고서 p.40; SBTi Method Appendix"
+  },
+  {
+   "id": "targets-16",
+   "module": "targets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "절대량 수축",
+    "1.5°C",
+    "최소 감축률"
+   ],
+   "ref": "SBTi CNZS V1.3.1 Method Appendix Table 2",
+   "topic": "ACA 최소 감축률 계산",
+   "q": "기준연도 2024년, 목표연도 2030년인 Scope 1+2 절대량 목표가 SBTi 1.5°C 최소 선형 감축률(연 4.2%)을 만족하려면 최소 몇 % 감축이어야 하는가?",
+   "given": [
+    [
+     "최소 선형 감축률",
+     "연 4.2%",
+     "SBTi CNZS V1.3.1 Method Appendix Table 2"
+    ],
+    [
+     "기간",
+     "2030 − 2024 = 6년",
+     "계산"
+    ]
+   ],
+   "ans": 25.2,
+   "tol": 0.1,
+   "unit": "%",
+   "dec": 1,
+   "steps": [
+    "최소 감축률 = 연간 선형 감축률 × 연수",
+    "4.2% × 6년 = 25.2%",
+    "현대자동차의 42%는 이 하한을 크게 넘는다"
+   ],
+   "insight": "4.2%는 '하한'이다. 2026년 4월 SBTi는 기준연도·최근연도·목표연도를 함께 반영하는 조정 공식을 도입했으므로 실제 요구치는 이보다 높을 수 있고, 검증 포털에서 최종 확인해야 한다.",
+   "sources": [
+    {
+     "label": "SBTi CNZS V1.3.1 Method Appendix",
+     "url": "https://files.sciencebasedtargets.org/production/files/CNZS-V1.3.1-Method-Appendix.pdf"
+    },
+    {
+     "label": "Carbometrix: SBTi updated the rules for absolute targets",
+     "url": "https://carbometrix.com/insights/sbti-updated-the-rules-for-absolute-targets-heres-what-it-means-in-practice"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-17",
+   "module": "targets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "기준연도 재산정",
+    "경계 변화",
+    "SBTi"
+   ],
+   "ref": "SBTi 넷제로 기준 V1.3.1 C33 / V2.0 C8.3",
+   "topic": "재산정 유의성 기준",
+   "q": "한 회사가 다른 회사를 인수해 기준연도 Scope 1 배출이 7% 늘어나는 효과가 생겼다. SBTi 넷제로 표준에서 올바른 처리는?",
+   "options": [
+    "유의성 기준(5%)을 넘었으므로 기준연도 배출량을 재산정하고 목표를 다시 맞춘다",
+    "인수 후 배출은 새 배출이므로 기준연도는 그대로 두고 목표만 늘린다",
+    "10%를 넘지 않으면 아무 조치가 필요 없다",
+    "기준연도를 인수 연도로 새로 바꾸면 된다"
+   ],
+   "ans": 0,
+   "why": "V1.3.1 C33은 5% 이하의 유의성 기준을 두고, V2.0 C8.3은 누적 변화가 어느 한 Scope의 기준연도 총배출을 5% 이상 바꾸면 재산정하도록 한다. 재산정하지 않으면 인수한 배출 때문에 진척률이 거짓으로 나빠지거나(매각이면 좋아지거나) 한다.",
+   "trap": "회사 정책이 '10%'라고 해서 SBTi 검증을 통과하는 것은 아니다. SBTi 기준은 5%다.",
+   "sources": [
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    },
+    {
+     "label": "SBTi CNZS V2.0 Criteria",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Criteria.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-18",
+   "module": "targets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "FLAG",
+    "산림·토지·농업",
+    "SBTi"
+   ],
+   "ref": "SBTi CNZS V1.3.1 Method Appendix Table…",
+   "topic": "FLAG 목표 규칙",
+   "q": "식품회사가 농업 원료에서 나오는 FLAG(산림·토지·농업) 배출이 크다. SBTi 넷제로 표준에서 FLAG 배출의 처리로 맞는 것은?",
+   "options": [
+    "FLAG 목표를 비(非)FLAG 목표와 분리해 세우며, 최소 선형 감축률은 연 3.03%, 2050년 장기 수준은 72%다",
+    "FLAG 배출은 Scope 3 에너지·산업 배출과 합쳐 연 4.2%로 줄이면 된다",
+    "FLAG 배출은 목표에서 제외할 수 있다",
+    "FLAG는 삼림 보호 크레딧으로 전액 상쇄할 수 있다"
+   ],
+   "ans": 0,
+   "why": "방법 부록 표 2는 FLAG의 최소 선형 감축률을 연 3.03%, 2050년 장기 수준을 72%로 정한다. V2.0 C9.8은 FLAG 목표를 비FLAG 목표와 분리해 세우고 보고하도록 하며, 원료는 산림 파괴 없음 등 지속가능성 기준을 지켜야 한다.",
+   "trap": "FLAG 경로는 토지 탄소 흡수(removal)를 포함하기 때문에 감축률이 4.2%보다 낮다. 이를 '덜 야심적'이라고 오해하면 안 된다.",
+   "sources": [
+    {
+     "label": "SBTi CNZS V1.3.1 Method Appendix",
+     "url": "https://files.sciencebasedtargets.org/production/files/CNZS-V1.3.1-Method-Appendix.pdf"
+    },
+    {
+     "label": "SBTi CNZS V2.0 Criteria",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Criteria.pdf"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "SBTi CNZS V1.3.1 Method Appendix Table 2; V2.0 C9.8"
+  },
+  {
+   "id": "targets-19",
+   "module": "targets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "UN HLEG",
+    "넷제로 진실성",
+    "탄소크레딧"
+   ],
+   "ref": "UN HLEG 'Integrity Matters' (2022, COP…",
+   "topic": "HLEG 권고와 크레딧",
+   "q": "UN 고위전문가그룹(HLEG) 보고서 'Integrity Matters'(2022년 COP27)의 권고 중 탄소크레딧에 관한 내용으로 맞는 것은?",
+   "options": [
+    "고품질 크레딧만 쓰되 가치사슬 밖 감축에만 사용하고, 중간목표 달성에는 셈할 수 없다",
+    "크레딧으로 2030년 중간목표의 절반까지 채울 수 있다",
+    "크레딧은 어떤 경우에도 쓰면 안 된다",
+    "크레딧은 Scope 3 목표 달성에만 쓸 수 있다"
+   ],
+   "ans": 0,
+   "why": "HLEG 10개 권고 중 세 번째는 고품질 자발적 크레딧을 가치사슬 밖 감축에만 쓰고 중간 감축 실적으로 셈하지 말라는 것이다. 그 밖에 2025·2030·2035 중간목표, 전환계획 공개와 5년마다 갱신, 연 1회 진척 보고, 화석연료 단계적 폐지, 로비 정렬 등을 권고한다.",
+   "trap": "HLEG는 크레딧을 금지한 것이 아니다. '쓰되 감축 실적으로 세지 말라'가 정확한 표현이다.",
+   "sources": [
+    {
+     "label": "UN HLEG Integrity Matters",
+     "url": "https://www.un.org/en/climatechange/high-level-expert-group"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "UN HLEG 'Integrity Matters' (2022, COP27)"
+  },
+  {
+   "id": "targets-20",
+   "module": "targets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "자동차 섹터",
+    "SBTi",
+    "Category 11",
+    "ZEV"
+   ],
+   "ref": "SBTi 자동차 섹터 넷제로 표준 2차 협의 주요 변경 (2026.2)",
+   "topic": "자동차 섹터 표준 초안의 목표 방식",
+   "q": "SBTi 자동차 섹터 넷제로 표준(2026년 2월 공개된 2차 협의 초안 초안)에서 완성차 회사가 고를 수 있는 목표 지표로 맞는 것은?",
+   "options": [
+    "Scope 3 Category 11 배출 집약도 목표 또는 ZEV(무배출차) 판매비중 목표 중 하나",
+    "Scope 1+2+3 합산 절대량 목표만 허용",
+    "차량 1대당 제조 배출(Scope 1+2 집약도)만 허용",
+    "탄소크레딧 구매량 목표"
+   ],
+   "ans": 0,
+   "why": "2차 협의 문서는 완성차 회사가 Category 11 집약도 목표와 ZEV 판매비중 목표 중 하나를 선택하도록 했고, 사용단계 집약도 벤치마크 경로는 2050년 0.0 gCO2e/vkm에 도달한다. 중국은 별도 지역 경로이고, PHEV는 '준(近)ZEV' 기술로 취급된다. 나머지 Scope은 CNZS V2.0 지표를 쓴다. 2026년 10월 현재 이 표준은 아직 초안이다.",
+   "trap": "초안을 확정 기준처럼 고객 보고서에 인용하면 안 된다. 현대차의 2025년 승인 목표는 육상운송 가이던스(2024.3)에 따른 것이다.",
+   "sources": [
+    {
+     "label": "SBTi 자동차 섹터 표준 2차 협의 주요 변경 문서",
+     "url": "https://files.sciencebasedtargets.org/production/files/Automotive-Sector-Net-Zero-Standard-V0.1-Second-Public-Consultation-Main-Changes-Document.pdf"
+    },
+    {
+     "label": "DEKRA: SBTi new rules for automakers",
+     "url": "https://www.dekra.us/en/the-end-of-the-tailpipe-era-inside-the-sbti-s-radical-new-rules-for-automakers/"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "targets-21",
+   "module": "targets",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "전환계획",
+    "투자 정렬",
+    "현대자동차"
+   ],
+   "ref": "IFRS S2 문단 14; TPT 실행 전략",
+   "topic": "감축 투자 계획(자본지출) 공시",
+   "q": "전환계획의 핵심 요소 중 하나는 '목표 달성에 쓸 돈(투자)'이다. 현대자동차 보고서가 사업장 탄소 감축을 위한 금액·기간이 있는 투자계획을 공시하는지 보라.",
+   "look": "'탄소 배출 감축 투자' 단락에서 기간과 금액이 함께 제시되는지 확인한다.",
+   "page": 41,
+   "ans": "있음",
+   "quote": "현대자동차는 사업장의 탄소 배출 감축을 위해 2026년부터 2035년까지 약 3.5조 원 규모의 투자계획을 수립했습니다.",
+   "why": "기간(2026~2035)과 금액(약 3.5조 원), 용도(태양광 자가발전, 외부 재생에너지 조달, 수소 밸류체인)가 함께 제시되어 TPT '실행 전략'의 재무 계획 요소와 IFRS S2가 요구하는 전환계획 자원 정보에 해당한다.",
+   "trap": "금액만 보고 '충분하다'고 판단하면 안 된다. Scope 3(공급망·사용단계) 감축 투자는 이 금액에 포함되지 않았음을 함께 짚어야 한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.41",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-22",
+   "module": "targets",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "잔여배출",
+    "중립화",
+    "현대자동차"
+   ],
+   "ref": "SBTi 넷제로 기준 V1.3.1 C28 (중립화)",
+   "topic": "잔여배출 처리 수단 공시",
+   "q": "넷제로 목표에는 '남는 잔여배출을 어떻게 처리할지'가 있어야 한다. 현대자동차 보고서가 2045년 잔여배출 처리 수단을 밝히는지 보라.",
+   "look": "탄소중립 목표 단락 끝부분에서 목표연도 잔여배출에 대한 수단(제거·상쇄)이 언급되는지 확인한다.",
+   "page": 40,
+   "ans": "있음",
+   "quote": "현대자동차는 목표연도인 2045년 잔여 탄소 배출을 처리하기 위해 탄소 포집과 활용 기술인 CCUS(Carbon Capture Utilization & Storage)에 투자하고, 폐배터리를 에너지저장장치로 재활용하거나 해양 생태계를 복원하는 등의 탄소 상쇄 활동을 지속적으로 추진할 것입니다.",
+   "why": "잔여배출 처리 수단으로 CCUS와 블루카본 등 상쇄 활동을 밝히고 있어 '있음'이다. 다만 SBTi 중립화는 '제거(removal)'만 인정하므로, 폐배터리 재활용 같은 활동은 중립화 수단이 아니라 감축·순환경제 활동으로 구분해야 한다는 점을 컨설턴트가 지적할 수 있다.",
+   "trap": "'상쇄'와 '제거'를 같은 말로 쓰면 안 된다. 회피형 크레딧(예: 재생에너지 사업)은 SBTi 중립화에 쓸 수 없다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.40",
+     "url": "report"
+    },
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-23",
+   "module": "targets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "육상운송 가이던스",
+    "내연기관 폐지",
+    "Category 11"
+   ],
+   "ref": "SBTi Land Transport Guidance (2024.3)",
+   "topic": "자동차회사 단기목표의 산정 기준",
+   "q": "SBTi 육상운송 가이던스(2024년 3월)에서 완성차 회사의 Scope 3 Category 11 단기목표 설정 방식으로 맞는 것은?",
+   "options": [
+    "기준연도에 판매한 차량의 생애 전체 Well-to-Wheel 절대 배출을 1.5°C에 맞춰 줄이며, 주요 시장 2035년·글로벌 2040년 내연기관 신차 단계적 폐지를 향해 노력한다는 서약을 한다",
+    "판매 당해연도의 주행 배출만 계산하면 된다",
+    "Tank-to-Wheel(배기관) 배출만 계산하면 된다",
+    "Category 11은 자동차회사 목표에서 제외된다"
+   ],
+   "ans": 0,
+   "why": "가이던스는 Category 11을 자동차회사 최대 배출원으로 보고 1.5°C 정렬을 요구하며, 단기목표는 기준연도 판매차량의 생애 Well-to-Wheel 절대 배출로 세운다. 또 주요 시장 2035년, 글로벌 2040년(또는 현지 규제에 따라 더 빨리) 내연기관 승용·밴 신차 단계적 폐지를 향한 서약이 따른다. 현대차가 2025년 Cat.11 산정 범위를 TTW에서 WTW로 넓힌 배경이 여기 있다.",
+   "trap": "Category 11을 '올해 주행 배출'로 계산하는 실수가 흔하다. GHG 프로토콜과 SBTi 모두 '판매 연도에 판 제품의 생애 배출'로 본다.",
+   "sources": [
+    {
+     "label": "SBTi Land Transport",
+     "url": "https://sciencebasedtargets.org/sectors/land-transport"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.38",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-24",
+   "module": "targets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "잔여배출",
+    "중립화",
+    "장기목표"
+   ],
+   "ref": "SBTi CNZS V1.3.1 Method Appendix; V2.0…",
+   "topic": "장기목표 잔여배출과 중립화 필요량",
+   "q": "현대자동차의 2024년 Scope 1+2 배출량에 SBTi 장기 Scope 1 넷제로 수준(2050년까지 90% 감축)을 그대로 적용하면, 넷제로 연도에 제거로 중립화해야 할 잔여배출량(tCO2e)은 얼마인가?",
+   "given": [
+    [
+     "2024년 Scope 1+2 합계",
+     "2,198,406 tCO2e",
+     "현대자동차 2026 지속가능성 보고서 p.38"
+    ],
+    [
+     "장기 넷제로 수준(Scope 1)",
+     "2050년까지 90% 감축",
+     "SBTi CNZS V1.3.1 Method Appendix"
+    ]
+   ],
+   "ans": 219841,
+   "tol": 300,
+   "unit": "tCO2e",
+   "dec": 0,
+   "steps": [
+    "잔여배출 = 기준연도 배출 × (1 − 0.90) = 2,198,406 × 0.10",
+    "= 219,841 tCO2e → 이만큼을 '제거(removal)'로 중립화해야 한다"
+   ],
+   "insight": "넷제로는 '90% 감축 + 10% 제거'이지 '50% 감축 + 50% 상쇄'가 아니다. V2.0은 Scope 2를 2040년 100% 감축 수준으로, Scope 3(1.5°C)도 2050년 90%로 본다.",
+   "sources": [
+    {
+     "label": "SBTi CNZS V1.3.1 Method Appendix",
+     "url": "https://files.sciencebasedtargets.org/production/files/CNZS-V1.3.1-Method-Appendix.pdf"
+    },
+    {
+     "label": "SBTi Net-Zero Standard Criteria V1.3.1",
+     "url": "https://files.sciencebasedtargets.org/production/files/Net-Zero-Standard-Criteria.pdf"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.38",
+     "url": "report"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "SBTi CNZS V1.3.1 Method Appendix; V2.0 A.6"
+  },
+  {
+   "id": "targets-25",
+   "module": "targets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "회피배출",
+    "WBCSD",
+    "감축 실적"
+   ],
+   "ref": "WBCSD Guidance on Avoided Emissions v2…",
+   "topic": "회피배출의 뜻",
+   "q": "WBCSD 회피배출 가이던스 v2.0(2025년 7월)에서 '회피배출(avoided emissions)'은 무엇인가?",
+   "options": [
+    "저탄소 솔루션이 없었을 대안 시나리오와 비교해 줄어든 온실가스 영향으로, 회사 인벤토리(Scope 1·2·3) 감축과는 별개의 비교 계산값",
+    "회사가 지난해보다 줄인 Scope 1+2 배출량",
+    "탄소크레딧으로 상쇄한 배출량",
+    "공급업체가 줄여 준 Scope 3 배출량"
+   ],
+   "ans": 0,
+   "why": "가이던스는 회피배출을 '그 솔루션이 없는 대안 시나리오와 GHG 영향을 비교해 측정한 저탄소 솔루션의 긍정적 영향'으로 정의한다. 참조 시나리오 정의, 기여 검증, 선택적 배분·통합 단계와 보고 템플릿을 제공한다. 회피배출은 회사 자신의 배출을 줄인 것이 아니므로 감축목표 진척과 따로 보고해야 한다.",
+   "trap": "전기차 판매로 '회피한' 배출을 Category 11 감축 실적처럼 한 표에 섞어 쓰면 독자가 오해한다. 두 수치는 분리해서 적는다.",
+   "sources": [
+    {
+     "label": "WBCSD Guidance on Avoided Emissions",
+     "url": "https://www.wbcsd.org/resources/guidance-on-avoided-emissions/"
+    }
+   ],
+   "confidence": "medium",
+   "refFull": "WBCSD Guidance on Avoided Emissions v2.0 (2025.7)"
+  },
+  {
+   "id": "targets-26",
+   "module": "targets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "SBTi V2.0",
+    "Scope 2",
+    "위치기반"
+   ],
+   "ref": "SBTi CNZS V2.0 C9.4, C12.2, C13",
+   "topic": "V2.0의 Scope 2 목표 기준",
+   "q": "한 제조회사가 재생에너지 인증서(REC)를 사서 시장기반 Scope 2를 거의 0으로 만들었고, 2027년 SBTi 넷제로 표준 V2.0으로 목표를 제출하려 한다. 컨설턴트의 올바른 조언은?",
+   "options": [
+    "V2.0에서 Scope 2 목표의 야심은 위치기반(물리적) 인벤토리를 기준으로 세워야 하므로, REC로 낮춘 시장기반 수치만으로 Scope 2 목표를 대신할 수 없다. 다만 저탄소 전력 정렬(LCE alignment) 옵션으로 달성을 입증할 수는 있다",
+    "시장기반 Scope 2가 0이므로 Scope 2 목표를 세울 필요가 없다",
+    "V2.0은 Scope 2를 Scope 1에 합쳐 하나의 목표로만 세운다",
+    "REC 구매량을 감축 실적으로 그대로 인정받는다"
+   ],
+   "ans": 0,
+   "why": "V2.0 주요 변경 문서는 'Scope 2 배출 목표는 물리적(위치기반) 인벤토리만을 기준으로 한다'고 밝히고, 기준 C9.4·C12.2는 야심 수준을 위치기반 인벤토리에 두되 저탄소 전력(LCE) 정렬 또는 절대 감축 중 택하도록 한다. Category A 기업 중 전력 수요가 연 20% 넘게 늘 전망이면 추가로 Scope 2 배출 목표가 필요하다(C12.4).",
+   "trap": "V1 시절 '시장기반 Scope 2로 목표 설정'에 익숙한 담당자가 V2.0에서도 같은 방식이 통한다고 가정하는 것이 가장 큰 실수다.",
+   "sources": [
+    {
+     "label": "SBTi CNZS V2 Main Changes Document",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Main-Changes-Document.pdf"
+    },
+    {
+     "label": "SBTi CNZS V2.0 Criteria",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Criteria.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "Scope 2 배출 목표는 물리적(위치기반) 인벤토리만을 기준으로 한다."
+  },
+  {
+   "id": "targets-27",
+   "module": "targets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "SBTi V2.0",
+    "전환 기간",
+    "V1.3.1"
+   ],
+   "ref": "SBTi V1.3.1→V2 전환 안내문 (2026.6)",
+   "topic": "V1과 V2 사이의 제출 전략",
+   "q": "한 회사가 2027년 상반기에 첫 SBTi 넷제로 목표를 제출하려 한다. 2026년 6월 SBTi 안내문에 따른 버전 선택으로 맞는 것은?",
+   "options": [
+    "V2.0은 2027년 1월 31일부터 적용되고, V1.3.1은 2028년 1월까지 제출에 쓸 수 있으므로 둘 중 선택할 수 있다. V1으로 승인된 목표는 해당 주기 동안 유효하며 다음 주기(2030~35)부터 V2.0으로 옮긴다",
+    "2026년 6월 이후 V1 제출은 즉시 중단되어 V2.0만 가능하다",
+    "V2.0은 2030년부터 적용되므로 2027년에는 V1만 가능하다",
+    "기존 V1 승인 목표는 2027년에 모두 무효가 된다"
+   ],
+   "ans": 0,
+   "why": "V2.0은 2026년 6월 11일 공표되어 2027년 1월 31일 발효하며, 2027년 1분기~2028년 1분기가 전환 기간이다. 안내문은 V1 목표가 해당 주기 동안 유효하고, 2030년 이후 목표연도를 가진 회사는 2028년부터 2030~35 주기에 맞춰 V2.0으로 새 목표를 세우라고 안내한다. 지속배출책임(OER) 프로그램은 2027년 출범 예정이다. (기준서 본문은 2027년 2월 1일로 표기한다.)",
+   "trap": "'새 표준이 나왔으니 기존 승인 목표가 무효'라고 고객을 불안하게 하는 조언은 틀렸다. 승인된 목표는 주기 끝까지 유효하다.",
+   "sources": [
+    {
+     "label": "SBTi V1.3.1→V2 전환 안내문",
+     "url": "https://files.sciencebasedtargets.org/production/files/Continuing-Use-of-Corporate-Net-Zero-Standard-Version-1.3.1-and-Transition-to-Corporate-Net-Zero-Standard-Version-2.pdf"
+    },
+    {
+     "label": "SBTi CNZS V2 Main Changes Document",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Main-Changes-Document.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-28",
+   "module": "targets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "SBTi V2.0",
+    "Category A",
+    "보증"
+   ],
+   "ref": "SBTi CNZS V2.0 Table 1, C2.4, C5.7, C7",
+   "topic": "Category A 기업의 추가 의무",
+   "q": "매출 수십조 원, 임직원 수만 명인 한국 완성차 회사가 SBTi 넷제로 표준 V2.0으로 목표를 갱신한다. 이 회사의 분류와 그에 따른 의무로 맞는 것은?",
+   "options": [
+    "Category A(매출 4.5억 유로 이상 또는 1,000명 이상)이므로, Scope 3의 5% 이상 카테고리 보고, 인벤토리·목표 지표에 대한 제한적 보증, 목표 검증 후 15개월 내 전환계획 공개가 요구된다",
+    "Category B이므로 Scope 1·2 목표만 세우면 된다",
+    "SME 경로를 신청해 Scope 3 목표를 면제받을 수 있다",
+    "Category A는 보증이 선택 사항이다"
+   ],
+   "ans": 0,
+   "why": "V2.0은 순매출 4.5억 유로 이상 또는 FTE 1,000명 이상(모든 국가), 또는 고소득국에서 Scope 1+2 1만 tCO2e 이상 등인 기업을 Category A로 분류한다. Category A는 Scope 3 보고(C5.7), 의무 제한적 보증(C7), 검증 후 15개월 내 전환계획 공개(C2.4), 주기 종료 평가의 제3자 보증을 추가로 진다. Category B는 Scope 1·2 목표만 필수이고 보증은 선택이다.",
+   "trap": "V1의 'SME 경로'는 V2.0에서 Category A/B 분류로 대체되었다. 규모가 큰 회사가 Scope 3 면제를 노리는 것은 불가능하다.",
+   "sources": [
+    {
+     "label": "SBTi CNZS V2.0 Criteria",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Criteria.pdf"
+    },
+    {
+     "label": "WSP: SBTi Version 2 changes briefing (2026)",
+     "url": "https://www.wsp.com/-/media/insights/uk/documents/sbti-version-2-changes-briefing-2026.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-29",
+   "module": "targets",
+   "type": "calc",
+   "level": 3,
+   "tags": [
+    "기준연도 재산정",
+    "경계 변화",
+    "유의성"
+   ],
+   "ref": "SBTi CNZS V2.0 C8.3; 현대자동차 보고서 p.38",
+   "topic": "재산정 유의성 문턱값 계산",
+   "q": "현대자동차는 2025년 산정 대상에 해외법인 5개를 추가했다. SBTi V2.0 기준 '어느 한 Scope 총배출의 5%' 유의성 기준을 2024년 기준연도 Scope 1+2 합계에 적용하면, 재산정을 검토해야 하는 누적 변화량 문턱값(tCO2e)은 얼마인가? (추가 법인 배출이 130,000 tCO2e라면 문턱을 넘는지도 판단하라)",
+   "given": [
+    [
+     "2024년 Scope 1+2 합계(기준연도)",
+     "2,198,406 tCO2e",
+     "현대자동차 2026 지속가능성 보고서 p.38"
+    ],
+    [
+     "유의성 기준",
+     "기준연도 어느 한 Scope 총배출의 5% 이상",
+     "SBTi CNZS V2.0 C8.3"
+    ],
+    [
+     "가정: 신규 포함 법인 배출",
+     "130,000 tCO2e",
+     "가정"
+    ]
+   ],
+   "ans": 109920,
+   "tol": 100,
+   "unit": "tCO2e",
+   "dec": 0,
+   "steps": [
+    "문턱값 = 2,198,406 × 0.05 = 109,920 tCO2e",
+    "가정한 130,000 tCO2e ÷ 2,198,406 = 5.9% ≥ 5% → 재산정 검토 대상",
+    "실무에서는 Scope 1과 Scope 2를 각각 따로 5% 기준으로 본다"
+   ],
+   "insight": "현대차 보고서는 2024년 배출을 SBTi 기준에 맞춰 재산정했다고 밝혔다. 경계가 늘어난 해에는 '감축 진척'과 '경계 효과'를 분리해 설명해야 신뢰를 얻는다.",
+   "sources": [
+    {
+     "label": "SBTi CNZS V2.0 Criteria",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-V2-Criteria.pdf"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.38",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-30",
+   "module": "targets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "VCMI",
+    "클레임 코드",
+    "탄소크레딧 주장"
+   ],
+   "ref": "VCMI Claims Code of Practice v3.0(이후 v…",
+   "topic": "크레딧 사용 '주장'의 기준",
+   "q": "한 회사가 탄소크레딧을 사서 '기후 기여'를 홍보하고 싶어 한다. VCMI 클레임 코드(2025년 4월 개정(이후 v3.1·v3.2로 갱신) 기준)의 기초 요건에 대한 설명으로 맞는 것은?",
+   "options": [
+    "신뢰할 수 있는 과학 정렬 프레임워크에 따른 단기 감축목표(2050 넷제로와 일관)가 있어야 하며, 공개 넷제로 선언 의무는 v3.0에서 없어졌고 장기목표는 권고다. 크레딧은 가치사슬 밖 고품질 크레딧이어야 한다",
+    "크레딧을 사면 감축목표 없이도 '탄소중립' 주장을 할 수 있다",
+    "VCMI는 크레딧 발행 프로젝트의 품질을 평가하는 기구다",
+    "Scope 3 목표가 없으면 어떤 주장도 할 수 없다"
+   ],
+   "ans": 0,
+   "why": "VCMI는 크레딧을 '쓰는 회사의 주장'을 다루고, 크레딧 '자체의 품질'은 ICVCM이 다룬다. 2025년 4월 v3.0(이후 v3.1·v3.2로 갱신) 개정에서 기초 요건 2는 공개 넷제로 선언 의무를 없애고 단기목표가 2050 넷제로와 일관되면 되도록 했으며, 장기목표는 권고로 두었다. 같은 날 Scope 3 Action Code of Practice도 나왔다.",
+   "trap": "ICVCM(공급 측 품질)과 VCMI(수요 측 주장)를 혼동하는 경우가 많다. 크레딧 품질이 좋아도 감축목표 없이 쓰면 VCMI 기준의 주장은 할 수 없다.",
+   "sources": [
+    {
+     "label": "VCMI Claims Code of Practice",
+     "url": "https://vcmintegrity.org/vcmi-claims-code-of-practice/"
+    },
+    {
+     "label": "ICVCM Core Carbon Principles",
+     "url": "https://icvcm.org/core-carbon-principles/"
+    }
+   ],
+   "confidence": "medium",
+   "refFull": "VCMI Claims Code of Practice v3.0(이후 v3.1·v3.2로 갱신) (2025.4)"
+  },
+  {
+   "id": "targets-31",
+   "module": "targets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "전환계획",
+    "SBTi V2.0",
+    "거버넌스"
+   ],
+   "ref": "SBTi CNZS V2.0 C2.1–C2.5",
+   "topic": "V2.0 전환계획 기준",
+   "q": "컨설턴트가 Category A 고객의 SBTi V2.0 전환계획 초안을 검토한다. 초안은 'CSO(최고지속가능성책임자) 승인, 10년마다 검토, 목표 검증 후 2년 내 공개'로 되어 있다. 올바른 수정은?",
+   "options": [
+    "최고 거버넌스 기구(이사회)의 공식 승인, 최소 5년마다 검토, 검증 후 15개월 내 공개로 바꾸고, 행동·일정, 가정·의존성, 해당 시 미저감 화석연료 매출의 단계적 폐지 계획을 담아야 한다",
+    "CSO 승인으로 충분하며 검토 주기는 자유다",
+    "전환계획은 SBTi 기준이 아니라 권고 사항이므로 수정이 필요 없다",
+    "공개 의무는 없고 내부 문서로만 두면 된다"
+   ],
+   "ans": 0,
+   "why": "V2.0 C2.1은 전환계획에 목표 상세·범위·행동과 일정·가정과 의존성·해당 시 미저감 화석연료 매출 단계적 폐지 계획을 담도록 하고, C2.2는 최고 거버넌스 기구 승인, C2.3은 기업 전략과의 정렬, C2.4는 Category A의 검증 후 15개월 내 공개, C2.5는 최소 5년마다 검토를 요구한다. IFRS S2 14(a)(iv)의 '핵심 가정과 의존성' 공시와 겹치므로 한 번에 설계하면 효율적이다.",
+   "trap": "V1에서 전환계획은 권고 수준이었다. V2.0에서 '기준(Criteria)'으로 격상된 점을 놓치면 검증에서 탈락한다.",
+   "sources": [
+    {
+     "label": "SBTi CNZS V2.0",
+     "url": "https://files.sciencebasedtargets.org/production/files/Corporate-Net-Zero-Standard-version-2.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "targets-32",
+   "module": "targets",
+   "type": "judge",
+   "level": 3,
+   "tags": [
+    "전환계획",
+    "가정·의존성",
+    "현대자동차"
+   ],
+   "ref": "IFRS S2 문단 14(a)(iv)",
+   "topic": "전환계획의 핵심 가정과 의존성 공시",
+   "q": "IFRS S2 문단 14(a)(iv)는 전환계획 공시에 '핵심 가정'과 '의존성'을 담으라고 한다. 현대자동차 보고서의 '목표 달성 계획'이 감축 수단과 함께, 그 수단이 의존하는 외부 조건(예: 전력망 탈탄소, 그린수소 공급, 전기차 수요)을 가정·의존성으로 명시하는지 보라.",
+   "look": "'목표 달성 계획' 단락(사업장 탄소 배출 감축·전동화·협력사 지원)에서 수단은 있는지, 그 수단의 전제 조건이 '가정' 또는 '의존성'으로 적혀 있는지 확인한다.",
+   "page": 41,
+   "ans": "일부",
+   "quote": "단기적으로는 RE100 로드맵과 연계하여 제조 과정에서 사용하는 전기에너지부터 우선 재생에너지로의 전환을 추진할 계획이며, 장기적으로는 수소사회 구현과 연계하여 주요 제조 공정에 그린수소 적용을 확대하고자 합니다.",
+   "why": "감축 수단(재생에너지 전환, 그린수소, 전동화 확대, 협력사 지원)은 구체적으로 적혀 있지만, 그 수단이 성립하기 위한 전제(재생에너지·그린수소 조달 가능성, 각국 전력망 배출계수, 전기차 수요와 보조금 정책 등)를 '가정'이나 '의존성'이라는 이름으로 따로 정리해 보여주지는 않는다. 따라서 '일부'다.",
+   "trap": "수단 목록이 길면 '전환계획이 충실하다'고 판단하기 쉽다. IFRS S2는 수단뿐 아니라 '무엇이 깨지면 계획이 흔들리는가'를 적도록 요구한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.41",
+     "url": "report"
+    },
+    {
+     "label": "IFRS 재단 브리핑 노트 (2025.2)",
+     "url": "https://ifrs.org/content/dam/ifrs/events-and-conferences/2025/february/stakeholder-event/briefing-note.pdf"
+    }
+   ],
+   "confidence": "high"
+  }
+ ]
+}

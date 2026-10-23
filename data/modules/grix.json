@@ -1,0 +1,1192 @@
+{
+ "module": "grix",
+ "lesson": {
+  "title": "GRI 기준서, 보고서 작성자가 꼭 알아야 할 뼈대",
+  "summary": "GRI(Global Reporting Initiative) 기준서는 기업이 경제·환경·사람에 미치는 '영향'을 보고하는 세계에서 가장 널리 쓰이는 지속가능성 보고 기준이다. 투자자용인 IFRS S2와 달리 모든 이해관계자를 대상으로 하므로, 컨설턴트는 GRI 1·2·3(공통 기준), 섹터 기준, 주제 기준(특히 새 기후 기준 GRI 102·에너지 기준 GRI 103)의 구조와 요구사항을 알아야 고객 보고서의 목차와 GRI 인덱스를 설계할 수 있다.",
+  "sections": [
+   {
+    "h": "GRI 1: 보고 원칙 8가지와 요구사항 9개",
+    "body": "GRI 1(Foundation 2021)은 'GRI에 따라(in accordance)' 보고하려면 지켜야 할 요구사항 9개를 정한다. 1 보고 원칙 적용, 2 GRI 2 전체 공시, 3 중요 주제 결정(섹터 기준 사용), 4 GRI 3 공시, 5 중요 주제별 주제 기준 공시, 6 누락 사유 제시, 7 GRI 인덱스 공개, 8 사용 선언문(statement of use), 9 GRI에 통보다. 보고 원칙은 정확성·균형·명확성·비교가능성·완전성·지속가능성 맥락·적시성·검증가능성 8가지로, 보고서 품질의 잣대다."
+   },
+   {
+    "h": "GRI 2: 일반 공시 30개의 다섯 묶음",
+    "body": "GRI 2(General Disclosures 2021)는 회사가 누구이고 어떻게 운영되는지 보여주는 30개 공시다. 2-1~2-5 조직과 보고 관행(보고기간, 재기술, 외부검증), 2-6~2-8 활동과 근로자(가치사슬, 임직원 수, 비임직원 근로자), 2-9~2-21 거버넌스(이사회 구성, 역할, 보수), 2-22~2-28 전략·정책·관행(전략 성명, 정책 약속, 법규 준수), 2-29~2-30 이해관계자 참여(참여 방식, 단체협약)로 나뉜다. 2-1~2-5는 누락 사유를 쓸 수 없다."
+   },
+   {
+    "h": "GRI 3: 중요 주제를 고르는 4단계와 3-3 관리 공시",
+    "body": "GRI 3(Material Topics 2021)은 '가장 중요한 영향'을 주제로 뽑는 절차를 정한다. 1단계 조직 맥락 이해, 2단계 실제·잠재 영향 식별, 3단계 영향의 중대성 평가, 4단계 보고할 영향 우선순위화다. 중대성은 심각성(규모·범위·회복불가능성)과, 잠재 영향이면 발생가능성을 함께 본다. 3-1은 절차, 3-2는 주제 목록과 변동, 3-3은 주제별로 영향·관여 방식·정책·조치·효과 추적·이해관계자 참여를 쓰게 한다."
+   },
+   {
+    "h": "섹터 기준: 업종별 '아마 중요할 주제' 목록",
+    "body": "섹터 기준(Sector Standards)은 업종별로 중요할 가능성이 큰 주제를 미리 정리한 문서다. 2026년 현재 GRI 11 석유·가스, 12 석탄, 13 농업·양식·어업, 14 광업 4개가 발행됐고, 금융(은행·자본시장·보험)은 승인되어 2027년 발표 예정이고 섬유·의류는 개발 중이다. 해당 섹터 기업은 이 기준을 반드시 써서 주제를 검토하고, 중요하지 않다고 본 섹터 주제는 GRI 인덱스에 이유를 적어야 한다. 자동차는 40개 우선 섹터 목록의 2그룹(산업)에 들어 있지만 아직 발행 계획 단계다."
+   },
+   {
+    "h": "GRI 102 기후변화 2025: 배출량을 넘어 전환계획·정의로운 전환까지",
+    "body": "GRI 102(Climate Change 2025)는 GRI 305와 GRI 201-2를 대체하는 새 기후 기준으로 2027년 1월 1일 이후 발행하는 보고서부터 적용된다(조기 적용 가능). 102-1 전환계획(transition plan), 102-2 적응계획, 102-3 정의로운 전환(just transition, 일자리·재교육 지표), 102-4 감축목표와 진척, 102-5~7 Scope 1·2·3 배출량, 102-8 배출 집약도, 102-9 가치사슬 내 제거(removals), 102-10 탄소크레딧으로 구성된다. 탄소크레딧과 제거량은 총량(gross) 목표와 따로 보고한다."
+   },
+   {
+    "h": "GRI 103 에너지 2025와 옛 GRI 302·305",
+    "body": "GRI 103(Energy 2025)은 GRI 302를 대체한다. 103-1 에너지 정책·약속, 103-2 조직 내 소비·자가발전(재생/비재생 구분, 계약 수단 품질기준), 103-3 상·하류 소비, 103-4 집약도, 103-5 감축으로 구성된다. 2026년 보고서는 아직 GRI 302·305를 쓰는 곳이 많으므로 302-1~5, 305-4(집약도), 305-5(감축)의 요구사항도 알아야 한다. 집약도는 절대 배출량(분자)을 생산대수·매출 같은 조직 고유 지표(분모)로 나눈다."
+   },
+   {
+    "h": "다른 기준과의 연결: ISSB, ESRS, UNGC, 외부검증",
+    "body": "GRI와 IFRS재단은 2022년 3월 협력 각서를 맺고, 2024년 1월 온실가스 공시 상호운용성 자료, 2025년 6월 'GRI 102–IFRS S2 공동 성명'을 냈다. 공동 성명에 따라 IFRS S2의 Scope 1·2·3 공시로 GRI 102의 해당 요구사항을 충족할 수 있다. ESRS와는 2024년 11월 공식 상호운용성 인덱스를 발표했다. 외부검증은 GRI가 의무로 두지 않지만 받기를 권하며(should), 2-5에서 검증 정책과 범위를 설명해야 한다."
+   }
+  ],
+  "terms": [
+   {
+    "t": "사용 선언문",
+    "d": "'어느 회사가 어느 기간에 대해 GRI 기준에 따라 보고했다'고 밝히는 정해진 문장이다.",
+    "en": "statement of use"
+   },
+   {
+    "t": "GRI 인덱스",
+    "d": "보고한 공시 항목과 그 위치를 한눈에 보여주는 표로, GRI 1 요구사항 7에 따라 반드시 공개한다.",
+    "en": "GRI content index"
+   },
+   {
+    "t": "보고 원칙",
+    "d": "보고서 품질을 지키기 위한 8가지 기준(정확성·균형·명확성·비교가능성·완전성·지속가능성 맥락·적시성·검증가능성)이다.",
+    "en": "reporting principles"
+   },
+   {
+    "t": "영향",
+    "d": "조직이 활동이나 거래관계를 통해 경제·환경·사람(인권 포함)에 미치거나 미칠 수 있는 효과로, 실제/잠재, 긍정/부정으로 나눈다.",
+    "en": "impact"
+   },
+   {
+    "t": "실사",
+    "d": "부정적 영향을 찾아내고 예방·완화하고 책임지는 과정이다.",
+    "en": "due diligence"
+   },
+   {
+    "t": "심각성",
+    "d": "부정적 영향이 얼마나 큰지(규모), 얼마나 넓은지(범위), 되돌릴 수 있는지(회복불가능성)로 본다.",
+    "en": "severity"
+   },
+   {
+    "t": "섹터 기준",
+    "d": "업종별로 중요할 가능성이 높은 주제와 추가 권고를 정리한 GRI 기준이다.",
+    "en": "Sector Standard"
+   },
+   {
+    "t": "전환계획",
+    "d": "기후변화 완화를 위해 회사가 사업을 어떻게 바꿀지 담은 계획으로 GRI 102-1에서 공시한다.",
+    "en": "transition plan"
+   },
+   {
+    "t": "정의로운 전환",
+    "d": "저탄소 전환 과정에서 근로자·지역사회·원주민이 받는 영향을 공정하게 관리하는 것으로 GRI 102-3 지표가 있다.",
+    "en": "just transition"
+   },
+   {
+    "t": "탄소크레딧 취소",
+    "d": "크레딧을 등록부에서 영구히 빼서 다시 쓸 수 없게 하는 것으로 GRI 102-10에서 취소량을 보고한다.",
+    "en": "cancellation of carbon credits"
+   },
+   {
+    "t": "온실가스 제거",
+    "d": "대기 중 온실가스를 빼내 토지나 지질 저장소에 담는 것으로 GRI 102-9에서 저장소별로 보고한다.",
+    "en": "GHG removals"
+   },
+   {
+    "t": "배출 집약도",
+    "d": "총 배출량을 생산대수·매출 등 조직 고유 지표로 나눈 비율이다.",
+    "en": "GHG emissions intensity"
+   },
+   {
+    "t": "재기술",
+    "d": "전에 보고한 숫자를 고쳐 다시 보고하는 것으로 이유와 효과를 2-4에 적는다.",
+    "en": "restatement"
+   },
+   {
+    "t": "상호운용성",
+    "d": "서로 다른 보고 기준을 한 번의 작업으로 함께 충족할 수 있게 맞춰 놓은 정도다.",
+    "en": "interoperability"
+   },
+   {
+    "t": "이행보고서",
+    "d": "UN글로벌콤팩트 참여 기업이 매년 10대 원칙 실천을 보고하는 제도다.",
+    "en": "Communication on Progress (CoP)"
+   }
+  ],
+  "sources": [
+   {
+    "label": "GRI 1: Foundation 2021 (PDF)",
+    "url": "https://www.globalreporting.org/pdf.ashx?id=12334"
+   },
+   {
+    "label": "GRI 2: General Disclosures 2021",
+    "url": "https://globalreporting.org/publications/documents/english/gri-2-general-disclosures-2021/"
+   },
+   {
+    "label": "GRI 3: Material Topics 2021",
+    "url": "https://globalreporting.org/publications/documents/english/gri-3-material-topics-2021/"
+   },
+   {
+    "label": "GRI 102: Climate Change 2025",
+    "url": "https://globalreporting.org/publications/documents/english/gri-102-climate-change-2025/"
+   },
+   {
+    "label": "GRI 103: Energy 2025",
+    "url": "https://globalreporting.org/publications/documents/english/gri-103-energy-2025/"
+   },
+   {
+    "label": "GRI Sector Program",
+    "url": "https://www.globalreporting.org/standards/sector-program/"
+   },
+   {
+    "label": "GRI 102 & IFRS S2 joint statement (IFRS)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/ifrs-s2/gri-102-ifrs-s2-statement.pdf"
+   },
+   {
+    "label": "GRI – Our position in the reporting landscape",
+    "url": "https://globalreporting.org/public-policy/the-reporting-landscape"
+   }
+  ]
+ },
+ "items": [
+  {
+   "id": "grix-01",
+   "module": "grix",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "GRI 1",
+    "보고 원칙"
+   ],
+   "ref": "GRI 1: Foundation 2021 4절 보고 원칙",
+   "topic": "보고 원칙 8가지",
+   "q": "GRI 1(Foundation 2021)이 정한 보고 원칙 8가지에 들어가지 않는 것은?",
+   "options": [
+    "균형(Balance)",
+    "지속가능성 맥락(Sustainability context)",
+    "재무적 중요성(Financial materiality)",
+    "검증가능성(Verifiability)"
+   ],
+   "ans": 2,
+   "why": "GRI 1의 보고 원칙은 정확성·균형·명확성·비교가능성·완전성·지속가능성 맥락·적시성·검증가능성 8가지다. '재무적 중요성'은 투자자 중심 기준(IFRS S1/S2)의 개념이며 GRI의 보고 원칙이 아니다.",
+   "trap": "GRI 2016판에서 '보고 내용 결정 원칙'과 '품질 원칙'을 나눴던 기억으로 '이해관계자 포괄성'을 고르는 경우가 많다. 2021판은 8개 원칙을 하나의 목록으로 통합했다.",
+   "quote": "Accuracy, Balance, Clarity, Comparability, Completeness, Sustainability context, Timeliness, Verifiability",
+   "sources": [
+    {
+     "label": "GRI 1: Foundation 2021",
+     "url": "https://www.globalreporting.org/pdf.ashx?id=12334"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-02",
+   "module": "grix",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "GRI 1",
+    "보고 원칙",
+    "균형"
+   ],
+   "ref": "GRI 1: Foundation 2021 4절 Balance",
+   "topic": "균형 원칙의 뜻",
+   "q": "GRI 1의 '균형(Balance)' 원칙이 요구하는 것은 무엇이다?",
+   "options": [
+    "부정적 영향과 긍정적 영향을 치우침 없이 공정하게 함께 보고한다",
+    "모든 수치를 3개년 추세로 보고한다",
+    "보고 범위를 재무제표 연결 범위와 똑같이 맞춘다",
+    "보고서 분량을 환경·사회·거버넌스에 같은 비중으로 배분한다"
+   ],
+   "ans": 0,
+   "why": "균형 원칙은 편향 없이 보고하여 조직의 긍정적 영향과 부정적 영향을 공정하게 나타내라는 뜻이다. 좋은 성과만 앞세우고 사고·벌금 같은 부정적 영향을 숨기면 이 원칙을 어긴다.",
+   "trap": "3개년 추세는 비교가능성, 범위 일치는 2-2 공시 문제다. '균형'을 분량 배분으로 오해하는 초보가 많다.",
+   "sources": [
+    {
+     "label": "GRI 1: Foundation 2021",
+     "url": "https://www.globalreporting.org/pdf.ashx?id=12334"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-03",
+   "module": "grix",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "GRI 2",
+    "구조"
+   ],
+   "ref": "GRI 2: General Disclosures 2021 목차",
+   "topic": "GRI 2 다섯 묶음",
+   "q": "GRI 2(General Disclosures 2021)의 공시 2-9부터 2-21까지는 어느 묶음에 속한다?",
+   "options": [
+    "조직과 보고 관행",
+    "활동과 근로자",
+    "거버넌스",
+    "전략·정책·관행"
+   ],
+   "ans": 2,
+   "why": "GRI 2는 2-1~2-5 조직과 보고 관행, 2-6~2-8 활동과 근로자, 2-9~2-21 거버넌스, 2-22~2-28 전략·정책·관행, 2-29~2-30 이해관계자 참여의 5개 묶음이다. 거버넌스 묶음이 13개로 가장 많다.",
+   "trap": "2-22 '지속가능발전 전략 성명서'가 CEO 메시지라서 거버넌스로 착각하기 쉽지만, 전략·정책·관행 묶음의 첫 항목이다.",
+   "sources": [
+    {
+     "label": "GRI 2: General Disclosures 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-2-general-disclosures-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-04",
+   "module": "grix",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "GRI 3",
+    "중요 주제",
+    "절차"
+   ],
+   "ref": "GRI 3: Material Topics 2021 1절",
+   "topic": "중요 주제 결정 4단계",
+   "q": "GRI 3이 안내하는 중요 주제 결정 4단계를 올바른 순서로 나열한 것은?",
+   "options": [
+    "영향 식별 → 조직 맥락 이해 → 우선순위화 → 중대성 평가",
+    "조직 맥락 이해 → 실제·잠재 영향 식별 → 영향의 중대성 평가 → 보고할 영향 우선순위화",
+    "이해관계자 설문 → 주제 목록 작성 → 경영진 승인 → GRI 통보",
+    "조직 맥락 이해 → 재무 리스크 평가 → 영향 식별 → 주제 확정"
+   ],
+   "ans": 1,
+   "why": "GRI 3은 1단계 조직 맥락 이해, 2단계 실제·잠재 영향 식별, 3단계 영향의 중대성(significance) 평가, 4단계 가장 중요한 영향의 우선순위화 순서로 설명한다. 이 과정을 3-1에 서술한다.",
+   "trap": "이해관계자 설문 점수로 매트릭스를 그리는 옛 방식(2016판)을 그대로 쓰는 경우가 많다. 2021판은 '영향의 중대성'이 유일한 기준이다.",
+   "sources": [
+    {
+     "label": "GRI 3: Material Topics 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-3-material-topics-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-05",
+   "module": "grix",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "GRI 1",
+    "요구사항 9",
+    "GRI 통보"
+   ],
+   "ref": "GRI 1: Foundation 2021 요구사항 9",
+   "topic": "GRI에 통보하기",
+   "q": "GRI 1 요구사항 9 'GRI에 통보(Notify GRI)'에 대한 설명으로 맞는 것은?",
+   "options": [
+    "유료 등록이며 보고서 발간 전에 승인을 받아야 한다",
+    "reportregistration@globalreporting.org로 이메일을 보내며 비용이 없고, 발간 후에 통보한다",
+    "'in accordance' 보고서만 해당하고 'with reference' 보고서는 통보 의무가 없다",
+    "GRI가 보고서 내용을 심사해 적합 판정을 내린다"
+   ],
+   "ans": 1,
+   "why": "요구사항 9는 조직 법적 명칭, GRI 인덱스(및 보고서) 링크, 사용 선언문, 담당자 연락처를 reportregistration@globalreporting.org로 보내는 것이며 비용은 없다. GRI 등록 FAQ는 발간 후 통보하고, in accordance·with reference 모두 의무라고 밝힌다.",
+   "trap": "GRI 통보를 '인증'으로 오해해 고객에게 'GRI 인증 보고서'라고 쓰게 하는 실수가 잦다. GRI는 보고서를 심사·승인하지 않는다.",
+   "sources": [
+    {
+     "label": "GRI 1: Foundation 2021",
+     "url": "https://www.globalreporting.org/pdf.ashx?id=12334"
+    },
+    {
+     "label": "GRI 보고서 등록 FAQ",
+     "url": "https://umbraco-acc.globalreporting.org/media/3acckfp2/gri-standards-report-registration-system-frequently-asked-questions-faqs.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-06",
+   "module": "grix",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "GRI 1",
+    "요구사항 8",
+    "사용 선언문"
+   ],
+   "ref": "GRI 1: Foundation 2021 요구사항 8",
+   "topic": "사용 선언문 문구",
+   "q": "GRI 1 요구사항 8의 사용 선언문(statement of use)으로 올바른 형식은?",
+   "options": [
+    "'[조직명]은 GRI 가이드라인을 참고하여 지속가능경영보고서를 작성하였다'",
+    "'[조직명]은 [보고기간 시작일~종료일] 기간에 대해 GRI 기준에 따라(in accordance with) 보고하였다'",
+    "'[조직명]은 GRI Core 옵션에 따라 보고하였다'",
+    "'본 보고서는 GRI, TCFD, SASB를 반영하였다'"
+   ],
+   "ans": 1,
+   "why": "GRI 1은 '[Name of organization] has reported in accordance with the GRI Standards for the period [start and end dates]'라는 정해진 문구를 요구하며, 보고기간의 시작일과 종료일을 함께 적어야 한다.",
+   "trap": "2016판의 'Core/Comprehensive 옵션' 문구를 그대로 쓰거나, 보고기간 날짜를 빼고 'GRI에 따라 작성'이라고만 쓰면 요구사항 8을 충족하지 못한다.",
+   "quote": "[Name of organization] has reported in accordance with the GRI Standards for the period [reporting period start and end dates].",
+   "sources": [
+    {
+     "label": "GRI 1: Foundation 2021",
+     "url": "https://www.globalreporting.org/pdf.ashx?id=12334"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-07",
+   "module": "grix",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "GRI 102",
+    "GRI 103",
+    "대체"
+   ],
+   "ref": "GRI 102/103 2025 발표(2025-06-26)",
+   "topic": "새 기후·에너지 기준이 대체하는 것",
+   "q": "2025년 6월 발표된 GRI 102(기후변화)와 GRI 103(에너지)이 대체하는 기존 기준의 조합으로 맞는 것은?",
+   "options": [
+    "GRI 102 → GRI 305 및 201-2, GRI 103 → GRI 302",
+    "GRI 102 → GRI 301, GRI 103 → GRI 303",
+    "GRI 102 → GRI 2, GRI 103 → GRI 3",
+    "GRI 102 → TCFD 권고안, GRI 103 → ISO 50001"
+   ],
+   "ans": 0,
+   "why": "GRI 발표에 따르면 GRI 102는 GRI 305(배출) 2016과 GRI 201(경제성과)의 201-2(기후변화의 재무적 영향)를 대체하고, GRI 103은 GRI 302(에너지) 2016을 대체한다. 두 기준은 GHG 프로토콜과 완전히 정렬되었다고 밝힌다. 두 기준은 2027년 1월 1일 이후 발행하는 보고서부터 적용된다.",
+   "trap": "GRI 102가 GRI 305만 대신한다고 알고 201-2를 그대로 남겨두는 실수가 있다. 기후 리스크·기회의 재무 영향도 GRI 102 체계로 옮겨간다.",
+   "sources": [
+    {
+     "label": "GRI 보도자료(2025-06-26, Financial Investigator 게재)",
+     "url": "https://www.financialinvestigator.nl/en/nieuws-detailpagina/2025/06/26/gri-new-climate-standards-unlock-streamlined-reporting-on-impacts"
+    },
+    {
+     "label": "Jones Day 요약",
+     "url": "https://trendingnowinesg.jonesday.com/post/102kqs7/gri-releases-new-climate-and-energy-standards-significant-reporting-changes-ahe"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-08",
+   "module": "grix",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "섹터 기준",
+    "GRI 11~14"
+   ],
+   "ref": "GRI Sector Program 페이지",
+   "topic": "발행된 섹터 기준",
+   "q": "2026년 10월 기준 GRI가 발행한 섹터 기준(Sector Standard)에 해당하지 않는 것은?",
+   "options": [
+    "GRI 11 석유·가스",
+    "GRI 12 석탄",
+    "GRI 14 광업",
+    "GRI 15 자동차"
+   ],
+   "ans": 3,
+   "why": "발행된 섹터 기준은 GRI 11 석유·가스(2021), 12 석탄(2022), 13 농업·양식·어업(2022), 14 광업(2024) 4개다. 자동차는 GSSB가 2025년 11월 승인한 40개 우선 섹터 목록의 2그룹(산업)에 올라 있지만 아직 발행되지 않았다.",
+   "trap": "자동차 회사 고객에게 '자동차 섹터 기준을 적용했다'고 쓰게 하면 틀린 서술이 된다. 현재는 적용할 섹터 기준이 없으므로 GRI 3 절차만으로 주제를 정한다.",
+   "sources": [
+    {
+     "label": "GRI Sector Program",
+     "url": "https://www.globalreporting.org/standards/sector-program/"
+    },
+    {
+     "label": "GRI 우선 섹터 목록(2025 승인)",
+     "url": "https://www.globalreporting.org/media/g03foy3c/gri-list-of-prioritized-sectors-approved-2025.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-09",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 1",
+    "요구사항 2",
+    "누락 불가"
+   ],
+   "ref": "GRI 1: Foundation 2021 요구사항 2",
+   "topic": "누락 사유를 쓸 수 없는 공시",
+   "q": "GRI 1 요구사항 2에 따라 GRI 2 공시를 모두 보고할 때, 누락 사유(reason for omission)를 적는 것이 허용되지 않는 공시는?",
+   "options": [
+    "2-1부터 2-5까지(조직 세부정보, 포함 기업, 보고기간, 재기술, 외부검증)",
+    "2-7 임직원",
+    "2-21 연간 총보상 비율",
+    "2-30 단체협약"
+   ],
+   "ans": 0,
+   "why": "GRI 1은 GRI 2의 대부분 공시에 누락 사유를 허용하지만 2-1~2-5는 예외로 반드시 보고해야 한다. 조직이 누구이고 무엇을 어느 기간에 보고하는지는 보고서의 기본 틀이기 때문이다.",
+   "trap": "2-21(보상 비율)이나 2-8(비임직원 근로자)은 민감해도 '기밀 제한' 등 사유를 적어 누락할 수 있다. 반대로 2-2 포함 기업 목록을 '사업보고서 참조'로만 넘기는 것은 위치를 알려주는 것이지 누락이 아니다.",
+   "sources": [
+    {
+     "label": "GRI 1: Foundation 2021",
+     "url": "https://www.globalreporting.org/pdf.ashx?id=12334"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-10",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 1",
+    "요구사항 7",
+    "GRI 인덱스"
+   ],
+   "ref": "GRI 1: Foundation 2021 요구사항 7",
+   "topic": "GRI 인덱스 필수 요소",
+   "q": "'in accordance' 보고서의 GRI 인덱스(content index)에 반드시 들어가야 하는 것으로 맞는 것은?",
+   "options": [
+    "보고서 각 페이지의 작성자 이름",
+    "사용 선언문, 사용한 GRI 1 제목, 적용 섹터 기준 제목, 중요하지 않다고 판단한 섹터 주제와 그 설명",
+    "외부검증기관의 수수료",
+    "모든 비중요 주제의 GRI 주제 기준 공시"
+   ],
+   "ans": 1,
+   "why": "요구사항 7의 인덱스에는 'GRI content index' 제목, 사용 선언문, GRI 1 제목, 적용 섹터 기준 제목, 중요 주제 목록, 중요하지 않다고 본 섹터 주제와 설명, 보고한 공시와 위치, 사용한 누락 사유, 섹터 기준 참조번호 등이 들어간다.",
+   "trap": "인덱스를 '공시 번호 + 페이지' 표로만 만들고 사용 선언문과 GRI 1 제목을 빼는 보고서가 흔하다. 요구사항 7·8은 인덱스 안에서 함께 충족되는 경우가 많다.",
+   "sources": [
+    {
+     "label": "GRI 1: Foundation 2021",
+     "url": "https://www.globalreporting.org/pdf.ashx?id=12334"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-11",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 3",
+    "3-3",
+    "관리 공시"
+   ],
+   "ref": "GRI 3: Material Topics 2021 공시 3-3",
+   "topic": "3-3에 써야 하는 내용",
+   "q": "GRI 3-3 '중요 주제 관리'에서 각 중요 주제별로 보고해야 하는 내용이 아닌 것은?",
+   "options": [
+    "실제·잠재적, 부정적·긍정적 영향",
+    "조직이 자체 활동으로 관여했는지, 거래관계를 통해 관여했는지",
+    "정책·약속, 예방·완화·구제 조치, 효과 추적 방법",
+    "해당 주제의 재무적 영향 금액(현금흐름 영향)"
+   ],
+   "ans": 3,
+   "why": "3-3은 영향 설명, 관여 방식, 정책·약속, 조치(잠재 부정영향 예방·완화, 실제 부정영향 대응·구제, 긍정영향 관리), 효과 추적(목표·지표·결과·교훈), 이해관계자 참여가 조치에 미친 영향을 요구한다. 재무적 영향 금액은 IFRS S2 쪽 요구이며 3-3의 항목이 아니다.",
+   "trap": "3-3을 '경영 접근 방식(DMA) 한 단락'으로 끝내는 옛 습관이 남아 있다. 2021판은 긍정·부정, 실제·잠재 영향을 모두 구분해 쓰고 효과 추적 결과까지 요구한다.",
+   "sources": [
+    {
+     "label": "GRI 3: Material Topics 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-3-material-topics-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-12",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 3",
+    "중대성 평가",
+    "심각성"
+   ],
+   "ref": "GRI 3: Material Topics 2021 1절 3단계",
+   "topic": "영향의 중대성 판단 기준",
+   "q": "GRI 3에 따른 영향의 중대성(significance) 평가 설명으로 맞는 것은?",
+   "options": [
+    "긍정적 영향이 크면 같은 주제의 부정적 영향을 상쇄해 중요도를 낮출 수 있다",
+    "실제 부정영향은 심각성(규모·범위·회복불가능성)으로, 잠재 부정영향은 심각성과 발생가능성으로 판단하며, 부정영향은 긍정영향으로 상쇄할 수 없다",
+    "모든 영향은 발생가능성만으로 순위를 매긴다",
+    "인권 관련 잠재 영향은 발생가능성이 심각성보다 우선한다"
+   ],
+   "ans": 1,
+   "why": "GRI 3은 실제 부정영향은 심각성, 잠재 부정영향은 심각성과 발생가능성으로 판단한다고 정한다. 심각성은 규모·범위·회복불가능성 세 요소로 보며, 인권 잠재 영향은 심각성이 발생가능성보다 우선한다. 또 '부정영향은 긍정영향으로 상쇄할 수 없다'고 명시한다.",
+   "trap": "사회공헌 실적이 크다는 이유로 공급망 노동 문제를 비중요로 떨어뜨리는 평가는 GRI 3 위반이다. 긍정·부정 영향은 따로 우선순위를 매긴다.",
+   "quote": "Negative impacts cannot be offset by positive impacts.",
+   "sources": [
+    {
+     "label": "GRI 3: Material Topics 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-3-material-topics-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-13",
+   "module": "grix",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "GRI 2",
+    "2-3",
+    "보고기간"
+   ],
+   "ref": "GRI 2: General Disclosures 2021 공시 2-3",
+   "topic": "2-3 보고기간·빈도·연락처 점검",
+   "q": "GRI 2-3은 지속가능성 보고기간과 보고 빈도, 재무보고 기간과의 정렬 여부, 발행일, 문의처를 요구한다. 현대자동차 2026 지속가능성 보고서 '보고서 개요'에서 이 요소들을 확인할 수 있는가?",
+   "look": "보고서 개요(보고기간, 보고 주기, 발행일, 문의처 이메일, 재무정보 기준)",
+   "page": 162,
+   "ans": "일부",
+   "quote": "보고 기간 2025년 1월 1일~2025년 12월 31일 (일부 성과는 2026년 상반기를 포함합니다.) 보고 주기 매년 (지난 보고서: 2025년 6월)",
+   "why": "같은 페이지에 발행일(2026년 6월), 문의처(ESG@hyundai.com), 재무정보가 K-IFRS 연결재무제표 기준과 일치한다는 서술이 함께 있어 2-3의 네 요소가 모두 갖춰져 있다. 일부 성과가 2026년 상반기를 포함한다는 점도 명시돼 보고기간 경계가 분명하다. 다만 GRI 2-3-b가 요구하는 재무보고 기간(과 어긋날 경우의 설명)은 명시되어 있지 않아 '일부'로 본다.",
+   "trap": "보고기간만 쓰고 '재무보고 기간과 같은지'를 빠뜨리는 보고서가 많다. 2-3은 두 기간이 다르면 그 이유까지 설명하라고 요구한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.162",
+     "url": "report"
+    },
+    {
+     "label": "GRI 2: General Disclosures 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-2-general-disclosures-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-14",
+   "module": "grix",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "GRI 1",
+    "사용 선언문",
+    "GRI 인덱스"
+   ],
+   "ref": "GRI 1: Foundation 2021 요구사항 7·8",
+   "topic": "사용 선언문 점검",
+   "q": "GRI 1 요구사항 8은 '[조직명]은 [기간]에 대해 GRI 기준에 따라 보고하였다'는 정해진 문구의 사용 선언문을, 요구사항 7은 인덱스에 사용한 GRI 1 제목을 적도록 한다. 현대자동차 2026 지속가능성 보고서는 이를 충족하는가?",
+   "look": "보고서 개요의 '보고서 작성 기준' 문단과 GRI Index(p.149) 상단",
+   "page": 162,
+   "ans": "일부",
+   "quote": "본 보고서는 지속가능경영 국제 보고 가이드라인인 GRI(Global Reporting Initiative) Standards에 따라 작성되었으며",
+   "why": "보고서 개요에 GRI 기준에 따라 작성했다는 서술과 보고기간은 있지만, 요구사항 8이 정한 'in accordance with the GRI Standards for the period …' 형식의 선언문과 'GRI 1: Foundation 2021' 제목 표기는 GRI Index(p.149)에서도 확인되지 않는다. 다만 제3자 검증의견서(p.155)는 보고서가 'in accordance' 기준에 부합한다고 판단했다.",
+   "trap": "검증기관이 'in accordance'라고 평가해 줬다고 해서 조직의 사용 선언문이 자동으로 갖춰지는 것은 아니다. 선언문은 조직 스스로 정해진 문구로 적어야 한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.162",
+     "url": "report"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.149",
+     "url": "report"
+    },
+    {
+     "label": "GRI 1: Foundation 2021",
+     "url": "https://www.globalreporting.org/pdf.ashx?id=12334"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "grix-15",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 2",
+    "2-4",
+    "재기술"
+   ],
+   "ref": "GRI 2: General Disclosures 2021 공시 2-4",
+   "topic": "재기술 공시",
+   "q": "한 회사가 SBTi 승인 과정에서 기준연도 배출량을 다시 계산해 지난 보고서 숫자가 달라졌다. GRI 2-4 '정보의 재기술'에 따라 보고해야 하는 것은?",
+   "options": [
+    "새 숫자만 보고하고 과거 숫자는 삭제한다",
+    "재기술 사실과 그 이유, 그리고 재기술이 미친 효과를 보고한다",
+    "검증기관의 동의서를 첨부해야만 재기술할 수 있다",
+    "재기술은 GRI에서 허용되지 않는다"
+   ],
+   "ans": 1,
+   "why": "2-4는 이전 보고기간 정보의 재기술 내용, 재기술 이유, 그리고 재기술의 효과를 보고하도록 한다. 기준연도 재산정, 보고 범위 변경(해외법인 추가), 산정방법 변경이 대표적인 이유다.",
+   "trap": "표 각주에 '재산정함'이라고만 쓰고 숫자가 얼마나 바뀌었는지(효과)를 쓰지 않는 경우가 많다. 전후 수치나 변동 폭을 함께 보여주어야 한다.",
+   "sources": [
+    {
+     "label": "GRI 2: General Disclosures 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-2-general-disclosures-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-16",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 2",
+    "2-5",
+    "외부검증"
+   ],
+   "ref": "GRI 1 3절 및 GRI 2 공시 2-5",
+   "topic": "외부검증의 위치",
+   "q": "GRI 기준에서 외부검증(external assurance)에 대한 설명으로 맞는 것은?",
+   "options": [
+    "'in accordance' 보고를 위해 외부검증이 의무다",
+    "외부검증은 의무가 아니지만 받기를 권하며(should), 2-5에서 검증 정책·관행, 검증 범위와 근거, 검증기관과의 관계를 설명해야 한다",
+    "온실가스 배출량만 검증받으면 보고서 전체가 검증된 것으로 본다",
+    "검증기관은 조직의 내부감사 부서여도 된다"
+   ],
+   "ans": 1,
+   "why": "GRI 1은 외부검증을 요구하지 않지만 조직이 외부검증을 받아야 한다(should)고 권고하고, 검증기관은 독립적이고 역량이 입증되어야 한다고 설명한다. GRI 2-5는 검증 정책과 관행, 최고 거버넌스 기구와 경영진의 역할, 검증 대상과 근거, 검증보고서 링크, 검증기관과의 관계를 요구한다.",
+   "trap": "온실가스 명세서 검증(배출권거래제용)과 보고서 전체의 제3자 검증(AA1000AS·ISAE 3000 등)은 범위가 다르다. 2-5에서는 무엇이 어떤 기준으로 검증됐는지 구분해 써야 한다.",
+   "sources": [
+    {
+     "label": "GRI 1: Foundation 2021",
+     "url": "https://www.globalreporting.org/pdf.ashx?id=12334"
+    },
+    {
+     "label": "GRI 2: General Disclosures 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-2-general-disclosures-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-17",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 2",
+    "2-7",
+    "임직원"
+   ],
+   "ref": "GRI 2: General Disclosures 2021 공시 2-7",
+   "topic": "2-7 임직원 공시 구성",
+   "q": "GRI 2-7 '임직원' 공시가 요구하는 내용으로 맞는 것은?",
+   "options": [
+    "임직원 총수만 보고하면 된다",
+    "임직원 총수를 성별·지역별로 나누고, 정규(permanent)·임시(temporary)·근로시간 비보장·전일제·단시간 임직원 수와 산정 방법(인원수 또는 FTE, 기말 또는 평균)을 보고한다",
+    "협력사 직원까지 모두 합산한 수를 보고한다",
+    "임원 보수 총액을 함께 보고한다"
+   ],
+   "ans": 1,
+   "why": "2-7은 임직원 총수를 성별·지역별로 나누고, 정규·임시·근로시간 비보장·전일제·단시간 임직원 수를 보고하며, 인원수(headcount)인지 FTE인지 등 산정 방법과 큰 변동의 설명을 요구한다. 조직이 업무를 통제하는 비임직원 근로자는 별도 공시(2-8)다.",
+   "trap": "국내 사업보고서의 '직원 현황' 표를 그대로 옮기면 지역별 구분과 근로시간 비보장(non-guaranteed hours) 구분이 빠지기 쉽다.",
+   "sources": [
+    {
+     "label": "GRI 2: General Disclosures 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-2-general-disclosures-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-18",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 2",
+    "2-21",
+    "보상 비율"
+   ],
+   "ref": "GRI 2: General Disclosures 2021 공시 2-21",
+   "topic": "연간 총보상 비율 계산",
+   "q": "GRI 2-21 '연간 총보상 비율'의 계산 방식으로 맞는 것은?",
+   "options": [
+    "최고경영자 보수 ÷ 신입사원 초임",
+    "최고 보수 수령자의 연간 총보상 ÷ (그 사람을 제외한) 전체 임직원 연간 총보상의 중위값, 그리고 두 쪽의 인상률 비율",
+    "임원 보수 총액 ÷ 전체 인건비",
+    "최고 보수 수령자의 연간 총보상 ÷ 전체 임직원 평균 보상"
+   ],
+   "ans": 1,
+   "why": "2-21은 최고 보수 수령자의 연간 총보상을 그 사람을 제외한 전체 임직원 연간 총보상의 중위값(median)으로 나눈 비율과, 최고 보수 수령자의 보상 인상률을 전체 임직원 중위 인상률로 나눈 비율을 요구한다. 어떤 보상 항목을 넣었는지 등 맥락도 설명해야 한다.",
+   "trap": "'평균(mean)'으로 계산하는 실수가 가장 많다. GRI는 중위값을 쓰고, 최고 보수 수령자는 분모 집단에서 빼야 한다.",
+   "sources": [
+    {
+     "label": "GRI 2: General Disclosures 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-2-general-disclosures-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-19",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 302",
+    "302-4",
+    "에너지 감축"
+   ],
+   "ref": "GRI 302: Energy 2016 공시 302-4",
+   "topic": "에너지 감축량에서 빼야 할 것",
+   "q": "GRI 302-4 '에너지 소비 감축'을 보고할 때 감축량에 포함하면 안 되는 것은?",
+   "options": [
+    "설비 효율 개선으로 줄어든 전력 사용량",
+    "공정 재설계로 줄어든 LNG 사용량",
+    "생산량 감소나 외주화(outsourcing)로 줄어든 에너지 사용량",
+    "직원 행동 변화 캠페인으로 줄어든 에너지 사용량"
+   ],
+   "ans": 2,
+   "why": "302-4는 절약·효율 개선 활동의 직접 결과로 줄어든 에너지(줄 또는 그 배수 단위)를 보고하되, 생산능력 축소나 외주화로 인한 감소는 제외하라고 명시한다. 감축 유형, 기준연도/기준선과 그 선택 이유, 산정 방법도 함께 쓴다.",
+   "trap": "경기 침체로 공장 가동이 줄어 에너지가 감소한 것을 '감축 성과'로 쓰는 보고서가 많다. GRI 305-5(온실가스 감축)도 같은 제외 규칙을 둔다.",
+   "quote": "exclude reductions resulting from reduced production capacity or outsourcing",
+   "sources": [
+    {
+     "label": "GRI 302: Energy 2016",
+     "url": "https://globalreporting.org/publications/documents/english/gri-302-energy-2016/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-20",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "GRI 201",
+    "201-2",
+    "기후 재무영향"
+   ],
+   "ref": "GRI 201: Economic Performance 2016 공시 …",
+   "topic": "201-2 기후변화 재무영향",
+   "q": "GRI 201-2 '기후변화의 재무적 영향과 기타 위험·기회'에서 각 위험·기회별로 보고해야 하는 항목이 아닌 것은?",
+   "options": [
+    "위험·기회의 설명과 분류(물리적·규제적·기타)",
+    "조치 전 재무적 영향과 관리 방법, 관리 조치 비용",
+    "Scope 3 배출량 15개 카테고리별 수치",
+    "재무 영향 산정 체계가 없다면 그 개발 계획과 일정"
+   ],
+   "ans": 2,
+   "why": "201-2는 사업·수익·비용에 큰 변화를 줄 수 있는 기후 위험·기회별로 설명과 분류(물리적·규제적·기타), 관련 영향, 조치 전 재무적 영향, 관리 방법, 관리 비용을 요구하고, 산정 체계가 없으면 개발 계획과 일정을 보고하게 한다. Scope 3 수치는 305-3(또는 새 102-7)의 영역이다.",
+   "trap": "TCFD 리스크 표를 붙여놓고 '조치 전 재무 영향'과 '관리 비용'을 빼는 경우가 많다. 2027년부터는 이 내용이 GRI 102 체계로 넘어가므로 전환 준비가 필요하다.",
+   "sources": [
+    {
+     "label": "GRI 201: Economic Performance 2016",
+     "url": "https://globalreporting.org/publications/documents/english/gri-201-economic-performance-2016/"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "GRI 201: Economic Performance 2016 공시 201-2"
+  },
+  {
+   "id": "grix-21",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "섹터 기준",
+    "GRI 11",
+    "참조번호"
+   ],
+   "ref": "GRI 11: Oil and Gas Sector 2021 사용 방법",
+   "topic": "섹터 기준 적용 규칙",
+   "q": "석유·가스 회사가 GRI 11 섹터 기준을 적용할 때의 규칙으로 맞는 것은?",
+   "options": [
+    "22개 섹터 주제를 모두 중요 주제로 보고해야 한다",
+    "섹터 주제를 모두 검토하되, 중요하지 않다고 본 주제는 GRI 인덱스에 이유를 적고, 보고한 공시에는 11.1.1 같은 섹터 참조번호를 인덱스에 표기한다",
+    "섹터 기준의 추가 섹터 공시(예: 메탄 비율)는 의무이다",
+    "다른 업종 활동이 커도 주력 업종 섹터 기준 하나만 쓴다"
+   ],
+   "ans": 1,
+   "why": "GRI 11은 22개 '중요할 가능성이 높은 주제'를 제시하고, 조직은 각 주제가 자사에 중요한지 검토해야 한다. 중요하지 않다고 본 주제는 인덱스에 이유를 쓰고, 보고 공시에는 섹터 참조번호(예: 11.1.1~11.1.8)를 적는다. 추가 섹터 권고는 권장사항이며, 다른 업종에 실질적 활동이 있으면 그 섹터 기준도 함께 써야 한다.",
+   "trap": "섹터 기준을 '체크리스트'로 보고 22개를 전부 중요 주제로 올리는 경우가 있다. 중요 주제는 여전히 조직의 상황에 따라 정하되, 뺀 이유를 설명하는 것이 핵심이다.",
+   "sources": [
+    {
+     "label": "GRI 11: Oil and Gas Sector 2021",
+     "url": "https://globalreporting.org/publications/documents/english/gri-11-oil-and-gas-sector-2021/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-22",
+   "module": "grix",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "GRI 102",
+    "102-4",
+    "목표 진척"
+   ],
+   "ref": "GRI 102: Climate Change 2025 공시 102-4",
+   "topic": "기준연도 대비 감축 진척률",
+   "q": "GRI 102-4는 감축목표 진척을 기준연도 배출량 대비 비율로 보고하도록 한다. 현대자동차의 기준연도(2024년) Scope 1+2 배출량과 2025년 Scope 1+2 배출량(시장기반)을 이용해 2025년의 기준연도 대비 감축률(%)을 구하라.",
+   "given": [
+    [
+     "2024년(기준연도) Scope 1+2 배출량",
+     "2,198,406 tCO2-eq",
+     "현대자동차 2026 지속가능성 보고서 p.136"
+    ],
+    [
+     "2025년 Scope 1+2 배출량",
+     "1,911,084 tCO2-eq",
+     "현대자동차 2026 지속가능성 보고서 p.136"
+    ]
+   ],
+   "ans": 13.07,
+   "tol": 0.1,
+   "unit": "%",
+   "dec": 2,
+   "steps": [
+    "감축량 = 2,198,406 − 1,911,084 = 287,322 tCO2-eq",
+    "감축률 = 287,322 ÷ 2,198,406 × 100 = 13.07%"
+   ],
+   "insight": "102-4는 이 진척이 감축 활동의 결과인지 다른 요인(범위 변경, 생산 변동 등)인지 구분해 쓰게 한다. 보고서 각주처럼 2025년에 해외법인 5개가 추가되었다면 그 효과를 별도로 설명해야 '순수 감축'과 구분된다.",
+   "why": "GRI 102-4는 기준연도 배출량과 목표를 tCO2e와 기준연도 대비 비율(%)로 함께 쓰고, 총량(gross) 기준이므로 제거·크레딧·회피배출은 빼고 계산한다.",
+   "trap": "분모를 당해연도 배출량으로 두어 (287,322 ÷ 1,911,084 = 15.0%)로 잘못 계산하거나, 재산정된 기준연도가 아닌 옛 숫자를 분모로 쓰는 실수가 있다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.136",
+     "url": "report"
+    },
+    {
+     "label": "GRI 102: Climate Change 2025",
+     "url": "https://globalreporting.org/publications/documents/english/gri-102-climate-change-2025/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-23",
+   "module": "grix",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "GRI 305",
+    "305-4",
+    "집약도"
+   ],
+   "ref": "GRI 305: Emissions 2016 공시 305-4",
+   "topic": "Scope 1+2 집약도 변화율",
+   "q": "GRI 305-4는 절대 배출량(분자)을 조직 고유 지표(분모)로 나눈 집약도를 보고하게 한다. 현대자동차는 생산대수를 분모로 Scope 1+2 집약도를 공시한다. 2024년 대비 2025년 집약도 변화율(%)을 구하라(감소면 음수).",
+   "given": [
+    [
+     "2024년 Scope 1+2 집약도",
+     "0.530 tCO2-eq/대",
+     "현대자동차 2026 지속가능성 보고서 p.136"
+    ],
+    [
+     "2025년 Scope 1+2 집약도",
+     "0.464 tCO2-eq/대",
+     "현대자동차 2026 지속가능성 보고서 p.136"
+    ],
+    [
+     "분모",
+     "생산대수 기준",
+     "현대자동차 2026 지속가능성 보고서 p.136"
+    ]
+   ],
+   "ans": -12.45,
+   "tol": 0.1,
+   "unit": "%",
+   "dec": 2,
+   "steps": [
+    "변화량 = 0.464 − 0.530 = −0.066 tCO2-eq/대",
+    "변화율 = −0.066 ÷ 0.530 × 100 = −12.45%"
+   ],
+   "insight": "305-4는 분모(생산대수·매출·FTE 등)와 포함 Scope, 포함 가스를 함께 밝히게 하고, Scope 3 집약도는 Scope 1+2와 따로 보고하도록 한다. 분모가 '생산대수'인지 '판매대수'인지에 따라 결과가 달라지므로 각주 확인이 필수다.",
+   "why": "GRI 305-4의 집약도는 절대 배출량 ÷ 조직 고유 지표이며, 절대 배출량 감축률(약 13.1%)과 집약도 감축률(약 12.5%)이 다른 것은 생산대수가 소폭 변했기 때문이다.",
+   "trap": "절대 배출량 감축률과 집약도 감축률을 같은 숫자로 쓰거나, 분모 정의(생산 vs 판매)를 밝히지 않는 실수가 많다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.136",
+     "url": "report"
+    },
+    {
+     "label": "GRI 305: Emissions 2016",
+     "url": "https://globalreporting.org/publications/documents/english/gri-305-emissions-2016/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-24",
+   "module": "grix",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "UNGC",
+    "CoP",
+    "이행보고"
+   ],
+   "ref": "UN Global Compact CoP 안내 페이지",
+   "topic": "UNGC 이행보고서(CoP)",
+   "q": "UN글로벌콤팩트(UNGC)의 이행보고서(Communication on Progress, CoP)에 대한 설명으로 맞는 것은?",
+   "options": [
+    "가입 기업은 5년마다 한 번 제출한다",
+    "CEO 지지 성명과 질문지로 구성되며 매년 제출하고, 2026년에는 질문지 대신 지속가능성 보고서를 올려 제출할 수 있으며, 기한을 넘기면 '비소통(Non-communicating)' 상태가 되고 그해 말까지도 내지 않으면 다음 해 1월 1일 제명된다",
+    "GRI 보고서를 발간하면 자동으로 CoP가 제출된다",
+    "CoP는 투자자에게만 공개된다"
+   ],
+   "ans": 1,
+   "why": "UNGC 안내에 따르면 CoP는 UNGC의 주요 보고 수단으로 매년 제출하며, CEO 지지 성명과 CoP 질문지로 구성된다. 2026년 제출기간은 4월 1일~7월 31일이고, 질문지 대신 지속가능성 보고서를 업로드하는 방식이 허용된다. 미제출 시 비소통 상태로 표시되고 12월 31일까지도 내지 않으면 2027년 1월 1일 제명된다.",
+   "trap": "GRI 보고서를 냈다고 CoP 의무가 끝나는 것은 아니며, UNGC 플랫폼에 별도로 제출해야 한다. 가입 다음 해부터 제출 의무가 생긴다.",
+   "sources": [
+    {
+     "label": "UN Global Compact – Communication on Progress",
+     "url": "https://unglobalcompact.org/participation/report/cop"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-25",
+   "module": "grix",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "GRI 102",
+    "IFRS S2",
+    "상호운용성"
+   ],
+   "ref": "GRI 102–IFRS S2 공동 성명(2025-06)",
+   "topic": "IFRS S2 배출량 공시로 GRI 102 충족",
+   "q": "한 상장 제조회사가 IFRS S2에 따라 Scope 1·2·3 배출량을 공시하고, 같은 보고서에서 GRI 102(2025)로도 보고하려 한다. 2025년 6월 GRI–ISSB 공동 성명에 따른 맞는 처리는?",
+   "options": [
+    "IFRS S2 배출량 공시는 투자자용이므로 GRI 102용으로 배출량을 따로 다시 계산해야 한다",
+    "GHG 프로토콜 기업표준(2004)에 따라 배출량을 산정했고, GRI 인덱스에 해당 공시의 위치를 표시하면 IFRS S2의 Scope 1·2·3 공시로 GRI 102의 해당 요구사항을 충족할 수 있다",
+    "GRI 102 공시만 하면 IFRS S2의 모든 기후 공시가 자동으로 충족된다",
+    "전환계획(102-1)도 IFRS S2 전환계획 공시와 완전히 같아서 하나만 쓰면 된다"
+   ],
+   "ans": 1,
+   "why": "공동 성명은 두 기준을 함께 쓰는 조직이 IFRS S2의 Scope 1·2·3 공시를 GRI 102의 해당 요구사항에 '동등하게' 사용할 수 있다고 밝히며, 조건은 GHG 프로토콜 기업표준(2004)에 따른 산정과 GRI 인덱스에 위치 표시 두 가지다. 반대 방향(GRI로 IFRS S2 충족)이나 전환계획·적응·정의로운 전환은 '보완 관계'로만 설명한다.",
+   "trap": "'동등성'을 두 기준 전체의 동등성으로 넓혀 해석하는 실수가 많다. 동등성은 온실가스 배출량 공시에 한정되며, 전환계획은 GRI가 영향, IFRS S2가 위험·기회에 초점을 두어 내용이 다르다.",
+   "sources": [
+    {
+     "label": "GRI 102 and IFRS S2 statement (IFRS)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/ifrs-s2/gri-102-ifrs-s2-statement.pdf"
+    },
+    {
+     "label": "GRI 보도자료(2025-06-26)",
+     "url": "https://www.financialinvestigator.nl/en/nieuws-detailpagina/2025/06/26/gri-new-climate-standards-unlock-streamlined-reporting-on-impacts"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-26",
+   "module": "grix",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "GRI 102",
+    "102-10",
+    "탄소크레딧"
+   ],
+   "ref": "GRI 102: Climate Change 2025 공시 102-10",
+   "topic": "탄소크레딧과 총량 목표",
+   "q": "한 회사가 산림 프로젝트 탄소크레딧 50,000 tCO2e를 취소(cancel)하고, 이를 GRI 102-4 감축목표 달성분에 포함해 '기준연도 대비 20% 감축'으로 쓰려 한다. GRI 102에 따른 맞는 처리는?",
+   "options": [
+    "크레딧 취소량을 Scope 1 배출량에서 빼고 감축률을 계산한다",
+    "102-4의 총량(gross) 목표에는 크레딧을 넣지 않고, 102-10에서 취소된 크레딧을 tCO2e로 제거/감축 프로젝트별로 나누어 프로젝트명·ID·유형·일련번호·취소일·빈티지·국가·등록부와 품질 기준 준수, 취소 목적을 보고한다",
+    "크레딧은 공시 대상이 아니므로 별도 언급 없이 목표 달성으로 쓴다",
+    "구매했지만 취소하지 않은 크레딧도 감축 실적에 넣을 수 있다"
+   ],
+   "ans": 1,
+   "why": "GRI 102-4의 감축목표는 총량 기준이어서 제거·거래·회피배출을 제외하며, 크레딧은 102-10에서 따로 보고한다. 102-10은 취소된 크레딧 총량(tCO2e)을 제거/감축 프로젝트로 나누고, 프로젝트 정보와 8가지 품질 기준(추가성·기준선·영속성·누출 방지·고유 발행·모니터링·독립 검증·프로그램 거버넌스) 준수, 취소 목적을 요구한다.",
+   "trap": "'상쇄 후 순배출(net)'을 목표 달성률로 쓰는 것은 GRI 102 체계와 맞지 않는다. 또 크레딧 수량은 '장 수'가 아니라 tCO2e로 적는다.",
+   "sources": [
+    {
+     "label": "GRI 102: Climate Change 2025",
+     "url": "https://globalreporting.org/publications/documents/english/gri-102-climate-change-2025/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-27",
+   "module": "grix",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "GRI 102",
+    "102-9",
+    "온실가스 제거"
+   ],
+   "ref": "GRI 102: Climate Change 2025 공시 102-9",
+   "topic": "가치사슬 내 제거량 보고",
+   "q": "한 회사가 자사 부지 조림으로 흡수한 CO2와 공급사의 바이오차 토양 저장량을 GRI 102-9 '가치사슬 내 온실가스 제거'로 보고하려 한다. 맞는 처리는?",
+   "options": [
+    "재생에너지 전력 구매로 줄어든 Scope 2를 'Scope 2 제거'로 보고한다",
+    "Scope 1 제거량을 tCO2e로 거래분을 제외해 토지 기반/지질 저장소별로 보고하고, Scope 3 제거량 보고는 권고(should)이며, 저장 모니터링·추적성·불확실성·역전(reversal) 회계 등 비영속성 품질 기준 준수와 사용 목적을 설명한다",
+    "제거량을 Scope 1 배출량에서 차감해 순배출만 보고한다",
+    "조림 흡수량은 바이오매스 CO2이므로 제거로 보고할 수 없다"
+   ],
+   "ans": 1,
+   "why": "102-9는 Scope 1 제거량(거래분 제외)을 토지 기반·지질 저장소별로 tCO2e로 보고하고, Scope 3 제거량도 보고하게 한다. 전력 생산에서는 제거가 일어나지 않으므로 Scope 2 제거는 없다고 명시한다. 저장 모니터링, 추적성, 1차 데이터, 불확실성, 역전 회계 같은 품질 기준과 제거량의 사용 목적, 사람·환경에 미치는 영향도 설명해야 한다.",
+   "trap": "재생에너지 구매로 줄어든 배출은 '감축'이지 '제거'가 아니다. 또 제거량을 배출량에서 빼서 순배출만 쓰면 총량 보고 원칙에 어긋난다.",
+   "quote": "There are no Scope 2 GHG removals since removals do not occur when generating electricity.",
+   "sources": [
+    {
+     "label": "GRI 102: Climate Change 2025",
+     "url": "https://globalreporting.org/publications/documents/english/gri-102-climate-change-2025/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-28",
+   "module": "grix",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "GRI 102",
+    "102-1",
+    "전환계획"
+   ],
+   "ref": "GRI 102: Climate Change 2025 공시 102-1",
+   "topic": "전환계획 공시 내용",
+   "q": "한 철강회사가 GRI 102-1 '기후변화 완화 전환계획'을 처음 공시한다. 컨설턴트가 반드시 넣도록 안내해야 하는 내용으로 맞는 것은?",
+   "options": [
+    "전환계획 지출을 금액과 총지출 대비 비율로 보고하고(CapEx·OpEx 구분은 권고), 1.5°C 시나리오와의 정렬, 거버넌스 역할, 전략 통합, 화석연료 단계적 축소를 포함한 목표, 정의로운 전환과 이해관계자 참여, 로비 활동의 일관성을 설명한다",
+    "전환계획은 투자자 공시이므로 GRI 보고서에는 요약만 넣고 세부 내용은 생략한다",
+    "전환계획이 없으면 102-1은 아예 공시하지 않아도 된다",
+    "전환계획의 지출은 기밀이므로 보고하지 않는다"
+   ],
+   "ans": 0,
+   "why": "102-1은 전환계획의 정책·조치와 1.5°C 시나리오 정렬, 지출을 금액과 총지출 대비 비율로 보고하고(CapEx·OpEx 구분은 권고), 거버넌스 역할, 전략 통합, 화석연료 단계적 축소를 포함한 목표, 정의로운 전환과 이해관계자 참여, 사람·생물다양성 영향, 로비 활동의 일관성을 설명하게 한다. 계획이 없으면 그 이유와 언제 만들지 보고한다.",
+   "trap": "전환계획이 없을 때 '해당 없음'으로 누락하는 실수가 있다. GRI 102-1은 '없으면 이유와 수립 시기'를 쓰도록 요구한다.",
+   "sources": [
+    {
+     "label": "GRI 102: Climate Change 2025",
+     "url": "https://globalreporting.org/publications/documents/english/gri-102-climate-change-2025/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-29",
+   "module": "grix",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "GRI 102",
+    "102-3",
+    "정의로운 전환"
+   ],
+   "ref": "GRI 102: Climate Change 2025 공시 102-3",
+   "topic": "정의로운 전환 지표",
+   "q": "내연기관 공장을 전기차 공장으로 바꾸는 자동차 회사가 GRI 102-3 '정의로운 전환'을 보고한다. 요구되는 지표로 맞는 것은?",
+   "options": [
+    "전기차 판매 비율과 충전기 설치 수",
+    "전환으로 인한 신규 채용·해고·재배치·재교육(업스킬·리스킬) 인원을 성별과 고용 유형별로, 비임직원 근로자의 채용·해고를 성별로, 생활임금 추정치 이상을 받는 신규 채용 비율, 지역사회·원주민에 영향이 있는 사업장과 합의 체결 비율을 보고한다",
+    "노동조합 가입률만 보고한다",
+    "전환계획 지출의 CapEx 비율"
+   ],
+   "ans": 1,
+   "why": "102-3은 기후 전환이 사람에 미치는 영향을 숫자로 보이게 한다. 신규 채용, 해고, 재배치, 재교육 인원을 성별·고용 유형별로, 비임직원 근로자의 채용·해고를 성별로, 생활비 추정치 이상 임금을 받는 신규 채용 비율, 지역사회·원주민에 영향이 있는 위치와 합의 체결 비율을 보고하고, 인원수/FTE·기말/평균 같은 산정 방법을 밝힌다.",
+   "trap": "정의로운 전환을 '사회공헌' 서술로 대신하는 경우가 많다. 102-3은 전환과 직접 연결된 인력 변동 수치를 요구하는 정량 공시다.",
+   "sources": [
+    {
+     "label": "GRI 102: Climate Change 2025",
+     "url": "https://globalreporting.org/publications/documents/english/gri-102-climate-change-2025/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-30",
+   "module": "grix",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "GRI 103",
+    "103-2",
+    "103-3",
+    "에너지"
+   ],
+   "ref": "GRI 103: Energy 2025 공시 103-2·103-3",
+   "topic": "GRI 103 조기 적용 시 달라지는 것",
+   "q": "한 제조회사가 2026년 보고서에서 GRI 302 대신 GRI 103(2025)을 조기 적용하려 한다. GRI 302와 비교해 새로 챙겨야 하는 것으로 맞는 것은?",
+   "options": [
+    "에너지 단위를 반드시 TOE로 바꿔야 한다",
+    "조직 내 소비를 재생/비재생으로 나누고, 자가발전 재생에너지 소비·판매량, 재생에너지 계약 수단(인증서 등) 사용 여부와 그 품질 기준 준수를 설명하며(103-2), 상·하류 소비는 GHG 프로토콜 Scope 3의 상류 8개·하류 7개 카테고리 틀로 보고한다(103-3)",
+    "에너지 집약도(103-4)는 더 이상 보고하지 않는다",
+    "에너지 감축(103-5)에서는 기준연도를 밝힐 필요가 없다"
+   ],
+   "ans": 1,
+   "why": "103-2는 줄·와트시 또는 그 배수 단위로 재생/비재생을 구분하고, 활동별 연료, 구매 전기·열·냉방·스팀, 자가발전 재생에너지 소비와 판매, 계약 수단 사용과 품질 기준 준수, 산정 방법을 요구한다. 103-3은 상·하류 소비를 보고하며 지침은 Scope 3의 15개 카테고리(상류 8·하류 7)를 참조한다. 103-4 집약도와 103-5 감축(기준연도·근거 포함)도 그대로 있다.",
+   "trap": "RE100용 재생에너지 인증서 구매를 '재생에너지 소비'로 쓰면서 계약 수단의 품질 기준(103-2-e)을 설명하지 않는 경우가 많다. GRI 103은 이를 별도 요구사항으로 둔다.",
+   "sources": [
+    {
+     "label": "GRI 103: Energy 2025",
+     "url": "https://globalreporting.org/publications/documents/english/gri-103-energy-2025/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "grix-31",
+   "module": "grix",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "ESRS",
+    "ISSB",
+    "상호운용성",
+    "연표"
+   ],
+   "ref": "GRI 'Our position in the reporting lan…",
+   "topic": "GRI–ESRS·ISSB 협력 연표",
+   "q": "한 유럽 자회사를 둔 한국 기업이 GRI 보고서를 ESRS·ISSB 공시와 함께 준비하려 한다. GRI와 다른 기준 제정기관의 협력 결과물에 대한 설명으로 맞는 것은?",
+   "options": [
+    "GRI와 EFRAG는 2024년 11월 GRI 기준–ESRS 공식 상호운용성 인덱스를 발표했고, GRI와 IFRS재단은 2022년 3월 협력 각서, 2024년 1월 온실가스 공시 상호운용성 자료, 2025년 6월 GRI 102–IFRS S2 공동 성명을 냈다",
+    "GRI는 ESRS 제정에 참여하지 않았고 ESRS와 GRI는 상호운용성이 낮다",
+    "GRI와 ISSB는 2025년에 하나의 기준으로 합병했다",
+    "ESRS로 보고하면 GRI 인덱스를 만들 필요가 없다"
+   ],
+   "ans": 0,
+   "why": "GRI 공식 페이지는 ESRS 공동 구축(2021.7), EFRAG와의 공동 성명(2023.9)과 새 각서(2023.11), ESRS–GRI 데이터포인트 매핑(2024.4), 공식 상호운용성 인덱스(2024.11)를 소개한다. IFRS재단과는 2022년 3월 각서, 2024년 초 온실가스 상호운용성 자료, 2024년 5월 완전한 상호운용성 추진 발표, 2025년 6월 GRI 102–IFRS S2 공동 성명이 있다. GRI는 투자자용 ISSB와 함께 '두 기둥(two-pillar)' 구조의 영향 보고 기둥을 자처한다.",
+   "trap": "'상호운용성'을 '같은 기준'으로 오해하는 경우가 많다. 상호운용성 인덱스는 어느 공시가 어디에 대응하는지 보여주는 지도이지, 한 기준 보고가 다른 기준 요구를 자동 충족시키는 것은 아니다.",
+   "sources": [
+    {
+     "label": "GRI – Our position in the reporting landscape",
+     "url": "https://globalreporting.org/public-policy/the-reporting-landscape"
+    },
+    {
+     "label": "GRI 뉴스: GRI–ISSB 온실가스 상호운용성 자료(2024-01-18)",
+     "url": "https://www.globalreporting.org/news/news-center/new-resource-on-emissions-reporting-using-gri-and-issb-standards/"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "GRI 'Our position in the reporting landscape'"
+  },
+  {
+   "id": "grix-32",
+   "module": "grix",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "섹터 기준",
+    "GSSB",
+    "2026 개정"
+   ],
+   "ref": "GRI Standards Quarterly Q3 2026(2026-0…",
+   "topic": "섹터 기준 개발 방식 변경(2026)",
+   "q": "2026년 9월 GRI 기준제정기구(GSSB)가 승인한 섹터 기준 개발의 새 방식에 대한 설명으로 맞는 것은?",
+   "options": [
+    "앞으로 모든 섹터 기준에 업종별 추가 공시 지표를 대폭 늘린다",
+    "짧고 집중된 간소화 형식으로 섹터 기준을 만들되, 추가 섹터 고유 공시는 개발하지 않고 중요할 가능성이 높은 주제와 주요 영향을 정리해 기존 주제 기준을 쓰도록 안내하며, 식품·음료 섹터가 첫 시범 사례다",
+    "섹터 기준 개발을 중단하고 ESRS 섹터 기준을 그대로 채택한다",
+    "기존 GRI 11~14 섹터 기준을 폐지한다"
+   ],
+   "ans": 1,
+   "why": "GRI는 2026년 9월 섹터 기준을 더 빨리 내기 위해 간소화 형식을 GSSB가 승인했다고 밝혔다. 새 형식은 기존 섹터 기준의 핵심 구조는 유지하되 새로운 섹터 고유 공시를 개발하지 않고, 중요할 가능성이 큰 주제와 가장 중대한 영향을 요약해 기존 주제 기준 활용을 돕는다. 식품·음료가 첫 시범 섹터다.",
+   "trap": "GRI 11~14처럼 추가 섹터 공시(예: 메탄 비율)가 있는 형식을 모든 미래 섹터 기준에 기대하면 안 된다. 자동차 등 후속 섹터는 간소화 형식으로 나올 가능성이 크다.",
+   "sources": [
+    {
+     "label": "GRI 뉴스: Faster access to sector standards(2026-09-22)",
+     "url": "https://www.globalreporting.org/news/news-center/faster-access-to-sector-standards-as-gri-reporting-support-grows/"
+    },
+    {
+     "label": "GRI 뉴스: Food and beverages pilot(2026-09-28)",
+     "url": "https://www.globalreporting.org/news/news-center/food-and-beverages-pilot-for-new-approach-to-sector-reporting/"
+    }
+   ],
+   "confidence": "high",
+   "refFull": "GRI Standards Quarterly Q3 2026(2026-09-22)"
+  }
+ ]
+}

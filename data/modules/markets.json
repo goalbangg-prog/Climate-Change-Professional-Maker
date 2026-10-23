@@ -1,0 +1,1390 @@
+{
+ "module": "markets",
+ "lesson": {
+  "title": "국제 탄소시장과 EU CBAM — 수출기업 컨설턴트가 알아야 할 뼈대",
+  "summary": "국제 탄소시장은 '탄소 1톤을 줄인 것'에 값을 매겨 사고파는 제도들의 묶음이다. EU 배출권거래제(EU ETS)와 그 수입품 버전인 탄소국경조정제도(CBAM), 국가 간 감축실적을 주고받는 파리협정 6조, 항공업계의 CORSIA, 민간이 운영하는 자발적 탄소시장(VCM)이 핵심이다. 기후공시 컨설턴트는 고객사의 수출 비용(CBAM), 감축목표 달성 수단(크레딧·국제감축), 내부 탄소가격 설정(ETS 가격)을 설명해야 하므로 각 제도의 날짜·숫자·경계를 정확히 알아야 한다.",
+  "sections": [
+   {
+    "h": "EU ETS: 총량(캡)과 시장안정예비분(MSR)",
+    "body": "EU ETS는 발전소·대형 공장·항공·해운이 배출한 탄소 1톤마다 배출권(EUA) 1장을 내도록 하는 제도다. 매년 발행되는 배출권 총량(캡)은 '선형감축계수'만큼 줄어드는데, 2024~2027년은 매년 4.3%, 2028년부터는 4.4%씩 줄고 2024년과 2026년에는 각각 9,000만·2,700만 장을 한 번에 더 뺀다. 시장에 배출권이 너무 많이 떠돌면 가격이 무너지므로, 유통량(TNAC)이 10억 9,600만 장을 넘으면 그 24%를 경매에서 빼서 '시장안정예비분(MSR)'에 넣고, 4억 장 아래로 떨어지면 1억 장을 풀어준다. 2025년 EUA 평균가는 약 74유로, 2026년 하반기에는 82~88유로 선에서 움직였다."
+   },
+   {
+    "h": "무상할당 축소와 CBAM 계수",
+    "body": "EU 안의 철강·시멘트 등 공장은 해외로 공장이 빠져나가는 것을 막기 위해 배출권을 일부 공짜(무상할당)로 받아 왔다. CBAM이 수입품에도 똑같은 탄소비용을 물리기 시작하면서 이 공짜 배출권은 단계적으로 사라진다. ETS 지침 제10a조 1a항의 'CBAM 계수'가 그 일정이다: 2026년 97.5%, 2027년 95%, 2028년 90%, 2029년 77.5%, 2030년 51.5%, 2031년 39%, 2032년 26.5%, 2033년 14%, 2034년부터 0%. 수입자가 사야 하는 CBAM 인증서 수도 같은 비율로 조정되므로, 초기에는 비용이 작고 2030년 이후 급격히 커진다."
+   },
+   {
+    "h": "CBAM 기본 구조: 전환기간에서 본격 시행으로",
+    "body": "CBAM은 EU로 들어오는 철강, 알루미늄, 시멘트, 비료, 전력, 수소 여섯 품목에 '내재배출량'(제품을 만들 때 나온 탄소) 기준으로 비용을 물리는 제도다. 2023년 10월부터 2025년 말까지는 분기별 보고만 하는 전환기간이었고, 2026년 1월 1일부터 본격 시행(definitive period)에 들어가 수입자가 인증서를 사서 제출해야 한다. 내재배출량은 직접배출(공장 굴뚝)과 간접배출(사용한 전기)을 포함하지만, 철강·알루미늄·수소는 당분간 직접배출만 계산하고 시멘트·비료·전력은 간접배출까지 포함한다."
+   },
+   {
+    "h": "2025년 옴니버스 간소화: 50톤 기준과 새 일정",
+    "body": "2025년 10월 채택된 개정규정(EU) 2025/2083은 소규모 수입자의 부담을 크게 줄였다. 수입자 1곳이 1년에 철강·알루미늄·시멘트·비료를 합쳐 순중량 50톤 이하로 들여오면 CBAM 의무가 면제된다(전력·수소는 제외). 50톤을 넘는 수입자는 '승인 신고인(authorised declarant)'으로 등록해야 하며, 2026년 3월 31일까지 신청했다면 결정이 나기 전에도 수입할 수 있다. 연간 신고와 인증서 제출 기한은 5월 31일에서 9월 30일로 바뀌었고, 인증서 판매는 2027년 2월 1일부터 시작되며, 분기별 보유 의무는 80%에서 50%로 낮아졌다. 2026년 수입분의 인증서 가격은 수입한 분기의 EUA 경매 평균가, 2027년부터는 주간 평균가를 쓴다."
+   },
+   {
+    "h": "한국 수출기업이 준비할 것: 실측 데이터와 검증",
+    "body": "수입자가 기본값(default value)을 쓰면 2026년 10%, 2027년 20%, 2028년부터 30%의 가산(mark-up)이 붙어 비용이 커진다. 따라서 한국 제조사가 실제 배출량을 계산해 넘겨주는 것이 유리하다. 이를 위해 EU 회원국 인정기구가 승인한 'CBAM 검증기관'의 검증보고서가 필요하고, 제3국 사업장 운영자는 CBAM 등록부의 O3CI 포털에 등록해 검증된 데이터를 여러 수입자와 공유할 수 있다(등록은 선택). 한국에서 K-ETS로 실제 지불한 탄소가격은 환급·무상할당을 뺀 '실제 지불액'만 공제받을 수 있고, 이것도 독립 검증을 거쳐야 한다."
+   },
+   {
+    "h": "파리협정 6조: 국가 간 감축실적 거래",
+    "body": "파리협정 6.2조는 두 나라가 협정을 맺고 감축실적(ITMO)을 넘기는 방식이다. 넘긴 나라는 자기 배출량 장부에 그만큼을 더하고, 받은 나라는 빼는 '상응조정(corresponding adjustment)'을 해서 한 감축분이 두 번 계산되지 않게 한다. 6.4조는 UN 감독기구가 운영하는 중앙 메커니즘(PACM)으로, 발행 단위(A6.4ER) 중 최소 2%는 지구 전체 감축을 위해 자동 취소되고 5%는 적응기금으로 간다. 한국은 2030 NDC에서 3,750만 톤을 국제감축으로 채우기로 했고, 2035 NDC(2018년 대비 53~61% 감축)에서도 베트남·볼리비아 등과의 양자협력을 국제감축의 발판으로 삼고 있다."
+   },
+   {
+    "h": "CORSIA와 자발적 탄소시장(VCM)",
+    "body": "CORSIA는 국제항공 배출을 2019년의 85% 수준 위로 늘어난 만큼 크레딧으로 상쇄하게 하는 ICAO 제도다. 2024~2026년 1단계는 자발 참여국(2026년 1월 기준 130개국) 간 노선만 적용되고, 2027년부터는 소규모 국가 등 예외를 빼고 모든 국제노선에 적용된다. 민간 자발적 탄소시장에서는 Verra(VCS)와 Gold Standard가 대표 인증기관이고, 품질을 가르는 기준은 ICVCM의 핵심탄소원칙(CCP) 라벨과 기업의 크레딧 사용 주장(claim)을 검증하는 VCMI 코드다. 크레딧은 '감축·회피'(배출을 덜 내게 함)와 '제거'(공기 중 탄소를 빼냄)로 나뉘고, 각각 자연기반(숲·맹그로브)과 기술기반(바이오차·CCS)으로 다시 나뉜다."
+   }
+  ],
+  "terms": [
+   {
+    "t": "배출권(EUA)",
+    "d": "EU ETS에서 탄소 1톤을 배출할 권리를 나타내는 증서로, 경매나 시장에서 사고판다.",
+    "en": "EU Allowance"
+   },
+   {
+    "t": "선형감축계수",
+    "d": "매년 배출권 총량을 일정 비율씩 줄이는 숫자로, 2024~2027년 4.3%, 2028년부터 4.4%다.",
+    "en": "Linear Reduction Factor"
+   },
+   {
+    "t": "시장안정예비분(MSR)",
+    "d": "시장에 배출권이 너무 많으면 빼두고 적으면 풀어주는 EU ETS의 자동 조절 장치다.",
+    "en": "Market Stability Reserve"
+   },
+   {
+    "t": "탄소국경조정제도(CBAM)",
+    "d": "EU에 수입되는 철강 등 6개 품목에 EU 공장과 같은 탄소비용을 물리는 제도다.",
+    "en": "Carbon Border Adjustment Mechanism"
+   },
+   {
+    "t": "내재배출량",
+    "d": "수입 제품을 만드는 과정에서 나온 온실가스 양으로, 직접배출과 전기 사용에 따른 간접배출을 포함한다.",
+    "en": "Embedded Emissions"
+   },
+   {
+    "t": "CBAM 계수",
+    "d": "EU 공장이 받는 무상할당이 얼마나 남았는지를 나타내는 비율로, 2026년 97.5%에서 2034년 0%로 줄어든다.",
+    "en": "CBAM Factor"
+   },
+   {
+    "t": "승인 신고인",
+    "d": "CBAM 품목을 50톤 넘게 수입하려면 반드시 등록해야 하는 수입자 지위다.",
+    "en": "Authorised CBAM Declarant"
+   },
+   {
+    "t": "기본값",
+    "d": "실측 배출량 자료가 없을 때 쓰는 EU 집행위 발표 배출계수로, 가산(mark-up)이 붙는다.",
+    "en": "Default Value"
+   },
+   {
+    "t": "ETS2",
+    "d": "건물 난방과 도로수송 연료 공급자에게 적용되는 두 번째 EU 배출권거래제로, 2028년부터 시작된다.",
+    "en": "EU ETS2"
+   },
+   {
+    "t": "ITMO",
+    "d": "파리협정 6.2조에 따라 나라 사이에 이전되는 감축실적 단위다.",
+    "en": "Internationally Transferred Mitigation Outcome"
+   },
+   {
+    "t": "상응조정",
+    "d": "감축실적을 넘긴 나라는 배출량을 더하고 받은 나라는 빼서 이중계산을 막는 장부 조정이다.",
+    "en": "Corresponding Adjustment"
+   },
+   {
+    "t": "PACM(6.4조 메커니즘)",
+    "d": "UN 감독기구가 운영하는 파리협정 6.4조 크레딧 메커니즘으로 CDM의 후속이다.",
+    "en": "Paris Agreement Crediting Mechanism"
+   },
+   {
+    "t": "핵심탄소원칙(CCP)",
+    "d": "ICVCM이 정한 10가지 고품질 크레딧 기준으로, 통과한 크레딧에 CCP 라벨이 붙는다.",
+    "en": "Core Carbon Principles"
+   },
+   {
+    "t": "제거 크레딧",
+    "d": "공기 중 탄소를 실제로 빼내 저장한 양을 인증한 크레딧으로, 배출을 덜 낸 '감축·회피' 크레딧과 구분된다.",
+    "en": "Removal Credit"
+   },
+   {
+    "t": "CORSIA",
+    "d": "국제항공 배출이 2019년의 85%를 넘는 부분을 크레딧으로 상쇄하게 하는 ICAO 제도다.",
+    "en": "Carbon Offsetting and Reduction Scheme for International Aviation"
+   }
+  ],
+  "sources": [
+   {
+    "label": "EU 집행위 CBAM 공식 페이지",
+    "url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en"
+   },
+   {
+    "label": "규정(EU) 2023/956 (CBAM 규정) 원문",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0956"
+   },
+   {
+    "label": "규정(EU) 2025/2083 (CBAM 옴니버스 개정) 원문",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2083"
+   },
+   {
+    "label": "ETS 지침 2003/87/EC 통합본(2024.3.1)",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02003L0087-20240301"
+   },
+   {
+    "label": "EU 집행위 MSR 설명 페이지",
+    "url": "https://climate.ec.europa.eu/eu-action/eu-emissions-trading-system-eu-ets/market-stability-reserve_en"
+   },
+   {
+    "label": "ICAP: EU CBAM 본격 시행 개요(2026.1)",
+    "url": "https://icapcarbonaction.com/en/news/eu-cbam-enters-compliance-phase-and-outlines-path-ahead"
+   },
+   {
+    "label": "ICAP: EU 2040 목표 합의·ETS2 1년 연기",
+    "url": "https://icapcarbonaction.com/en/news/eu-reaches-agreement-2040-climate-target-postpones-ets-2-one-year"
+   },
+   {
+    "label": "Carbon Market Institute: Article 6.4 Factsheet",
+    "url": "https://carbonmarketinstitute.org/app/uploads/2024/12/Article-6.4-Factsheet.pdf"
+   },
+   {
+    "label": "IATA CORSIA Fact Sheet (2026.6)",
+    "url": "https://www.iata.org/en/iata-repository/pressroom/fact-sheets/fact-sheet---corsia/"
+   },
+   {
+    "label": "ICVCM 핵심탄소원칙(CCP)",
+    "url": "https://icvcm.org/the-core-carbon-principles/"
+   },
+   {
+    "label": "ICVCM 평가 현황(CCP-Eligible 프로그램)",
+    "url": "https://icvcm.org/assessment-status/"
+   },
+   {
+    "label": "VCMI Carbon Integrity Claims",
+    "url": "https://help.vcmintegrity.org/help/what-are-carbon-integrity-claims"
+   },
+   {
+    "label": "GOV.UK UK CBAM 정책 업데이트",
+    "url": "https://gov.uk/government/consultations/draft-legislation-carbon-border-adjustment-mechanism/carbon-border-adjustment-mechanism-cbam-policy-update"
+   }
+  ]
+ },
+ "items": [
+  {
+   "id": "markets-01",
+   "module": "markets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "EU ETS",
+    "캡",
+    "선형감축계수"
+   ],
+   "ref": "ETS 지침 2003/87/EC 제9조",
+   "topic": "EU ETS 총량 감축 속도",
+   "q": "EU ETS에서 매년 발행되는 배출권 총량(캡)은 '선형감축계수'만큼 줄어든다. 2024~2027년과 2028년 이후의 선형감축계수를 바르게 짝지은 것은?",
+   "options": [
+    "2024~2027년 2.2%, 2028년부터 4.3%",
+    "2024~2027년 4.3%, 2028년부터 4.4%",
+    "2024~2027년 4.4%, 2028년부터 5.0%",
+    "2024년부터 2030년까지 매년 4.0% 고정"
+   ],
+   "ans": 1,
+   "why": "ETS 지침 제9조는 선형감축계수를 2024~2027년 4.3%, 2028년부터 4.4%로 정하고, 여기에 더해 2024년 9,000만 장과 2026년 2,700만 장을 한 번에 추가로 줄인다. 캡이 빠르게 줄어드는 것이 EUA 가격을 떠받치는 가장 기본적인 힘이다.",
+   "trap": "2021~2023년에 쓰던 2.2%를 현재 값으로 기억하는 경우가 많다. 2023년 개정(Fit for 55)으로 이미 두 배 수준으로 빨라졌다.",
+   "quote": "The linear factor shall be 4,3 % from 2024 to 2027 and 4,4 % from 2028.",
+   "sources": [
+    {
+     "label": "ETS 지침 2003/87/EC 통합본 제9조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02003L0087-20240301"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-02",
+   "module": "markets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "EU ETS",
+    "MSR",
+    "가격안정"
+   ],
+   "ref": "EU 집행위 MSR 설명 페이지",
+   "topic": "시장안정예비분 작동 원리",
+   "q": "EU ETS의 시장안정예비분(MSR)은 시장에 떠도는 배출권 수(TNAC)에 따라 자동으로 작동한다. 다음 중 MSR의 작동 규칙을 바르게 설명한 것은?",
+   "options": [
+    "TNAC가 10억 9,600만 장을 넘으면 그 24%를 경매에서 빼서 예비분에 넣고, 4억 장 아래면 1억 장을 풀어준다",
+    "EU 집행위가 매년 재량으로 경매 물량을 늘리거나 줄인다",
+    "가격이 100유로를 넘으면 자동으로 예비분에서 배출권을 판다",
+    "TNAC가 8억 3,300만 장 아래로 내려가면 전량을 영구 취소한다"
+   ],
+   "ans": 0,
+   "why": "MSR은 규칙이 미리 정해진 자동 장치다. TNAC 10억 9,600만 장 초과 시 24% 흡수, 8억 3,300만~10억 9,600만 장 구간에서는 초과분만큼 흡수, 4억 장 미만이면 1억 장 방출, 그리고 예비분이 4억 장을 넘는 부분은 매년 영구 무효화된다. 2026년 4월 집행위가 무효화 중단을 제안했지만 아직 제안 단계다.",
+   "trap": "MSR을 '가격 상한선' 장치로 오해하기 쉽다. MSR은 가격이 아니라 유통 물량을 보고 움직인다.",
+   "sources": [
+    {
+     "label": "EU 집행위 Market Stability Reserve",
+     "url": "https://climate.ec.europa.eu/eu-action/eu-emissions-trading-system-eu-ets/market-stability-reserve_en"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-03",
+   "module": "markets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "CBAM",
+    "적용 품목"
+   ],
+   "ref": "CBAM 규정(EU) 2023/956 부속서 I",
+   "topic": "CBAM 적용 6개 품목군",
+   "q": "2026년 본격 시행된 EU CBAM이 적용되는 품목군을 모두 바르게 나열한 것은?",
+   "options": [
+    "철강, 알루미늄, 시멘트, 비료, 전력, 수소",
+    "철강, 알루미늄, 유리, 플라스틱, 전력, 정유",
+    "철강, 시멘트, 비료, 자동차, 화학, 전력",
+    "철강, 알루미늄, 시멘트, 비료, 유기화학, 폴리머"
+   ],
+   "ans": 0,
+   "why": "CBAM 1차 적용 품목은 시멘트, 철강, 알루미늄, 비료, 전력, 수소의 여섯 가지다. 2025년 12월 집행위가 철강·알루미늄을 많이 쓰는 약 180개 하류 제품으로 범위를 넓히는 법안을 냈지만, 이는 2028년 시행을 목표로 한 '제안'이며 아직 법이 아니다.",
+   "trap": "유기화학·폴리머는 초기 논의에서 빠졌고, 자동차 부품은 2028년 확대 제안에만 들어 있다. '현재 적용'과 '제안'을 섞어 말하면 안 된다.",
+   "sources": [
+    {
+     "label": "EU 집행위 CBAM 공식 페이지",
+     "url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en"
+    },
+    {
+     "label": "CMS: CBAM 이행 패키지와 확대 제안",
+     "url": "https://cms.law/en/gbr/legal-updates/cbam-implementation-package-published-and-proposals-for-future-expansion"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-04",
+   "module": "markets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "CBAM",
+    "전환기간",
+    "본격 시행"
+   ],
+   "ref": "CBAM 규정(EU) 2023/956 제36조",
+   "topic": "CBAM 전환기간과 본격 시행 시점",
+   "q": "EU CBAM의 전환기간(보고만 하는 기간)과 본격 시행(인증서 구매·제출 의무) 시점을 바르게 짝지은 것은?",
+   "options": [
+    "전환기간 2023년 10월 1일~2025년 12월 31일, 본격 시행 2026년 1월 1일",
+    "전환기간 2024년 1월 1일~2026년 12월 31일, 본격 시행 2027년 1월 1일",
+    "전환기간 2023년 1월 1일~2024년 12월 31일, 본격 시행 2025년 1월 1일",
+    "전환기간 2025년 1월 1일~2027년 12월 31일, 본격 시행 2028년 1월 1일"
+   ],
+   "ans": 0,
+   "why": "전환기간은 2023년 10월 1일부터 2025년 말까지였고 마지막 분기보고(2025년 4분기)는 2026년 1월 31일까지 제출했다. 2026년 1월 1일부터는 본격 시행 체제로, 2026년 수입분의 내재배출량에 대해 2027년에 인증서를 사서 제출한다.",
+   "trap": "인증서 '판매'가 2027년 2월에 시작된다는 점 때문에 본격 시행도 2027년이라고 착각하기 쉽다. 의무는 2026년 수입분부터 생기고, 결제만 2027년에 한다.",
+   "sources": [
+    {
+     "label": "EU 집행위 CBAM 공식 페이지",
+     "url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en"
+    },
+    {
+     "label": "EY: EU adopts CBAM Omnibus Regulation",
+     "url": "https://www.ey.com/en_gl/technical/tax-alerts/eu-adopts-cbam-omnibus-regulation"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-05",
+   "module": "markets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "CBAM",
+    "내재배출량",
+    "간접배출"
+   ],
+   "ref": "CBAM 규정(EU) 2023/956 제7조·부속서 II",
+   "topic": "직접배출만 세는 품목",
+   "q": "CBAM의 내재배출량은 원칙적으로 직접배출과 간접배출(사용 전력)을 포함한다. 그러나 부속서 II에 오른 품목은 당분간 직접배출만 계산한다. 직접배출만 계산하는 품목군은?",
+   "options": [
+    "시멘트, 비료, 전력",
+    "철강, 알루미늄, 수소",
+    "시멘트, 철강, 수소",
+    "비료, 알루미늄, 전력"
+   ],
+   "ans": 1,
+   "why": "CBAM 규정 제7조 1항은 부속서 II 품목에 대해 직접배출만 계산하도록 하고, 그 목록이 철강·알루미늄·수소다. 시멘트·비료는 직접+간접을 모두 포함하고, 전력은 그 자체가 배출원이라 직접배출로 잡힌다. 철강·알루미늄은 EU 안에서 전기요금 보전(간접비용 보상)을 받는 업종이라 수입품에도 당장 간접배출을 묻지 않는 것이다.",
+   "trap": "알루미늄 제련은 전기를 엄청 쓰므로 간접배출이 당연히 들어간다고 생각하기 쉽다. 현재 규정에서는 빠져 있고, 향후 검토 대상이다.",
+   "sources": [
+    {
+     "label": "CBAM 규정(EU) 2023/956 원문 제7조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0956"
+    },
+    {
+     "label": "Sprih: CBAM 품목별 요건 비교",
+     "url": "https://www.sprih.com/blogs/cbam-sectors-compared/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-06",
+   "module": "markets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "파리협정 6조",
+    "ITMO",
+    "PACM"
+   ],
+   "ref": "파리협정 제6조 2항·4항",
+   "topic": "6.2조와 6.4조의 차이",
+   "q": "파리협정 6조의 두 시장 메커니즘을 바르게 설명한 것은?",
+   "options": [
+    "6.2조는 나라들이 직접 협정을 맺어 감축실적(ITMO)을 이전하는 방식이고, 6.4조는 UN 감독기구가 운영하는 중앙 크레딧 메커니즘(PACM)이다",
+    "6.2조는 UN이 운영하는 중앙 메커니즘이고, 6.4조는 민간 자발적 시장을 뜻한다",
+    "6.2조와 6.4조는 같은 제도를 가리키는 다른 이름이다",
+    "6.2조는 선진국만, 6.4조는 개도국만 참여할 수 있다"
+   ],
+   "ans": 0,
+   "why": "6.2조 '협력적 접근'은 양자·다자 협정으로 ITMO를 주고받으며 각 나라가 기준을 설계하고 UNFCCC에 보고한다(2025년 12월 기준 64개국 108개 양자협정). 6.4조는 12인 감독기구가 운영하는 중앙 메커니즘으로 CDM의 후속이며 발행 단위는 A6.4ER이다. 두 메커니즘 모두 이중계산을 막는 상응조정이 핵심이다.",
+   "trap": "6.4조를 '자발적 탄소시장(VCM)'과 혼동하는 경우가 많다. VCM은 Verra·Gold Standard 같은 민간 표준이고 6.4조는 정부 간 UN 메커니즘이다.",
+   "sources": [
+    {
+     "label": "Addleshaw Goddard: Article 6 decoded (2026)",
+     "url": "https://www.addleshawgoddard.com/en/insights/insights-briefings/2026/finance/article-6-paris-agreement-decoded-guide-non-aficionados-carbon-markets"
+    },
+    {
+     "label": "UNFCCC Article 6.4 mechanism",
+     "url": "https://unfccc.int/process-and-meetings/the-paris-agreement/article-64-mechanism"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-07",
+   "module": "markets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "자발적 탄소시장",
+    "Verra",
+    "VCU"
+   ],
+   "ref": "Verra VCS Program 소개",
+   "topic": "VCS와 VCU의 뜻",
+   "q": "자발적 탄소시장에서 가장 널리 쓰이는 Verra의 VCS 프로그램이 발행하는 단위 'VCU' 1개가 뜻하는 것은?",
+   "options": [
+    "이산화탄소 1톤을 감축 또는 제거한 양",
+    "재생에너지 전력 1MWh를 생산한 양",
+    "탄소 1킬로그램을 제거한 양",
+    "EU ETS 배출권 1장과 교환할 수 있는 권리"
+   ],
+   "ans": 0,
+   "why": "Verra는 VCS를 '세계에서 가장 널리 쓰이는 온실가스 크레딧 프로그램'으로 소개하며, VCU 1개는 이산화탄소 1톤의 감축·제거를 나타낸다. 2,579개 이상 프로젝트에서 13억 톤 이상이 발행됐고 최신 표준은 VCS Version 5다. VCU는 EU ETS 이행에는 쓸 수 없다.",
+   "trap": "VCU를 EU ETS나 K-ETS 배출권처럼 규제 이행에 쓸 수 있다고 생각하는 것이 흔한 오해다. 자발적 크레딧은 규제시장에서 원칙적으로 인정되지 않는다.",
+   "sources": [
+    {
+     "label": "Verra: Verified Carbon Standard",
+     "url": "https://verra.org/programs/verified-carbon-standard/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-08",
+   "module": "markets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "크레딧 유형",
+    "제거",
+    "감축·회피"
+   ],
+   "ref": "Verra 단위 라벨 제안서(2022)",
+   "topic": "감축 크레딧과 제거 크레딧",
+   "q": "탄소 크레딧은 '감축(회피)'과 '제거'로 나뉜다. 두 유형을 바르게 구분한 것은?",
+   "options": [
+    "감축은 기준선보다 배출을 덜 낸 양이고, 제거는 기준선보다 저장된 탄소가 순증한 양이다",
+    "감축은 자연기반 사업, 제거는 기술기반 사업만을 뜻한다",
+    "감축은 선진국 사업, 제거는 개도국 사업을 뜻한다",
+    "두 용어는 같은 뜻으로 서로 바꿔 쓸 수 있다"
+   ],
+   "ans": 0,
+   "why": "Verra의 정의에 따르면 감축(reduction)은 기준선보다 낮은 배출 수준을, 제거(removal)는 기준선 대비 저장 탄소의 순증가를 뜻한다. 자연기반·기술기반 구분은 이와 별개의 축으로, 조림·맹그로브 복원은 자연기반 제거, 바이오차·CCS는 기술기반 제거, 재생에너지·메탄 포집은 감축에 해당한다.",
+   "trap": "'자연기반 = 감축, 기술 = 제거'로 외우면 틀린다. 숲 조림은 자연기반이지만 제거이고, 산업 메탄 파괴는 기술이지만 감축이다.",
+   "sources": [
+    {
+     "label": "Verra: Proposed New Verra Unit Labels",
+     "url": "https://verra.org/documents/proposed-new-verra-unit-labels"
+    },
+    {
+     "label": "ICVCM Assessment Status (ARR·바이오차·CCS 승인 방법론)",
+     "url": "https://icvcm.org/assessment-status/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-09",
+   "module": "markets",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "ICVCM",
+    "CCP",
+    "크레딧 품질"
+   ],
+   "ref": "ICVCM Core Carbon Principles",
+   "topic": "핵심탄소원칙(CCP)의 구조",
+   "q": "ICVCM의 핵심탄소원칙(CCP)은 10개 원칙을 세 묶음으로 나눈다. 세 묶음을 바르게 나열한 것은?",
+   "options": [
+    "거버넌스, 배출 영향, 지속가능한 영향",
+    "가격, 유동성, 투명성",
+    "국가 승인, 상응조정, 적응기금",
+    "측정, 보고, 검증"
+   ],
+   "ans": 0,
+   "why": "CCP는 거버넌스(효과적 거버넌스, 추적, 투명성, 독립 제3자 검증), 배출 영향(추가성, 영속성, 견고한 정량화, 이중계산 금지), 지속가능한 영향(지속가능발전 편익·안전장치, 넷제로 전환 기여)의 10개 원칙이다. ICVCM은 프로그램 수준과 방법론(카테고리) 수준 두 단계로 평가해, 둘 다 통과한 크레딧에만 CCP 라벨을 붙인다.",
+   "trap": "프로그램(예: Verra)이 CCP-Eligible이면 그 프로그램의 모든 크레딧이 CCP 라벨을 받는다고 생각하기 쉽다. 방법론까지 승인되어야 라벨이 붙는다.",
+   "sources": [
+    {
+     "label": "ICVCM: The Core Carbon Principles",
+     "url": "https://icvcm.org/the-core-carbon-principles/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-10",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "CBAM",
+    "50톤 기준",
+    "간소화"
+   ],
+   "ref": "규정(EU) 2025/2083 제2a조·부속서 VII",
+   "topic": "50톤 면제 기준의 정확한 범위",
+   "q": "2025년 CBAM 옴니버스 개정으로 도입된 '50톤 기준'을 바르게 설명한 것은?",
+   "options": [
+    "수입자 1곳이 1년간 들여오는 철강·알루미늄·시멘트·비료의 순중량 합계가 50톤 이하면 면제되며",
+    "수입 건당 50톤 이하인 화물은 품목과 상관없이 면제된다",
+    "수입자 1곳이 1년간 수입하는 내재배출량이 50톤CO2 이하면 면제된다",
+    "수입 금액이 150유로 이하인 소액 화물만 면제된다"
+   ],
+   "ans": 0,
+   "why": "기준은 '건당'이 아니라 '수입자당 연간 누적 순중량'이며, CN코드를 합산한다. 전력과 수소에는 이 조항이 적용되지 않는다. 기존 150유로 소액 화물 면제는 폐지됐다. 집행위는 이 기준으로 수입자의 약 90%가 의무에서 벗어나지만 배출량의 99%는 여전히 포괄된다고 설명한다. 이 면제는 전력·수소에는 적용되지 않는다.",
+   "trap": "'50톤'을 배출량(tCO2)으로 읽는 실수가 잦다. 제품의 질량(톤)이다. 또 전력·수소 수입은 아무리 적어도 면제가 없다.",
+   "sources": [
+    {
+     "label": "규정(EU) 2025/2083 원문",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2083"
+    },
+    {
+     "label": "EY: EU adopts CBAM Omnibus Regulation",
+     "url": "https://www.ey.com/en_gl/technical/tax-alerts/eu-adopts-cbam-omnibus-regulation"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-11",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "CBAM",
+    "승인 신고인",
+    "경과 규정"
+   ],
+   "ref": "규정(EU) 2025/2083 제17조 7a항",
+   "topic": "승인 신고인 신청과 경과 조치",
+   "q": "2026년부터 CBAM 품목을 50톤 넘게 수입하려면 '승인 신고인' 지위가 필요하다. 신청이 아직 처리되지 않은 수입자에 대한 경과 규정은?",
+   "options": [
+    "2026년 3월 31일까지 신청했다면 결정이 나기 전에도 수입을 계속할 수 있고, 거절되면 2026년 1월 1일 이후 배출량을 기본값으로 추정해 과징금을 계산한다",
+    "신청만 하면 기한과 상관없이 2027년 말까지 자유롭게 수입할 수 있다",
+    "승인 전에는 어떤 경우에도 수입이 금지된다",
+    "승인 신고인 지위는 EU 역내 생산자만 받을 수 있다"
+   ],
+   "ans": 0,
+   "why": "개정규정 제17조 7a항은 2026년 3월 31일까지 신청한 수입자(또는 간접 관세대리인)는 심사 중에도 수입할 수 있게 했다. 다만 신청이 거절되면 2026년 1월 1일 이후 수입분의 배출량을 기본값으로 산정해 과징금을 매긴다. 그래서 경과 조치는 '면제'가 아니라 '유예'다.",
+   "trap": "유예 기간에 수입한 물량은 의무가 없다고 고객에게 말하면 안 된다. 승인이 거절되면 그 물량에 과징금이 붙는다.",
+   "sources": [
+    {
+     "label": "규정(EU) 2025/2083 원문",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2083"
+    },
+    {
+     "label": "CMS: CBAM 이행 패키지",
+     "url": "https://cms.law/en/gbr/legal-updates/cbam-implementation-package-published-and-proposals-for-future-expansion"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-12",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "CBAM 인증서",
+    "가격",
+    "EU ETS 연동"
+   ],
+   "ref": "규정(EU) 2025/2083 제20조·제21조",
+   "topic": "CBAM 인증서 가격과 판매 시점",
+   "q": "CBAM 인증서의 가격 결정 방식과 판매 시작 시점을 바르게 설명한 것은?",
+   "options": [
+    "2026년 수입분은 수입한 분기의 EUA 경매 종가 평균, 2027년부터는 주간 평균을 적용하고, 인증서 판매는 2027년 2월 1일부터 시작된다",
+    "매일의 EUA 종가를 그대로 적용하며, 2026년 1월부터 판매한다",
+    "EU 집행위가 연초에 연간 고정가격을 발표한다",
+    "수입국(한국)의 K-ETS 가격을 그대로 적용한다"
+   ],
+   "ans": 0,
+   "why": "원 규정 제21조는 공동 경매 플랫폼의 EUA 종가를 '달력상 1주' 단위로 평균해 다음 주 첫 영업일에 공표하도록 했다. 2025년 개정으로 첫해(2026년 수입분)만 수입 분기의 분기 평균을 쓰고, 2027년부터 주간 평균으로 돌아간다. 회원국은 2027년 2월 1일부터 공동 플랫폼에서 인증서를 판다.",
+   "trap": "2026년에는 살 인증서가 없으니 비용도 없다고 생각하기 쉽다. 비용은 2026년에 발생하고 2027년에 현금으로 결제하므로, 2026년 회계에 충당부채를 잡아야 한다.",
+   "sources": [
+    {
+     "label": "규정(EU) 2023/956 원문 제21조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0956"
+    },
+    {
+     "label": "ICAP: EU CBAM 본격 시행 개요",
+     "url": "https://icapcarbonaction.com/en/news/eu-cbam-enters-compliance-phase-and-outlines-path-ahead"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-13",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "CBAM",
+    "신고 기한",
+    "보유 의무"
+   ],
+   "ref": "규정(EU) 2025/2083 제6조·제22조",
+   "topic": "연간 신고·제출 기한과 분기 보유 의무",
+   "q": "2025년 개정 후 CBAM 연간 신고·인증서 제출 기한과 분기별 보유 의무는?",
+   "options": [
+    "매년 9월 30일까지 전년도분 신고·제출(첫 기한 2027년 9월 30일), 2027년부터 분기 말 기준 연초 이후 내재배출량의 50% 이상 보유",
+    "매년 5월 31일까지 신고·제출, 분기 말 기준 80% 이상 보유",
+    "매년 1월 31일까지 신고·제출, 보유 의무 없음",
+    "매년 12월 31일까지 신고·제출, 분기 말 기준 100% 보유"
+   ],
+   "ans": 0,
+   "why": "원 규정은 5월 31일 신고와 80% 분기 보유를 요구했지만, 개정규정 제6조·제22조는 기한을 9월 30일로, 보유 비율을 50%로 낮췄다. 보유 비율은 기본값 또는 전년도 제출량을 기준으로 계산하고 무상할당 조정을 반영한다. 2026년 수입분의 첫 신고·제출 기한이 2027년 9월 30일이다.",
+   "trap": "오래된 자료(5월 31일·80%)를 그대로 인용하는 실수가 많다. 2025년 10월 개정 이후 자료인지 꼭 확인해야 한다.",
+   "sources": [
+    {
+     "label": "규정(EU) 2025/2083 원문",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2083"
+    },
+    {
+     "label": "HSF Kramer: CBAM 운영·간소화(2026)",
+     "url": "https://www.hsfkramer.com/notes/energy/2026-posts/operationalisation-and-simplification-of-the-eu-cbam"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-14",
+   "module": "markets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "CBAM",
+    "인증서 수량",
+    "CBAM 계수"
+   ],
+   "ref": "ETS 지침 제10a조 1a항·CBAM 규정 제31조",
+   "topic": "철강 수입 시 필요한 CBAM 인증서 수(단순모형)",
+   "q": "EU 수입자가 2026년에 한국산 철강 10,000톤을 수입한다. 검증된 내재배출 원단위는 1.9 tCO2/t이다. 무상할당 조정은 단순모형으로 '수량 × EU 벤치마크(가정 1.3 tCO2/t) × 2026년 CBAM 계수 97.5%'로 계산한다. 제출해야 하는 CBAM 인증서는 몇 장인가?",
+   "given": [
+    [
+     "수입량",
+     "10,000 t",
+     "가정"
+    ],
+    [
+     "내재배출 원단위(검증값)",
+     "1.9 tCO2/t",
+     "가정"
+    ],
+    [
+     "EU 벤치마크(가정)",
+     "1.3 tCO2/t",
+     "가정"
+    ],
+    [
+     "2026년 CBAM 계수",
+     "97.5%",
+     "ETS 지침 제10a조 1a항"
+    ]
+   ],
+   "ans": 6325,
+   "tol": 1,
+   "unit": "장",
+   "dec": 0,
+   "steps": [
+    "총 내재배출량 = 10,000 t × 1.9 = 19,000 tCO2",
+    "무상할당 조정량 = 10,000 × 1.3 × 0.975 = 12,675 tCO2",
+    "필요 인증서 = 19,000 − 12,675 = 6,325장"
+   ],
+   "insight": "2026년에는 EU 공장이 아직 97.5%의 무상할당을 받으므로 수입품도 그만큼 깎아준다. 같은 수입이 2030년(계수 51.5%)이면 조정량이 6,695톤으로 줄어 인증서가 12,305장으로 거의 두 배가 된다. 실제 집행위 이행규정의 조정 공식은 더 복잡하므로 이 문제는 구조를 익히는 단순모형이다.",
+   "sources": [
+    {
+     "label": "ETS 지침 2003/87/EC 제10a조 1a항",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02003L0087-20240301"
+    },
+    {
+     "label": "ICAP: 2026~2027년 무상할당 2.5%씩 축소",
+     "url": "https://icapcarbonaction.com/en/news/eu-cbam-enters-compliance-phase-and-outlines-path-ahead"
+    }
+   ],
+   "confidence": "medium",
+   "why": "2026년에는 EU 공장이 아직 97.5%의 무상할당을 받으므로 수입품도 그만큼 깎아준다. 같은 수입이 2030년(계수 51.5%)이면 조정량이 6,695톤으로 줄어 인증서가 12,305장으로 거의 두 배가 된다. 실제 집행위 이행규정의 조정 공식은 더 복잡하므로 이 문제는 구조를 익히는 단순모형이다.",
+   "trap": "톤수, 배출집약도, 무상할당 계수의 적용 순서를 식으로 먼저 쓰고 계산하자."
+  },
+  {
+   "id": "markets-15",
+   "module": "markets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "CBAM",
+    "비용",
+    "탄소가격 공제"
+   ],
+   "ref": "CBAM 규정 제9조·제21조",
+   "topic": "CBAM 비용과 국내 탄소가격 공제",
+   "q": "앞 문제의 수입자가 인증서 6,325장을 사야 한다. 적용 CBAM 인증서 가격은 85 €/tCO2다. 한국 생산자가 K-ETS에서 해당 배출량에 대해 실제로 지불한 탄소가격이 톤당 20,000원이고 환율은 1,600원/€이며, 이 금액이 전량 공제로 인정된다고 가정한다. 공제 후 순 CBAM 비용(유로)은?",
+   "given": [
+    [
+     "필요 인증서",
+     "6,325장",
+     "앞 문제"
+    ],
+    [
+     "CBAM 인증서 가격",
+     "85 €/tCO2",
+     "가정(2026년 EUA 수준)"
+    ],
+    [
+     "국내 실제 지불 탄소가격",
+     "20,000 원/tCO2",
+     "가정"
+    ],
+    [
+     "환율",
+     "1,600 원/€",
+     "가정"
+    ]
+   ],
+   "ans": 458562.5,
+   "tol": 50,
+   "unit": "€",
+   "dec": 1,
+   "steps": [
+    "공제 전 비용 = 6,325 × 85 = 537,625 €",
+    "국내 탄소가격(유로) = 20,000 ÷ 1,600 = 12.5 €/tCO2",
+    "공제액 = 6,325 × 12.5 = 79,062.5 €",
+    "순 비용 = 537,625 − 79,062.5 = 458,562.5 €"
+   ],
+   "insight": "국내 탄소가격 공제는 '실제 지불한' 금액만 인정되고, 무상할당으로 받은 부분이나 환급은 뺀 뒤 독립 검증을 받아야 한다. K-ETS 가격(2026년 중반 2만~3만 원대)은 EUA(80유로대)의 약 15~20% 수준이라 공제 효과는 제한적이다.",
+   "sources": [
+    {
+     "label": "규정(EU) 2025/2083 원문 제9조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2083"
+    },
+    {
+     "label": "HSF Kramer: 탄소가격 공제 요건",
+     "url": "https://www.hsfkramer.com/notes/energy/2026-posts/operationalisation-and-simplification-of-the-eu-cbam"
+    }
+   ],
+   "confidence": "medium",
+   "why": "국내 탄소가격 공제는 '실제 지불한' 금액만 인정되고, 무상할당으로 받은 부분이나 환급은 뺀 뒤 독립 검증을 받아야 한다. K-ETS 가격(2026년 중반 2만~3만 원대)은 EUA(80유로대)의 약 15~20% 수준이라 공제 효과는 제한적이다.",
+   "trap": "톤수, 배출집약도, 무상할당 계수의 적용 순서를 식으로 먼저 쓰고 계산하자."
+  },
+  {
+   "id": "markets-16",
+   "module": "markets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "CBAM",
+    "기본값",
+    "가산"
+   ],
+   "ref": "CBAM 기본값 이행규정(2025.12)",
+   "topic": "기본값 가산(mark-up) 적용",
+   "q": "EU 수입자가 2026년에 한국산 철강 제품 5,000톤을 수입하면서 실측 자료가 없어 기본값을 쓴다. 해당 품목의 기본값이 2.0 tCO2/t이고 2026년 가산율은 10%다. 신고해야 하는 내재배출량(tCO2)은?",
+   "given": [
+    [
+     "수입량",
+     "5,000 t",
+     "가정"
+    ],
+    [
+     "기본값",
+     "2.0 tCO2/t",
+     "가정"
+    ],
+    [
+     "2026년 가산율",
+     "10%",
+     "ICAP(기본값 이행규정 요약)"
+    ]
+   ],
+   "ans": 11000,
+   "tol": 1,
+   "unit": "tCO2",
+   "dec": 0,
+   "steps": [
+    "가산 적용 기본값 = 2.0 × (1 + 0.10) = 2.2 tCO2/t",
+    "내재배출량 = 5,000 × 2.2 = 11,000 tCO2"
+   ],
+   "insight": "가산율은 2027년 20%, 2028년부터 30%로 커진다(비료는 가산 대신 연 1%씩 상승, 전력·전구체는 가산 없음). 실측값이 기본값보다 낮은 한국 전기로·고효율 공장은 검증을 받아 실측값을 넘기는 것이 수입자 비용을 직접 줄여준다.",
+   "sources": [
+    {
+     "label": "ICAP: EU CBAM 본격 시행 개요(가산율)",
+     "url": "https://icapcarbonaction.com/en/news/eu-cbam-enters-compliance-phase-and-outlines-path-ahead"
+    },
+    {
+     "label": "CMS: CBAM 이행 패키지(기본값 규정)",
+     "url": "https://cms.law/en/gbr/legal-updates/cbam-implementation-package-published-and-proposals-for-future-expansion"
+    }
+   ],
+   "confidence": "high",
+   "why": "가산율은 2027년 20%, 2028년부터 30%로 커진다(비료는 가산 대신 연 1%씩 상승, 전력·전구체는 가산 없음). 실측값이 기본값보다 낮은 한국 전기로·고효율 공장은 검증을 받아 실측값을 넘기는 것이 수입자 비용을 직접 줄여준다.",
+   "trap": "톤수, 배출집약도, 무상할당 계수의 적용 순서를 식으로 먼저 쓰고 계산하자."
+  },
+  {
+   "id": "markets-17",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "CBAM",
+    "검증",
+    "수출기업 준비"
+   ],
+   "ref": "CBAM 검증 이행규정·EPA 아일랜드 안내",
+   "topic": "한국 생산자의 실측 데이터 전달 경로",
+   "q": "한국 철강사가 EU 고객에게 기본값 대신 실측 내재배출량을 쓰게 하려 한다. 바른 준비 절차는?",
+   "options": [
+    "EU 회원국 인정기구가 승인한 CBAM 검증기관의 검증보고서를 받고, CBAM 등록부의 제3국 사업장 포털(O3CI)에 등록해 데이터를 공유하거나 수입자별로 직접 전달한다",
+    "한국 환경부 지정 K-ETS 검증기관의 명세서 검증 의견서를 그대로 EU 수입자에게 보내면 된다",
+    "검증 없이 자체 계산한 배출량을 수입자가 신고서에 적으면 된다",
+    "ISO 14064 인증서만 있으면 추가 검증이 필요 없다"
+   ],
+   "ans": 0,
+   "why": "본격 시행기에 실측값을 쓰려면 EU 회원국 인정기구(NAB)로부터 인정받은 CBAM 검증기관의 검증이 필요하다. 비EU 검증회사도 NAB에 신청할 수 있고, 2026년 9월 1일부터 인정받은 검증기관은 CBAM 등록부에 등록한다. 제3국 사업장 운영자는 O3CI 포털에 등록(선택)해 검증 데이터를 여러 수입자와 공유할 수 있으며, 검증보고서가 없으면 수입자는 기본값을 써야 한다. 첫해에는 현장 방문 검증이 필수고 이후에는 원격 방문이 허용된다.",
+   "trap": "K-ETS 명세서 검증과 CBAM 검증은 다른 제도다. 한국 검증기관이 EU NAB 인정을 받지 않았다면 그 보고서는 CBAM에서 쓸 수 없다.",
+   "sources": [
+    {
+     "label": "EPA Ireland: CBAM Accreditation and Verification",
+     "url": "https://www.epa.ie/our-services/licensing/climate-change/eu-carbon-border-adjustment-mechanism/accreditation-and-verification/"
+    },
+    {
+     "label": "CMS: CBAM 이행 패키지(검증 원칙)",
+     "url": "https://cms.law/en/gbr/legal-updates/cbam-implementation-package-published-and-proposals-for-future-expansion"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-18",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "ETS2",
+    "건물",
+    "도로수송"
+   ],
+   "ref": "EU 기후법 개정(2026.3.5 이사회 채택)",
+   "topic": "ETS2 시작 시점의 변경",
+   "q": "건물 난방·도로수송 연료를 다루는 EU ETS2의 시행 일정으로 2026년 10월 기준 맞는 것은?",
+   "options": [
+    "시행이 2027년에서 2028년 1월 1일로 1년 연기됐고, 배출권 경매는 2027년에 시작되며, 연료 공급자의 모니터링·보고 의무는 2025년부터 이미 적용 중이다",
+    "2027년 1월 1일 예정대로 시행되며 변경이 없다",
+    "2030년으로 3년 연기됐고 경매도 2030년에 시작한다",
+    "ETS2는 폐지되고 기존 ETS에 통합됐다"
+   ],
+   "ans": 0,
+   "why": "2025년 12월 EU 입법기관이 2040년 90% 감축 목표와 함께 ETS2를 1년 연기하기로 합의했고, 2026년 3월 5일 이사회가 기후법 개정을 최종 채택했다. ETS2 배출권 경매는 2027년(첫 경매 2027년 초(1월 예정))에 시작해 회원국이 수입을 먼저 확보하고, 2028년부터 연료 공급자가 배출권을 제출한다. MRV는 2025년부터, 제3자 검증은 2026년부터 의무다.",
+   "trap": "ETS2가 연기됐으니 보고도 안 한다고 생각하면 안 된다. 연료 공급자의 배출 보고·검증 의무는 그대로 진행 중이다.",
+   "sources": [
+    {
+     "label": "ICAP: EU 2040 목표 합의·ETS2 1년 연기",
+     "url": "https://icapcarbonaction.com/en/news/eu-reaches-agreement-2040-climate-target-postpones-ets-2-one-year"
+    },
+    {
+     "label": "Euronews: ETS2 2028년 연기(2025.12.10)",
+     "url": "https://www.euronews.com/2025/12/10/carbon-tax-on-buildings-and-transport-delayed-to-2028-under-eu-climate-deal"
+    },
+    {
+     "label": "Carbon Pulse: ETS2 첫 경매 2027.1",
+     "url": "https://carbon-pulse.com/557713/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-19",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "UK CBAM",
+    "2027",
+    "영국"
+   ],
+   "ref": "GOV.UK UK CBAM 정책 업데이트(2026.9.30)",
+   "topic": "영국 CBAM의 범위와 일정",
+   "q": "2027년 1월 1일 시행되는 영국(UK) CBAM에 대한 설명으로 맞는 것은?",
+   "options": [
+    "알루미늄·시멘트·비료·수소·철강 5개 품목에 적용되고 전력은 제외되며, 12개월 누적 수입액 5만 파운드 기준으로 등록하고, 출발 시점에는 직접배출만 계산한다",
+    "EU CBAM과 동일하게 전력을 포함한 6개 품목에 적용되고 간접배출도 처음부터 포함한다",
+    "인증서를 사서 제출하는 방식이며 가격은 EU ETS 주간 평균을 쓴다",
+    "영국은 EU ETS와 연계되어 있어 CBAM을 도입하지 않는다"
+   ],
+   "ans": 0,
+   "why": "UK CBAM은 EU와 달리 전력이 빠진 5개 품목이며, 인증서가 아니라 분기별로 공표되는 품목별 세율(UK ETS 가격에서 무상할당을 반영)로 부과하는 '세금' 구조다. 12개월 누적 5만 파운드 이상 수입 시 등록 의무, 첫 회계기간은 2027년 말 종료, 첫 신고·납부는 2028년 5월 31일이다. 직접배출만 세고 간접배출은 2029년 이후 검토한다. UK-EU ETS 연계는 협상 중이며 아직 상호 면제가 없다.",
+   "trap": "EU와 UK CBAM을 같은 제도의 복사판으로 보면 안 된다. 품목(전력 유무), 부과 방식(인증서 vs 세율), 간접배출 포함 여부가 다르다.",
+   "sources": [
+    {
+     "label": "GOV.UK: UK CBAM policy update",
+     "url": "https://gov.uk/government/consultations/draft-legislation-carbon-border-adjustment-mechanism/carbon-border-adjustment-mechanism-cbam-policy-update"
+    },
+    {
+     "label": "Clifford Chance: 2026 UK CBAM primer",
+     "url": "https://www.cliffordchance.com/content/dam/cliffordchance/briefings/2026/09/2026-UK-CBAM-primer.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-20",
+   "module": "markets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "파리협정 6.2조",
+    "상응조정",
+    "ITMO"
+   ],
+   "ref": "파리협정 제6조 2항(상응조정)",
+   "topic": "상응조정 산술",
+   "q": "한국이 베트남과의 양자협정으로 ITMO 500,000 tCO2eq를 2030년 NDC 달성에 쓰기로 하고 베트남이 이를 승인·이전했다. 베트남의 2030년 실제 배출량이 300,000,000 tCO2eq라면, 상응조정 후 베트남이 NDC 이행 평가에 쓰는 '조정된 배출량 잔액'은?",
+   "given": [
+    [
+     "이전된 ITMO",
+     "500,000 tCO2eq",
+     "가정"
+    ],
+    [
+     "베트남 실제 배출량",
+     "300,000,000 tCO2eq",
+     "가정"
+    ],
+    [
+     "한국 실제 배출량",
+     "650,000,000 tCO2eq",
+     "가정"
+    ]
+   ],
+   "ans": 300500000,
+   "tol": 1,
+   "unit": "tCO2eq",
+   "dec": 0,
+   "steps": [
+    "이전국(베트남)은 넘긴 ITMO만큼 배출량에 더한다: 300,000,000 + 500,000 = 300,500,000",
+    "취득국(한국)은 같은 양을 뺀다: 650,000,000 − 500,000 = 649,500,000",
+    "두 나라 조정 합계는 실제 배출 합계(950,000,000)와 같아 이중계산이 없다"
+   ],
+   "insight": "상응조정은 '감축량을 넘긴 나라가 손해 보는 장부 처리'다. 그래서 호스트 국가는 자기 NDC에 여유가 있을 때만 승인(authorisation)하려 하고, 이 승인 지연이 CORSIA·6.2조 거래의 가장 큰 병목이 된다.",
+   "sources": [
+    {
+     "label": "Addleshaw Goddard: Article 6 decoded",
+     "url": "https://www.addleshawgoddard.com/en/insights/insights-briefings/2026/finance/article-6-paris-agreement-decoded-guide-non-aficionados-carbon-markets"
+    },
+    {
+     "label": "IATA CORSIA Fact Sheet(승인서·상응조정 요건)",
+     "url": "https://www.iata.org/en/iata-repository/pressroom/fact-sheets/fact-sheet---corsia/"
+    }
+   ],
+   "confidence": "high",
+   "why": "상응조정은 '감축량을 넘긴 나라가 손해 보는 장부 처리'다. 그래서 호스트 국가는 자기 NDC에 여유가 있을 때만 승인(authorisation)하려 하고, 이 승인 지연이 CORSIA·6.2조 거래의 가장 큰 병목이 된다.",
+   "trap": "톤수, 배출집약도, 무상할당 계수의 적용 순서를 식으로 먼저 쓰고 계산하자."
+  },
+  {
+   "id": "markets-21",
+   "module": "markets",
+   "type": "calc",
+   "level": 2,
+   "tags": [
+    "EU ETS",
+    "이행 비용",
+    "무상할당"
+   ],
+   "ref": "ETS 지침 제10a조 1a항",
+   "topic": "EU 공장의 ETS 이행 비용",
+   "q": "EU 안의 철강 공장이 2026년에 500,000 tCO2를 배출한다. 2025년 무상할당은 400,000장이었고, 2026년에는 CBAM 계수 97.5%가 적용되어 그 비율만큼만 받는다. EUA 가격이 85 €/t일 때 부족분을 사는 비용은?",
+   "given": [
+    [
+     "2026년 배출량",
+     "500,000 tCO2",
+     "가정"
+    ],
+    [
+     "2025년 무상할당",
+     "400,000장",
+     "가정"
+    ],
+    [
+     "2026년 CBAM 계수",
+     "97.5%",
+     "ETS 지침 제10a조 1a항"
+    ],
+    [
+     "EUA 가격",
+     "85 €/t",
+     "가정(2026년 수준)"
+    ]
+   ],
+   "ans": 9350000,
+   "tol": 1000,
+   "unit": "€",
+   "dec": 0,
+   "steps": [
+    "2026년 무상할당 = 400,000 × 0.975 = 390,000장",
+    "부족분 = 500,000 − 390,000 = 110,000장",
+    "비용 = 110,000 × 85 = 9,350,000 €"
+   ],
+   "insight": "같은 공장이 2030년(계수 51.5%)이면 무상할당이 206,000장으로 줄어 부족분 294,000장, 비용은 약 2,500만 유로로 2.7배가 된다. 이 비용 상승이 EU 철강사의 전기로 전환과 수소환원제철 투자를 밀어붙이는 힘이다.",
+   "sources": [
+    {
+     "label": "ETS 지침 2003/87/EC 제10a조 1a항",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02003L0087-20240301"
+    },
+    {
+     "label": "GMK Center: 2026년 10월 EUA 88유로",
+     "url": "https://gmk.center/en/news/european-carbon-prices-rose-to-e88-t-in-october/"
+    }
+   ],
+   "confidence": "high",
+   "why": "같은 공장이 2030년(계수 51.5%)이면 무상할당이 206,000장으로 줄어 부족분 294,000장, 비용은 약 2,500만 유로로 2.7배가 된다. 이 비용 상승이 EU 철강사의 전기로 전환과 수소환원제철 투자를 밀어붙이는 힘이다.",
+   "trap": "톤수, 배출집약도, 무상할당 계수의 적용 순서를 식으로 먼저 쓰고 계산하자."
+  },
+  {
+   "id": "markets-22",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "CORSIA",
+    "항공",
+    "상쇄"
+   ],
+   "ref": "IATA CORSIA Fact Sheet(2026.6)",
+   "topic": "CORSIA 기준선과 단계",
+   "q": "ICAO의 국제항공 탄소상쇄제도 CORSIA에 대한 설명으로 맞는 것은?",
+   "options": [
+    "2024년부터 기준선은 2019년 배출량의 85%이며, 2024~2026년 1단계는 자발 참여국 간 노선만 적용되고 2027년부터는 소규모 국가 등 예외를 빼고 모든 국제노선에 적용된다",
+    "기준선은 2005년 배출량이고 모든 국제노선에 2021년부터 적용됐다",
+    "항공사는 EU ETS 배출권으로만 상쇄할 수 있다",
+    "CORSIA는 2030년에 종료된다"
+   ],
+   "ans": 0,
+   "why": "시범단계(2021~2023)는 2019년 배출량을, 2024년부터 2035년까지는 2019년의 85%를 기준선으로 쓴다. 1단계 참여국은 2026년 1월 기준 130개국이고, 2027년부터는 최빈국·소도서국·내륙개도국·국제 RTK 0.5% 미만 국가를 제외한 모든 국제노선이 대상이다. 상쇄에는 ICAO 이사회가 승인한 프로그램의 '적격 배출단위(EEU)'만 쓸 수 있고, 호스트국의 승인서(LoA)와 상응조정이 필요하다.",
+   "trap": "CORSIA 적격 단위는 자발적 시장 크레딧이면 다 되는 것이 아니다. 호스트국의 상응조정이 붙은 '6조 연계 크레딧'이어야 하며, 이 요건이 공급 부족의 원인이다.",
+   "sources": [
+    {
+     "label": "IATA CORSIA Fact Sheet",
+     "url": "https://www.iata.org/en/iata-repository/pressroom/fact-sheets/fact-sheet---corsia/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-23",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "VCMI",
+    "크레딧 사용 주장",
+    "Claims Code"
+   ],
+   "ref": "VCMI Carbon Integrity Claims",
+   "topic": "VCMI 실버·골드·플래티넘 기준",
+   "q": "VCMI Claims Code의 'Carbon Integrity' 주장 등급은 해당 연도의 잔여 배출량 중 고품질 크레딧으로 상쇄(소각)한 비율로 정해진다. 등급별 최소 비율은?",
+   "options": [
+    "실버 10% 이상, 골드 50% 이상, 플래티넘 100% 이상",
+    "실버 25% 이상, 골드 75% 이상, 플래티넘 100% 이상",
+    "실버 5% 이상, 골드 20% 이상, 플래티넘 50% 이상",
+    "실버 50% 이상, 골드 80% 이상, 플래티넘 120% 이상"
+   ],
+   "ans": 0,
+   "why": "VCMI는 실버(잔여 배출의 10% 이상), 골드(50% 이상), 플래티넘(100% 이상)의 세 등급을 둔다. 중요한 전제는 크레딧 사용이 자체 감축을 '대신'하는 것이 아니라 과학 기반 감축 경로를 지키면서 '추가로' 하는 것이어야 한다는 점이고, 2025년 4월 개정으로 SBTi 검증을 반드시 거치지 않아도 신뢰할 수 있는 다른 틀을 쓸 수 있게 됐다.",
+   "trap": "VCMI 등급을 '넷제로 달성 증명'으로 쓰면 안 된다. VCMI는 크레딧 주장이 '상쇄(offsetting)'로 쓰일 수 없다고 명시한다.",
+   "sources": [
+    {
+     "label": "VCMI: What are Carbon Integrity Claims",
+     "url": "https://help.vcmintegrity.org/help/what-are-carbon-integrity-claims"
+    },
+    {
+     "label": "VCMI Claims Code of Practice",
+     "url": "https://vcmintegrity.org/vcmi-claims-code-of-practice/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-24",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "국제감축",
+    "NDC",
+    "한국"
+   ],
+   "ref": "탄소중립 기본계획(2023)·2035 NDC(2025.11)",
+   "topic": "한국의 국제감축 목표와 현황",
+   "q": "한국의 국제감축(국외감축) 정책에 대한 설명으로 맞는 것은?",
+   "options": [
+    "2030 NDC에서 3,750만 tCO2eq를 국제감축으로 채우기로 했고, 2025년 11월 확정된 2035 NDC는 2018년 대비 53~61% 감축이며, 2026년 볼리비아 등과 파리협정 6조 기반 협력 MOU를 맺고 있다",
+    "한국은 국제감축을 NDC에 포함하지 않고 전량 국내 감축으로만 달성한다",
+    "2030 NDC 국제감축 목표는 1억 톤이며 이미 90% 이상 확보됐다",
+    "2035 NDC는 2018년 대비 40% 감축으로 2030 NDC와 같다"
+   ],
+   "ans": 0,
+   "why": "2023년 탄소중립 기본계획은 2030년 국제감축 3,750만 톤(전체 감축량의 약 13%)을 설정했지만, 2025년 4월 공개된 심의회 자료에 따르면 확보량은 연 19.5만 톤 수준(약 0.5%)에 그쳤다. 2035 NDC(2018년 대비 53~61%)는 2025년 11월 10일 탄녹위 의결·11일 국무회의를 거쳐 12월 UN에 제출됐고, 2026년 4월 기후에너지환경부가 볼리비아와 매립가스 사업 등 6조 협력 MOU를 체결했다.",
+   "trap": "국제감축 '목표'와 '확보 실적'의 차이가 매우 크다. 컨설팅 자료에 목표치만 적고 실적을 빼면 고객이 잘못된 판단을 한다.",
+   "sources": [
+    {
+     "label": "더나은미래: 국제감축 현황(2025.4)",
+     "url": "https://futurechosun.com/archives/tag/국제감축"
+    },
+    {
+     "label": "뉴시스: 2035 NDC 53~61% 확정",
+     "url": "https://www.newsis.com/view/NISX20251110_0003397077"
+    },
+    {
+     "label": "KDI 경제정보센터: 한-볼리비아 국제감축 MOU(2026.4.24)",
+     "url": "https://eiec.kdi.re.kr/policy/materialView.do?num=280156"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-25",
+   "module": "markets",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "탄소가격",
+    "EUA",
+    "KAU"
+   ],
+   "ref": "GMK Center·아시아경제(2026)",
+   "topic": "EU와 한국 탄소가격 수준 비교",
+   "q": "2026년 10월 기준으로 EU 배출권(EUA)과 한국 배출권(KAU) 가격 수준을 대략 바르게 설명한 것은?",
+   "options": [
+    "EUA는 2025년 평균 약 74유로, 2026년 하반기 약 82~88유로 수준이고, KAU는 2025년 1만 원 아래에서 2026년 6월 약 3만 원 근처까지 올랐다",
+    "EUA는 2026년 내내 30유로 아래였고 KAU는 10만 원을 넘었다",
+    "EUA와 KAU는 2026년에 모두 약 50유로 수준으로 비슷했다",
+    "EUA는 2025년 평균 150유로였고 KAU는 변동 없이 8천 원이었다"
+   ],
+   "ans": 0,
+   "why": "Montel 자료 기준 EUA 2025년 평균은 74.31유로, 2025년 12월 15일 85유로(2년 최고), 2026년 8월 평균 82.3유로, 9월 평균 85.6유로, 10월 12일 88.3유로였다. K-ETS는 2025년 1만 원 미만에서 2026년 1월 경매 10,700원, 6월 경매 26,450원, 6월 9일 장중 29,700원까지 올랐다. 환율 1,600원/유로로 보면 KAU(약 15~19유로)는 EUA의 약 20% 수준이다.",
+   "trap": "탄소가격은 날마다 바뀌므로 '약 ~, ~년 ~월 기준'이라고 꼭 날짜를 붙여야 한다. 특정 수치를 고정값처럼 보고서에 쓰면 금방 틀린 숫자가 된다.",
+   "sources": [
+    {
+     "label": "GMK Center: 2025년 12월 EUA 2년 최고",
+     "url": "https://gmk.center/news/evropejskie-ceny-na-uglerod-v-dekabre-dostigli-dvuhletnego-maksimuma/amp/"
+    },
+    {
+     "label": "GMK Center: 2026년 10월 EUA 88유로",
+     "url": "https://gmk.center/en/news/european-carbon-prices-rose-to-e88-t-in-october/"
+    },
+    {
+     "label": "아시아경제: 반년 새 2.5배 오른 배출권(2026.6)",
+     "url": "https://view.asiae.co.kr/article/2026061122461262993"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-26",
+   "module": "markets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "CBAM",
+    "탄소가격 공제",
+    "K-ETS"
+   ],
+   "ref": "규정(EU) 2025/2083 제9조",
+   "topic": "국내 탄소가격 공제 요건 판단",
+   "q": "한국 철강사가 EU 고객에게 'K-ETS 대상 사업장이니 KAU 시장가격 × 전체 배출량만큼 CBAM에서 공제받을 수 있다'고 안내하려 한다. 이 사업장은 배출량의 대부분을 무상할당으로 받았다. 컨설턴트의 바른 조언은?",
+   "options": [
+    "공제는 '실제로 지불한' 탄소가격만 인정되므로 무상할당분·환급분을 뺀 순지불액을 산정하고 독립 검증을 받아야 하며, 2027년부터 집행위가 국가별 기본 탄소가격을 공표할 수 있으며(may), 공표되면 기본값 신고 시 그것을 쓸 수 있다",
+    "K-ETS 대상이라는 사실만 증명하면 KAU 시장가격 전체가 자동 공제된다",
+    "한국은 EU ETS와 연계되지 않았으므로 어떤 공제도 불가능하다",
+    "무상할당을 받았어도 시장가격 기준으로 전액 공제받을 수 있다"
+   ],
+   "ans": 0,
+   "why": "개정규정 제9조는 제3국 탄소가격 공제를 '실제 지불(effectively paid)'한 경우에만 허용하고 환급·보상을 반영하도록 한다. 실제 가격은 독립 인증을 받고 4년간 기록을 보관해야 한다. 제9조 4항은 2027년부터 집행위가 공표하는 연간 기본 탄소가격을 대신 쓸 수 있게 했다. 무상할당으로 받은 배출권은 지불한 돈이 아니므로 공제 대상이 아니다.",
+   "trap": "'K-ETS 적용 사업장 = 탄소가격을 낸 사업장'으로 단순화하면 큰 오류다. 한국은 무상할당 비율이 높아 실제 지불액이 시장가격 × 배출량보다 훨씬 작다.",
+   "sources": [
+    {
+     "label": "규정(EU) 2025/2083 원문 제9조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2083"
+    },
+    {
+     "label": "HSF Kramer: 탄소가격 공제(순액·인증·4년 보관)",
+     "url": "https://www.hsfkramer.com/notes/energy/2026-posts/operationalisation-and-simplification-of-the-eu-cbam"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-27",
+   "module": "markets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "CBAM",
+    "50톤 기준",
+    "수소"
+   ],
+   "ref": "규정(EU) 2025/2083 제2a조",
+   "topic": "소량 수입자의 면제 여부 판단",
+   "q": "한 EU 화학회사가 2026년에 한국산 알루미늄 부품 30톤과 한국산 수소 5톤을 수입할 계획이다. 담당자는 '합쳐도 35톤이라 50톤 기준 아래이니 CBAM 의무가 없다'고 판단했다. 맞는 처리는?",
+   "options": [
+    "알루미늄 30톤은 면제 대상에 들어가지만 수소에는 50톤 기준이 적용되지 않으므로, 수소 5톤 때문에 승인 신고인 등록과 신고·인증서 의무가 생긴다",
+    "합계 35톤이 50톤 미만이므로 전체가 면제된다",
+    "수소는 CBAM 품목이 아니므로 알루미늄 30톤만 보면 되고 면제다",
+    "알루미늄은 전력을 많이 쓰는 품목이라 면제 대상이 아니고 수소만 면제된다"
+   ],
+   "ans": 0,
+   "why": "개정규정 제2a조는 50톤 기준이 '전력 또는 수소 수입에는 적용되지 않는다'고 명시한다. 따라서 수소는 1톤이라도 수입하면 승인 신고인이어야 하고 신고·인증서 의무가 생긴다. 알루미늄 30톤만 있었다면 면제였다. 두 품목의 의무가 따로 돌아가는 것이 아니라, 수소 때문에 신고인이 된 수입자는 전체 CBAM 품목을 신고해야 한다.",
+   "trap": "50톤 기준을 '모든 CBAM 품목 합산 면제'로 외우면 전력·수소에서 실수한다. 또 간접 관세대리인을 통한 수입에도 기준 적용이 불명확하므로 보수적으로 봐야 한다.",
+   "sources": [
+    {
+     "label": "규정(EU) 2025/2083 원문 제2a조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2083"
+    },
+    {
+     "label": "EY: CBAM Omnibus(전력·수소 임계값 없음)",
+     "url": "https://www.ey.com/en_gl/technical/tax-alerts/eu-adopts-cbam-omnibus-regulation"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-28",
+   "module": "markets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "CBAM",
+    "과징금",
+    "임계값 초과"
+   ],
+   "ref": "CBAM 규정 제26조(2025 개정)",
+   "topic": "임계값 초과와 과징금 구조",
+   "q": "EU 수입자가 승인 신고인 등록 없이 2026년 한 해 한국산 철강 54톤을 들여왔다(50톤 기준의 8% 초과). 이 경우 CBAM 과징금 처리로 맞는 것은?",
+   "options": [
+    "임계값을 넘겼으므로 그해 수입 전체의 내재배출량을 기준으로 과징금이 매겨지며, 초과폭이 임계값의 10% 이내라 감경이 가능하다",
+    "초과한 4톤에 해당하는 배출량에만 과징금이 붙는다",
+    "50톤을 조금 넘긴 경우는 과징금이 전혀 없다",
+    "과징금은 EU ETS 가격의 절반으로 고정된다"
+   ],
+   "ans": 0,
+   "why": "개정규정 제26조는 임계값을 넘긴 미등록 수입자에게 그해 전체 내재배출량을 기준으로 과징금을 부과하되, 초과폭이 임계값의 10% 이내면 감경할 수 있게 했다. 승인 신고인이 인증서를 부족하게 제출한 경우의 과징금은 EU ETS 초과배출 과징금(ETS 지침 제16조 3항, 물가연동 인상분 포함)과 같은 수준이고, 승인 없이 들여온 자에게는 그 3~5배가 적용된다.",
+   "trap": "'초과분에만 과징금'이라고 생각하면 위험을 크게 과소평가한다. 임계값 근처 수입자는 50톤 안에 확실히 머물거나 미리 등록해야 한다.",
+   "sources": [
+    {
+     "label": "규정(EU) 2025/2083 원문 제26조",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2083"
+    },
+    {
+     "label": "규정(EU) 2023/956 원문 제26조(3~5배 규정)",
+     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0956"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-29",
+   "module": "markets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "CBAM",
+    "범위 확대",
+    "자동차 부품"
+   ],
+   "ref": "EU 집행위 CBAM 확대 법안(2025.12.17)",
+   "topic": "하류 제품 확대 제안의 현재 지위",
+   "q": "한 자동차 부품사가 '2026년부터 EU로 수출하는 모든 철강 부품에 CBAM 인증서를 사야 한다'는 소식을 듣고 급히 대응을 요청했다. 2026년 10월 기준 컨설턴트의 바른 설명은?",
+   "options": [
+    "현재 CBAM은 철강 원자재·반제품(CN 72·73류 등) 중심이며, 자동차 부품 등 약 180개 하류 제품으로 넓히는 것은 2025년 12월 집행위가 낸 '법안'으로 2028년 1월 1일 시행을 목표로 의회·이사회 심의 중이다. 따라서 지금은 부품의 철강 함량과 공급망 배출 데이터를 미리 정비할 때다",
+    "2026년 1월 1일부터 모든 철강 함유 제품이 이미 CBAM 대상이므로 즉시 인증서를 사야 한다",
+    "자동차 부품은 영구히 CBAM 대상에서 제외되므로 아무 준비도 필요 없다",
+    "하류 제품 확대는 이미 2027년 시행이 확정됐다"
+   ],
+   "ans": 0,
+   "why": "집행위는 2025년 12월 16~17일 이행 패키지와 함께 철강·알루미늄 집약 하류 제품 약 180개 카테고리(자동차 부품, 가전, 건설자재, 변압기, 케이블, 농기계 등)를 2028년 1월 1일부터 포함하는 법안을 발표했다. 약 7,500개 수입자가 추가될 것으로 추정되며 스크랩을 전구체로 보는 우회 방지 조항도 담겼다. 아직 입법 절차 중이므로 '현행 의무'로 설명하면 틀리다. 현대자동차 보고서도 1·2차 협력사 25개사에 CBAM 대응 컨설팅을 지원한다고 적고 있다.",
+   "trap": "제안(proposal)과 시행 중인 법을 구분하지 않는 것이 가장 흔한 실수다. 반대로 '제안이니 무시'도 틀리다. 2028년 시행 시 부품 단위 배출 데이터가 바로 필요하다.",
+   "sources": [
+    {
+     "label": "CMS: CBAM 이행 패키지와 확대 제안",
+     "url": "https://cms.law/en/gbr/legal-updates/cbam-implementation-package-published-and-proposals-for-future-expansion"
+    },
+    {
+     "label": "ICAP: EU CBAM 본격 시행 개요(180개 하류 제품)",
+     "url": "https://icapcarbonaction.com/en/news/eu-cbam-enters-compliance-phase-and-outlines-path-ahead"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.30",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-30",
+   "module": "markets",
+   "type": "calc",
+   "level": 3,
+   "tags": [
+    "파리협정 6.4조",
+    "OMGE",
+    "적응기금"
+   ],
+   "ref": "6.4조 메커니즘 규칙(결정 3/CMA.3)",
+   "topic": "A6.4ER 발행 시 자동 공제",
+   "q": "한국 기업이 참여한 6.4조(PACM) 사업에서 A6.4ER 100,000개가 발행되어 처음 이전된다. 지구 전체 감축(OMGE)을 위한 최소 2% 자동 취소와 적응기금으로 가는 5%의 수익 배분(share of proceeds)을 발행량 기준으로 단순 적용하면, 참여자가 실제로 쓸 수 있는 단위는 몇 개인가?",
+   "given": [
+    [
+     "발행량",
+     "100,000 A6.4ER",
+     "가정"
+    ],
+    [
+     "OMGE 최소 취소율",
+     "2%",
+     "Carbon Market Institute 6.4조 팩트시트"
+    ],
+    [
+     "적응기금 수익 배분(첫 이전 시)",
+     "5%",
+     "Carbon Market Institute 6.4조 팩트시트"
+    ]
+   ],
+   "ans": 93000,
+   "tol": 1,
+   "unit": "개",
+   "dec": 0,
+   "steps": [
+    "OMGE 취소 = 100,000 × 2% = 2,000개",
+    "적응기금 배분 = 100,000 × 5% = 5,000개",
+    "사용 가능 = 100,000 − 2,000 − 5,000 = 93,000개"
+   ],
+   "insight": "6.4조 단위는 CDM 시절 CER과 달리 발행 단계에서 7%가 자동으로 빠지고, 여기에 발행 수수료의 3%가 추가로 적응기금에 간다. 한국이 국제감축에 6.4조 단위를 쓰려면 이 공제와 호스트국의 '승인(authorised) A6.4ER' 지정이 모두 필요하다. 승인되지 않은 '감축기여(mitigation contribution)' 단위는 NDC 달성에 쓸 수 없다.",
+   "sources": [
+    {
+     "label": "Carbon Market Institute: Article 6.4 Factsheet",
+     "url": "https://carbonmarketinstitute.org/app/uploads/2024/12/Article-6.4-Factsheet.pdf"
+    },
+    {
+     "label": "UNFCCC Article 6.4 mechanism",
+     "url": "https://unfccc.int/process-and-meetings/the-paris-agreement/article-64-mechanism"
+    }
+   ],
+   "confidence": "high",
+   "why": "6.4조 단위는 CDM 시절 CER과 달리 발행 단계에서 7%가 자동으로 빠지고, 여기에 발행 수수료의 3%가 추가로 적응기금에 간다. 한국이 국제감축에 6.4조 단위를 쓰려면 이 공제와 호스트국의 '승인(authorised) A6.4ER' 지정이 모두 필요하다. 승인되지 않은 '감축기여(mitigation contribution)' 단위는 NDC 달성에 쓸 수 없다.",
+   "trap": "톤수, 배출집약도, 무상할당 계수의 적용 순서를 식으로 먼저 쓰고 계산하자."
+  },
+  {
+   "id": "markets-31",
+   "module": "markets",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "ICVCM",
+    "재생에너지 크레딧",
+    "VCMI"
+   ],
+   "ref": "ICVCM 평가 결정(2024.8)·Assessment Status",
+   "topic": "재생에너지 크레딧의 CCP 적격성",
+   "q": "한 제조회사가 VCMI 골드 등급 주장을 위해 Verra에 등록된 인도 태양광 발전 사업(CDM 계통연계 재생에너지 방법론)의 VCU를 대량 구매했다. 컨설턴트의 바른 판단은?",
+   "options": [
+    "Verra는 CCP-Eligible 프로그램이지만 ICVCM이 2024년 8월 기존 재생에너지 방법론 8개를 추가성 부족으로 CCP 부적격 판정했으므로 이 VCU에는 CCP 라벨이 붙지 않으며, 고품질 크레딧 요건을 충족하는지 다시 검토해야 한다",
+    "Verra가 CCP-Eligible 프로그램이므로 모든 VCU가 자동으로 CCP 라벨을 받아 문제없다",
+    "재생에너지 크레딧은 제거 크레딧이므로 가장 높은 품질로 인정된다",
+    "ICVCM 결정은 Gold Standard에만 적용되고 Verra에는 적용되지 않는다"
+   ],
+   "ans": 0,
+   "why": "ICVCM은 2024년 8월 CDM 기반 재생에너지 방법론 8개(계통연계 재생전력, 바이오매스 발전·열 등)가 추가성 입증에서 충분히 엄격하지 않다며 CCP 부적격으로 결정했다. 이 결정은 미소각 크레딧 2억 3,600만 개(전체의 약 3분의 1)에 영향을 줬다. Verra·Gold Standard가 모두 CCP-Eligible 프로그램이라도 라벨은 방법론 단위로 붙으므로, 승인 방법론(예: ARR VM0047, 바이오차 VM0044, CCS VM0049) 크레딧인지 확인해야 한다.",
+   "trap": "'대형 인증기관 크레딧 = 고품질'이라는 등식은 더 이상 성립하지 않는다. 프로그램 적격성과 방법론 승인을 따로 확인하고, 재생에너지 크레딧은 가장 먼저 의심해야 한다.",
+   "sources": [
+    {
+     "label": "Eco-Business: 재생에너지 방법론 CCP 부적격(2024.8.6)",
+     "url": "https://www.eco-business.com/ms/news/no-high-integrity-label-for-carbon-credits-based-on-current-renewable-energy-methodologies-icvcm/"
+    },
+    {
+     "label": "ICVCM Assessment Status",
+     "url": "https://icvcm.org/assessment-status/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "markets-32",
+   "module": "markets",
+   "type": "judge",
+   "level": 3,
+   "tags": [
+    "CBAM",
+    "기후 위험",
+    "현대차 보고서"
+   ],
+   "ref": "IFRS S2 기후 관련 위험 식별(전환 위험)",
+   "topic": "현대차 보고서의 CBAM 위험 식별",
+   "q": "현대자동차 2026 지속가능성 보고서가 EU CBAM을 자사 가치사슬의 전환 위험(규제 위험)으로 명시적으로 식별하고 영향(비용) 경로를 적었는지 확인하라.",
+   "look": "기후 위험·기회 표에서 '업스트림' 구간의 규제 항목과 그 재무 영향 설명",
+   "page": 19,
+   "ans": "있음",
+   "quote": "규제: EU 탄소국경조정제도(CBAM), EU 산림전용방지규정(EUDR) • 원재료의 가격 상승 또는 대체 원재료 확보로 인한 구매 비용이 상승할 수 있으며, 관련 규제 위반 시 과징금 등의 금전적 페널티를 부과받을 수 있습니다.",
+   "why": "보고서 19쪽은 기후변화 완화 영역의 업스트림 규제 위험으로 CBAM과 EUDR을 함께 들고, 원재료 구매비 상승과 과징금이라는 비용 경로, 중기~장기 시간대까지 명시한다. 23쪽에서는 CBAM 본격 시행에 따른 유럽 수출품 탄소비용 부담 증가를 '신규 규제'로, 30쪽에서는 협력사 25개사에 CBAM 대응 컨설팅 지원을 적어 위험 식별과 대응이 연결된다.",
+   "trap": "'CBAM'이라는 단어가 있는지만 보고 끝내면 안 된다. 위험 식별은 원인(규제)-경로(원재료비·과징금)-시간대(중·장기)-대응(협력사 지원)이 이어져야 완결된 공시다. 다만 이 보고서는 CBAM 비용을 금액으로 추정하지는 않았다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.19",
+     "url": "report"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.23",
+     "url": "report"
+    },
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.30",
+     "url": "report"
+    }
+   ],
+   "confidence": "high"
+  }
+ ]
+}

@@ -1,0 +1,1233 @@
+{
+ "module": "ifrs-s1",
+ "lesson": {
+  "title": "IFRS S1 — 지속가능성 공시의 '총칙'",
+  "summary": "IFRS S1은 ISSB(국제지속가능성기준위원회)가 2023년 6월에 낸 첫 기준서로, 기후를 포함한 모든 지속가능성 정보를 '어떻게' 공시해야 하는지 정한 총칙이다. 기후 기준서인 IFRS S2와 한국 KSSB 제1호가 모두 이 틀 위에 서 있으므로, 컨설턴트는 S1의 개념(누구를 위한 정보인가, 무엇이 중요한가, 언제·어디에 내는가)을 먼저 잡아야 S2의 세부 요구사항을 올바르게 적용할 수 있다.",
+  "sections": [
+   {
+    "h": "누구를 위한 정보인가 — 주요 이용자",
+    "body": "IFRS S1의 목적은 '일반목적재무보고서(투자자용 보고서)'를 읽는 사람이 회사에 돈을 댈지 결정할 때 쓸 수 있는 지속가능성 정보를 공시하게 하는 것이다. 이 사람들을 '주요 이용자(primary users)'라고 부르며, 기존·잠재 투자자, 대여자(돈을 빌려준 사람), 그 밖의 채권자를 뜻한다. 환경단체·소비자 등 모든 이해관계자를 위한 GRI와 다르게, S1은 투자자 관점에 초점을 맞춘 '재무적 중요성' 기준이다."
+   },
+   {
+    "h": "무엇을 공시하나 — 전망에 영향을 줄 수 있는 위험·기회",
+    "body": "S1은 회사의 '전망(prospects)'에 합리적으로 영향을 줄 수 있다고 예상되는 지속가능성 위험과 기회를 다룬다. 전망이란 단기·중기·장기의 현금흐름, 자금조달 접근성, 자본비용을 뜻한다. 회사가 자원과 관계(사람, 자연, 공급망 등)에 의존하거나 그것에 영향을 주면 거기서 위험·기회가 생긴다. 이렇게 '회사 밖에 미치는 영향'은 그것이 회사 전망에 되돌아올 때만 공시 대상이 된다."
+   },
+   {
+    "h": "중요성과 공정한 표시",
+    "body": "정보를 빠뜨리거나, 잘못 적거나, 흐리게 적었을 때 주요 이용자의 결정에 영향을 줄 수 있다고 합리적으로 예상되면 그 정보는 '중요(material)'하다(문단 18). 중요성 판단은 회사마다 다르고 매 보고일에 다시 판단한다. 중요한 정보를 가리는 합산(aggregation)은 금지되며, 반대로 중요하지 않은 정보는 기준서가 요구하더라도 생략할 수 있다. ISSB는 '중요한 위험'이 아니라 '중요한 정보'라는 말을 쓴다는 점도 기억해야 한다."
+   },
+   {
+    "h": "4개 핵심 요소와 연결된 정보",
+    "body": "TCFD 권고안을 그대로 이어받아 거버넌스, 전략, 위험관리, 지표 및 목표의 4개 요소로 공시한다. 거기에 S1만의 특징이 '연결된 정보(connected information)'다. 지속가능성 공시는 재무제표와 같은 보고실체(연결재무제표라면 모회사+자회사)를 대상으로 하고, 어느 재무제표와 짝인지 밝히고, 같은 데이터·가정·통화를 써야 한다. 기후 위험이 어떤 재무제표 항목에 영향을 주는지 설명하는 것이 연결된 정보의 대표 예다."
+   },
+   {
+    "h": "기준이 없을 때 참고할 곳 — 지침의 원천",
+    "body": "ISSB 기준서가 없는 주제(예: 생물다양성, 인적자본)는 회사가 판단해 공시한다. 이때 SASB 기준의 산업별 공시 주제와 지표는 '반드시 참고하고 적용 가능성을 고려'해야 하고(shall), CDSB 수자원·생물다양성 지침, 다른 기준제정기구의 발표, 같은 산업 동료 회사의 공시, GRI 기준, 유럽 ESRS는 '고려할 수 있다'(may)로 나뉜다. 단, ISSB 기준과 충돌하지 않는 범위에서만 쓸 수 있다."
+   },
+   {
+    "h": "언제, 어디에, 어떻게 내나",
+    "body": "지속가능성 공시는 재무제표와 '같은 시점'에, 일반목적재무보고서의 일부로 낸다(경영진 보고서, 연차보고서 등 위치는 다양할 수 있다). 다른 보고서를 정확히 가리키는 상호참조도 허용된다. 모든 금액은 전기 비교정보를 함께 보여 주고, 중요한 판단과 측정 불확실성이 큰 금액을 밝히고, 전기 오류는 비교정보를 다시 적어 고친다. 모든 요구사항을 충족할 때만 '명시적이고 유보 없는 준수 선언'을 할 수 있다."
+   },
+   {
+    "h": "처음 적용할 때의 완화조치",
+    "body": "첫 적용연도에는 (1) 기후만 먼저 공시(기후 우선), (2) 비교정보 생략, (3) 재무제표보다 늦게 — 반기보고서와 함께 또는 9개월 이내 — 공시가 허용된다. IFRS S2 쪽에는 Scope 3 생략과 GHG 프로토콜 외 방법 유지 완화가 있다. 기후 우선을 쓴 회사는 2년차에 기후 외 주제의 비교정보를 내지 않아도 된다. 완화조치를 썼다는 사실은 반드시 밝혀야 한다."
+   },
+   {
+    "h": "2025–2026년 동향과 KSSB 제1호",
+    "body": "ISSB는 2025년 12월 IFRS S2의 온실가스 공시 요구사항을 손질한 개정(2027년 1월 1일 이후 개시 회계연도부터, 조기적용 가능)을 냈지만 S1 본문은 바꾸지 않았다. 대신 S1 적용을 돕는 교육자료(중요성 2024.11, 기후만 공시 2025.1, 예상 재무영향 2025.8)를 꾸준히 내고 있다. 한국은 2026년 2월 26일 KSSB 제1호(S1 기반)·제2호(S2 기반)를 확정했고, 금융위원회는 2026년 7월 최종안에서 사업보고서 법정공시로 넣기로 했다(자본시장법 개정 추진 예정)."
+   }
+  ],
+  "terms": [
+   {
+    "t": "주요 이용자",
+    "d": "회사에 돈을 댈지 결정하는 기존·잠재 투자자, 대여자, 그 밖의 채권자.",
+    "en": "primary users"
+   },
+   {
+    "t": "일반목적재무보고서",
+    "d": "투자자 등 외부 이용자를 위해 회사가 내는 보고서 묶음으로, 재무제표와 지속가능성 공시가 함께 들어간다.",
+    "en": "general purpose financial reports"
+   },
+   {
+    "t": "중요성",
+    "d": "빠뜨리거나 잘못 적으면 주요 이용자의 결정에 영향을 줄 수 있는 정보의 성질.",
+    "en": "materiality"
+   },
+   {
+    "t": "전망",
+    "d": "회사의 단기·중기·장기 현금흐름, 자금조달 접근성, 자본비용을 아울러 부르는 말.",
+    "en": "prospects"
+   },
+   {
+    "t": "공정한 표시",
+    "d": "중요한 위험·기회를 빠짐없이, 중립적이고 정확하게 보여 주는 것.",
+    "en": "fair presentation"
+   },
+   {
+    "t": "연결된 정보",
+    "d": "위험·기회 사이, 4개 핵심 요소 사이, 지속가능성 공시와 재무제표 사이의 관계를 설명하는 정보.",
+    "en": "connected information"
+   },
+   {
+    "t": "보고실체",
+    "d": "공시가 다루는 회사의 범위로, 재무제표(연결재무제표)와 같아야 한다.",
+    "en": "reporting entity"
+   },
+   {
+    "t": "합산",
+    "d": "여러 항목을 하나로 묶어 보여 주는 것. 중요한 정보를 가리면 금지된다.",
+    "en": "aggregation"
+   },
+   {
+    "t": "지침의 원천",
+    "d": "ISSB 기준서가 없는 주제를 공시할 때 참고하는 SASB, CDSB, GRI, ESRS 같은 자료.",
+    "en": "sources of guidance"
+   },
+   {
+    "t": "합리적이고 뒷받침되는 정보",
+    "d": "보고일에 과도한 비용이나 노력 없이 구할 수 있는, 근거 있는 정보.",
+    "en": "reasonable and supportable information"
+   },
+   {
+    "t": "측정 불확실성",
+    "d": "직접 측정할 수 없어 추정해야 할 때 생기는 숫자의 불확실한 정도.",
+    "en": "measurement uncertainty"
+   },
+   {
+    "t": "전기 오류",
+    "d": "지난 보고기간 공시에서 빠뜨리거나 잘못 적은 것. 비교정보를 다시 적어 고친다.",
+    "en": "prior period errors"
+   },
+   {
+    "t": "준수 선언",
+    "d": "ISSB 기준의 모든 요구사항을 지켰을 때만 할 수 있는 명시적이고 유보 없는 선언.",
+    "en": "statement of compliance"
+   },
+   {
+    "t": "전환 완화조치",
+    "d": "처음 기준을 적용하는 해에 일부 요구사항을 늦추거나 생략하게 해 주는 규정.",
+    "en": "transition relief"
+   },
+   {
+    "t": "상업적으로 민감한 정보",
+    "d": "공개하면 회사의 경제적 이익을 심각하게 해칠 수 있는 '기회'에 관한 정보. 엄격한 조건에서 생략 가능.",
+    "en": "commercially sensitive information"
+   }
+  ],
+  "sources": [
+   {
+    "label": "IFRS S1 기준서 페이지 (ifrs.org)",
+    "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/"
+   },
+   {
+    "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+   },
+   {
+    "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+    "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+   },
+   {
+    "label": "ISSB 교육자료: 중요한 정보의 공시 (2024.11)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/issb-materiality-education-material.pdf"
+   },
+   {
+    "label": "ISSB 교육자료: 기후만 공시할 때 IFRS S1 적용 (2025.1)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/applying-ifrs-s1-reporting-only-climate-related-disclosures-accordance-ifrs-s2.pdf"
+   },
+   {
+    "label": "ISSB 교육자료: 예상 재무영향 공시 (2025.8)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/disclosing-information-anticipated-financial-effects.pdf"
+   },
+   {
+    "label": "ESRS–ISSB 상호운용성 가이던스 (2024.5)",
+    "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+   },
+   {
+    "label": "ISSB: IFRS S2 온실가스 공시 개정 (2025.12)",
+    "url": "https://www.ifrs.org/projects/completed-projects/2025/amendments-to-disclosure-of-greenhouse-gas-emissions-s2/"
+   },
+   {
+    "label": "삼일PwC 이슈브리프: ESG 공시 로드맵·KSSB 기준",
+    "url": "https://www.pwc.com/kr/ko/insights/issue-brief/samilpwc_esg-disclosure-roadmap.pdf"
+   },
+   {
+    "label": "ifrs.org: IFRS S1 지원자료 목록",
+    "url": "https://www.ifrs.org/supporting-implementation/supporting-materials-for-ifrs-sustainability-disclosure-standards/ifrs-s1/"
+   }
+  ]
+ },
+ "items": [
+  {
+   "id": "ifrs-s1-01",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "주요 이용자",
+    "목적"
+   ],
+   "ref": "IFRS S1 문단 1–2, IG1–IG6",
+   "topic": "주요 이용자의 범위",
+   "q": "IFRS S1이 말하는 '주요 이용자(primary users)'는 누구인가?",
+   "options": [
+    "기존·잠재 투자자, 대여자, 그 밖의 채권자",
+    "회사의 모든 이해관계자(임직원, 지역사회, NGO 포함)",
+    "정부와 금융감독 당국",
+    "회사의 이사회와 경영진"
+   ],
+   "ans": 0,
+   "why": "S1의 목적은 일반목적재무보고서 이용자가 회사에 자원을 제공할지 결정할 때 쓸 정보를 공시하게 하는 것이다. 그 이용자는 기존·잠재 투자자, 대여자, 그 밖의 채권자이며, 이들의 공통된 정보 수요를 맞추는 것이 목표다.",
+   "trap": "GRI처럼 '모든 이해관계자'를 떠올리면 틀린다. S1은 투자자 관점의 재무적 중요성 기준이다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "IFRS S1 Accompanying Guidance (IG·IE)",
+     "url": "https://standards.aasb.gov.au/sites/default/files/2024-10/IFRS-S1_AG_06-23.pdf"
+    },
+    {
+     "label": "ISSB 교육자료: 중요한 정보의 공시 (2024.11)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/issb-materiality-education-material.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "Primary users are existing and potential investors, lenders and other creditors."
+  },
+  {
+   "id": "ifrs-s1-02",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "중요성",
+    "정의"
+   ],
+   "ref": "IFRS S1 문단 18",
+   "topic": "중요성의 정의",
+   "q": "IFRS S1 문단 18의 중요성(materiality) 정의로 옳은 것은?",
+   "options": [
+    "정보를 빠뜨리거나, 잘못 적거나, 흐리게 적었을 때 주요 이용자의 결정에 영향을 줄 수 있다고 합리적으로 예상되면 중요하다",
+    "회사가 환경·사회에 미치는 영향이 크면 중요하다",
+    "금액이 매출의 5%를 넘으면 중요하다",
+    "이해관계자 설문에서 상위 10위에 들면 중요하다"
+   ],
+   "ans": 0,
+   "why": "S1의 정의는 IFRS 회계기준의 중요성 정의와 같은 뼈대다. '빠뜨림·잘못 적음·흐리게 적음(omitting, misstating or obscuring)'이 주요 이용자의 결정에 영향을 줄 수 있는지가 기준이며, 고정된 숫자 임계값은 없다.",
+   "trap": "회계감사에서 쓰는 수치 기준(예: 매출의 5%)을 그대로 가져오면 안 된다. 중요성은 회사별·정보별로 성질과 크기를 함께 보고 판단한다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    },
+    {
+     "label": "ISSB 교육자료: 중요한 정보의 공시 (2024.11)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/issb-materiality-education-material.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "information is material if omitting, misstating or obscuring that information could reasonably be expected to influence decisions"
+  },
+  {
+   "id": "ifrs-s1-03",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "핵심 요소",
+    "TCFD"
+   ],
+   "ref": "IFRS S1 문단 25–53",
+   "topic": "4개 핵심 요소",
+   "q": "IFRS S1이 요구하는 공시의 4개 핵심 요소(core content)를 바르게 묶은 것은?",
+   "options": [
+    "거버넌스, 전략, 위험관리, 지표 및 목표",
+    "환경, 사회, 지배구조, 경제",
+    "영향, 위험, 기회, 재무효과",
+    "정책, 행동, 목표, 성과"
+   ],
+   "ans": 0,
+   "why": "S1은 TCFD 권고안의 4개 기둥을 그대로 가져왔다. 거버넌스(누가 감독하나), 전략(위험·기회가 사업과 재무에 어떤 영향을 주나), 위험관리(어떻게 찾고 평가하나), 지표 및 목표(어떻게 측정하고 진척을 보나)다.",
+   "trap": "ESRS의 '정책·행동·목표·지표' 구조나 GRI의 '영향' 중심 구조와 섞어 쓰면 보고서 목차부터 틀어진다.",
+   "sources": [
+    {
+     "label": "IFRS S1 기준서 페이지 (ifrs.org)",
+     "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/"
+    },
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB: Ten things to know about the first ISSB Standards",
+     "url": "https://www.ifrs.org/content/ifrs/home/news-and-events/news/2023/06/ten-things-to-know-about-the-first-issb-standards.html"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-04",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "보고실체",
+    "연결"
+   ],
+   "ref": "IFRS S1 문단 20, B38",
+   "topic": "보고실체의 범위",
+   "q": "모회사가 연결재무제표를 만든다. IFRS S1에 따른 지속가능성 공시의 보고실체는 어디까지인가?",
+   "options": [
+    "연결재무제표와 같은 범위, 즉 모회사와 자회사 전체",
+    "모회사 단독(별도재무제표 기준)",
+    "국내 사업장만",
+    "회사가 공시 범위를 자유롭게 정할 수 있다"
+   ],
+   "ans": 0,
+   "why": "문단 20은 지속가능성 공시가 관련 재무제표와 '같은 보고실체'를 대상으로 해야 한다고 정한다. 연결재무제표를 내는 모회사라면 자회사까지 포함한 연결 범위가 공시 범위다.",
+   "trap": "온실가스 산정 경계(지분법·운영통제)와 공시 보고실체를 혼동하기 쉽다. 보고실체는 재무제표를 따라 정하고, 배출량 산정 경계는 그 안에서 S2 요구에 따라 밝힌다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-05",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "시행일",
+    "조기적용"
+   ],
+   "ref": "IFRS S1 부록 E1",
+   "topic": "시행일과 조기적용 조건",
+   "q": "IFRS S1의 시행일과 조기적용 조건으로 옳은 것은?",
+   "options": [
+    "2024년 1월 1일 이후 개시하는 회계연도부터 적용하며, 조기적용은 IFRS S2를 함께 적용할 때만 가능하다",
+    "2023년 6월 발표 즉시 모든 회사에 의무 적용된다",
+    "2027년 1월 1일 이후 개시 회계연도부터 적용된다",
+    "조기적용은 S2 없이 S1만 단독으로도 가능하다"
+   ],
+   "ans": 0,
+   "why": "E1에 따라 2024년 1월 1일 이후 개시하는 연차 보고기간부터 적용하고, 조기적용하는 회사는 그 사실을 밝히고 IFRS S2도 같은 시점에 적용해야 한다. 실제 의무화 시점은 각 나라(관할권)가 정한다.",
+   "trap": "2027년 1월 1일은 2025년 12월에 나온 IFRS S2 개정의 시행일이다. S1 자체 시행일과 섞지 않는다.",
+   "sources": [
+    {
+     "label": "IFRS S1 기준서 페이지 (ifrs.org)",
+     "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/"
+    },
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB: IFRS S2 온실가스 공시 개정 (2025.12)",
+     "url": "https://www.ifrs.org/projects/completed-projects/2025/amendments-to-disclosure-of-greenhouse-gas-emissions-s2/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-06",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "전망",
+    "범위"
+   ],
+   "ref": "IFRS S1 문단 3",
+   "topic": "'전망에 영향'의 뜻",
+   "q": "IFRS S1 문단 3에서 '회사의 전망(prospects)에 합리적으로 영향을 줄 수 있다'는 말은 구체적으로 무엇에 대한 영향인가?",
+   "options": [
+    "단기·중기·장기의 현금흐름, 자금조달 접근성, 자본비용",
+    "당기 매출과 영업이익",
+    "주가와 시가총액",
+    "브랜드 평판 점수"
+   ],
+   "ans": 0,
+   "why": "S1은 전망을 '현금흐름, 자금조달 접근성(access to finance), 자본비용(cost of capital)'으로 풀어 쓰고, 시간 범위를 단기·중기·장기로 넓게 잡는다. 지금 돈이 안 들어도 장기적으로 자금조달 조건을 바꿀 수 있는 위험이면 범위에 들어온다.",
+   "trap": "'당기 손익에 숫자로 안 잡히니 공시 대상이 아니다'라고 끊으면 틀린다. 장기 현금흐름과 자본비용까지 봐야 한다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB 교육자료: 중요한 정보의 공시 (2024.11)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/issb-materiality-education-material.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "could reasonably be expected to affect the entity's cash flows, its access to finance or cost of capital"
+  },
+  {
+   "id": "ifrs-s1-07",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "공시 위치",
+    "상호참조"
+   ],
+   "ref": "IFRS S1 문단 60–63, B45–B47",
+   "topic": "공시가 실리는 곳",
+   "q": "IFRS S1에서 지속가능성 공시가 실리는 위치에 대한 설명으로 옳은 것은?",
+   "options": [
+    "일반목적재무보고서의 일부로 내야 하며, 경영진 보고서 등 위치는 다양할 수 있고 다른 보고서를 정확히 가리키는 상호참조도 허용된다",
+    "반드시 재무제표 주석 안에만 실어야 한다",
+    "회사 홈페이지의 별도 ESG 보고서면 충분하다",
+    "규제기관에 제출하는 별도 서류로만 낸다"
+   ],
+   "ans": 0,
+   "why": "문단 60–61은 공시를 일반목적재무보고서의 일부로 내되, 법규가 허용하는 한 경영진 보고서·연차보고서 등 다양한 위치가 가능하다고 본다. 문단 63과 B45–B47은 같은 조건·같은 시점에 이용 가능한 다른 보고서의 정확한 부분을 가리키는 상호참조를 허용한다.",
+   "trap": "홈페이지에 올린 별도 지속가능성 보고서는 재무보고서 묶음에 포함되거나 정확히 상호참조되지 않으면 S1의 '위치' 요건을 채우지 못한다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-08",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "보고 시기",
+    "동시 공시"
+   ],
+   "ref": "IFRS S1 문단 64",
+   "topic": "재무제표와 같은 시점",
+   "q": "IFRS S1 문단 64가 정한 지속가능성 공시의 보고 시점은?",
+   "options": [
+    "관련 재무제표와 같은 시점에 공시한다",
+    "재무제표 발표 후 6개월 이내에 공시한다",
+    "회계연도 종료 후 1년 이내 아무 때나 공시한다",
+    "주주총회 이후 공시한다"
+   ],
+   "ans": 0,
+   "why": "문단 64는 지속가능성 공시를 관련 재무제표와 '동시에(at the same time)' 내도록 한다. 투자자가 재무정보와 지속가능성 정보를 한 묶음으로 보게 하려는 취지다. 첫 적용연도에만 E4의 완화조치로 늦출 수 있다.",
+   "trap": "한국 관행처럼 6월에 지속가능경영보고서를 내는 일정은 S1의 기본 원칙과 맞지 않는다. 첫해 완화조치는 한 번만 쓸 수 있다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "An entity shall report its sustainability-related financial disclosures at the same time as its related financial statements."
+  },
+  {
+   "id": "ifrs-s1-09",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 1,
+   "tags": [
+    "준수 선언"
+   ],
+   "ref": "IFRS S1 문단 72",
+   "topic": "준수 선언의 조건",
+   "q": "회사가 'IFRS 지속가능성 공시기준을 준수했다'는 선언을 하려면 어떤 조건이 필요한가?",
+   "options": [
+    "ISSB 기준의 모든 요구사항을 충족해야 하며, 선언은 명시적이고 유보 없이(explicit and unreserved) 해야 한다",
+    "S2의 핵심 지표(Scope 1·2)만 공시하면 된다",
+    "TCFD 권고안을 따랐다는 문구로 대체할 수 있다",
+    "제3자 인증을 받으면 자동으로 준수로 인정된다"
+   ],
+   "ans": 0,
+   "why": "문단 72는 모든 요구사항을 충족할 때만 명시적이고 유보 없는 준수 선언을 허용한다. 일부만 따르면서 '참고하여 작성'이라고 쓰는 것은 준수 선언이 아니다. 단, 문단 73의 완화(법규 금지, 상업적 민감 정보)를 쓰더라도 선언은 가능하다.",
+   "trap": "'TCFD·SASB를 반영했다'는 문구를 ISSB 준수와 같은 뜻으로 보면 틀린다. 둘은 다른 수준의 진술이다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    },
+    {
+     "label": "ISSB 교육자료: 기후만 공시할 때 IFRS S1 적용 (2025.1)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/applying-ifrs-s1-reporting-only-climate-related-disclosures-accordance-ifrs-s2.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "A company is able to assert compliance only if it meets all the requirements of the ISSB Standards."
+  },
+  {
+   "id": "ifrs-s1-10",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "지침의 원천",
+    "SASB"
+   ],
+   "ref": "IFRS S1 문단 55",
+   "topic": "위험·기회 식별 시 참고 자료",
+   "q": "ISSB 기준서가 없는 주제의 지속가능성 위험·기회를 찾을 때, IFRS S1 문단 55가 '반드시(shall)' 참고하고 적용 가능성을 고려하라고 한 자료는?",
+   "options": [
+    "SASB 기준의 산업별 공시 주제",
+    "GRI 기준",
+    "유럽 ESRS",
+    "같은 산업 동료 회사의 공시"
+   ],
+   "ans": 0,
+   "why": "문단 55(a)는 SASB 기준의 공시 주제를 '반드시 참고하고 적용 가능성을 고려'하도록 한다. 55(b)의 CDSB 수자원·생물다양성 지침, 다른 기준제정기구의 최신 발표, 같은 산업·지역 회사가 밝힌 위험·기회는 '고려할 수 있다(may)'다.",
+   "trap": "'SASB는 선택'이라고 알고 있는 경우가 많다. IFRS S1 원문에서 SASB 주제 참고는 의무이고, 결과적으로 적용하지 않을 수 있을 뿐이다. 참고: 영국 UK SRS S1 초안은 이 'shall'을 'may'로 낮추는 수정을 제안했다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문에 영국 수정 표시)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    },
+    {
+     "label": "IFRS S1 Accompanying Guidance (IG·IE)",
+     "url": "https://standards.aasb.gov.au/sites/default/files/2024-10/IFRS-S1_AG_06-23.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "shall refer to and consider the applicability of the disclosure topics in the SASB Standards"
+  },
+  {
+   "id": "ifrs-s1-11",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "지침의 원천",
+    "GRI",
+    "ESRS"
+   ],
+   "ref": "IFRS S1 문단 57–58, 부록 C",
+   "topic": "GRI·ESRS를 쓸 수 있는 조건",
+   "q": "한 회사가 인적자본(사람) 관련 공시를 준비한다. ISSB 기준서가 없는 이 주제에서 GRI 기준이나 유럽 ESRS를 쓰려면 IFRS S1은 어떤 조건을 두는가?",
+   "options": [
+    "S1의 목적을 달성하는 데 도움이 되고 ISSB 기준과 충돌하지 않는 범위에서 '고려할 수 있다'",
+    "GRI와 ESRS 중 하나를 반드시 그대로 적용해야 한다",
+    "ISSB 기준서가 없는 주제는 공시하지 않는다",
+    "ESRS는 EU 회사만 쓸 수 있다"
+   ],
+   "ans": 0,
+   "why": "문단 57은 회사가 판단으로 관련성 있고 충실하게 표현하는 정보를 찾도록 하고, 문단 58은 SASB 지표를 반드시 고려, 부록 C(C1–C2)는 GRI 기준과 ESRS를 '고려할 수 있다'로 둔다. 조건은 S1 목적에 부합하고 ISSB 기준과 충돌하지 않을 것이다.",
+   "trap": "GRI 지표를 그대로 옮기면서 '모든 이해관계자 영향' 관점까지 끌어오면 S1의 투자자 관점과 충돌한다. 지표는 빌려도 중요성 판단은 S1 방식으로 해야 한다. 참고: 영국 UK SRS S1 초안은 이 'shall'을 'may'로 낮추는 수정을 제안했다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문에 영국 수정 표시)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    },
+    {
+     "label": "ESRS–ISSB 상호운용성 가이던스 (2024.5)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-12",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "연결된 정보",
+    "재무제표"
+   ],
+   "ref": "IFRS S1 문단 21–24, B39–B44",
+   "topic": "연결된 정보의 요건",
+   "q": "IFRS S1의 '연결된 정보(connected information)' 요구에 해당하지 않는 것은?",
+   "options": [
+    "지속가능성 공시가 어느 재무제표와 짝인지 밝힌다",
+    "지속가능성 공시의 데이터·가정은 가능한 한 재무제표 작성에 쓴 것과 일치시킨다",
+    "금액 단위로 통화를 쓸 때 재무제표의 표시통화를 쓴다",
+    "지속가능성 공시는 재무제표와 별도의 보고실체로 작성해 비교 가능성을 높인다"
+   ],
+   "ans": 3,
+   "why": "문단 22는 관련 재무제표 식별, 문단 23은 데이터·가정의 일관성, 문단 24는 표시통화 일치를 요구한다. 보고실체는 문단 20에 따라 재무제표와 '같아야' 하므로 마지막 선택지는 정반대다. 연결된 정보는 위험·기회 사이, 4개 요소 사이, 공시와 재무제표 사이의 관계 설명을 뜻한다.",
+   "trap": "기후 시나리오 분석에 쓴 탄소가격·할인율이 재무제표의 손상검사 가정과 다르면 '연결' 요건 위반 소지가 있다. 두 팀의 가정을 맞추는 것이 컨설턴트의 일이다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-13",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "비교정보",
+    "추정 변경"
+   ],
+   "ref": "IFRS S1 문단 70, B50–B51",
+   "topic": "추정치가 바뀐 비교정보",
+   "q": "지난해 공시한 지표가 추정치였는데, 올해 새 정보로 지난해 상황을 더 잘 알게 되었다. IFRS S1에서 올바른 처리는?",
+   "options": [
+    "수정한 전기 비교 금액, 차이, 이유를 공시한다. 단, 실행 불가능하거나 미래 예측 지표여서 사후 판단(hindsight)이 필요하면 수정하지 않아도 된다",
+    "전기 금액은 어떤 경우에도 바꾸지 않는다",
+    "전기 금액을 조용히 바꾸고 설명은 생략한다",
+    "비교정보 자체를 공시하지 않는다"
+   ],
+   "ans": 0,
+   "why": "B50은 전기 추정치에 대해 새 정보가 생기면 수정 비교 금액·차이·이유를 공시하게 한다. B51은 실행 불가능하거나 미래지향 지표라 사후 판단이 필요한 경우 예외를 둔다. B54에 따라 수정할 수 없으면 그 사실을 밝힌다.",
+   "trap": "'추정 변경'을 '오류 수정'으로 처리하면 안 된다. 문단 85는 오류 수정과 추정 변경을 구별하도록 하며, 오류만 재작성(restatement)이다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-14",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "측정 불확실성",
+    "판단"
+   ],
+   "ref": "IFRS S1 문단 74–81",
+   "topic": "판단과 측정 불확실성 공시",
+   "q": "IFRS S1 문단 77–78의 측정 불확실성 공시로 요구되는 것은?",
+   "options": [
+    "측정 불확실성이 높은 공시 금액을 식별하고, 그 불확실성의 원천과 쓴 가정·근사치·판단을 설명한다",
+    "모든 지표의 오차율을 %로 계산해 공시한다",
+    "불확실한 숫자는 공시에서 빼고 확실한 것만 적는다",
+    "제3자 인증을 받았으면 불확실성 공시를 생략할 수 있다"
+   ],
+   "ans": 0,
+   "why": "문단 77은 보고 금액에 영향을 주는 가장 중요한 불확실성을 이용자가 이해할 수 있게 하라고 하고, 문단 78은 측정 불확실성이 높은 금액을 식별해 원천·가정·근사치·판단을 설명하게 한다. Scope 3 추정치가 대표적이다. 문단 74는 공시 준비 과정의 중요한 판단도 밝히게 한다.",
+   "trap": "'불확실하니 빼자'는 완전성(공정한 표시) 위반이다. 불확실해도 공시하고, 어디가 왜 불확실한지 설명하는 것이 기준의 요구다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-15",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "오류",
+    "재작성"
+   ],
+   "ref": "IFRS S1 문단 83–86",
+   "topic": "전기 오류의 수정",
+   "q": "회사가 전기 지속가능성 공시에서 중요한 오류(예: 사업장 하나를 빼고 집계)를 발견했다. IFRS S1의 처리는?",
+   "options": [
+    "실행 불가능한 경우가 아니면 전기 비교 금액을 다시 적어(restating) 오류를 고치고 그 사실을 밝힌다",
+    "다음 보고서에서 당기 숫자에 합쳐서 조정한다",
+    "전기 숫자는 그대로 두고 각주로만 언급한다",
+    "오류가 10% 미만이면 수정하지 않아도 된다"
+   ],
+   "ans": 0,
+   "why": "문단 83은 중요한 전기 오류를 비교 금액 재작성으로 고치되 실행 불가능하면 예외를 둔다. 문단 84는 오류를 '전기 공시의 누락·왜곡'으로 정의하고, 문단 85는 오류 수정과 추정 변경을 구별한다.",
+   "trap": "당기에 몰아서 조정(cumulative catch-up)하면 추세가 깨진다. 기준은 비교 금액 자체를 고치라고 요구한다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "shall correct material prior period errors by restating the comparative amounts"
+  },
+  {
+   "id": "ifrs-s1-16",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "전환 완화",
+    "보고 시기"
+   ],
+   "ref": "IFRS S1 부록 E4",
+   "topic": "첫해 보고 시기 완화",
+   "q": "12월 결산 회사가 IFRS S1을 처음 적용하는 해에 중간(반기)보고서를 내지 않는다. E4 완화조치에 따라 지속가능성 공시를 언제까지 낼 수 있는가?",
+   "options": [
+    "회계연도 종료 후 9개월 이내(즉 9월 30일까지)",
+    "재무제표와 동시에만 가능하다",
+    "다음 회계연도 재무제표와 함께",
+    "회계연도 종료 후 12개월 이내"
+   ],
+   "ans": 0,
+   "why": "E4는 첫 적용연도에 재무제표 이후 공시를 허용하되, (a) 반기·2분기 중간보고서가 의무면 그 보고서와 동시에, (b) 자발적으로 중간보고서를 내면 그 보고서와 동시에 그러나 9개월 이내, (c) 중간보고서가 없으면 회계연도 종료 후 9개월 이내로 정한다.",
+   "trap": "'첫해는 아무 때나 내도 된다'가 아니다. 상한은 9개월이고, 두 번째 해부터는 재무제표와 동시 공시다.",
+   "sources": [
+    {
+     "label": "AASB: IFRS S1 E4–E6 원문 발췌",
+     "url": "https://standards.aasb.gov.au/node/3835"
+    },
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "Grant Thornton: ISSB 전환 완화조치 (2023.4)",
+     "url": "https://www.grantthornton.global/en/insights/articles/International-Sustainability-Standards-Board-provides-further-transitional-reliefs/"
+    }
+   ],
+   "confidence": "high",
+   "quote": "within nine months of the end of the annual reporting period in which the entity first applies this Standard"
+  },
+  {
+   "id": "ifrs-s1-17",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "전환 완화",
+    "기후 우선"
+   ],
+   "ref": "IFRS S1 부록 E5–E6",
+   "topic": "기후 우선 완화와 2년차",
+   "q": "첫 적용연도에 '기후 우선(E5)' 완화를 써서 기후 정보만 공시한 회사가 2년차에 기후 외 주제까지 공시를 넓힌다. 비교정보는 어떻게 되는가?",
+   "options": [
+    "2년차에는 기후 외 주제의 비교정보를 내지 않아도 된다(기후 비교정보는 필요)",
+    "2년차에도 모든 비교정보를 생략할 수 있다",
+    "2년차에 기후 외 주제의 2개년 비교정보를 모두 내야 한다",
+    "기후 우선을 쓰면 비교정보 의무가 영구히 면제된다"
+   ],
+   "ans": 0,
+   "why": "E6에 따라 E5를 쓴 회사는 첫해에 기후 비교정보가 면제되고, 2년차에는 새로 추가한 기후 외 지속가능성 위험·기회의 비교정보가 면제된다. 기후 정보는 2년차부터 비교정보를 내야 한다. 완화를 썼다는 사실은 밝혀야 한다.",
+   "trap": "E5는 '기후만 공시해도 S1 준수'라는 뜻이지 S1을 적용하지 않는다는 뜻이 아니다. 중요성·연결된 정보·판단·불확실성 등 S1의 일반 요구사항은 기후 공시에 그대로 적용된다.",
+   "sources": [
+    {
+     "label": "AASB: IFRS S1 E4–E6 원문 발췌",
+     "url": "https://standards.aasb.gov.au/node/3835"
+    },
+    {
+     "label": "ISSB 교육자료: 기후만 공시할 때 IFRS S1 적용 (2025.1)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/applying-ifrs-s1-reporting-only-climate-related-disclosures-accordance-ifrs-s2.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-18",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "합산",
+    "중요성"
+   ],
+   "ref": "IFRS S1 문단 B29–B30, IE13–IE14",
+   "topic": "합산과 세분화",
+   "q": "여러 사업부를 가진 회사가 공급망 노동 위험을 한 줄로 합쳐 공시하려 한다. IFRS S1 B29–B30에 따른 판단은?",
+   "options": [
+    "성격이 같고 하나의 중앙 기능이 관리하면 합산할 수 있지만, 원인·영향이 다른 사업부의 정보를 합쳐 중요한 정보를 가리게 되면 합산할 수 없다",
+    "항상 회사 전체로 합산해 공시해야 한다",
+    "항상 사업부별로 쪼개 공시해야 한다",
+    "합산 여부는 보고서 분량에 맞춰 정한다"
+   ],
+   "ans": 0,
+   "why": "B30은 중요한 정보를 가리는 합산을 금지한다. 부속 예시 IE13–IE14는 중앙 기능이 하나로 관리하는 위험은 합산하고, 원인이 다른 사업부는 따로 보여 주는 식으로 설명한다. 반대로 지나친 세분화로 중요 정보를 흐리는 것도 피해야 한다.",
+   "trap": "'그룹 전체 수치 하나면 충분하다'는 생각이 흔하다. 투자자가 어느 사업이 위험한지 알 수 없다면 합산이 정보를 가린 것이다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "IFRS S1 Accompanying Guidance (IG·IE)",
+     "url": "https://standards.aasb.gov.au/sites/default/files/2024-10/IFRS-S1_AG_06-23.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "An entity shall not aggregate information if doing so would obscure information that is material."
+  },
+  {
+   "id": "ifrs-s1-19",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "상업적 민감 정보",
+    "기회"
+   ],
+   "ref": "IFRS S1 문단 B34–B37",
+   "topic": "상업적으로 민감한 정보의 예외",
+   "q": "회사가 '경쟁사에 알려지면 손해'라는 이유로 특정 기후 관련 '위험' 정보를 빼려 한다. IFRS S1 B34–B37에 따른 판단은?",
+   "options": [
+    "불가능하다. 이 예외는 '기회' 정보에만 쓸 수 있고, 위험 정보나 넓은 범위의 비공시 근거로는 쓸 수 없다",
+    "가능하다. 상업적으로 민감하면 위험·기회 모두 뺄 수 있다",
+    "가능하다. 이사회 결의만 있으면 된다",
+    "가능하다. 대신 제3자 인증을 받아야 한다"
+   ],
+   "ans": 0,
+   "why": "B34는 상업적으로 민감한 '기회' 정보에만 예외를 둔다. B35의 세 조건(아직 공개되지 않았고, 공개가 경제적 이익을 심각하게 해칠 것으로 합리적으로 예상되며, 합산 등 다른 방법으로도 목적을 달성할 수 없음)을 모두 충족해야 하고, B36은 예외 사용 사실의 공시와 매 보고일 재평가를, B37은 위험 정보나 광범위한 비공시에 쓰는 것을 금지한다.",
+   "trap": "'민감하다'는 느낌만으로 빼면 준수 선언을 할 수 없다. 조건 셋을 문서로 입증하고, 예외를 썼다는 사실 자체는 공시해야 한다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    },
+    {
+     "label": "ISSB 교육자료: 기후만 공시할 때 IFRS S1 적용 (2025.1)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/applying-ifrs-s1-reporting-only-climate-related-disclosures-accordance-ifrs-s2.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-20",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 2,
+   "tags": [
+    "법규",
+    "중요성"
+   ],
+   "ref": "IFRS S1 문단 73, B31–B33",
+   "topic": "법규와 중요성의 관계",
+   "q": "국내 법이 어떤 지속가능성 정보의 공개를 금지한다. 또 다른 법은 S1 기준으로는 중요하지 않은 정보의 공시를 요구한다. IFRS S1에 따른 처리로 옳은 것은?",
+   "options": [
+    "법이 금지한 정보는 빼도 준수 선언이 가능하고, 법이 요구하지만 중요하지 않은 정보는 중요 정보를 가리지 않는 한 포함할 수 있다",
+    "법이 요구하는 정보는 모두 S1상 중요한 정보로 간주한다",
+    "법이 금지하더라도 S1을 따르려면 공시해야 한다",
+    "법규가 관여하면 S1을 적용할 수 없다"
+   ],
+   "ans": 0,
+   "why": "문단 73과 B33은 법규가 공개를 금지한 정보는 생략해도 준수 선언을 할 수 있게 한다. B31–B32는 법규가 요구하는 정보가 자동으로 중요한 것은 아니며, 반대로 법규가 요구하지 않아도 중요하면 공시해야 한다고 본다. 법규 요구 정보는 중요 정보를 가리지 않는 한 함께 실을 수 있다.",
+   "trap": "국내 공시 서식에 들어 있다고 전부 'S1상 중요'라고 쓰면 중요성 판단을 포기한 것이다. 두 체계의 요구를 나눠 정리해야 한다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB 교육자료: 중요한 정보의 공시 (2024.11)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/issb-materiality-education-material.pdf"
+    },
+    {
+     "label": "ISSB 교육자료: 기후만 공시할 때 IFRS S1 적용 (2025.1)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/applying-ifrs-s1-reporting-only-climate-related-disclosures-accordance-ifrs-s2.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-21",
+   "module": "ifrs-s1",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "준수 선언",
+    "보고 기준"
+   ],
+   "ref": "IFRS S1 문단 72",
+   "topic": "현대차 보고서의 준수 선언",
+   "q": "현대자동차 2026 보고서는 IFRS S1·S2(또는 KSSB 기준)에 대한 명시적이고 유보 없는 준수 선언을 하고 있는가?",
+   "look": "162쪽 '보고서 개요' 오른쪽 표 '보고 기준'",
+   "page": 162,
+   "ans": "없음",
+   "quote": "보고 기준 GRI Standards, TCFD, SASB",
+   "why": "보고서는 GRI 기준에 따라 작성하고 TCFD·SASB 가이드라인을 '반영'했다고만 적는다. IFRS S1·S2나 KSSB 기준에 대한 준수 선언 문구는 없다. TCFD 반영은 S1 문단 72가 요구하는 수준의 선언이 아니다.",
+   "trap": "'TCFD Index가 있으니 ISSB 준수'라고 판단하면 틀린다. 준수 선언은 모든 요구사항 충족을 전제로 한 별도의 명시적 문장이어야 한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.162",
+     "url": "report"
+    },
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-22",
+   "module": "ifrs-s1",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "보고실체",
+    "연결"
+   ],
+   "ref": "IFRS S1 문단 20",
+   "topic": "현대차 보고 범위와 재무제표 일치",
+   "q": "현대자동차 2026 보고서의 지속가능성 정보 보고 범위는 IFRS S1 문단 20이 요구하는 '재무제표와 같은 보고실체'와 일치하는가?",
+   "look": "162쪽 '보고 범위 및 경계' 문단",
+   "page": 162,
+   "ans": "일부",
+   "quote": "본 보고서의 재무정보는 한국채택 국제회계기준(K-IFRS) 상의 현대자동차 연결재무제표 기준과 일치합니다. 환경 및 사회 관련 정보는 연결재무제표의 일부로 자동차 부문(자동차와 자동차부품의 제조 및 판매, 차량정비 등의 사업)에 해당되는 국내 본사, 생산 공장, 기술연구소, 서비스 및 물류센터와 해외 생산 및 판매법인 등 자동차 부문 해외 종속회사를 포함하고 있습니다.",
+   "why": "재무정보는 연결재무제표와 같지만, 환경·사회 정보는 연결 범위 중 '자동차 부문'만 다룬다고 스스로 밝힌다. 금융 등 다른 부문 종속회사가 빠지므로 S1 문단 20의 '같은 보고실체' 요건은 부분 충족이다. 범위가 다른 항목은 별도 표기한다고 적은 점은 투명성 면에서 긍정적이다.",
+   "trap": "'연결재무제표 기준과 일치'라는 첫 문장만 보고 '있음'으로 판단하기 쉽다. 그 문장은 재무정보에만 해당한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.162",
+     "url": "report"
+    },
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB Project Summary: IFRS S1·S2 (2023.6)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/project/general-sustainability-related-disclosures/project-summary.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-23",
+   "module": "ifrs-s1",
+   "type": "judge",
+   "level": 2,
+   "tags": [
+    "중요성",
+    "이중 중대성"
+   ],
+   "ref": "IFRS S1 문단 17–18, B13–B15",
+   "topic": "현대차 중요성 평가 방식",
+   "q": "현대자동차 2026 보고서의 중요성(중대성) 평가는 IFRS S1이 요구하는 '주요 이용자(투자자) 관점의 재무적 중요성' 판단을 담고 있는가?",
+   "look": "16쪽 'Materiality Assessment' 첫 문단과 '평가 Assessment' 단계",
+   "page": 16,
+   "ans": "일부",
+   "quote": "현대자동차는 지속가능성과 관련한 중요 정보 공개를 위하여 매년 이중 중대성 평가(Double Materiality) 원칙에 근거하여 중대성 평가를 실시하고 있습니다. 현대자동차가 환경·사회에 미치는 영향을 분석하는 영향(Outward Impact) 평가와 외부 이해관계자가 현대자동차의 재무 상태에 미치는 영향을 분석하는 위험 및 기회(Risk & Opportunity) 평가를 동시에 진행합니다.",
+   "why": "이중 중대성 평가의 '위험 및 기회' 축은 잠재적 재무 영향의 크기와 발생가능성을 1~5점으로 정량화하므로 S1의 재무적 중요성 판단과 겹친다. 그러나 평가 단위가 '주제'이고, 기준은 ESRS 가이드라인이며, S1이 말하는 '정보' 단위의 중요성 판단(주요 이용자의 결정에 영향)을 적용했다는 설명은 없다. 부분 충족으로 본다.",
+   "trap": "'이중 중대성이 재무적 중요성을 포함하니 S1을 자동 충족'이라고 보면 안 된다. S1은 주제 선정이 아니라 어떤 '정보'를 공시할지에 대한 판단을 요구한다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.16",
+     "url": "report"
+    },
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB 교육자료: 중요한 정보의 공시 (2024.11)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/issb-materiality-education-material.pdf"
+    },
+    {
+     "label": "ESRS–ISSB 상호운용성 가이던스 (2024.5)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-24",
+   "module": "ifrs-s1",
+   "type": "judge",
+   "level": 3,
+   "tags": [
+    "보고 시기",
+    "동시 공시"
+   ],
+   "ref": "IFRS S1 문단 64",
+   "topic": "현대차 공시 시점과 재무제표",
+   "q": "현대자동차 2026 지속가능성 보고서는 관련 재무제표(2026년 3월 사업보고서)와 '같은 시점'에 공시되었는가? (IFRS S1 문단 64 기준으로 본다)",
+   "look": "162쪽 '보고서 개요' 오른쪽 표 '발행일'과 '보고 기간'",
+   "page": 162,
+   "ans": "없음",
+   "quote": "발행일 2026년 6월",
+   "why": "2025년 1월 1일~12월 31일 회계연도의 재무제표(사업보고서)는 통상 2026년 3월에 공시되는데, 이 보고서는 2026년 6월 발행이다. 재무제표와 약 3개월 차이가 나므로 문단 64의 동시 공시는 충족하지 않는다. 다만 이 보고서는 자발적 GRI 보고서이므로 S1 의무 위반이라기보다, 향후 KSSB 의무공시(사업보고서 법정공시) 전환 시 일정 재설계가 필요하다는 신호로 읽어야 한다. 2025 사업보고서의 실제 공시일은 DART에서 확인할 수 있다.",
+   "trap": "'첫해는 9개월 이내면 된다(E4)'를 들어 '있음'으로 보면 안 된다. E4는 S1을 처음 적용하는 회사가 그 사실을 밝히고 쓰는 완화조치이며, 이 보고서는 S1 적용을 선언하지 않았다.",
+   "sources": [
+    {
+     "label": "현대자동차 2026 지속가능성 보고서 p.162",
+     "url": "report"
+    },
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "AASB: IFRS S1 E4–E6 원문 발췌",
+     "url": "https://standards.aasb.gov.au/node/3835"
+    },
+    {
+     "label": "삼일PwC: 지속가능성 공시 로드맵 (2026.7 금융위 최종안)",
+     "url": "https://www.pwc.com/kr/ko/services/sustainability-platform/insights/sustainability-disclosure-roadmap.html"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-25",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "ESRS",
+    "상호운용성",
+    "준수 선언"
+   ],
+   "ref": "ESRS–ISSB 상호운용성 가이던스(2024.5)",
+   "topic": "ESRS 보고 회사의 ISSB 준수",
+   "q": "유럽 자회사 때문에 ESRS로 보고하는 한 제조회사가 'ESRS를 따랐으니 IFRS S1·S2 준수도 자동으로 된다'고 주장한다. 컨설턴트의 올바른 답은?",
+   "options": [
+    "자동 준수는 아니다. 2024년 5월 상호운용성 가이던스에 따라 전환계획 가정·시나리오 분석·Scope 1·2 세분화·산업기반 지표 등 ISSB가 추가로 요구하는 항목을 채우고, S1 문단 72의 명시적 준수 선언을 별도로 해야 한다",
+    "맞다. ESRS는 ISSB 기준의 상위 기준이므로 자동 준수된다",
+    "불가능하다. ESRS와 ISSB는 중요성 개념이 달라 함께 준수할 수 없다",
+    "맞다. 단 GRI Index만 추가하면 된다"
+   ],
+   "ans": 0,
+   "why": "가이던스는 ESRS의 재무적 중요성 정의가 S1과 정렬되어 있고 두 기준의 기후 요구사항을 '함께 준수할 수 있다'고 하되, 공식 동등성 인정은 아니라고 명시한다. ESRS 보고 회사가 ISSB 준수를 주장하려면 전환계획 가정·의존성, 회사 상황에 맞는 시나리오 분석, 산업기반 지침 고려, S2 방식의 Scope 1·2 세분화, 기회 정렬 사업 비중, 자본 배치, 탄소크레딧, 금융배출량 등을 추가해야 한다.",
+   "trap": "'ESRS는 더 넓으니 ISSB를 포함한다'는 직관은 틀리기 쉽다. 넓은 것과 세부 항목 일치는 다른 문제다.",
+   "sources": [
+    {
+     "label": "ESRS–ISSB 상호운용성 가이던스 (2024.5)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"
+    },
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-26",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "기후 우선",
+    "준수 선언",
+    "교육자료"
+   ],
+   "ref": "ISSB 교육자료(2025.1) · IFRS S1 E5, 문단 72",
+   "topic": "기후만 공시하는 회사의 준수 선언",
+   "q": "한 회사가 2년 연속 기후 정보만 공시하면서 매년 'IFRS S1·S2 준수'를 선언하려 한다. 2025년 1월 ISSB 교육자료에 따른 판단은?",
+   "options": [
+    "기후 정보만으로 준수 선언이 가능한 것은 S1을 처음 적용하는 첫해(E5)뿐이며, 2년차부터는 다른 지속가능성 위험·기회까지 공시해야 준수 선언을 할 수 있다",
+    "기후 정보만으로도 매년 준수 선언이 가능하다",
+    "기후만 공시하면 어떤 해에도 준수 선언을 할 수 없다",
+    "관할 당국이 기후만 요구하면 S1 전체가 자동 충족된다"
+   ],
+   "ans": 0,
+   "why": "교육자료는 E5가 공시 범위를 좁힐 뿐 S1의 다른 요구(중요성, 연결된 정보, 판단·불확실성, 시기, 준수 선언 등)는 그대로 적용되며, 기후만 공시하면서 준수 선언을 할 수 있는 것은 첫해만이라고 설명한다. 관할권이 기후 우선 제도를 택할 수는 있지만, 그것은 'ISSB 준수'가 아니라 S2와 S1 관련 부분에 '기능적으로 정렬된' 제도다.",
+   "trap": "KSSB가 기후 외 주제를 선택 공시로 두었다는 사실과 'IFRS S1 완전 준수'를 같은 것으로 설명하면 고객을 오도한다.",
+   "sources": [
+    {
+     "label": "ISSB 교육자료: 기후만 공시할 때 IFRS S1 적용 (2025.1)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/applying-ifrs-s1-reporting-only-climate-related-disclosures-accordance-ifrs-s2.pdf"
+    },
+    {
+     "label": "AASB: IFRS S1 E4–E6 원문 발췌",
+     "url": "https://standards.aasb.gov.au/node/3835"
+    }
+   ],
+   "confidence": "high",
+   "quote": "A company providing only climate-related information can do so only in its first year of reporting"
+  },
+  {
+   "id": "ifrs-s1-27",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "개정",
+    "IFRS S2",
+    "2025"
+   ],
+   "ref": "ISSB IFRS S2 개정(2025.12) 완료 프로젝트 페이지",
+   "topic": "2025년 12월 개정의 범위",
+   "q": "후배 컨설턴트가 '2025년 12월 ISSB 개정으로 IFRS S1도 2027년부터 바뀐다'고 고객에게 안내했다. 바른 정정은?",
+   "options": [
+    "2025년 12월 개정은 IFRS S2의 온실가스 배출량 공시 요구사항을 손질한 것(및 SASB 기준의 후속 수정)이며, 2027년 1월 1일 이후 개시 회계연도부터 적용하고 조기적용이 가능하다. S1 본문은 개정되지 않았다",
+    "맞다. S1과 S2가 함께 전면 개정되었다",
+    "개정은 2026년 1월 1일부터 의무 적용되며 조기적용은 불가능하다",
+    "개정은 ESRS와의 통합 기준서를 새로 만든 것이다"
+   ],
+   "ans": 0,
+   "why": "ifrs.org 완료 프로젝트 페이지는 2025년 12월 ISSB가 IFRS S2의 특정 온실가스 공시 요구사항 적용을 돕기 위한 개정을 냈고, 2027년 1월 1일 이후 개시 회계연도부터 시행하며 조기적용을 허용한다고 밝힌다. 함께 SASB 기준의 금융배출량 지표가 후속 수정되었다. S1에 대한 개정은 언급되지 않는다.",
+   "trap": "S1 기준서 페이지 머리말에 '2026 Issued'라고 표시된 것을 보고 S1이 개정되었다고 오해할 수 있다. 본문 발행일은 2023년 6월이고, 2025–2026년 S1 관련 변화는 교육자료 추가다.",
+   "sources": [
+    {
+     "label": "ISSB: IFRS S2 온실가스 공시 개정 (2025.12)",
+     "url": "https://www.ifrs.org/projects/completed-projects/2025/amendments-to-disclosure-of-greenhouse-gas-emissions-s2/"
+    },
+    {
+     "label": "EY: ISSB issues targeted amendments to IFRS S2",
+     "url": "https://www.ey.com/en_gl/technical/ifrs-technical-resources/issb-issues-targeted-amendments-to-ifrs-s2"
+    },
+    {
+     "label": "IFRS S1 기준서 페이지 (ifrs.org)",
+     "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/"
+    },
+    {
+     "label": "ifrs.org: IFRS S1 지원자료 목록",
+     "url": "https://www.ifrs.org/supporting-implementation/supporting-materials-for-ifrs-sustainability-disclosure-standards/ifrs-s1/"
+    }
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "ifrs-s1-28",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "중요성",
+    "용어",
+    "교육자료"
+   ],
+   "ref": "ISSB 교육자료(2024.11) · IFRS S1 문단 17–18",
+   "topic": "'중요한 위험' 대 '중요한 정보'",
+   "q": "고객사 ESG팀이 '우리의 중요한 위험(material risks) 5개를 S1에 따라 선정했다'고 보고한다. 2024년 11월 ISSB 교육자료의 관점에서 컨설턴트가 바로잡아야 할 점은?",
+   "options": [
+    "ISSB 기준은 '중요한 위험·기회'라는 용어를 쓰지 않는다. 먼저 전망에 합리적으로 영향을 줄 수 있는 위험·기회를 식별하고, 그다음 그 위험·기회에 관한 어떤 '정보'가 중요한지 판단하는 두 단계 구조다",
+    "맞는 표현이다. S1은 중요한 위험 상위 5개를 공시하라고 요구한다",
+    "위험은 중요성 판단 대상이 아니므로 기회만 선정해야 한다",
+    "중요성은 GRI 방식으로 이해관계자 설문으로 정해야 한다"
+   ],
+   "ans": 0,
+   "why": "교육자료는 'ISSB 기준은 중요한 위험·기회라는 용어를 쓰지 않는다'고 명시한다. 식별 대상은 '전망에 합리적으로 영향을 줄 수 있는 위험·기회'이고, 중요성은 그에 관한 정보에 적용된다. 외부 관점이 중요해서, 회사가 노출되지 않았다고 믿더라도 주요 이용자가 노출을 합리적으로 예상하면 그 사실을 공시해야 할 수 있다.",
+   "trap": "주제 선정(중대성 평가)으로 중요성 판단을 끝내면, 선정된 주제 안에서 어떤 정보가 투자자 결정에 영향을 주는지 판단하는 단계가 빠진다.",
+   "sources": [
+    {
+     "label": "ISSB 교육자료: 중요한 정보의 공시 (2024.11)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/issb-materiality-education-material.pdf"
+    },
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "ISSB Standards do not use the terms 'material risks' or 'material opportunities'"
+  },
+  {
+   "id": "ifrs-s1-29",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "KSSB 제1호",
+    "국내 기준"
+   ],
+   "ref": "KSSB 제1호(2026.2.26 확정) · 삼일PwC 이슈브리프",
+   "topic": "KSSB 제1호가 S1에 더한 것",
+   "q": "KSSB 지속가능성 공시기준 제1호(IFRS S1 기반)를 적용하는 국내 회사에 IFRS S1에는 없는 추가 요구사항으로 안내할 수 있는 것은?",
+   "options": [
+    "재무정보의 발행 승인일과 승인자를 공시하고, 중요한 정보가 없어 항목을 생략하면 그 사실과 근거를 기술한다",
+    "모든 ESG 주제를 의무로 공시한다",
+    "정책공시(제101호)를 함께 적용한다",
+    "GRI 기준에 따른 이중 중대성 평가를 의무로 한다"
+   ],
+   "ans": 0,
+   "why": "삼일PwC 이슈브리프에 따르면 2026년 2월 26일 확정된 KSSB 기준은 S1·S2 틀을 유지하면서 재무정보 발행 승인일·승인자 공시, 중요 정보가 없어 생략할 때 그 사실과 근거 기술, 온실가스 배출량의 측정 방법별 구분 공시를 추가했다. 기후 외 E·S·G 주제는 선택 공시이고, 초안의 정책공시(제101호)는 제외되었다.",
+   "trap": "'KSSB = IFRS S1 번역본'으로 보면 국내 추가 항목을 놓친다. 반대로 KSSB를 따랐다고 IFRS S1 완전 준수를 선언할 수 있는 것도 아니다.",
+   "sources": [
+    {
+     "label": "삼일PwC 이슈브리프: ESG 공시 로드맵·KSSB 기준",
+     "url": "https://www.pwc.com/kr/ko/insights/issue-brief/samilpwc_esg-disclosure-roadmap.pdf"
+    },
+    {
+     "label": "삼일PwC: 지속가능성 공시 로드맵 (2026.7 금융위 최종안)",
+     "url": "https://www.pwc.com/kr/ko/services/sustainability-platform/insights/sustainability-disclosure-roadmap.html"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "ifrs-s1-30",
+   "module": "ifrs-s1",
+   "type": "mc",
+   "level": 3,
+   "tags": [
+    "재무효과",
+    "비례성",
+    "교육자료"
+   ],
+   "ref": "IFRS S1 문단 38–40 · ISSB 교육자료(2025.8)",
+   "topic": "정량 재무효과를 못 낼 때",
+   "q": "자원이 충분한 대기업이 '기후 위험의 예상 재무효과를 정량화할 전문 인력이 없다'며 금액 공시를 모두 생략하고 설명도 붙이지 않았다. IFRS S1 문단 38–40과 2025년 8월 교육자료에 따른 판단은?",
+   "options": [
+    "문단 39의 역량 부족 완화는 쓸 수 있어도, 역량을 갖출 자원이 있는 회사는 이를 회피 수단으로 쓸 수 없다. 또 생략 시 문단 40에 따라 이유 설명, 영향받을 재무제표 항목 식별 등 정성 정보, 유용하지 않다고 판단하지 않는 한 결합 효과의 정량 정보를 내야 한다",
+    "인력이 없다는 사유만 적으면 모든 재무효과 공시가 면제된다",
+    "재무효과는 항상 단일 금액으로 정량 공시해야 하므로 어떤 완화도 없다",
+    "정성 정보만 내면 되고 재무제표 항목은 특정하지 않아도 된다"
+   ],
+   "ans": 0,
+   "why": "문단 38은 효과를 따로 식별할 수 없거나 측정 불확실성이 너무 높을 때, 문단 39는 예상 효과에 한해 기술·역량·자원이 없을 때 정량 공시를 면제한다. 교육자료는 39의 완화가 자원 있는 회사의 초기 몇 해에 주로 해당하며, 역량을 개발할 자원이 있으면 회피 수단으로 쓸 수 없다고 본다. 문단 40은 대체 공시(이유, 정성 정보와 영향받는 항목, 결합 효과)를 요구하고, 금액은 단일 값 또는 범위로 낼 수 있다.",
+   "trap": "'정량 불가 → 공백'이 가장 흔한 실수다. 정량을 못 내면 더 많은 설명을 내야 한다.",
+   "sources": [
+    {
+     "label": "UK SRS S1 공개초안(2025.6, IFRS S1 본문 전재)",
+     "url": "https://assets.publishing.service.gov.uk/media/685aded6454906840a44d649/draft_uk_srs_s1_standard_with_amendments.pdf"
+    },
+    {
+     "label": "ISSB 교육자료: 예상 재무영향 공시 (2025.8)",
+     "url": "https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/disclosing-information-anticipated-financial-effects.pdf"
+    }
+   ],
+   "confidence": "high",
+   "quote": "identifying line items, totals and subtotals within the related financial statements that are likely to be affected"
+  }
+ ]
+}
