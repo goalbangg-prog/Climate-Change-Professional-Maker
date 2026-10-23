@@ -152,7 +152,8 @@ const data=`const COURSES=${JSON.stringify(COURSES)};\nconst XP=${JSON.stringify
 const page=fs.readFileSync(path.join(__dirname,"page.html"),"utf8");
 const style=fs.readFileSync(path.join(__dirname,"style.css"),"utf8").replace("</style>",fs.readFileSync(path.join(__dirname,"extra.css"),"utf8")+fs.readFileSync(path.join(__dirname,"v3.css"),"utf8")+"</style>");
 const out=page.replace("/*STYLE*/",()=>style).replace("/*DATA*/",()=>data.replace(/<\/script/g,"<\\/script"));
-fs.writeFileSync(R("index.html"),out);
+fs.writeFileSync(R("legacy.html"),out);
+fs.writeFileSync(R("data/items.gen.json"),JSON.stringify(ITEMS.filter(x=>x.type==="mc"||x.type==="judge").map(x=>({id:x.id,module:x.module,type:x.type,level:x.level,tags:x.tags,topic:x.topic,ref:x.ref,q:x.q,options:x.options,ans:x.ans,why:x.why,trap:x.trap,quote:x.quote,page:x.page,co:x.co,look:x.look,sources:x.sources}))));
 const by={};ITEMS.forEach(x=>{by[x.module]=by[x.module]||{n:0,l:[0,0,0,0]};by[x.module].n++;by[x.module].l[x.level]++});
 const vf={};ITEMS.forEach(x=>vf[x.verify]=(vf[x.verify]||0)+1);
 console.log("items",ITEMS.length,"modules",MODS.filter(m=>!m.missing).length,"missing",MODS.filter(m=>m.missing).map(m=>m.id).join(","),"lessons",Object.keys(LESSONS).length,"keys",Object.keys(KEYS).length);
