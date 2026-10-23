@@ -367,6 +367,7 @@ const ALL=[];Object.entries(DATA).forEach(([bid,ss])=>ss.forEach(x=>{x.book=bid;
 let SESS=DATA.kssb,BID="kssb";
 const useBook=bid=>{BID=DATA[bid]?bid:"kssb";SESS=DATA[BID];return BID};
 const sessOf=id=>ALL.find(x=>x.id===id);
+const sn=x=>/(^k0|-0)$/.test(DATA[x.book][0].id)?x.i:x.i+1;
 const PART=id=>/^b\d-/.test(id)?"공통 기초":id==="k0"||id==="s2-0"?"들어가며":id.startsWith("k1")?"제1호 일반 요구사항":id.startsWith("k2")?"제2호 기후 관련 공시":id==="s2-11"?"정리":"IFRS S2 본문";
 const DIFF={same:"KSSB와 같다",differs:"KSSB와 다르다",s2only:"IFRS S2에만 있다",kssbonly:"KSSB에만 있다"};
 const TERMS={};
@@ -406,7 +407,7 @@ function shelf(){
   $("#app").innerHTML=`<section class="view wrap">
    <a class="hero" href="#read/${cs.id}" style="--c:${colorOf(cur)}">
      <span class="hface">${ico(cur.a,"big")}<span class="ar">${cur.d?"이어 읽기":"첫 책"} · ${esc(area(cur.a).name)}</span><b>${esc(cur.t)}</b><em>${esc(cur.s)}</em><span class="hp"><i style="--p:${cur.d/cur.n}"></i></span></span>
-     <span class="hmeta"><span class="k">${cs.i}회차 · ${esc(cs.part)}</span><b>${esc(cs.title)}</b><span>약 ${cs.min}분 · ${cur.d}/${cur.n}회차 읽음 · 남은 시간 약 ${hm(leftMin(DATA[hb]))}</span><span class="go">${cur.d?"이어서 읽기":"읽기 시작"} →</span></span></a>
+     <span class="hmeta"><span class="k">${sn(cs)}회차 · ${esc(cs.part)}</span><b>${esc(cs.title)}</b><span>약 ${cs.min}분 · ${cur.d}/${cur.n}회차 읽음 · 남은 시간 약 ${hm(leftMin(DATA[hb]))}</span><span class="go">${cur.d?"이어서 읽기":"읽기 시작"} →</span></span></a>
    <div class="side-stats"><span>읽은 회차 <b>${DONE.length}</b></span><span>표시한 문장 <b>${NOTES.length}</b></span><span>쓴 한 줄 <b>${WRITES.length}</b></span></div>
    ${DIAGR?`<p class="diagline">진단 ${DIAGR.score}/${DIAGR.n}점 · ${DIAGR.score>=8?"기초는 건너뛰어도 된다.":(DATA.b1?"공통 기초부터 권장한다.":"공통 기초부터 권장한다. 기초 책이 준비되기 전까지는 KSSB를 읽으며 밑줄 친 용어를 눌러 보자.")} <a href="#diag">다시 보기</a></p>`:`<a class="diagcard" href="#diag"><b>처음 왔다면, 3분 진단부터</b><span>10문항으로 기초를 건너뛸지 정한다. 건너뛰어도 된다.</span><span class="go">진단 시작 →</span></a>`}
    ${AREAS.map(a=>{const list=BOOKS.filter(b=>b.a===a.id);const f=list.find(b=>b.rec)||list.find(b=>b.d>0&&b.d<b.n&&b.id!==hb)||(list.every(b=>b.d>=b.n)?null:list.find(b=>b.d<b.n&&b.id!==hb))||null;const rest=list.filter(b=>b!==f&&b.id!==hb);const d=list.filter(b=>b.d>=b.n).length;
@@ -421,16 +422,16 @@ function book(bid){
    <a href="#shelf" class="btn line sm">← 서재</a>
    <div class="bookhead"><div class="cover" style="--c:${colorOf(b)}">${M.cover}</div><div><span class="eyebrow">${esc(M.eye)}</span><h1>${esc(M.h1)}</h1><p>${esc(M.blurb)}</p>
    <div class="facts"><span><b>${b.n}</b>회차</span><span><b>약 ${hm(SESS.reduce((a,x)=>a+x.min,0))}</b></span><span><b>${b.d}</b>회차 읽음</span><span>${esc(M.src)}</span></div>
-   <div class="actions"><a class="btn" href="#read/${cs.id}">${b.d?cs.i+"회차부터 이어서":"0회차부터 읽기"}</a>${b.d?`<a class="btn line" href="#read/${SESS[0].id}">처음부터</a>`:""}</div></div></div>
+   <div class="actions"><a class="btn" href="#read/${cs.id}">${b.d?sn(cs)+"회차부터 이어서":"처음부터 읽기"}</a>${b.d?`<a class="btn line" href="#read/${SESS[0].id}">처음부터</a>`:""}</div></div></div>
    <div class="toc">${SESS.map(x=>{const head=x.part!==lastPart?`<div class="part">${esc(x.part)}</div>`:"";lastPart=x.part;const dn=DONE.includes(x.id),cu=x===cs&&!dn;
-     return head+`<a href="#read/${x.id}" class="${dn?"done":cu?"cur":""}"><span class="n">${String(x.i).padStart(2,"0")}</span><span class="tt">${esc(x.title)}<small>${cu?"지금 여기 · ":""}${esc(x.range)} · 약 ${x.min}분</small></span><span class="dot"></span></a>`}).join("")}</div></section>`;
+     return head+`<a href="#read/${x.id}" class="${dn?"done":cu?"cur":""}"><span class="n">${String(sn(x)).padStart(2,"0")}</span><span class="tt">${esc(x.title)}<small>${cu?"지금 여기 · ":""}${esc(x.range)} · 약 ${x.min}분</small></span><span class="dot"></span></a>`}).join("")}</div></section>`;
 }
 /* ---------- 읽기 ---------- */
 let CUR=null;
 const splitS=html=>html.split(/(?<=[.?!])\s+(?=[^<]*(?:<|$))/);
 function renderPara(p){let prose=p.prose.map((x,pi)=>`<p>${splitS(x).map((t,si)=>{const k=pi+"-"+si;const n=NOTES.find(z=>z.pid===p.id&&z.sk===k);const cls=n?(n.kind==="ul"?" ul":" hl "+(n.color||"y"))+(n.memo?" memo":""):"";return `<span class="s${cls}" data-k="${k}"${n?` data-n="${n.id}"`:""} tabindex="0">${t}</span>`}).join(" ")}</p>`).join("");
   NOTES.filter(n=>n.pid===p.id&&!n.sk).forEach(n=>{const cls=n.kind==="ul"?"ul":"hl "+(n.color||"y");prose=prose.replace(esc(n.text),`<mark class="${cls}${n.memo?" memo":""}" data-n="${n.id}" title="${esc(n.memo||"")}">${esc(n.text)}</mark>`)});
-  const isNo=/^[0-9A-Z]/.test(p.num);
+  const isNo=!/^b\d-/.test(p.id)&&/^(\d|[A-Z]{1,3}\d)/.test(p.num);
   return `<div class="para" data-p="${p.id}"><div class="num"><b>${isNo?"문단 ":""}${esc(p.num)}</b>${esc(p.lab)}${p.page?`<small>원문 ${p.page}쪽</small>`:""}${p.diff?`<span class="diff ${p.diff}">${DIFF[p.diff]||""}${p.kssb&&p.kssb!=="없음"?` · KSSB ${esc(p.kssb)}`:""}</span>`:""}</div><div class="body">
    <div class="prose" data-p="${p.id}">${prose}</div>
    ${p.quote?`<blockquote class="quote"><span class="k">원문${p.qno?" · 문단 "+esc(p.qno):""}</span>${esc(p.quote)}</blockquote>`:""}
@@ -442,7 +443,7 @@ function read(id){
   CUR=sessOf(id)||CUR||curS();useBook(CUR.book);LAST=CUR.id;persist();
   const b=kb();const W=CUR.write;const last=WRITES.find(w=>w.sid===CUR.id);const C=CUR.check;const nx=SESS[CUR.i+1];
   $("#app").innerHTML=`<section class="view wrap narrow" style="--c:${colorOf(b)}">
-   <div class="rhead"><a href="#book/${BID}" class="eyebrow" style="text-decoration:none">${esc(b.t)} › ${esc(CUR.part)} › ${CUR.i}회차</a><h1>${esc(CUR.title)}</h1><span class="rmeta">${esc(CUR.range)} · 약 ${CUR.min}분</span></div>
+   <div class="rhead"><a href="#book/${BID}" class="eyebrow" style="text-decoration:none">${esc(b.t)} › ${esc(CUR.part)} › ${sn(CUR)}회차</a><h1>${esc(CUR.title)}</h1><span class="rmeta">${esc(CUR.range)} · 약 ${CUR.min}분</span></div>
    <p class="lede">${esc(CUR.intro)}</p>
    ${CUR.i===0?`<p class="draft">문장을 탭하면 아래에 밑줄·형광펜·메모 막대가 뜬다. 컴퓨터에서는 문장 일부를 드래그해도 된다. 밑줄 친 용어를 누르면 뜻이 나온다.</p>`:""}
    ${CUR.paras.map(renderPara).join("")}
@@ -520,8 +521,8 @@ function notes(){
   const items=NOTES.filter(n=>sessOf(n.sid)&&(nf==="all"||(nf==="hl"&&n.kind==="hl")||(nf==="ul"&&n.kind==="ul")||(nf==="memo"&&n.memo)));const ws=nf==="all"||nf==="w"?WRITES.filter(w=>sessOf(w.sid)):[];
   const bk=bid=>{const b=kb(bid);const it=items.filter(n=>sessOf(n.sid).book===bid).sort((a,c)=>(sessOf(a.sid).i-sessOf(c.sid).i)||a.t-c.t);const w=ws.filter(x=>sessOf(x.sid).book===bid).sort((a,c)=>sessOf(a.sid).i-sessOf(c.sid).i);if(!it.length&&!w.length)return "";
    return `<div class="nbook" style="--c:${colorOf(b)}"><h2><i></i>${esc(b.t)}</h2>
-   ${it.map(n=>`<div class="nitem"><span class="num">${sessOf(n.sid).i}회차 · ${esc(n.num)}<br><span class="kind">${n.kind==="ul"?"밑줄":"형광펜"}</span></span><div><p class="q">${n.kind==="ul"?`<mark class="ul">${esc(n.text)}</mark>`:`<mark class="hl ${n.color}">${esc(n.text)}</mark>`}</p>${n.memo?`<p class="memo">✎ ${esc(n.memo)}</p>`:""}</div><button class="del" type="button" data-n="${n.id}" aria-label="지우기">✕</button></div>`).join("")}
-   ${w.map(x=>`<div class="nitem w"><span class="num">${sessOf(x.sid).i}회차<br><span class="kind">한 줄 쓰기</span></span><div><p class="memo" style="margin:0 0 4px">${esc(x.q)}</p><p class="q">${esc(x.a)}</p><span class="tag">${x.ok?"통과":"재도전"} · 핵심 ${x.pct}%</span></div><span></span></div>`).join("")}</div>`};
+   ${it.map(n=>`<div class="nitem"><span class="num">${sn(sessOf(n.sid))}회차 · ${esc(n.num)}<br><span class="kind">${n.kind==="ul"?"밑줄":"형광펜"}</span></span><div><p class="q">${n.kind==="ul"?`<mark class="ul">${esc(n.text)}</mark>`:`<mark class="hl ${n.color}">${esc(n.text)}</mark>`}</p>${n.memo?`<p class="memo">✎ ${esc(n.memo)}</p>`:""}</div><button class="del" type="button" data-n="${n.id}" aria-label="지우기">✕</button></div>`).join("")}
+   ${w.map(x=>`<div class="nitem w"><span class="num">${sn(sessOf(x.sid))}회차<br><span class="kind">한 줄 쓰기</span></span><div><p class="memo" style="margin:0 0 4px">${esc(x.q)}</p><p class="q">${esc(x.a)}</p><span class="tag">${x.ok?"통과":"재도전"} · 핵심 ${x.pct}%</span></div><span></span></div>`).join("")}</div>`};
   const body=Object.keys(DATA).map(bk).join("");
   $("#app").innerHTML=`<section class="view wrap narrow"><div class="nhead"><span class="eyebrow">내 노트</span><h1>읽으며 남긴 것</h1><p>탭해서 표시한 문장, 메모, 직접 쓴 한 줄이 책별로 모인다. 한 권을 다 읽으면 이 노트가 그 기준서의 요약 노트가 되고, 포트폴리오 첫 장이 된다.</p></div>
    <div class="ntabs" role="group">${[["all","전체"],["hl","형광펜"],["ul","밑줄"],["memo","메모 있는 것"],["w","쓴 한 줄"]].map(([k,l])=>`<button type="button" data-f="${k}" aria-pressed="${nf===k}">${l}</button>`).join("")}</div>
