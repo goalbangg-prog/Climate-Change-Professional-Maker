@@ -1,7 +1,7 @@
 [
  {
   "id": "disclosure",
-  "name": "기후공시",
+  "name": "기후공시 컨설턴트",
   "en": "Disclosure",
   "color": "ifrs",
   "who": "기후공시·ESG 컨설턴트, 기업 공시 담당자",
@@ -66,11 +66,13 @@
     "lv": 3,
     "goal": "보고서 작성 실무와 평가기관 대응, 그리고 두 회사 비교로 컨설팅 처방을 쓴다."
    }
-  ]
+  ],
+  "short": "기후공시",
+  "alias": "ESG 공시 · 지속가능성 자문"
  },
  {
   "id": "regulation",
-  "name": "규제대응",
+  "name": "온실가스 컨설턴트",
   "en": "Regulation",
   "color": "kssb",
   "who": "온실가스 인벤토리·배출권거래제 담당자, 환경·에너지 컨설턴트",
@@ -131,11 +133,13 @@
     "lv": 3,
     "goal": "산정 결과가 IFRS S2·KSSB 공시에서 어떻게 쓰이는지, 보고서를 판정한다."
    }
-  ]
+  ],
+  "short": "규제대응",
+  "alias": "배출권거래제 · 탄소중립"
  },
  {
   "id": "lca",
-  "name": "LCA",
+  "name": "LCA 컨설턴트",
   "en": "Product footprint",
   "color": "esrs",
   "who": "제품 탄소발자국·EPD·공급망 담당자",
@@ -192,11 +196,13 @@
     "lv": 3,
     "goal": "LCA 결과가 GRI·ESRS 공시와 보고서에 어떻게 실리는지 판정한다."
    }
-  ]
+  ],
+  "short": "LCA",
+  "alias": "탄소발자국 · EPD"
  },
  {
   "id": "all",
-  "name": "통합 흐름",
+  "name": "기후변화 컨설턴트",
   "en": "Full path",
   "color": "gri-sasb",
   "who": "전 영역을 순서대로 다 보려는 사람",
@@ -257,6 +263,8 @@
     "lv": 3,
     "goal": "보고서를 쓰고, 평가에 대응하고, 두 회사를 비교한다."
    }
-  ]
+  ],
+  "short": "통합 흐름",
+  "alias": "전 영역 · 통합"
  }
 ]

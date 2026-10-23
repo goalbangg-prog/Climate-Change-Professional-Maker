@@ -276,7 +276,7 @@ try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));
   else{const r2=localStorage.getItem(KEY2);if(r2)S=Object.assign(S,JSON.parse(r2));
   else{const o=JSON.parse(localStorage.getItem(KEY1)||"null");if(o){S.a=o.a||{};for(const k in (o.j||{}))S.a["ifrs-"+k]=o.j[k];for(const k in (o.c||{}))S.a["ifrs-"+k]=o.c[k]}}}}catch(e){}
 S.a=S.a||{};S.exams=S.exams||[];S.cases=S.cases||{};S.rx=S.rx||{};S.sub=S.sub||{};S.mode=S.mode||"learner";
-function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track,sub:S.sub,mode:S.mode,read:S.read,clear:S.clear,xpSeen:S.xpSeen}))}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track,sub:S.sub,mode:S.mode,read:S.read,clear:S.clear,xpSeen:S.xpSeen,v42:S.v42}))}catch(e){}}
 function record(x,res){const prev=S.a[x.id]||{};let box=prev.box||0;box=res.ok?Math.min(box+1,4):0;
   S.a[x.id]=Object.assign({},res,{t:Date.now(),box,due:Date.now()+GAP[box]*DAY,n:(prev.n||0)+1,err:res.ok?undefined:prev.err});save()}
 let view="home",sub="",mod="ifrs",cur={},flv=0,draft={},mapTopic=0,recSrc="me",author=null,artifactNS=null,canEdit=false,arm=false;
@@ -331,7 +331,7 @@ function reveal(){
   document.querySelectorAll(".rv:not(.in)").forEach(n=>revealObs.observe(n));
 }
 function theme(){const r=document.documentElement,c=r.getAttribute("data-theme");const dark=c?c==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.setAttribute("data-theme",dark?"light":"dark");try{localStorage.setItem("cd-theme",dark?"light":"dark")}catch(e){}}
-$("#tog").onclick=theme;try{const t=localStorage.getItem("cd-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}
+$("#tog").onclick=theme;try{const t=localStorage.getItem("cd-theme");document.documentElement.setAttribute("data-theme",t||"dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}
 
 /* ---------- LEARN ---------- */
 const GORDER=["map","std","meas","reg","prac","co"];
@@ -804,8 +804,8 @@ function nodeById(id){for(const tid in COURSES)for(const ch of COURSES[tid])for(
 function startView(){
   const box=$("#startBox");
   box.innerHTML=`<div class="classes">${TRACKS.map((T,i)=>{const C=COURSES[T.id]||[];const nn=C.reduce((a,c)=>a+c.nodes.length,0);const na=C.reduce((a,c)=>a+c.nodes.filter(n=>n.t==="assign").length,0);const M=CLASS_META[T.id];
-    return `<button type="button" class="cls" data-t="${T.id}" style="--c:${classColor(T.id)};--i:${i}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${M.icon}"/></svg><span class="tag">${esc(M.tag)}</span><h3>${esc(T.name)}</h3><p>${esc(M.blurb)}</p><div class="st"><span><b>${C.length}</b>챕터</span><span><b>${nn}</b>노드</span><span><b>${na}</b>과제</span></div><span class="jl">${T.jobs.slice(0,2).map(j=>esc(j)).join(" · ")}</span><span class="go">이 클래스로 시작 →</span></button>`}).join("")}</div>`;
-  document.querySelectorAll(".cls").forEach(b=>b.onclick=()=>{document.querySelectorAll(".cls").forEach(x=>x.classList.add(x===b?"picked":"faded"));setTimeout(()=>{S.track=b.dataset.t;S.xpSeen=0;save();applyAccent();go("course")},650)});
+    return `<button type="button" class="cls" data-t="${T.id}" style="--c:${classColor(T.id)};--i:${i}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${M.icon}"/></svg><span class="tag">${esc(M.tag)}</span><h3>${esc(T.name)}</h3><span class="alias">${esc(T.alias||"")}</span><p>${esc(M.blurb)}</p><div class="st"><span><b>${C.length}</b>챕터</span><span><b>${nn}</b>노드</span><span><b>${na}</b>과제</span></div><span class="jl">${T.jobs.slice(0,2).map(j=>esc(j)).join(" · ")}</span><span class="go">이 클래스로 시작 →</span></button>`}).join("")}</div>`;
+  document.querySelectorAll(".cls").forEach(b=>b.onclick=()=>{document.querySelectorAll(".cls").forEach(x=>x.classList.add(x===b?"picked":"faded"));setTimeout(()=>{S.track=b.dataset.t;S.v42=true;S.xpSeen=0;save();applyAccent();go("course")},650)});
 }
 function applyAccent(){const t=TRACKS.find(x=>x.id===S.track);const r=document.documentElement;if(!t){r.style.removeProperty("--acc");r.removeAttribute("data-class");return}r.setAttribute("data-class",t.id);r.style.setProperty("--acc",classColor(t.id))}
 /* ---- course map ---- */
@@ -816,16 +816,44 @@ function courseView(){
   let h=`<div class="chead"><div class="cl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${M.icon}"/></svg><div><span class="k">${esc(M.tag)} · 레벨 <b class="cnt" data-n="${st.level}">${st.level}</b></span><h2>${esc(T.name)} 코스</h2></div><button class="btn line sm" type="button" id="reclass">전직</button></div>
   <div class="cprog"><div class="bar"><i style="width:${pct}%"></i></div><span class="mono">${st.done}/${st.total} 노드 · ${pct}% · XP <b class="cnt" data-n="${st.xp}">${st.xp}</b></span></div>
   ${nx?`<a class="next" href="${nodeHref(nx.node)}"><span class="k">다음 할 것 · ${st.chs[nx.ci].ci+1}장 ${esc(st.chs[nx.ci].ch.name)}</span><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${ICON[nx.node.t]}"/></svg>${NODE_NAME[nx.node.t]} · ${esc(nx.node.name)}</b><span class="go">시작 →</span></a>`:`<div class="next done"><span class="k">수료</span><b>이 코스의 노드를 모두 마쳤다</b><span>포트폴리오에 결과물이 모여 있다. 다른 클래스로 전직해서 빈 곳을 채우자.</span></div>`}</div>`;
-  h+=`<div class="chapters">${st.chs.map(c=>{const locked=c.ci>0&&!st.chs[c.ci-1].chDone&&!(nx&&nx.ci===c.ci);const cur=nx&&nx.ci===c.ci;
-    return `<section class="chap ${c.chDone?"done":""} ${cur?"cur":""} ${locked?"locked":""}" style="--d:${c.ci}"><header><span class="num">${c.chDone?"✓":c.ci+1}</span><div><h3>${esc(c.ch.name)}</h3><p>${esc(c.ch.goal)}</p></div><span class="mono">${c.cd}/${c.ch.nodes.length}</span></header>
-    <div class="nodes">${c.nodes.map((o,i)=>{const isCur=cur&&nx.node.id===o.n.id;const open=o.done||isCur||(cur&&c.nodes.slice(0,i).every(z=>z.done))||c.chDone;const pr=nodeProg(o.n);
-      return `${i?`<i class="link ${o.done||isCur?"on":""}"></i>`:""}<a class="node ${o.done?"done":isCur?"cur":open?"open":"lock"}" href="${open?nodeHref(o.n):"#course"}" style="--i:${i}" ${open?"":'aria-disabled="true"'}><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${ICON[o.n.t]}"/></svg>${pr>0&&pr<1?`<i class="ring" style="--p:${pr}"></i>`:""}</span><span class="t">${NODE_NAME[o.n.t]}</span><span class="n">${esc(o.n.name)}</span>${o.n.t==="drill"?`<span class="s">${o.n.ids.length}문항${o.n.lv?" · "+LV[o.n.lv]:""}</span>`:o.n.t==="case"||o.n.t==="compare"?`<span class="s">${Math.round(pr*100)}%</span>`:o.n.t==="assign"?`<span class="s">${((S.sub[o.n.id]||{}).versions||[]).length?"v"+S.sub[o.n.id].versions.length+" 제출":pr?Math.round(pr*100)+"% 채움":"갭 분석표"}</span>`:`<span class="s">${o.done?"읽음":"입문 글"}</span>`}</a>`}).join("")}</div></section>`}).join("")}</div>`;
+  h+=board(st);
   box.innerHTML=h;countUp(box);
   $("#reclass").onclick=()=>go("start");
-  document.querySelectorAll(".node.lock").forEach(a=>a.onclick=e=>{e.preventDefault();toast("앞 노드를 먼저 끝내면 열린다")});
+  bindBoard(st);
   // chapter clear celebration
   st.chs.forEach(c=>{const k=T.id+"-"+c.ci;if(c.chDone&&!S.clear[k]){S.clear[k]=Date.now();save();confetti();toast(`${c.ci+1}장 '${c.ch.name}' 클리어`)}});
   if(st.xp>(S.xpSeen||0)){const gain=st.xp-(S.xpSeen||0);S.xpSeen=st.xp;save();if(gain<st.xp)xpToast(gain)}
+}
+/* ---- board (디아블로/GT7식 노드 판) ---- */
+const SHAPE={read:"circle",drill:"circle",assign:"hex",case:"diamond",compare:"square"};
+let selNode=null;
+function boardLayout(st){const cols=5,CW=164,RH=150,ZT=48;let y=16;const P=[],Z=[];
+  st.chs.forEach(c=>{const y0=y;y+=ZT;const rows=Math.ceil(c.nodes.length/cols);
+    c.nodes.forEach((o,i)=>{const r=Math.floor(i/cols),k=i%cols;const col=r%2===0?k:cols-1-k;P.push({o,c,x:col*CW+CW/2,y:y+r*RH+RH/2,i:P.length})});
+    y+=rows*RH;Z.push({c,y0,y1:y+14});y+=44});
+  const last=P[P.length-1];P.push({grad:true,c:null,x:last?last.x:CW*cols/2,y:y+60,i:P.length,done:st.done===st.total});
+  return {P,Z,W:cols*CW,H:y+140}}
+function board(st){const L=boardLayout(st);const nx=st.cur;
+  const nodeState=p=>{if(p.grad)return st.done===st.total?"done":"lock";const o=p.o;if(o.done)return "done";if(nx&&nx.node.id===o.n.id)return "cur";const ch=L.P.filter(q=>!q.grad&&q.c===p.c);const before=ch.slice(0,ch.indexOf(p));if(nx&&nx.ci===p.c.ci&&before.every(q=>q.o.done))return "open";return "lock"};
+  let svg=`<svg class="lines" viewBox="0 0 ${L.W} ${L.H}" width="${L.W}" height="${L.H}" aria-hidden="true">`;
+  for(let i=1;i<L.P.length;i++){const a=L.P[i-1],b=L.P[i];const on=a.grad?false:(a.o.done);const d=a.x===b.x||a.y===b.y?`M${a.x},${a.y} L${b.x},${b.y}`:`M${a.x},${a.y} L${a.x},${(a.y+b.y)/2} L${b.x},${(a.y+b.y)/2} L${b.x},${b.y}`;
+    svg+=`<path class="ln" d="${d}"/>${on?`<path class="ln on" d="${d}" style="--i:${i}"/>`:""}`}
+  svg+="</svg>";
+  const zones=L.Z.map(z=>`<div class="zone ${z.c.chDone?"done":nx&&nx.ci===z.c.ci?"cur":""}" style="top:${z.y0}px;height:${z.y1-z.y0}px"><span class="zl"><b>${z.c.ci+1}</b>${esc(z.c.ch.name)}<small>${z.c.cd}/${z.c.ch.nodes.length}</small></span></div>`).join("");
+  const nodes=L.P.map(p=>{const stt=nodeState(p);const t=p.grad?"grad":p.o.n.t;const pr=p.grad?0:nodeProg(p.o.n);
+    return `<button type="button" class="bn ${SHAPE[t]||"star"} ${stt}" data-i="${p.i}" style="left:${p.x}px;top:${p.y}px;--i:${p.i}" aria-label="${esc(p.grad?"수료":NODE_NAME[t]+" · "+p.o.n.name)}"><span class="sh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="${p.grad?"M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7z":ICON[t]}"/></svg>${pr>0&&pr<1?`<i class="ring" style="--p:${pr}"></i>`:""}${stt==="lock"?`<i class="lk"></i>`:""}</span><span class="lb">${esc(p.grad?"수료":clip(p.o.n.name,14))}</span></button>`}).join("");
+  const legend=`<div class="legend2">${[["circle","읽기·해 보기"],["hex","과제"],["diamond","케이스"],["square","비교·처방"],["star","수료"]].map(([k,n])=>`<span><i class="${k}"></i>${n}</span>`).join("")}<span><i class="dot-on"></i>끝냄</span><span><i class="dot-cur"></i>지금</span><span><i class="dot-lock"></i>잠김</span></div>`;
+  return `<div class="boardwrap">${legend}<div class="board" style="width:${L.W}px;height:${L.H}px">${svg}${zones}${nodes}</div></div><div class="ncard" id="ncard" hidden></div>`;
+}
+function bindBoard(st){const L=boardLayout(st);const nx=st.cur;
+  const show=p=>{const c=$("#ncard");if(!p){c.hidden=true;return}c.hidden=false;
+    if(p.grad){c.innerHTML=`<div class="nc"><span class="k">수료</span><b>${esc(TRACK().name)} 코스 수료</b><span>${st.done}/${st.total} 노드를 끝내면 열린다. 포트폴리오에 결과물이 모인다.</span></div><div class="nc-act">${st.done===st.total?`<a class="btn" href="#portfolio">포트폴리오 →</a>`:`<span class="hint">${st.total-st.done}노드 남음</span>`}</div>`;return}
+    const o=p.o,n=o.n;const stt=document.querySelector(`.bn[data-i="${p.i}"]`).classList.contains("lock")?"lock":o.done?"done":"open";
+    const detail=n.t==="drill"?`${n.ids.length}문항${n.lv?" · "+LV[n.lv]:""} · ${n.ids.filter(id=>S.a[id]).length} 풀이`:n.t==="read"?`${((LESSONS[n.mod]||{}).sections||[]).length}절 · 용어 ${((LESSONS[n.mod]||{}).terms||[]).length}개`:n.t==="assign"?`${ASSIGN.find(a=>a.id===n.id).rows.length}줄 · ${esc(ASSIGN.find(a=>a.id===n.id).deliverable)}`:n.t==="case"?`${n.ids.length}케이스 · ${Math.round(nodeProg(n)*100)}%`:`처방 ${n.n}건 쓰기 · ${Math.round(nodeProg(n)*100)}%`;
+    c.innerHTML=`<div class="nc"><span class="k">${p.c.ci+1}장 ${esc(p.c.ch.name)} · ${NODE_NAME[n.t]}</span><b>${esc(n.name)}</b><span>${detail} · 보상 <em>+${XP[n.t]} XP</em></span></div><div class="nc-act">${stt==="lock"?`<span class="hint">앞 노드를 먼저</span>`:`<a class="btn" href="${nodeHref(n)}">${o.done?"다시 보기":stt==="open"&&nx&&nx.node.id===n.id?"시작 →":"열기 →"}</a>`}</div>`};
+  document.querySelectorAll(".bn").forEach(b=>{b.onclick=()=>{const p=L.P[+b.dataset.i];document.querySelectorAll(".bn.sel").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");show(p);
+      if(!b.classList.contains("lock")&&!p.grad&&b.dataset.dbl==="1"){location.hash=nodeHref(p.o.n)}b.dataset.dbl="1";setTimeout(()=>b.dataset.dbl="",500)}});
+  const cur=nx?L.P.find(p=>!p.grad&&p.o.n.id===nx.node.id):L.P[L.P.length-1];if(cur){const b=document.querySelector(`.bn[data-i="${cur.i}"]`);if(b){b.classList.add("sel");show(cur);setTimeout(()=>b.scrollIntoView({block:"center",behavior:"smooth"}),300)}}
 }
 function xpToast(g){const e=document.createElement("div");e.className="xp";e.textContent="+"+g+" XP";document.body.appendChild(e);setTimeout(()=>e.remove(),1800)}
 function confetti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;const c=document.createElement("canvas");c.className="confetti";document.body.appendChild(c);const x=c.getContext("2d");c.width=innerWidth;c.height=innerHeight;const cols=["#2a78d6","#eb6834","#1baf7a","#eda100","#e87ba4","#ffe27a"];
@@ -1040,7 +1068,7 @@ function route(){
   view=VIEWS.includes(base)?base:"home";sub=rest;
   if(view==="home")view=S.track?"course":"start";
   if(view==="drill"){startDrill(sub);view="practice"}else if(view!=="practice")drill=null;
-  if(!S.track&&S.mode!=="teacher"&&!["start","about","map","glossary"].includes(view))view="start";
+  if((!S.track||!S.v42)&&S.mode!=="teacher"&&!["start","about","map","glossary"].includes(view))view="start";
   if(view==="practice"&&MOD[sub]&&!MOD[sub].missing){mod=sub;flv=0;draft={}}
   if(view==="lesson"&&!MOD[sub])view="learn";
   VIEWS.forEach(k=>{const el=$("#v-"+k);if(!el)return;el.hidden=k!==view;if(k===view){el.classList.remove("enter");void el.offsetWidth;el.classList.add("enter")}});
