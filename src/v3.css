@@ -421,3 +421,12 @@ code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 
 .ncard .nc>span:not(.k){font-size:13px;color:var(--ink2)}
 .ncard em{font-style:normal;color:var(--acc);font-weight:700}
 @media (max-width:560px){.ncard{grid-template-columns:1fr}}
+/* v4.4 */
+.quest{display:flex;gap:14px;align-items:center;margin:4px 18px 14px;padding:12px 16px;border-radius:12px;text-decoration:none;color:var(--ink);background:color-mix(in srgb,var(--m-gri-sasb) 12%,var(--bg));border:1px solid color-mix(in srgb,var(--m-gri-sasb) 50%,transparent)}
+.quest .qi{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--m-gri-sasb);color:#fff;flex:none;animation:pulse 2s ease-in-out infinite}
+.quest .qi svg{width:20px;height:20px}
+.quest b{display:block;font-size:14.5px}.quest small{color:var(--muted);font-size:12px}
+.quest .go{margin-left:auto;font-weight:800;color:var(--m-gri-sasb)}
+.pf .del{all:unset;cursor:pointer;margin-left:8px;padding:0 6px;border-radius:4px;color:var(--muted);font-size:12px}
+.pf .del:hover{background:var(--bad-bg);color:var(--bad)}
+.toast #undo{all:unset;cursor:pointer;margin-left:10px;padding:2px 8px;border-radius:4px;background:var(--mark);color:var(--mark-ink);font-weight:700;font-size:12px}
