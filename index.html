@@ -610,14 +610,88 @@ textarea.big{width:100%;min-height:150px;padding:12px 14px;border:1px solid var(
 .pflist.compact .pf{padding:12px 16px;gap:4px}.pflist.compact .pf p{font-size:14px}
 @media (max-width:1000px){.works{grid-template-columns:1fr}}
 @media print{.nav,footer,.toast,.pfhead,.hero,#v-portfolio .sh .k{display:none!important}.view[hidden]{display:none}body{background:#fff;color:#000}.pf{border-color:#bbb}.wrap{max-width:none}.kpi4{grid-template-columns:repeat(4,1fr)}a{color:inherit;text-decoration:none}a[href^="http"]:after,a[href^="reports"]:after{content:""}}
+
+/* ===== v4: assignments, mode ===== */
+.mode{all:unset;cursor:pointer;margin-left:6px;padding:6px 10px;border:1px solid var(--rule2);border-radius:999px;font-size:12px;font-weight:700;color:var(--ink2);white-space:nowrap}
+.mode[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mode span:before{content:"● ";font-size:9px;vertical-align:1px}
+.aflow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 20px;font-size:13px}
+.aflow span{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1px solid var(--rule);border-radius:999px;background:var(--bg)}
+.aflow span b{width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:11px;font-family:var(--mono)}
+.aflow i{width:16px;height:1px;background:var(--rule2)}
+.alist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.acard{display:flex;flex-direction:column;gap:8px;padding:18px 20px;border:1px solid var(--rule);border-radius:12px;text-decoration:none;color:var(--ink);background:var(--bg)}
+.acard:hover{background:var(--bg2)}
+.acard .h{display:flex;gap:6px;flex-wrap:wrap;font-size:11.5px}
+.acard b{font-size:16px}.acard p{font-size:13.5px;color:var(--ink2)}.acard .s{font-size:12px;color:var(--muted)}
+.acard.part{border-left:4px solid var(--mark)}.acard.sub{border-left:4px solid var(--good)}
+.atabs{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0}
+.lvpick{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:13px}
+.lvpick>span:first-child{color:var(--muted);font-weight:600}
+.lvpick button{all:unset;cursor:pointer;padding:6px 12px;border:1px solid var(--rule2);border-radius:999px;font-size:12.5px;background:var(--bg)}
+.lvpick button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.awork{display:flex;flex-direction:column;gap:12px}
+.arow{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:16px 18px;border:1px solid var(--rule);border-radius:12px;background:var(--bg)}
+.arow.ok{border-left:4px solid var(--good)}
+.arow .n{color:var(--muted);font-size:13px;padding-top:4px}
+.arow .body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:18px}
+.arow .req b{display:block;font-size:15px;margin:6px 0 4px}
+.arow .req p{font-size:14px;color:var(--ink2);line-height:1.6}
+.arow .fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.arow .fields label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--muted)}
+.arow .fields label.wide,.arow .f5,.arow .prio{grid-column:1/-1}
+.arow .fields input,.arow .fields textarea{padding:8px 10px;border:1px solid var(--rule2);border-radius:8px;background:var(--bg);font:inherit;font-size:14px;color:var(--ink);font-weight:400}
+.arow .fields textarea{min-height:64px;resize:vertical;line-height:1.6}
+.arow .fields textarea.tall{min-height:120px}
+.arow .fields label .u{font-size:12px;color:var(--muted);font-weight:400}
+.arow .fields label.ask textarea{border-color:var(--m-gri-sasb);background:color-mix(in srgb,var(--m-gri-sasb) 8%,var(--bg))}
+.f5{display:flex;gap:4px;flex-wrap:wrap}
+.f5 button{all:unset;cursor:pointer;padding:7px 11px;border:1px solid var(--rule2);border-radius:8px;font-size:13px;background:var(--bg)}
+.f5 button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.prio{display:flex;gap:6px;align-items:center;font-size:12.5px}
+.prio>span{color:var(--muted);font-weight:600}
+.prio button{all:unset;cursor:pointer;padding:5px 10px;border:1px solid var(--rule2);border-radius:999px;font-size:12px}
+.prio button[aria-pressed="true"]{background:var(--bad);color:#fff;border-color:var(--bad)}
+.prio button[data-p="M"][aria-pressed="true"]{background:var(--m-gri-sasb);border-color:var(--m-gri-sasb)}
+.prio button[data-p="L"][aria-pressed="true"]{background:var(--muted);border-color:var(--muted)}
+.optlist{font-size:13px;color:var(--ink2);padding-left:18px;margin-top:6px}
+.asubmit{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;padding:16px 20px;border:1px dashed var(--rule2);border-radius:12px}
+.asubmit b{display:block;font-size:15px}
+.rub{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.rub div{display:grid;grid-template-columns:110px minmax(0,1fr) 36px;gap:10px;align-items:center;font-size:13px}
+.rub .t{display:flex;gap:3px}.rub .t i{flex:1;height:10px;border-radius:3px;display:block}
+.rub .v{text-align:right;color:var(--muted)}
+.notes-ul{font-size:13.5px;color:var(--ink2);padding-left:18px;margin-top:8px;line-height:1.6}
+.rowcmt{display:flex;flex-direction:column;gap:8px}
+.rc{padding:12px 16px;border:1px solid var(--rule);border-radius:10px;background:var(--bg)}
+.rc.clean{opacity:.7}
+.rc .h{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13.5px}
+.rc .h .mono{color:var(--muted)}
+.rc ul{font-size:13.5px;color:var(--ink2);padding-left:18px;margin-top:6px;line-height:1.6}
+.rc .ai{font-size:13.5px;margin-top:6px;padding:8px 12px;border-left:3px solid var(--m-ifrs);background:color-mix(in srgb,var(--m-ifrs) 8%,var(--bg))}
+.rephead{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.rephead .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rephead h3{font-size:22px;font-family:var(--display);font-weight:800}
+.rephead p{font-size:13px;color:var(--muted)}
+.reptable{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px}
+.reptable th,.reptable td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top;text-align:left}
+.reptable th{background:var(--bg2);font-size:12px;color:var(--ink2)}
+.reptable small{color:var(--muted)}
+.reptable tr.v-ok td:nth-child(3){color:var(--good);font-weight:700}.reptable tr.v-part td:nth-child(3){color:color-mix(in srgb,var(--m-gri-sasb) 70%,var(--ink));font-weight:700}.reptable tr.v-no td:nth-child(3){color:var(--bad);font-weight:700}
+.repsum .kpi4{grid-template-columns:repeat(5,minmax(0,1fr))}
+code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 5px;border-radius:4px}
+@media (max-width:1000px){.alist{grid-template-columns:1fr}.arow .body{grid-template-columns:1fr}.repsum .kpi4{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.arow{grid-template-columns:1fr}.arow .n{display:none}.arow .fields{grid-template-columns:1fr}}
+@media print{.atabs,.asubmit,.exam-bar,.brief,.rephead .actions{display:none!important}.reptable{font-size:11px}}
 </style>
 
 
 <header class="nav"><div class="wrap">
   <a class="brand" href="#home"><i aria-hidden="true"><b style="background:var(--m-ifrs)"></b><b style="background:var(--m-kssb)"></b><b style="background:var(--m-esrs)"></b><b style="background:var(--m-gri-sasb)"></b></i><span>기후공시 연습장</span></a>
   <nav aria-label="메뉴">
-    <a href="#home" data-v="home">홈</a><a href="#cases" data-v="cases">케이스</a><a href="#compare" data-v="compare">기업 비교</a><a href="#practice" data-v="practice">판정 연습</a><a href="#path" data-v="path">내 경로</a><a href="#review" data-v="review">복습</a><a href="#exam" data-v="exam">모의시험</a><a href="#portfolio" data-v="portfolio">포트폴리오</a><a href="#learn" data-v="learn">모듈</a><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어</a><a href="#record" data-v="record">내 기록</a><a href="#about" data-v="about">만든 방법</a>
+    <a href="#home" data-v="home">홈</a><a href="#assign" data-v="assign" class="learner">과제</a><a href="#cases" data-v="cases" class="learner">케이스</a><a href="#compare" data-v="compare" class="learner">기업 비교</a><a href="#practice" data-v="practice" class="learner">판정 연습</a><a href="#path" data-v="path" class="learner">내 경로</a><a href="#review" data-v="review" class="learner">복습</a><a href="#portfolio" data-v="portfolio" class="learner">포트폴리오</a><a href="#learn" data-v="learn" class="learner">모듈</a><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어</a><a href="#record" data-v="record" class="learner">내 기록</a><a href="#teach" data-v="teach" class="teacher">강의실</a><a href="#teach-content" data-v="teach" class="teacher">콘텐츠 관리</a><a href="#about" data-v="about">만든 방법</a>
   </nav>
+  <button class="mode" id="modeBtn" type="button" title="수강자/교육자 모드 전환"><span></span></button>
   <button class="tog" id="tog" type="button" aria-label="밝게/어둡게 바꾸기" title="밝게/어둡게"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.4A7 7 0 0 1 12 3z"/></svg></button>
 </div></header>
 
@@ -630,7 +704,7 @@ textarea.big{width:100%;min-height:150px;padding:12px 14px;border:1px solid var(
         <div class="eyebrow" id="heroEyebrow">기후공시 전 영역 · 모듈 · 원문과 공식 자료로 대조</div>
         <h1>보고서를 열고<br>기준에 대고<br><em>판정하고 쓴다</em></h1>
         <p class="lead">컨설턴트가 하는 일 그대로다. 현대자동차·기아의 실제 보고서를 IFRS S2·KSSB·ESRS·GRI에 대고 '있는지, 충분한지' 판정하고, 숫자를 다시 계산하고, 근거와 개선안을 글로 쓴다. 외우는 문제는 뺐다.</p>
-        <div class="cta"><a class="btn" href="#cases">케이스 스터디 시작 →</a><a class="btn line" href="#compare">현대차 vs 기아</a></div>
+        <div class="cta"><a class="btn" href="#assign">첫 과제 시작 →</a><a class="btn line" href="#cases">케이스 스터디</a></div>
       </div>
       <div>
         <svg class="prism" id="prism" viewBox="0 0 640 400" role="img" aria-label="하나의 Scope 3 숫자가 다섯 기준의 서로 다른 요구로 갈라지는 모습"></svg>
@@ -642,7 +716,7 @@ textarea.big{width:100%;min-height:150px;padding:12px 14px;border:1px solid var(
 
   <section class="sec">
     <div class="wrap">
-      <div class="sh rv"><span class="k">How consultants work</span><h2>실무 순서 그대로, 세 가지 일</h2><p>이 연습장은 세 가지 동작으로 이루어져 있다. 셋 다 결과물은 네가 쓴 글이고, 그 글이 <a href="#portfolio">포트폴리오</a>가 된다.</p></div>
+      <div class="sh rv"><span class="k">How consultants work</span><h2>신입이 첫 달에 받는 일, 그대로</h2><p>과제 → 케이스 → 비교 → 판정 연습. 결과물은 전부 네가 쓴 문서이고, 그 문서가 <a href="#portfolio">포트폴리오</a>가 된다. 점수는 보조다.</p></div>
       <div class="works rv" id="works"></div>
     </div>
   </section>
@@ -690,11 +764,31 @@ textarea.big{width:100%;min-height:150px;padding:12px 14px;border:1px solid var(
   </section>
 </div>
 
+<!-- ASSIGNMENTS -->
+<div class="view" id="v-assign" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh" id="assignHead"><span class="k">Assignments</span><h2>업무 과제</h2><p>신입 컨설턴트가 첫 달에 실제로 받는 일 그대로다. 갭 분석표, 검산 메모, 검증 대응 점검표, 개정 비교표, 공시 문안. 과제 하나를 끝까지 채워 제출하면 리뷰를 받고, 고쳐서 다시 낸다. 결과물은 회사 문서 모양으로 나와 포트폴리오에 쌓인다.</p></div>
+      <div id="assignBox"></div>
+    </div>
+  </section>
+</div>
+
+<!-- TEACHER -->
+<div class="view" id="v-teach" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Instructor</span><h2>교육자 모드</h2><p>같은 데이터 위에서 반 전체를 보는 화면이다. 4.0에서는 자리만 잡았고, 수강자 제출물 구조(수강자 · 과제 · 제출 버전 · 리뷰)가 그대로 DB 테이블이 된다.</p></div>
+      <div id="teachBox"></div>
+    </div>
+  </section>
+</div>
+
 <!-- PORTFOLIO -->
 <div class="view" id="v-portfolio" hidden>
   <section class="sec" style="padding-block:40px 72px;border:none">
     <div class="wrap">
-      <div class="sh"><span class="k">Portfolio</span><h2>판정·근거·처방 포트폴리오</h2><p>이 페이지에는 정답률이 없다. 실제 보고서를 기준에 대고 내린 판정과, 그 근거와 개선안, 두 회사를 비교해 쓴 처방만 있다. 글마다 원문 쪽이 붙어 있어 누구나 열어서 확인할 수 있다.</p></div>
+      <div class="sh"><span class="k">Portfolio</span><h2>진단·갭 분석·개선 포트폴리오</h2><p>이 페이지에는 정답률이 없다. 실제 보고서를 기준에 대고 만든 갭 분석표와 진단 요약, 판정의 근거와 개선안, 두 회사를 비교해 쓴 처방만 있다. 글마다 원문 쪽이 붙어 있어 누구나 열어서 확인할 수 있다.</p></div>
       <div id="pfBox"></div>
     </div>
   </section>
@@ -855,6 +949,7 @@ const ITEMS=[{"id":"ifrs-j1","module":"ifrs","type":"judge","level":1,"tags":["�
 const MAP=[{"topic":"Scope 1 온실가스 배출량","plain":"회사가 직접 연료를 태우거나 공정에서 내보내는 온실가스 양이다.","ifrs":"29(a)(i)(1)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"E1-6 ¶44(a), ¶48(a)(Scope 1 총량)·¶48(b)(배출권거래제 적용 비율)","gri":"305-1 (GRI 305: Emissions 2016) → GRI 102-5 (2027.1.1 시행)","sasb":"해당 없음","cdp":"7.6","hyundai":{"page":38,"pageLabel":"p.38","fact":"2025년 Scope 1 720,642 tCO2-eq (2024년 729,974), 운영통제 기준·기준연도 2024년"},"diff":"ESRS는 Scope 1 중 배출권거래제 적용 비율과 연결범위 밖 운영통제 배출까지 따로 요구하지만, IFRS S2·GRI는 GHG 프로토콜 총량 중심이다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"}],"key":"scope1","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 배출량 공시가 E1-8로 이동, Scope 1 ETS 비율은 EU ETS로 한정","short":null},{"topic":"Scope 2 온실가스 배출량(지역 기반/시장 기반)","plain":"회사가 사서 쓴 전기·열을 만들 때 나온 온실가스 양으로, 지역 평균값(지역 기반)과 실제 구매 계약값(시장 기반) 두 가지로 계산한다.","ifrs":"29(a)(i)(2), 29(a)(v)(지역 기반 + 계약상 수단 정보)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"E1-6 ¶44(b), ¶49(a) 지역 기반·¶49(b) 시장 기반, ¶52 합계(두 기준 각각)","gri":"305-2 → GRI 102-6 (지역 기반 필수, 해당 시 시장 기반)","sasb":"해당 없음","cdp":"7.7 (7.10.2에서 성과 계산 기준이 지역/시장 기반인지 표시)","hyundai":{"page":38,"pageLabel":"p.38","fact":"2025년 Scope 2 지역 기반 1,858,897 t, 시장 기반 1,190,442 t (2024년 1,786,324 / 1,468,432)"},"diff":"IFRS S2는 지역 기반만 필수이고 시장 기반은 선택(계약 정보는 공시)인데, ESRS는 두 기준을 모두 필수로 요구한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"}],"key":"scope2","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 배출량 공시가 E1-8로 이동, 총배출량·매출 대비 집약도 항목 삭제 (Scope 2 두 기준 유지 여부 미확인)","short":null},{"topic":"Scope 3 온실가스 배출량","plain":"원료 구매부터 판매한 차의 운행·폐기까지, 회사 밖 가치사슬 전체에서 나오는 온실가스 양이다.","ifrs":"29(a)(i)(3), 29(a)(vi)(포함 카테고리; (2)는 금융배출량)","kssb":"IFRS S2와 같은 구조 (확인 필요); 금융위 로드맵: Scope 3 공시 3년 유예","esrs":"E1-6 ¶44(c), ¶51(유의적 카테고리별), AR46(포함·제외 카테고리)","gri":"305-3 → GRI 102-7","sasb":"해당 없음 (관련: TR-AU-410a.1 판매가중 평균 연비, TR-AU-410a.2 ZEV·HEV·PHEV 판매대수)","cdp":"7.8","hyundai":{"page":38,"pageLabel":"p.38","fact":"2025년 Scope 3 199,704,253 t (2024년 203,863,854); Category 11(판매 제품 사용)을 Well-to-Wheel로 확대, Cat.4·10·14 신규 산정"},"diff":"ESRS는 포함·제외 카테고리와 그 이유를 목록으로 요구하고, IFRS S2는 측정 프레임워크와 실무상 불가능 시 면제(B57)를 두며, 금융위원회 로드맵은 국내 Scope 3 공시를 3년 유예한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"경향신문 기고(KSSB 최종안·Scope 3 유예, 2026.8.5)","url":"https://www.khan.co.kr/article/202608051959005/amp"},{"label":"금융위원회 지속가능성 공시 제도화 방안 최종안 (2026.7.8)","url":"https://www.fsc.go.kr/po010101/87280"}],"key":"scope3","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): E1-8로 이동, 유의적 카테고리별 별도 보고경계 항목 삭제","short":{"ifrs":"29(a)(vi) 카테고리 명시","kssb":"Scope 3 공시 3년 유예","esrs":"E1-6 문단 51 → 개정 E1-8","gri":"305-3 → 102-7 (2027~)","cdp":"질문 7.8"}},{"topic":"온실가스 감축 목표","plain":"언제까지 배출량을 얼마나 줄이겠다는 회사의 약속과 그 진행 상황이다.","ifrs":"33–36 (GHG 목표는 36, 탄소크레딧 사용 계획 36(e))","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"E1-4 ¶30, ¶33–34 (ESRS 2 MDR-T ¶79–80)","gri":"305-5(감축 실적) → GRI 102-4 (감축 목표와 진척)","sasb":"해당 없음 (TR-AU-410a.3 전략 논의에서 연비·배출 목표를 선택적으로 언급 가능)","cdp":"7.53 / 7.53.1(절대 목표), 7.54.3(넷제로 목표)","hyundai":{"page":40,"pageLabel":"p.40","fact":"Scope 1+2: 2024년 대비 2030년까지 약 42% 감축, Scope 3 Cat.11: 2035년까지 63% 감축(모두 SBTi 승인), 2045년 전 밸류체인 탄소중립"},"diff":"ESRS는 탄소크레딧·제거량을 빼기 전 총량 기준 절대 목표를 요구하지만, IFRS S2는 순(net) 목표도 허용하고 크레딧 사용 계획만 공시하게 한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"EY: EFRAG 간소화 ESRS 요약(2026.1)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"},{"label":"IBR-IRE: 집행위 최종 위임법 vs EFRAG 비교","url":"https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"}],"key":"targets","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 총량(gross) 절대 목표 유지, 넷제로 목표는 E1-6로 이동, 목표 기간 규정·5년 갱신 요건 삭제(EFRAG 기술자문 기준)","short":null},{"topic":"기후 전환 계획","plain":"저탄소 경제로 바뀌는 흐름에 맞춰 회사가 사업과 투자를 어떻게 바꿀지 담은 실행 계획이다.","ifrs":"14(a)(iv) (핵심 가정·의존성 포함), 14(a)(v)(목표 달성 계획)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"E1-1 ¶14, ¶16(a)–(j), ¶17(계획 없을 때), AR1–AR5","gri":"GRI 102-1 (기후변화 완화 전환계획)","sasb":"해당 없음 (가장 가까운 항목: TR-AU-410a.3 연비·배출 위험·기회 관리 전략 논의)","cdp":"5.2 (관련: 5.3.1, 5.3.2, 7.53.1)","hyundai":{"page":24,"pageLabel":"pp.24–33 (요약 KPI p.20)","fact":"ZERO 에너지 팩토리(2021–2030년 1,112억 원 투자), 2045년 RE100, 전동화 전환(2030년 전동화 차량 330만 대·판매비중 60% 목표, p.20)"},"diff":"ESRS는 전환계획 유무와 1.5°C 정합성 설명을 명시적으로 요구하지만, IFRS S2는 '계획이 있다면' 그 내용을 공시하게 한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"IBR-IRE: 집행위 최종 위임법 vs EFRAG 비교","url":"https://www.ibr-ire.be/docs/default-source/nl/documents/actueel/nieuws/esrs-ec-final-da-vs-efrag-en.pdf"},{"label":"GRI 102와 IFRS S2 동시 보고 성명(globalreporting.org)","url":"https://globalreporting.org/media/swwndqbn/gri-102-and-ifrs-s2-statement-on-reporting-on-both-standards-and-equivalence.pdf"}],"key":"transition","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): E1-1 유지, 1.5°C 비정합 시 설명 의무 추가(위임법 ¶12(a)), 고착 배출(locked-in) 가이던스 삭제","short":null},{"topic":"기후 시나리오 분석 / 회복력","plain":"온도가 1.5°C 또는 4°C 오르는 등 여러 미래를 가정해 회사 전략이 버틸 수 있는지 시험해 보는 분석이다.","ifrs":"22 (22(a) 회복력 평가, 22(b) 시나리오 분석 방법·시점)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"ESRS 2 SBM-3 관련 E1 ¶19(회복력), IRO-1 관련 E1 ¶20–21(시나리오 분석), AR6–AR13","gri":"GRI 102-1-b(전환계획에 쓴 시나리오 출처), 102-2-b-ii(적응계획 시나리오)","sasb":"해당 없음","cdp":"5.1, 5.1.1, 5.1.2","hyundai":{"page":34,"pageLabel":"pp.34–35","fact":"전환: IEA NZE·APS·STEPS·CPS (2035년 배출부채 959억~3,318억 원), 물리: SSP1-2.6/5-8.5로 32개 사업장 분석, 2030년 연간 손실 약 2,200억~3,000억 원"},"diff":"IFRS S2는 시나리오 분석을 반드시 하라고 하지만, 간소화 ESRS는 분석을 했을 때만 공시하고 대신 고배출·1.5°C 시나리오 사용 여부를 밝히게 한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"EY: EFRAG 간소화 ESRS 요약(2026.1)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"},{"label":"EFRAG 간소화 ESRS 페이지","url":"https://www.efrag.org/en/draft-simplified-esrs"}],"key":"scenario","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): E1-2(위험 식별·시나리오 분석)·E1-3(회복력)로 신설, 시나리오 분석은 수행한 경우에만 공시(EFRAG 기술자문 기준)","short":null},{"topic":"내부 탄소 가격","plain":"회사가 투자·사업 결정을 할 때 온실가스 1톤에 스스로 매기는 가상의 가격이다.","ifrs":"29(f) (의사결정 적용 방식, 톤당 가격)","kssb":"IFRS S2와 같은 구조 (확인 필요); 톤당 내부탄소가격은 선택공시 항목","esrs":"E1-8 ¶62–63 (63(a) 유형, 63(c) 가정, 63(d) 적용 배출량)","gri":"GRI 102-1-e 가이던스(권고: 내부탄소가격 운영 여부·톤당 가격) — 필수 요건 아님","sasb":"해당 없음","cdp":"5.10, 5.10.1","hyundai":{"page":41,"pageLabel":"p.41","fact":"Scope 1·2 대상 Shadow Price 방식, 사업장 지역 ETS 가격 기반 USD 7~84/tCO2-eq 차등 적용"},"diff":"IFRS S2·ESRS는 필수 공시지만, KSSB는 톤당 가격을 선택공시로 두고 GRI는 권고(가이던스)에 그친다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"법무법인 태평양(BKL) 뉴스레터 — KSSB 선택공시 항목","url":"https://www.bkl.co.kr/law/insight/newsletter/6643"}],"key":"icp","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 공시 내용 간소화(의사결정 활용·손상검사 가격과의 일관성·톤당 가격), 새 DR 번호","short":null},{"topic":"기후 연계 경영진 보상","plain":"경영진의 보너스나 연봉이 기후 목표 달성 정도와 얼마나 연결되어 있는지다.","ifrs":"29(g)(i) 반영 여부·방법, 29(g)(ii) 연계된 보상 비율(%)","kssb":"IFRS S2와 같은 구조 (확인 필요)","esrs":"ESRS 2 GOV-3 ¶29 + E1 ¶13 (보상 비율, GHG 목표 대비 평가 여부)","gri":"GRI 2-19 (보상 정책); GRI 102-1-d 가이던스에서 2-19 참조","sasb":"해당 없음","cdp":"4.5, 4.5.1","hyundai":{"page":23,"pageLabel":"p.23","fact":"CEO·권역본부장·공장장 KPI에 탄소중립 이행률·RE100 달성률·Scope 3 데이터 관리 등 포함, 상여금 산정에 반영; 보상 연계 비율(%)은 공시 안 함"},"diff":"IFRS S2·ESRS(2023)는 기후와 연계된 보상의 비율(%)까지 요구하는데, GRI는 보상 정책 설명 위주라 현대차처럼 비율 없이 KPI만 밝히면 IFRS S2 29(g)(ii)에는 부족한다.","sources":[{"label":"IFRS S2 본문(ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2023/issued/issbs2.html"},{"label":"ESRS–ISSB 상호운용성 가이던스(2024.5)","url":"https://www.ifrs.org/content/dam/ifrs/supporting-implementation/issb-standards/esrs-issb-standards-interoperability-guidance.pdf"},{"label":"ESRS E1 2023 위임법(EFRAG Knowledge Hub)","url":"https://knowledgehub.efrag.org/eng/interactive/esrs-set-1/esrs-e1-climate-change/2023-07-31-da"},{"label":"GRI 102: Climate Change 2025","url":"https://globalreporting.org/pdf.ashx?id=29514"},{"label":"SASB Automobiles 지표(ISSB B63, ifrs.org)","url":"https://www.ifrs.org/content/dam/ifrs/project/climate-related-disclosures/industry/transportation/issb-exposure-draft-2022-2-b63-automobiles.pdf"},{"label":"CDP–IFRS S2 매핑(cdp.net)","url":"https://cdn.cdp.net/cdp-production/cms/guidance_docs/pdfs/000/005/007/original/Mapping-IFRS-S2-to-CDP-questionnaire_-_2024.pdf"},{"label":"CDP 2025 질문서 응답 예시(질문 번호 확인용)","url":"https://www.nouryon.com/globalassets/nouryon/4.-sustainability/downloads/cdp-climate-change-questionnaire-2025.pdf"},{"label":"EY: EFRAG 간소화 ESRS 요약(2026.1)","url":"https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/csrd-technical-resources/documents/ey-gl-efrag-proposes-major-esrs-simplifications-01-2026.pdf"}],"key":"pay","esrsNote":"간소화 ESRS(EFRAG 2025.12.3 기술자문, EU 집행위 2026.7.3 위임법 채택, FY2027 의무): 인센티브 DR 삭제, ESRS 2 GOV-2로 통합(EFRAG 기술자문 기준)","short":null}];
 const TRACKS=[{"id":"disclosure","name":"기후공시","en":"Disclosure","color":"ifrs","who":"기후공시·ESG 컨설턴트, 기업 공시 담당자","jobs":["ESG 컨설팅사 기후공시 컨설턴트","회계법인 지속가능성 자문","기업 ESG·IR팀 공시 담당"],"desc":"기준서를 읽고 보고서에 '있는지, 충분한지'를 판정하는 사람의 경로. IFRS S1·S2를 뼈대로 삼고 KSSB·ESRS·GRI를 비교하며, 끝에는 보고서 전체를 작성·검토하는 흐름까지 간다.","why":"채용공고의 업무 범위(공시 기준 대응, 보고서 작성 지원, 평가기관 대응)를 그대로 순서로 옮겼다.","stages":[{"name":"기준의 뼈대","mods":["ifrs-s1","ifrs"],"lv":1,"goal":"어떤 기준이 왜 생겼고, IFRS S1·S2가 무엇을 요구하는지 안다.","read":["landscape"]},{"name":"판정 연습","mods":["ifrs","ifrs-s2x","kssb"],"lv":2,"goal":"현대차 보고서를 열어 문단 단위로 판정한다. 한국 의무공시 일정을 설명할 수 있다."},{"name":"기준 비교","mods":["esrs","esrsx","gri-sasb","grix"],"lv":2,"goal":"같은 데이터를 ESRS·GRI·SASB가 어떻게 다르게 요구하는지 비교한다."},{"name":"전략·시나리오·검증","mods":["scenario","assurance","targets"],"lv":2,"goal":"시나리오 가정, 보증 수준, 목표의 요소를 읽고 지적할 수 있다."},{"name":"작성과 평가 대응","mods":["practice","ratings","kia"],"lv":3,"goal":"보고서 작성 실무와 평가기관 대응, 그리고 두 회사 비교로 컨설팅 처방을 쓴다."}]},{"id":"regulation","name":"규제대응","en":"Regulation","color":"kssb","who":"온실가스 인벤토리·배출권거래제 담당자, 환경·에너지 컨설턴트","jobs":["배출권거래제 대응 컨설턴트","사업장 온실가스 명세서 담당","검증기관 심사원 준비"],"desc":"온실가스관리기사 지식 위에 산정·검증·거래제·국제 규제를 얹는 경로. 숫자를 만들고 지키는 사람이 공시까지 이어 보게 한다.","why":"규제 대응은 산정(GHG 프로토콜) → 국내 제도 → 검증 → 시장·국제 규제 순으로 쌓여야 하고, 공시는 그 결과를 쓰는 단계다.","stages":[{"name":"산정의 기준","mods":["ghgp"],"lv":1,"goal":"조직경계, Scope 1·2·3, 기준연도 재산정을 설명할 수 있다.","read":["landscape"]},{"name":"국내 제도","mods":["korea","targets"],"lv":2,"goal":"탄소중립기본법, 배출권거래제 할당·MRV·과징금, 감축목표 체계를 안다."},{"name":"검증과 신뢰성","mods":["assurance","ghgp"],"lv":2,"goal":"제한적·합리적 보증, 중요성 기준, 검증 범위 제한을 읽는다."},{"name":"시장과 국제 규제","mods":["markets","finance"],"lv":2,"goal":"EU ETS, CBAM, 파리협정 6조, 크레딧 품질, 택소노미를 설명한다."},{"name":"공시로 연결","mods":["ifrs","kssb","physical","kia"],"lv":3,"goal":"산정 결과가 IFRS S2·KSSB 공시에서 어떻게 쓰이는지, 보고서를 판정한다."}]},{"id":"lca","name":"LCA","en":"Product footprint","color":"esrs","who":"제품 탄소발자국·EPD·공급망 담당자","jobs":["LCA 컨설턴트","EPD·환경성적표지 담당","공급망 탄소 데이터 담당"],"desc":"제품 단위에서 시작해 공급망(Scope 3), CBAM, 배터리 규정, 보고서 공시로 넓혀 가는 경로. 기능단위와 할당을 먼저 단단히 한다.","why":"제품 LCA는 조직 인벤토리와 방법이 다르다. 제품 → 공급망 → 규제 → 공시 순으로 가야 Scope 3와 LCA를 섞지 않는다.","stages":[{"name":"제품 LCA 기초","mods":["lca"],"lv":1,"goal":"ISO 14040/44/67, 기능단위, 시스템 경계, 할당을 설명할 수 있다."},{"name":"공급망과 Scope 3","mods":["ghgp","lca"],"lv":2,"goal":"Scope 3 카테고리 산정 방법과 제품 LCA의 차이를 안다."},{"name":"제품 규제","mods":["markets","finance"],"lv":2,"goal":"CBAM, 배터리 규정 탄소발자국, 택소노미·그린워싱 규제를 읽는다."},{"name":"목표와 검증","mods":["targets","assurance"],"lv":2,"goal":"제품 목표와 조직 목표의 관계, 제품 데이터 검증을 이해한다."},{"name":"보고서로 연결","mods":["gri-sasb","esrs","kia"],"lv":3,"goal":"LCA 결과가 GRI·ESRS 공시와 보고서에 어떻게 실리는지 판정한다."}]},{"id":"all","name":"통합 흐름","en":"Full path","color":"gri-sasb","who":"전 영역을 순서대로 다 보려는 사람","jobs":["기후·ESG 전 영역 전문가 준비"],"desc":"공시 기준 → 측정·검증 → 제도·시장 → 실무·평가·기업 사례의 순서로 20개 모듈을 모두 지난다. 체계 지도는 참고 글로 먼저 읽는다.","why":"배우기 화면의 영역 순서와 같다. 다른 경로를 마친 뒤 빈 곳을 메우는 데도 쓴다.","stages":[{"name":"공시 기준","mods":["ifrs-s1","ifrs","ifrs-s2x","kssb","esrs","esrsx","gri-sasb","grix"],"lv":2,"goal":"다섯 기준의 요구사항을 비교한다.","read":["landscape"]},{"name":"측정·검증","mods":["ghgp","lca","assurance","physical","scenario"],"lv":2,"goal":"숫자가 만들어지고 확인되는 과정을 안다."},{"name":"제도·시장","mods":["korea","markets","targets","finance"],"lv":2,"goal":"규제와 시장이 숫자에 어떤 값을 매기는지 안다."},{"name":"실무·평가·사례","mods":["ratings","practice","kia"],"lv":3,"goal":"보고서를 쓰고, 평가에 대응하고, 두 회사를 비교한다."}]}];
 const COMPANIES={"hyundai":{"id":"hyundai","name":"현대자동차","short":"현대차","report":"2026 지속가능성 보고서 (FY2025, 국문)","pdf":"https://www.hyundai.com/content/dam/hyundai/kr/ko/data/company-report/2026/07/15/hmc-sr-kor-2026.pdf","pages":0},"kia":{"id":"kia","name":"기아","short":"기아","report":"Kia Sustainability Report 2026 (MOVE), FY2025, 한국어","pdf":"reports/kia-sr-2026-kor.pdf","pages":160,"framework":"GRI Standards 2021(in accordance) + SASB(Automobiles) + TCFD 반영 + ESRS·WEF 색인 제공; IFRS S2 산업기반 지침·KSSB 1호 단기 정의 참고(준수 선언 없음)","profile":{"scope1":398548,"scope2_loc":861732,"scope2_mkt":697875,"scope3":142060700,"scope3_cat11":114663082,"scope1_2_total_reported":1096400,"unit":"tCO2e","year":"FY2025","targets":"SBTi 단기목표 승인(2025.10): 2024년 대비 2035년까지 Scope 1·2 및 Scope 3 사용단계 63% 감축(연 5.7%); 2045년 탄소중립; RE100 해외 2030·전체 2040(2026년 32%, 2030년 66%); 2030년 EV 100만 대·HEV 115만 대","assurance":"LRQA(로이드인증원) — Scope 1·2·3 제한적 보증, ISO 14064-3:2019, 중요성 5%, 국내 Scope 1·2는 K-ETS 검증 반영 / KMR(한국경영인증원) — 보고서 AA1000AS v3 Type 2 Moderate, 온실가스 데이터는 범위 제외","icp":"Shadow Price 방식, HMG 경영연구원 전망 탄소가격 기준으로 매년 설정, 생산공장 투자심의에 적용 — 톤당 가격 미공시","k_ets":"2015년부터 참여, 국내·유럽 ETS 유상할당 확대를 전환 위험으로 식별, 탄소배출부채 0.3십억 원(2025, 국내)","cbam":"협력사 CBAM 교육 18회(p.37), 공급망 규제 리스크로 CBAM 탄소비용 내재화 언급(p.126) — 기후 위험 표(p.25)에는 미포함","pay_link":"CEO KPI 지속경영지표 20%(탄소배출 감축 성과 포함), 임원·조직장 KPI에 CO2 규제 대응·감축목표 달성률·EV 생산판매 포함","scenario":"물리: IPCC AR6 SSP1-2.6/2-4.5/5-8.5, Jupiter Intelligence, 5년 내 536억 원·장기 최대 1,834억 원 / 전환: IEA NZE·NGFS Phase 5, 정량화 예정","src":{"scope1":156,"scope2_loc":156,"scope2_mkt":156,"scope3":156,"scope3_cat11":156,"scope1_2_total_reported":130,"targets":32,"assurance":155,"icp":33,"k_ets":30,"cbam":126,"pay_link":24,"scenario":28}},"notes":"기아 보고서는 Scope 1·2·3 전부를 LRQA 제한적 보증으로 검증하고 156쪽에 사업장별 지역·시장 기반 Scope 2까지 공개한 점, 시간 범위를 KSSB 1호에 맞춰 연수로 정의하고 물리적 위험을 금액(536억·1,834억 원)으로 낸 점, SBTi 단기목표 승인을 받은 점이 전형적인 국내 보고서보다 낫다. 반면 본 데이터표(130쪽)의 Scope 2는 방식 표시가 없어 지역 기반으로 오독되기 쉽고, 온실가스 종류·GWP 출처·조직경계(본문)·내부탄소가격 톤당 금액·총량/순량 구분·잔여배출 처리 수단이 없다. 전년도 Cat 11을 새 주행거리 가정(22만 km)으로 재산정하지 않아 3개년 비교가 어긋나고, 두 검증기관 범위가 겹치지 않는 부분(KMR은 온실가스 데이터 제외)이 있다. 해당 없음으로 처리한 문항은 없다. 기아가 ESRS 색인을 제공하므로 ESRS 문항도 실제 공시에 대해 판정했고, KSSB·IFRS S1 문항은 준수 선언이 없는 점을 반영해 '없음/일부'로 판정했다."}};
+const ASSIGN=[{"id":"gap-kia-s2-metrics","type":"gap","week":1,"company":"kia","std":"IFRS S2 지표·목표","title":"기아 보고서 · IFRS S2 지표·목표 갭 분석표","deliverable":"갭 분석표 18줄 + 진단 요약","brief":"기아가 FY2027부터 KSSB(IFRS S2 기반) 의무공시를 준비한다. 2026 보고서를 IFRS S2 문단 29~36(지표·목표)에 대고 갭 분석표를 만들어 달라는 요청이다. 요구사항마다 충족 여부, 증빙 쪽, 근거, 우선순위, 권고를 적는다.","rows":["kia-j01","kia-j02","kia-j03","kia-j04","kia-j05","kia-j06","kia-j07","kia-j08","kia-j09","kia-j10","kia-j11","kia-j12","kia-j13","kia-j14","kia-j15","kia-j16","kia-j17","kia-j24"]},{"id":"gap-hyundai-s2-metrics","type":"gap","week":1,"company":"hyundai","std":"IFRS S2 지표·목표","title":"현대차 보고서 · IFRS S2 지표·목표 갭 분석표","deliverable":"갭 분석표 17줄 + 진단 요약","brief":"현대차 2026 보고서를 IFRS S2 문단 29~36에 대고 같은 갭 분석표를 만든다. 기아와 나란히 놓고 비교하면 '같은 기준, 다른 공시 수준'이 보인다.","rows":["ifrs-j1","ifrs-j2","ifrs-j3","ifrs-j4","ifrs-j5","ifrs-j6","ifrs-j7","ifrs-j8","ifrs-j9","ifrs-j10","ifrs-j11","ifrs-j12","ifrs-j13","ifrs-j14","ifrs-j15","ifrs-j16","ifrs-j17"]},{"id":"calc-kia","type":"calc","week":2,"company":"kia","std":"GHG 프로토콜 · 보고서 데이터","title":"기아 보고서 · 배출량 데이터 검산 메모","deliverable":"검산 메모 12건","brief":"고객이 보내온 데이터 표(보고서 130·156쪽)를 검산해 달라는 요청이다. 숫자를 다시 계산하고, 불일치나 표기 문제를 메모로 남긴다. 단위(천 톤/톤), 지역·시장 기반, 합계 검산을 특히 본다.","rows":["kia-c01","kia-c02","kia-c03","kia-c04","kia-c05","kia-c06","kia-c07","kia-c08","kia-c09","kia-c10","kia-c11","kia-c12"]},{"id":"calc-hyundai","type":"calc","week":2,"company":"hyundai","std":"GHG 프로토콜 · 보고서 데이터","title":"현대차 보고서 · 배출량 데이터 검산 메모","deliverable":"검산 메모 10건","brief":"현대차 보고서 38·158·160쪽 표를 검산한다. 지역·시장 기반 차이, 목표 진척률, 보증 비율을 직접 계산하고 메모를 남긴다.","rows":["ifrs-c1","ifrs-c2","ifrs-c3","ifrs-c4","ifrs-c5","ifrs-c6","ifrs-c7","ifrs-c8","ifrs-c9","ifrs-c10"]},{"id":"assur-kia","type":"gap","week":3,"company":"kia","std":"검증·보증","title":"기아 보고서 · 검증의견서 대응 점검표","deliverable":"점검표 7줄 + 대응 메모","brief":"내년 KSSB 인증 의무화에 대비해, 올해 검증의견서(155·157쪽)가 어느 수준이고 무엇이 빠졌는지 점검해 달라는 요청이다. 보증 수준, 범위, 제외 항목, 독립성, 검증 절차를 본다.","rows":["kia-j17","kia-j44","kia-j45","kia-j46","kia-j47","kia-j48","kia-j49"]},{"id":"gap-kia-kssb","type":"gap","week":3,"company":"kia","std":"KSSB 제1·2호 · IFRS S1","title":"기아 보고서 · KSSB 의무공시 준비 점검표","deliverable":"점검표 6줄 + 권고","brief":"KSSB 제1·2호 의무공시 전환 시 IFRS S1 공통 요구(준수 선언, 보고 실체, 공시 시점)와 KSSB 고유 요구(측정 방법별 구분, 내부탄소가격 선택공시, 시간 범위)를 점검한다.","rows":["kia-j38","kia-j39","kia-j40","kia-j41","kia-j42","kia-j43"]},{"id":"rev-2026","type":"revision","week":4,"company":"hyundai","std":"2025~2026 개정","title":"개정 비교표 · 바뀐 기준이 보고서에 미치는 영향","deliverable":"개정 영향표 6줄","brief":"2025~2026년에 바뀐 기준(IFRS S2 2025.12 개정, 개정 ESRS, 옴니버스 보증 요건, Scope 2 개정 논의)이 현대차·기아 보고서의 어느 항목에 영향을 주는지 표로 정리해 달라는 요청이다. 바뀐 점 → 영향 받는 공시 항목 → 조치 순으로 쓴다.","rows":["ifrs-s1-27","ifrs-s2x-29","esrs-04","esrs-05","assurance-20","ghgp-28"]},{"id":"draft-kia-s2","type":"draft","week":4,"company":"kia","std":"IFRS S2 · 공시 문안","title":"기아 보고서 · 미흡 항목 공시 문안 초안","deliverable":"공시 문안 8건","brief":"갭 분석에서 '일부·미충족'으로 나온 항목에 대해 다음 보고서에 실을 문장을 초안으로 써 달라는 요청이다. 고객이 그대로 붙여 넣어도 되는 수준으로, 기준 조항이 요구하는 요소를 빠짐없이 담는다.","rows":["kia-j02","kia-j04","kia-j05","kia-j06","kia-j07","kia-j08","kia-j15","kia-j16"]}];
 const BUILT="2026-10-23";
 const PDF="https://www.hyundai.com/content/dam/hyundai/kr/ko/data/company-report/2026/07/15/hmc-sr-kor-2026.pdf";
 const KEY="cd-drill-v3",KEY2="cd-drill-v2",KEY1="cd-drill-v1";
@@ -876,12 +971,12 @@ const DAY=86400000,GAP=[0,1,3,7,14];
 const col=m=>`var(--m-${MOD[m]?MOD[m].color:"ifrs"})`;
 
 /* ---------- state ---------- */
-let S={a:{},exams:[],cases:{},rx:{},track:null};
+let S={a:{},exams:[],cases:{},rx:{},track:null,sub:{},mode:"learner"};
 try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));
   else{const r2=localStorage.getItem(KEY2);if(r2)S=Object.assign(S,JSON.parse(r2));
   else{const o=JSON.parse(localStorage.getItem(KEY1)||"null");if(o){S.a=o.a||{};for(const k in (o.j||{}))S.a["ifrs-"+k]=o.j[k];for(const k in (o.c||{}))S.a["ifrs-"+k]=o.c[k]}}}}catch(e){}
-S.a=S.a||{};S.exams=S.exams||[];S.cases=S.cases||{};S.rx=S.rx||{};
-function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track}))}catch(e){}}
+S.a=S.a||{};S.exams=S.exams||[];S.cases=S.cases||{};S.rx=S.rx||{};S.sub=S.sub||{};S.mode=S.mode||"learner";
+function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track,sub:S.sub,mode:S.mode}))}catch(e){}}
 function record(x,res){const prev=S.a[x.id]||{};let box=prev.box||0;box=res.ok?Math.min(box+1,4):0;
   S.a[x.id]=Object.assign({},res,{t:Date.now(),box,due:Date.now()+GAP[box]*DAY,n:(prev.n||0)+1,err:res.ok?undefined:prev.err});save()}
 let view="home",sub="",mod="ifrs",cur={},flv=0,draft={},mapTopic=0,recSrc="me",author=null,artifactNS=null,canEdit=false,arm=false;
@@ -1222,13 +1317,13 @@ function recView(){
   $("#radarBox").appendChild(radar(rec));
   document.querySelectorAll(".note button").forEach(b=>b.onclick=()=>{const x=ITEMS.find(y=>y.id===b.dataset.id);delete S.a[x.id];save();jumpTo(x.id)});
   const ex=$("#expo");if(ex)ex.onclick=exportRec;const im=$("#impo");if(im)im.onchange=importRec;
-  const rs=$("#reset");if(rs)rs.onclick=()=>{if(!arm){arm=true;recView();setTimeout(()=>{arm=false;if(view==="record")recView()},4000);return}arm=false;S={a:{},exams:[],cases:{},rx:{},track:S.track};save();toast("기록을 지웠다");recView()};
+  const rs=$("#reset");if(rs)rs.onclick=()=>{if(!arm){arm=true;recView();setTimeout(()=>{arm=false;if(view==="record")recView()},4000);return}arm=false;S={a:{},exams:[],cases:{},rx:{},track:S.track,sub:{},mode:S.mode};save();toast("기록을 지웠다");recView()};
 }
 async function publishRec(){
   if(!artifactNS)return;const b=$("#pub")||$("#pfPub");if(b){b.disabled=true;b.textContent="저장 중…"}
   const a={};for(const k in S.a){const r=S.a[k];a[k]={ok:r.ok,pick:r.pick,val:r.val,gave:r.gave,note:r.note,t:r.t,box:r.box}}
   const d=new Date(),ds=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
-  try{await artifactNS.publish({"data/record.json":{content:JSON.stringify({updated:ds,a,exams:S.exams||[],cases:S.cases||{},rx:S.rx||{},track:S.track||null}),contentType:"application/json"}});toast("공개 기록으로 저장했다.")}
+  try{await artifactNS.publish({"data/record.json":{content:JSON.stringify({updated:ds,a,exams:S.exams||[],cases:S.cases||{},rx:S.rx||{},track:S.track||null,sub:S.sub||{}}),contentType:"application/json"}});toast("공개 기록으로 저장했다.")}
   catch(e){const c=e&&e.code;if(c==="conflict")toast("다른 곳에서 먼저 저장돼 새 버전을 불러온다.");else if(["not_writer","not_granted","capability_disabled","consent_required","not_declared"].includes(c)){canEdit=false;toast("이 화면에서는 저장할 수 없다.");recView()}else if(c==="rate_limited")toast("저장이 너무 잦다. 잠시 후 다시.");else toast("저장하지 못했다.")}
   finally{const bb=$("#pub")||$("#pfPub");if(bb){bb.disabled=false;bb.textContent="공개 기록으로 저장"}}
 }
@@ -1295,7 +1390,7 @@ function errPanel(rec,all){const wrong=all.filter(x=>!rec[x.id].ok&&!rec[x.id].g
 function writtenPanel(rec){const cs=Object.entries(S.cases||{}).filter(([k,v])=>v.t4||v.t5);const rx=Object.entries(S.rx||{}).filter(([k,v])=>v.rx||v.draft);
   if(!cs.length&&!rx.length)return `<p class="hint">아직 쓴 글이 없다. <a href="#cases">케이스 스터디</a>에서 근거와 개선안을, <a href="#compare">기업 비교</a>에서 처방을 쓰면 여기 모인다.</p>`;
   return `<div class="kpi2"><div><b>${cs.length}</b><span>케이스 · 근거/개선안</span></div><div><b>${rx.length}</b><span>비교 · 처방/문안</span></div></div><div class="notes">${cs.slice(-3).reverse().map(([k,v])=>{const x=ITEMS.find(y=>"case-"+y.id===k);if(!x)return "";return `<div class="note"><div class="h"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(coOf(x).short)}</span><span class="tag ref">${esc(x.ref)}</span><span class="tag">${v.score!==undefined?v.score+"/8점":"진행 중"}</span></div><p><b>${esc(x.topic)}</b> · ${esc(clip(v.t5||v.t4||"",140))}</p><a href="#cases-${x.id}" style="font-size:12.5px">다시 보기 →</a></div>`}).join("")}${rx.slice(-2).reverse().map(([k,v])=>`<div class="note"><div class="h"><span class="tag">기업 비교</span><span class="tag ref">${esc(k)}</span></div><p><b>처방</b> · ${esc(clip(v.rx||v.draft||"",140))}</p><a href="#compare" style="font-size:12.5px">비교 화면 →</a></div>`).join("")}</div>`}
-async function exportRec(){const txt=JSON.stringify({app:"기후공시 연습장",version:3,exported:new Date().toISOString(),a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track},null,1);const name=`climate-drill-record-${new Date().toISOString().slice(0,10)}.json`;
+async function exportRec(){const txt=JSON.stringify({app:"기후공시 연습장",version:4,exported:new Date().toISOString(),a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track,sub:S.sub},null,1);const name=`climate-drill-record-${new Date().toISOString().slice(0,10)}.json`;
   try{if(window.claude&&claude.use){const dl=await claude.use("downloads");if(dl){await dl.save({filename:name,data:txt});toast("기록 파일을 저장했다");return}}}catch(e){if(e&&e.code!=="not_granted"&&e.code!=="cancelled")toast("저장하지 못했다");else toast("저장을 취소했다");return}
   const blob=new Blob([txt],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast("기록 파일을 내려받는다")}
 function importRec(e){const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d||typeof d.a!=="object")throw 0;let n=0;
@@ -1303,6 +1398,7 @@ function importRec(e){const f=e.target.files[0];if(!f)return;const rd=new FileRe
   (d.exams||[]).forEach(x=>{if(!S.exams.some(y=>y.t===x.t))S.exams.push(x)});S.exams.sort((a,b)=>a.t-b.t);S.exams=S.exams.slice(-20);
   for(const k in (d.cases||{})){if(!S.cases[k]||(d.cases[k].t||0)>(S.cases[k].t||0))S.cases[k]=d.cases[k]}
   for(const k in (d.rx||{})){if(!S.rx[k]||(d.rx[k].t||0)>(S.rx[k].t||0))S.rx[k]=d.rx[k]}
+  for(const k in (d.sub||{})){if(!S.sub[k]||(d.sub[k].t||0)>(S.sub[k].t||0))S.sub[k]=d.sub[k]}
   if(!S.track&&d.track)S.track=d.track;save();toast(`${n}문항 기록을 합쳤다`);recView()}catch(err){toast("기록 파일을 읽을 수 없다")}};rd.readAsText(f);e.target.value=""}
 
 /* ---------- V3: RELIABILITY TABLE ---------- */
@@ -1417,9 +1513,11 @@ function cmpView(){
 function works(){
   const nJ=ITEMS.filter(x=>x.type==="judge").length,nCase=caseable().length,nCmp=[...new Set(ITEMS.filter(x=>x.key).map(x=>x.key))].length;
   const dC=Object.values(S.cases).filter(v=>v.score!==undefined).length,dR=Object.values(S.rx).filter(v=>v.rx||v.draft).length,dJ=ITEMS.filter(x=>x.type==="judge"&&S.a[x.id]).length;
-  const W=[["01","케이스 스터디","기준 식별 → 증빙 → 판정 → 근거 쓰기 → 개선안 쓰기. 컨설팅 요청 하나를 끝까지 처리한다.",`${nCase}케이스 · ${dC} 완료`,"#cases","ifrs"],
-   ["02","기업 비교 · 처방","같은 질문을 현대차·기아 보고서에 던져 판정이 갈리는 줄을 보고, 뒤처진 쪽에 권고와 공시 문안을 쓴다.",`${nCmp}항목 · 처방 ${dR}`,"#compare","kssb"],
-   ["03","판정·계산 연습","보고서 원문을 쪽 단위로 열어 '있음·일부·없음'을 가르고, 표의 숫자를 다시 계산한다. 틀리면 복습 큐로.",`판정 ${nJ} · 계산 ${ITEMS.filter(x=>x.type==="calc").length} · ${dJ} 판정함`,"#practice","esrs"]];
+  const nA=ASSIGN.length,dA=ASSIGN.filter(a=>(S.sub[a.id]||{}).versions&&S.sub[a.id].versions.length).length;
+  const W=[["01","업무 과제","갭 분석표·검산 메모·검증 점검표·개정 비교표·공시 문안. 한 과제를 끝까지 채워 제출하고, 리뷰 받고, 고쳐서 다시 낸다.",`${nA}과제 · ${dA} 제출`,"#assign","ratings"],
+   ["02","케이스 스터디","기준 식별 → 증빙 → 판정 → 근거 → 개선안. 요구사항 하나를 끝까지 처리한다.",`${nCase}케이스 · ${dC} 완료`,"#cases","ifrs"],
+   ["03","기업 비교 · 처방","같은 질문을 현대차·기아에 던져 판정이 갈리는 줄에 권고와 문안을 쓴다.",`${nCmp}항목 · 처방 ${dR}`,"#compare","kssb"],
+   ["04","판정·계산 연습","원문을 쪽 단위로 열어 판정하고 숫자를 다시 계산한다. 틀리면 복습 큐로.",`판정 ${nJ} · 계산 ${ITEMS.filter(x=>x.type==="calc").length} · ${dJ} 판정함`,"#practice","esrs"]];
   $("#works").innerHTML=W.map(([n,t,d,c,h,m],i)=>`<a class="work rv d${i}" href="${h}" style="--c:var(--m-${m})"><b class="n mono">${n}</b><h3>${t}</h3><p>${d}</p><span class="c mono">${c}</span><span class="go">시작 →</span></a>`).join("");
 }
 let pfSrc=null;
@@ -1429,11 +1527,18 @@ function pfView(){
   const cs=Object.entries(cases).map(([k,v])=>({x:ITEMS.find(y=>"case-"+y.id===k),v})).filter(o=>o.x&&(o.v.t4||o.v.t5)).sort((p,q)=>(q.v.t||0)-(p.v.t||0));
   const rxs=Object.entries(rx).filter(([k,v])=>v.rx||v.draft).map(([k,v])=>({k,v,h:ITEMS.find(y=>y.key===k&&(y.co||"hyundai")==="hyundai"),a:ITEMS.find(y=>y.key===k&&y.co==="kia")})).sort((p,q)=>(q.v.t||0)-(p.v.t||0));
   const judged=ITEMS.filter(x=>x.type==="judge"&&a[x.id]&&a[x.id].note&&a[x.id].note!=="(케이스 스터디)");
+  const nSub=ASSIGN.filter(z=>((rec.sub||{})[z.id]||{}).versions&&rec.sub[z.id].versions.length).length;
   const head=`<div class="pfhead"><div>${author?`<div class="seg" role="group"><button type="button" data-s="author" aria-pressed="${pfSrc==="author"}">작성자 공개 기록</button><button type="button" data-s="me" aria-pressed="${pfSrc==="me"}">이 브라우저</button></div>`:""}</div><div class="actions"><button class="btn line sm" type="button" id="pfPrint">인쇄 · PDF로 저장</button>${canEdit&&pfSrc==="me"?`<button class="btn sm" type="button" id="pfPub">공개 기록으로 저장</button>`:""}</div></div>
-  <div class="kpi4"><div><b>${cs.length}</b><span>케이스 · 근거와 개선안</span></div><div><b>${rxs.length}</b><span>기업 비교 · 처방과 문안</span></div><div><b>${judged.length}</b><span>근거를 적은 판정</span></div><div><b>${rec.updated||(pfSrc==="me"?"지금":"")}</b><span>마지막 저장</span></div></div>`;
-  if(!cs.length&&!rxs.length&&!judged.length){box.innerHTML=head+`<div class="empty">아직 쓴 글이 없다. <a href="#cases">케이스 스터디</a>에서 근거와 개선안을, <a href="#compare">기업 비교</a>에서 처방을 쓰면 여기에 모인다. 정답률은 여기 안 나온다.</div>`;bind();return}
+  <div class="kpi4"><div><b>${nSub}</b><span>업무 과제 산출물</span></div><div><b>${cs.length}</b><span>케이스 · 근거와 개선안</span></div><div><b>${rxs.length}</b><span>기업 비교 · 처방과 문안</span></div><div><b>${judged.length}</b><span>근거를 적은 판정</span></div></div>`;
+  if(!cs.length&&!rxs.length&&!judged.length&&!nSub){box.innerHTML=head+`<div class="empty">아직 쓴 글이 없다. <a href="#cases">케이스 스터디</a>에서 근거와 개선안을, <a href="#compare">기업 비교</a>에서 처방을 쓰면 여기에 모인다. 정답률은 여기 안 나온다.</div>`;bind();return}
   const pdfL=(x,p)=>`<a href="${pdfOf(x)}#page=${p||x.page}" target="_blank" rel="noopener">${esc(coOf(x).short)} ${p||x.page}쪽 ↗</a>`;
   let h=head;
+  const subs=ASSIGN.map(a=>({a,s:(rec.sub||{})[a.id]})).filter(o=>o.s&&o.s.versions&&o.s.versions.length);
+  if(subs.length)h+=`<h3 class="pfh">업무 과제 산출물 · ${subs.length}건</h3><div class="pflist">${subs.map(({a,s})=>{const v=s.versions[s.versions.length-1];const co=COMPANIES[a.company];const cnt={};if(a.type==="gap")rowsOf(a).forEach(x=>{const r=v.rows[x.id]||{};cnt[r.v]=(cnt[r.v]||0)+1});
+    return `<article class="pf"><div class="meta"><span class="tag">${esc(ATYPE[a.type])}</span><span class="tag ref">${esc(a.std)}</span><span class="tag">v${v.n} · 자동 점검 ${v.review.rule.total}/12${v.review.ai?" · 시니어 "+((v.review.ai.scores.acc||0)+(v.review.ai.scores.std||0)+(v.review.ai.scores.logic||0)+(v.review.ai.scores.feas||0))+"/12":""}</span><span class="qno">${new Date(v.t).toLocaleDateString("ko-KR")}</span></div>
+    <h4>${esc(a.title)}</h4><p class="q">${esc(co.name)} ${esc(co.report)} · ${a.rows.length}줄${a.type==="gap"?` · 충족 ${cnt["충족"]||0} / 일부 ${cnt["일부 충족"]||0} / 미충족 ${cnt["미충족"]||0} / 판단 불가 ${cnt["판단 불가"]||0}`:""}</p>
+    ${a.type==="gap"?`<div class="pfrow"><span>상위 갭</span><p>${rowsOf(a).filter(x=>(v.rows[x.id]||{}).prio==="H").slice(0,4).map(x=>`<b>${esc(x.topic)}</b> — ${esc((v.rows[x.id]||{}).rec||(v.rows[x.id]||{}).reason||"")}`).join("<br>")||"우선순위 '높음'으로 표시한 갭이 없다."}</p></div>`:""}
+    ${pfSrc==="me"?`<a href="#assign-${a.id}" style="font-size:13px">보고서 열기 →</a>`:""}</article>`}).join("")}</div>`;
   if(cs.length)h+=`<h3 class="pfh">케이스 스터디 · ${cs.length}건</h3><div class="pflist">${cs.map(({x,v})=>`<article class="pf"><div class="meta"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(coOf(x).name)}</span><span class="tag ref">${esc(x.ref)}</span>${v.score!==undefined?`<span class="tag">${v.score}/8</span>`:""}<span class="qno">${v.t?new Date(v.t).toLocaleDateString("ko-KR"):""}</span></div>
     <h4>${esc(x.topic)} — ${esc(stdOf(x))} 기준으로 ${esc(coOf(x).short)} 보고서 검토</h4><p class="q">${esc(x.q)}</p>
     <div class="pfrow"><span>판정</span><p>내 판정 <b>${esc(v.p3||"–")}</b> · 기준 판정 <b>${esc(x.ans)}</b> · 증빙 ${pdfL(x)}</p></div>
@@ -1448,8 +1553,202 @@ function pfView(){
   function bind(){document.querySelectorAll("#pfBox .seg button").forEach(b=>b.onclick=()=>{pfSrc=b.dataset.s;pfView()});const pr=$("#pfPrint");if(pr)pr.onclick=()=>window.print();const pb=$("#pfPub");if(pb)pb.onclick=()=>{publishRec();}}
 }
 
+/* ---------- V4: ASSIGNMENTS (업무 과제) ---------- */
+const V5=[["충족","있음","요구 요소가 다 있다"],["일부 충족","일부","요소 일부가 빠졌다"],["미충족","없음","찾을 수 없다"],["판단 불가",null,"정보가 부족해 고객에게 물어야 한다"],["비적용","해당 없음","이 기준을 따르지 않는다"]];
+const v5ToAns=v=>(V5.find(o=>o[0]===v)||[])[1];
+const ansToV5=a=>(V5.find(o=>o[1]===a)||["?"])[0];
+const PRIO=[["H","높음","의무공시·검증에서 바로 걸린다"],["M","중간","다음 보고서에서 보완"],["L","낮음","개선 권장"]];
+const ATYPE={gap:"갭 분석표",calc:"검산 메모",revision:"개정 비교표",draft:"공시 문안"};
+const ALV=[[1,"입문","힌트와 쪽 링크가 열려 있다. 판정과 한 줄 근거만."],[2,"실무","힌트 없음. 쪽을 직접 찾고 증빙 문장과 근거를 쓴다. 모르면 '판단 불가'와 확인 질문."],[3,"제출","실무 + 우선순위와 권고까지. 제출하면 리뷰를 받고 보고서가 나온다."]];
+let aw=null; // {a, i}
+const subOf=a=>S.sub[a.id]||(S.sub[a.id]={aid:a.id,learner:"local",level:1,rows:{},versions:[],t:Date.now()});
+const rowsOf=a=>a.rows.map(id=>ITEMS.find(x=>x.id===id)).filter(Boolean);
+const rowDone=(a,x,r)=>{if(!r)return false;if(a.type==="gap")return !!r.v;if(a.type==="calc")return r.val!==undefined&&r.val!=="";if(a.type==="revision")return !!(r.change&&r.impact);if(a.type==="draft")return !!(r.text&&r.text.trim().length>=30);return false};
+function assignView(sub){
+  const box=$("#assignBox");
+  if(sub){const a=ASSIGN.find(z=>z.id===sub);if(a){aw=aw&&aw.a.id===a.id?aw:{a,i:0,tab:"work"};renderAssign(box);return}}
+  aw=null;
+  const byW={};ASSIGN.forEach(a=>(byW[a.week]=byW[a.week]||[]).push(a));
+  box.innerHTML=`<div class="aflow">${["받기","채우기","제출","리뷰","고치기","보고서"].map((n,i)=>`<span><b>${i+1}</b>${n}</span>`).join("<i></i>")}</div>
+  ${Object.entries(byW).map(([w,list])=>`<h3 class="cohead">${w}주차</h3><div class="alist">${list.map(a=>{const s=S.sub[a.id];const rows=rowsOf(a);const done=rows.filter(x=>rowDone(a,x,s&&s.rows[x.id])).length;const v=s&&s.versions.length?s.versions[s.versions.length-1]:null;
+    return `<a class="acard ${v?"sub":done?"part":""}" href="#assign-${a.id}"><div class="h"><span class="tag" style="background:color-mix(in srgb,var(--m-${a.company==="kia"?"kssb":"ifrs"}) 15%,var(--bg))">${esc(COMPANIES[a.company].short)}</span><span class="tag">${ATYPE[a.type]}</span><span class="tag ref">${esc(a.std)}</span>${v?`<span class="tag sc">v${v.n} · ${v.review?v.review.rule.total+"/12":"제출"}</span>`:""}</div><b>${esc(a.title)}</b><p>${esc(a.brief)}</p><span class="s mono">${rows.length}줄 · ${done} 채움${s?` · ${ALV[(s.level||1)-1][1]}`:""} · 산출물: ${esc(a.deliverable)}</span></a>`}).join("")}</div>`).join("")}
+  <p class="hint" style="margin-top:14px">주차는 신입 첫 달 기준 권장 순서다. 모든 과제는 '입문 → 실무 → 제출' 세 단계로 비계(도와주는 발판)를 줄여 가며 할 수 있다.</p>`;
+}
+function renderAssign(box){
+  const a=aw.a,s=subOf(a),rows=rowsOf(a),co=COMPANIES[a.company];const lv=s.level||1;const last=s.versions[s.versions.length-1];
+  const done=rows.filter(x=>rowDone(a,x,s.rows[x.id])).length;
+  const tabs=[["work","채우기"],["review",`리뷰${s.versions.length?" · v"+s.versions.length:""}`],["report","보고서"]];
+  let h=`<div class="exam-bar"><a class="btn line sm" href="#assign">과제 목록</a><span><b>${esc(a.title)}</b></span><div class="pb"><i style="width:${done/rows.length*100}%"></i></div><span class="mono">${done}/${rows.length}</span></div>
+  <div class="brief"><span class="k">고객 요청</span><p>${esc(a.brief)}</p><p class="hint">산출물: ${esc(a.deliverable)} · 보고서: <a href="${co.pdf}" target="_blank" rel="noopener">${esc(co.name)} ${esc(co.report)} ↗</a></p></div>
+  <div class="atabs"><div class="seg" role="group">${tabs.map(([k,n])=>`<button type="button" data-tab="${k}" aria-pressed="${aw.tab===k}">${n}</button>`).join("")}</div>
+  ${aw.tab==="work"?`<div class="lvpick"><span>단계</span>${ALV.map(([n,l,d])=>`<button type="button" data-lv="${n}" aria-pressed="${lv===n}" title="${esc(d)}">${l}</button>`).join("")}<span class="hint">${esc(ALV[lv-1][2])}</span></div>`:""}</div>`;
+  if(aw.tab==="work")h+=workTable(a,s,rows,lv);
+  else if(aw.tab==="review")h+=reviewPane(a,s,rows);
+  else h+=reportPane(a,s,rows);
+  box.innerHTML=h;
+  document.querySelectorAll(".atabs .seg button").forEach(b=>b.onclick=()=>{aw.tab=b.dataset.tab;renderAssign(box)});
+  document.querySelectorAll(".lvpick button[data-lv]").forEach(b=>b.onclick=()=>{s.level=+b.dataset.lv;save();renderAssign(box)});
+  bindWork(a,s,rows,box);
+}
+function workTable(a,s,rows,lv){
+  const co=COMPANIES[a.company];
+  const rowH=(x,i)=>{const r=s.rows[x.id]||{};const ref=s.versions.length?x:null; // reference shown only after a submission exists
+    const hint=lv===1&&x.type==="judge"?`<div class="look" style="margin:6px 0"><span>어디를 볼까 · ${esc(x.look||"")}</span><a href="${pdfOf(x)}#page=${x.page}" target="_blank" rel="noopener">${x.page}쪽 열기 ↗</a></div>`:"";
+    if(a.type==="gap")return `<div class="arow ${rowDone(a,x,r)?"ok":""}" data-id="${x.id}"><div class="n mono">${i+1}</div><div class="body">
+      <div class="req"><span class="tag ref">${esc(x.ref)}</span><b>${esc(x.topic)}</b><p>${esc(x.q)}</p>${hint}</div>
+      <div class="fields">
+        <div class="f5" role="group" aria-label="판정">${V5.map(([v,,d])=>`<button type="button" data-v="${v}" aria-pressed="${r.v===v}" title="${d}">${v}</button>`).join("")}</div>
+        ${lv>=2?`<label>증빙 쪽<input type="text" inputmode="numeric" data-f="page" value="${esc(r.page||"")}" placeholder="쪽"></label><label class="wide">증빙 문장 (원문에서 그대로)<input type="text" data-f="ev" value="${esc(r.ev||"")}" placeholder="보고서에서 본 문장"></label>`:""}
+        <label class="wide">근거${lv>=2?" (조항 · 쪽 · 빠진 요소)":" 한 줄"}<textarea data-f="reason" placeholder="${lv>=2?"예: 문단 29(a)(v)는 지역기반 Scope 2를 요구한다. 156쪽 사업장별 표에 지역기반 값이 있으나 130쪽 본표에는 방식 표기가 없어 '일부 충족'.":"왜 그렇게 봤는지"}">${esc(r.reason||"")}</textarea></label>
+        ${r.v==="판단 불가"?`<label class="wide ask">고객에게 확인할 질문<textarea data-f="q" placeholder="예: 130쪽 Scope 2 697.9천 톤은 지역기반인가 시장기반인가? 사업장별 표(156쪽)와 어느 쪽이 맞는가?">${esc(r.q||"")}</textarea></label>`:""}
+        ${lv>=3&&r.v&&r.v!=="충족"&&r.v!=="비적용"?`<div class="prio" role="group"><span>우선순위</span>${PRIO.map(([k,l,d])=>`<button type="button" data-p="${k}" aria-pressed="${r.prio===k}" title="${d}">${l}</button>`).join("")}</div><label class="wide">권고 (무엇을·어디에·어떤 형태로)<textarea data-f="rec" placeholder="예: 다음 보고서 온실가스 표 주석에 산정 대상 가스 7종과 GWP 출처(IPCC AR6)를 명시할 것.">${esc(r.rec||"")}</textarea></label>`:""}
+      </div></div></div>`;
+    if(a.type==="calc")return `<div class="arow ${rowDone(a,x,r)?"ok":""}" data-id="${x.id}"><div class="n mono">${i+1}</div><div class="body"><div class="req"><span class="tag ref">${esc(x.ref)}</span><b>${esc(x.topic)}</b><p>${esc(x.q)}</p><div class="given"><table><tbody>${(x.given||[]).map(g=>`<tr><td>${esc(g[0])}</td><td class="n">${esc(g[1])}</td><td class="p">${g[2]?`<a href="${pdfOf(x)}#page=${String(g[2]).match(/\d+/)?String(g[2]).match(/\d+/)[0]:1}" target="_blank" rel="noopener">${esc(g[2])}</a>`:""}</td></tr>`).join("")}</tbody></table></div></div>
+      <div class="fields"><label>내 계산값<input type="text" inputmode="decimal" data-f="val" value="${esc(r.val||"")}" placeholder="숫자"><span class="u">${esc(x.unit)}</span></label><label class="wide">검산 메모 (방법 · 불일치 · 표기 문제)<textarea data-f="memo" placeholder="예: 130쪽 본표 697.9천 톤은 156쪽 사업장별 시장기반 합계 697,875와 일치. 지역기반 합계(861,732)는 본표에 없음 → 방식 표기 누락.">${esc(r.memo||"")}</textarea></label></div></div></div>`;
+    if(a.type==="revision")return `<div class="arow ${rowDone(a,x,r)?"ok":""}" data-id="${x.id}"><div class="n mono">${i+1}</div><div class="body"><div class="req"><span class="tag ref">${esc(x.ref)}</span><b>${esc(x.topic)}</b><p>${esc(x.q)}</p>${x.options?`<ul class="optlist">${x.options.map(o=>`<li>${esc(o)}</li>`).join("")}</ul>`:""}</div>
+      <div class="fields"><label class="wide">바뀐 점 (한 문장)<textarea data-f="change">${esc(r.change||"")}</textarea></label><label class="wide">영향 받는 보고서 항목·쪽<textarea data-f="impact" placeholder="예: 현대차 38쪽 온실가스 표 — 7대 가스 명시 필요 / 기아 130쪽 …">${esc(r.impact||"")}</textarea></label><label class="wide">조치<textarea data-f="action">${esc(r.action||"")}</textarea></label></div></div></div>`;
+    if(a.type==="draft")return `<div class="arow ${rowDone(a,x,r)?"ok":""}" data-id="${x.id}"><div class="n mono">${i+1}</div><div class="body"><div class="req"><span class="tag ref">${esc(x.ref)}</span><b>${esc(x.topic)}</b><p>${esc(x.q)}</p><p class="hint">현재 판정 ${esc(ansToV5(x.ans))} · <a href="${pdfOf(x)}#page=${x.page}" target="_blank" rel="noopener">${x.page}쪽 ↗</a></p></div>
+      <div class="fields"><label class="wide">공시 문안 초안 (보고서에 그대로 실릴 문장)<textarea data-f="text" class="tall" placeholder="예: 당사는 FY2025 온실가스 배출량 산정에 CO2, CH4, N2O, HFCs, PFCs, SF6, NF3 7종을 포함하였으며 …">${esc(r.text||"")}</textarea></label></div></div></div>`;
+    return "";};
+  const ready=rows.every(x=>rowDone(a,x,s.rows[x.id]));
+  return `<div class="awork">${rows.map(rowH).join("")}</div>
+  <div class="asubmit"><div><b>${ready?"모든 줄을 채웠다.":`${rows.length-rows.filter(x=>rowDone(a,x,s.rows[x.id])).length}줄이 비어 있다.`}</b><span class="hint">제출하면 자동 점검과 시니어 리뷰(AI)가 붙고, 기준 판정이 열린다. 고친 뒤 다시 제출하면 새 버전(v2, v3…)이 된다.</span></div><button class="btn" type="button" id="aSubmit" ${ready?"":"disabled"}>제출하고 리뷰 받기 →</button></div>`;
+}
+function bindWork(a,s,rows,box){
+  const set=(id,k,v)=>{s.rows[id]=Object.assign({},s.rows[id],{[k]:v});s.t=Date.now();save()};
+  document.querySelectorAll(".arow .f5 button").forEach(b=>b.onclick=()=>{const id=b.closest(".arow").dataset.id;set(id,"v",b.dataset.v);renderAssign(box);const el=document.querySelector(`.arow[data-id="${id}"]`);if(el)el.scrollIntoView({block:"center"})});
+  document.querySelectorAll(".arow .prio button").forEach(b=>b.onclick=()=>{const id=b.closest(".arow").dataset.id;set(id,"prio",b.dataset.p);b.parentElement.querySelectorAll("button").forEach(z=>z.setAttribute("aria-pressed",z===b))});
+  document.querySelectorAll(".arow [data-f]").forEach(el=>el.oninput=()=>{const id=el.closest(".arow").dataset.id;set(id,el.dataset.f,el.value);const row=el.closest(".arow");row.classList.toggle("ok",rowDone(a,ITEMS.find(x=>x.id===id),s.rows[id]));const sb=$("#aSubmit");if(sb)sb.disabled=!rows.every(x=>rowDone(a,x,s.rows[x.id]))});
+  const sb=$("#aSubmit");if(sb)sb.onclick=()=>submitAssign(a,s,rows,box);
+  const rv=$("#aiReview");if(rv)rv.onclick=()=>aiReview(a,s,rows,box);
+  const xl=$("#xlsx");if(xl)xl.onclick=()=>exportXlsx(a,s,rows);
+  const pr=$("#aPrint");if(pr)pr.onclick=()=>window.print();
+}
+/* ---- rule-based review ---- */
+function ruleReview(a,s,rows){
+  const R={acc:0,std:0,logic:0,feas:0,notes:[],perRow:{},agree:0,n:rows.length};const lv=s.level||1;
+  const has=(t,re)=>re.test(String(t||""));
+  if(a.type==="gap"){
+    let pageOk=0,evOk=0,citeOk=0,agree=0,reasonOk=0,partialOk=0,partialN=0,recOk=0,recN=0,qOk=0,qN=0;
+    rows.forEach(x=>{const r=s.rows[x.id]||{};const m=[];
+      const refAns=ansToV5(x.ans);
+      if(r.v==="판단 불가"){qN++;if(r.q&&r.q.length>=15)qOk++;else m.push("'판단 불가'면 고객에게 확인할 질문을 구체적으로 써야 한다.")}
+      else if(r.v===refAns)agree++;else m.push(`기준 판정은 '${refAns}'. ${x.why}`);
+      if(lv>=2){if(+r.page===x.page)pageOk++;else if(r.page)m.push(`증빙 쪽이 다르다 (기준: ${x.page}쪽).`);else m.push("증빙 쪽이 없다.");
+        if(r.ev&&r.ev.length>=8)evOk++;else m.push("원문 문장을 그대로 인용하지 않았다.")}
+      if(has(r.reason,/문단|조항|\d+\s*\(|부록|요구사항|기준|GRI \d|E1-\d|2-\d/))citeOk++;else m.push("근거에 조항(문단 번호)을 인용하지 않았다.");
+      if((r.reason||"").length>=40)reasonOk++;else m.push("근거가 짧다. 조항·쪽·빠진 요소를 담아 2~3문장.");
+      if(r.v==="일부 충족"){partialN++;if(has(r.reason,/없|빠|누락|미공시|제외|않|부족/))partialOk++;else m.push("'일부 충족'이면 무엇이 빠졌는지 명시해야 한다.")}
+      if(lv>=3&&r.v&&r.v!=="충족"&&r.v!=="비적용"){recN++;if(has(r.rec,/추가|명시|공시|산정|구분|기재|표기|포함|적용|제시|작성|보완/)&&(r.rec||"").length>=20)recOk++;else m.push("권고가 실행 가능한 동작(무엇을·어디에·어떤 형태로)으로 쓰이지 않았다.");if(!r.prio)m.push("우선순위를 매기지 않았다.")}
+      if(m.length)R.perRow[x.id]=m});
+    const n=rows.length;R.agree=agree;
+    R.acc=lv>=2?Math.round(((pageOk+evOk)/(2*n))*3):Math.round(agree/n*3);
+    R.std=Math.round(((citeOk/n)*0.5+((agree+qOk)/n)*0.5)*3);
+    R.logic=Math.round(((reasonOk/n)*0.6+(partialN?partialOk/partialN:1)*0.4)*3);
+    R.feas=lv>=3?Math.round((recN?recOk/recN:1)*3):0;
+    if(lv<3)R.notes.push("제출 단계(3)가 아니라 우선순위·권고가 없다. 실행 가능성 축은 0점으로 둔다.");
+    if(lv<2)R.notes.push("입문 단계라 증빙 쪽·문장을 직접 찾지 않았다. 근거 정확성은 판정 일치로만 봤다.");
+    R.notes.push(`기준 판정과 일치 ${agree}/${n}${qN?` · 판단 불가 ${qN}건(질문 작성 ${qOk})`:""}.`);
+    const over=rows.filter(x=>{const r=s.rows[x.id]||{};const v=v5ToAns(r.v);return v&&x.ans!=="해당 없음"&&RANK[v]>RANK[x.ans]}).length,under=rows.filter(x=>{const r=s.rows[x.id]||{};const v=v5ToAns(r.v);return v&&x.ans!=="해당 없음"&&RANK[v]<RANK[x.ans]}).length;
+    if(over>under+1)R.notes.push(`기준보다 후하게 본 줄이 ${over}개다. 요구사항을 하위 요소로 쪼개 하나씩 확인하자.`);if(under>over+1)R.notes.push(`기준보다 박하게 본 줄이 ${under}개다. 기준이 실제로 요구하는 문장으로 돌아가자.`);
+  }else if(a.type==="calc"){
+    let ok=0,memoOk=0;rows.forEach(x=>{const r=s.rows[x.id]||{};const m=[];const v=parseNum(r.val);const good=!isNaN(v)&&Math.abs((x.abs?Math.abs(v):v)-x.ans)<=x.tol;if(good)ok++;else m.push(`기준값 ${fmt(x.ans,x.dec)} ${x.unit}. ${(x.steps||[]).join(" → ")}`);
+      if((r.memo||"").length>=30&&has(r.memo,/쪽|p\.|표|일치|불일치|단위|합계|기준/))memoOk++;else m.push("검산 메모에 어느 쪽 표와 대조했는지, 일치/불일치가 없다.");if(m.length)R.perRow[x.id]=m});
+    const n=rows.length;R.agree=ok;R.acc=Math.round(ok/n*3);R.std=Math.round(memoOk/n*3);R.logic=Math.round(((ok+memoOk)/(2*n))*3);R.feas=Math.round(memoOk/n*3);R.notes.push(`계산 일치 ${ok}/${n} · 메모 충실 ${memoOk}/${n}.`);
+  }else if(a.type==="revision"){
+    let ok=0;rows.forEach(x=>{const r=s.rows[x.id]||{};const m=[];if((r.change||"").length>=20&&(r.impact||"").length>=15&&has(r.impact,/쪽|p\.|표|항목/))ok++;else m.push("바뀐 점과 영향 항목(쪽)을 구체적으로 적어야 한다.");m.push("참고 · "+x.why);R.perRow[x.id]=m});
+    const n=rows.length;R.agree=ok;R.acc=R.std=R.logic=Math.round(ok/n*3);R.feas=Math.round(rows.filter(x=>((s.rows[x.id]||{}).action||"").length>=15).length/n*3);
+  }else if(a.type==="draft"){
+    let ok=0;rows.forEach(x=>{const r=s.rows[x.id]||{};const m=[];const t=r.text||"";const good=t.length>=60&&has(t,/당사|기아|회사|우리/)&&!/권고|해야 한다|권장/.test(t);if(good)ok++;else m.push("보고서에 실릴 문장(회사 주어, 서술형)으로 쓰고, '권고'체는 쓰지 않는다.");if(x.fix)m.push("참고 개선안 · "+x.fix);R.perRow[x.id]=m});
+    const n=rows.length;R.agree=ok;R.acc=R.std=Math.round(ok/n*3);R.logic=R.feas=Math.round(ok/n*3);
+  }
+  R.total=R.acc+R.std+R.logic+R.feas;return R;
+}
+function submitAssign(a,s,rows,box){
+  const rule=ruleReview(a,s,rows);const n=s.versions.length+1;
+  s.versions.push({n,t:Date.now(),level:s.level||1,rows:JSON.parse(JSON.stringify(s.rows)),review:{rule,ai:null,teacher:null}});s.t=Date.now();save();
+  toast(`v${n} 제출했다. 자동 점검 ${rule.total}/12`);aw.tab="review";renderAssign(box);window.scrollTo(0,0);
+  aiReview(a,s,rows,box);
+}
+async function aiReview(a,s,rows,box){
+  const v=s.versions[s.versions.length-1];if(!v||v.ai==="pending")return;
+  let sample=null;try{if(window.claude&&claude.use)sample=await claude.use("sample")}catch(e){}
+  if(!sample){v.review.aiNote="이 화면에서는 AI 리뷰를 쓸 수 없다(아티팩트 안에서만 동작). 자동 점검만 적용했다.";save();if(aw&&aw.tab==="review")renderAssign(box);return}
+  v.review.aiNote="시니어 리뷰 작성 중…";if(aw&&aw.tab==="review")renderAssign(box);
+  const payload=rows.map(x=>{const r=v.rows[x.id]||{};return {id:x.id,요구사항:x.ref+" · "+x.topic,질문:x.q,수강자:a.type==="gap"?{판정:r.v,쪽:r.page,증빙:r.ev,근거:r.reason,질문:r.q,우선순위:r.prio,권고:r.rec}:a.type==="calc"?{값:r.val,메모:r.memo}:a.type==="revision"?{바뀐점:r.change,영향:r.impact,조치:r.action}:{문안:r.text},기준:a.type==="gap"?{판정:ansToV5(x.ans),쪽:x.page,해설:x.why,함정:x.trap,개선안예시:x.fix||""}:a.type==="calc"?{정답:x.ans,단위:x.unit,풀이:x.steps,통찰:x.insight}:{해설:x.why,개선안예시:x.fix||""}}});
+  const prompt=`너는 기후공시 컨설팅사의 시니어 컨설턴트다. 신입이 제출한 ${ATYPE[a.type]}를 리뷰한다. 과제: ${a.title}. 고객 요청: ${a.brief}
+리뷰 기준 4축(각 0~3점): 근거 정확성(쪽·문장이 맞나), 기준 적용(조항을 바르게 썼나, 판정이 타당한가), 논리(근거가 판정을 뒷받침하나, '일부'면 빠진 요소를 짚었나), 실행 가능성(권고·문안이 고객이 바로 쓸 수 있나).
+'기준' 판정은 참고용 해석이다. 수강자가 다르게 봤더라도 근거가 타당하면 감점하지 말고 그 점을 적어라. 쉬운 말, 반말 아닌 존댓말 금지 — 동료에게 말하듯 '~다' 체로. 칭찬보다 고칠 점을 구체적으로.
+반드시 이 JSON만 출력: {"scores":{"acc":0,"std":0,"logic":0,"feas":0},"summary":"3~5문장 총평","top3":["가장 먼저 고칠 것 3개"],"perRow":[{"id":"...","comment":"한두 문장"}]}
+데이터: ${JSON.stringify(payload)}`;
+  try{const out=await sample.json(prompt,{modelTier:"default"});v.review.ai=out;v.review.aiNote=null}catch(e){v.review.aiNote="시니어 리뷰를 받지 못했다("+(e&&e.code||"오류")+"). 자동 점검만 적용했다."}
+  save();if(aw&&aw.tab==="review"&&aw.a.id===a.id)renderAssign(box);
+}
+function reviewPane(a,s,rows){
+  if(!s.versions.length)return `<div class="empty">아직 제출하지 않았다. '채우기'에서 모든 줄을 채우고 제출하면 여기 리뷰가 붙는다.</div>`;
+  const v=s.versions[s.versions.length-1],prev=s.versions[s.versions.length-2];const R=v.review.rule,A=v.review.ai;
+  const AX=[["acc","근거 정확성"],["std","기준 적용"],["logic","논리"],["feas","실행 가능성"]];
+  const bar=(sc,c)=>`<div class="rub">${AX.map(([k,n])=>`<div><span class="n">${n}</span><span class="t">${[1,2,3].map(i=>`<i class="${(sc[k]||0)>=i?"on":""}" style="background:${(sc[k]||0)>=i?c:"var(--bg3)"}"></i>`).join("")}</span><span class="v mono">${sc[k]||0}/3</span></div>`).join("")}</div>`;
+  const changed=prev?rows.filter(x=>JSON.stringify(prev.rows[x.id]||{})!==JSON.stringify(v.rows[x.id]||{})).length:0;
+  return `<div class="rgrid">
+   <div class="panel"><h3>자동 점검 · v${v.n} <span class="mono" style="color:var(--muted);font-weight:500">${R.total}/12</span></h3><p class="sub">규칙으로 확인한 것. 쪽 일치, 조항 인용, 근거 길이, 권고의 실행 동사.</p>${bar(R,"var(--ink)")}<ul class="notes-ul">${R.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>${prev?`<p class="hint">v${prev.n} → v${v.n}: 고친 줄 ${changed}개 · 점수 ${prev.review.rule.total} → ${R.total}</p>`:""}</div>
+   <div class="panel"><h3>시니어 리뷰 (AI) ${A?`<span class="mono" style="color:var(--muted);font-weight:500">${(A.scores.acc||0)+(A.scores.std||0)+(A.scores.logic||0)+(A.scores.feas||0)}/12</span>`:""}</h3><p class="sub">AI가 시니어 컨설턴트 역할로 쓴 리뷰. 기준 판정과 달라도 근거가 타당하면 인정하도록 지시했다.</p>${A?bar(A.scores,"var(--m-ifrs)")+`<p style="font-size:14.5px;line-height:1.7;margin-top:10px">${esc(A.summary||"")}</p>${A.top3&&A.top3.length?`<h4 style="margin-top:10px;font-size:13px">먼저 고칠 것</h4><ol class="sol">${A.top3.map(t=>`<li>${esc(t)}</li>`).join("")}</ol>`:""}`:`<p class="hint">${esc(v.review.aiNote||"")}</p>${!v.review.aiNote||/없다|못했다/.test(v.review.aiNote)?`<button class="btn line sm" type="button" id="aiReview">시니어 리뷰 다시 요청</button>`:""}`}</div>
+   <div class="panel"><h3>교육자 리뷰</h3><p class="sub">강사가 직접 쓰는 칸. 교육자 모드와 DB가 붙으면 여기에 들어온다.</p><p class="hint">${v.review.teacher?esc(v.review.teacher):"아직 없음"}</p></div>
+   <div class="panel"><h3>다음 할 일</h3><p class="sub">리뷰를 보고 '채우기'로 돌아가 고친 뒤 다시 제출하면 v${v.n+1}이 된다. 보통 2회전이면 고객에게 낼 수준이 된다.</p><div class="actions"><button class="btn sm" type="button" data-tab="work" id="goFix">고치러 가기 →</button><button class="btn line sm" type="button" data-tab="report" id="goRep">보고서 보기</button></div></div>
+  </div>
+  <h3 class="pfh" style="margin-top:22px">줄별 코멘트</h3><div class="rowcmt">${rows.map((x,i)=>{const r=v.rows[x.id]||{};const rm=R.perRow[x.id]||[];const am=A&&A.perRow?(A.perRow.find(p=>p.id===x.id)||{}).comment:null;
+    return `<div class="rc ${rm.length||am?"":"clean"}"><div class="h"><span class="mono">${i+1}</span><b>${esc(x.topic)}</b><span class="tag ref">${esc(x.ref)}</span>${a.type==="gap"?`<span class="pill p-${({"충족":"ok","일부 충족":"part","미충족":"no","판단 불가":"na","비적용":"na"})[r.v]||"none"}">${esc(r.v||"–")}</span><span class="hint">기준 ${esc(ansToV5(x.ans))} · <a href="${pdfOf(x)}#page=${x.page}" target="_blank" rel="noopener">${x.page}쪽</a></span>`:""}</div>
+    ${rm.length?`<ul>${rm.map(m=>`<li>${esc(m)}</li>`).join("")}</ul>`:""}${am?`<p class="ai">시니어 · ${esc(am)}</p>`:""}${!rm.length&&!am?`<p class="hint">지적 없음</p>`:""}</div>`}).join("")}</div>`;
+}
+function reportPane(a,s,rows){
+  if(!s.versions.length)return `<div class="empty">제출하면 ${ATYPE[a.type]}가 문서 형태로 만들어진다.</div>`;
+  const v=s.versions[s.versions.length-1],co=COMPANIES[a.company];const d=new Date(v.t).toLocaleDateString("ko-KR");
+  let body="";
+  if(a.type==="gap"){const cnt={};rows.forEach(x=>{const r=v.rows[x.id]||{};cnt[r.v]=(cnt[r.v]||0)+1});const gaps=rows.filter(x=>["일부 충족","미충족"].includes((v.rows[x.id]||{}).v));const H=gaps.filter(x=>(v.rows[x.id]||{}).prio==="H");const qs=rows.filter(x=>(v.rows[x.id]||{}).v==="판단 불가");
+    body=`<div class="repsum"><div class="kpi4">${V5.map(([k])=>`<div><b>${cnt[k]||0}</b><span>${k}</span></div>`).join("")}</div>
+    <div class="rgrid"><div class="panel"><h3>진단 요약</h3><p>${esc(co.name)} ${esc(co.report)}를 ${esc(a.std)} 요구사항 ${rows.length}개에 대고 검토한 결과, 충족 ${cnt["충족"]||0}, 일부 충족 ${cnt["일부 충족"]||0}, 미충족 ${cnt["미충족"]||0}, 판단 불가 ${cnt["판단 불가"]||0}, 비적용 ${cnt["비적용"]||0}이다.${H.length?` 우선순위 '높음' 갭은 ${H.length}건으로, ${H.slice(0,3).map(x=>x.topic).join(", ")} 등이다.`:""}</p></div>
+    <div class="panel"><h3>고객 확인 질문 ${qs.length}건</h3>${qs.length?`<ol class="sol">${qs.map(x=>`<li><b>${esc(x.topic)}</b> · ${esc((v.rows[x.id]||{}).q||"")}</li>`).join("")}</ol>`:`<p class="hint">없음</p>`}</div></div></div>
+    <table class="reptable"><thead><tr><th>#</th><th>요구사항</th><th>판정</th><th>증빙</th><th>근거</th><th>우선순위</th><th>권고</th></tr></thead><tbody>${rows.map((x,i)=>{const r=v.rows[x.id]||{};return `<tr class="v-${({"충족":"ok","일부 충족":"part","미충족":"no"})[r.v]||"na"}"><td class="mono">${i+1}</td><td><b>${esc(x.topic)}</b><br><small>${esc(x.ref)}</small></td><td>${esc(r.v||"")}</td><td>${r.page?`<a href="${pdfOf(x)}#page=${r.page}" target="_blank" rel="noopener">${esc(r.page)}쪽</a>`:""}${r.ev?`<br><small>“${esc(r.ev)}”</small>`:""}</td><td>${esc(r.reason||"")}${r.v==="판단 불가"&&r.q?`<br><em>확인 질문: ${esc(r.q)}</em>`:""}</td><td>${esc((PRIO.find(p=>p[0]===r.prio)||[])[1]||"")}</td><td>${esc(r.rec||"")}</td></tr>`}).join("")}</tbody></table>`;
+  }else if(a.type==="calc"){body=`<table class="reptable"><thead><tr><th>#</th><th>항목</th><th>내 계산값</th><th>검산 메모</th></tr></thead><tbody>${rows.map((x,i)=>{const r=v.rows[x.id]||{};return `<tr><td class="mono">${i+1}</td><td><b>${esc(x.topic)}</b><br><small>${esc(x.q)}</small></td><td class="mono">${esc(r.val||"")} ${esc(x.unit)}</td><td>${esc(r.memo||"")}</td></tr>`}).join("")}</tbody></table>`}
+  else if(a.type==="revision"){body=`<table class="reptable"><thead><tr><th>#</th><th>기준</th><th>바뀐 점</th><th>영향 항목</th><th>조치</th></tr></thead><tbody>${rows.map((x,i)=>{const r=v.rows[x.id]||{};return `<tr><td class="mono">${i+1}</td><td><b>${esc(x.topic)}</b><br><small>${esc(x.ref)}</small></td><td>${esc(r.change||"")}</td><td>${esc(r.impact||"")}</td><td>${esc(r.action||"")}</td></tr>`}).join("")}</tbody></table>`}
+  else {body=`<div class="pflist">${rows.map((x,i)=>{const r=v.rows[x.id]||{};return `<article class="pf"><div class="meta"><span class="mono">${i+1}</span><span class="tag ref">${esc(x.ref)}</span><b>${esc(x.topic)}</b></div><p class="draft" style="padding:10px 14px;border-left:3px solid var(--mark);background:color-mix(in srgb,var(--mark) 16%,var(--bg));white-space:pre-wrap">${esc(r.text||"")}</p></article>`}).join("")}</div>`}
+  return `<div class="report" id="aReport"><div class="rephead"><div><span class="k">${esc(ATYPE[a.type])} · v${v.n}</span><h3>${esc(a.title)}</h3><p>대상: ${esc(co.name)} ${esc(co.report)} · 기준: ${esc(a.std)} · 작성 ${d} · 자동 점검 ${v.review.rule.total}/12${v.review.ai?` · 시니어 리뷰 ${(v.review.ai.scores.acc||0)+(v.review.ai.scores.std||0)+(v.review.ai.scores.logic||0)+(v.review.ai.scores.feas||0)}/12`:""}</p></div><div class="actions"><button class="btn line sm" type="button" id="xlsx">엑셀로 내보내기</button><button class="btn line sm" type="button" id="aPrint">인쇄 · PDF</button></div></div>${body}
+  <p class="hint" style="margin-top:12px">이 문서의 판정·근거·권고는 ${s.learner==="local"?"이 브라우저 사용자":"수강자"}가 썼고, '기준 판정'은 AI가 원문을 대조해 만든 참고 해석이다. 이 보고서는 포트폴리오에 자동 수록된다.</p></div>`;
+}
+function loadScript(src){return new Promise((res,rej)=>{if(document.querySelector(`script[src="${src}"]`))return res();const s=document.createElement("script");s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s)})}
+async function exportXlsx(a,s,rows){
+  const v=s.versions[s.versions.length-1];if(!v)return;toast("엑셀 만드는 중…");
+  try{await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js")}catch(e){toast("엑셀 라이브러리를 불러오지 못했다");return}
+  const co=COMPANIES[a.company];let data;
+  if(a.type==="gap")data=[["#","요구사항","조항","질문","판정","증빙 쪽","증빙 문장","근거","확인 질문","우선순위","권고","기준 판정(참고)","기준 쪽"]].concat(rows.map((x,i)=>{const r=v.rows[x.id]||{};return [i+1,x.topic,x.ref,x.q,r.v||"",r.page||"",r.ev||"",r.reason||"",r.v==="판단 불가"?(r.q||""):"",(PRIO.find(p=>p[0]===r.prio)||[])[1]||"",r.rec||"",ansToV5(x.ans),x.page]}));
+  else if(a.type==="calc")data=[["#","항목","질문","내 계산값","단위","검산 메모","기준값(참고)"]].concat(rows.map((x,i)=>{const r=v.rows[x.id]||{};return [i+1,x.topic,x.q,r.val||"",x.unit,r.memo||"",x.ans]}));
+  else if(a.type==="revision")data=[["#","기준","주제","바뀐 점","영향 항목","조치"]].concat(rows.map((x,i)=>{const r=v.rows[x.id]||{};return [i+1,x.ref,x.topic,r.change||"",r.impact||"",r.action||""]}));
+  else data=[["#","조항","주제","공시 문안 초안"]].concat(rows.map((x,i)=>{const r=v.rows[x.id]||{};return [i+1,x.ref,x.topic,r.text||""]}));
+  const wb=XLSX.utils.book_new();const ws=XLSX.utils.aoa_to_sheet([[a.title],[`대상: ${co.name} ${co.report} · 기준: ${a.std} · v${v.n} · ${new Date(v.t).toLocaleDateString("ko-KR")}`],[]].concat(data));ws["!cols"]=data[0].map((h,i)=>({wch:i<=1?14:i===3||i===7||i===10?48:18}));
+  XLSX.utils.book_append_sheet(wb,ws,ATYPE[a.type]);
+  const name=`${a.id}-v${v.n}.xlsx`;const out=XLSX.write(wb,{bookType:"xlsx",type:"array"});const blob=new Blob([out],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+  try{if(window.claude&&claude.use){const dl=await claude.use("downloads");if(dl){await dl.save({filename:name,data:blob});toast("엑셀을 저장했다");return}}}catch(e){if(e&&(e.code==="not_granted"||e.code==="cancelled")){toast("저장을 취소했다");return}}
+  const u=URL.createObjectURL(blob);const l=document.createElement("a");l.href=u;l.download=name;l.click();setTimeout(()=>URL.revokeObjectURL(u),2000);
+}
+/* ---------- V4: MODE + TEACHER ---------- */
+function applyMode(){const t=S.mode==="teacher";document.documentElement.setAttribute("data-mode",S.mode);const b=$("#modeBtn");if(b){b.querySelector("span").textContent=t?"교육자":"수강자";b.setAttribute("aria-pressed",t)}
+  document.querySelectorAll(".nav nav a.learner").forEach(a=>a.hidden=t);document.querySelectorAll(".nav nav a.teacher").forEach(a=>a.hidden=!t)}
+$("#modeBtn").onclick=()=>{S.mode=S.mode==="teacher"?"learner":"teacher";save();applyMode();toast(S.mode==="teacher"?"교육자 모드. 강의실은 4.0에서 자리만 잡았다.":"수강자 모드");if(S.mode==="teacher"&&!["teach","about","map","glossary","home"].includes(view))go("teach");if(S.mode==="learner"&&view==="teach")go("home")};
+function teachView(sub){
+  const box=$("#teachBox");
+  if(sub==="content"){const vf={};ITEMS.forEach(x=>vf[x.verify]=(vf[x.verify]||0)+1);
+    box.innerHTML=`<div class="kpi4"><div><b>${avail.length}</b><span>연습 모듈</span></div><div><b>${ITEMS.length}</b><span>문항 (제외 ${typeof EXCLUDED!=="undefined"?EXCLUDED:"122"}개 별도)</span></div><div><b>${ASSIGN.length}</b><span>업무 과제</span></div><div><b>${Object.keys(COMPANIES).length}</b><span>회사 팩</span></div></div>
+    <div class="rgrid"><div class="panel"><h3>문항 신뢰도</h3><div class="errbars">${Object.entries(vf).map(([k,n])=>`<div><span class="n">${k}</span><span class="t"><i style="width:${n/ITEMS.length*100}%;background:var(--ink)"></i></span><span class="v mono">${n}</span></div>`).join("")}</div><p class="hint">모듈별 표는 <a href="#about">만든 방법</a>에 있다. 교육에 쓸 세트는 실무자 검수 후 '검수 완료' 표시를 붙이는 기능이 다음 단계다.</p></div>
+    <div class="panel"><h3>과제 목록</h3><div class="reco">${ASSIGN.map(a=>`<a href="#assign-${a.id}"><span style="color:var(--ink)">${esc(a.title)}</span><span>${a.week}주차 · ${a.rows.length}줄</span></a>`).join("")}</div></div>
+    <div class="panel"><h3>콘텐츠 추가 방법 (지금은 파일로)</h3><ol class="sol"><li>문항: <code>data/modules/&lt;module&gt;.json</code> 규격(<code>data/SCHEMA.md</code>)으로 추가 → <code>node src/build.js</code></li><li>회사 팩: <code>data/companies/BRIEF.md</code> 규격으로 <code>&lt;company&gt;.json</code> + build.js COMPANIES 등록</li><li>과제: <code>data/assignments.json</code>에 rows(문항 id)로 정의</li><li>제외: <code>data/exclude.json</code></li></ol><p class="hint">DB(Supabase)가 붙으면 이 화면에서 직접 편집한다.</p></div></div>`;return}
+  const subs=ASSIGN.map(a=>({a,s:S.sub[a.id]})).filter(o=>o.s&&o.s.versions.length);
+  box.innerHTML=`<div class="rgrid"><div class="panel"><h3>강의실 · 준비 중</h3><p class="sub">DB가 붙으면 여기에 들어올 것</p><ul class="notes-ul"><li>반(과정)별 수강자 목록과 진도 — 과제 × 수강자 격자</li><li>채점 대기함 — 제출 버전별 자동 점검·AI 리뷰 결과와 교육자 리뷰 입력</li><li>막힌 지점 — 어느 요구사항에서 '판단 불가'와 오답이 몰리는지</li><li>과정 빌더 — 과제를 묶어 '4주 신입 과정', '1일 특강'으로 배포</li></ul></div>
+  <div class="panel"><h3>이 브라우저의 제출물 (1인 반)</h3><p class="sub">지금 구조가 그대로 DB 테이블이 된다: 수강자 · 과제 · 제출 버전 · 리뷰(자동/AI/교육자)</p>${subs.length?`<div class="reco">${subs.map(({a,s})=>{const v=s.versions[s.versions.length-1];return `<a href="#assign-${a.id}"><span style="color:var(--ink)">${esc(a.title)}</span><span>v${v.n} · ${v.review.rule.total}/12 · ${new Date(v.t).toLocaleDateString("ko-KR")}</span></a>`}).join("")}</div>`:`<p class="hint">제출물이 없다.</p>`}<div class="actions" style="margin-top:10px"><button class="btn line sm" type="button" id="tExport">제출물 전체 JSON 내보내기</button></div></div></div>`;
+  const b=$("#tExport");if(b)b.onclick=exportRec;
+}
+
 /* ---------- ROUTER ---------- */
-const VIEWS=["home","portfolio","path","learn","lesson","practice","review","exam","cases","compare","map","glossary","record","about"];
+const VIEWS=["home","assign","teach","portfolio","path","learn","lesson","practice","review","exam","cases","compare","map","glossary","record","about"];
 function go(v){if(location.hash!=="#"+v)location.hash=v;else route()}
 function route(){
   const h=(location.hash||"").slice(1);const dash=h.indexOf("-");const base=dash>0?h.slice(0,dash):h;const rest=dash>0?h.slice(dash+1):"";
@@ -1457,9 +1756,10 @@ function route(){
   if(view==="practice"&&MOD[sub]&&!MOD[sub].missing){mod=sub;flv=0;draft={}}
   if(view==="lesson"&&!MOD[sub])view="learn";
   VIEWS.forEach(k=>$("#v-"+k).hidden=k!==view);
-  document.querySelectorAll(".nav nav a").forEach(a=>a.setAttribute("aria-current",a.dataset.v===view||(view==="lesson"&&a.dataset.v==="learn")?"page":"false"));
+  document.querySelectorAll(".nav nav a").forEach(a=>{let on=a.dataset.v===view||(view==="lesson"&&a.dataset.v==="learn");if(view==="teach"&&on)on=(a.getAttribute("href")==="#teach-content")===(sub==="content");a.setAttribute("aria-current",on?"page":"false")});
   if(view==="home"){heroStats();works();jobs();tracks();twist();drawPrism();spectrum();clock();authorStrip()}
-  if(view==="portfolio")pfView();
+  if(view==="portfolio")pfView();if(view==="assign")assignView(sub);if(view==="teach")teachView(sub);
+  applyMode();
   if(view==="path")pathView();if(view==="cases")casesView(sub);if(view==="compare")cmpView();
   if(view==="learn")learn();if(view==="lesson")lesson(sub);if(view==="practice")renderPractice();if(view==="review"){rv=null;draft={};reviewView()}
   if(view==="exam")examView();if(view==="map")mapView();if(view==="glossary")glossary();if(view==="record")recView();if(view==="about")about();
