@@ -8,12 +8,19 @@ const DATA={
   kssb:[...J("data/books/kssb-1.json").sessions,...J("data/books/kssb-2.json").sessions],
   s2:J("data/books/ifrs-s2.json").sessions
 };
+// 공통 기초 책 (있을 때만)
+if(fs.existsSync(R("data/books/base-1.json")))DATA.b1=J("data/books/base-1.json").sessions;
+if(fs.existsSync(R("data/books/base-2.json")))DATA.b2=J("data/books/base-2.json").sessions;
+// 손으로 고른 '더 풀어 보기' (있으면 자동 선택보다 우선)
+const CURATED=fs.existsSync(R("data/books/drill.json"))?J("data/books/drill.json"):{};
 const ITEMS=J("data/items.gen.json");
 const DIAG=J("data/diagnostic.json");
 
 /* ---- 회차별 '더 풀어 보기' 문항 고르기 ---- */
 // 회차 → 문항 모듈. 같은 주제의 기존 문항만 고른다.
 const MODMAP=id=>{
+  if(id.startsWith("b1-"))return ["ghgp"];
+  if(id.startsWith("b2-"))return ["korea","markets","kssb"];
   if(id==="k0"||id==="k1-11"||id==="k2-11"||id==="s2-0"||id==="s2-11")return ["kssb","ifrs-s1"];
   if(id.startsWith("k1-"))return ["ifrs-s1"];
   const n=+id.split("-").pop();
@@ -34,6 +41,8 @@ for(const bid in DATA)for(const s of DATA[bid]){
   const pick=pool.slice(0,4).map(o=>o.x);pick.forEach(x=>used.add(x.id));
   DRILL[s.id]=pick.map(x=>x.id);
 }
+const known=new Set(ITEMS.map(x=>x.id));
+for(const id in CURATED)if(DRILL[id]!==undefined)DRILL[id]=CURATED[id].filter(x=>known.has(x));
 const need=new Set(Object.values(DRILL).flat());
 const BANK=ITEMS.filter(x=>need.has(x.id)).map(x=>{const o={id:x.id,type:x.type,q:x.q,ref:x.ref,why:x.why,trap:x.trap};
   if(x.type==="mc"){o.options=x.options;o.ans=x.ans}

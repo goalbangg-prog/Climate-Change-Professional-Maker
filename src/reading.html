@@ -356,6 +356,8 @@ const BOOKS=[
  {id:"w1",a:"law",t:"탄소중립기본법",s:"한국 감축의 법적 뼈대",n:5,d:0,rec:1},{id:"w2",a:"law",t:"배출권거래법",s:"배출에 값을 매기는 제도",n:9,d:0},{id:"w5",a:"law",t:"목표관리제",s:"거래제 밖 업체의 의무",n:4,d:0},{id:"w6",a:"law",t:"환경정보공개 · K-택소노미",s:"공개 의무와 녹색 판정",n:5,d:0},{id:"w3",a:"law",t:"EU ETS · CBAM",s:"수출품에 붙는 탄소 비용",n:6,d:0},{id:"w4",a:"law",t:"파리협정 6조",s:"나라 사이 감축 거래",n:4,d:0}];
 const META={
  kssb:{h1:"KSSB 지속가능성 공시기준 제1·2호",cover:"KSSB<br>제1·2호",eye:"기후공시 · 첫 번째 권장",blurb:"한국 의무공시의 실제 기준. IFRS S1·S2를 바탕으로 국내 사정을 반영했다. 원문 문단 순서대로 23회차에 나눠 읽는다. 이 책을 읽으면 IFRS가 저절로 따라온다.",src:"원문 2025 공표본"},
+ b1:{h1:"온실가스와 Scope",cover:"기초<br>①",eye:"공통 기초 · 진단 8점 미만이면 먼저",blurb:"온실가스를 이산화탄소로 환산하는 법, 어디까지가 우리 배출인지, Scope 1·2·3, 숫자를 만들고 믿게 하는 법. 모든 기준서가 이 말들을 안다고 전제한다.",src:"공식 자료 대조"},
+ b2:{h1:"기후 제도 전체 지도",cover:"기초<br>②",eye:"공통 기초 · 지도",blurb:"파리협정에서 한국 법, 공시 기준, 측정 표준까지. 어떤 문서가 누구를 위해 무엇을 요구하는지 한 장의 지도로 정리한다.",src:"공식 자료 대조"},
  s2:{h1:"IFRS S2 기후 관련 공시",cover:"IFRS<br>S2",eye:"기후공시 · KSSB 다음",blurb:"KSSB 제2호의 출발점인 국제 기준. KSSB를 먼저 읽었다는 전제로, 같은 곳은 짧게 넘기고 다른 곳을 자세히 읽는다. 2025년 12월 온실가스 개정까지 반영했다.",src:"2023.6 원문 + 2025.12 개정"}};
 const DATA=__DATA__;
 const DRILL=__DRILL__;
@@ -365,7 +367,7 @@ const ALL=[];Object.entries(DATA).forEach(([bid,ss])=>ss.forEach(x=>{x.book=bid;
 let SESS=DATA.kssb,BID="kssb";
 const useBook=bid=>{BID=DATA[bid]?bid:"kssb";SESS=DATA[BID];return BID};
 const sessOf=id=>ALL.find(x=>x.id===id);
-const PART=id=>id==="k0"||id==="s2-0"?"들어가며":id.startsWith("k1")?"제1호 일반 요구사항":id.startsWith("k2")?"제2호 기후 관련 공시":id==="s2-11"?"정리":"IFRS S2 본문";
+const PART=id=>/^b\d-/.test(id)?"공통 기초":id==="k0"||id==="s2-0"?"들어가며":id.startsWith("k1")?"제1호 일반 요구사항":id.startsWith("k2")?"제2호 기후 관련 공시":id==="s2-11"?"정리":"IFRS S2 본문";
 const DIFF={same:"KSSB와 같다",differs:"KSSB와 다르다",s2only:"IFRS S2에만 있다",kssbonly:"KSSB에만 있다"};
 const TERMS={};
 const CO={kia:"기아 지속가능경영보고서",hyundai:"현대자동차 지속가능성 보고서",bmw:"BMW Group Report",mb:"Mercedes-Benz Group Annual Report",porsche:"Porsche Annual and Sustainability Report"};
@@ -397,20 +399,20 @@ const curS=(S=SESS)=>S.find(x=>x.id===LAST&&!DONE.includes(x.id))||S.find(x=>!DO
 const leftMin=(S=SESS)=>S.filter(x=>!DONE.includes(x.id)).reduce((a,x)=>a+x.min,0);
 const hm=m=>m>=60?`${Math.floor(m/60)}시간${m%60?" "+m%60+"분":""}`:`${m}분`;
 function shelf(){
-  const ls=sessOf(LAST);const hb=ls?ls.book:"kssb";Object.keys(DATA).forEach(k=>kb(k));const cur=kb(hb);const cs=curS(DATA[hb]);
+  const ls=sessOf(LAST);const hb=ls?ls.book:(DIAGR&&DIAGR.score<8&&DATA.b1?"b1":"kssb");Object.keys(DATA).forEach(k=>kb(k));const cur=kb(hb);const cs=curS(DATA[hb]);
   const href=b=>DATA[b.id]?"#book/"+b.id:"#soon";
   const feat=b=>`<a class="feat ${!DATA[b.id]?"soon":b.d>=b.n?"done":b.d?"on":""}" href="${href(b)}" style="--c:${colorOf(b)}"><span class="fface">${ico(b.a)}<span class="lab">${!DATA[b.id]?"다음 권장 · 준비 중":b.d>=b.n?"완독":b.d?"읽는 중":"다음 권장"}</span><b>${esc(b.t)}</b><em>${esc(b.s)}</em></span><span class="finfo">${dots(b)}<span>${b.d}/${b.n}회차 · 약 ${Math.round(b.n*17/60*10)/10}시간</span></span></a>`;
   const line=b=>`<a class="line ${b.d>=b.n?"done":b.d?"on":""}" href="${href(b)}" style="--c:${colorOf(b)}"><span class="lt"><b>${esc(b.t)}</b><em>${esc(b.s)}</em></span><span class="lr">${b.d>=b.n?`<span class="ok">완독</span>`:DATA[b.id]?`<span class="mono">${b.d}/${b.n}</span>`:`<span class="mono soon">준비 중</span>`}</span></a>`;
   $("#app").innerHTML=`<section class="view wrap">
    <a class="hero" href="#read/${cs.id}" style="--c:${colorOf(cur)}">
-     <span class="hface">${ico("dis","big")}<span class="ar">${cur.d?"이어 읽기":"첫 책"} · 기후공시</span><b>${esc(cur.t)}</b><em>${esc(cur.s)}</em><span class="hp"><i style="--p:${cur.d/cur.n}"></i></span></span>
+     <span class="hface">${ico(cur.a,"big")}<span class="ar">${cur.d?"이어 읽기":"첫 책"} · ${esc(area(cur.a).name)}</span><b>${esc(cur.t)}</b><em>${esc(cur.s)}</em><span class="hp"><i style="--p:${cur.d/cur.n}"></i></span></span>
      <span class="hmeta"><span class="k">${cs.i}회차 · ${esc(cs.part)}</span><b>${esc(cs.title)}</b><span>약 ${cs.min}분 · ${cur.d}/${cur.n}회차 읽음 · 남은 시간 약 ${hm(leftMin(DATA[hb]))}</span><span class="go">${cur.d?"이어서 읽기":"읽기 시작"} →</span></span></a>
    <div class="side-stats"><span>읽은 회차 <b>${DONE.length}</b></span><span>표시한 문장 <b>${NOTES.length}</b></span><span>쓴 한 줄 <b>${WRITES.length}</b></span></div>
-   ${DIAGR?`<p class="diagline">진단 ${DIAGR.score}/${DIAGR.n}점 · ${DIAGR.score>=8?"기초는 건너뛰어도 된다.":"공통 기초부터 권장한다. 기초 책이 준비되기 전까지는 KSSB를 읽으며 밑줄 친 용어를 눌러 보자."} <a href="#diag">다시 보기</a></p>`:`<a class="diagcard" href="#diag"><b>처음 왔다면, 3분 진단부터</b><span>10문항으로 기초를 건너뛸지 정한다. 건너뛰어도 된다.</span><span class="go">진단 시작 →</span></a>`}
+   ${DIAGR?`<p class="diagline">진단 ${DIAGR.score}/${DIAGR.n}점 · ${DIAGR.score>=8?"기초는 건너뛰어도 된다.":(DATA.b1?"공통 기초부터 권장한다.":"공통 기초부터 권장한다. 기초 책이 준비되기 전까지는 KSSB를 읽으며 밑줄 친 용어를 눌러 보자.")} <a href="#diag">다시 보기</a></p>`:`<a class="diagcard" href="#diag"><b>처음 왔다면, 3분 진단부터</b><span>10문항으로 기초를 건너뛸지 정한다. 건너뛰어도 된다.</span><span class="go">진단 시작 →</span></a>`}
    ${AREAS.map(a=>{const list=BOOKS.filter(b=>b.a===a.id);const f=list.find(b=>b.rec)||list.find(b=>b.d>0&&b.d<b.n&&b.id!==hb)||(list.every(b=>b.d>=b.n)?null:list.find(b=>b.d<b.n&&b.id!==hb))||null;const rest=list.filter(b=>b!==f&&b.id!==hb);const d=list.filter(b=>b.d>=b.n).length;
      return `<section class="row" style="--c:var(${a.c})"><div class="rowh">${ico(a.id)}<h3>${a.name}</h3><span>${a.note}</span><small>${d}/${list.length}권</small></div>
      <div class="rbody ${f?"":"nof"}">${f?feat(f):""}<div class="lines">${rest.map(line).join("")}</div></div></section>`}).join("")}
-   <p class="foot">지금은 KSSB 제1·2호와 IFRS S2만 본문이 들어 있다. 나머지 책은 같은 방식으로 한 권씩 채운다.</p></section>`;
+   <p class="foot">지금은 ${Object.keys(DATA).map(k=>BOOKS.find(b=>b.id===k).t).join(", ")}만 본문이 들어 있다. 나머지 책은 같은 방식으로 한 권씩 채운다.</p></section>`;
 }
 /* ---------- 책 소개 ---------- */
 function book(bid){
@@ -531,9 +533,9 @@ let dq=0,dans=[];
 function diag(){
   if(dq>=DIAG.length){const score=dans.filter((a,i)=>a===DIAG[i].ans).length;DIAGR={score,n:DIAG.length,t:Date.now()};persist();
     $("#app").innerHTML=`<section class="view wrap narrow"><span class="eyebrow">진단 결과</span><h1 class="ph">${score}/${DIAG.length}점</h1>
-    <p class="lede">${score>=8?"기초는 충분하다. 바로 KSSB 제1·2호부터 읽자.":"Scope, 기준연도 같은 기초가 아직 흔들린다. 공통 기초 책이 준비되기 전까지는, KSSB를 읽으면서 밑줄 친 용어를 눌러 뜻을 확인하며 천천히 가자."}</p>
+    <p class="lede">${score>=8?"기초는 충분하다. 바로 KSSB 제1·2호부터 읽자.":(DATA.b1?"Scope, 기준연도 같은 기초가 아직 흔들린다. 공통 기초 「온실가스와 Scope」부터 읽고 KSSB로 가자.":"Scope, 기준연도 같은 기초가 아직 흔들린다. 공통 기초 책이 준비되기 전까지는, KSSB를 읽으면서 밑줄 친 용어를 눌러 뜻을 확인하며 천천히 가자.")}</p>
     <div class="dlist">${DIAG.map((x,i)=>`<div class="ditem"><p class="dq"><span class="dn">${dans[i]===x.ans?"✓":"✕"}</span>${esc(x.q)}</p><p class="why"><b>${esc(x.options[x.ans])}</b> — ${esc(x.why)}</p></div>`).join("")}</div>
-    <div class="navrow"><button class="btn line sm" type="button" id="dAgain">다시 풀기</button><a class="btn sm" href="#read/${curS(DATA.kssb).id}">KSSB 읽기 →</a></div></section>`;
+    <div class="navrow"><button class="btn line sm" type="button" id="dAgain">다시 풀기</button>${score<8&&DATA.b1?`<a class="btn sm" href="#read/${curS(DATA.b1).id}">기초부터 읽기 →</a>`:`<a class="btn sm" href="#read/${curS(DATA.kssb).id}">KSSB 읽기 →</a>`}</div></section>`;
     $("#dAgain").onclick=()=>{dq=0;dans=[];diag()};dq=0;dans=[];return}
   const x=DIAG[dq];
   $("#app").innerHTML=`<section class="view wrap narrow"><span class="eyebrow">진단 ${dq+1}/${DIAG.length}${x.area?" · "+esc(x.area):""}</span><div class="dbar"><i style="width:${dq/DIAG.length*100}%"></i></div>
