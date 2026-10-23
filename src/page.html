@@ -7,7 +7,7 @@
 <header class="nav"><div class="wrap">
   <a class="brand" href="#course"><i aria-hidden="true"><b style="background:var(--m-ifrs)"></b><b style="background:var(--m-kssb)"></b><b style="background:var(--m-esrs)"></b><b style="background:var(--m-gri-sasb)"></b></i><span>기후공시 연습장</span></a>
   <nav aria-label="메뉴">
-    <a href="#course" data-v="course" class="learner">코스</a><a href="#portfolio" data-v="portfolio" class="learner">포트폴리오</a>
+    <a href="#course" data-v="course" class="learner">코스</a><a href="#portfolio" data-v="portfolio" class="learner">포트폴리오</a><a href="#start" data-v="start" class="learner">전직</a>
     <a href="#teach" data-v="teach" class="teacher">강의실</a><a href="#teach-content" data-v="teach" class="teacher">콘텐츠</a>
     <div class="dd"><button type="button" aria-expanded="false">참고 ▾</button><div class="menu"><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어집</a><a href="#learn" data-v="learn">도서관 · 입문 글</a><a href="#about" data-v="about">만든 방법</a></div></div>
   </nav>
@@ -812,7 +812,7 @@ function startView(){
   const box=$("#startBox");
   box.innerHTML=`<div class="classes">${TRACKS.map((T,i)=>{const C=COURSES[T.id]||[];const nn=C.reduce((a,c)=>a+c.nodes.length,0);const na=C.reduce((a,c)=>a+c.nodes.filter(n=>n.t==="assign").length,0);const M=CLASS_META[T.id];
     return `<button type="button" class="cls" data-t="${T.id}" style="--c:${classColor(T.id)};--i:${i}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${M.icon}"/></svg><span class="tag">${esc(M.tag)}</span><h3>${esc(T.name)}</h3><span class="alias">${esc(T.alias||"")}</span><p>${esc(M.blurb)}</p><div class="st"><span><b>${C.length}</b>챕터</span><span><b>${nn}</b>노드</span><span><b>${na}</b>과제</span></div><span class="jl">${T.jobs.slice(0,2).map(j=>esc(j)).join(" · ")}</span><span class="go">이 클래스로 시작 →</span></button>`}).join("")}</div>`;
-  document.querySelectorAll(".cls").forEach(b=>b.onclick=()=>{document.querySelectorAll(".cls").forEach(x=>x.classList.add(x===b?"picked":"faded"));setTimeout(()=>{S.track=b.dataset.t;S.v42=true;S.xpSeen=0;save();applyAccent();go("course")},650)});
+  document.querySelectorAll(".cls").forEach(b=>b.onclick=()=>{document.querySelectorAll(".cls").forEach(x=>x.classList.add(x===b?"picked":"faded"));setTimeout(()=>{S.track=b.dataset.t;S.v42=true;S.mode="learner";S.xpSeen=0;save();applyAccent();applyMode();go("course")},650)});
 }
 function applyAccent(){const t=TRACKS.find(x=>x.id===S.track);const r=document.documentElement;if(!t){r.style.removeProperty("--acc");r.removeAttribute("data-class");return}r.setAttribute("data-class",t.id);r.style.setProperty("--acc",classColor(t.id))}
 /* ---- course map ---- */
@@ -1077,7 +1077,7 @@ function route(){
   view=VIEWS.includes(base)?base:"home";sub=rest;
   if(view==="home")view=S.track?"course":"start";
   if(view==="drill"){startDrill(sub);view="practice"}else if(view!=="practice")drill=null;
-  if((!S.track||!S.v42)&&S.mode!=="teacher"&&!["start","about","map","glossary"].includes(view))view="start";
+  if((!S.track||!S.v42)&&!["start","about","map","glossary"].includes(view))view="start";
   if(view==="practice"&&MOD[sub]&&!MOD[sub].missing){mod=sub;flv=0;draft={}}
   if(view==="lesson"&&!MOD[sub])view="learn";
   VIEWS.forEach(k=>{const el=$("#v-"+k);if(!el)return;el.hidden=k!==view;if(k===view){el.classList.remove("enter");void el.offsetWidth;el.classList.add("enter")}});

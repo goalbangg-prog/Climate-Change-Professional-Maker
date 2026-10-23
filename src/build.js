@@ -145,7 +145,7 @@ for(const tid in CJ.courses){
     return node})}));
 }
 const XP=CJ.xp;
-const data=`const COURSES=${JSON.stringify(COURSES)};\nconst XP=${JSON.stringify(XP)};\nconst MODS=${JSON.stringify(MODS)};\nconst GROUPS=${JSON.stringify(GROUPS)};\nconst LESSONS=${JSON.stringify(LESSONS)};\nconst ITEMS=${JSON.stringify(ITEMS)};\nconst MAP=${JSON.stringify(MAP)};\nconst TRACKS=${JSON.stringify(TRACKS)};\nconst COMPANIES=${JSON.stringify(COMPANIES)};\nconst ASSIGN=${JSON.stringify(ASSIGN)};\nconst BUILT=${JSON.stringify(new Date().toISOString().slice(0,10))};`;
+const data=`const COURSES=${JSON.stringify(COURSES)};\nconst XP=${JSON.stringify(XP)};\nconst MODS=${JSON.stringify(MODS)};\nconst GROUPS=${JSON.stringify(GROUPS)};\nconst LESSONS=${JSON.stringify(LESSONS)};\nconst ITEMS=${JSON.stringify(ITEMS)};\nconst MAP=${JSON.stringify(MAP)};\nconst TRACKS=${JSON.stringify(TRACKS)};\nconst COMPANIES=${JSON.stringify(COMPANIES)};\nconst ASSIGN=${JSON.stringify(ASSIGN)};\nconst BUILT=${JSON.stringify(new Date().toISOString().slice(0,16).replace("T"," ")+" UTC · "+(()=>{try{return require("child_process").execSync("git rev-parse --short HEAD",{cwd:__dirname}).toString().trim()}catch(e){return ""}})())};`;
 const page=fs.readFileSync(path.join(__dirname,"page.html"),"utf8");
 const style=fs.readFileSync(path.join(__dirname,"style.css"),"utf8").replace("</style>",fs.readFileSync(path.join(__dirname,"extra.css"),"utf8")+fs.readFileSync(path.join(__dirname,"v3.css"),"utf8")+"</style>");
 const out=page.replace("/*STYLE*/",()=>style).replace("/*DATA*/",()=>data.replace(/<\/script/g,"<\\/script"));
