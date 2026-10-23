@@ -379,7 +379,7 @@ function initData(){
   Object.values(DATA).forEach(ss=>ss.forEach((s,i)=>{s.i=i;s.part=PART(s.id);
     s.paras=s.blocks.map((b,j)=>{const tl=(b.terms||[]).map(t=>t.t);let done=new Set();
       const prose=b.prose.map(x=>{let h=esc(x);tl.forEach(t=>{if(done.has(t))return;const e=esc(t);const k=h.indexOf(e);if(k<0)return;done.add(t);h=h.slice(0,k)+`<span class='term' data-t='${e.replace(/'/g,"&#39;")}'>${e}</span>`+h.slice(k+e.length)});return h});
-      return {id:s.id+"_"+j,num:b.no,lab:b.label,req:b.req,quote:b.quote,fig:b.fig,ex:b.ex,page:b.pdfPage,src:b.src,kssb:b.kssb,diff:b.diff,prose}})}))}
+      return {id:s.id+"_"+j,num:b.no,lab:b.label,req:b.req,quote:b.quote,fig:b.fig,ex:b.ex,page:b.pdfPage,src:b.src,kssb:b.kssb,diff:b.diff,qno:b.qno,prose}})}))}
 /* ---------- 상태 ---------- */
 let NOTES=[],WRITES=[],DONE=[],LAST="",DIAGR=null;
 try{NOTES=JSON.parse(localStorage.getItem("kssb-notes")||"[]");WRITES=JSON.parse(localStorage.getItem("kssb-writes")||"[]");DONE=JSON.parse(localStorage.getItem("kssb-done")||"[]");LAST=localStorage.getItem("kssb-last")||"";DIAGR=JSON.parse(localStorage.getItem("kssb-diag")||"null")}catch(e){}
@@ -433,7 +433,7 @@ function renderPara(p){let prose=p.prose.map((x,pi)=>`<p>${splitS(x).map((t,si)=
   const isNo=/^[0-9A-Z]/.test(p.num);
   return `<div class="para" data-p="${p.id}"><div class="num"><b>${isNo?"문단 ":""}${esc(p.num)}</b>${esc(p.lab)}${p.page?`<small>원문 ${p.page}쪽</small>`:""}${p.diff?`<span class="diff ${p.diff}">${DIFF[p.diff]||""}${p.kssb&&p.kssb!=="없음"?` · KSSB ${esc(p.kssb)}`:""}</span>`:""}</div><div class="body">
    <div class="prose" data-p="${p.id}">${prose}</div>
-   ${p.quote?`<blockquote class="quote"><span class="k">원문</span>${esc(p.quote)}</blockquote>`:""}
+   ${p.quote?`<blockquote class="quote"><span class="k">원문${p.qno?" · 문단 "+esc(p.qno):""}</span>${esc(p.quote)}</blockquote>`:""}
    <div class="req"><span class="k">이 문단이 요구하는 것</span>${esc(p.req)}</div>
    ${p.fig?`<div class="fig"><div class="cap">${esc(p.fig.cap)}</div><div class="tw"><table><thead><tr>${p.fig.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${p.fig.rows.map(r=>`<tr>${r.map((c,i)=>i?`<td>${esc(c)}</td>`:`<th>${esc(c)}</th>`).join("")}</tr>`).join("")}</tbody></table></div></div>`:""}
    ${p.ex?`<div class="ex"><span class="k">${esc(p.ex.k)}</span><p>${esc(p.ex.t)}</p><span class="srcl">${esc(CO[p.ex.co]||p.ex.co)} ${p.ex.page}쪽</span></div>`:""}

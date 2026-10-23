@@ -14,7 +14,7 @@
     {
      "no": "ISSB",
      "label": "IFRS S2는 누가, 어떤 모양으로 만들었나",
-     "pdfPage": 3,
+     "pdfPage": 5,
      "kssb": "제2호 머리말(문단 1~37, 부록 A~D)",
      "diff": "differs",
      "prose": [
@@ -36,7 +36,7 @@
      "no": "IFRS S1",
      "label": "IFRS S1과 함께 읽는다, KSSB는 S2에서 출발했다",
      "pdfPage": 5,
-     "kssb": "BC2",
+     "kssb": "제2호 머리말",
      "diff": "same",
      "prose": [
       "머리말은 IFRS S2를 그 목적, 결론도출근거, 그리고 IFRS S1의 맥락에서 읽어야 한다고 적는다. 중요성, 보고기업, 연계된 정보, 비교정보 같은 공통 규칙은 S1에 있고, S2는 그 위에 기후 공시 내용을 얹는 구조다. 부록 C의 문단 C1도 S2를 일찍 적용하는 기업은 그 사실을 밝히고 S1을 같은 때 적용하라고 한다. 둘을 떼어 쓸 수 없다는 뜻이다.",
@@ -51,7 +51,8 @@
        "d": "지속가능성 관련 재무정보 공시의 일반 요구사항을 정한 ISSB 기준서로, KSSB 제1호의 바탕이다.",
        "en": "General Requirements for Disclosure of Sustainability-related Financial Information"
       }
-     ]
+     ],
+     "qno": "C1"
     },
     {
      "no": "C1A",
@@ -60,8 +61,8 @@
      "doc": "amend",
      "amend2025": true,
      "src": "https://www.ifrs.org/content/dam/ifrs/publications/amendments/english/2025/issb-2025-1-amendments-ifrs-s2.pdf",
-     "kssb": "BC125~BC129",
-     "diff": "same",
+     "kssb": "없음",
+     "diff": "s2only",
      "prose": [
       "ISSB는 2025년 12월 '온실가스 배출량 공시 개정'(Amendments to Greenhouse Gas Emissions Disclosures)을 발행했다. 개정 결론도출근거 BC80A는 기업들이 이행 과정에서 겪은 어려움 네 가지를 든다. 카테고리 15(투자) 배출량의 측정과 공시, 금융배출량을 산업별로 나눌 때의 GICS 사용, 관할권이 요구하는 측정 방법을 쓰는 완화, 최신 IPCC 지구온난화지수 사용 요구다.",
       "문단 C1A는 개정이 손댄 문단을 열거한다. 문단 29(a)(ii), 29(a)(vi)(2), B21~B22, B24, B28, B37, B59, B62(a), B63(a), C4(b)를 고치고, 문단 29A~29C, B62A, B63A, C1B, C6을 새로 넣었다. 문단 C1B에 따라 2027년 1월 1일 이후 시작하는 연차 보고기간부터 적용하며, 일찍 적용할 수 있고 그렇게 하면 그 사실을 밝힌다.",
@@ -208,7 +209,7 @@
      "label": "적용범위 밖, 그리고 KSSB 3A가 없다는 점",
      "pdfPage": 6,
      "kssb": "3A",
-     "diff": "kssbonly",
+     "diff": "differs",
      "prose": [
       "문단 4는 기업 전망에 영향을 줄 것으로 합리적으로 예상할 수 없는 위험과 기회는 적용범위 밖이라고 한다. 여기까지는 KSSB 문단 4와 같다. 차이는 그 앞에 있다. KSSB는 문단 3A를 두어, 중요한 정보가 없어 제2호에 따른 공시를 생략하는 기업도 그 사실과 근거를 공시하게 한다. IFRS S2의 문단 3과 4 사이에는 이런 문단이 없다.",
       "IFRS S2에서는 중요한 정보가 없으면 공시하지 않으면 되고, 정보가 없다는 사실과 근거를 따로 적으라는 요구가 본문에 없다. KSSB BC179 표도 이 항목의 IFRS S2 칸을 비워 두었다. KSSB BC7에 따르면 공개초안 단계에서 일부 작성자가 ISSB 기준에 없는 요구라며 부담을 제기했지만, KSSB는 이 요구를 그대로 두었다.",
@@ -400,11 +401,11 @@
      "label": "단기·중기·장기는 기업이 정한다 (KSSB 10A·10B 없음)",
      "pdfPage": 8,
      "kssb": "10B",
-     "diff": "kssbonly",
+     "diff": "differs",
      "prose": [
       "문단 10(d)는 기업이 '단기', '중기', '장기'를 어떻게 정의하는지와 그 정의가 전략적 의사결정에 쓰는 계획기간과 어떻게 이어지는지 설명하라고 한다. IFRS S2는 기본값을 주지 않는다. 몇 년을 단기로 볼지는 기업이 정하고, 그 이유를 계획기간과 묶어 설명하는 구조다. 그래서 같은 산업 안에서도 회사마다 단기가 1년일 수도, 3년일 수도 있다.",
       "KSSB는 여기에 두 문단을 더했다. 10A는 기간범위가 산업과 기업에 따라 다를 수 있다고 설명하고, 10B는 보고기간 말 이후 1년 이내를 단기, 1년 초과 5년 이내를 중기, 5년 초과를 장기로 쓸 수 있게 한다. 10B를 쓰면 10⑷의 설명 대신 정의된 기간을 썼다고 밝히면 된다. KSSB BC179 표는 IFRS S2를 '단·중·장기를 정의하지 않음'으로 적었다.",
-      "BMW 그룹 2025 보고서는 IFRS S2가 아니라 유럽 ESRS 기준으로 작성되었지만, 기간을 스스로 정의한 예로 볼 수 있다. 기후 시나리오 분석에 쓴 기간이 중요성 평가의 기간인 2036년까지(중기)와 2050년까지(장기)를 덮는다고 적었다. IFRS S2 관점에서는 이런 정의가 전략 계획기간과 어떻게 이어지는지까지 설명되었는지를 본다."
+      "BMW 그룹 2025 보고서는 IFRS S2가 아니라 유럽 지속가능성 보고 기준(ESRS)으로 작성되었지만, 기간을 스스로 정의한 예로 볼 수 있다. 기후 시나리오 분석에 쓴 기간이 중요성 평가의 기간인 2036년까지(중기)와 2050년까지(장기)를 덮는다고 적었다. IFRS S2 관점에서는 이런 정의가 전략 계획기간과 어떻게 이어지는지까지 설명되었는지를 본다."
      ],
      "req": "단기·중기·장기의 정의와 그 정의가 전략적 의사결정 계획기간과 어떻게 연계되는지 설명한다(IFRS S2에는 기본 기간 정의가 없다).",
      "quote": "explain how the entity defines ‘short term’, ‘medium term’ and ‘long term’ and how these definitions are linked to the planning horizons used by the entity for strategic decision-making.",
@@ -471,7 +472,7 @@
     ],
     "wrong": [
      "IFRS S2도 단기를 1년으로 정의한다",
-     "KSSB는 기간범위를 설명하지 않아도 된다는 규정이 없다"
+     "KSSB 10B의 기본 기간을 쓰는 기업도 10⑷의 정의 설명을 따로 해야 한다"
     ],
     "model": "IFRS S2는 단기·중기·장기를 정의하지 않고 기업이 정의와 계획기간과의 연계를 설명하게 하지만, KSSB 10B는 1년·5년을 기준으로 한 기간범위를 쓸 수 있게 한다.",
     "src": "문단 10(d), KSSB 문단 10B"
@@ -695,7 +696,7 @@
      "kssb": "19",
      "diff": "same",
      "prose": [
-      "문단 19는 현재 또는 예상 재무적 영향에 대해 양적 정보를 주지 않아도 되는 두 경우를 든다. 영향을 따로 떼어 식별할 수 없는 경우와, 추정에 따르는 측정불확실성이 너무 커서 숫자가 쓸모없는 경우다. 문단 20은 예상 재무적 영향에 한해, 양적 정보를 만들 기량·역량·자원이 없는 경우도 더한다. 두 문단 모두 '판단한 경우'라고 해서, 생략은 기업이 판단하고 설명할 책임을 진다.",
+      "문단 19는 현재 또는 예상 재무적 영향에 대해 양적 정보를 주지 않아도 되는 두 경우를 든다. 영향을 따로 떼어 식별할 수 없는 경우와, 추정에 따르는 측정불확실성이 너무 커서 숫자가 쓸모없는 경우다. 문단 20은 예상 재무적 영향에 한해, 양적 정보를 만들 기량·역량·자원이 없는 경우도 더한다. 문단 19는 '기업이 판단한 경우'라고 쓰고 문단 21은 그렇게 판단한 기업에 설명을 요구하므로, 생략은 기업이 판단하고 설명할 책임을 진다.",
       "주의할 점은 문단 20의 사유가 '예상' 영향에만 적용된다는 것이다. 이미 나타난 현재 영향은 역량이 없다는 이유로 숫자를 빼지 못한다. 이 구조는 KSSB 19·20과 같다. 검토할 때는 회사가 생략 사유를 19(a), 19(b), 20 중 무엇으로 들었는지와 그 사유가 현재 영향인지 예상 영향인지를 맞춰 본다. 사유가 맞지 않으면 생략 자체가 문제가 된다."
      ],
      "req": "영향을 별도로 식별할 수 없거나 측정불확실성이 너무 크면 양적 정보를 생략할 수 있고, 예상 영향은 역량이 없을 때도 생략할 수 있다.",
@@ -821,7 +822,8 @@
       "B6은 이제 막 시나리오 분석을 시작한 기업은 과도한 원가 없이 정량 분석을 하기 어려울 수 있다고 인정하고, B7은 반복하면서 역량이 쌓인다고 본다. B17은 정성적 시나리오 서술 같은 단순한 방법도 상황에 맞으면 쓸 수 있지만, 노출이 크고 필요한 역량에 접근할 수 있는 기업은 더 발전된 정량 방법을 적용해야 한다고 못 박는다. KSSB B1~B17과 같다."
      ],
      "req": "시나리오 분석 방법은 기후 위험·기회 노출 정도와 이용 가능한 기량·역량·자원을 고려해 정하고, 노출이 크고 역량이 있으면 정량적 방법을 쓴다.",
-     "quote": "An entity with a high degree of exposure to climate-related risks and opportunities, and with access to the necessary skills, capabilities or resources, is required to apply a more advanced quantitative approach to climate-related scenario analysis."
+     "quote": "An entity with a high degree of exposure to climate-related risks and opportunities, and with access to the necessary skills, capabilities or resources, is required to apply a more advanced quantitative approach to climate-related scenario analysis.",
+     "qno": "B17"
     },
     {
      "no": "B18",
@@ -1019,7 +1021,8 @@
        "d": "여러 온실가스를 CO2 기준으로 환산해 합친 단위다.",
        "en": "metric tonnes of CO2 equivalent"
       }
-     ]
+     ],
+     "qno": "B30"
     },
     {
      "no": "29(a)(ii)",
@@ -1086,7 +1089,8 @@
        "d": "산업 평균, 공개 데이터베이스처럼 특정 활동에서 직접 얻지 않은 데이터다.",
        "en": "secondary data"
       }
-     ]
+     ],
+     "qno": "B57"
     },
     {
      "no": "29A",
@@ -1100,7 +1104,7 @@
      "prose": [
       "개정으로 추가된 문단 29A는 카테고리 15(투자) 배출량의 측정 범위를 금융배출량, 곧 피투자자나 거래상대방에 준 대출과 투자에 귀속되는 배출량으로 한정할 수 있게 한다. 대출과 투자에는 대출, 프로젝트 파이낸싱, 채권, 지분투자, 미사용 대출한도약정이 들어가고, 자산운용 기업은 운용자산 귀속분도 포함한다. 파생상품 관련 배출량은 뺄 수 있다.",
       "29B는 한정을 쓰면 무엇을 파생상품으로 보았는지 설명하고(29B(a)), 제외한 금융활동을 기술하게 한다(29B(b)). 29C는 카테고리 15를 포함하면 그 총계와 안에 든 금융배출량 소계를 공시하게 한다. 개정 BC121I~BC121J에 따르면 공개초안은 제외한 금액을 숫자로 공시하게 제안했지만, 최종 개정은 질적 기술로 바꿨다. KSSB 29B⑵의 질적 설명과 결과가 같아진 것이다.",
-      "같은 개정은 상업은행·보험 금융배출량을 산업별로 나눌 때 GICS 6자리 코드를 쓰라는 B62(a)(i)·B63(a)(i)을 지우고 B62A·B63A를 넣었다. 이제는 전환 위험 노출을 이해하게 하는 분류체계를 고르되 다른 조건이 같으면 널리 쓰이는 체계를 우선하고, 쓴 체계와 선택 이유를 공시한다. KSSB B62A·B63A도 같은 내용이며, 개정 BC121H는 이 한정이 목표 공시까지 면제하지는 않는다고 강조한다."
+      "같은 개정은 상업은행·보험 금융배출량을 산업별로 나눌 때 GICS(글로벌 산업분류기준) 6자리 코드를 쓰라는 B62(a)(i)·B63(a)(i)을 지우고 B62A·B63A를 넣었다. 이제는 전환 위험 노출을 이해하게 하는 분류체계를 고르되 다른 조건이 같으면 널리 쓰이는 체계를 우선하고, 쓴 체계와 선택 이유를 공시한다. KSSB B62A·B63A도 같은 내용이며, 개정 BC121H는 이 한정이 목표 공시까지 면제하지는 않는다고 강조한다."
      ],
      "req": "카테고리 15를 금융배출량으로 한정할 수 있고(파생상품 제외 가능), 한정하면 파생상품 판단과 제외 활동을 설명하며, 카테고리 15를 포함하면 총계와 금융배출량 소계를 공시한다.",
      "quote": "If an entity has included Category 15 greenhouse gas emissions in its measure of Scope 3 greenhouse gas emissions disclosed in accordance with paragraph 29(a)(i)(3), the entity shall disclose the total Category 15 greenhouse gas emissions and the subtotal of financed emissions included in that total.",
@@ -1219,7 +1223,8 @@
       "B65는 이 지표를 준비할 때 기간범위(문단 10), 위험이 집중된 곳(13), 재무적 영향(16(a)~(b)), 산업기반 지표로 요구를 채울 수 있는지(32), 재무제표 금액과의 연결을 고려하라고 한다. 이 가운데 산업기반 지표 항목을 KSSB B65⑷는 '참고할 수 있다'로 바꿨다. 나머지 지표 요구는 KSSB 29⑵~⑸와 같다."
      ],
      "req": "전환·물리적 위험에 취약한 자산·사업활동, 기회에 부합하는 자산·사업활동의 금액과 비율, 기후 관련 자본 배치 금액을 공시한다.",
-     "quote": "climate-related physical risks—the amount and percentage of assets or business activities vulnerable to climate-related physical risks;"
+     "quote": "climate-related physical risks—the amount and percentage of assets or business activities vulnerable to climate-related physical risks;",
+     "qno": "29(c)"
     },
     {
      "no": "29(f)",
@@ -1374,7 +1379,8 @@
       "B69는 순배출량 목표가 총배출량 목표 정보를 가려서는 안 된다고 못 박는다. '2040년 탄소중립'처럼 순배출량 목표만 크게 내세우는 보고서에서, 자체 감축분이 얼마인지 보이지 않으면 이 요구를 충족하지 못한다. 검토할 때는 총량 목표가 별도 숫자로 있는지부터 확인한다. KSSB 36⑴~⑷와 같다. 순량 목표와 총량 목표는 한 표에 나란히 두는 것이 읽기 쉽다."
      ],
      "req": "온실가스 목표마다 대상 가스·스코프, 총량·순량 여부(순량이면 총량 목표 별도 공시), 부문별 탈탄소화 접근법 사용 여부를 공시한다.",
-     "quote": "For the avoidance of doubt, if the entity discloses a net greenhouse gas emissions target, this target cannot obscure information about its gross greenhouse gas emissions targets."
+     "quote": "For the avoidance of doubt, if the entity discloses a net greenhouse gas emissions target, this target cannot obscure information about its gross greenhouse gas emissions targets.",
+     "qno": "B69"
     },
     {
      "no": "36(e)",
@@ -1508,7 +1514,7 @@
       "KSSB에는 C6에 해당하는 문단이 없다. KSSB 제2호는 처음부터 개정 내용을 담고 제정되었기 때문에, '개정 전 기준을 쓰던 기업'이 생기지 않는다. 개정 BC176은 대부분 관할권의 의무 시행 전에 개정이 나와 영향받는 기업이 적을 것이라고 보았다. 해외 자회사가 IFRS S2를 이미 적용 중이라면 C6에 따른 전기 수치 조정 여부를 확인해야 한다."
      ],
      "req": "개정 전 IFRS S2를 적용하던 기업은 개정을 처음 적용하는 해에 측정 방법 변경, 카테고리 15 총계·소계, 산업분류체계를 반영해 직전 기간 비교정보를 조정한다(실무적으로 불가능한 경우 제외).",
-     "quote": "An entity shall apply the amendments listed in paragraph C1A for annual reporting periods beginning on or after 1 January 2027."
+     "quote": "If an entity previously applied IFRS S2, in the first annual reporting period in which the entity applies Amendments to Greenhouse Gas Emissions Disclosures, the entity shall—unless it is impracticable to do so—adjust comparative information for the preceding period as follows:"
     },
     {
      "no": "C5",
