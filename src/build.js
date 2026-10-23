@@ -133,9 +133,9 @@ const TYPEP={judge:0,calc:1,mc:2};
 const COURSES={};
 for(const tid in CJ.courses){
   const usedCase={hyundai:new Set(),kia:new Set()};
-  COURSES[tid]=CJ.courses[tid].map((ch,ci)=>({name:ch.name,goal:ch.goal,nodes:ch.nodes.map((n,ni)=>{
+  COURSES[tid]=CJ.courses[tid].map((ch,ci)=>({id:ch.id,name:ch.name,goal:ch.goal,basic:!!ch.basic,nodes:ch.nodes.map((n,ni)=>{
     const node=Object.assign({id:`${tid}-${ci}-${ni}`},n);
-    if(n.t==="read"){if(!LESSONS[n.mod]){console.error("course read missing lesson",tid,n.mod);process.exit(1)}node.name=MODS.find(m=>m.id===n.mod).name}
+    if(n.t==="read"){if(n.ch){node.name=ch.name+" 교재";node.ch=n.ch}else{if(!LESSONS[n.mod]){console.error("course read missing lesson",tid,n.mod);process.exit(1)}node.name=MODS.find(m=>m.id===n.mod).name}}
     if(n.t==="drill"){const pool=ITEMS.filter(x=>x.module===n.mod&&(n.lv===0||x.level===n.lv)).sort((a,b)=>TYPEP[a.type]-TYPEP[b.type]||a.id.localeCompare(b.id));
       node.ids=pool.slice(0,n.n).map(x=>x.id);if(node.ids.length<Math.min(n.n,3)){console.error("drill pool thin",tid,n.mod,n.lv,node.ids.length);process.exit(1)}node.name=MODS.find(m=>m.id===n.mod).name}
     if(n.t==="assign"){const a=ASSIGN.find(z=>z.id===n.id);if(!a){console.error("course assign missing",n.id);process.exit(1)}node.name=a.title}
@@ -145,7 +145,10 @@ for(const tid in CJ.courses){
     return node})}));
 }
 const XP=CJ.xp;
-const data=`const COURSES=${JSON.stringify(COURSES)};\nconst XP=${JSON.stringify(XP)};\nconst MODS=${JSON.stringify(MODS)};\nconst GROUPS=${JSON.stringify(GROUPS)};\nconst LESSONS=${JSON.stringify(LESSONS)};\nconst ITEMS=${JSON.stringify(ITEMS)};\nconst MAP=${JSON.stringify(MAP)};\nconst TRACKS=${JSON.stringify(TRACKS)};\nconst COMPANIES=${JSON.stringify(COMPANIES)};\nconst ASSIGN=${JSON.stringify(ASSIGN)};\nconst BUILT=${JSON.stringify(new Date().toISOString().slice(0,16).replace("T"," ")+" UTC · "+(()=>{try{return require("child_process").execSync("git rev-parse --short HEAD",{cwd:__dirname}).toString().trim()}catch(e){return ""}})())};`;
+const BOOK={};for(const tid in CJ.courses){const bk=load(R("data/textbook/"+tid+".json"));if(bk&&bk.chapters)bk.chapters.forEach(c=>BOOK[c.id]=c);}
+const DIAG=load(R("data/diagnostic.json"))||[];
+console.error("textbook chapters",Object.keys(BOOK).length,"diag",DIAG.length);
+const data=`const COURSES=${JSON.stringify(COURSES)};\nconst XP=${JSON.stringify(XP)};\nconst BOOK=${JSON.stringify(BOOK)};\nconst DIAG=${JSON.stringify(DIAG)};\nconst MODS=${JSON.stringify(MODS)};\nconst GROUPS=${JSON.stringify(GROUPS)};\nconst LESSONS=${JSON.stringify(LESSONS)};\nconst ITEMS=${JSON.stringify(ITEMS)};\nconst MAP=${JSON.stringify(MAP)};\nconst TRACKS=${JSON.stringify(TRACKS)};\nconst COMPANIES=${JSON.stringify(COMPANIES)};\nconst ASSIGN=${JSON.stringify(ASSIGN)};\nconst BUILT=${JSON.stringify(new Date().toISOString().slice(0,16).replace("T"," ")+" UTC · "+(()=>{try{return require("child_process").execSync("git rev-parse --short HEAD",{cwd:__dirname}).toString().trim()}catch(e){return ""}})())};`;
 const page=fs.readFileSync(path.join(__dirname,"page.html"),"utf8");
 const style=fs.readFileSync(path.join(__dirname,"style.css"),"utf8").replace("</style>",fs.readFileSync(path.join(__dirname,"extra.css"),"utf8")+fs.readFileSync(path.join(__dirname,"v3.css"),"utf8")+"</style>");
 const out=page.replace("/*STYLE*/",()=>style).replace("/*DATA*/",()=>data.replace(/<\/script/g,"<\\/script"));

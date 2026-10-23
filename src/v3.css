@@ -436,3 +436,49 @@ code{font-family:var(--mono);font-size:12.5px;background:var(--bg2);padding:1px 
 .cont .s{font-size:13px;color:#b5c2cf;grid-column:1}
 .cont .go{grid-column:2;grid-row:1/4;background:var(--c);color:#fff;font-weight:800;padding:12px 18px;border-radius:10px}
 .cls .now{position:absolute;top:14px;right:14px;background:var(--c);color:#fff;font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px}
+/* ===== v4.5: readability, diag, textbook ===== */
+html{font-size:17px}
+body{line-height:1.7}
+.wrap.narrow{max-width:860px}
+:root[data-theme="dark"]{--ink2:#d2dae3;--muted:#9aa7b4;--rule:#273340;--rule2:#3a4858}
+.tag{font-size:12px}
+.tog{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;white-space:nowrap;width:auto;height:auto;border:1px solid var(--rule2);border-radius:999px;font-size:12.5px;font-weight:700;color:var(--ink2)}
+.tog svg{width:16px;height:16px}
+.cls .tag{font-weight:600}
+.dcard{padding:26px}
+.dres{display:flex;flex-direction:column;gap:16px}
+.dres .big{font-family:var(--mono);font-size:44px;font-weight:700;display:flex;align-items:baseline;gap:6px}.dres .big span{font-size:18px;color:var(--muted)}
+.dres h3{font-size:20px}
+.dbars{display:flex;flex-direction:column;gap:8px}
+.dbars div{display:grid;grid-template-columns:60px minmax(0,1fr) 40px;gap:10px;align-items:center;font-size:13.5px}
+.dbars .t{height:10px;border-radius:5px;background:var(--bg3);overflow:hidden}.dbars .t i{display:block;height:100%;background:var(--acc);animation:grow .9s both}
+.dlist{display:flex;flex-direction:column;gap:8px}
+.dq{padding:10px 14px;border-radius:10px;border:1px solid var(--rule);font-size:14px}.dq.ok{border-left:4px solid var(--good)}.dq.bad{border-left:4px solid var(--bad)}.dq p{color:var(--ink2);margin-top:3px}
+.bookhead{display:flex;gap:16px;align-items:center;padding:26px 0 14px}
+.bookhead .k{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.bookhead h2{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,30px)}
+.pdots{display:flex;gap:6px;margin-bottom:18px}
+.pdots i{flex:1;height:6px;border-radius:3px;background:var(--bg3)}.pdots i.done{background:var(--acc)}.pdots i.cur{background:var(--acc);opacity:.5;animation:pulse 1.6s infinite}
+.wf{padding:14px 18px;border-radius:12px;background:color-mix(in srgb,var(--acc) 10%,var(--bg));border-left:4px solid var(--acc);margin-bottom:18px}
+.wf .k{font-family:var(--mono);font-size:11.5px;color:var(--muted)}.wf p{font-size:15px;margin-top:4px}
+.bookpage{display:flex;flex-direction:column;gap:16px;font-size:17px;line-height:1.85;max-width:70ch}
+.bookpage p{color:var(--ink)}
+.fig{padding:16px 18px;border:1px solid var(--rule);border-radius:12px;background:var(--bg2);font-size:14.5px}
+.fig h4{font-size:13px;color:var(--muted);margin-bottom:10px;font-family:var(--mono)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.flow span{padding:8px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--rule2);font-weight:700;font-size:14px}
+.flow i{width:18px;height:2px;background:var(--acc)}
+.ftab{width:100%;border-collapse:collapse}.ftab th,.ftab td{padding:7px 9px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}.ftab th{color:var(--ink2);font-size:13px}
+.ex{padding:16px 18px;border-radius:12px;border:1px solid color-mix(in srgb,var(--mark) 50%,var(--rule));background:color-mix(in srgb,var(--mark) 10%,var(--bg))}
+.ex .k{font-family:var(--mono);font-size:11.5px;color:var(--muted)}.ex p{font-size:15.5px;margin-top:4px}.ex a{font-size:13px}
+.tm{display:flex;flex-direction:column;gap:6px;font-size:14px;padding:12px 16px;border-left:3px solid var(--rule2)}
+.tm b{margin-right:6px}.tm em{font-style:normal;color:var(--muted);font-size:12px;margin-right:6px}
+.chk{padding:18px;border:1px dashed var(--rule2);border-radius:12px;display:flex;flex-direction:column;gap:14px}
+.chk h4{font-size:13px;color:var(--muted);font-family:var(--mono)}
+.cq p{font-weight:700;font-size:15.5px;margin-bottom:8px}
+.cq .why{font-weight:400;font-size:14px;margin-top:8px;padding:8px 12px;border-radius:8px;background:var(--bg2)}
+.cq .why.ok{border-left:3px solid var(--good)}.cq .why.bad{border-left:3px solid var(--bad)}
+.opts button{animation:vin .3s both}
+.reveal{animation:vin .4s both}
+.verdict{animation:vin .35s both}
+@media (max-width:560px){html{font-size:16px}.bookpage{font-size:16px}}
