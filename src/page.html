@@ -5,22 +5,36 @@
 /*STYLE*/
 
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#home"><i aria-hidden="true"><b style="background:var(--m-ifrs)"></b><b style="background:var(--m-kssb)"></b><b style="background:var(--m-esrs)"></b><b style="background:var(--m-gri-sasb)"></b></i><span>기후공시 연습장</span></a>
+  <a class="brand" href="#course"><i aria-hidden="true"><b style="background:var(--m-ifrs)"></b><b style="background:var(--m-kssb)"></b><b style="background:var(--m-esrs)"></b><b style="background:var(--m-gri-sasb)"></b></i><span>기후공시 연습장</span></a>
   <nav aria-label="메뉴">
-    <a href="#home" data-v="home">홈</a>
-    <a href="#assign" data-v="assign" class="learner">과제</a><a href="#cases" data-v="cases" class="learner">케이스</a><a href="#compare" data-v="compare" class="learner">비교</a>
+    <a href="#course" data-v="course" class="learner">코스</a><a href="#portfolio" data-v="portfolio" class="learner">포트폴리오</a>
     <a href="#teach" data-v="teach" class="teacher">강의실</a><a href="#teach-content" data-v="teach" class="teacher">콘텐츠</a>
-    <div class="dd learner"><button type="button" aria-expanded="false" data-group="practice,review,learn,path">연습 ▾</button><div class="menu"><a href="#practice" data-v="practice">판정·계산 연습</a><a href="#review" data-v="review">복습 큐</a><a href="#learn" data-v="learn">모듈과 입문 글</a><a href="#path" data-v="path">내 경로</a></div></div>
-    <div class="dd learner"><button type="button" aria-expanded="false" data-group="portfolio,record">나 ▾</button><div class="menu"><a href="#portfolio" data-v="portfolio">포트폴리오</a><a href="#record" data-v="record">내 기록</a></div></div>
-    <div class="dd"><button type="button" aria-expanded="false" data-group="map,glossary,about">참고 ▾</button><div class="menu"><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어집</a><a href="#about" data-v="about">만든 방법</a></div></div>
+    <div class="dd"><button type="button" aria-expanded="false">더 보기 ▾</button><div class="menu"><a href="#assign" data-v="assign" class="learner">과제 목록</a><a href="#cases" data-v="cases" class="learner">케이스</a><a href="#compare" data-v="compare" class="learner">기업 비교</a><a href="#practice" data-v="practice" class="learner">판정·계산 연습</a><a href="#review" data-v="review" class="learner">복습 큐</a><a href="#learn" data-v="learn" class="learner">모듈과 입문 글</a><a href="#record" data-v="record" class="learner">내 기록</a><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어집</a><a href="#about" data-v="about">만든 방법</a></div></div>
   </nav>
   <button class="mode" id="modeBtn" type="button" title="수강자/교육자 모드 전환"><span></span></button>
   <button class="tog" id="tog" type="button" aria-label="밝게/어둡게 바꾸기" title="밝게/어둡게"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.4A7 7 0 0 1 12 3z"/></svg></button>
 </div></header>
 
 <main>
-<!-- HOME -->
-<div class="view" id="v-home">
+<!-- START (class pick) -->
+<div class="view" id="v-start" hidden>
+  <section class="start">
+    <div class="wrap">
+      <div class="sh"><span class="k">Choose your class</span><h2>어떤 컨설턴트가 될래?</h2><p>클래스를 고르면 코스가 열린다. 코스는 읽기 → 해 보기 → 과제 → 케이스 순서로 이어지고, 앞 노드를 끝내야 다음이 열린다. 언제든 전직할 수 있고 기록은 남는다.</p></div>
+      <div id="startBox"></div>
+    </div>
+  </section>
+</div>
+
+<!-- COURSE -->
+<div class="view" id="v-course" hidden>
+  <section class="sec" style="padding-block:28px 72px;border:none">
+    <div class="wrap"><div id="courseBox"></div></div>
+  </section>
+</div>
+
+<!-- HOME (legacy, unused) -->
+<div class="view" id="v-home" hidden>
   <section class="hero">
     <div class="wrap">
       <div>
@@ -150,7 +164,7 @@
       </div>
     </div>
   </section>
-  <div class="wrap"><div class="work">
+  <div class="wrap"><div class="drillbar" id="drillBar" hidden></div><div class="work">
     <aside class="side" id="side"></aside>
     <section class="card" id="card" aria-live="polite"></section>
   </div></div>
@@ -262,7 +276,7 @@ try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));
   else{const r2=localStorage.getItem(KEY2);if(r2)S=Object.assign(S,JSON.parse(r2));
   else{const o=JSON.parse(localStorage.getItem(KEY1)||"null");if(o){S.a=o.a||{};for(const k in (o.j||{}))S.a["ifrs-"+k]=o.j[k];for(const k in (o.c||{}))S.a["ifrs-"+k]=o.c[k]}}}}catch(e){}
 S.a=S.a||{};S.exams=S.exams||[];S.cases=S.cases||{};S.rx=S.rx||{};S.sub=S.sub||{};S.mode=S.mode||"learner";
-function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track,sub:S.sub,mode:S.mode}))}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track,sub:S.sub,mode:S.mode,read:S.read,clear:S.clear,xpSeen:S.xpSeen}))}catch(e){}}
 function record(x,res){const prev=S.a[x.id]||{};let box=prev.box||0;box=res.ok?Math.min(box+1,4):0;
   S.a[x.id]=Object.assign({},res,{t:Date.now(),box,due:Date.now()+GAP[box]*DAY,n:(prev.n||0)+1,err:res.ok?undefined:prev.err});save()}
 let view="home",sub="",mod="ifrs",cur={},flv=0,draft={},mapTopic=0,recSrc="me",author=null,artifactNS=null,canEdit=false,arm=false;
@@ -339,18 +353,19 @@ function lesson(id){
   box.innerHTML=`<article><div><span class="tag"><span class="dot" style="background:${col(id)}"></span>${esc(GROUPS[m.g].name)} · ${esc(m.name)}</span></div><h2>${esc(L.title||m.name)}</h2><p class="sum">${esc(L.summary||"")}</p>
     ${m.asof?`<p class="asof">기준 시점 · ${esc(m.asof)}</p>`:""}
     ${(L.sections||[]).map(s=>`<section><h3>${esc(s.h)}</h3><p>${esc(s.body)}</p></section>`).join("")}
-    <div class="actions"><a class="btn" href="#practice-${id}">이 모듈 연습하기 →</a><a class="btn line" href="#learn">배우기 목록</a></div>
+    <div class="actions"><button class="btn" type="button" id="readDone">${S.read[id]?"✓ 읽었다 · 코스로":"다 읽었다 →"}</button><a class="btn line" href="#practice-${id}">바로 연습</a></div>
     ${L.sources&&L.sources.length?`<div class="blk"><h4>이 글의 출처</h4><div class="srcs">${L.sources.map(s=>srcLink(s)).join("")}</div></div>`:""}</article>
   <aside><span class="lb" style="font-size:12px;color:var(--muted)">핵심 용어 ${(L.terms||[]).length}개</span><div class="terms">${(L.terms||[]).map(t=>`<div><b>${esc(t.t)}<em>${esc(t.en||"")}</em></b><span>${esc(t.d)}</span></div>`).join("")}</div>
   <div class="cm"><span class="nm">문항 ${its.length}개</span><div class="lv">${lvbar(its)}</div><span class="ms">입문 ${its.filter(x=>x.level===1).length} · 실무 ${its.filter(x=>x.level===2).length} · 전문가 ${its.filter(x=>x.level===3).length}</span></div></aside>`;
+  $("#readDone").onclick=()=>{S.read[id]=Date.now();save();if(TRACK())go("course");else go("learn")};
 }
 /* ---------- PRACTICE ---------- */
-const listFor=m=>items(m).filter(x=>flv===0||x.level===flv);
+const listFor=m=>drill&&drill.node.mod===m?drill.ids.map(id=>ITEMS.find(x=>x.id===id)).filter(Boolean):items(m).filter(x=>flv===0||x.level===flv);
 function phead(){
   const AM=new Set(ASSIGN.flatMap(a=>a.rows.map(id=>(ITEMS.find(x=>x.id===id)||{}).module)));
   const opt=m=>`<option value="${m.id}" ${m.id===mod?"selected":""}>${esc(m.name)} (${stat(items(m.id)).d}/${items(m.id).length})</option>`;
   const sel=$("#modSel");sel.innerHTML=`<optgroup label="과제에 쓰이는 모듈 (판정·계산 중심)">${avail.filter(m=>AM.has(m.id)).map(opt).join("")}</optgroup>`+GORDER.map(g=>{const L=avail.filter(m=>m.g===g&&!AM.has(m.id));return L.length?`<optgroup label="${GROUPS[g].name} · 보조 (상황 판단형)">${L.map(opt).join("")}</optgroup>`:""}).join("");
-  sel.onchange=()=>{mod=sel.value;draft={};renderPractice()};
+  sel.onchange=()=>{mod=sel.value;drill=null;draft={};renderPractice()};
   document.querySelectorAll(".lvchip button").forEach(b=>{b.setAttribute("aria-pressed",+b.dataset.l===flv);b.onclick=()=>{flv=+b.dataset.l;cur[mod]=0;draft={};renderPractice()}});
   $("#lessonLink").href=LESSONS[mod]?"#lesson-"+mod:"#learn";$("#lessonLink").hidden=!LESSONS[mod];
 }
@@ -415,7 +430,7 @@ function card(){
   $("#prev").onclick=()=>{if(cur[mod]>0){cur[mod]--;draft={};renderPractice()}};
   $("#next").onclick=()=>{if(cur[mod]<L.length-1){cur[mod]++;draft={};renderPractice();window.scrollTo({top:$("#modSel").getBoundingClientRect().top+scrollY-80,behavior:"smooth"})}};
 }
-function renderPractice(){phead();side();card()}
+function renderPractice(){phead();side();card();drillBar();const d=!!drill;document.querySelector("#v-practice .phead").hidden=d;document.querySelector("#v-practice .sh").hidden=d}
 /* ---------- REVIEW ---------- */
 let rv=null;
 function dueList(){const now=Date.now();return ITEMS.filter(x=>{const r=S.a[x.id];return r&&(r.box||0)<4&&(r.due||0)<=now}).sort((a,b)=>(S.a[a.id].due||0)-(S.a[b.id].due||0))}
@@ -581,7 +596,7 @@ function errPanel(rec,all){const wrong=all.filter(x=>!rec[x.id].ok&&!rec[x.id].g
 function writtenPanel(rec){const cs=Object.entries(S.cases||{}).filter(([k,v])=>v.t4||v.t5);const rx=Object.entries(S.rx||{}).filter(([k,v])=>v.rx||v.draft);
   if(!cs.length&&!rx.length)return `<p class="hint">아직 쓴 글이 없다. <a href="#cases">케이스 스터디</a>에서 근거와 개선안을, <a href="#compare">기업 비교</a>에서 처방을 쓰면 여기 모인다.</p>`;
   return `<div class="kpi2"><div><b>${cs.length}</b><span>케이스 · 근거/개선안</span></div><div><b>${rx.length}</b><span>비교 · 처방/문안</span></div></div><div class="notes">${cs.slice(-3).reverse().map(([k,v])=>{const x=ITEMS.find(y=>"case-"+y.id===k);if(!x)return "";return `<div class="note"><div class="h"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(coOf(x).short)}</span><span class="tag ref">${esc(x.ref)}</span><span class="tag">${v.score!==undefined?v.score+"/8점":"진행 중"}</span></div><p><b>${esc(x.topic)}</b> · ${esc(clip(v.t5||v.t4||"",140))}</p><a href="#cases-${x.id}" style="font-size:12.5px">다시 보기 →</a></div>`}).join("")}${rx.slice(-2).reverse().map(([k,v])=>`<div class="note"><div class="h"><span class="tag">기업 비교</span><span class="tag ref">${esc(k)}</span></div><p><b>처방</b> · ${esc(clip(v.rx||v.draft||"",140))}</p><a href="#compare" style="font-size:12.5px">비교 화면 →</a></div>`).join("")}</div>`}
-async function exportRec(){const txt=JSON.stringify({app:"기후공시 연습장",version:4,exported:new Date().toISOString(),a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track,sub:S.sub},null,1);const name=`climate-drill-record-${new Date().toISOString().slice(0,10)}.json`;
+async function exportRec(){const txt=JSON.stringify({app:"기후공시 연습장",version:4,exported:new Date().toISOString(),a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track,sub:S.sub,read:S.read},null,1);const name=`climate-drill-record-${new Date().toISOString().slice(0,10)}.json`;
   try{if(window.claude&&claude.use){const dl=await claude.use("downloads");if(dl){await dl.save({filename:name,data:txt});toast("기록 파일을 저장했다");return}}}catch(e){if(e&&e.code!=="not_granted"&&e.code!=="cancelled")toast("저장하지 못했다");else toast("저장을 취소했다");return}
   const blob=new Blob([txt],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast("기록 파일을 내려받는다")}
 function importRec(e){const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d||typeof d.a!=="object")throw 0;let n=0;
@@ -590,6 +605,7 @@ function importRec(e){const f=e.target.files[0];if(!f)return;const rd=new FileRe
   for(const k in (d.cases||{})){if(!S.cases[k]||(d.cases[k].t||0)>(S.cases[k].t||0))S.cases[k]=d.cases[k]}
   for(const k in (d.rx||{})){if(!S.rx[k]||(d.rx[k].t||0)>(S.rx[k].t||0))S.rx[k]=d.rx[k]}
   for(const k in (d.sub||{})){if(!S.sub[k]||(d.sub[k].t||0)>(S.sub[k].t||0))S.sub[k]=d.sub[k]}
+  for(const k in (d.read||{}))S.read[k]=S.read[k]||d.read[k];
   if(!S.track&&d.track)S.track=d.track;save();toast(`${n}문항 기록을 합쳤다`);recView()}catch(err){toast("기록 파일을 읽을 수 없다")}};rd.readAsText(f);e.target.value=""}
 
 /* ---------- V3: RELIABILITY TABLE ---------- */
@@ -758,6 +774,66 @@ function pfView(){
   box.innerHTML=h;bind();
   function bind(){document.querySelectorAll("#pfBox .seg button").forEach(b=>b.onclick=()=>{pfSrc=b.dataset.s;pfView()});const pr=$("#pfPrint");if(pr)pr.onclick=()=>window.print();const pb=$("#pfPub");if(pb)pb.onclick=()=>{publishRec();}}
 }
+
+/* ---------- V4.2: CLASS PICK + COURSE MAP ---------- */
+const CLASS_META={disclosure:{icon:"M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z M12 8v8 M8 10l4 2 4-2",tag:"판정하는 사람",blurb:"보고서를 기준서에 대고 '있는지, 충분한지'를 가른다."},regulation:{icon:"M4 12h16 M12 4v16 M6 6l12 12 M18 6L6 18",tag:"숫자를 지키는 사람",blurb:"산정하고, 검증받고, 배출권과 규제에 대응한다."},lca:{icon:"M12 4a8 8 0 1 0 8 8 M12 4v8l6 3",tag:"제품을 추적하는 사람",blurb:"제품 한 개의 전 과정 배출을 좇아 공급망까지 간다."},all:{icon:"M3 12h4l3-7 4 14 3-7h4",tag:"전 영역",blurb:"지도부터 실무까지 순서대로 다 지난다."}};
+const ICON={read:"M4 5h12v14H4z M8 9h4 M8 12h4 M16 7l4-2v14l-4 2",drill:"M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7z",assign:"M6 3h9l5 5v13H6z M14 3v6h6 M9 13h6 M9 17h6",case:"M3 7h18v12H3z M8 7V5h8v2 M3 12h18",compare:"M4 4h7v16H4z M13 4h7v16h-7z M7 9h1 M16 9h1"};
+const NODE_NAME={read:"읽기",drill:"해 보기",assign:"과제",case:"케이스",compare:"비교·처방"};
+const classColor=id=>({disclosure:"var(--m-ifrs)",regulation:"var(--m-kssb)",lca:"var(--m-esrs)",all:"var(--m-gri-sasb)"})[id]||"var(--ink)";
+let drill=null; // {ids,node}
+S.read=S.read||{};S.clear=S.clear||{};S.xpSeen=S.xpSeen||0;
+function nodeDone(n){
+  if(n.t==="read")return !!S.read[n.mod];
+  if(n.t==="drill")return n.ids.every(id=>S.a[id]);
+  if(n.t==="assign")return !!((S.sub[n.id]||{}).versions||[]).length;
+  if(n.t==="case")return n.ids.every(id=>(S.cases["case-"+id]||{}).score!==undefined);
+  if(n.t==="compare")return Object.values(S.rx).filter(v=>v.rx&&v.rx.trim().length>=30).length>=n.n;
+  return false}
+function nodeProg(n){
+  if(n.t==="drill")return n.ids.filter(id=>S.a[id]).length/n.ids.length;
+  if(n.t==="case")return n.ids.filter(id=>(S.cases["case-"+id]||{}).score!==undefined).length/n.ids.length;
+  if(n.t==="compare")return Math.min(1,Object.values(S.rx).filter(v=>v.rx&&v.rx.trim().length>=30).length/n.n);
+  if(n.t==="assign"){const z=S.sub[n.id];if(!z)return 0;const a=ASSIGN.find(x=>x.id===n.id);return rowsOf(a).filter(x=>rowDone(a,x,z.rows[x.id])).length/a.rows.length}
+  return nodeDone(n)?1:0}
+function courseState(tid){const C=COURSES[tid]||[];let cur=null,done=0,total=0,xp=0;const chs=C.map((ch,ci)=>{let cd=0;const nodes=ch.nodes.map(n=>{const d=nodeDone(n);total++;if(d){done++;cd++;xp+=XP[n.t]||0}return {n,done:d}});const chDone=cd===ch.nodes.length;return {ch,ci,nodes,cd,chDone}});
+  for(const c of chs){for(const o of c.nodes){if(!o.done){cur=cur||{ci:c.ci,node:o.n};break}}if(cur)break}
+  return {chs,cur,done,total,xp,level:Math.floor(xp/120)+1}}
+function nodeHref(n){if(n.t==="read")return "#lesson-"+n.mod;if(n.t==="drill")return "#drill-"+n.id;if(n.t==="assign")return "#assign-"+n.id;if(n.t==="case"){const id=n.ids.find(i=>(S.cases["case-"+i]||{}).score===undefined)||n.ids[0];return "#cases-"+id}if(n.t==="compare")return "#compare";return "#course"}
+function nodeById(id){for(const tid in COURSES)for(const ch of COURSES[tid])for(const n of ch.nodes)if(n.id===id)return n;return null}
+/* ---- class pick ---- */
+function startView(){
+  const box=$("#startBox");
+  box.innerHTML=`<div class="classes">${TRACKS.map((T,i)=>{const C=COURSES[T.id]||[];const nn=C.reduce((a,c)=>a+c.nodes.length,0);const na=C.reduce((a,c)=>a+c.nodes.filter(n=>n.t==="assign").length,0);const M=CLASS_META[T.id];
+    return `<button type="button" class="cls" data-t="${T.id}" style="--c:${classColor(T.id)};--i:${i}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${M.icon}"/></svg><span class="tag">${esc(M.tag)}</span><h3>${esc(T.name)}</h3><p>${esc(M.blurb)}</p><div class="st"><span><b>${C.length}</b>챕터</span><span><b>${nn}</b>노드</span><span><b>${na}</b>과제</span></div><span class="jl">${T.jobs.slice(0,2).map(j=>esc(j)).join(" · ")}</span><span class="go">이 클래스로 시작 →</span></button>`}).join("")}</div>`;
+  document.querySelectorAll(".cls").forEach(b=>b.onclick=()=>{document.querySelectorAll(".cls").forEach(x=>x.classList.add(x===b?"picked":"faded"));setTimeout(()=>{S.track=b.dataset.t;S.xpSeen=0;save();applyAccent();go("course")},650)});
+}
+function applyAccent(){const t=TRACKS.find(x=>x.id===S.track);const r=document.documentElement;if(!t){r.style.removeProperty("--acc");r.removeAttribute("data-class");return}r.setAttribute("data-class",t.id);r.style.setProperty("--acc",classColor(t.id))}
+/* ---- course map ---- */
+function courseView(){
+  const T=TRACK();if(!T){go("start");return}
+  const st=courseState(T.id);const box=$("#courseBox");const M=CLASS_META[T.id];
+  const nx=st.cur;const pct=Math.round(st.done/st.total*100);
+  let h=`<div class="chead"><div class="cl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${M.icon}"/></svg><div><span class="k">${esc(M.tag)} · 레벨 <b class="cnt" data-n="${st.level}">${st.level}</b></span><h2>${esc(T.name)} 코스</h2></div><button class="btn line sm" type="button" id="reclass">전직</button></div>
+  <div class="cprog"><div class="bar"><i style="width:${pct}%"></i></div><span class="mono">${st.done}/${st.total} 노드 · ${pct}% · XP <b class="cnt" data-n="${st.xp}">${st.xp}</b></span></div>
+  ${nx?`<a class="next" href="${nodeHref(nx.node)}"><span class="k">다음 할 것 · ${st.chs[nx.ci].ci+1}장 ${esc(st.chs[nx.ci].ch.name)}</span><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${ICON[nx.node.t]}"/></svg>${NODE_NAME[nx.node.t]} · ${esc(nx.node.name)}</b><span class="go">시작 →</span></a>`:`<div class="next done"><span class="k">수료</span><b>이 코스의 노드를 모두 마쳤다</b><span>포트폴리오에 결과물이 모여 있다. 다른 클래스로 전직해서 빈 곳을 채우자.</span></div>`}</div>`;
+  h+=`<div class="chapters">${st.chs.map(c=>{const locked=c.ci>0&&!st.chs[c.ci-1].chDone&&!(nx&&nx.ci===c.ci);const cur=nx&&nx.ci===c.ci;
+    return `<section class="chap ${c.chDone?"done":""} ${cur?"cur":""} ${locked?"locked":""}" style="--d:${c.ci}"><header><span class="num">${c.chDone?"✓":c.ci+1}</span><div><h3>${esc(c.ch.name)}</h3><p>${esc(c.ch.goal)}</p></div><span class="mono">${c.cd}/${c.ch.nodes.length}</span></header>
+    <div class="nodes">${c.nodes.map((o,i)=>{const isCur=cur&&nx.node.id===o.n.id;const open=o.done||isCur||(cur&&c.nodes.slice(0,i).every(z=>z.done))||c.chDone;const pr=nodeProg(o.n);
+      return `${i?`<i class="link ${o.done||isCur?"on":""}"></i>`:""}<a class="node ${o.done?"done":isCur?"cur":open?"open":"lock"}" href="${open?nodeHref(o.n):"#course"}" style="--i:${i}" ${open?"":'aria-disabled="true"'}><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${ICON[o.n.t]}"/></svg>${pr>0&&pr<1?`<i class="ring" style="--p:${pr}"></i>`:""}</span><span class="t">${NODE_NAME[o.n.t]}</span><span class="n">${esc(o.n.name)}</span>${o.n.t==="drill"?`<span class="s">${o.n.ids.length}문항${o.n.lv?" · "+LV[o.n.lv]:""}</span>`:o.n.t==="case"||o.n.t==="compare"?`<span class="s">${Math.round(pr*100)}%</span>`:o.n.t==="assign"?`<span class="s">${((S.sub[o.n.id]||{}).versions||[]).length?"v"+S.sub[o.n.id].versions.length+" 제출":pr?Math.round(pr*100)+"% 채움":"갭 분석표"}</span>`:`<span class="s">${o.done?"읽음":"입문 글"}</span>`}</a>`}).join("")}</div></section>`}).join("")}</div>`;
+  box.innerHTML=h;countUp(box);
+  $("#reclass").onclick=()=>go("start");
+  document.querySelectorAll(".node.lock").forEach(a=>a.onclick=e=>{e.preventDefault();toast("앞 노드를 먼저 끝내면 열린다")});
+  // chapter clear celebration
+  st.chs.forEach(c=>{const k=T.id+"-"+c.ci;if(c.chDone&&!S.clear[k]){S.clear[k]=Date.now();save();confetti();toast(`${c.ci+1}장 '${c.ch.name}' 클리어`)}});
+  if(st.xp>(S.xpSeen||0)){const gain=st.xp-(S.xpSeen||0);S.xpSeen=st.xp;save();if(gain<st.xp)xpToast(gain)}
+}
+function xpToast(g){const e=document.createElement("div");e.className="xp";e.textContent="+"+g+" XP";document.body.appendChild(e);setTimeout(()=>e.remove(),1800)}
+function confetti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;const c=document.createElement("canvas");c.className="confetti";document.body.appendChild(c);const x=c.getContext("2d");c.width=innerWidth;c.height=innerHeight;const cols=["#2a78d6","#eb6834","#1baf7a","#eda100","#e87ba4","#ffe27a"];
+  const P=Array.from({length:140},()=>({x:innerWidth/2+(Math.random()-.5)*200,y:innerHeight*0.35,vx:(Math.random()-.5)*14,vy:-Math.random()*14-4,r:4+Math.random()*5,c:cols[Math.random()*cols.length|0],a:Math.random()*6.3,s:(Math.random()-.5)*.3}));
+  let t=0;const f=()=>{x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.a+=p.s;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.globalAlpha=Math.max(0,1-t/90);x.fillRect(-p.r/2,-p.r/2,p.r,p.r*.6);x.restore()});if(++t<110)requestAnimationFrame(f);else c.remove()};requestAnimationFrame(f)}
+/* ---- drill set (코스 노드가 여는 연습) ---- */
+function startDrill(nid){const n=nodeById(nid);if(!n||n.t!=="drill"){go("course");return}drill={ids:n.ids,node:n};mod=n.mod;flv=0;cur[mod]=Math.max(0,n.ids.findIndex(id=>!S.a[id]));draft={};}
+function drillBar(){const b=$("#drillBar");if(!b)return;if(!drill){b.hidden=true;return}const d=drill.ids.filter(id=>S.a[id]).length;b.hidden=false;b.innerHTML=`<span class="k">코스 · 해 보기</span><b>${esc(drill.node.name)}</b><div class="pb"><i style="width:${d/drill.ids.length*100}%"></i></div><span class="mono">${d}/${drill.ids.length}</span>${d===drill.ids.length?`<a class="btn sm" href="#course">코스로 돌아가기 →</a>`:`<a class="btn line sm" href="#course" id="drillQuit">코스 지도</a>`}`}
 
 /* ---------- V4: ASSIGNMENTS (업무 과제) ---------- */
 const V5=[["충족","있음","요구 요소가 다 있다"],["일부 충족","일부","요소 일부가 빠졌다"],["미충족","없음","찾을 수 없다"],["판단 불가",null,"정보가 부족해 고객에게 물어야 한다"],["비적용","해당 없음","이 기준을 따르지 않는다"]];
@@ -942,7 +1018,7 @@ function applyMode(){const t=S.mode==="teacher";document.documentElement.setAttr
 document.querySelectorAll(".nav .dd > button").forEach(b=>b.onclick=e=>{e.stopPropagation();const d=b.parentElement;const open=!d.classList.contains("open");document.querySelectorAll(".nav .dd").forEach(x=>{x.classList.remove("open");x.querySelector("button").setAttribute("aria-expanded","false")});if(open){d.classList.add("open");b.setAttribute("aria-expanded","true")}});
 document.addEventListener("click",()=>document.querySelectorAll(".nav .dd.open").forEach(d=>{d.classList.remove("open");d.querySelector("button").setAttribute("aria-expanded","false")}));
 document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".nav .dd.open").forEach(d=>{d.classList.remove("open");d.querySelector("button").setAttribute("aria-expanded","false")})});
-$("#modeBtn").onclick=()=>{S.mode=S.mode==="teacher"?"learner":"teacher";save();applyMode();toast(S.mode==="teacher"?"교육자 모드. 강의실은 4.0에서 자리만 잡았다.":"수강자 모드");if(S.mode==="teacher"&&!["teach","about","map","glossary","home"].includes(view))go("teach");if(S.mode==="learner"&&view==="teach")go("home")};
+$("#modeBtn").onclick=()=>{S.mode=S.mode==="teacher"?"learner":"teacher";save();applyMode();toast(S.mode==="teacher"?"교육자 모드. 강의실은 4.0에서 자리만 잡았다.":"수강자 모드");if(S.mode==="teacher"&&!["teach","about","map","glossary","home"].includes(view))go("teach");if(S.mode==="learner"&&view==="teach")go("course")};
 function teachView(sub){
   const box=$("#teachBox");
   if(sub==="content"){const vf={};ITEMS.forEach(x=>vf[x.verify]=(vf[x.verify]||0)+1);
@@ -957,17 +1033,20 @@ function teachView(sub){
 }
 
 /* ---------- ROUTER ---------- */
-const VIEWS=["home","assign","teach","portfolio","path","learn","lesson","practice","review","cases","compare","map","glossary","record","about"];
+const VIEWS=["start","course","drill","home","assign","teach","portfolio","path","learn","lesson","practice","review","cases","compare","map","glossary","record","about"];
 function go(v){if(location.hash!=="#"+v)location.hash=v;else route()}
 function route(){
   const h=(location.hash||"").slice(1);const dash=h.indexOf("-");const base=dash>0?h.slice(0,dash):h;const rest=dash>0?h.slice(dash+1):"";
   view=VIEWS.includes(base)?base:"home";sub=rest;
+  if(view==="home")view=S.track?"course":"start";
+  if(view==="drill"){startDrill(sub);view="practice"}else if(view!=="practice")drill=null;
+  if(!S.track&&S.mode!=="teacher"&&!["start","about","map","glossary"].includes(view))view="start";
   if(view==="practice"&&MOD[sub]&&!MOD[sub].missing){mod=sub;flv=0;draft={}}
   if(view==="lesson"&&!MOD[sub])view="learn";
-  VIEWS.forEach(k=>$("#v-"+k).hidden=k!==view);
+  VIEWS.forEach(k=>{const el=$("#v-"+k);if(!el)return;el.hidden=k!==view;if(k===view){el.classList.remove("enter");void el.offsetWidth;el.classList.add("enter")}});
   document.querySelectorAll(".nav nav a").forEach(a=>{let on=a.dataset.v===view||(view==="lesson"&&a.dataset.v==="learn");if(view==="teach"&&on)on=(a.getAttribute("href")==="#teach-content")===(sub==="content");a.setAttribute("aria-current",on?"page":"false")});
   document.querySelectorAll(".nav .dd").forEach(d=>{const on=[...d.querySelectorAll("a")].some(a=>a.getAttribute("aria-current")==="page");d.querySelector("button").setAttribute("aria-current",on?"page":"false");d.classList.remove("open");d.querySelector("button").setAttribute("aria-expanded","false")});
-  if(view==="home"){heroStats();today();works();jobs();authorStrip()}
+  if(view==="start")startView();if(view==="course")courseView();
   if(view==="portfolio")pfView();if(view==="assign")assignView(sub);if(view==="teach")teachView(sub);
   applyMode();
   if(view==="path")pathView();if(view==="cases")casesView(sub);if(view==="compare")cmpView();
@@ -975,7 +1054,7 @@ function route(){
   if(view==="map")mapView();if(view==="glossary")glossary();if(view==="record")recView();if(view==="about")about();
   requestAnimationFrame(reveal);window.scrollTo(0,0);
 }
-$("#builtAt").textContent="빌드 "+BUILT;
+$("#builtAt").textContent="빌드 "+BUILT;applyAccent();
 addEventListener("hashchange",route);route();
 (async function(){
   try{const r=await fetch("data/record.json",{cache:"no-store"});if(r.ok){author=await r.json();if(view==="home")authorStrip();if(view==="record")recView()}}catch(e){}

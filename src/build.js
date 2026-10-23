@@ -127,7 +127,25 @@ const MAP=(load(R("data/v1/mapping.json"))||[]).map((m,i)=>{const key=["scope1",
 const TRACKS=load(R("data/tracks.json"));
 const ASSIGN=(load(R("data/assignments.json"))||[]).map(a=>{const missing=a.rows.filter(id=>!ITEMS.some(x=>x.id===id));if(missing.length){console.error("assignment",a.id,"missing rows",missing);process.exit(1)}return a});
 
-const data=`const MODS=${JSON.stringify(MODS)};\nconst GROUPS=${JSON.stringify(GROUPS)};\nconst LESSONS=${JSON.stringify(LESSONS)};\nconst ITEMS=${JSON.stringify(ITEMS)};\nconst MAP=${JSON.stringify(MAP)};\nconst TRACKS=${JSON.stringify(TRACKS)};\nconst COMPANIES=${JSON.stringify(COMPANIES)};\nconst ASSIGN=${JSON.stringify(ASSIGN)};\nconst BUILT=${JSON.stringify(new Date().toISOString().slice(0,10))};`;
+/* ---- courses (클래스별 코스) ---- */
+const CJ=load(R("data/courses.json"))||{xp:{},courses:{}};
+const TYPEP={judge:0,calc:1,mc:2};
+const COURSES={};
+for(const tid in CJ.courses){
+  const usedCase={hyundai:new Set(),kia:new Set()};
+  COURSES[tid]=CJ.courses[tid].map((ch,ci)=>({name:ch.name,goal:ch.goal,nodes:ch.nodes.map((n,ni)=>{
+    const node=Object.assign({id:`${tid}-${ci}-${ni}`},n);
+    if(n.t==="read"){if(!LESSONS[n.mod]){console.error("course read missing lesson",tid,n.mod);process.exit(1)}node.name=MODS.find(m=>m.id===n.mod).name}
+    if(n.t==="drill"){const pool=ITEMS.filter(x=>x.module===n.mod&&(n.lv===0||x.level===n.lv)).sort((a,b)=>TYPEP[a.type]-TYPEP[b.type]||a.id.localeCompare(b.id));
+      node.ids=pool.slice(0,n.n).map(x=>x.id);if(node.ids.length<Math.min(n.n,3)){console.error("drill pool thin",tid,n.mod,n.lv,node.ids.length);process.exit(1)}node.name=MODS.find(m=>m.id===n.mod).name}
+    if(n.t==="assign"){const a=ASSIGN.find(z=>z.id===n.id);if(!a){console.error("course assign missing",n.id);process.exit(1)}node.name=a.title}
+    if(n.t==="case"){const pool=ITEMS.filter(x=>x.type==="judge"&&x.ans!=="해당 없음"&&(n.co==="kia"?x.co==="kia":(x.key&&(x.co||"hyundai")==="hyundai"))&&!usedCase[n.co].has(x.id));
+      node.ids=pool.slice(0,n.n).map(x=>x.id);node.ids.forEach(id=>usedCase[n.co].add(id));node.name=(n.co==="kia"?"기아":"현대차")+" 케이스 "+node.ids.length+"개"}
+    if(n.t==="compare")node.name="기업 비교 · 처방 "+n.n+"건";
+    return node})}));
+}
+const XP=CJ.xp;
+const data=`const COURSES=${JSON.stringify(COURSES)};\nconst XP=${JSON.stringify(XP)};\nconst MODS=${JSON.stringify(MODS)};\nconst GROUPS=${JSON.stringify(GROUPS)};\nconst LESSONS=${JSON.stringify(LESSONS)};\nconst ITEMS=${JSON.stringify(ITEMS)};\nconst MAP=${JSON.stringify(MAP)};\nconst TRACKS=${JSON.stringify(TRACKS)};\nconst COMPANIES=${JSON.stringify(COMPANIES)};\nconst ASSIGN=${JSON.stringify(ASSIGN)};\nconst BUILT=${JSON.stringify(new Date().toISOString().slice(0,10))};`;
 const page=fs.readFileSync(path.join(__dirname,"page.html"),"utf8");
 const style=fs.readFileSync(path.join(__dirname,"style.css"),"utf8").replace("</style>",fs.readFileSync(path.join(__dirname,"extra.css"),"utf8")+fs.readFileSync(path.join(__dirname,"v3.css"),"utf8")+"</style>");
 const out=page.replace("/*STYLE*/",()=>style).replace("/*DATA*/",()=>data.replace(/<\/script/g,"<\\/script"));
