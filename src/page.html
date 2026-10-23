@@ -7,7 +7,7 @@
 <header class="nav"><div class="wrap">
   <a class="brand" href="#home"><i aria-hidden="true"><b style="background:var(--m-ifrs)"></b><b style="background:var(--m-kssb)"></b><b style="background:var(--m-esrs)"></b><b style="background:var(--m-gri-sasb)"></b></i><span>기후공시 연습장</span></a>
   <nav aria-label="메뉴">
-    <a href="#home" data-v="home">홈</a><a href="#learn" data-v="learn">배우기</a><a href="#practice" data-v="practice">연습</a><a href="#review" data-v="review">복습</a><a href="#exam" data-v="exam">모의시험</a><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어</a><a href="#record" data-v="record">내 기록</a><a href="#about" data-v="about">만든 방법</a>
+    <a href="#home" data-v="home">홈</a><a href="#path" data-v="path">내 경로</a><a href="#learn" data-v="learn">배우기</a><a href="#practice" data-v="practice">연습</a><a href="#review" data-v="review">복습</a><a href="#exam" data-v="exam">모의시험</a><a href="#cases" data-v="cases">케이스</a><a href="#compare" data-v="compare">기업 비교</a><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어</a><a href="#record" data-v="record">내 기록</a><a href="#about" data-v="about">만든 방법</a>
   </nav>
   <button class="tog" id="tog" type="button" aria-label="밝게/어둡게 바꾸기" title="밝게/어둡게"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.4A7 7 0 0 1 12 3z"/></svg></button>
 </div></header>
@@ -18,10 +18,10 @@
   <section class="hero">
     <div class="wrap">
       <div>
-        <div class="eyebrow">기후공시 전 영역 · 20개 모듈 · 원문과 공식 자료로 검증</div>
+        <div class="eyebrow" id="heroEyebrow">기후공시 전 영역 · 모듈 · 원문과 공식 자료로 대조</div>
         <h1>어떤 기후공시<br>문제가 나와도<br><em>풀 수 있게</em></h1>
-        <p class="lead">IFRS S2·KSSB·ESRS·GRI부터 GHG 프로토콜, 배출권거래제, 검증, 시나리오, LCA, 탄소시장까지. 실제 보고서를 열어 판정하고, 숫자를 계산하고, 틀린 문제를 다시 만난다.</p>
-        <div class="cta"><a class="btn" href="#learn">학습 경로 보기 →</a><a class="btn line" href="#exam">모의시험</a></div>
+        <p class="lead">IFRS S2·KSSB·ESRS·GRI부터 GHG 프로토콜, 배출권거래제, 검증, 시나리오, LCA, 탄소시장까지. 지원하는 직무에 맞는 경로를 고르고, 실제 보고서 두 권을 열어 판정하고, 근거와 개선안을 직접 쓴다.</p>
+        <div class="cta"><a class="btn" href="#path">내 경로 고르기 →</a><a class="btn line" href="#cases">케이스 스터디</a></div>
       </div>
       <div>
         <svg class="prism" id="prism" viewBox="0 0 640 400" role="img" aria-label="하나의 Scope 3 숫자가 다섯 기준의 서로 다른 요구로 갈라지는 모습"></svg>
@@ -33,36 +33,73 @@
 
   <section class="sec">
     <div class="wrap">
-      <div class="sh rv"><span class="k">Learning paths</span><h2>세 단계 학습 경로</h2><p>입문에서 전문가까지, 같은 모듈을 난이도별로 다시 만난다. 진행률은 이 브라우저의 기록으로 계산한다.</p></div>
-      <div class="tracks rv" id="tracks"></div>
+      <div class="sh rv"><span class="k">Career paths</span><h2>지원하는 직무에 따라 순서가 바뀐다</h2><p>기후공시 컨설턴트와 배출권거래제 담당자가 먼저 알아야 할 것은 다르다. 경로를 고르면 모듈 순서, 난이도, '다음에 풀 것' 추천이 그 경로 기준으로 바뀐다.</p></div>
+      <div class="jobs rv" id="jobs"></div>
     </div>
   </section>
 
   <section class="sec alt">
+    <div class="wrap">
+      <div class="sh rv"><span class="k">Levels</span><h2>세 단계 난이도</h2><p>입문에서 전문가까지, 같은 모듈을 난이도별로 다시 만난다. 진행률은 이 브라우저의 기록으로 계산한다.</p></div>
+      <div class="tracks rv" id="tracks"></div>
+    </div>
+  </section>
+
+  <section class="sec">
     <div class="wrap">
       <div class="sh rv"><span class="k">Five twists</span><h2>숫자로 보는 반전 5가지</h2><p>현대자동차 FY2025 보고서를 여러 기준으로 읽으며 찾아낸 것들이다. 각 숫자는 연습 문항에서 직접 계산하거나 판정하게 된다.</p></div>
       <div class="twist" id="twist"></div>
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec alt">
     <div class="wrap">
       <div class="sh rv"><span class="k">Materiality lens</span><h2>누구를 위한 공시인가에 따라 질문이 바뀐다</h2><p>투자자에게 회사의 재무 위험을 알리는 기준과, 회사가 사회·환경에 주는 영향을 알리는 기준은 같은 데이터를 다르게 읽는다. 평가기관은 그 둘 위에서 점수를 매긴다.</p></div>
       <div class="spec rv"><svg id="spectrum" viewBox="0 0 980 300" role="img" aria-label="기준별 중대성 관점 스펙트럼"></svg></div>
     </div>
   </section>
 
-  <section class="sec alt">
+  <section class="sec">
     <div class="wrap">
-      <div class="sh rv"><span class="k">Regulatory clock</span><h2>다섯 기준이 같은 시계 위에 있다</h2><p>2027년에 세 기준이 동시에 바뀌고, 2028년에 한국 첫 의무공시가 온다.</p></div>
+      <div class="sh rv"><span class="k">Regulatory clock</span><h2>다섯 기준이 같은 시계 위에 있다</h2><p>2027년에 IFRS S2 개정·개정 ESRS·GRI 102가 적용되기 시작하고, 한국 첫 의무공시는 금융위 최종안 기준 2028년(FY2027)이다. 한국 일정은 법제화가 끝나야 확정된다.</p></div>
       <div class="tl rv"><svg id="clock" viewBox="0 0 1000 340" role="img" aria-label="기준별 주요 일정"></svg></div>
     </div>
   </section>
 
-  <section class="sec" id="authorStrip" hidden>
+  <section class="sec alt" id="authorStrip" hidden>
     <div class="wrap">
       <div class="sh rv"><span class="k">Learning record</span><h2>작성자 김수현의 공개 학습 기록</h2><p>작성자가 직접 풀고 저장한 기록이다. 문제는 AI와 함께 만들었고, 풀이와 판단 근거는 작성자의 것이다.</p></div>
       <div id="authorSum"></div>
+    </div>
+  </section>
+</div>
+
+<!-- PATH (job track) -->
+<div class="view" id="v-path" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">My path</span><h2>내 경로</h2><p>지원하는 직무를 고르면 단계별로 무엇을 어떤 순서로 풀지 정해 준다. 추천은 이 브라우저의 기록(정답률·최근 오답·복습 시기)으로 매번 다시 계산한다.</p></div>
+      <div id="pathBox"></div>
+    </div>
+  </section>
+</div>
+
+<!-- CASES -->
+<div class="view" id="v-cases" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Case study</span><h2>케이스 스터디</h2><p>컨설턴트가 실제로 하는 순서다. 어떤 기준이 적용되는지 → 보고서 어디에 증빙이 있는지 → 충족했는지 → 근거를 글로 → 개선안을 글로. 마지막 두 단계는 네가 쓴 글이 답이고, 모범 답안은 비교용이다.</p></div>
+      <div id="caseBox"></div>
+    </div>
+  </section>
+</div>
+
+<!-- COMPARE -->
+<div class="view" id="v-compare" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Side by side</span><h2>기업 비교 · 현대차와 기아</h2><p>같은 질문을 두 보고서에 던졌다. 판정이 다른 줄을 보고, 컨설턴트라면 어떤 처방을 쓸지 네 말로 적는다. 보고서는 정답지가 아니라 진단 대상이고, 기준서가 정답지다.</p></div>
+      <div id="cmpBox"></div>
     </div>
   </section>
 </div>
@@ -71,7 +108,8 @@
 <div class="view" id="v-learn" hidden>
   <section class="sec" style="padding-block:40px 72px;border:none">
     <div class="wrap">
-      <div class="sh"><span class="k">Curriculum</span><h2>20개 모듈, 4개 영역</h2><p>모듈마다 쉬운 말로 쓴 입문 글과 용어, 그리고 난이도별 문항이 있다. 막대는 입문·실무·전문가 문항 중 이 브라우저에서 맞힌 비율이다.</p></div>
+      <div class="sh"><span class="k">Curriculum</span><h2 id="currH">모듈과 영역</h2><p>모듈마다 쉬운 말로 쓴 입문 글과 용어, 그리고 난이도별 문항이 있다. 막대는 입문·실무·전문가 문항 중 이 브라우저에서 맞힌 비율이다. 각 모듈 아래 '기준 시점'은 문항이 전제하는 기준서 버전이다.</p></div>
+      <div id="currTrack"></div>
       <div class="curr" id="curr"></div>
     </div>
   </section>
@@ -161,16 +199,17 @@
     <div class="wrap" style="display:flex;flex-direction:column;gap:40px">
       <div class="sh" style="margin-bottom:0"><span class="k">About</span><h2>이 연습장을 만든 방법</h2><p>컨설턴트가 처음 맡는 일은 기준서와 보고서를 나란히 놓고 '있는지, 충분한지'를 판단하는 일이다. 그 판단을 영역 전체에서 반복해 연습할 수 있게 만들었다.</p></div>
       <div class="steps">
-        <div><b>01</b><h3>영역 나누기</h3><p>기후공시 컨설턴트의 업무를 공시 기준·측정과 검증·제도와 시장·실무와 평가의 4개 영역, 20개 모듈로 나눴다.</p></div>
-        <div><b>02</b><h3>공식 자료로 대조</h3><p>모듈마다 기준 제정기관, 감독기관, 법령의 공개 문서를 열어 조항과 숫자를 확인했다. 확인 못 한 것은 뺐다.</p></div>
-        <div><b>03</b><h3>숫자는 코드로 검산</h3><p>계산 문항의 답과 풀이 단계는 Python으로 다시 계산했다. 현대차 숫자는 보고서 쪽을 함께 적었다.</p></div>
-        <div><b>04</b><h3>독립 검토</h3><p>문제를 만들지 않은 별도 검토자가 인용문·숫자·조항을 다시 대조하고, 지적 사항을 반영했다.</p></div>
+        <div><b>01</b><h3>영역 나누기</h3><p>기후공시 컨설턴트의 업무를 공시 기준·측정과 검증·제도와 시장·실무와 평가의 4개 영역으로 나누고, 앞에 공시 체계 지도, 뒤에 기업 사례(현대차·기아)를 붙여 모듈을 짰다.</p></div>
+        <div><b>02</b><h3>공식 자료로 대조</h3><p>모듈마다 기준 제정기관, 감독기관, 법령의 공개 문서를 열어 조항과 숫자를 확인했다. 확인 못 한 것은 뺐거나 '확인 필요'로 표시했다. 문항마다 어떤 자료로 확인했는지가 꼬리표로 붙어 있다.</p></div>
+        <div><b>03</b><h3>숫자는 코드로 검산</h3><p>계산 문항의 답과 풀이 단계는 Python으로 다시 계산했다. 보고서 숫자는 쪽 번호를 함께 적어 원문을 바로 열 수 있게 했다.</p></div>
+        <div><b>04</b><h3>AI 교차 검토</h3><p>문제를 만들지 않은 별도의 AI 검토 세션 여섯 갈래가 인용문·숫자·조항을 다시 대조했고, 지적 사항을 반영했다. 사람 전문가의 검토는 아직 받지 않았다.</p></div>
       </div>
       <div class="credit">
-        <div><h3>AI(Claude)가 한 일</h3><ul><li>영역 설계, 원문·기준서 대조, 문항·입문 글 작성</li><li>계산 검산과 독립 검토</li><li>웹앱 설계와 구현</li></ul></div>
-        <div><h3>김수현이 한 일</h3><ul><li>채용공고 업무 범위에 맞춘 기준 선정과 전 영역 확장 기획</li><li>문제 풀이와 판단 근거 기록(내 기록)</li><li>기준서 검색용 RAG 직접 구현(진행 중)</li></ul></div>
-        <div><h3>한계</h3><ul><li>정답은 공개 자료를 대조한 해석이며, '일부'와 '없음'의 경계는 전문가마다 다를 수 있다.</li><li>KSSB·ESRS·GHG 프로토콜은 개정이 진행 중이라 문항에 적힌 기준 연도를 확인해야 한다.</li><li>평가기관의 세부 채점 기준과 일부 유료 기준서 원문은 확인하지 못했다.</li></ul></div>
+        <div><h3>AI(Claude)가 한 일</h3><ul><li>영역 설계, 원문·기준서 대조, 문항·입문 글·회사 팩 작성</li><li>계산 검산과 AI 교차 검토</li><li>웹앱 설계와 구현</li></ul></div>
+        <div><h3>김수현이 한 일</h3><ul><li>채용공고 업무 범위에 맞춘 기준 선정, 전 영역 확장과 취업 경로별 학습 설계 기획</li><li>"보고서를 역으로 읽는 게 정답지 베끼기 아니냐"는 문제 제기 → 케이스 스터디와 처방 쓰기로 설계 변경</li><li>문제 풀이, 판단 근거·개선안·처방 작성(내 기록), 기준서 검색용 RAG 직접 구현(진행 중)</li></ul></div>
+        <div><h3>한계</h3><ul><li>정답은 공개 자료를 대조한 해석이며, '일부'와 '없음'의 경계는 전문가마다 다를 수 있다.</li><li>KSSB·ESRS·GHG 프로토콜은 개정이 진행 중이라 모듈의 '기준 시점'과 문항의 기준 연도를 확인해야 한다.</li><li>평가기관의 세부 채점 기준과 일부 유료 기준서 원문은 확인하지 못했다. 아래 신뢰도 표에 문항 수로 적었다.</li></ul></div>
       </div>
+      <div id="relBox"></div>
       <div id="srcList"></div>
     </div>
   </section>
@@ -178,14 +217,19 @@
 </main>
 
 <footer><div class="wrap">
-  원문: <a href="https://www.hyundai.com/content/dam/hyundai/kr/ko/data/company-report/2026/07/15/hmc-sr-kor-2026.pdf" target="_blank" rel="noopener">현대자동차, 2026 지속가능성 보고서(FY2025) 국문판</a> · 학습용 개인 프로젝트이며 현대자동차·각 기준 제정기관과 무관하다. 기록은 이 브라우저에 저장된다.
+  원문: <a href="https://www.hyundai.com/content/dam/hyundai/kr/ko/data/company-report/2026/07/15/hmc-sr-kor-2026.pdf" target="_blank" rel="noopener">현대자동차, 2026 지속가능성 보고서(FY2025) 국문판</a> · <a href="reports/kia-sr-2026-kor.pdf" target="_blank" rel="noopener">기아, Sustainability Report 2026(FY2025) 국문판</a> · 학습용 개인 프로젝트이며 현대자동차·기아·각 기준 제정기관과 무관하다. 기록은 이 브라우저에 저장된다. <span id="builtAt"></span>
 </div></footer>
 <div class="toast" id="toast" hidden></div>
 
 <script>
 /*DATA*/
 const PDF="https://www.hyundai.com/content/dam/hyundai/kr/ko/data/company-report/2026/07/15/hmc-sr-kor-2026.pdf";
-const KEY="cd-drill-v2",KEY1="cd-drill-v1";
+const KEY="cd-drill-v3",KEY2="cd-drill-v2",KEY1="cd-drill-v1";
+const pdfOf=x=>x&&x.co&&COMPANIES[x.co]?COMPANIES[x.co].pdf:PDF;
+const coOf=x=>(x&&x.co&&COMPANIES[x.co])||COMPANIES.hyundai;
+const repLabel=x=>`${coOf(x).name} ${coOf(x).report.replace(/\s*\(.*$/,"")}`;
+const ERRS=[["std","기준을 몰랐다"],["find","보고서에서 못 찾았다"],["judge","찾았지만 판단을 잘못했다"],["calc","계산·단위 실수"],["read","문제를 잘못 읽었다"]];
+const VF={"원문 대조":"보고서 원문의 해당 쪽과 문장을 대조했다","재검산":"답과 풀이를 Python으로 다시 계산했다","공식 자료":"기준 제정기관·감독기관·법령의 공개 문서를 열어 확인했다","공식 자료·주의":"공식 자료로 확인했지만 해석 여지가 있어 작성자가 '중간 확신'으로 표시했다","2차 자료":"회계법인·로펌·언론 등 2차 자료로만 확인했다. 원문 확인이 필요하다","확인 필요":"조항 번호나 세부 내용을 공식 문서에서 끝까지 확인하지 못했다"};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmt=(n,d)=>Number(n).toLocaleString("ko-KR",{minimumFractionDigits:d,maximumFractionDigits:d});
@@ -199,12 +243,14 @@ const DAY=86400000,GAP=[0,1,3,7,14];
 const col=m=>`var(--m-${MOD[m]?MOD[m].color:"ifrs"})`;
 
 /* ---------- state ---------- */
-let S={a:{}};
+let S={a:{},exams:[],cases:{},rx:{},track:null};
 try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));
-  else{const o=JSON.parse(localStorage.getItem(KEY1)||"null");if(o){S.a=o.a||{};for(const k in (o.j||{}))S.a["ifrs-"+k]=o.j[k];for(const k in (o.c||{}))S.a["ifrs-"+k]=o.c[k]}}}catch(e){}
-function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a}))}catch(e){}}
+  else{const r2=localStorage.getItem(KEY2);if(r2)S=Object.assign(S,JSON.parse(r2));
+  else{const o=JSON.parse(localStorage.getItem(KEY1)||"null");if(o){S.a=o.a||{};for(const k in (o.j||{}))S.a["ifrs-"+k]=o.j[k];for(const k in (o.c||{}))S.a["ifrs-"+k]=o.c[k]}}}}catch(e){}
+S.a=S.a||{};S.exams=S.exams||[];S.cases=S.cases||{};S.rx=S.rx||{};
+function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track}))}catch(e){}}
 function record(x,res){const prev=S.a[x.id]||{};let box=prev.box||0;box=res.ok?Math.min(box+1,4):0;
-  S.a[x.id]=Object.assign({},res,{t:Date.now(),box,due:Date.now()+GAP[box]*DAY,n:(prev.n||0)+1});save()}
+  S.a[x.id]=Object.assign({},res,{t:Date.now(),box,due:Date.now()+GAP[box]*DAY,n:(prev.n||0)+1,err:res.ok?undefined:prev.err});save()}
 let view="home",sub="",mod="landscape",cur={},flv=0,draft={},mapTopic=0,recSrc="me",author=null,artifactNS=null,canEdit=false,arm=false;
 MODS.forEach(m=>cur[m.id]=0);
 let exam=null; // {ids,i,answers:{},start,limit,done}
@@ -215,7 +261,7 @@ const avail=MODS.filter(m=>!m.missing);
 function stat(list,rec){rec=rec||S.a;const d=list.filter(x=>rec[x.id]);const o=d.filter(x=>rec[x.id].ok);return {n:list.length,d:d.length,o:o.length}}
 function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
 function tx(p,x,y,s,a={}){const e=el("text",Object.assign({x,y},a),p);e.style.fill=a.fill||css("--muted");e.textContent=s;return e}
-function srcLink(s,page){if(s.url==="report")return `<a href="${PDF}#page=${(String(s.label).match(/p\.(\d+)/)||[])[1]||page||1}" target="_blank" rel="noopener">${esc(s.label)}</a>`;return `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`}
+function srcLink(s,page){if(/^report/.test(s.url)){const c=s.url.split(":")[1];const pdf=c&&COMPANIES[c]?COMPANIES[c].pdf:PDF;return `<a href="${pdf}#page=${(String(s.label).match(/p\.(\d+)/)||[])[1]||page||1}" target="_blank" rel="noopener">${esc(s.label)}</a>`}return `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`}
 const clean=s=>String(s||"").replace(/\s*\(미확인\)/g,"");
 const clip=(s,n)=>s.length>n?s.slice(0,n-1)+"…":s;
 const lvbar=(list,rec)=>[1,2,3].map(l=>{const st=stat(list.filter(x=>x.level===l),rec);return `<i style="flex:${Math.max(st.n,1)};background:${st.n?`linear-gradient(90deg,var(--good) ${st.o/st.n*100}%,var(--bad) ${st.o/st.n*100}% ${st.d/st.n*100}%,var(--bg3) ${st.d/st.n*100}%)`:"var(--bg3)"}" title="${LV[l]} ${st.o}/${st.n}"></i>`}).join("");
@@ -242,10 +288,11 @@ function drawPrism(){
   $("#heroList").innerHTML=rays.map(([m,name,ref])=>`<div style="display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid #2a3846;border-radius:8px"><span class="dot" style="background:var(--m-${m})"></span><b style="font-size:13px">${name}</b><span class="mono" style="font-size:12px;color:#93a1b0">${esc(clean(ref))}</span></div>`).join("");
 }
 function heroStats(){
-  const srcs=new Set();ITEMS.forEach(x=>(x.sources||[]).forEach(s=>{if(s.url!=="report")srcs.add(s.url)}));
+  const srcs=new Set();ITEMS.forEach(x=>(x.sources||[]).forEach(s=>{if(!/^report/.test(s.url))srcs.add(s.url)}));
+  $("#heroEyebrow").textContent=`기후공시 전 영역 · ${avail.length}개 모듈 · 보고서 2권 · 원문과 공식 자료로 대조`;
   const terms=Object.values(LESSONS).reduce((a,l)=>a+((l&&l.terms)||[]).length,0);
   $("#heroStats").innerHTML=`<div><b><span class="cnt" data-n="${ITEMS.length}">${ITEMS.length}</span></b><span>문항 (판정 ${ITEMS.filter(x=>x.type==="judge").length} · 개념 ${ITEMS.filter(x=>x.type==="mc").length} · 계산 ${ITEMS.filter(x=>x.type==="calc").length})</span></div>
-  <div><b><span class="cnt" data-n="${avail.length}">${avail.length}</span></b><span>모듈 · 4개 영역</span></div><div><b><span class="cnt" data-n="${terms}">${terms}</span></b><span>용어</span></div><div><b><span class="cnt" data-n="${srcs.size}">${srcs.size}</span></b><span>대조한 공식·공개 자료</span></div>`;
+  <div><b><span class="cnt" data-n="${avail.length}">${avail.length}</span></b><span>모듈 · 4개 영역 + 지도·기업 사례</span></div><div><b><span class="cnt" data-n="${terms}">${terms}</span></b><span>용어</span></div><div><b><span class="cnt" data-n="${srcs.size}">${srcs.size}</span></b><span>대조한 공식·공개 자료</span></div>`;
 }
 function tracks(){
   const T=[[1,"입문","정의와 구조를 안다","각 기준이 무엇을, 누구에게, 왜 요구하는지. 온실가스관리기사 지식 위에 공시의 뼈대를 얹는다."],[2,"실무","보고서에 적용한다","실제 보고서를 열어 판정하고 숫자를 계산한다. 컨설턴트가 매일 하는 일이다."],[3,"전문가","경계와 예외를 다룬다","개정 사항, 기준 간 충돌, 애매한 사례를 시니어의 논리로 판단한다."]];
@@ -311,11 +358,15 @@ function theme(){const r=document.documentElement,c=r.getAttribute("data-theme")
 $("#tog").onclick=theme;try{const t=localStorage.getItem("cd-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}
 
 /* ---------- LEARN ---------- */
+const GORDER=["map","std","meas","reg","prac","co"];
+function stageOf(mid){const T=TRACK();if(!T)return null;const i=T.stages.findIndex(s=>s.mods.includes(mid));return i<0?null:i+1}
 function learn(){
-  const order=["map","std","meas","reg","prac"];
-  $("#curr").innerHTML=order.map(g=>`<div class="cgroup"><h3><span class="dot" style="background:var(--m-${GROUPS[g].color})"></span>${GROUPS[g].name}</h3><div class="cgrid">${MODS.filter(m=>m.g===g).map(m=>{const its=items(m.id);const st=stat(its);
-    return `<div class="cm ${m.missing?"soon":""}"><span class="nm">${esc(m.name)}</span><span class="who">${esc(m.who)}</span><p>${esc(m.desc)}</p>
+  $("#currH").textContent=`${avail.length}개 모듈, 4개 영역 + 지도·기업 사례`;
+  const T=TRACK();$("#currTrack").innerHTML=T?`<div class="trackstrip"><span class="dot" style="background:var(--m-${T.color})"></span><b>내 경로 · ${esc(T.name)}</b><span>경로에 든 모듈에 단계 번호가 붙어 있다. 순서는 <a href="#path">내 경로</a>에서.</span></div>`:`<div class="trackstrip"><b>아직 경로를 고르지 않았다.</b><span><a href="#path">내 경로</a>에서 지원 직무를 고르면 모듈에 순서가 붙는다.</span></div>`;
+  $("#curr").innerHTML=GORDER.map(g=>`<div class="cgroup"><h3><span class="dot" style="background:var(--m-${GROUPS[g].color})"></span>${GROUPS[g].name}</h3><div class="cgrid">${MODS.filter(m=>m.g===g).map(m=>{const its=items(m.id);const st=stat(its);const sg=stageOf(m.id);
+    return `<div class="cm ${m.missing?"soon":""} ${T&&!sg?"dim":""}">${sg?`<span class="stg">${sg}단계</span>`:""}<span class="nm">${esc(m.name)}</span><span class="who">${esc(m.who)}</span><p>${esc(m.desc)}</p>
     ${m.missing?`<span class="ms">준비 중</span>`:`<div class="lv">${lvbar(its)}</div><span class="ms">${its.length}문항 · ${st.d} 풀이 · 입문 ${its.filter(x=>x.level===1).length} / 실무 ${its.filter(x=>x.level===2).length} / 전문가 ${its.filter(x=>x.level===3).length}</span>
+    ${m.asof?`<span class="asof" title="문항이 전제하는 기준서 버전">기준 시점 · ${esc(m.asof)}</span>`:""}
     <div class="acts">${LESSONS[m.id]?`<a href="#lesson-${m.id}">입문 글</a>`:""}<a class="primary" href="#practice-${m.id}">연습 →</a></div>`}</div>`}).join("")}</div></div>`).join("");
 }
 function lesson(id){
@@ -323,6 +374,7 @@ function lesson(id){
   if(!m||!L){box.innerHTML=`<p class="empty">이 모듈의 입문 글은 준비 중이다. <a href="#learn">배우기</a>로 돌아가기.</p>`;return}
   const its=items(id);
   box.innerHTML=`<article><div><span class="tag"><span class="dot" style="background:${col(id)}"></span>${esc(GROUPS[m.g].name)} · ${esc(m.name)}</span></div><h2>${esc(L.title||m.name)}</h2><p class="sum">${esc(L.summary||"")}</p>
+    ${m.asof?`<p class="asof">기준 시점 · ${esc(m.asof)}</p>`:""}
     ${(L.sections||[]).map(s=>`<section><h3>${esc(s.h)}</h3><p>${esc(s.body)}</p></section>`).join("")}
     <div class="actions"><a class="btn" href="#practice-${id}">이 모듈 연습하기 →</a><a class="btn line" href="#learn">배우기 목록</a></div>
     ${L.sources&&L.sources.length?`<div class="blk"><h4>이 글의 출처</h4><div class="srcs">${L.sources.map(s=>srcLink(s)).join("")}</div></div>`:""}</article>
@@ -332,7 +384,7 @@ function lesson(id){
 /* ---------- PRACTICE ---------- */
 const listFor=m=>items(m).filter(x=>flv===0||x.level===flv);
 function phead(){
-  const sel=$("#modSel");sel.innerHTML=["map","std","meas","reg","prac"].map(g=>`<optgroup label="${GROUPS[g].name}">${avail.filter(m=>m.g===g).map(m=>`<option value="${m.id}" ${m.id===mod?"selected":""}>${esc(m.name)} (${stat(items(m.id)).d}/${items(m.id).length})</option>`).join("")}</optgroup>`).join("");
+  const sel=$("#modSel");sel.innerHTML=GORDER.map(g=>`<optgroup label="${GROUPS[g].name}">${avail.filter(m=>m.g===g).map(m=>`<option value="${m.id}" ${m.id===mod?"selected":""}>${esc(m.name)} (${stat(items(m.id)).d}/${items(m.id).length})</option>`).join("")}</optgroup>`).join("");
   sel.onchange=()=>{mod=sel.value;draft={};renderPractice()};
   document.querySelectorAll(".lvchip button").forEach(b=>{b.setAttribute("aria-pressed",+b.dataset.l===flv);b.onclick=()=>{flv=+b.dataset.l;cur[mod]=0;draft={};renderPractice()}});
   $("#lessonLink").href=LESSONS[mod]?"#lesson-"+mod:"#learn";$("#lessonLink").hidden=!LESSONS[mod];
@@ -348,26 +400,29 @@ function side(){
 function parseNum(s){const v=String(s).replace(/[,\s%t원$]/g,"").replace(/[^0-9.\-]/g,"");return v===""||v==="-"||v==="."?NaN:Number(v)}
 function qBody(x,r,pick,examMode){
   let h="";
-  if(x.type==="judge")h+=`<div class="look"><span>어디를 볼까 · ${esc(x.look||"")}</span><a href="${PDF}#page=${x.page}" target="_blank" rel="noopener">${x.page}쪽 원문 열기 ↗</a></div>`;
+  if(x.type==="judge")h+=`<div class="look"><span>어디를 볼까 · ${esc(coOf(x).short)} 보고서 · ${esc(x.look||"")}</span><a href="${pdfOf(x)}#page=${x.page}" target="_blank" rel="noopener">${x.page}쪽 원문 열기 ↗</a></div>`;
   if(x.type==="calc")h+=`<div class="given"><table><tbody>${(x.given||[]).map(g=>`<tr><td>${esc(g[0])}</td><td class="n">${esc(g[1])}</td><td class="p">${g[2]?esc(g[2]):""}</td></tr>`).join("")}</tbody></table></div>`;
-  if(x.type==="judge")h+=`<div class="choice" role="group" aria-label="판정">${[["있음","요구한 내용이 다 있음"],["일부","일부 요소가 빠짐"],["없음","찾을 수 없음"]].map(([v,d])=>`<button type="button" data-v="${v}" aria-pressed="${pick===v}" ${r?"disabled":""}>${v}<small>${d}</small></button>`).join("")}</div>`;
+  if(x.type==="judge")h+=`<div class="choice ${x.co==="kia"||x.ans==="해당 없음"?"c4":""}" role="group" aria-label="판정">${[["있음","요구한 내용이 다 있음"],["일부","일부 요소가 빠짐"],["없음","찾을 수 없음"]].concat(x.co==="kia"||x.ans==="해당 없음"?[["해당 없음","이 기준을 따르지 않음"]]:[]).map(([v,d])=>`<button type="button" data-v="${v}" aria-pressed="${pick===v}" ${r?"disabled":""}>${v}<small>${d}</small></button>`).join("")}</div>`;
   if(x.type==="mc")h+=`<div class="opts" role="group" aria-label="보기">${x.options.map((o,k)=>{let cls="",st="";if(r&&!examMode){if(k===x.ans){cls="right";st="정답"}else if(k===r.pick){cls="wrong";st="내 선택"}}
     return `<button type="button" data-k="${k}" aria-pressed="${pick===k}" class="${cls}" ${r?"disabled":""}><span class="l">${"ABCD"[k]}</span><span>${esc(o)}</span><span class="st">${st}</span></button>`}).join("")}</div>`;
   return h;
 }
-function revealBlock(x,r){
+function revealBlock(x,r,noErr){
   let verdict;
   if(x.type==="judge")verdict=`내 판정 ${esc(r.pick)} · 정답 ${esc(x.ans)}`;else if(x.type==="mc")verdict=`정답 ${"ABCD"[x.ans]}`;else verdict=`${r.gave?"":"내 답 "+esc(r.val)+" "+esc(x.unit)+" · "}정답 ${fmt(x.ans,x.dec)} ${esc(x.unit)}`;
   const box=r.box||0;
   return `<div class="reveal"><div class="verdict ${r.ok?"ok":"bad"}"><b>${r.ok?"✓ 맞았다":r.gave?"풀이를 먼저 봤다":"✕ 다르게 봤다"}</b><span>${verdict}</span><span class="box" title="복습 단계">${[1,2,3,4].map(i=>`<i class="${box>=i?"on":""}"></i>`).join("")} ${box>=4?"졸업":"다음 복습 "+(GAP[box]||0)+"일 뒤"}</span></div>
   ${r.note?`<div class="mine">내 근거 · ${esc(r.note)}</div>`:""}
-  ${x.quote?`<div class="blk"><h4>${x.type==="judge"?"보고서 원문":"기준·출처 원문"}</h4><blockquote>${esc(x.quote)}${x.type==="judge"?`<cite>현대자동차 2026 지속가능성 보고서 ${x.page}쪽</cite>`:""}</blockquote></div>`:""}
+  ${!noErr&&!r.ok&&!r.gave&&(r.pick!==undefined||x.type==="calc")?`<div class="errs" role="group" aria-label="틀린 이유"><span>왜 틀렸나 (내 기록에 쌓인다)</span>${ERRS.filter(([k])=>x.type==="calc"?k!=="find"&&k!=="judge":k!=="calc").map(([k,l])=>`<button type="button" data-e="${k}" aria-pressed="${r.err===k}">${l}</button>`).join("")}</div>`:""}
+  ${x.quote?`<div class="blk"><h4>${x.type==="judge"?"보고서 원문":"기준·출처 원문"}</h4><blockquote>${esc(x.quote)}${x.type==="judge"?`<cite>${esc(repLabel(x))} ${x.page}쪽</cite>`:""}</blockquote></div>`:""}
+  ${x.fix&&!r.ok?`<div class="blk fix"><h4>컨설턴트라면 이렇게 쓴다 (개선안 예시)</h4><p>${esc(x.fix)}</p></div>`:""}
   ${x.steps?`<div class="blk"><h4>풀이</h4><ol class="sol">${x.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol></div>`:""}
   <div class="blk"><h4>${x.type==="calc"?"이 숫자가 말해주는 것":"왜 이렇게 판정하나"}</h4><p>${esc(x.type==="calc"?(x.insight||x.why):x.why)}</p></div>
   ${x.trap?`<div class="blk trap"><h4>빠지기 쉬운 함정</h4><p>${esc(x.trap)}</p></div>`:""}
   ${x.sources&&x.sources.length?`<div class="blk"><h4>출처</h4><div class="srcs">${x.sources.map(s=>srcLink(s,x.page)).join("")}</div></div>`:""}</div>`;
 }
-function meta(x,i,n){return `<div class="meta"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(MOD[x.module].short)}</span><span class="tag ref" title="${esc(x.refFull||x.ref)}">${esc(x.ref)}</span><span class="tag l${x.level}">${LV[x.level]}</span><span class="tag">${TYPE[x.type]}</span>${n?`<span class="qno">${i+1} / ${n}</span>`:""}</div>`}
+const vfClass=v=>v==="확인 필요"?"vf-warn":v==="2차 자료"||v==="공식 자료·주의"?"vf-sec":"vf-ok";
+function meta(x,i,n){return `<div class="meta"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(MOD[x.module].short)}</span><span class="tag ref" title="${esc(x.refFull||x.ref)}">${esc(x.ref)}</span><span class="tag l${x.level}">${LV[x.level]}</span><span class="tag">${TYPE[x.type]}</span><span class="tag vf ${vfClass(x.verify)}" title="${esc(VF[x.verify]||"")}">${esc(x.verify||"")}</span>${n?`<span class="qno">${i+1} / ${n}</span>`:""}</div>`}
 function card(){
   const L=listFor(mod),i=cur[mod],x=L[i];if(!x){$("#card").innerHTML=`<p class="empty">이 난이도의 문제가 없다.</p>`;return}
   const r=S.a[x.id];const pick=r?r.pick:draft.pick;
@@ -391,7 +446,7 @@ function card(){
       if(x.type==="calc"){const v=parseNum(inp.value);if(isNaN(v)){toast("숫자를 입력해 줘");return}const vv=x.abs?Math.abs(v):v;record(x,{val:inp.value.trim(),ok:Math.abs(vv-x.ans)<=x.tol,note:n})}
       else{if(draft.pick===undefined)return;record(x,{pick:draft.pick,ok:draft.pick===x.ans,note:n})}
       draft={};renderPractice()}
-  }else $("#retry").onclick=()=>{const b=(S.a[x.id].box||0);delete S.a[x.id];save();draft={};renderPractice()};
+  }else {$("#retry").onclick=()=>{delete S.a[x.id];save();draft={};renderPractice()};errChips(x,()=>card())}
   $("#prev").onclick=()=>{if(cur[mod]>0){cur[mod]--;draft={};renderPractice()}};
   $("#next").onclick=()=>{if(cur[mod]<L.length-1){cur[mod]++;draft={};renderPractice();window.scrollTo({top:$("#modSel").getBoundingClientRect().top+scrollY-80,behavior:"smooth"})}};
 }
@@ -408,7 +463,7 @@ function reviewView(){
     if(!r){if(x.type==="calc")h+=`<div class="ansrow"><label class="f" for="ans">내 답<input type="text" id="ans" inputmode="decimal" autocomplete="off" value="${esc(draft.val||"")}" placeholder="숫자만"></label><span class="u">${esc(x.unit)}</span></div>`;
       h+=`<div class="actions"><button class="btn" type="button" id="check">답 확인</button><span class="hint" id="hint"></span></div>`}
     else h+=revealBlock(x,r)+`<div class="actions"><button class="btn" type="button" id="rvNext">${rv.i+1<rv.ids.length?"다음 복습 →":"복습 끝내기"}</button></div>`;
-    box.innerHTML=h+"</div>";
+    box.innerHTML=h+"</div>";if(r)errChips(x,()=>reviewView());
     $("#rvQuit").onclick=()=>{rv=null;draft={};reviewView()};
     if(!r){document.querySelectorAll(".choice button").forEach(b=>b.onclick=()=>{draft.pick=b.dataset.v;reviewView()});document.querySelectorAll(".opts button").forEach(b=>b.onclick=()=>{draft.pick=+b.dataset.k;reviewView()});
       const inp=$("#ans");if(inp){inp.oninput=e=>draft.val=e.target.value;inp.onkeydown=e=>{if(e.key==="Enter")$("#check").click()}}
@@ -446,7 +501,7 @@ function examView(){
     const byM={};res.forEach(r=>{const m=r.x.module;byM[m]=byM[m]||{n:0,o:0};byM[m].n++;if(r.ok)byM[m].o++});
     box.innerHTML=`<div class="result"><div><b>${ok} / ${res.length}</b><span>맞은 문항</span></div><div><b>${Math.round(ok/res.length*100)}%</b><span>정답률 · ${exam.label}</span></div><div><b>${Math.round(exam.sec/60)}분</b><span>걸린 시간</span></div></div>
     <div class="mbars" style="margin:22px 0">${Object.entries(byM).map(([m,v])=>`<div class="mbar"><span class="n"><span class="dot" style="background:${col(m)}"></span>${esc(MOD[m].short)}</span><span class="t"><i style="width:${v.o/v.n*100}%;background:var(--good)"></i><i style="width:${(v.n-v.o)/v.n*100}%;background:var(--bad)"></i></span><span class="v">${v.o}/${v.n}</span></div>`).join("")}</div>
-    <h3 style="font-size:16px;margin-bottom:10px">문항별 해설</h3><div style="display:flex;flex-direction:column;gap:14px">${res.map((r,i)=>`<div class="card" style="padding:22px">${meta(r.x,i,res.length)}<h2 class="q" style="font-size:17px">${esc(r.x.q)}</h2>${qBody(r.x,r.a||{ok:false,pick:undefined},r.a?r.a.pick:undefined,false)}${r.a?revealBlock(r.x,Object.assign({},r.a,{box:(S.a[r.x.id]||{}).box||0})):`<div class="verdict bad"><b>답하지 않음</b><span>정답 ${r.x.type==="mc"?"ABCD"[r.x.ans]:r.x.type==="calc"?fmt(r.x.ans,r.x.dec)+" "+esc(r.x.unit):esc(r.x.ans)}</span></div>`}</div>`).join("")}</div>
+    <h3 style="font-size:16px;margin-bottom:10px">문항별 해설</h3><p class="hint" style="margin-bottom:10px">틀린 문항은 <a href="#review">복습</a>에서 다시 만나며, 그때 '왜 틀렸나'를 고를 수 있다.</p><div style="display:flex;flex-direction:column;gap:14px">${res.map((r,i)=>`<div class="card" style="padding:22px">${meta(r.x,i,res.length)}<h2 class="q" style="font-size:17px">${esc(r.x.q)}</h2>${qBody(r.x,r.a||{ok:false,pick:undefined},r.a?r.a.pick:undefined,false)}${r.a?revealBlock(r.x,Object.assign({},r.a,{box:(S.a[r.x.id]||{}).box||0}),true):`<div class="verdict bad"><b>답하지 않음</b><span>정답 ${r.x.type==="mc"?"ABCD"[r.x.ans]:r.x.type==="calc"?fmt(r.x.ans,r.x.dec)+" "+esc(r.x.unit):esc(r.x.ans)}</span></div>`}</div>`).join("")}</div>
     <div class="actions" style="margin-top:20px"><button class="btn" type="button" id="exAgain">새 시험</button><a class="btn line" href="#review">틀린 문제 복습하기</a></div>`;
     $("#exAgain").onclick=()=>{exam=null;examView()};return;
   }
@@ -468,6 +523,7 @@ function examView(){
 function finishExam(){exam.done=true;exam.sec=Math.floor((Date.now()-exam.start)/1000);let ok=0;
   exam.ids.forEach(id=>{const x=ITEMS.find(y=>y.id===id),a=exam.answers[id];const res=a?Object.assign({},a):{ok:false,pick:undefined};res.note=(S.a[id]||{}).note||"";record(x,res);if(res.ok)ok++});
   S.exams=(S.exams||[]).concat([{t:Date.now(),n:exam.ids.length,ok,sec:exam.sec,label:exam.label}]).slice(-20);save();draft={};examView();window.scrollTo(0,0)}
+function errChips(x,rerender){document.querySelectorAll(".errs button").forEach(b=>b.onclick=()=>{const r=S.a[x.id];if(!r)return;r.err=r.err===b.dataset.e?undefined:b.dataset.e;save();rerender()})}
 function tick(){if(!exam||exam.done||!exam.limit)return;const left=exam.limit-Math.floor((Date.now()-exam.start)/1000);const c=$("#exClock");if(c)c.textContent=`${Math.max(0,Math.floor(left/60))}:${String(Math.max(0,left)%60).padStart(2,"0")}`;if(left<=0){toast("시간이 끝나 채점한다");finishExam();return}setTimeout(tick,1000)}
 /* ---------- MAP ---------- */
 const FW=[["ifrs","IFRS S2","ifrs"],["kssb","KSSB 제2호","kssb"],["esrs","ESRS E1","esrs"],["gri","GRI","gri-sasb"],["sasb","SASB 자동차","gri-sasb"],["cdp","CDP","ratings"]];
@@ -523,18 +579,21 @@ function recView(){
    <div class="panel"><h3>영역별 정답률</h3><p class="sub">실선: 푼 문제 중 정답 비율 · 점선: 푼 비율</p><div id="radarBox"></div></div>
    <div class="panel"><h3>모듈 × 난이도 숙련도</h3><p class="sub">칸 = 그 난이도에서 맞힌 비율 (푼 문제 기준)</p><div class="heat"><span></span><span class="h">입문</span><span class="h">실무</span><span class="h">전문가</span>${avail.map(m=>`<span class="n" title="${esc(m.name)}">${esc(m.short)}</span>${[1,2,3].map(l=>{const st=stat(items(m.id).filter(x=>x.level===l),rec);const r=st.d?st.o/st.d:null;return `<span class="c" style="${r===null?"":`background:color-mix(in srgb,${r>=.7?"var(--good)":r>=.4?"var(--m-gri-sasb)":"var(--bad)"} ${Math.round(25+r*55)}%,var(--bg));color:var(--ink)`}" title="${st.o}/${st.d} (전체 ${st.n})">${r===null?(st.n?"–":""):Math.round(r*100)+"%"}</span>`}).join("")}`).join("")}</div></div>
    <div class="panel"><h3>판정 경향</h3><p class="sub">'있음·일부·없음' 판정에서 틀린 ${judged.length}문항의 방향</p><div class="lean"><div><b>${over}</b><span>정답보다 후하게</span></div><div><b>${under}</b><span>정답보다 박하게</span></div></div><p style="font-size:14px;color:var(--ink2)">${!judged.length?"판정 문제에서 틀린 게 아직 없다.":over>under?"설명이 길면 충족했다고 보는 경향이 보인다. 요구사항을 하위 항목으로 쪼개서 하나씩 확인해 보자.":under>over?"요구사항보다 더 많은 걸 기대하는 경향이 보인다. 기준이 실제로 요구하는 문장으로 돌아가 보자.":"후하게·박하게 틀린 횟수가 같다."}</p>
-    <h3 style="margin-top:8px">다음에 할 것</h3><div class="reco">${weak.map(w=>`<a href="#practice-${w.m.id}"><span style="color:var(--ink)"><span class="dot" style="background:${col(w.m.id)};margin-right:6px"></span>${esc(w.m.name)}</span><span>${w.rate===null?"아직 안 풂":"정답률 "+Math.round(w.rate*100)+"% · "+w.st.d+"/"+w.st.n}</span></a>`).join("")}</div></div>
+    <h3 style="margin-top:8px">다음에 할 것${TRACK()?` · <span style="color:var(--muted);font-weight:500">내 경로 ${esc(TRACK().name)} 기준</span>`:""}</h3><div class="reco">${(TRACK()?nextFor(TRACK(),rec).list:weak.map(w=>({m:w.m,why:w.rate===null?"아직 안 풂":"정답률 "+Math.round(w.rate*100)+"% · "+w.st.d+"/"+w.st.n,lv:0}))).slice(0,4).map(w=>`<a href="#practice-${w.m.id}"><span style="color:var(--ink)"><span class="dot" style="background:${col(w.m.id)};margin-right:6px"></span>${esc(w.m.name)}${w.lv?` <small style="color:var(--muted)">· ${LV[w.lv]}</small>`:""}</span><span>${esc(w.why)}</span></a>`).join("")}</div></div>
+   <div class="panel"><h3>왜 틀렸나</h3><p class="sub">틀린 문제에서 네가 고른 이유. 기준을 몰라서인지, 못 찾아서인지, 판단이 흔들려서인지.</p>${errPanel(rec,all)}</div>
+   <div class="panel"><h3>내가 쓴 글</h3><p class="sub">케이스 스터디의 근거·개선안과 기업 비교의 처방. 포트폴리오에 들어가는 건 이 글들이다.</p>${writtenPanel(rec)}</div>
    <div class="panel"><h3>다시 볼 함정 노트</h3><p class="sub">틀린 문제의 함정만 모았다.</p><div class="notes">${wrong.length?wrong.slice(0,8).map(x=>`<div class="note"><div class="h"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(MOD[x.module].short)}</span><span class="tag ref">${esc(x.ref)}</span><span class="tag l${x.level}">${LV[x.level]}</span></div><p><b>${esc(x.topic)}</b> · ${esc(x.trap||x.insight||x.why)}</p>${recSrc==="me"?`<button type="button" data-id="${x.id}">다시 풀기 →</button>`:""}</div>`).join(""):`<p class="hint">틀린 문제가 없다.</p>`}</div></div>
-  </div>${recSrc==="me"?`<div class="actions" style="margin-top:20px"><button class="btn line sm" type="button" id="reset">${arm?"한 번 더 누르면 이 브라우저 기록이 지워진다":"이 브라우저 기록 지우기"}</button></div>`:""}`;
+  </div>${recSrc==="me"?`<div class="actions" style="margin-top:20px;flex-wrap:wrap"><button class="btn line sm" type="button" id="expo">기록 내보내기 (JSON)</button><label class="btn line sm" for="impo" style="cursor:pointer">기록 가져오기<input id="impo" type="file" accept="application/json" hidden></label><button class="btn line sm" type="button" id="reset">${arm?"한 번 더 누르면 이 브라우저 기록이 지워진다":"이 브라우저 기록 지우기"}</button><span class="hint">기록은 이 브라우저에만 있다. 다른 기기로 옮기거나 백업할 때 내보내기를 쓴다.</span></div>`:""}`;
   $("#radarBox").appendChild(radar(rec));
   document.querySelectorAll(".note button").forEach(b=>b.onclick=()=>{const x=ITEMS.find(y=>y.id===b.dataset.id);delete S.a[x.id];save();jumpTo(x.id)});
-  const rs=$("#reset");if(rs)rs.onclick=()=>{if(!arm){arm=true;recView();setTimeout(()=>{arm=false;if(view==="record")recView()},4000);return}arm=false;S={a:{}};save();toast("기록을 지웠다");recView()};
+  const ex=$("#expo");if(ex)ex.onclick=exportRec;const im=$("#impo");if(im)im.onchange=importRec;
+  const rs=$("#reset");if(rs)rs.onclick=()=>{if(!arm){arm=true;recView();setTimeout(()=>{arm=false;if(view==="record")recView()},4000);return}arm=false;S={a:{},exams:[],cases:{},rx:{},track:S.track};save();toast("기록을 지웠다");recView()};
 }
 async function publishRec(){
   if(!artifactNS)return;const b=$("#pub");b.disabled=true;b.textContent="저장 중…";
   const a={};for(const k in S.a){const r=S.a[k];a[k]={ok:r.ok,pick:r.pick,val:r.val,gave:r.gave,note:r.note,t:r.t,box:r.box}}
   const d=new Date(),ds=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
-  try{await artifactNS.publish({"data/record.json":{content:JSON.stringify({updated:ds,a,exams:S.exams||[]}),contentType:"application/json"}});toast("공개 기록으로 저장했다.")}
+  try{await artifactNS.publish({"data/record.json":{content:JSON.stringify({updated:ds,a,exams:S.exams||[],cases:S.cases||{},rx:S.rx||{},track:S.track||null}),contentType:"application/json"}});toast("공개 기록으로 저장했다.")}
   catch(e){const c=e&&e.code;if(c==="conflict")toast("다른 곳에서 먼저 저장돼 새 버전을 불러온다.");else if(["not_writer","not_granted","capability_disabled","consent_required","not_declared"].includes(c)){canEdit=false;toast("이 화면에서는 저장할 수 없다.");recView()}else if(c==="rate_limited")toast("저장이 너무 잦다. 잠시 후 다시.");else toast("저장하지 못했다.")}
   finally{if($("#pub")){$("#pub").disabled=false;$("#pub").textContent="공개 기록으로 저장"}}
 }
@@ -546,12 +605,181 @@ function authorStrip(){
   $("#seeAuthor").onclick=()=>{recSrc="author"};
 }
 function about(){
-  const m={};ITEMS.forEach(x=>(x.sources||[]).forEach(s=>{if(s.url!=="report"){(m[x.module]=m[x.module]||new Map()).set(s.url,s.label)}}));
-  for(const id in LESSONS)((LESSONS[id]||{}).sources||[]).forEach(s=>{if(s.url&&s.url!=="report")(m[id]=m[id]||new Map()).set(s.url,s.label)});
-  $("#srcList").innerHTML=`<div class="sh" style="margin-bottom:12px"><span class="k">Sources</span><h2 style="font-size:22px">대조한 자료</h2></div><div class="credit">${avail.map(md=>`<div><h3><span class="dot" style="background:${col(md.id)};margin-right:6px"></span>${esc(md.name)}</h3><ul>${[...(m[md.id]||new Map()).entries()].slice(0,12).map(([u,l])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a></li>`).join("")||"<li>현대자동차 보고서 원문</li>"}</ul></div>`).join("")}</div>`;
+  const m={};ITEMS.forEach(x=>(x.sources||[]).forEach(s=>{if(!/^report/.test(s.url)){(m[x.module]=m[x.module]||new Map()).set(s.url,s.label)}}));
+  for(const id in LESSONS)((LESSONS[id]||{}).sources||[]).forEach(s=>{if(s.url&&!/^report/.test(s.url))(m[id]=m[id]||new Map()).set(s.url,s.label)});
+  relTable();
+  $("#srcList").innerHTML=`<div class="sh" style="margin-bottom:12px"><span class="k">Sources</span><h2 style="font-size:22px">대조한 자료</h2></div><div class="credit">${avail.map(md=>`<div><h3><span class="dot" style="background:${col(md.id)};margin-right:6px"></span>${esc(md.name)}</h3><ul>${[...(m[md.id]||new Map()).entries()].slice(0,12).map(([u,l])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a></li>`).join("")||"<li>보고서 원문</li>"}</ul></div>`).join("")}</div>`;
 }
+/* ---------- V3: TRACKS (취업 경로) ---------- */
+const TRACK=()=>TRACKS.find(t=>t.id===S.track)||null;
+function trackProg(T,rec){rec=rec||S.a;return T.stages.map(sg=>{const its=ITEMS.filter(x=>sg.mods.includes(x.module));const st=stat(its,rec);const lvIts=its.filter(x=>x.level===sg.lv);const lst=stat(lvIts,rec);return {n:st.n,d:st.d,o:st.o,ln:lst.n,ld:lst.d,lo:lst.o,p:st.n?st.d/st.n:0}})}
+function curStage(T,rec){const pr=trackProg(T,rec);let i=pr.findIndex(p=>p.p<.8);return i<0?pr.length-1:i}
+function nextFor(T,rec){rec=rec||S.a;const pr=trackProg(T,rec);const ci=curStage(T,rec);const sg=T.stages[ci];const list=[];
+  // 1) 현재 단계에서 덜 푼 모듈 (단계 난이도 우선)
+  sg.mods.forEach(mid=>{const m=MOD[mid];if(!m||m.missing)return;const its=items(mid);const lv=its.filter(x=>x.level===sg.lv&&!rec[x.id]);const any=its.filter(x=>!rec[x.id]);
+    if(lv.length)list.push({m,lv:sg.lv,why:`${ci+1}단계 · ${LV[sg.lv]} ${lv.length}문항 남음`,score:1-lv.length/Math.max(its.length,1)});
+    else if(any.length)list.push({m,lv:0,why:`${ci+1}단계 · 남은 ${any.length}문항`,score:1.5})});
+  // 2) 경로 안 약한 모듈 (3문항 이상 풀고 정답률 60% 미만)
+  const inTrack=new Set(T.stages.flatMap(s=>s.mods));
+  avail.filter(m=>inTrack.has(m.id)).forEach(m=>{const st=stat(items(m.id),rec);if(st.d>=3&&st.o/st.d<.6&&!list.some(l=>l.m.id===m.id))list.push({m,lv:0,why:`약한 모듈 · 정답률 ${Math.round(st.o/st.d*100)}%`,score:2+st.o/st.d})});
+  // 3) 다음 단계 미리보기
+  if(!list.length&&T.stages[ci+1])T.stages[ci+1].mods.forEach(mid=>{if(MOD[mid]&&!MOD[mid].missing)list.push({m:MOD[mid],lv:T.stages[ci+1].lv,why:`${ci+2}단계 시작`,score:3})});
+  list.sort((a,b)=>a.score-b.score);return {ci,sg,pr,list}}
+function pickTrack(id){S.track=id;save();toast(`내 경로를 '${TRACKS.find(t=>t.id===id).name}'로 정했다`)}
+function jobCard(T,i,big){const pr=trackProg(T);const done=pr.reduce((a,p)=>a+p.d,0),tot=pr.reduce((a,p)=>a+p.n,0);const on=S.track===T.id;
+  return `<div class="job ${on?"on":""} rv d${i}" style="--c:var(--m-${T.color})"><span class="en">${esc(T.en)}</span><h3>${esc(T.name)}</h3><p class="who">${esc(T.who)}</p><p>${esc(T.desc)}</p>
+  <div class="stg-dots">${T.stages.map((sg,k)=>`<span title="${esc(sg.name)}" class="${pr[k].p>=.8?"done":pr[k].d?"part":""}"></span>`).join("")}<small>${T.stages.length}단계 · ${tot}문항 · ${done} 풀이</small></div>
+  <div class="actions"><button class="btn sm ${on?"":"line"}" type="button" data-t="${T.id}">${on?"내 경로 ✓":"이 경로로"}</button>${on?`<a class="btn sm line" href="#path">단계 보기 →</a>`:""}</div></div>`}
+function jobs(){$("#jobs").innerHTML=TRACKS.map((T,i)=>jobCard(T,i)).join("");document.querySelectorAll("#jobs button[data-t]").forEach(b=>b.onclick=()=>{pickTrack(b.dataset.t);jobs();reveal()})}
+function pathView(){
+  const box=$("#pathBox");const T=TRACK();
+  let h=`<div class="jobs" style="margin-bottom:28px">${TRACKS.map((t,i)=>jobCard(t,i)).join("")}</div>`;
+  if(T){const {ci,pr,list}=nextFor(T);const nx=list[0];
+    h+=`<div class="pathhead"><div><span class="k" style="font-family:var(--mono);font-size:12px;color:var(--muted)">WHY THIS ORDER</span><p>${esc(T.why)}</p><p class="jobs-list">맞는 직무 · ${T.jobs.map(j=>`<span>${esc(j)}</span>`).join("")}</p></div>
+    ${nx?`<div class="nowcard"><span class="k">지금 할 것</span><b><span class="dot" style="background:${col(nx.m.id)}"></span>${esc(nx.m.name)}${nx.lv?` · ${LV[nx.lv]}`:""}</b><span>${esc(nx.why)}</span><div class="actions"><button class="btn sm" type="button" id="goNow">이 문제부터 →</button>${LESSONS[nx.m.id]?`<a class="btn sm line" href="#lesson-${nx.m.id}">입문 글 먼저</a>`:""}${dueList().length?`<a class="btn sm line" href="#review">복습 ${dueList().length}개 대기</a>`:""}</div></div>`:`<div class="nowcard"><span class="k">지금 할 것</span><b>이 경로의 문항을 모두 풀었다</b><span>모의시험으로 굳히거나 다른 경로의 빈 곳을 채우자.</span></div>`}</div>
+    <ol class="stepper">${T.stages.map((sg,i)=>{const p=pr[i];const cls=i<ci?"done":i===ci?"cur":"";
+      return `<li class="${cls}"><div class="num">${i+1}</div><div class="body"><div class="h"><h3>${esc(sg.name)}</h3><span class="tag l${sg.lv}">${LV[sg.lv]} 중심</span><span class="prog mono">${p.d}/${p.n} · ${Math.round(p.p*100)}%</span></div><p class="goal">${esc(sg.goal)}</p>
+      <div class="mods">${sg.mods.map(mid=>{const m=MOD[mid];if(!m)return "";const its=items(mid),st=stat(its);const lvn=its.filter(x=>x.level===sg.lv).length,lvd=its.filter(x=>x.level===sg.lv&&S.a[x.id]).length;
+        return `<a class="pm ${m.missing?"soon":""}" href="#practice-${mid}" data-lv="${sg.lv}"><span class="dot" style="background:${col(mid)}"></span><span class="n">${esc(m.name)}</span><span class="s mono">${m.missing?"준비 중":`${LV[sg.lv]} ${lvd}/${lvn} · 전체 ${st.d}/${st.n}`}</span><span class="bar"><i style="width:${st.n?st.d/st.n*100:0}%"></i></span></a>`}).join("")}</div></div></li>`}).join("")}</ol>
+    <p class="hint" style="margin-top:14px">단계 완료 기준은 그 단계 모듈 문항의 80%를 한 번이라도 푼 것이다. 정답률은 <a href="#record">내 기록</a>에서 본다. 경로는 언제든 바꿀 수 있고 기록은 그대로 남는다.</p>`;
+  }else h+=`<div class="empty">위에서 지원하는 직무에 가까운 경로를 고르자. 애매하면 '통합 흐름'으로 시작해도 된다. 경로를 바꿔도 기록은 사라지지 않는다.</div>`;
+  box.innerHTML=h;
+  document.querySelectorAll("#pathBox button[data-t]").forEach(b=>b.onclick=()=>{pickTrack(b.dataset.t);pathView();window.scrollTo({top:$("#pathBox").getBoundingClientRect().top+scrollY-60,behavior:"smooth"})});
+  const g=$("#goNow");if(g)g.onclick=()=>{const {list}=nextFor(T);const nx=list[0];if(!nx)return;mod=nx.m.id;flv=nx.lv;cur[mod]=0;draft={};go("practice")};
+  document.querySelectorAll("#pathBox .pm").forEach(a=>a.onclick=e=>{e.preventDefault();const mid=a.getAttribute("href").slice(10);if(MOD[mid].missing)return;mod=mid;flv=+a.dataset.lv;cur[mod]=0;draft={};go("practice")});
+  reveal();
+}
+
+/* ---------- V3: ERROR TYPES / WRITTEN WORK / EXPORT ---------- */
+function errPanel(rec,all){const wrong=all.filter(x=>!rec[x.id].ok&&!rec[x.id].gave);const cnt={};wrong.forEach(x=>{const e=rec[x.id].err;if(e)cnt[e]=(cnt[e]||0)+1});const tagged=Object.values(cnt).reduce((a,b)=>a+b,0);
+  if(!wrong.length)return `<p class="hint">틀린 문제가 아직 없다.</p>`;
+  const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1])[0];
+  const ADV={std:"기준 자체가 약하다. 해당 모듈의 입문 글을 다시 읽고 입문 난이도부터 올라가자.",find:"기준은 아는데 보고서에서 위치를 못 찾는다. '어디를 볼까' 힌트를 가리고 색인표부터 찾는 연습을 하자.",judge:"찾고도 판단이 흔들린다. 요구사항을 하위 항목으로 쪼개 하나씩 '있다/없다'를 표시한 뒤 판정하자.",calc:"계산·단위 실수다. 풀이 단계를 먼저 쓰고 숫자를 넣자. 지역기반·시장기반, t와 kt를 특히 조심.",read:"문제를 급하게 읽는다. 질문의 '모두', '각각', '비율'같은 말을 표시하고 다시 읽자."};
+  return `<div class="errbars">${ERRS.map(([k,l])=>`<div><span class="n">${l}</span><span class="t"><i style="width:${tagged?(cnt[k]||0)/tagged*100:0}%"></i></span><span class="v mono">${cnt[k]||0}</span></div>`).join("")}</div>
+  <p style="font-size:13.5px;color:var(--ink2);margin-top:10px">${tagged?`${wrong.length}문항 중 ${tagged}개에 이유를 붙였다. 가장 많은 건 <b>'${ERRS.find(e=>e[0]===top[0])[1]}'</b>. ${ADV[top[0]]}`:`틀린 ${wrong.length}문항에 아직 이유를 안 붙였다. 연습·복습에서 틀린 뒤 '왜 틀렸나'를 고르면 여기 쌓인다.`}</p>`}
+function writtenPanel(rec){const cs=Object.entries(S.cases||{}).filter(([k,v])=>v.t4||v.t5);const rx=Object.entries(S.rx||{}).filter(([k,v])=>v.rx||v.draft);
+  if(!cs.length&&!rx.length)return `<p class="hint">아직 쓴 글이 없다. <a href="#cases">케이스 스터디</a>에서 근거와 개선안을, <a href="#compare">기업 비교</a>에서 처방을 쓰면 여기 모인다.</p>`;
+  return `<div class="kpi2"><div><b>${cs.length}</b><span>케이스 · 근거/개선안</span></div><div><b>${rx.length}</b><span>비교 · 처방/문안</span></div></div><div class="notes">${cs.slice(-3).reverse().map(([k,v])=>{const x=ITEMS.find(y=>"case-"+y.id===k);if(!x)return "";return `<div class="note"><div class="h"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(coOf(x).short)}</span><span class="tag ref">${esc(x.ref)}</span><span class="tag">${v.score!==undefined?v.score+"/8점":"진행 중"}</span></div><p><b>${esc(x.topic)}</b> · ${esc(clip(v.t5||v.t4||"",140))}</p><a href="#cases-${x.id}" style="font-size:12.5px">다시 보기 →</a></div>`}).join("")}${rx.slice(-2).reverse().map(([k,v])=>`<div class="note"><div class="h"><span class="tag">기업 비교</span><span class="tag ref">${esc(k)}</span></div><p><b>처방</b> · ${esc(clip(v.rx||v.draft||"",140))}</p><a href="#compare" style="font-size:12.5px">비교 화면 →</a></div>`).join("")}</div>`}
+async function exportRec(){const txt=JSON.stringify({app:"기후공시 연습장",version:3,exported:new Date().toISOString(),a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track},null,1);const name=`climate-drill-record-${new Date().toISOString().slice(0,10)}.json`;
+  try{if(window.claude&&claude.use){const dl=await claude.use("downloads");if(dl){await dl.save({filename:name,data:txt});toast("기록 파일을 저장했다");return}}}catch(e){if(e&&e.code!=="not_granted"&&e.code!=="cancelled")toast("저장하지 못했다");else toast("저장을 취소했다");return}
+  const blob=new Blob([txt],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast("기록 파일을 내려받는다")}
+function importRec(e){const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d||typeof d.a!=="object")throw 0;let n=0;
+  for(const k in d.a){if(!S.a[k]||(d.a[k].t||0)>(S.a[k].t||0)){S.a[k]=d.a[k];n++}}
+  (d.exams||[]).forEach(x=>{if(!S.exams.some(y=>y.t===x.t))S.exams.push(x)});S.exams.sort((a,b)=>a.t-b.t);S.exams=S.exams.slice(-20);
+  for(const k in (d.cases||{})){if(!S.cases[k]||(d.cases[k].t||0)>(S.cases[k].t||0))S.cases[k]=d.cases[k]}
+  for(const k in (d.rx||{})){if(!S.rx[k]||(d.rx[k].t||0)>(S.rx[k].t||0))S.rx[k]=d.rx[k]}
+  if(!S.track&&d.track)S.track=d.track;save();toast(`${n}문항 기록을 합쳤다`);recView()}catch(err){toast("기록 파일을 읽을 수 없다")}};rd.readAsText(f);e.target.value=""}
+
+/* ---------- V3: RELIABILITY TABLE ---------- */
+function relTable(){const order=["원문 대조","재검산","공식 자료","공식 자료·주의","2차 자료","확인 필요"];const tot={};ITEMS.forEach(x=>tot[x.verify]=(tot[x.verify]||0)+1);
+  $("#relBox").innerHTML=`<div class="sh" style="margin-bottom:12px"><span class="k">Reliability</span><h2 style="font-size:22px">문항 신뢰도 · 어떤 자료로 확인했나</h2><p>문항마다 붙은 꼬리표를 모듈별로 센 것이다. '2차 자료'와 '확인 필요'는 원문 확인이 더 필요하다는 뜻이고, 숨기지 않고 그대로 센다.</p></div>
+  <div class="relsum">${order.map(v=>`<div class="${vfClass(v)}"><b class="mono">${tot[v]||0}</b><span>${v}</span><small>${esc(VF[v])}</small></div>`).join("")}</div>
+  <div class="reltable"><table><thead><tr><th>모듈</th><th>기준 시점</th>${order.map(v=>`<th>${v}</th>`).join("")}<th>합계</th></tr></thead><tbody>${avail.map(m=>{const its=items(m.id);const c={};its.forEach(x=>c[x.verify]=(c[x.verify]||0)+1);return `<tr><th><span class="dot" style="background:${col(m.id)};margin-right:6px"></span>${esc(m.short)}</th><td class="asofc">${esc(m.asof||"")}</td>${order.map(v=>`<td class="${c[v]?vfClass(v):"z"}">${c[v]||""}</td>`).join("")}<td class="mono">${its.length}</td></tr>`}).join("")}</tbody></table></div>`}
+
+/* ---------- V3: CASE STUDY ---------- */
+let cs=null; // {x, step, s1, s2, s3, t4, c4:[], t5, c5:[]}
+const caseable=()=>ITEMS.filter(x=>x.type==="judge"&&(x.key||x.co==="kia")&&x.ans!=="해당 없음");
+function caseRefOptions(x){const pool=ITEMS.filter(y=>y.type==="judge"&&y.id!==x.id&&y.ref!==x.ref&&(y.module===x.module||MOD[y.module].g===MOD[x.module].g||y.co===x.co));const seen=new Set([x.ref]);const d=[];
+  const rnd=pool.slice().sort((a,b)=>hash(a.id+x.id)-hash(b.id+x.id));for(const y of rnd){if(seen.has(y.ref))continue;seen.add(y.ref);d.push(y.ref);if(d.length===3)break}
+  return [x.ref,...d].sort((a,b)=>hash(a+x.id)-hash(b+x.id))}
+function casePageOptions(x){let pages=(x.evidence||[]).map(Number).filter(p=>p>0);if(!pages.includes(x.page))pages=[x.page,...pages];pages=[...new Set(pages)];
+  if(pages.length<3){const others=[...new Set(ITEMS.filter(y=>y.type==="judge"&&(y.co||"hyundai")===(x.co||"hyundai")&&y.page!==x.page).map(y=>y.page))].sort((a,b)=>Math.abs(a-x.page)-Math.abs(b-x.page));for(const p of others){if(!pages.includes(p))pages.push(p);if(pages.length===3)break}}
+  return pages.slice(0,3).sort((a,b)=>a-b)}
+function hash(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h%1000}
+const stdOf=x=>/IFRS S2|문단 \d|29\(|부록 A/.test(x.ref)&&!/S1/.test(x.ref)?"IFRS S2":/S1/.test(x.ref)?"IFRS S1":/KSSB/.test(x.ref)?"KSSB 제2호":/ESRS/.test(x.ref)?"ESRS":/GRI/.test(x.ref)?"GRI":/SASB/.test(x.ref)?"SASB":/CDP|EcoVadis|평가/.test(x.ref)?"ESG 평가":/ISO|ISAE|AA1000|검증/.test(x.ref)?"검증 기준":/GHG|Scope 3/.test(x.ref)?"GHG 프로토콜":/SBTi/.test(x.ref)?"SBTi":"해당 기준";
+function casesView(id){
+  const box=$("#caseBox");const all=caseable();
+  if(id){const x=ITEMS.find(y=>y.id===id);if(x&&(!cs||cs.x.id!==id)){const saved=S.cases["case-"+id];cs=Object.assign({x,step:1,c4:[],c5:[]},saved&&saved.score!==undefined?Object.assign({},saved,{step:6}):{})}}
+  if(cs){renderCase(box);return}
+  const done=all.filter(x=>S.cases["case-"+x.id]&&S.cases["case-"+x.id].score!==undefined);
+  const byCo={};all.forEach(x=>{const c=x.co||"hyundai";(byCo[c]=byCo[c]||[]).push(x)});
+  box.innerHTML=`<div class="kpi4"><div><b>${all.length}</b><span>케이스</span></div><div><b>${done.length}</b><span>마친 케이스</span></div><div><b>${done.length?Math.round(done.reduce((a,x)=>a+S.cases["case-"+x.id].score,0)/done.length*10)/10:"–"}</b><span>평균 점수 / 8</span></div><div><b>${Object.values(S.cases).filter(v=>v.t4||v.t5).length}</b><span>쓴 근거·개선안</span></div></div>
+  <div class="caseflow">${["기준 식별","증빙 찾기","판정","근거 쓰기","개선안 쓰기"].map((n,i)=>`<span><b>${i+1}</b>${n}</span>`).join("<i></i>")}</div>
+  ${Object.entries(byCo).map(([c,list])=>`<h3 class="cohead"><span class="dot" style="background:var(--m-${c==="kia"?"kssb":"ifrs"})"></span>${esc(COMPANIES[c]?COMPANIES[c].name:c)} · ${list.length}케이스</h3><div class="cases">${list.map(x=>{const v=S.cases["case-"+x.id];return `<a class="case ${v&&v.score!==undefined?"done":v?"part":""}" href="#cases-${x.id}"><div class="h"><span class="tag ref">${esc(x.ref)}</span><span class="tag l${x.level}">${LV[x.level]}</span>${v&&v.score!==undefined?`<span class="tag sc">${v.score}/8</span>`:v?`<span class="tag">진행 중</span>`:""}</div><b>${esc(x.topic)}</b><span class="s">${esc(stdOf(x))} 기준으로 ${esc(coOf(x).short)} 보고서를 검토</span></a>`}).join("")}</div>`).join("")}`;
+}
+function renderCase(box){
+  const x=cs.x,co=coOf(x);const st=cs.step;
+  const head=`<div class="exam-bar"><span>케이스 · ${esc(co.name)} · ${esc(x.topic)}</span><div class="pb"><i style="width:${Math.min(st-1,5)/5*100}%"></i></div><span class="mono">${Math.min(st,5)} / 5</span><a class="btn line sm" href="#cases" id="csQuit">목록으로</a></div>`;
+  const brief=`<div class="brief"><span class="k">컨설팅 요청</span><p>${esc(co.name)}가 ${esc(stdOf(x))}에 맞춰 <b>${esc(x.topic)}</b> 공시가 충분한지 검토해 달라고 한다. 보고서는 ${esc(co.report)}, ${co.pages?co.pages+"쪽":""}이다.</p></div>`;
+  let body="";
+  const stepH=(n,t,d)=>`<div class="stephead"><b>${n}</b><div><h3>${t}</h3><p>${d}</p></div></div>`;
+  if(st===1){const opts=caseRefOptions(x);
+    body=stepH(1,"어느 요구사항이 적용되나","판정 기준을 먼저 정한다. 기준을 모르면 보고서를 아무리 읽어도 판정할 수 없다.")+`<div class="opts">${opts.map((o,k)=>`<button type="button" data-k="${k}" aria-pressed="${cs.p1===o}"><span class="l">${"ABCD"[k]}</span><span>${esc(o)}</span></button>`).join("")}</div><div class="actions"><button class="btn" type="button" id="csNext" ${cs.p1===undefined?"disabled":""}>확정</button></div>`;
+  }else if(st===2){const pages=casePageOptions(x);
+    body=stepH(2,"증빙은 어디에 있나","세 쪽 중 요구사항의 증빙이 있는 쪽을 고른다. 링크를 눌러 실제로 열어 보자. 힌트: "+esc(x.look||""))+`<div class="pages">${pages.map(p=>`<div class="pg ${cs.p2===p?"on":""}"><button type="button" data-p="${p}" aria-pressed="${cs.p2===p}">${p}쪽</button><a href="${pdfOf(x)}#page=${p}" target="_blank" rel="noopener">열기 ↗</a></div>`).join("")}</div><div class="actions"><button class="btn" type="button" id="csNext" ${cs.p2===undefined?"disabled":""}>확정</button></div>`;
+  }else if(st===3){
+    body=stepH(3,"충족했나","이제 질문을 정확히 읽고 판정한다.")+`<h2 class="q" style="font-size:19px">${esc(x.q)}</h2><div class="choice" role="group"><div class="choice ${x.co==="kia"?"c4":""}">${[["있음","요구한 내용이 다 있음"],["일부","일부 요소가 빠짐"],["없음","찾을 수 없음"]].concat(x.co==="kia"?[["해당 없음","이 기준을 따르지 않음"]]:[]).map(([v,d])=>`<button type="button" data-v="${v}" aria-pressed="${cs.p3===v}">${v}<small>${d}</small></button>`).join("")}</div></div><div class="actions"><button class="btn" type="button" id="csNext" ${cs.p3===undefined?"disabled":""}>확정</button></div>`;
+  }else if(st===4){const ok1=cs.s1,ok2=cs.s2,ok3=cs.s3;
+    body=`<div class="autog">${[["기준 식별",ok1,x.ref],["증빙 쪽",ok2,x.page+"쪽"],["판정",ok3,x.ans]].map(([n,o,a])=>`<div class="${o?"ok":"bad"}"><b>${o?"✓":"✕"} ${n}</b><span>정답 ${esc(a)}</span></div>`).join("")}</div>`
+    +stepH(4,"근거를 글로 쓴다","컨설턴트의 산출물은 판정이 아니라 근거다. 조항, 보고서 쪽과 문장, 빠진(또는 충족한) 요소를 담아 3~5문장으로 쓴다. 쓰기 전에는 모범 답안이 열리지 않는다.")
+    +`<textarea id="t4" class="big" placeholder="예: IFRS S2 문단 29(a)(i)는 Scope 1·2·3 총배출량을 각각 절대량으로 요구한다. 보고서 38쪽 표에 … 있으나 …가 빠져 있어 '일부'로 판정한다.">${esc(cs.t4||"")}</textarea><div class="actions"><span class="hint" id="cnt4">${(cs.t4||"").length}자 · 40자 이상</span><button class="btn" type="button" id="csNext" ${(cs.t4||"").length<40?"disabled":""}>모범 답안과 비교</button></div>`;
+  }else if(st===5){const C4=["적용 조항(문단 번호)을 인용했다","보고서의 쪽과 문장을 짚었다","빠진 요소 또는 충족한 요소를 구체적으로 썼다"];
+    body=`<div class="cmp2"><div><h4>내 근거</h4><p>${esc(cs.t4)}</p></div><div><h4>모범 답안 (비교용)</h4>${x.quote?`<blockquote>${esc(x.quote)}<cite>${esc(repLabel(x))} ${x.page}쪽</cite></blockquote>`:""}<p>${esc(x.why)}</p>${x.trap?`<p class="trapline">함정 · ${esc(x.trap)}</p>`:""}</div></div>
+    <div class="selfchk"><h4>스스로 채점 · 내 근거에 들어 있나</h4>${C4.map((c,i)=>`<label><input type="checkbox" data-i="${i}" ${cs.c4.includes(i)?"checked":""}> ${c}</label>`).join("")}</div>`
+    +stepH(5,"개선안을 쓴다","고객에게 보낼 한 단락. 무엇을, 어디에, 어떤 형태로 추가하면 충족되는지 실행 가능하게. 판정이 '있음'이면 더 잘 쓰는 법(비교가능성·검증 대비)을 쓴다.")
+    +`<textarea id="t5" class="big" placeholder="예: 다음 보고서에서 Scope 1·2·3 총배출량 표에 … 열을 추가하고, 산정 방법 각주에 …를 명시할 것을 권고한다.">${esc(cs.t5||"")}</textarea><div class="actions"><span class="hint" id="cnt5">${(cs.t5||"").length}자 · 40자 이상</span><button class="btn" type="button" id="csNext" ${(cs.t5||"").length<40?"disabled":""}>마치고 점수 보기</button></div>`;
+  }else{const v=S.cases["case-"+x.id]||cs;const C5=["기준 조항을 근거로 썼다","실행 가능한 다음 행동이 있다"];
+    body=`<div class="result"><div><b>${v.score}/8</b><span>이 케이스 점수</span></div><div><b>${[v.s1,v.s2,v.s3].filter(Boolean).length}/3</b><span>식별·증빙·판정</span></div><div><b>${(v.c4||[]).length+(v.c5||[]).length}/5</b><span>근거·개선안 자기 점검</span></div></div>
+    <div class="cmp2" style="margin-top:18px"><div><h4>내 근거</h4><p>${esc(v.t4||"")}</p><h4 style="margin-top:14px">내 개선안</h4><p>${esc(v.t5||"")}</p></div><div><h4>참고 · 모범 근거</h4>${x.quote?`<blockquote>${esc(x.quote)}<cite>${esc(repLabel(x))} ${x.page}쪽</cite></blockquote>`:""}<p>${esc(x.why)}</p><h4 style="margin-top:14px">참고 · 개선안 예시</h4><p>${esc(x.fix||("함정을 피하는 방향으로 쓴다 · "+(x.trap||x.why)))}</p>${x.co!=="kia"?`<p class="hint">현대차 케이스의 개선안 예시는 해설의 함정 설명을 바탕으로 한 참고 문장이다.</p>`:""}</div></div>
+    <div class="selfchk"><h4>개선안 자기 점검</h4>${C5.map((c,i)=>`<label><input type="checkbox" data-j="${i}" ${(v.c5||[]).includes(i)?"checked":""}> ${c}</label>`).join("")}</div>
+    <div class="actions" style="margin-top:16px"><button class="btn line sm" type="button" id="csRedo">다시 하기</button><a class="btn sm" href="#cases">다음 케이스 →</a>${x.key?`<a class="btn line sm" href="#compare">기업 비교에서 이 항목 보기</a>`:""}</div>`;
+  }
+  box.innerHTML=head+brief+`<div class="card casecard">${body}</div>`;
+  $("#csQuit").onclick=()=>{cs=null};
+  document.querySelectorAll(".casecard .opts button").forEach(b=>b.onclick=()=>{cs.p1=caseRefOptions(x)[+b.dataset.k];renderCase(box)});
+  document.querySelectorAll(".casecard .pg button").forEach(b=>b.onclick=()=>{cs.p2=+b.dataset.p;renderCase(box)});
+  document.querySelectorAll(".casecard .choice button").forEach(b=>b.onclick=()=>{cs.p3=b.dataset.v;renderCase(box)});
+  const t4=$("#t4");if(t4)t4.oninput=()=>{cs.t4=t4.value;$("#cnt4").textContent=t4.value.length+"자 · 40자 이상";$("#csNext").disabled=t4.value.trim().length<40;persistCase()};
+  const t5=$("#t5");if(t5)t5.oninput=()=>{cs.t5=t5.value;$("#cnt5").textContent=t5.value.length+"자 · 40자 이상";$("#csNext").disabled=t5.value.trim().length<40;persistCase()};
+  document.querySelectorAll(".selfchk input[data-i]").forEach(c=>c.onchange=()=>{const i=+c.dataset.i;cs.c4=c.checked?[...new Set([...cs.c4,i])]:cs.c4.filter(k=>k!==i);persistCase()});
+  document.querySelectorAll(".selfchk input[data-j]").forEach(c=>c.onchange=()=>{const i=+c.dataset.j;const v=S.cases["case-"+x.id];v.c5=c.checked?[...new Set([...(v.c5||[]),i])]:(v.c5||[]).filter(k=>k!==i);v.score=[v.s1,v.s2,v.s3].filter(Boolean).length+(v.c4||[]).length+v.c5.length;v.t=Date.now();save();renderCase(box)});
+  const nx=$("#csNext");if(nx)nx.onclick=()=>{
+    if(st===1){cs.s1=cs.p1===x.ref}else if(st===2){cs.s2=cs.p2===x.page}else if(st===3){cs.s3=cs.p3===x.ans;if(!S.a[x.id])record(x,{pick:cs.p3,ok:cs.s3,note:"(케이스 스터디)"})}
+    else if(st===5){const v=Object.assign({},cs);delete v.x;delete v.step;v.c5=v.c5||[];v.score=[v.s1,v.s2,v.s3].filter(Boolean).length+v.c4.length+v.c5.length;v.t=Date.now();S.cases["case-"+x.id]=v;save();cs.step=6;renderCase(box);window.scrollTo(0,0);return}
+    cs.step++;persistCase();renderCase(box);window.scrollTo({top:$("#caseBox").getBoundingClientRect().top+scrollY-70,behavior:"smooth"})};
+  const rd=$("#csRedo");if(rd)rd.onclick=()=>{delete S.cases["case-"+x.id];save();cs={x,step:1,c4:[],c5:[]};renderCase(box)};
+}
+function persistCase(){if(!cs||cs.step>5)return;const v=Object.assign({},cs);delete v.x;v.t=Date.now();S.cases["case-"+cs.x.id]=v;save()}
+
+/* ---------- V3: COMPANY COMPARE ---------- */
+let cmpF="all",cmpOpen=null;
+const HY_PROFILE={scope1:720642,scope2_loc:1858897,scope2_mkt:1190442,scope3:199704253,cat11:157799559,unit:"tCO2e",year:"FY2025",targets:"Scope 1+2 2030년 −42% (2019 기준) · 판매 차량 사용(Cat.11) 2035년 −63% · 2045 탄소중립 · SBTi 검증",assurance:"국내 Scope 1·2 합리적 보증(DNV, 중요성 2.5%) · 해외·Scope 3 제한적 보증(LRQA, 5%)",icp:"USD 7~84/t (지역·시점별, p.41)",src:{scope1:38,scope2_loc:38,scope2_mkt:38,scope3:38,cat11:38,targets:40,assurance:157,icp:41}};
+function cmpView(){
+  const box=$("#cmpBox");const K=COMPANIES.kia;
+  if(!K){box.innerHTML=`<div class="empty">기아 회사 팩이 아직 없다. 현대차 판정은 <a href="#practice-ifrs">연습</a>에 있다.</div>`;return}
+  const hy=x=>ITEMS.find(y=>y.key===x&&(y.co||"hyundai")==="hyundai"),ki=x=>ITEMS.find(y=>y.key===x&&y.co==="kia");
+  const keys=[...new Set([...ITEMS.filter(x=>x.co==="kia"&&x.type==="judge"&&x.key).map(x=>x.key),...ITEMS.filter(x=>x.key&&(x.co||"hyundai")==="hyundai"&&x.type==="judge").map(x=>x.key)])];
+  const rows=keys.map(k=>({k,h:hy(k),a:ki(k)})).filter(r=>r.h||r.a);
+  const both=rows.filter(r=>r.h&&r.a);const differ=both.filter(r=>r.h.ans!==r.a.ans);
+  const cnt=(list,who,v)=>list.filter(r=>r[who]&&r[who].ans===v).length;
+  const P=K.profile||{},num=v=>typeof v==="number"?v:parseFloat(String(v||"").replace(/[^0-9.]/g,""))||0;
+  const bars=[["Scope 1",HY_PROFILE.scope1,num(P.scope1)],["Scope 2 (시장기반)",HY_PROFILE.scope2_mkt,num(P.scope2_mkt||P.scope2)],["Scope 2 (지역기반)",HY_PROFILE.scope2_loc,num(P.scope2_loc)],["Scope 3",HY_PROFILE.scope3,num(P.scope3)]];
+  const pg=(c,f)=>{const s=(c==="hyundai"?HY_PROFILE.src:(P.src||{}))[f];return s?`<a href="${COMPANIES[c].pdf}#page=${s}" target="_blank" rel="noopener" class="pgl">p.${s}</a>`:""};
+  let h=`<div class="cohead2"><div><span class="dot" style="background:var(--m-ifrs)"></span><b>현대자동차</b><span>${esc(COMPANIES.hyundai.report)}</span></div><div><span class="dot" style="background:var(--m-kssb)"></span><b>${esc(K.name)}</b><span>${esc(K.report||"")}${K.framework?" · "+esc(K.framework):""}</span></div></div>
+  <div class="rgrid" style="margin-bottom:22px">
+   <div class="panel"><h3>배출량 나란히 (tCO₂e, FY2025)</h3><p class="sub">막대는 두 회사 중 큰 값을 100으로 놓은 상대 길이. 숫자 옆 쪽 번호를 눌러 원문을 연다.</p><div class="cbars">${bars.map(([n,a,b])=>{const mx=Math.max(a,b,1);return `<div class="cb"><span class="n">${n}</span><div class="pair"><div><i style="width:${a/mx*100}%;background:var(--m-ifrs)"></i><span class="mono">${a?fmt(a,0):"–"} ${pg("hyundai",n.startsWith("Scope 1")?"scope1":n.includes("시장")?"scope2_mkt":n.includes("지역")?"scope2_loc":"scope3")}</span></div><div><i style="width:${b/mx*100}%;background:var(--m-kssb)"></i><span class="mono">${b?fmt(b,0):"–"} ${pg("kia",n.startsWith("Scope 1")?"scope1":n.includes("시장")?"scope2_mkt":n.includes("지역")?"scope2_loc":"scope3")}</span></div></div></div>`}).join("")}</div></div>
+   <div class="panel"><h3>목표 · 보증 · 내부탄소가격</h3><div class="ptable"><div><span></span><b style="color:var(--m-ifrs)">현대차</b><b style="color:var(--m-kssb)">기아</b></div>${[["목표","targets"],["보증","assurance"],["내부탄소가격","icp"]].map(([n,f])=>`<div><span>${n}</span><p>${esc(HY_PROFILE[f])} ${pg("hyundai",f)}</p><p>${esc(P[f]||"보고서에서 확인 못 함")} ${pg("kia",f)}</p></div>`).join("")}</div></div>
+  </div>
+  <div class="kpi4" style="grid-template-columns:repeat(5,minmax(0,1fr))"><div><b>${both.length}</b><span>같은 질문을 던진 항목</span></div><div><b>${differ.length}</b><span>판정이 다른 항목</span></div><div><b style="color:var(--m-ifrs)">${cnt(both,"h","있음")}·${cnt(both,"h","일부")}·${cnt(both,"h","없음")}</b><span>현대차 있음·일부·없음</span></div><div><b style="color:var(--m-kssb)">${cnt(both,"a","있음")}·${cnt(both,"a","일부")}·${cnt(both,"a","없음")}</b><span>기아 있음·일부·없음${cnt(both,"a","해당 없음")?" (+해당 없음 "+cnt(both,"a","해당 없음")+")":""}</span></div><div><b>${Object.values(S.rx).filter(v=>v.rx||v.draft).length}</b><span>내가 쓴 처방</span></div></div>
+  ${K.notes?`<div class="diff" style="margin-bottom:18px"><b>기아 보고서 한 줄 평</b>${esc(K.notes)}</div>`:""}
+  <div class="az" style="margin:0 0 10px"><button type="button" data-f="all" aria-pressed="${cmpF==="all"}">전체 ${rows.length}</button><button type="button" data-f="diff" aria-pressed="${cmpF==="diff"}">판정이 다른 것 ${differ.length}</button><button type="button" data-f="both" aria-pressed="${cmpF==="both"}">둘 다 판정한 것 ${both.length}</button><button type="button" data-f="rx" aria-pressed="${cmpF==="rx"}">처방을 쓴 것</button></div>
+  <div class="cmptable"><div class="cmprow head"><span>항목 · 기준</span><span>현대차</span><span>기아</span><span></span></div>
+  ${rows.filter(r=>cmpF==="all"||(cmpF==="diff"&&r.h&&r.a&&r.h.ans!==r.a.ans)||(cmpF==="both"&&r.h&&r.a)||(cmpF==="rx"&&S.rx[r.k]&&(S.rx[r.k].rx||S.rx[r.k].draft))).map(r=>{const x=r.h||r.a;const open=cmpOpen===r.k;const rx=S.rx[r.k]||{};
+    const pill=y=>y?`<span class="pill p-${({"있음":"ok","일부":"part","없음":"no","해당 없음":"na"})[y.ans]}" title="${esc(y.ans)}">${esc(y.ans)}</span>`:`<span class="pill p-none">질문 없음</span>`;
+    return `<div class="cmprow ${open?"open":""} ${r.h&&r.a&&r.h.ans!==r.a.ans?"differ":""}" data-k="${r.k}"><button type="button" class="hd"><span><b>${esc(x.topic)}</b><small>${esc(x.ref)}${rx.rx||rx.draft?" · ✎ 처방 있음":""}</small></span>${pill(r.h)}${pill(r.a)}<span class="chev">${open?"▲":"▼"}</span></button>
+    ${open?`<div class="detail"><div class="two">${[["hyundai",r.h],["kia",r.a]].map(([c,y])=>`<div><h4><span class="dot" style="background:var(--m-${c==="kia"?"kssb":"ifrs"})"></span>${esc(COMPANIES[c].short)}${y?` · ${esc(y.ans)} · <a href="${COMPANIES[c].pdf}#page=${y.page}" target="_blank" rel="noopener">${y.page}쪽 ↗</a>`:""}</h4>${y?`<p class="qq">${esc(y.q)}</p>${y.quote?`<blockquote>${esc(y.quote)}</blockquote>`:""}<p>${esc(y.why)}</p>${y.fix?`<p class="fixline">개선안 예시 · ${esc(y.fix)}</p>`:""}${S.a[y.id]?`<p class="hint">내 판정 ${esc(S.a[y.id].pick||"")} ${S.a[y.id].ok?"✓":"✕"}</p>`:`<a href="#" class="hint" data-jump="${y.id}">이 문제 직접 풀기 →</a>`}`:`<p class="hint">이 보고서에는 같은 질문을 아직 던지지 않았다.</p>`}</div>`).join("")}</div>
+    <div class="rxbox"><label>내 처방 · 두 보고서를 비교해 보고, 컨설턴트로서 ${r.a&&r.h&&r.h.ans!==r.a.ans?"뒤처진 쪽에":"두 회사에"} 무엇을 권고할지 3~5문장<textarea data-rx="${r.k}" placeholder="예: 기아는 … 쪽에 …를 공시했으나 현대차와 달리 …가 없다. IFRS S2 문단 …에 따라 …를 추가하고, …로 비교가능성을 높일 것을 권고한다.">${esc(rx.rx||"")}</textarea></label><label>공시 문안 초안 · 권고가 반영된 뒤 보고서에 실릴 문장을 직접 써 본다<textarea data-draft="${r.k}" placeholder="예: 당사는 FY2025 Scope 2 배출량을 지역기반 …t, 시장기반 …t으로 산정하였으며, 시장기반 산정에는 …를 적용하였다.">${esc(rx.draft||"")}</textarea></label><span class="hint">입력하는 대로 이 브라우저에 저장된다. 내 기록 → '내가 쓴 글'에 모인다.</span></div></div>`:""}</div>`}).join("")}</div>
+  <p class="hint" style="margin-top:14px">'해당 없음'은 그 기준을 회사가 따르지 않아 질문이 성립하지 않는 경우다. 두 회사 판정은 모두 AI가 원문을 대조한 해석이며, 네 판정과 처방이 그 위에 쌓인다.</p>`;
+  box.innerHTML=h;
+  document.querySelectorAll("#cmpBox .az button").forEach(b=>b.onclick=()=>{cmpF=b.dataset.f;cmpView()});
+  document.querySelectorAll("#cmpBox .cmprow .hd").forEach(b=>b.onclick=()=>{const k=b.parentElement.dataset.k;cmpOpen=cmpOpen===k?null:k;cmpView();if(cmpOpen){const el=document.querySelector(`.cmprow[data-k="${k}"]`);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})}});
+  document.querySelectorAll("#cmpBox textarea[data-rx]").forEach(t=>t.oninput=()=>{S.rx[t.dataset.rx]=Object.assign({},S.rx[t.dataset.rx],{rx:t.value,t:Date.now()});save()});
+  document.querySelectorAll("#cmpBox textarea[data-draft]").forEach(t=>t.oninput=()=>{S.rx[t.dataset.draft]=Object.assign({},S.rx[t.dataset.draft],{draft:t.value,t:Date.now()});save()});
+  document.querySelectorAll("#cmpBox a[data-jump]").forEach(a=>a.onclick=e=>{e.preventDefault();jumpTo(a.dataset.jump)});
+}
+
 /* ---------- ROUTER ---------- */
-const VIEWS=["home","learn","lesson","practice","review","exam","map","glossary","record","about"];
+const VIEWS=["home","path","learn","lesson","practice","review","exam","cases","compare","map","glossary","record","about"];
 function go(v){if(location.hash!=="#"+v)location.hash=v;else route()}
 function route(){
   const h=(location.hash||"").slice(1);const dash=h.indexOf("-");const base=dash>0?h.slice(0,dash):h;const rest=dash>0?h.slice(dash+1):"";
@@ -560,11 +788,13 @@ function route(){
   if(view==="lesson"&&!MOD[sub])view="learn";
   VIEWS.forEach(k=>$("#v-"+k).hidden=k!==view);
   document.querySelectorAll(".nav nav a").forEach(a=>a.setAttribute("aria-current",a.dataset.v===view||(view==="lesson"&&a.dataset.v==="learn")?"page":"false"));
-  if(view==="home"){heroStats();tracks();twist();drawPrism();spectrum();clock();authorStrip()}
+  if(view==="home"){heroStats();jobs();tracks();twist();drawPrism();spectrum();clock();authorStrip()}
+  if(view==="path")pathView();if(view==="cases")casesView(sub);if(view==="compare")cmpView();
   if(view==="learn")learn();if(view==="lesson")lesson(sub);if(view==="practice")renderPractice();if(view==="review"){rv=null;draft={};reviewView()}
   if(view==="exam")examView();if(view==="map")mapView();if(view==="glossary")glossary();if(view==="record")recView();if(view==="about")about();
   requestAnimationFrame(reveal);window.scrollTo(0,0);
 }
+$("#builtAt").textContent="빌드 "+BUILT;
 addEventListener("hashchange",route);route();
 (async function(){
   try{const r=await fetch("data/record.json",{cache:"no-store"});if(r.ok){author=await r.json();if(view==="home")authorStrip();if(view==="record")recView()}}catch(e){}
