@@ -7,7 +7,7 @@
 <header class="nav"><div class="wrap">
   <a class="brand" href="#home"><i aria-hidden="true"><b style="background:var(--m-ifrs)"></b><b style="background:var(--m-kssb)"></b><b style="background:var(--m-esrs)"></b><b style="background:var(--m-gri-sasb)"></b></i><span>기후공시 연습장</span></a>
   <nav aria-label="메뉴">
-    <a href="#home" data-v="home">홈</a><a href="#path" data-v="path">내 경로</a><a href="#learn" data-v="learn">배우기</a><a href="#practice" data-v="practice">연습</a><a href="#review" data-v="review">복습</a><a href="#exam" data-v="exam">모의시험</a><a href="#cases" data-v="cases">케이스</a><a href="#compare" data-v="compare">기업 비교</a><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어</a><a href="#record" data-v="record">내 기록</a><a href="#about" data-v="about">만든 방법</a>
+    <a href="#home" data-v="home">홈</a><a href="#cases" data-v="cases">케이스</a><a href="#compare" data-v="compare">기업 비교</a><a href="#practice" data-v="practice">판정 연습</a><a href="#path" data-v="path">내 경로</a><a href="#review" data-v="review">복습</a><a href="#exam" data-v="exam">모의시험</a><a href="#portfolio" data-v="portfolio">포트폴리오</a><a href="#learn" data-v="learn">모듈</a><a href="#map" data-v="map">기준 지도</a><a href="#glossary" data-v="glossary">용어</a><a href="#record" data-v="record">내 기록</a><a href="#about" data-v="about">만든 방법</a>
   </nav>
   <button class="tog" id="tog" type="button" aria-label="밝게/어둡게 바꾸기" title="밝게/어둡게"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.4A7 7 0 0 1 12 3z"/></svg></button>
 </div></header>
@@ -19,9 +19,9 @@
     <div class="wrap">
       <div>
         <div class="eyebrow" id="heroEyebrow">기후공시 전 영역 · 모듈 · 원문과 공식 자료로 대조</div>
-        <h1>어떤 기후공시<br>문제가 나와도<br><em>풀 수 있게</em></h1>
-        <p class="lead">IFRS S2·KSSB·ESRS·GRI부터 GHG 프로토콜, 배출권거래제, 검증, 시나리오, LCA, 탄소시장까지. 지원하는 직무에 맞는 경로를 고르고, 실제 보고서 두 권을 열어 판정하고, 근거와 개선안을 직접 쓴다.</p>
-        <div class="cta"><a class="btn" href="#path">내 경로 고르기 →</a><a class="btn line" href="#cases">케이스 스터디</a></div>
+        <h1>보고서를 열고<br>기준에 대고<br><em>판정하고 쓴다</em></h1>
+        <p class="lead">컨설턴트가 하는 일 그대로다. 현대자동차·기아의 실제 보고서를 IFRS S2·KSSB·ESRS·GRI에 대고 '있는지, 충분한지' 판정하고, 숫자를 다시 계산하고, 근거와 개선안을 글로 쓴다. 외우는 문제는 뺐다.</p>
+        <div class="cta"><a class="btn" href="#cases">케이스 스터디 시작 →</a><a class="btn line" href="#compare">현대차 vs 기아</a></div>
       </div>
       <div>
         <svg class="prism" id="prism" viewBox="0 0 640 400" role="img" aria-label="하나의 Scope 3 숫자가 다섯 기준의 서로 다른 요구로 갈라지는 모습"></svg>
@@ -33,43 +33,60 @@
 
   <section class="sec">
     <div class="wrap">
+      <div class="sh rv"><span class="k">How consultants work</span><h2>실무 순서 그대로, 세 가지 일</h2><p>이 연습장은 세 가지 동작으로 이루어져 있다. 셋 다 결과물은 네가 쓴 글이고, 그 글이 <a href="#portfolio">포트폴리오</a>가 된다.</p></div>
+      <div class="works rv" id="works"></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
       <div class="sh rv"><span class="k">Career paths</span><h2>지원하는 직무에 따라 순서가 바뀐다</h2><p>기후공시 컨설턴트와 배출권거래제 담당자가 먼저 알아야 할 것은 다르다. 경로를 고르면 모듈 순서, 난이도, '다음에 풀 것' 추천이 그 경로 기준으로 바뀐다.</p></div>
       <div class="jobs rv" id="jobs"></div>
     </div>
   </section>
 
-  <section class="sec alt">
+  <section class="sec">
     <div class="wrap">
       <div class="sh rv"><span class="k">Levels</span><h2>세 단계 난이도</h2><p>입문에서 전문가까지, 같은 모듈을 난이도별로 다시 만난다. 진행률은 이 브라우저의 기록으로 계산한다.</p></div>
       <div class="tracks rv" id="tracks"></div>
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec alt">
     <div class="wrap">
       <div class="sh rv"><span class="k">Five twists</span><h2>숫자로 보는 반전 5가지</h2><p>현대자동차 FY2025 보고서를 여러 기준으로 읽으며 찾아낸 것들이다. 각 숫자는 연습 문항에서 직접 계산하거나 판정하게 된다.</p></div>
       <div class="twist" id="twist"></div>
     </div>
   </section>
 
-  <section class="sec alt">
+  <section class="sec">
     <div class="wrap">
       <div class="sh rv"><span class="k">Materiality lens</span><h2>누구를 위한 공시인가에 따라 질문이 바뀐다</h2><p>투자자에게 회사의 재무 위험을 알리는 기준과, 회사가 사회·환경에 주는 영향을 알리는 기준은 같은 데이터를 다르게 읽는다. 평가기관은 그 둘 위에서 점수를 매긴다.</p></div>
       <div class="spec rv"><svg id="spectrum" viewBox="0 0 980 300" role="img" aria-label="기준별 중대성 관점 스펙트럼"></svg></div>
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec alt">
     <div class="wrap">
       <div class="sh rv"><span class="k">Regulatory clock</span><h2>다섯 기준이 같은 시계 위에 있다</h2><p>2027년에 IFRS S2 개정·개정 ESRS·GRI 102가 적용되기 시작하고, 한국 첫 의무공시는 금융위 최종안 기준 2028년(FY2027)이다. 한국 일정은 법제화가 끝나야 확정된다.</p></div>
       <div class="tl rv"><svg id="clock" viewBox="0 0 1000 340" role="img" aria-label="기준별 주요 일정"></svg></div>
     </div>
   </section>
 
-  <section class="sec alt" id="authorStrip" hidden>
+  <section class="sec" id="authorStrip" hidden>
     <div class="wrap">
-      <div class="sh rv"><span class="k">Learning record</span><h2>작성자 김수현의 공개 학습 기록</h2><p>작성자가 직접 풀고 저장한 기록이다. 문제는 AI와 함께 만들었고, 풀이와 판단 근거는 작성자의 것이다.</p></div>
+      <div class="sh rv"><span class="k">Learning record</span><h2>작성자 김수현의 공개 기록</h2><p>작성자가 직접 판정하고 쓴 기록이다. 문제와 모범 답안은 AI와 함께 만들었고, 판정·근거·개선안·처방은 작성자의 것이다.</p></div>
       <div id="authorSum"></div>
+    </div>
+  </section>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="view" id="v-portfolio" hidden>
+  <section class="sec" style="padding-block:40px 72px;border:none">
+    <div class="wrap">
+      <div class="sh"><span class="k">Portfolio</span><h2>판정·근거·처방 포트폴리오</h2><p>이 페이지에는 정답률이 없다. 실제 보고서를 기준에 대고 내린 판정과, 그 근거와 개선안, 두 회사를 비교해 쓴 처방만 있다. 글마다 원문 쪽이 붙어 있어 누구나 열어서 확인할 수 있다.</p></div>
+      <div id="pfBox"></div>
     </div>
   </section>
 </div>
@@ -108,7 +125,7 @@
 <div class="view" id="v-learn" hidden>
   <section class="sec" style="padding-block:40px 72px;border:none">
     <div class="wrap">
-      <div class="sh"><span class="k">Curriculum</span><h2 id="currH">모듈과 영역</h2><p>모듈마다 쉬운 말로 쓴 입문 글과 용어, 그리고 난이도별 문항이 있다. 막대는 입문·실무·전문가 문항 중 이 브라우저에서 맞힌 비율이다. 각 모듈 아래 '기준 시점'은 문항이 전제하는 기준서 버전이다.</p></div>
+      <div class="sh"><span class="k">Modules</span><h2 id="currH">모듈과 영역</h2><p>모듈은 기준서 단위다. 각 모듈의 기본 동작은 '해 보기'(판정·계산·상황 판단)이고, 입문 글은 막힐 때 읽는 참고다. 외우기용 문항은 뺐다. 각 모듈 아래 '기준 시점'은 문항이 전제하는 기준서 버전이다.</p></div>
       <div id="currTrack"></div>
       <div class="curr" id="curr"></div>
     </div>
@@ -124,7 +141,7 @@
 <div class="view" id="v-practice" hidden>
   <section class="sec" style="padding-block:36px 0;border:none">
     <div class="wrap">
-      <div class="sh" style="margin-bottom:14px"><span class="k">Practice</span><h2>먼저 풀고, 그다음 원문과 대조한다</h2></div>
+      <div class="sh" style="margin-bottom:14px"><span class="k">Practice</span><h2>판정 연습 · 먼저 풀고, 그다음 원문과 대조한다</h2></div>
       <div class="phead">
         <select id="modSel" aria-label="모듈 선택"></select>
         <div class="lvchip" role="group" aria-label="난이도"><button type="button" data-l="0">전체</button><button type="button" data-l="1">입문</button><button type="button" data-l="2">실무</button><button type="button" data-l="3">전문가</button></div>
@@ -251,13 +268,14 @@ S.a=S.a||{};S.exams=S.exams||[];S.cases=S.cases||{};S.rx=S.rx||{};
 function save(){try{localStorage.setItem(KEY,JSON.stringify({a:S.a,exams:S.exams,cases:S.cases,rx:S.rx,track:S.track}))}catch(e){}}
 function record(x,res){const prev=S.a[x.id]||{};let box=prev.box||0;box=res.ok?Math.min(box+1,4):0;
   S.a[x.id]=Object.assign({},res,{t:Date.now(),box,due:Date.now()+GAP[box]*DAY,n:(prev.n||0)+1,err:res.ok?undefined:prev.err});save()}
-let view="home",sub="",mod="landscape",cur={},flv=0,draft={},mapTopic=0,recSrc="me",author=null,artifactNS=null,canEdit=false,arm=false;
+let view="home",sub="",mod="ifrs",cur={},flv=0,draft={},mapTopic=0,recSrc="me",author=null,artifactNS=null,canEdit=false,arm=false;
 MODS.forEach(m=>cur[m.id]=0);
 let exam=null; // {ids,i,answers:{},start,limit,done}
 
 function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2600)}
 const items=m=>ITEMS.filter(x=>x.module===m);
-const avail=MODS.filter(m=>!m.missing);
+const avail=MODS.filter(m=>!m.missing&&!m.ref);
+const REFS=MODS.filter(m=>m.ref);
 function stat(list,rec){rec=rec||S.a;const d=list.filter(x=>rec[x.id]);const o=d.filter(x=>rec[x.id].ok);return {n:list.length,d:d.length,o:o.length}}
 function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
 function tx(p,x,y,s,a={}){const e=el("text",Object.assign({x,y},a),p);e.style.fill=a.fill||css("--muted");e.textContent=s;return e}
@@ -289,10 +307,10 @@ function drawPrism(){
 }
 function heroStats(){
   const srcs=new Set();ITEMS.forEach(x=>(x.sources||[]).forEach(s=>{if(!/^report/.test(s.url))srcs.add(s.url)}));
-  $("#heroEyebrow").textContent=`기후공시 전 영역 · ${avail.length}개 모듈 · 보고서 2권 · 원문과 공식 자료로 대조`;
+  $("#heroEyebrow").textContent=`실무 중심 · 보고서 2권 · 판정 ${ITEMS.filter(x=>x.type==="judge").length} · 계산 ${ITEMS.filter(x=>x.type==="calc").length} · 상황 판단 ${ITEMS.filter(x=>x.type==="mc").length}`;
   const terms=Object.values(LESSONS).reduce((a,l)=>a+((l&&l.terms)||[]).length,0);
   $("#heroStats").innerHTML=`<div><b><span class="cnt" data-n="${ITEMS.length}">${ITEMS.length}</span></b><span>문항 (판정 ${ITEMS.filter(x=>x.type==="judge").length} · 개념 ${ITEMS.filter(x=>x.type==="mc").length} · 계산 ${ITEMS.filter(x=>x.type==="calc").length})</span></div>
-  <div><b><span class="cnt" data-n="${avail.length}">${avail.length}</span></b><span>모듈 · 4개 영역 + 지도·기업 사례</span></div><div><b><span class="cnt" data-n="${terms}">${terms}</span></b><span>용어</span></div><div><b><span class="cnt" data-n="${srcs.size}">${srcs.size}</span></b><span>대조한 공식·공개 자료</span></div>`;
+  <div><b><span class="cnt" data-n="${avail.length}">${avail.length}</span></b><span>모듈 · 4개 영역 + 기업 사례</span></div><div><b><span class="cnt" data-n="${terms}">${terms}</span></b><span>용어</span></div><div><b><span class="cnt" data-n="${srcs.size}">${srcs.size}</span></b><span>대조한 공식·공개 자료</span></div>`;
 }
 function tracks(){
   const T=[[1,"입문","정의와 구조를 안다","각 기준이 무엇을, 누구에게, 왜 요구하는지. 온실가스관리기사 지식 위에 공시의 뼈대를 얹는다."],[2,"실무","보고서에 적용한다","실제 보고서를 열어 판정하고 숫자를 계산한다. 컨설턴트가 매일 하는 일이다."],[3,"전문가","경계와 예외를 다룬다","개정 사항, 기준 간 충돌, 애매한 사례를 시니어의 논리로 판단한다."]];
@@ -364,10 +382,11 @@ function learn(){
   $("#currH").textContent=`${avail.length}개 모듈, 4개 영역 + 지도·기업 사례`;
   const T=TRACK();$("#currTrack").innerHTML=T?`<div class="trackstrip"><span class="dot" style="background:var(--m-${T.color})"></span><b>내 경로 · ${esc(T.name)}</b><span>경로에 든 모듈에 단계 번호가 붙어 있다. 순서는 <a href="#path">내 경로</a>에서.</span></div>`:`<div class="trackstrip"><b>아직 경로를 고르지 않았다.</b><span><a href="#path">내 경로</a>에서 지원 직무를 고르면 모듈에 순서가 붙는다.</span></div>`;
   $("#curr").innerHTML=GORDER.map(g=>`<div class="cgroup"><h3><span class="dot" style="background:var(--m-${GROUPS[g].color})"></span>${GROUPS[g].name}</h3><div class="cgrid">${MODS.filter(m=>m.g===g).map(m=>{const its=items(m.id);const st=stat(its);const sg=stageOf(m.id);
+    if(m.ref)return `<div class="cm refcard"><span class="nm">${esc(m.name)}</span><span class="who">${esc(m.who)}</span><p>${esc(m.desc)}</p><span class="ms">참고 글 · 용어 ${((LESSONS[m.id]||{}).terms||[]).length}개 · 문항 없음</span><div class="acts"><a class="primary" href="#lesson-${m.id}">읽기 →</a><a href="#map">기준 지도</a></div></div>`;
     return `<div class="cm ${m.missing?"soon":""} ${T&&!sg?"dim":""}">${sg?`<span class="stg">${sg}단계</span>`:""}<span class="nm">${esc(m.name)}</span><span class="who">${esc(m.who)}</span><p>${esc(m.desc)}</p>
     ${m.missing?`<span class="ms">준비 중</span>`:`<div class="lv">${lvbar(its)}</div><span class="ms">${its.length}문항 · ${st.d} 풀이 · 입문 ${its.filter(x=>x.level===1).length} / 실무 ${its.filter(x=>x.level===2).length} / 전문가 ${its.filter(x=>x.level===3).length}</span>
     ${m.asof?`<span class="asof" title="문항이 전제하는 기준서 버전">기준 시점 · ${esc(m.asof)}</span>`:""}
-    <div class="acts">${LESSONS[m.id]?`<a href="#lesson-${m.id}">입문 글</a>`:""}<a class="primary" href="#practice-${m.id}">연습 →</a></div>`}</div>`}).join("")}</div></div>`).join("");
+    <div class="acts"><a class="primary" href="#practice-${m.id}">해 보기 →</a>${LESSONS[m.id]?`<a href="#lesson-${m.id}">입문 글</a>`:""}</div>`}</div>`}).join("")}</div></div>`).join("");
 }
 function lesson(id){
   const m=MOD[id],L=LESSONS[id];const box=$("#lessonBox");
@@ -545,7 +564,7 @@ let gq="",gm="all";
 function glossary(){
   const all=[];for(const id in LESSONS){((LESSONS[id]||{}).terms||[]).forEach(t=>all.push(Object.assign({m:id},t)))}
   all.sort((a,b)=>a.t.localeCompare(b.t,"ko"));
-  $("#gmods").innerHTML=`<button type="button" data-m="all" aria-pressed="${gm==="all"}">전체 ${all.length}</button>`+avail.filter(m=>LESSONS[m.id]).map(m=>`<button type="button" data-m="${m.id}" aria-pressed="${gm===m.id}">${esc(m.short)}</button>`).join("");
+  $("#gmods").innerHTML=`<button type="button" data-m="all" aria-pressed="${gm==="all"}">전체 ${all.length}</button>`+MODS.filter(m=>LESSONS[m.id]).map(m=>`<button type="button" data-m="${m.id}" aria-pressed="${gm===m.id}">${esc(m.short)}</button>`).join("");
   document.querySelectorAll("#gmods button").forEach(b=>b.onclick=()=>{gm=b.dataset.m;glossary()});
   const q=gq.trim().toLowerCase();const list=all.filter(t=>(gm==="all"||t.m===gm)&&(!q||(t.t+" "+t.d+" "+(t.en||"")).toLowerCase().includes(q)));
   $("#gloss").innerHTML=list.length?list.map(t=>`<div class="g"><b>${esc(t.t)}<em>${esc(t.en||"")}</em></b><p>${esc(t.d)}</p><span class="m"><span class="dot" style="background:${col(t.m)};width:7px;height:7px;margin-right:4px"></span>${esc(MOD[t.m].short)}</span></div>`).join(""):`<p class="empty">맞는 용어가 없다.</p>`;
@@ -590,18 +609,18 @@ function recView(){
   const rs=$("#reset");if(rs)rs.onclick=()=>{if(!arm){arm=true;recView();setTimeout(()=>{arm=false;if(view==="record")recView()},4000);return}arm=false;S={a:{},exams:[],cases:{},rx:{},track:S.track};save();toast("기록을 지웠다");recView()};
 }
 async function publishRec(){
-  if(!artifactNS)return;const b=$("#pub");b.disabled=true;b.textContent="저장 중…";
+  if(!artifactNS)return;const b=$("#pub")||$("#pfPub");if(b){b.disabled=true;b.textContent="저장 중…"}
   const a={};for(const k in S.a){const r=S.a[k];a[k]={ok:r.ok,pick:r.pick,val:r.val,gave:r.gave,note:r.note,t:r.t,box:r.box}}
   const d=new Date(),ds=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
   try{await artifactNS.publish({"data/record.json":{content:JSON.stringify({updated:ds,a,exams:S.exams||[],cases:S.cases||{},rx:S.rx||{},track:S.track||null}),contentType:"application/json"}});toast("공개 기록으로 저장했다.")}
   catch(e){const c=e&&e.code;if(c==="conflict")toast("다른 곳에서 먼저 저장돼 새 버전을 불러온다.");else if(["not_writer","not_granted","capability_disabled","consent_required","not_declared"].includes(c)){canEdit=false;toast("이 화면에서는 저장할 수 없다.");recView()}else if(c==="rate_limited")toast("저장이 너무 잦다. 잠시 후 다시.");else toast("저장하지 못했다.")}
-  finally{if($("#pub")){$("#pub").disabled=false;$("#pub").textContent="공개 기록으로 저장"}}
+  finally{const bb=$("#pub")||$("#pfPub");if(bb){bb.disabled=false;bb.textContent="공개 기록으로 저장"}}
 }
 function authorStrip(){
   if(!author||!Object.keys(author.a||{}).length){$("#authorStrip").hidden=true;return}
   $("#authorStrip").hidden=false;const a=author.a,d=ITEMS.filter(x=>a[x.id]),o=d.filter(x=>a[x.id].ok),notes=d.filter(x=>a[x.id].note).slice(-3);
   $("#authorSum").innerHTML=`<div class="rgrid"><div class="panel"><h3>${d.length}문항 풀이 · 정답 ${o.length}개</h3><p class="sub">마지막 저장 ${esc(author.updated||"")}</p><div class="mbars">${["std","meas","reg","prac"].map(g=>{const st=stat(ITEMS.filter(x=>MOD[x.module].g===g),a);return `<div class="mbar"><span class="n"><span class="dot" style="background:var(--m-${GROUPS[g].color})"></span>${GROUPS[g].name}</span><span class="t"><i style="width:${st.o/st.n*100}%;background:var(--good)"></i><i style="width:${(st.d-st.o)/st.n*100}%;background:var(--bad)"></i></span><span class="v">${st.d}/${st.n}</span></div>`}).join("")}</div></div>
-  <div class="panel"><h3>작성자가 남긴 판단 근거</h3><div class="notes">${notes.length?notes.map(x=>`<div class="note"><div class="h"><span class="tag ref">${esc(x.ref)}</span></div><p>${esc(a[x.id].note)}</p></div>`).join(""):`<p class="hint">남긴 근거가 아직 없다.</p>`}</div><a class="btn line sm" href="#record" id="seeAuthor" style="align-self:flex-start">전체 기록 보기</a></div></div>`;
+  <div class="panel"><h3>작성자가 남긴 판단 근거</h3><div class="notes">${notes.length?notes.map(x=>`<div class="note"><div class="h"><span class="tag ref">${esc(x.ref)}</span></div><p>${esc(a[x.id].note)}</p></div>`).join(""):`<p class="hint">남긴 근거가 아직 없다.</p>`}</div><a class="btn sm" href="#portfolio" style="align-self:flex-start">포트폴리오 보기 →</a><a class="btn line sm" href="#record" id="seeAuthor" style="align-self:flex-start">전체 기록 보기</a></div></div>`;
   $("#seeAuthor").onclick=()=>{recSrc="author"};
 }
 function about(){
@@ -638,7 +657,7 @@ function pathView(){
     h+=`<div class="pathhead"><div><span class="k" style="font-family:var(--mono);font-size:12px;color:var(--muted)">WHY THIS ORDER</span><p>${esc(T.why)}</p><p class="jobs-list">맞는 직무 · ${T.jobs.map(j=>`<span>${esc(j)}</span>`).join("")}</p></div>
     ${nx?`<div class="nowcard"><span class="k">지금 할 것</span><b><span class="dot" style="background:${col(nx.m.id)}"></span>${esc(nx.m.name)}${nx.lv?` · ${LV[nx.lv]}`:""}</b><span>${esc(nx.why)}</span><div class="actions"><button class="btn sm" type="button" id="goNow">이 문제부터 →</button>${LESSONS[nx.m.id]?`<a class="btn sm line" href="#lesson-${nx.m.id}">입문 글 먼저</a>`:""}${dueList().length?`<a class="btn sm line" href="#review">복습 ${dueList().length}개 대기</a>`:""}</div></div>`:`<div class="nowcard"><span class="k">지금 할 것</span><b>이 경로의 문항을 모두 풀었다</b><span>모의시험으로 굳히거나 다른 경로의 빈 곳을 채우자.</span></div>`}</div>
     <ol class="stepper">${T.stages.map((sg,i)=>{const p=pr[i];const cls=i<ci?"done":i===ci?"cur":"";
-      return `<li class="${cls}"><div class="num">${i+1}</div><div class="body"><div class="h"><h3>${esc(sg.name)}</h3><span class="tag l${sg.lv}">${LV[sg.lv]} 중심</span><span class="prog mono">${p.d}/${p.n} · ${Math.round(p.p*100)}%</span></div><p class="goal">${esc(sg.goal)}</p>
+      return `<li class="${cls}"><div class="num">${i+1}</div><div class="body"><div class="h"><h3>${esc(sg.name)}</h3><span class="tag l${sg.lv}">${LV[sg.lv]} 중심</span><span class="prog mono">${p.d}/${p.n} · ${Math.round(p.p*100)}%</span></div><p class="goal">${esc(sg.goal)}${sg.read?` <span class="readlink">먼저 읽기 · ${sg.read.map(r=>`<a href="#lesson-${r}">${esc(MOD[r]?MOD[r].name:r)}</a>`).join(", ")}</span>`:""}</p>
       <div class="mods">${sg.mods.map(mid=>{const m=MOD[mid];if(!m)return "";const its=items(mid),st=stat(its);const lvn=its.filter(x=>x.level===sg.lv).length,lvd=its.filter(x=>x.level===sg.lv&&S.a[x.id]).length;
         return `<a class="pm ${m.missing?"soon":""}" href="#practice-${mid}" data-lv="${sg.lv}"><span class="dot" style="background:${col(mid)}"></span><span class="n">${esc(m.name)}</span><span class="s mono">${m.missing?"준비 중":`${LV[sg.lv]} ${lvd}/${lvn} · 전체 ${st.d}/${st.n}`}</span><span class="bar"><i style="width:${st.n?st.d/st.n*100:0}%"></i></span></a>`}).join("")}</div></div></li>`}).join("")}</ol>
     <p class="hint" style="margin-top:14px">단계 완료 기준은 그 단계 모듈 문항의 80%를 한 번이라도 푼 것이다. 정답률은 <a href="#record">내 기록</a>에서 본다. 경로는 언제든 바꿀 수 있고 기록은 그대로 남는다.</p>`;
@@ -778,8 +797,43 @@ function cmpView(){
   document.querySelectorAll("#cmpBox a[data-jump]").forEach(a=>a.onclick=e=>{e.preventDefault();jumpTo(a.dataset.jump)});
 }
 
+/* ---------- V3b: HOME WORKS + PORTFOLIO ---------- */
+function works(){
+  const nJ=ITEMS.filter(x=>x.type==="judge").length,nCase=caseable().length,nCmp=[...new Set(ITEMS.filter(x=>x.key).map(x=>x.key))].length;
+  const dC=Object.values(S.cases).filter(v=>v.score!==undefined).length,dR=Object.values(S.rx).filter(v=>v.rx||v.draft).length,dJ=ITEMS.filter(x=>x.type==="judge"&&S.a[x.id]).length;
+  const W=[["01","케이스 스터디","기준 식별 → 증빙 → 판정 → 근거 쓰기 → 개선안 쓰기. 컨설팅 요청 하나를 끝까지 처리한다.",`${nCase}케이스 · ${dC} 완료`,"#cases","ifrs"],
+   ["02","기업 비교 · 처방","같은 질문을 현대차·기아 보고서에 던져 판정이 갈리는 줄을 보고, 뒤처진 쪽에 권고와 공시 문안을 쓴다.",`${nCmp}항목 · 처방 ${dR}`,"#compare","kssb"],
+   ["03","판정·계산 연습","보고서 원문을 쪽 단위로 열어 '있음·일부·없음'을 가르고, 표의 숫자를 다시 계산한다. 틀리면 복습 큐로.",`판정 ${nJ} · 계산 ${ITEMS.filter(x=>x.type==="calc").length} · ${dJ} 판정함`,"#practice","esrs"]];
+  $("#works").innerHTML=W.map(([n,t,d,c,h,m],i)=>`<a class="work rv d${i}" href="${h}" style="--c:var(--m-${m})"><b class="n mono">${n}</b><h3>${t}</h3><p>${d}</p><span class="c mono">${c}</span><span class="go">시작 →</span></a>`).join("");
+}
+let pfSrc=null;
+function pfView(){
+  const box=$("#pfBox");if(pfSrc===null)pfSrc=author&&!canEdit?"author":"me";
+  const rec=pfSrc==="author"&&author?author:S;const a=rec.a||{},cases=rec.cases||{},rx=rec.rx||{};
+  const cs=Object.entries(cases).map(([k,v])=>({x:ITEMS.find(y=>"case-"+y.id===k),v})).filter(o=>o.x&&(o.v.t4||o.v.t5)).sort((p,q)=>(q.v.t||0)-(p.v.t||0));
+  const rxs=Object.entries(rx).filter(([k,v])=>v.rx||v.draft).map(([k,v])=>({k,v,h:ITEMS.find(y=>y.key===k&&(y.co||"hyundai")==="hyundai"),a:ITEMS.find(y=>y.key===k&&y.co==="kia")})).sort((p,q)=>(q.v.t||0)-(p.v.t||0));
+  const judged=ITEMS.filter(x=>x.type==="judge"&&a[x.id]&&a[x.id].note&&a[x.id].note!=="(케이스 스터디)");
+  const head=`<div class="pfhead"><div>${author?`<div class="seg" role="group"><button type="button" data-s="author" aria-pressed="${pfSrc==="author"}">작성자 공개 기록</button><button type="button" data-s="me" aria-pressed="${pfSrc==="me"}">이 브라우저</button></div>`:""}</div><div class="actions"><button class="btn line sm" type="button" id="pfPrint">인쇄 · PDF로 저장</button>${canEdit&&pfSrc==="me"?`<button class="btn sm" type="button" id="pfPub">공개 기록으로 저장</button>`:""}</div></div>
+  <div class="kpi4"><div><b>${cs.length}</b><span>케이스 · 근거와 개선안</span></div><div><b>${rxs.length}</b><span>기업 비교 · 처방과 문안</span></div><div><b>${judged.length}</b><span>근거를 적은 판정</span></div><div><b>${rec.updated||(pfSrc==="me"?"지금":"")}</b><span>마지막 저장</span></div></div>`;
+  if(!cs.length&&!rxs.length&&!judged.length){box.innerHTML=head+`<div class="empty">아직 쓴 글이 없다. <a href="#cases">케이스 스터디</a>에서 근거와 개선안을, <a href="#compare">기업 비교</a>에서 처방을 쓰면 여기에 모인다. 정답률은 여기 안 나온다.</div>`;bind();return}
+  const pdfL=(x,p)=>`<a href="${pdfOf(x)}#page=${p||x.page}" target="_blank" rel="noopener">${esc(coOf(x).short)} ${p||x.page}쪽 ↗</a>`;
+  let h=head;
+  if(cs.length)h+=`<h3 class="pfh">케이스 스터디 · ${cs.length}건</h3><div class="pflist">${cs.map(({x,v})=>`<article class="pf"><div class="meta"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(coOf(x).name)}</span><span class="tag ref">${esc(x.ref)}</span>${v.score!==undefined?`<span class="tag">${v.score}/8</span>`:""}<span class="qno">${v.t?new Date(v.t).toLocaleDateString("ko-KR"):""}</span></div>
+    <h4>${esc(x.topic)} — ${esc(stdOf(x))} 기준으로 ${esc(coOf(x).short)} 보고서 검토</h4><p class="q">${esc(x.q)}</p>
+    <div class="pfrow"><span>판정</span><p>내 판정 <b>${esc(v.p3||"–")}</b> · 기준 판정 <b>${esc(x.ans)}</b> · 증빙 ${pdfL(x)}</p></div>
+    ${v.t4?`<div class="pfrow"><span>근거</span><p>${esc(v.t4)}</p></div>`:""}${v.t5?`<div class="pfrow"><span>개선안</span><p>${esc(v.t5)}</p></div>`:""}</article>`).join("")}</div>`;
+  if(rxs.length)h+=`<h3 class="pfh">기업 비교 · 처방 ${rxs.length}건</h3><div class="pflist">${rxs.map(({k,v,h:hy,a:ki})=>{const x=hy||ki;return `<article class="pf"><div class="meta"><span class="tag">현대차 vs 기아</span><span class="tag ref">${esc(x.ref)}</span><span class="qno">${v.t?new Date(v.t).toLocaleDateString("ko-KR"):""}</span></div>
+    <h4>${esc(x.topic)}</h4><p class="q">${esc(x.q)}</p>
+    <div class="pfrow"><span>판정</span><p>현대차 <b>${hy?esc(hy.ans):"–"}</b>${hy?` (${pdfL(hy)})`:""} · 기아 <b>${ki?esc(ki.ans):"–"}</b>${ki?` (${pdfL(ki)})`:""}</p></div>
+    ${v.rx?`<div class="pfrow"><span>처방</span><p>${esc(v.rx)}</p></div>`:""}${v.draft?`<div class="pfrow"><span>공시 문안</span><p class="draft">${esc(v.draft)}</p></div>`:""}</article>`}).join("")}</div>`;
+  if(judged.length)h+=`<h3 class="pfh">근거를 적은 판정 · ${judged.length}건</h3><div class="pflist compact">${judged.sort((p,q)=>(a[q.id].t||0)-(a[p.id].t||0)).slice(0,40).map(x=>`<article class="pf"><div class="meta"><span class="tag"><span class="dot" style="background:${col(x.module)}"></span>${esc(coOf(x).short)}</span><span class="tag ref">${esc(x.ref)}</span><span class="qno">${esc(a[x.id].pick)} · 기준 ${esc(x.ans)} · ${pdfL(x)}</span></div><h4>${esc(x.topic)}</h4><p>${esc(a[x.id].note)}</p></article>`).join("")}</div>`;
+  h+=`<p class="hint" style="margin-top:18px">문항과 '기준 판정'은 AI가 원문을 대조해 만든 해석이고, 판정·근거·개선안·처방은 ${pfSrc==="author"?"작성자":"이 브라우저 사용자"}가 직접 썼다. 원문 쪽 링크로 누구나 확인할 수 있다.</p>`;
+  box.innerHTML=h;bind();
+  function bind(){document.querySelectorAll("#pfBox .seg button").forEach(b=>b.onclick=()=>{pfSrc=b.dataset.s;pfView()});const pr=$("#pfPrint");if(pr)pr.onclick=()=>window.print();const pb=$("#pfPub");if(pb)pb.onclick=()=>{publishRec();}}
+}
+
 /* ---------- ROUTER ---------- */
-const VIEWS=["home","path","learn","lesson","practice","review","exam","cases","compare","map","glossary","record","about"];
+const VIEWS=["home","portfolio","path","learn","lesson","practice","review","exam","cases","compare","map","glossary","record","about"];
 function go(v){if(location.hash!=="#"+v)location.hash=v;else route()}
 function route(){
   const h=(location.hash||"").slice(1);const dash=h.indexOf("-");const base=dash>0?h.slice(0,dash):h;const rest=dash>0?h.slice(dash+1):"";
@@ -788,7 +842,8 @@ function route(){
   if(view==="lesson"&&!MOD[sub])view="learn";
   VIEWS.forEach(k=>$("#v-"+k).hidden=k!==view);
   document.querySelectorAll(".nav nav a").forEach(a=>a.setAttribute("aria-current",a.dataset.v===view||(view==="lesson"&&a.dataset.v==="learn")?"page":"false"));
-  if(view==="home"){heroStats();jobs();tracks();twist();drawPrism();spectrum();clock();authorStrip()}
+  if(view==="home"){heroStats();works();jobs();tracks();twist();drawPrism();spectrum();clock();authorStrip()}
+  if(view==="portfolio")pfView();
   if(view==="path")pathView();if(view==="cases")casesView(sub);if(view==="compare")cmpView();
   if(view==="learn")learn();if(view==="lesson")lesson(sub);if(view==="practice")renderPractice();if(view==="review"){rv=null;draft={};reviewView()}
   if(view==="exam")examView();if(view==="map")mapView();if(view==="glossary")glossary();if(view==="record")recView();if(view==="about")about();

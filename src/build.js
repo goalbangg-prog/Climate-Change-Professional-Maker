@@ -25,7 +25,7 @@ for(const f of ["kssb","esrs","gri-sasb","ratings"]){const d=load(R("data/v1/"+f
 /* ---- modules ---- */
 // asof = 문항이 전제하는 기준 시점 (화면에 그대로 표시)
 const MODS=[
- {id:"landscape",g:"map",name:"공시 체계 지도",short:"체계 지도",who:"입문 · 전체 흐름",desc:"TCFD에서 ISSB·ESRS·KSSB까지, 어떤 기준이 언제 생겨 어떻게 이어지는지 전체 지도를 그린다.",asof:"2026년 10월 기준 · 국가별 도입 현황은 변동이 잦다"},
+ {id:"landscape",g:"map",name:"공시 체계 지도",short:"체계 지도",who:"참고 자료 · 읽기만",desc:"TCFD에서 ISSB·ESRS·KSSB까지 어떤 기준이 어떻게 이어지는지 한 장으로 정리한 참고 글. 문항은 없다.",asof:"2026년 10월 기준 · 국가별 도입 현황은 변동이 잦다"},
  {id:"ifrs-s1",g:"std",name:"IFRS S1 일반 요구사항",short:"IFRS S1",who:"투자자 · 공통 규칙",desc:"중대성, 보고 실체, 비교 정보, 추정과 오류 같은 모든 지속가능성 공시의 공통 규칙.",asof:"IFRS S1 (2023 발행) · 2024.1 적용"},
  {id:"ifrs",g:"std",name:"IFRS S2 지표·목표",short:"S2 지표",who:"투자자 · 재무 중대성",desc:"현대차 보고서의 지표·목표 공시를 문단 단위로 판정하고 숫자를 직접 계산한다.",asof:"IFRS S2 (2023) + 2025.12 GHG 개정 (2027.1 적용) · 현대차 FY2025 보고서"},
  {id:"ifrs-s2x",g:"std",name:"IFRS S2 거버넌스·전략·위험",short:"S2 전략",who:"투자자 · 재무 중대성",desc:"거버넌스, 전략, 재무영향, 시나리오, 위험관리와 산업별 지표, Scope 3 측정 체계.",asof:"IFRS S2 (2023) + 2025.12 개정"},
@@ -71,7 +71,11 @@ if(kia){
 // hyundai items get keys too
 const idToKey={};for(const k in KEYS)if(!idToKey[KEYS[k]])idToKey[KEYS[k]]=k;
 
-const ITEMS=[...ifrs,...v1,...v2,...co].filter(x=>MODS.some(m=>m.id===x.module));
+const EXCL=(load(R("data/exclude.json"))||{ids:{}}).ids;
+const ALL=[...ifrs,...v1,...v2,...co].filter(x=>MODS.some(m=>m.id===x.module));
+const ITEMS=ALL.filter(x=>!EXCL[x.id]);
+console.error("excluded",ALL.length-ITEMS.length,"items (data/exclude.json)");
+MODS.forEach(m=>{if(!m.missing&&!ITEMS.some(x=>x.module===m.id)&&LESSONS[m.id])m.ref=true});
 ITEMS.forEach(x=>{if(idToKey[x.id]){x.key=idToKey[x.id];x.co=x.co||"hyundai"}});
 
 /* ---- reliability metadata ---- */
