@@ -14,6 +14,7 @@ if(fs.existsSync(R("data/books/base-2.json")))DATA.b2=J("data/books/base-2.json"
 // 손으로 고른 '더 풀어 보기' (있으면 자동 선택보다 우선)
 if(fs.existsSync(R("data/books/mrv.json")))DATA.mrv=J("data/books/mrv.json").sessions;
 if(fs.existsSync(R("data/books/ver.json")))DATA.ver=J("data/books/ver.json").sessions;
+for(const [k,fn] of [["s1","ifrs-s1"],["tms","tms"],["envinfo","envinfo"],["ghgp-s2","ghgp-s2"],["ghgp-s3","ghgp-s3"]])if(fs.existsSync(R("data/books/"+fn+".json")))DATA[k]=J("data/books/"+fn+".json").sessions;
 const CURATED=fs.existsSync(R("data/books/drill.json"))?J("data/books/drill.json"):{};
 const ITEMS=J("data/items.gen.json");
 const DIAG=J("data/diagnostic.json");
@@ -23,6 +24,11 @@ const DIAG=J("data/diagnostic.json");
 const MODMAP=id=>{
   if(id.startsWith("b1-"))return ["ghgp"];
   if(id.startsWith("m-"))return ["korea","ghgp"];
+  if(id.startsWith("s1-"))return ["ifrs-s1","kssb"];
+  if(id.startsWith("t-"))return ["korea"];
+  if(id.startsWith("e-"))return ["finance","korea"];
+  if(id.startsWith("p2-"))return ["ghgp"];
+  if(id.startsWith("p3-"))return ["ghgp","kia","ifrs"];
   if(id.startsWith("v-"))return ["assurance","korea"];
   if(id.startsWith("b2-"))return ["korea","markets","kssb"];
   if(id==="k0"||id==="k1-11"||id==="k2-11"||id==="s2-0"||id==="s2-11")return ["kssb","ifrs-s1"];
