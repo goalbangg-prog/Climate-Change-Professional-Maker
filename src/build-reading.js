@@ -10,6 +10,7 @@ const DATA={
 };
 // 공통 기초 책 (있을 때만)
 if(fs.existsSync(R("data/books/base-1.json")))DATA.b1=J("data/books/base-1.json").sessions;
+if(fs.existsSync(R("data/books/base-3.json")))DATA.b3=J("data/books/base-3.json").sessions;
 if(fs.existsSync(R("data/books/base-2.json")))DATA.b2=J("data/books/base-2.json").sessions;
 // 손으로 고른 '더 풀어 보기' (있으면 자동 선택보다 우선)
 if(fs.existsSync(R("data/books/mrv.json")))DATA.mrv=J("data/books/mrv.json").sessions;
@@ -23,6 +24,7 @@ const DIAG=J("data/diagnostic.json");
 // 회차 → 문항 모듈. 같은 주제의 기존 문항만 고른다.
 const MODMAP=id=>{
   if(id.startsWith("b1-"))return ["ghgp"];
+  if(id.startsWith("b3-"))return ["physical","scenario"];
   if(id.startsWith("m-"))return ["korea","ghgp"];
   if(id.startsWith("s1-"))return ["ifrs-s1","kssb"];
   if(id.startsWith("t-"))return ["korea"];
