@@ -12,6 +12,8 @@ const DATA={
 if(fs.existsSync(R("data/books/base-1.json")))DATA.b1=J("data/books/base-1.json").sessions;
 if(fs.existsSync(R("data/books/base-2.json")))DATA.b2=J("data/books/base-2.json").sessions;
 // 손으로 고른 '더 풀어 보기' (있으면 자동 선택보다 우선)
+if(fs.existsSync(R("data/books/mrv.json")))DATA.mrv=J("data/books/mrv.json").sessions;
+if(fs.existsSync(R("data/books/ver.json")))DATA.ver=J("data/books/ver.json").sessions;
 const CURATED=fs.existsSync(R("data/books/drill.json"))?J("data/books/drill.json"):{};
 const ITEMS=J("data/items.gen.json");
 const DIAG=J("data/diagnostic.json");
@@ -20,6 +22,8 @@ const DIAG=J("data/diagnostic.json");
 // 회차 → 문항 모듈. 같은 주제의 기존 문항만 고른다.
 const MODMAP=id=>{
   if(id.startsWith("b1-"))return ["ghgp"];
+  if(id.startsWith("m-"))return ["korea","ghgp"];
+  if(id.startsWith("v-"))return ["assurance","korea"];
   if(id.startsWith("b2-"))return ["korea","markets","kssb"];
   if(id==="k0"||id==="k1-11"||id==="k2-11"||id==="s2-0"||id==="s2-11")return ["kssb","ifrs-s1"];
   if(id.startsWith("k1-"))return ["ifrs-s1"];

@@ -350,7 +350,7 @@ const AREAS=[
 const BOOKS=[
  {id:"b1",a:"base",t:"온실가스와 Scope",s:"모든 숫자의 출발점",n:5,d:0},{id:"b2",a:"base",t:"기후 제도 전체 지도",s:"누가 무엇을 언제 요구하나",n:4,d:0},{id:"b3",a:"base",t:"IPCC AR6 요약",s:"기후과학의 공식 결론",n:5,d:0},
  {id:"kssb",a:"dis",t:"KSSB 제1·2호",s:"한국 의무공시의 실제 기준",n:23,d:0},{id:"s2",a:"dis",t:"IFRS S2",s:"KSSB의 출발점, 국제 기준",n:12,d:0,rec:1},{id:"s1",a:"dis",t:"IFRS S1",s:"모든 공시의 공통 규칙",n:10,d:0},{id:"esrs",a:"dis",t:"ESRS E1",s:"EU의 이중 중대성 기준",n:9,d:0},{id:"gri",a:"dis",t:"GRI 305 · 102",s:"영향을 알리는 보고",n:7,d:0},{id:"sasb",a:"dis",t:"SASB 자동차",s:"자동차 산업의 지표",n:4,d:0},{id:"prac",a:"dis",t:"공시 실무",s:"쓰고, 고치고, 평가받기",n:6,d:0},
- {id:"g0",a:"ghg",t:"배출량 보고·인증 지침",s:"국내 명세서의 산정 규칙",n:12,d:0,rec:1},{id:"g1",a:"ghg",t:"GHG 프로토콜 기업 표준",s:"온실가스 산정의 국제 표준",n:10,d:0},{id:"g2",a:"ghg",t:"Scope 2 지침",s:"전기 배출을 두 번 센다",n:6,d:0},{id:"g3",a:"ghg",t:"Scope 3 표준",s:"회사 밖 배출 15가지",n:9,d:0},{id:"g5",a:"ghg",t:"IPCC 2006 지침",s:"배출계수와 산정식의 원천",n:8,d:0},{id:"g4",a:"ghg",t:"ISO 14064-1 · 3 · 검증",s:"숫자를 믿게 만드는 절차",n:7,d:0},
+ {id:"mrv",a:"ghg",t:"배출량 보고·인증 지침",s:"국내 명세서의 산정 규칙",n:12,d:0,rec:1},{id:"ver",a:"ghg",t:"배출권거래제 검증지침",s:"명세서를 남이 확인하는 규칙",n:8,d:0},{id:"g1",a:"ghg",t:"GHG 프로토콜 기업 표준",s:"온실가스 산정의 국제 표준",n:10,d:0},{id:"g2",a:"ghg",t:"Scope 2 지침",s:"전기 배출을 두 번 센다",n:6,d:0},{id:"g3",a:"ghg",t:"Scope 3 표준",s:"회사 밖 배출 15가지",n:9,d:0},{id:"g5",a:"ghg",t:"IPCC 2006 지침",s:"배출계수와 산정식의 원천",n:8,d:0},{id:"g4",a:"ghg",t:"ISO 14064-1 · 3 · 검증",s:"숫자를 믿게 만드는 절차",n:7,d:0},
  {id:"c1",a:"cut",t:"SBTi 넷제로 기준",s:"1.5℃에 맞춘 목표",n:6,d:0,rec:1},{id:"c2",a:"cut",t:"전환계획",s:"목표를 실행 계획으로",n:5,d:0},{id:"c3",a:"cut",t:"ISO 14064-2 · 외부사업",s:"감축 사업과 상쇄",n:6,d:0},{id:"c4",a:"cut",t:"크레딧 품질 (ICVCM · VCMI)",s:"좋은 크레딧, 정직한 주장",n:4,d:0},{id:"c5",a:"cut",t:"시나리오 분석",s:"미래를 가정해 보는 법",n:5,d:0},
  {id:"l1",a:"lca",t:"ISO 14040 · 14044",s:"제품 일생을 재는 규칙",n:10,d:0,rec:1},{id:"l2",a:"lca",t:"ISO 14067",s:"제품 하나의 탄소",n:6,d:0},{id:"l3",a:"lca",t:"EPD · 환경성적표지",s:"검증받은 제품 성적표",n:5,d:0},{id:"l5",a:"lca",t:"EU PEF",s:"유럽식 제품 환경발자국",n:5,d:0},{id:"l4",a:"lca",t:"EU 배터리 규정",s:"배터리에 붙는 탄소 꼬리표",n:5,d:0},
  {id:"w1",a:"law",t:"탄소중립기본법",s:"한국 감축의 법적 뼈대",n:5,d:0,rec:1},{id:"w2",a:"law",t:"배출권거래법",s:"배출에 값을 매기는 제도",n:9,d:0},{id:"w5",a:"law",t:"목표관리제",s:"거래제 밖 업체의 의무",n:4,d:0},{id:"w6",a:"law",t:"환경정보공개 · K-택소노미",s:"공개 의무와 녹색 판정",n:5,d:0},{id:"w3",a:"law",t:"EU ETS · CBAM",s:"수출품에 붙는 탄소 비용",n:6,d:0},{id:"w4",a:"law",t:"파리협정 6조",s:"나라 사이 감축 거래",n:4,d:0}];
@@ -358,6 +358,8 @@ const META={
  kssb:{h1:"KSSB 지속가능성 공시기준 제1·2호",cover:"KSSB<br>제1·2호",eye:"기후공시 · 첫 번째 권장",blurb:"한국 의무공시의 실제 기준. IFRS S1·S2를 바탕으로 국내 사정을 반영했다. 원문 문단 순서대로 23회차에 나눠 읽는다. 이 책을 읽으면 IFRS가 저절로 따라온다.",src:"원문 2025 공표본"},
  b1:{h1:"온실가스와 Scope",cover:"기초<br>①",eye:"공통 기초 · 진단 8점 미만이면 먼저",blurb:"온실가스를 이산화탄소로 환산하는 법, 어디까지가 우리 배출인지, Scope 1·2·3, 숫자를 만들고 믿게 하는 법. 모든 기준서가 이 말들을 안다고 전제한다.",src:"공식 자료 대조"},
  b2:{h1:"기후 제도 전체 지도",cover:"기초<br>②",eye:"공통 기초 · 지도",blurb:"파리협정에서 한국 법, 공시 기준, 측정 표준까지. 어떤 문서가 누구를 위해 무엇을 요구하는지 한 장의 지도로 정리한다.",src:"공식 자료 대조"},
+ mrv:{h1:"배출량 보고 및 인증에 관한 지침",cover:"보고·인증<br>지침",eye:"산정·검증 · 국내 명세서의 규칙",blurb:"배출권거래제 대상 회사가 해마다 내는 명세서를 어떻게 만드는지 정한 고시. 조직경계, 산정등급(Tier), 산정식, 배출계수, 모니터링 계획, 인증까지. 기사 실기의 산정식이 여기서 나온다.",src:"본문 2025.4 시행본 · 별표 2022.1 시행본"},
+ ver:{h1:"배출권거래제 운영을 위한 검증지침",cover:"검증<br>지침",eye:"산정·검증 · 숫자를 남이 확인하는 규칙",blurb:"검증기관이 명세서를 어떻게 보는지 정한 고시. 검증팀 구성, 절차, 중요성, 시정조치, 검증의견. 컨설턴트가 검증 대응을 준비할 때 바로 쓰는 문서다.",src:"2025.10 시행본"},
  s2:{h1:"IFRS S2 기후 관련 공시",cover:"IFRS<br>S2",eye:"기후공시 · KSSB 다음",blurb:"KSSB 제2호의 출발점인 국제 기준. KSSB를 먼저 읽었다는 전제로, 같은 곳은 짧게 넘기고 다른 곳을 자세히 읽는다. 2025년 12월 온실가스 개정까지 반영했다.",src:"2023.6 원문 + 2025.12 개정"}};
 const DATA=__DATA__;
 const DRILL=__DRILL__;
@@ -368,7 +370,7 @@ let SESS=DATA.kssb,BID="kssb";
 const useBook=bid=>{BID=DATA[bid]?bid:"kssb";SESS=DATA[BID];return BID};
 const sessOf=id=>ALL.find(x=>x.id===id);
 const sn=x=>/(^k0|-0)$/.test(DATA[x.book][0].id)?x.i:x.i+1;
-const PART=id=>/^b\d-/.test(id)?"공통 기초":id==="k0"||id==="s2-0"?"들어가며":id.startsWith("k1")?"제1호 일반 요구사항":id.startsWith("k2")?"제2호 기후 관련 공시":id==="s2-11"?"정리":"IFRS S2 본문";
+const PART=id=>/^m-/.test(id)?"배출량 보고·인증 지침":/^v-/.test(id)?"검증지침":/^b\d-/.test(id)?"공통 기초":id==="k0"||id==="s2-0"?"들어가며":id.startsWith("k1")?"제1호 일반 요구사항":id.startsWith("k2")?"제2호 기후 관련 공시":id==="s2-11"?"정리":"IFRS S2 본문";
 const DIFF={same:"KSSB와 같다",differs:"KSSB와 다르다",s2only:"IFRS S2에만 있다",kssbonly:"KSSB에만 있다"};
 const TERMS={};
 const CO={kia:"기아 지속가능경영보고서",hyundai:"현대자동차 지속가능성 보고서",bmw:"BMW Group Report",mb:"Mercedes-Benz Group Annual Report",porsche:"Porsche Annual and Sustainability Report"};
