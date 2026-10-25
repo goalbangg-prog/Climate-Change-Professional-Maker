@@ -797,7 +797,7 @@ function srcView(tab,focus){
        <dl><dt>판본</dt><dd>${esc(x.edition)}</dd>${x.dates?`<dt>일정</dt><dd>${esc(x.dates)}</dd>`:""}<dt>발행</dt><dd>${esc(x.issuer)}</dd><dt>확인일</dt><dd>${esc(x.checked)} · 원문 대조·독립 검수</dd></dl>
        ${x.note?`<p class="note">${esc(x.note)}</p>`:""}
        <div class="sf">${x.books.filter(b=>DATA[b]).map(b=>`<a href="#book/${b}">${esc(bookT(b))} →</a>`).join("")||`<span class="rmeta">해설 책 준비 중</span>`}${x.url?`<a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">공식 원문 ↗</a>`:`<span class="where">${esc(x.where||"")}</span>`}</div></article>`).join("")}</div>
-     <p class="callout">원본 파일은 저장소의 <code>data/sources/</code>에 텍스트로 두고 책을 쓸 때 문단·조항 번호를 한 줄씩 대조했다. 공식 링크는 이미 확인된 것만 달았고, 법령·고시는 고시 번호로 국가법령정보센터에서 찾을 수 있다. KSSB 원문 PDF는 저장소 밖에서 대조했다.</p>`;
+     <p class="callout">원본 파일은 저장소의 <code>data/sources/</code>에 텍스트로 두고 책을 쓸 때 문단·조항 번호를 한 줄씩 대조했다. 공식 링크는 확인된 것만 달았고(KSSB는 한국회계기준원 누리집), 법령·고시는 고시 번호로 국가법령정보센터에서 찾을 수 있다. KSSB 원문 PDF는 저장소 밖에서 대조했다.</p>`;
   }
   if(tab==="changes"){
     const types=[...new Set(CHANGES.map(c=>c.type))];const f=c=>!CF||c.type===CF;
