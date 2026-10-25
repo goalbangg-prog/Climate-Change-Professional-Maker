@@ -5,7 +5,7 @@
 기준서를 원문 문단 순서대로 읽는 앱으로 다시 만들었다. 정의서: `docs/DEFINITION.md`.
 
 - 화면: 서재 → 책 → 읽기(문장 탭 밑줄·형광펜·메모, 한 줄 쓰기, 헷갈림 점검, 더 풀어 보기) → 내 노트 → 참고(용어집, KSSB↔IFRS S2 대응표)
-- 책: KSSB 제1·2호(23회차), IFRS S2(12회차, 2025.12 개정 반영). 원고는 `data/books/`
+- 책(13권 118회차): 공통 기초 3권(온실가스와 Scope, 기후 제도 전체 지도, IPCC AR6 요약) · 기후공시 3권(KSSB 제1·2호, IFRS S1, IFRS S2) · 산정·검증 5권(배출량 보고·인증 지침, 검증지침, GHG 프로토콜 기업 표준·Scope 2·Scope 3) · 법령·제도 2권(목표관리 지침, 환경정보 공개제도·K-택소노미). 원고는 `data/books/`, 원문 텍스트는 `data/sources/`, 독립 검수 기록은 `data/books/REVIEW-*.md`
 - 빌드: `node src/build.js` (예전 문제 풀이 앱 → `legacy.html`, 문항 → `data/items.gen.json`) 다음 `node src/build-reading.js` (→ `index.html`)
 - 예전 버전 v4.5는 `legacy.html`에 남아 있다.
 
