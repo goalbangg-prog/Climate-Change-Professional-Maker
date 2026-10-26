@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>온실가스 배출량 · 기후공시 리딩 클래스 (v6 절충안)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* 색 규칙: 배경·글자 + 3색 (초록=주색·핵심, 주황=주의·오해, 파랑=보고서 예). 이 밖의 색은 쓰지 않는다. */
+:root{
+  --bg:#F5F7F6; --card:#FFFFFF; --muted:#F3F5F3; --line:#E5E7EB; --line2:#EEF1EE;
+  --fg1:#1F2320; --fg2:#3A3F3B; --fg3:#6B7280; --fg4:#9CA3AF;
+  --g6:#2E7D32; --g5:#4CAF50; --g3:#A5D6A7; --g1:#EBF5EC; --g0:#F0F7F1;
+  --o6:#A9562E; --o1:#FCEEE5; --o2:#F1D6C1;
+  --b6:#2F5D80; --b1:#E9F0F6;
+  --shadow:0 4px 12px rgba(17,24,39,.06);
+  --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141715; --card:#1C201D; --muted:#222723; --line:#2E342F; --line2:#262B27;
+  --fg1:#E8ECE9; --fg2:#C9CFCA; --fg3:#9AA39C; --fg4:#6F7871;
+  --g6:#7BC67F; --g5:#5DB562; --g3:#2F5A33; --g1:#1E2E20; --g0:#1A261C;
+  --o6:#E39A73; --o1:#33231A; --o2:#5A3A28; --b6:#8DB6D8; --b1:#1C2833; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141715; --card:#1C201D; --muted:#222723; --line:#2E342F; --line2:#262B27;
+  --fg1:#E8ECE9; --fg2:#C9CFCA; --fg3:#9AA39C; --fg4:#6F7871;
+  --g6:#7BC67F; --g5:#5DB562; --g3:#2F5A33; --g1:#1E2E20; --g0:#1A261C;
+  --o6:#E39A73; --o1:#33231A; --o2:#5A3A28; --b6:#8DB6D8; --b1:#1C2833; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg1);font-family:var(--font);font-size:16px;line-height:1.75;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--g6);outline-offset:2px}
+h1,h2,h3,p{margin:0}
+/* 상단 바 */
+.top{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid var(--line)}
+.top .in{max-width:1180px;margin:0 auto;height:58px;display:flex;align-items:center;gap:22px;padding:0 20px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15.5px;text-decoration:none;white-space:nowrap}
+.brand b{color:var(--g6)}
+.brand svg{width:28px;height:28px}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{position:relative;padding:18px 10px;font-size:14px;color:var(--fg3);text-decoration:none;white-space:nowrap}
+.nav a.on{color:var(--fg1);font-weight:700}
+.nav a.on::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--g6);border-radius:2px}
+.tools{margin-left:auto;display:flex;gap:8px;align-items:center}
+.icon-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center}
+.beta{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--muted);color:var(--fg3)}
+.proto-note{background:var(--g0);border-bottom:1px solid var(--g1);font-size:13px;color:var(--g6);text-align:center;padding:7px 16px}
+/* 레이아웃 */
+.wrap{max-width:1180px;margin:0 auto;padding:22px 20px 120px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:start}
+@media (max-width:1000px){.wrap{grid-template-columns:1fr}}
+/* 브레드크럼 */
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--fg3);margin-bottom:14px;flex-wrap:wrap}
+.crumb a{text-decoration:none}.crumb .back{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;margin-right:4px}
+.crumb b{color:var(--fg1);font-weight:700}
+/* 카드 */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.head{position:relative;padding:26px 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;background:linear-gradient(135deg,var(--card) 60%,var(--g0))}
+.badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.bd{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--g1);color:var(--g6);white-space:nowrap}
+.bd.n{background:var(--muted);color:var(--fg3)}
+.bd.o{background:var(--o1);color:var(--o6)}
+.bd.b{background:var(--b1);color:var(--b6)}
+.head h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:10px 0 4px;line-height:1.3}
+.head .sub{color:var(--fg3);font-size:15px}
+.head .meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:13px;color:var(--fg3)}
+.head .meta b{color:var(--fg1)}
+.report{position:absolute;top:14px;right:14px;font-size:12px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 10px;color:var(--fg3);text-decoration:none}
+.mascot{width:118px;height:118px}
+@media (max-width:640px){.head{grid-template-columns:1fr;padding:22px 20px}.mascot{position:absolute;right:12px;bottom:10px;width:72px;height:72px;opacity:.9}.head h1{font-size:25px}}
+/* 섹션 */
+.sec{margin-top:34px;scroll-margin-top:80px}
+.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--g1);color:var(--g6)}
+.tag::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
+.tag.o{background:var(--o1);color:var(--o6)}.tag.b{background:var(--b1);color:var(--b6)}.tag.n{background:var(--muted);color:var(--fg3)}
+.sec-h h2{font-size:21px;font-weight:800;letter-spacing:-.01em}
+.sec-h small{font-size:13px;color:var(--fg3)}
+/* 핵심 요약 */
+.key{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;padding:18px 20px;border-radius:14px;background:var(--g0);border:1px solid var(--g1);border-left:4px solid var(--g6)}
+.key .bulb{font-size:22px;line-height:1.4}
+.key p{font-size:17px;line-height:1.8;color:var(--fg1)}
+mark{background:linear-gradient(transparent 55%,var(--g3) 55%);color:inherit;font-weight:700;padding:0 1px}
+.ex-line{margin-top:10px;padding:14px 18px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:15px;color:var(--fg2)}
+.ex-line b{color:var(--fg1)}
+/* 개념 그림: 세로 흐름 */
+.flow{padding:22px;display:flex;flex-direction:column;align-items:center;gap:0}
+.fnode{width:min(560px,100%);display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.fnode .ic{width:52px;height:52px;border-radius:12px;background:var(--g0);display:grid;place-items:center;font-size:24px}
+.fnode b{font-size:16px}.fnode span{display:block;font-size:13.5px;color:var(--fg3);line-height:1.55}
+.fnode .num{font-weight:800;color:var(--g6);font-size:13px;text-align:right;white-space:nowrap}
+.farrow{color:var(--g5);font-size:13px;line-height:1;padding:6px 0}
+.flow .cap{margin-top:14px;font-size:13px;color:var(--fg3);text-align:center}
+.boundary{width:min(560px,100%);border:2px dashed var(--g3);border-radius:18px;padding:12px;position:relative;display:flex;flex-direction:column;align-items:center}
+.boundary>.lab{position:absolute;top:-11px;left:16px;background:var(--card);padding:0 8px;font-size:12px;font-weight:700;color:var(--g6)}
+/* 요구사항 표 */
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl th{background:var(--g0);color:var(--g6);font-size:13px;text-align:left;padding:11px 14px;font-weight:700}
+.tbl td{padding:12px 14px;border-top:1px solid var(--line2);vertical-align:top;line-height:1.6}
+.tbl td:first-child{font-weight:700;white-space:nowrap}
+.tbl .pg{font-size:12px;color:var(--fg4);white-space:nowrap}
+.tw{overflow-x:auto;border-radius:16px}
+@media (max-width:640px){.tbl td:first-child{white-space:normal}}
+/* 칩 */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:14px;font-weight:600}
+.chip i{font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--g6);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800}
+/* STEP 카드 */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+.step{padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line);position:relative}
+.step .s{font-size:11.5px;font-weight:800;color:var(--g6);letter-spacing:.04em}
+.step b{display:block;font-size:15.5px;margin:4px 0 6px}
+.step p{font-size:13.5px;color:var(--fg3);line-height:1.6}
+.step .yn{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.step:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--g5);font-weight:800;background:var(--bg);padding:2px 0}
+@media (max-width:760px){.steps{grid-template-columns:1fr}.step:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-16px;transform:translateX(50%)}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+.cmp{padding:16px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.cmp b{font-size:16px}.cmp p{font-size:14px;color:var(--fg2);margin-top:6px;line-height:1.65}
+/* 보고서 예 */
+.rep{padding:18px 20px}
+.rep .src{font-size:12.5px;color:var(--b6);font-weight:700;display:flex;gap:6px;align-items:center}
+.rep h3{font-size:16px;margin:4px 0 12px}
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar{display:grid;grid-template-columns:110px minmax(0,1fr) 120px;gap:10px;align-items:center;font-size:13.5px}
+.bar .t{height:14px;border-radius:7px;background:var(--muted);overflow:hidden}.bar .t i{display:block;height:100%;border-radius:7px;background:var(--b6)}
+.bar .t i.lt{background:var(--b1);border:1px solid var(--b6)}
+.bar .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+@media (max-width:640px){.bar{grid-template-columns:84px minmax(0,1fr) 92px;font-size:12.5px}}
+.note{margin-top:12px;font-size:13.5px;color:var(--fg2);background:var(--b1);border-radius:10px;padding:10px 14px;line-height:1.65}
+.kia{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.kia td{padding:8px 4px;border-top:1px solid var(--line2)}.kia td:last-child{text-align:right;font-weight:700}
+.kia tr.sum td{color:var(--fg3)}
+/* Before After */
+.ba{display:grid;grid-template-columns:minmax(0,.85fr) auto minmax(0,1.3fr);gap:14px;align-items:center}
+.ba .arr{color:var(--g5);font-size:24px;font-weight:800}
+.ba .box{padding:16px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.ba .box .bd{margin-bottom:8px}
+.ba .box p{font-size:14.5px;line-height:1.7}
+.ba ul{margin:0;padding-left:18px;font-size:14px;line-height:1.75;color:var(--fg2)}
+.ba ul b{color:var(--fg1)}
+@media (max-width:760px){.ba{grid-template-columns:1fr}.ba .arr{transform:rotate(90deg);justify-self:center}}
+.disclaim{font-size:12.5px;color:var(--fg4);margin-top:8px}
+/* 오해 */
+.myth{display:grid;grid-template-columns:1fr 1fr;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.myth+.myth{margin-top:10px}
+.myth>div{padding:14px 16px}
+.myth .m{background:var(--o1)}.myth .m .k{color:var(--o6)}
+.myth .k{font-size:11.5px;font-weight:800;letter-spacing:.04em;display:block;margin-bottom:4px}
+.myth .r .k{color:var(--g6)}
+.myth p{font-size:14.5px;line-height:1.65}
+.myth .r small{display:block;color:var(--fg4);font-size:12px;margin-top:4px}
+@media (max-width:640px){.myth{grid-template-columns:1fr}}
+/* 30초 정리 */
+.s30{padding:20px 22px;border-radius:16px;background:var(--g6);color:#fff}
+.s30 .k{font-size:12px;font-weight:800;letter-spacing:.06em;opacity:.85}
+.s30 ol{margin:8px 0 0;padding-left:20px;font-size:15.5px;line-height:1.85}
+/* 아코디언 */
+details.acc{border:1px solid var(--line);border-radius:14px;background:var(--card);margin-top:10px}
+details.acc summary{list-style:none;cursor:pointer;padding:14px 18px;font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:"펼치기";margin-left:auto;font-size:12.5px;color:var(--fg3);font-weight:500}
+details.acc[open] summary::after{content:"접기"}
+details.acc .body{padding:0 18px 16px;font-size:14.5px;color:var(--fg2);line-height:1.8}
+details.acc .body p+p{margin-top:10px}
+details.acc .body h4{margin:14px 0 4px;font-size:14px;color:var(--fg1)}
+details.acc .body .pg{font-size:12px;color:var(--fg4)}
+.terms dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px}
+.terms dt{font-weight:700;color:var(--fg1)}.terms dd{margin:0}.terms dd small{color:var(--fg4)}
+/* 하단 이동 */
+.done-row{margin-top:30px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.cta{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:12px;border:0;background:var(--g6);color:#fff;font-weight:800;font-size:15.5px;text-decoration:none;box-shadow:0 10px 22px -12px var(--g6)}
+.cta.ghost{background:var(--card);color:var(--g6);border:1.5px solid var(--g6);box-shadow:none}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.pn a{display:flex;flex-direction:column;padding:14px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line);text-decoration:none}
+.pn a small{font-size:12px;color:var(--fg3)}.pn a b{font-size:15px}
+.pn a.nx{text-align:right}
+/* 확인 패널 */
+.side{position:sticky;top:76px;display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 92px);overflow:auto;padding-bottom:6px}
+.side-h{display:flex;align-items:center;justify-content:space-between}
+.side-h b{font-size:14px}
+.side-h button{border:1px solid var(--line);background:var(--card);border-radius:999px;font-size:12.5px;padding:4px 12px;color:var(--fg2)}
+.pcard{padding:16px 18px;border-top:3px solid var(--g6)}
+.pcard .ph{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.pcard .ph b{font-size:14.5px}.pcard .ph .cnt{margin-left:auto;font-size:11.5px;font-weight:700;color:var(--g6);background:var(--g1);border-radius:999px;padding:1px 8px}
+.pcard .q{font-size:14.5px;line-height:1.65;margin-bottom:10px}
+.pcard textarea{width:100%;min-height:96px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:14px;background:var(--muted);color:var(--fg1);resize:vertical}
+.prow{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:8px}
+.prow small{font-size:12px;color:var(--fg3)}
+.btn{border:0;border-radius:10px;background:var(--g6);color:#fff;font-weight:700;font-size:13.5px;padding:8px 14px}
+.kw{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.kw span{font-size:12.5px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--fg3)}
+.kw span.hit{border-color:var(--g6);color:var(--g6);background:var(--g0);font-weight:700}
+.res{margin-top:10px;font-size:13.5px;line-height:1.65}
+.res .model{margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--g0);color:var(--fg2)}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opts button{text-align:left;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:13.5px;line-height:1.55}
+.opts button.right{border-color:var(--g6);background:var(--g0);color:var(--g6);font-weight:700}
+.opts button.wrong{border-color:var(--o6);background:var(--o1);color:var(--o6)}
+.toc a{display:flex;gap:8px;align-items:center;padding:6px 4px;font-size:13.5px;color:var(--fg2);text-decoration:none;border-radius:8px}
+.toc a i{font-style:normal;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line);flex:none;display:grid;place-items:center;font-size:10px}
+.toc a.on{color:var(--fg1);font-weight:700}.toc a.on i{border-color:var(--g6);background:var(--g6)}
+.toc a.past i{border-color:var(--g6);color:var(--g6)}
+.side.collapsed .pcard,.side.collapsed .tocc{display:none}
+/* 모바일: 확인 패널 = 바텀시트 */
+.fab{display:none}
+@media (max-width:1000px){
+  .side{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:78vh;z-index:40;background:var(--bg);border-radius:20px 20px 0 0;box-shadow:0 -18px 40px -20px rgba(0,0,0,.4);padding:14px 16px calc(18px + env(safe-area-inset-bottom,0px));transform:translateY(105%);transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+  .side.open{transform:none}
+  .side .tocc{display:none}
+  .fab{display:flex;position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:35;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;border:0;background:var(--fg1);color:var(--bg);font-weight:800;font-size:14.5px;box-shadow:0 12px 26px -10px rgba(0,0,0,.5)}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:39;display:none}.scrim.on{display:block}
+}
+/* 토스트 */
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:10px;background:var(--fg1);color:var(--bg);padding:10px 16px 10px 10px;border-radius:14px;font-size:14px;box-shadow:0 12px 26px -10px rgba(0,0,0,.5);animation:tin .25s ease both;max-width:calc(100vw - 32px)}
+.toast svg{width:34px;height:34px;flex:none}
+@keyframes tin{from{opacity:0;transform:translate(-50%,8px)}}
+@media (min-width:1001px){.toast{bottom:28px}}
+.fade{animation:fin .4s ease both}@keyframes fin{from{opacity:0;transform:translateY(6px)}}
+/* 폰: 하단 탭바 */
+.tabbar{display:none}
+@media (max-width:760px){
+  .top .nav{display:none}
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:36;background:var(--card);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--fg3);text-decoration:none;padding:4px 0}
+  .tabbar a span{font-size:18px;line-height:1.1}
+  .tabbar a.on{color:var(--g6);font-weight:700}
+  .fab{bottom:calc(76px + env(safe-area-inset-bottom,0px))!important}
+  .toast{bottom:calc(136px + env(safe-area-inset-bottom,0px))!important}
+  .report{position:static;display:inline-block;margin-top:10px}
+  .wrap{padding-bottom:170px}
+}
+.s30,.cta,.btn{color:var(--card)!important}.chip i{color:var(--card)}
+.cta.ghost{color:var(--g6)!important}
+/* 절충안: 줄글 본문 */
+.sumc{margin-top:12px;padding:16px 20px}.sumc .k{font-size:12px;font-weight:800;color:var(--g6);letter-spacing:.04em}
+.sumc ol{margin:6px 0 0;padding-left:20px;font-size:15px;line-height:1.85}
+.howto{margin-top:10px;font-size:13px;color:var(--fg3)}
+.tbl a{color:var(--g6);text-decoration:none;font-weight:700}
+.blk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 28px;margin-top:16px;scroll-margin-top:80px}
+.bh{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start;margin-bottom:12px}
+.bn{width:34px;height:34px;border-radius:50%;background:var(--g1);color:var(--g6);display:grid;place-items:center;font-weight:800;font-size:15px}
+.bh h3{font-size:19px;font-weight:800;line-height:1.4;letter-spacing:-.01em}
+.bh .ref{font-size:12px;color:var(--fg4)}
+.prose{font-size:17px;line-height:1.95;color:var(--fg1);max-width:40em}
+.prose p+p{margin-top:14px}
+.prose mark{background:linear-gradient(transparent 58%,var(--g3) 58%);font-weight:600}
+.term{border:0;background:none;padding:0;font:inherit;color:inherit;border-bottom:1.5px dotted var(--g6);cursor:help}
+.oq{margin:16px 0 0;padding:10px 14px;border-left:3px solid var(--line);color:var(--fg2);font-size:14.5px;line-height:1.7}
+.oq .k,.reqb .k,.exb .k{display:block;font-size:11.5px;font-weight:800;letter-spacing:.04em;margin-bottom:3px}
+.oq .k{color:var(--fg4)}
+.reqb{margin-top:14px;padding:12px 16px;border-radius:12px;background:var(--g0);border-left:4px solid var(--g6);font-size:15px;line-height:1.7}
+.reqb .k{color:var(--g6)}
+.figt{margin-top:14px}.figt .cap{font-size:12.5px;color:var(--fg3);display:block;margin-bottom:6px}
+.tbl.sm{font-size:13.5px;border:1px solid var(--line2);border-radius:10px}
+.tbl.sm td:first-child{white-space:normal}
+.exb{margin-top:14px;padding:12px 16px;border-radius:12px;background:var(--b1);font-size:14.5px;line-height:1.7}
+.exb .k{color:var(--b6)}.exb small{display:block;color:var(--fg3);font-size:12px;margin-top:4px}
+.pop{position:fixed;z-index:70;max-width:300px;background:var(--fg1);color:var(--bg);padding:10px 14px;border-radius:12px;font-size:13.5px;line-height:1.6;box-shadow:0 12px 26px -10px rgba(0,0,0,.5)}
+.pop b{display:block}.pop small{opacity:.7}
+@media (max-width:640px){.blk{padding:18px 18px}.prose{font-size:16.5px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- 골방쥐: 이 사이트를 위해 새로 그린 캐릭터. 색은 3색 규칙 안에서만 쓴다. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <symbol id="mouse" viewBox="0 0 120 120">
+   <circle cx="30" cy="36" r="20" fill="#C9D3CC"/><circle cx="30" cy="36" r="12" fill="#E7EDE8"/>
+   <circle cx="90" cy="36" r="20" fill="#C9D3CC"/><circle cx="90" cy="36" r="12" fill="#E7EDE8"/>
+   <ellipse cx="60" cy="66" rx="34" ry="31" fill="#D9E1DB"/>
+   <path d="M26 98c4-10 18-15 34-15s30 5 34 15v6H26z" fill="#2E7D32"/>
+   <rect x="40" y="86" width="40" height="22" rx="3" fill="#F0F7F1" stroke="#2E7D32" stroke-width="2"/>
+   <path d="M60 87v20" stroke="#2E7D32" stroke-width="2"/>
+   <circle cx="47" cy="62" r="9" fill="#fff" stroke="#1F2320" stroke-width="2.4"/><circle cx="73" cy="62" r="9" fill="#fff" stroke="#1F2320" stroke-width="2.4"/>
+   <path d="M56 62h8" stroke="#1F2320" stroke-width="2.4"/>
+   <circle cx="48" cy="63" r="3.2" fill="#1F2320"/><circle cx="72" cy="63" r="3.2" fill="#1F2320"/>
+   <ellipse cx="60" cy="76" rx="4" ry="3" fill="#A9562E"/>
+   <path d="M55 81c2 2 8 2 10 0" stroke="#1F2320" stroke-width="2" fill="none" stroke-linecap="round"/>
+   <path d="M38 74l-12-2M38 78l-12 3M82 74l12-2M82 78l12 3" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+ </defs>
+</svg>
+
+<header class="top"><div class="in">
+ <a class="brand" href="#" data-soon><svg aria-hidden="true"><use href="#mouse"/></svg>기후공시 <b>리딩 클래스</b></a>
+ <nav class="nav" aria-label="메뉴">
+  <a href="#" data-soon>홈</a><a href="#" data-soon>읽기 계획</a><a href="#" class="on" aria-current="page">서재</a><a href="#" data-soon>연습</a><a href="#" data-soon>자료실</a>
+ </nav>
+ <div class="tools"><button class="icon-btn" id="theme" type="button" aria-label="밝기 바꾸기">◐</button><span class="beta">시제품</span></div>
+</div></header>
+<div class="proto-note">v6 절충안 · 처음 버전 본문은 그대로 두고, 앞뒤에 길잡이와 새 디자인만 입혔다. <a href="k2-8.html">요약형 시제품</a> · <a href="../#read/k2-8">처음 버전</a>과 비교해 보자.</div>
+
+<div class="wrap">
+<main>
+ <nav class="crumb" aria-label="현재 위치"><a class="back" href="#" data-soon aria-label="뒤로">←</a><a href="#" data-soon>서재</a>›<a href="#" data-soon>기후공시</a>›<a href="#" data-soon>KSSB 제1·2호</a>›<b>19회차</b></nav>
+ <section class="card head fade">
+  <div>
+   <div class="badges"><span class="bd">기후공시</span><span class="bd n">KSSB 제2호 · 기후 관련 공시</span><span class="bd n">19 / 23회차</span><span class="bd">★ 핵심 회차</span></div>
+   <h1>지표 ① 온실가스 배출량</h1>
+   <p class="sub">지표 공시의 구성과 산업전반 지표 중 가장 중요한 온실가스 배출량(문단 29⑴)을 읽는다. KSSB는 측정 방법이 섞여 있을 때의 세분화(29⑴㈒)와 카테고리 15 범위 한정(29A~29C)에서 고유한 문장을 갖고 있다.</p>
+   <div class="meta"><span>읽는 시간 <b>약 18분</b></span><span>본문 <b>6개 블록</b></span><span>기준서 <b>18~21쪽</b> (적용지침 B19~B57 포함)</span></div>
+   <a class="report" href="https://github.com/goalbangg-prog/Climate-Change-Professional-Maker/issues" target="_blank" rel="noopener">오류 제보</a>
+  </div>
+  <svg class="mascot" aria-hidden="true"><use href="#mouse"/></svg>
+ </section>
+
+ <!-- 읽기 전 길잡이 -->
+ <section class="sec" id="s-guide">
+  <div class="sec-h"><span class="tag">읽기 전에</span><h2>이 회차에서 가져갈 것</h2><small>1분</small></div>
+  <div class="key"><span class="bulb" aria-hidden="true">💡</span><p>KSSB 제2호는 온실가스 배출량을 <mark>Scope 1·2·3으로 나눠 tCO2e로</mark> 공시하게 한다. 기준은 GHG 프로토콜이고, <mark>재는 방법이 섞였을 때만 방법별로 나누며</mark>, Scope 2는 <mark>지역기반이 필수</mark>다.</p></div>
+  <div class="card sumc"><span class="k">이 회차 정리 · 먼저 읽고 본문으로</span><ol><li>온실가스는 tCO2e로 스코프 1·2·3 절대 총배출량을 공시하고, GHG 프로토콜(2004)을 기본으로 하되 관할권 요구 방법을 쓸 수 있다.</li><li>KSSB 29⑴㈒는 측정 방법이 섞인 경우에만 스코프 1·2를 방법별로 나누게 하며, 스코프 2는 지역기반이 필수이고 시장기반은 선택이다.</li><li>스코프 3는 포함한 카테고리를 밝히고, 카테고리 15는 금융배출량으로 한정할 수 있으며 포함하면 총계와 금융배출량 소계를 공시한다.</li></ol></div>
+  <div class="card tw" style="margin-top:12px">
+   <table class="tbl">
+    <thead><tr><th>본문 블록</th><th>요구하는 것</th><th>성격</th></tr></thead>
+    <tbody>
+     <tr><td><a href="#b0">① 총배출량</a></td><td>Scope 1·2·3을 나눠 tCO2e로</td><td><span class="bd">의무</span></td></tr>
+     <tr><td><a href="#b1">② 측정 기준</a></td><td>GHG 프로토콜, 관할 당국 방법 사용 가능, 접근법·가정 공시, 연결실체 구분</td><td><span class="bd">의무</span></td></tr>
+     <tr><td><a href="#b2">③ 방법별 세분화</a></td><td>방법이 섞였을 때만 나눈다 <span class="bd n">KSSB에만 있음</span></td><td><span class="bd o">조건부</span></td></tr>
+     <tr><td><a href="#b3">④ Scope 2</a></td><td>지역기반은 꼭, 시장기반은 원하면</td><td><span class="bd">의무</span> <span class="bd n">선택</span></td></tr>
+     <tr><td><a href="#b4">⑤ Scope 3</a></td><td>포함한 카테고리 공개, 데이터 품질</td><td><span class="bd">의무</span></td></tr>
+     <tr><td><a href="#b5">⑥ 카테고리 15</a></td><td>금융배출량으로 좁히기 / 포함하면 총계·소계</td><td><span class="bd n">선택</span> <span class="bd o">조건부</span></td></tr>
+    </tbody>
+   </table>
+  </div>
+  <p class="howto">초록 밑줄은 블록마다 가장 중요한 문장이다. 점선 밑줄 용어를 누르면 뜻이 나온다.</p>
+ </section>
+
+ <!-- 본문: 처음 버전 그대로 -->
+ <section class="sec" id="s-body">
+  <div class="sec-h"><span class="tag">본문</span><h2>기준서 함께 읽기</h2><small>약 18분 · 원고 그대로</small></div>
+  <section class="blk" id="b0">
+  <div class="bh"><span class="bn">1</span><div><h3>절대 총배출량을 스코프 1·2·3으로</h3><span class="ref">문단 29⑴㈎ · 기준서 18쪽</span></div></div>
+  <div class="prose"><p>문단 27~28은 지표 및 목표 공시를 산업전반 지표(29~31), 산업기반 지표(32), 목표(33~37)로 나눈다. <mark>그 첫 지표인 29⑴㈎는 보고기간의 온실가스 절대 총배출량을 <button type="button" class="term" data-d="여러 온실가스를 CO2 기준으로 환산해 합친 단위다." data-en="tonnes of CO2 equivalent">이산화탄소환산톤</button>으로, 스코프 1·2·3으로 나누어 공시하라고 한다.</mark> 스코프 1은 직접 배출, 스코프 2는 사서 쓴 전기·증기·난방·냉각에서 나온 간접 배출, 스코프 3은 그 밖의 가치사슬 간접 배출이다.</p><p>B20·B21은 일곱 가지 온실가스(CO2, CH4, N2O, HFCs, NF3, PFCs, SF6)를 이산화탄소환산량으로 합치고, 직접 측정할 때는 최신 IPCC 평가보고서의 100년 기준 <button type="button" class="term" data-d="CO2 한 단위와 비교해 어떤 온실가스가 대기를 얼마나 더 데우는지 나타낸 지수다." data-en="global warming potential">지구온난화지수</button>를 쓰라고 한다. 관할 당국이나 거래소가 다른 값을 요구하면 그 범위와 기간 동안 그 값을 쓸 수 있다. 현대자동차 보고서의 산정 설명에는 &#x27;6대 온실가스를 대상으로&#x27; 했다는 문장이 있어, 부록 A의 일곱 가지와 범위가 맞는지 검토 때 확인할 거리다.</p></div>
+  
+  <div class="reqb"><span class="k">이 문단이 요구하는 것</span>보고기간 온실가스 절대 총배출량을 tCO2e로, 스코프 1·2·3으로 구분해 공시한다.</div>
+  <div class="figt"><span class="cap">기아 2025년 온실가스 배출량(보고서 130쪽)</span><div class="tw"><table class="tbl sm"><thead><tr><th>구분</th><th>2025년(천tCO2e)</th></tr></thead><tbody><tr><td>스코프 1</td><td>398.5</td></tr><tr><td>스코프 2</td><td>697.9</td></tr><tr><td>스코프 1+2 합계</td><td>1,096.4</td></tr><tr><td>스코프 3</td><td>142,060.7</td></tr></tbody></table></div></div><div class="exb"><span class="k">기아 보고서에서는</span><p>2025년 스코프 1 398.5천tCO2e, 스코프 2 697.9천tCO2e, 합계 1,096.4천tCO2e, 스코프 3 142,060.7천tCO2e를 공시했다.</p><small>기아 지속가능경영보고서 130쪽</small></div>
+ </section><section class="blk" id="b1">
+  <div class="bh"><span class="bn">2</span><div><h3>측정 기준과 접근법, 연결실체 구분 (㈏·㈐·㈑)</h3><span class="ref">문단 29⑴㈏ · 기준서 18쪽</span></div></div>
+  <div class="prose"><p><mark>29⑴㈏는 배출량을 &#x27;온실가스 프로토콜 기업 회계 및 보고 기준(2004)&#x27;(GHG 프로토콜)에 따라 측정하되, 관할 당국이나 거래소가 기업 전체나 일부에 다른 방법을 요구하면 그 부분은 그 방법을 쓸 수 있게 한다(B24).</mark> B25는 관할권이 스코프 1·2만 보고하게 해도 스코프 1·2·3 공시 의무가 면제되지 않는다고 한다. ㈐는 측정 접근법·투입변수·가정과 선택 이유, 보고기간 중 변경 사항과 이유를 묻는다.</p><p>B27에 따라 GHG 프로토콜을 쓰는 기업은 <button type="button" class="term" data-d="지분 비율만큼 배출량을 산정 범위에 넣는 방식이다." data-en="equity share approach">지분율 접근법</button>과 <button type="button" class="term" data-d="회사가 통제하는 사업장의 배출을 산정 범위에 넣는 조직 경계 설정 방식이다." data-en="control approach">통제 접근법</button> 중 무엇을 썼는지와 이유를 밝힌다. ㈑는 스코프 1·2를 회계상 연결실체와 그 밖의 피투자자(관계기업, 공동기업 등)로 나누라고 한다. 회계상 연결실체는 모회사와 연결재무제표에 함께 묶이는 종속기업이고, 피투자자는 지분은 가졌지만 연결하지 않는 회사다. BC99는 배출량 산정 범위가 재무제표 연결 범위와 다를 수 있어 이를 보완하려는 것이라고 설명한다. 현대자동차 보고서는 조직 경계에 운영통제력 기준을 썼다고 밝혔다.</p></div>
+  
+  <div class="reqb"><span class="k">이 문단이 요구하는 것</span>GHG 프로토콜(2004)로 측정하되 관할 당국·거래소 요구 방법을 쓸 수 있고, 측정 접근법·가정과 변경, 연결실체·피투자자별 스코프 1·2를 공시한다.</div>
+  <div class="exb"><span class="k">현대자동차 보고서에서는</span><p>조직 경계 설정에 통제력 기준 중 운영통제력을 사용했고, 스코프 1·2를 GHG 프로토콜 기업 기준과 Scope 2 Guidance를 근거로 산정하면서 국내 탄소중립기본법과 배출권거래제 보고·인증 지침도 준수했다고 적었다.</p><small>현대자동차 지속가능성 보고서 38쪽</small></div>
+ </section><section class="blk" id="b2">
+  <div class="bh"><span class="bn">3</span><div><h3>측정 방법이 섞였을 때만 방법별로 세분화 (KSSB 고유)</h3><span class="ref">문단 29⑴㈒ · 기준서 19쪽</span></div></div>
+  <div class="prose"><p>29⑴㈒는 KSSB가 더한 요구다. <mark>스코프 1·2 배출량에 GHG 프로토콜로 측정한 배출량과 관할 당국이나 거래소가 요구하는 방법으로 측정한 배출량이 섞여 있는 경우, 스코프 1·2를 사용한 방법별로 나누어 공시한다.</mark> 조건이 붙어 있다는 점이 핵심이다. 한 가지 방법만 썼다면 이 세분화는 적용되지 않는다. 그래서 먼저 우리 회사의 스코프 1·2가 실제로 몇 가지 방법으로 측정되었는지를 확인하는 것이 출발점이다.</p><p>BC101은 일부 사업장은 관할 당국이 요구한 방식으로, 나머지는 GHG 프로토콜로 측정한 경우를 예로 든다. BC103·BC104는 한 방법만 강제하면 중복 보고 비용이 생기고, 섞인 숫자를 합쳐만 두면 규제 환경에 따른 차이가 가려질 수 있다고 보았다. 기아 검증의견서는 국내 사업장 스코프 1·2에 배출권거래제(K-ETS)에 따라 검증된 결과가 반영되었다고 적었다. 이런 기업은 방법이 실제로 섞였는지부터 확인한다. BC105는 이 세분화가 모든 방법으로 배출량을 다시 측정하라는 뜻이 아니라고 분명히 한다.</p></div>
+  <blockquote class="oq"><span class="k">원문 한 줄 · BC105</span>즉, 이는 기업이 사용한 모든 방법으로 기업의 스코프 1 및 스코프 2 온실가스 배출량을 다시 측정해서 공시해야 함을 의미하지 않는다.</blockquote>
+  <div class="reqb"><span class="k">이 문단이 요구하는 것</span>스코프 1·2에 GHG 프로토콜 측정분과 관할 당국·거래소 요구 방법 측정분이 섞여 있을 때에만, 사용한 방법별로 세분화해 공시한다.</div>
+  <div class="exb"><span class="k">기아 보고서에서는</span><p>검증의견서에서 국내 생산법인 및 비생산시설의 스코프 1·2 배출량은 한국 배출권거래제(K-ETS)에 따라 별도 검증된 결과가 반영되었다고 밝혔다.</p><small>기아 지속가능경영보고서 156쪽</small></div>
+ </section><section class="blk" id="b3">
+  <div class="bh"><span class="bn">4</span><div><h3>스코프 2는 지역기반으로, 시장기반은 선택</h3><span class="ref">문단 29⑴㈓ · 기준서 19쪽</span></div></div>
+  <div class="prose"><p>29⑴㈓는 스코프 2를 <button type="button" class="term" data-d="전력을 쓴 지역 전력망의 평균 배출계수로 스코프 2를 계산하는 방식이다." data-en="location-based">지역기반</button>으로 공시하고, 이용자 이해에 필요한 계약 상품 정보를 함께 주라고 한다. 지역기반은 그 지역 전력망의 평균 배출계수로 계산하는 방식이고, <button type="button" class="term" data-d="전력 구매 계약이나 인증서를 반영해 스코프 2를 계산하는 방식이다." data-en="market-based">시장기반</button>은 재생에너지 구매계약이나 인증서처럼 회사가 맺은 계약을 반영하는 방식이다. B30은 계약 상품이 있고 그 정보가 이해에 도움이 될 때만 계약 상품 정보를 주면 된다고 정리하고, B31은 시장기반 배출량을 공시할 수 있다고 한다.</p><p><mark>즉 지역기반은 필수, 시장기반은 선택이다.</mark> 기아 검증의견서의 사업장별 수치를 더하면 지역기반 861,732tCO2e, 시장기반 697,875tCO2e이고, 데이터표의 스코프 2 697.9천tCO2e는 시장기반 합계와 같다. 제2호 기준으로는 지역기반 수치를 분명히 보여 주는지 확인해야 한다. 현대자동차 보고서는 2025년 스코프 2를 지역 기반 1,858,897tCO2e, 시장 기반 1,190,442tCO2e로 함께 표시했다.</p></div>
+  
+  <div class="reqb"><span class="k">이 문단이 요구하는 것</span>스코프 2는 지역기반 배출량을 공시하고, 이해에 필요하면 계약 상품 정보를 제공한다(시장기반 공시는 선택).</div>
+  <div class="exb"><span class="k">현대자동차 보고서에서는</span><p>2025년 스코프 2를 지역 기반 1,858,897tCO2-eq, 시장 기반 1,190,442tCO2-eq로 나란히 공시했다.</p><small>현대자동차 지속가능성 보고서 38쪽</small></div>
+ </section><section class="blk" id="b4">
+  <div class="bh"><span class="bn">5</span><div><h3>스코프 3: 포함한 카테고리와 데이터 품질</h3><span class="ref">문단 29⑴㈔ · 기준서 19쪽</span></div></div>
+  <div class="prose"><p>29⑴㈔①은 스코프 3 측정에 포함한 카테고리를 GHG 프로토콜 스코프 3 기준(2011)의 15개 카테고리에 따라 밝히라고 한다. B32는 업스트림과 다운스트림 전체를 보고 15개를 모두 고려하라고 한다. <mark>모두 &#x27;고려&#x27;하되 실제 포함한 것을 공시하는 구조다.</mark> ②는 B58~B63A와 함께 읽으며, 자산운용·상업은행·보험 활동이 있는 기업에 카테고리 15의 일부인 금융배출량 추가 정보를 요구한다.</p><p>B40은 투입변수 우선순위의 네 특성으로 직접 측정, 특정 활동에서 얻은 <button type="button" class="term" data-d="공급업체 등 가치사슬의 특정 활동에서 직접 얻은 데이터다." data-en="primary data">일차 데이터</button>, 관할권과 기술을 반영한 적시성 있는 데이터, 검증된 데이터를 든다. B57은 실무적으로 추정할 수 없다면 스코프 3를 어떻게 관리하는지 공시하게 한다. 기아 보고서는 판매된 제품의 사용 배출이 114,663.1천tCO2e이며 기준 주행거리를 20만 km에서 22만 km로 올려 늘었다고 주석에 밝혔다. 가정 변경 공시(㈐③)의 예다.</p></div>
+  
+  <div class="reqb"><span class="k">이 문단이 요구하는 것</span>스코프 3 측정에 포함한 카테고리를 밝히고, 금융 활동 기업은 금융배출량 추가 정보를 공시하며, 데이터 품질 우선순위에 따른 투입변수 정보를 제공한다.</div>
+  <div class="exb"><span class="k">기아 보고서에서는</span><p>2025년 스코프 3 142,060.7천tCO2e 중 판매된 제품의 사용이 114,663.1천tCO2e였고, 2025년부터 기준 주행거리를 22만 km로 상향해 사용단계 배출량이 증가했다고 주석에 적었다.</p><small>기아 지속가능경영보고서 130쪽</small></div>
+ </section><section class="blk" id="b5">
+  <div class="bh"><span class="bn">6</span><div><h3>카테고리 15를 금융배출량으로 한정 (29A~29C)</h3><span class="ref">문단 29A · 기준서 21쪽</span></div></div>
+  <div class="prose"><p>29A는 카테고리 15(투자)의 측정 범위를 <button type="button" class="term" data-d="피투자자나 거래상대방의 온실가스 총배출량 중 기업의 대여 및 투자에 기인하는 부분이다." data-en="financed emissions">금융배출량</button>으로 한정할 수 있게 한다. 금융배출량은 피투자자나 거래상대방에게 준 대출 및 투자(대출, 프로젝트 파이낸싱, 채권, 지분투자, 미사용 대출한도약정)에 귀속되는 배출량이며, 자산운용 기업은 운용자산 귀속분도 포함한다. 한정할 때는 파생상품 관련 배출량도 뺄 수 있다. BC125·BC129에 따르면 이는 2025년 12월 IFRS S2 개정을 반영한 것이다.</p><p>29B는 한정한 기업에 무엇을 파생상품으로 보았는지와 제외된 금융활동이 무엇인지 설명하게 한다. BC135·BC136에 따르면 KSSB는 제외 규모를 숫자 대신 질적으로 설명하게 했다. <mark>29C는 카테고리 15를 포함하면 총계와 그 안의 금융배출량 소계를 공시하게 한다.</mark> 기아는 카테고리 15를 국내외 지분투자 배출량 776.8천tCO2e로, 현대자동차는 지분 기반 접근법으로 1,506,134tCO2e로 공시했다.</p></div>
+  <blockquote class="oq"><span class="k">원문 한 줄 · 문단 29A</span>기업이 문단 29⑴㈎③에 따라 공시되는 스코프 3 온실가스 배출량 측정에 카테고리 15 온실가스 배출량을 포함하는 경우, 기업은 카테고리 15 온실가스 배출량의 총계와 그 총계에 포함된 금융배출량의 소계를 공시하여야 한다.</blockquote>
+  <div class="reqb"><span class="k">이 문단이 요구하는 것</span>카테고리 15를 금융배출량으로 한정할 수 있고(파생상품 제외 가능), 한정하면 파생상품 판단과 제외 활동을 설명하며, 카테고리 15를 포함하면 총계와 금융배출량 소계를 공시한다.</div>
+  <div class="figt"><span class="cap">29A~29C 정리</span><div class="tw"><table class="tbl sm"><thead><tr><th>문단</th><th>내용</th><th>성격</th></tr></thead><tbody><tr><td>29A</td><td>카테고리 15를 금융배출량으로 한정, 파생상품 관련 배출량 제외 가능</td><td>선택(할 수 있다)</td></tr><tr><td>29B</td><td>파생상품으로 본 항목과 제외된 금융활동 설명</td><td>한정했을 때 의무</td></tr><tr><td>29C</td><td>카테고리 15 총계와 그 안의 금융배출량 소계</td><td>카테고리 15를 포함하면 의무</td></tr></tbody></table></div></div><div class="exb"><span class="k">현대자동차 보고서에서는</span><p>2025년 카테고리 15(투자) 배출량을 1,506,134tCO2-eq로 공시했고, 40쪽에서 지분율을 투자 대상 기업의 스코프 1·2 배출량에 적용하는 지분 기반 접근법으로 산정했다고 설명했다.</p><small>현대자동차 지속가능성 보고서 38쪽</small></div>
+ </section>
+ </section>
+
+ <!-- 읽은 뒤 -->
+ <section class="sec" id="s-points">
+  <div class="sec-h"><span class="tag b">읽은 뒤에</span><h2>보고서를 검토할 때 확인할 것</h2></div>
+  <div class="card tw">
+   <table class="tbl">
+    <thead><tr><th>확인할 것</th><th>보는 방법</th></tr></thead>
+    <tbody>
+     <tr><td>온실가스 범위</td><td>"6대 온실가스"라고 쓰여 있으면 일곱 가지(NF3 포함)와 범위가 맞는지 본다. <a href="#b0">①</a></td></tr>
+     <tr><td>방법이 섞였나</td><td>검증의견서에 국내 사업장 K-ETS 검증이 있으면 섞였을 가능성이 크다. 방법별로 나눴는지 본다. <a href="#b2">③</a></td></tr>
+     <tr><td>Scope 2 계산법</td><td>지역기반 숫자가 보이는가. 시장기반만 있으면 보완 대상. <a href="#b3">④</a></td></tr>
+     <tr><td>Scope 3 가정</td><td>포함한 카테고리와 바뀐 가정(예: 기아 주행거리 20만→22만 km). <a href="#b4">⑤</a></td></tr>
+    </tbody>
+   </table>
+  </div>
+  <div style="margin-top:14px">
+   <div class="myth"><div class="m"><span class="k">오해</span><p>모든 회사가 Scope 1·2를 방법별로 나눠야 한다.</p></div><div class="r"><span class="k">바로잡기</span><p>재는 방법이 <b>섞여 있을 때만</b> 나눈다. 모든 방법으로 다시 잴 필요도 없다(BC105).</p></div></div>
+   <div class="myth"><div class="m"><span class="k">오해</span><p>Scope 2는 시장기반만 내면 된다.</p></div><div class="r"><span class="k">바로잡기</span><p><b>지역기반이 필수</b>, 시장기반은 선택이다.</p></div></div>
+   <div class="myth"><div class="m"><span class="k">오해</span><p>국내 제도가 Scope 1·2만 요구하면 Scope 3는 안 내도 된다.</p></div><div class="r"><span class="k">바로잡기</span><p>아니다. Scope 1·2·3 공시 의무는 그대로다(B25).</p></div></div>
+  </div>
+ </section>
+
+ <div class="done-row" id="doneRow">
+  <button class="cta" id="doneBtn" type="button">✓ 다 읽었다</button>
+  <span style="font-size:13px;color:var(--fg3)" id="doneHint">다 읽으면 오른쪽 '확인'에서 한 줄로 정리해 보자</span>
+ </div>
+ <div class="pn"><a href="#" data-soon><small>← 이전 · 18회차</small><b>위험관리</b></a><a class="nx" href="#" data-soon><small>다음 · 20회차 →</small><b>지표 ② 나머지 산업전반 지표</b></a></div>
+</main>
+
+<!-- 확인 패널: 데스크톱은 오른쪽 고정, 폰은 바텀시트 -->
+<aside class="side" id="side" aria-label="확인">
+ <div class="side-h"><b>확인</b><button type="button" id="sideToggle">접기</button></div>
+ <div class="card tocc" style="padding:12px 14px">
+  <div class="toc" id="toc"><a href="#s-guide"><i></i>읽기 전에</a><a href="#b0"><i></i>절대 총배출량을 스코프 1·2·3으로</a><a href="#b1"><i></i>측정 기준과 접근법, 연결실체 구분 (㈏·㈐·㈑)</a><a href="#b2"><i></i>측정 방법이 섞였을 때만 방법별로 세분화 (KSSB 고유)</a><a href="#b3"><i></i>스코프 2는 지역기반으로, 시장기반은 선택</a><a href="#b4"><i></i>스코프 3: 포함한 카테고리와 데이터 품질</a><a href="#b5"><i></i>카테고리 15를 금융배출량으로 한정 (29A~29C)</a><a href="#s-points"><i></i>읽은 뒤에</a></div>
+ </div>
+ <div class="card pcard">
+  <div class="ph"><b>✍️ 한 줄 쓰기</b><span class="cnt">내 말로</span></div>
+  <p class="q">문단 29⑴㈒의 측정 방법별 세분화는 언제 적용되는가?</p>
+  <textarea id="wIn" placeholder="본문을 보지 않고 써 보자 (30자 이상)"></textarea>
+  <div class="prow"><small id="wCnt">0자</small><button class="btn" id="wGo" type="button">확인</button></div>
+  <div class="kw" id="kw"></div><div class="res" id="wRes"></div>
+ </div>
+ <div class="card pcard">
+  <div class="ph"><b>🔍 오해 점검</b><span class="cnt">1문항</span></div>
+  <p class="q">문단 29C가 요구하는 것은?</p>
+  <div class="opts" id="opts"><button type="button" data-i="0">모든 기업이 카테고리 15를 금융배출량으로 한정해야 한다</button><button type="button" data-i="1">카테고리 15를 포함하면 그 총계와 금융배출량 소계를 공시한다</button><button type="button" data-i="2">파생상품 관련 배출량을 반드시 포함해야 한다</button></div>
+  <div class="res" id="cRes"></div>
+ </div>
+</aside>
+</div>
+
+<nav class="tabbar" aria-label="메뉴"><a href="#" data-soon><span>🏠</span>홈</a><a href="#" data-soon><span>🗓️</span>읽기 계획</a><a href="#" class="on" aria-current="page"><span>📚</span>서재</a><a href="#" data-soon><span>✍️</span>연습</a><a href="#" data-soon><span>🗂️</span>자료실</a></nav>
+<button class="fab" id="fab" type="button">✍️ 확인하기</button>
+<div class="scrim" id="scrim"></div>
+
+<script>
+(function(){
+  /* 저장: 이 브라우저의 localStorage에만. 서버 없음. */
+  const KEY="rc6-k2-8-b";
+  let S={};try{S=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+  const $=s=>document.querySelector(s);
+
+  /* 토스트 (골방쥐가 말한다) */
+  function toast(msg){document.querySelectorAll(".toast").forEach(t=>t.remove());const t=document.createElement("div");t.className="toast";t.innerHTML='<svg aria-hidden="true"><use href="#mouse"/></svg><span></span>';t.querySelector("span").textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+  document.querySelectorAll("[data-soon]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();toast("시제품에서는 이 회차만 열려 있어. 구조를 먼저 봐 줘!")}));
+
+
+  /* 용어: 누르면 작은 설명 창(팝오버) */
+  document.addEventListener("click",ev=>{document.querySelectorAll(".pop").forEach(p=>p.remove());const t=ev.target.closest(".term");if(!t)return;const r=t.getBoundingClientRect();const p=document.createElement("div");p.className="pop";p.innerHTML="<b></b><span></span> <small></small>";p.querySelector("b").textContent=t.textContent;p.querySelector("span").textContent=t.dataset.d;p.querySelector("small").textContent=t.dataset.en;document.body.appendChild(p);const w=p.offsetWidth;p.style.left=Math.max(12,Math.min(innerWidth-w-12,r.left))+"px";p.style.top=(r.bottom+8)+"px"});
+  addEventListener("scroll",()=>document.querySelectorAll(".pop").forEach(p=>p.remove()),{passive:true});
+  /* 테마 */
+  try{const t=localStorage.getItem("rc6-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}
+  $("#theme").onclick=()=>{const r=document.documentElement;const cur=r.getAttribute("data-theme");const dark=cur?cur==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.setAttribute("data-theme",dark?"light":"dark");try{localStorage.setItem("rc6-theme",dark?"light":"dark")}catch(e){}};
+
+  /* 목차: 지금 읽는 곳 표시 */
+  const links=[...document.querySelectorAll("#toc a")];
+  function spy(){const y=innerHeight*.35;let cur=-1;links.forEach((a,i)=>{const el=document.querySelector(a.getAttribute("href"));if(el&&el.getBoundingClientRect().top<y)cur=i});
+    links.forEach((a,i)=>{a.classList.toggle("on",i===cur);a.classList.toggle("past",i<cur);a.querySelector("i").textContent=i<cur?"✓":""})}
+  addEventListener("scroll",spy,{passive:true});spy();
+
+  /* 패널 접기 / 바텀시트 */
+  const side=$("#side"),scrim=$("#scrim");
+  const mobile=()=>matchMedia("(max-width:1000px)").matches;
+  $("#sideToggle").onclick=()=>{if(mobile()){side.classList.remove("open");scrim.classList.remove("on");return}side.classList.toggle("collapsed");$("#sideToggle").textContent=side.classList.contains("collapsed")?"펼치기":"접기"};
+  $("#fab").onclick=()=>{side.classList.add("open");scrim.classList.add("on")};
+  scrim.onclick=()=>{side.classList.remove("open");scrim.classList.remove("on")};
+  const fixLabel=()=>{$("#sideToggle").textContent=mobile()?"닫기":(side.classList.contains("collapsed")?"펼치기":"접기")};fixLabel();addEventListener("resize",fixLabel);
+
+  /* 한 줄 쓰기: 키워드 묶음 채점 (원고의 must/wrong 그대로) */
+  const MUST=[["섞여","섞이","섞인","혼재","여러 방법","둘 이상"],["GHG 프로토콜","온실가스 프로토콜","GHG프로토콜"],["관할 당국","거래소","국내 지침","배출권거래제"]];
+  const LAB=["섞였을 때","GHG 프로토콜","관할 당국 방법"];
+  const WRONG=["모든 기업이 항상","모든 방법으로 다시"];
+  const MODEL="스코프 1·2 배출량에 GHG 프로토콜로 측정한 배출량과 관할 당국이나 거래소가 요구하는 방법으로 측정한 배출량이 섞여 있을 때에만 방법별로 세분화한다.";
+  const inp=$("#wIn");const upd=()=>$("#wCnt").textContent=inp.value.trim().length+"자";
+  inp.value=S.w||"";upd();inp.oninput=()=>{upd();S.w=inp.value;save()};
+  const kwShow=(hits)=>$("#kw").innerHTML=LAB.map((l,i)=>`<span class="${hits&&hits[i]?"hit":""}">${hits&&hits[i]?"✓ ":""}${l}</span>`).join("");kwShow(S.hits);
+  $("#wGo").onclick=()=>{const t=inp.value.trim();if(t.length<30){$("#wRes").textContent=`30자 이상 써 보자. 지금 ${t.length}자.`;return}
+    const n=x=>x.replace(/\s+/g,"").toLowerCase();const T=n(t);const hits=MUST.map(g=>g.some(k=>T.includes(n(k))));const bad=WRONG.some(k=>T.includes(n(k)));
+    const ok=hits.filter(Boolean).length>=2&&!bad;S.tries=(S.tries||0)+1;S.hits=hits;S.ok=ok;save();kwShow(hits);
+    $("#wRes").innerHTML=(ok?`<b style="color:var(--g6)">통과</b> · 핵심 ${hits.filter(Boolean).length}/3개를 담았다.`:`<b style="color:var(--o6)">조금 더</b> · ${bad?"오해에 가까운 말이 섞였다. ":"빠진 핵심이 있다. "}`)+((ok||S.tries>=2)?`<div class="model">모범 답안 · ${MODEL}</div>`:"");
+    if(ok)toast("좋아, 핵심을 잡았어!")};
+
+  /* 오해 점검 */
+  const ANS=1,WHY="29A의 한정은 선택이고 파생상품은 뺄 수 있다. 29C는 카테고리 15를 포함하는 기업에 총계와 금융배출량 소계 공시를 요구한다(BC136).";
+  const opts=[...document.querySelectorAll("#opts button")];
+  const mark=i=>{opts.forEach(o=>{o.disabled=true;const j=+o.dataset.i;if(j===ANS)o.classList.add("right");else if(j===i)o.classList.add("wrong")});$("#cRes").innerHTML=`<b style="color:${i===ANS?"var(--g6)":"var(--o6)"}">${i===ANS?"맞았다.":"다시 보자."}</b> ${WHY}`};
+  opts.forEach(o=>o.onclick=()=>{S.c=+o.dataset.i;save();mark(S.c)});if(S.c!==undefined)mark(S.c);
+
+  /* 다 읽었다 → 다음 행동 하나 */
+  function doneUI(){if(!S.done)return;$("#doneBtn").textContent="✓ 읽음";$("#doneBtn").classList.add("ghost");$("#doneHint").innerHTML=S.ok?"확인도 끝났다. 다음 회차로 가자.":"이제 '확인'에서 한 줄로 정리해 보자.";}
+  $("#doneBtn").onclick=()=>{S.done=Date.now();save();doneUI();if(mobile()&&!S.ok){side.classList.add("open");scrim.classList.add("on")}toast(S.ok?"19회차 끝! 다음은 20회차야.":"끝까지 읽었다! 이제 한 줄로 정리해 볼까?")};doneUI();
+})();
+</script>
+</body>
+</html>
