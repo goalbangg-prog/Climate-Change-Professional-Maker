@@ -1,0 +1,396 @@
+{
+ "id": "ghgp",
+ "code": "GHGP",
+ "name": "GHG 프로토콜 (기업 표준 · Scope 2 지침 · Scope 3 표준)",
+ "kind": "산정 표준",
+ "edition": "기업 표준 2004 개정판 · Scope 2 2015 · Scope 3 2011",
+ "issuer": "WRI · WBCSD",
+ "status": "prep",
+ "note": "목차 나누기는 data/books의 기존 회차를 옮긴 것. 쪽수(pagesDraft)는 검수 전이라 화면에 쓰지 않는다. PDF를 넣으면 KSSB처럼 검수해서 ranges·map을 채운다.",
+ "docs": {
+  "ghgp-corp": {
+   "short": "기업 표준",
+   "name": "The GHG Protocol Corporate Accounting and Reporting Standard (Revised Edition)",
+   "file": "pdf/ghgp-corp.pdf",
+   "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+  },
+  "ghgp-s2": {
+   "short": "Scope 2 지침",
+   "name": "GHG Protocol Scope 2 Guidance",
+   "file": "pdf/ghgp-s2.pdf",
+   "url": "https://ghgprotocol.org/sites/default/files/2023-03/Scope%202%20Guidance.pdf"
+  },
+  "ghgp-s3": {
+   "short": "Scope 3 표준",
+   "name": "Corporate Value Chain (Scope 3) Accounting and Reporting Standard",
+   "file": "pdf/ghgp-s3.pdf",
+   "url": "https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard_041613_2.pdf"
+  }
+ },
+ "parts": [
+  {
+   "id": "ghgp-corp",
+   "label": "기업 표준"
+  },
+  {
+   "id": "ghgp-s2",
+   "label": "Scope 2 지침"
+  },
+  {
+   "id": "ghgp-s3",
+   "label": "Scope 3 표준"
+  }
+ ],
+ "items": [
+  {
+   "id": "pc-1",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "GHG 프로토콜은 무엇이고 왜 모든 기준의 뿌리인가",
+   "map": "",
+   "rangeText": "Introduction (인쇄 2~5쪽)",
+   "pagesDraft": [
+    4,
+    7
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pc-2",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "회계·보고 5원칙",
+   "map": "",
+   "rangeText": "Chapter 1 (인쇄 6~9쪽)",
+   "pagesDraft": [
+    8,
+    11
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pc-3",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "사업 목표와 인벤토리 설계",
+   "map": "",
+   "rangeText": "Chapter 2 (인쇄 10~15쪽)",
+   "pagesDraft": [
+    12,
+    17
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pc-4",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "조직 경계: 지분·재무통제·운영통제",
+   "map": "",
+   "rangeText": "Chapter 3 (인쇄 16~23쪽)",
+   "pagesDraft": [
+    18,
+    25
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pc-5",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "운영 경계: Scope 1·2·3의 정의",
+   "map": "",
+   "rangeText": "Chapter 4 (인쇄 24~33쪽)",
+   "pagesDraft": [
+    26,
+    35
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pc-6",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "시간에 따른 추적: 기준연도와 재산정",
+   "map": "",
+   "rangeText": "Chapter 5 (인쇄 34~39쪽)",
+   "pagesDraft": [
+    36,
+    41
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pc-7",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "배출량 식별과 계산",
+   "map": "",
+   "rangeText": "Chapter 6 (인쇄 40~47쪽)",
+   "pagesDraft": [
+    42,
+    49
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pc-8",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "인벤토리 품질 관리",
+   "map": "",
+   "rangeText": "Chapter 7 (인쇄 48~57쪽)",
+   "pagesDraft": [
+    50,
+    59
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pc-9",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "감축 회계와 보고",
+   "map": "",
+   "rangeText": "Chapter 8~9 (인쇄 58~67쪽)",
+   "pagesDraft": [
+    60,
+    69
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pc-10",
+   "doc": "ghgp-corp",
+   "part": "ghgp-corp",
+   "title": "검증과 목표 설정, 그리고 한국에서의 적용",
+   "map": "",
+   "rangeText": "Chapter 10~11 (인쇄 68~85쪽)",
+   "pagesDraft": [
+    70,
+    87
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p2-1",
+   "doc": "ghgp-s2",
+   "part": "ghgp-s2",
+   "title": "왜 Scope 2를 두 번 세나 (이중 보고 요구)",
+   "map": "",
+   "rangeText": "Chapter 1~2 (인쇄 4~19쪽)",
+   "pagesDraft": [
+    6,
+    21
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p2-2",
+   "doc": "ghgp-s2",
+   "part": "ghgp-s2",
+   "title": "지역기반 방법과 배출계수 위계",
+   "map": "",
+   "rangeText": "Chapter 4(4.1.1·4.2), Chapter 6(6.3·6.7·6.10, 표 6.2·6.4·6.6)",
+   "pagesDraft": [
+    26,
+    59
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p2-3",
+   "doc": "ghgp-s2",
+   "part": "ghgp-s2",
+   "title": "시장기반 방법과 계약 수단(REC, PPA, 공급자별 계수, 잔여 믹스)",
+   "map": "",
+   "rangeText": "Chapter 4(4.1.2), Chapter 6(6.2·6.4·6.6·6.11, 표 6.1·6.3·6.5)",
+   "pagesDraft": [
+    26,
+    59
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p2-4",
+   "doc": "ghgp-s2",
+   "part": "ghgp-s2",
+   "title": "품질 기준 8가지",
+   "map": "",
+   "rangeText": "Chapter 7 (7.5, 표 7.1)",
+   "pagesDraft": [
+    60,
+    67
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p2-5",
+   "doc": "ghgp-s2",
+   "part": "ghgp-s2",
+   "title": "보고와 공시 요구, 목표 설정에서의 쓰임",
+   "map": "",
+   "rangeText": "Chapter 7(7.1~7.4), Chapter 8, Chapter 9",
+   "pagesDraft": [
+    60,
+    79
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p2-6",
+   "doc": "ghgp-s2",
+   "part": "ghgp-s2",
+   "title": "한국에서의 적용: 국내 계수, K-RE100, 명세서와의 차이",
+   "map": "",
+   "rangeText": "지침 표 6.2·6.3, 7.4.1, 기준 8 + 국내 제도(배출량 보고·인증 지침 제18조, K-RE100, KSSB 제2호)",
+   "pagesDraft": [
+    49,
+    67
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p3-1",
+   "doc": "ghgp-s3",
+   "part": "ghgp-s3",
+   "title": "Scope 3는 왜 필요하고 무엇을 요구하나",
+   "map": "",
+   "rangeText": "1~4장 (인쇄 3~25쪽)",
+   "pagesDraft": [
+    5,
+    27
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p3-2",
+   "doc": "ghgp-s3",
+   "part": "ghgp-s3",
+   "title": "경계 설정: 15개 카테고리와 포함·제외",
+   "map": "",
+   "rangeText": "5.1~5.4, 6장 (인쇄 27~63쪽)",
+   "pagesDraft": [
+    29,
+    65
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p3-3",
+   "doc": "ghgp-s3",
+   "part": "ghgp-s3",
+   "title": "업스트림 카테고리 1~8",
+   "map": "",
+   "rangeText": "5.5 카테고리 1~8, 부록 A (인쇄 38~47·124쪽), 산정 지침 1~8장",
+   "pagesDraft": [
+    40,
+    49
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p3-4",
+   "doc": "ghgp-s3",
+   "part": "ghgp-s3",
+   "title": "다운스트림 카테고리 9~15 (자동차: 11 판매 제품 사용 깊게)",
+   "map": "",
+   "rangeText": "5.5 카테고리 9~15, 5.6 (인쇄 47~56쪽), 산정 지침 11장(113~124쪽)·부록 B",
+   "pagesDraft": [
+    49,
+    58
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p3-5",
+   "doc": "ghgp-s3",
+   "part": "ghgp-s3",
+   "title": "데이터 수집과 데이터 품질",
+   "map": "",
+   "rangeText": "7장 (인쇄 65~85쪽)",
+   "pagesDraft": [
+    67,
+    87
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p3-6",
+   "doc": "ghgp-s3",
+   "part": "ghgp-s3",
+   "title": "배출량 할당과 산정 방법 선택",
+   "map": "",
+   "rangeText": "8장 (인쇄 87~97쪽), 산정 지침 서론(11~18쪽)",
+   "pagesDraft": [
+    89,
+    99
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p3-7",
+   "doc": "ghgp-s3",
+   "part": "ghgp-s3",
+   "title": "목표 설정과 추적, 기준연도 재산정",
+   "map": "",
+   "rangeText": "9장 (인쇄 99~111쪽)",
+   "pagesDraft": [
+    101,
+    113
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p3-8",
+   "doc": "ghgp-s3",
+   "part": "ghgp-s3",
+   "title": "보고와 보증",
+   "map": "",
+   "rangeText": "10~11장, 부록 B (인쇄 113~122·126쪽)",
+   "pagesDraft": [
+    115,
+    124
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "p3-9",
+   "doc": "ghgp-s3",
+   "part": "ghgp-s3",
+   "title": "한국 자동차 회사의 Scope 3 읽기 (기아·현대차 실제 표)",
+   "map": "",
+   "rangeText": "보고서 대조: 기아 2026 보고서 130·155~156쪽, 현대차 2026 보고서 38~41·160쪽",
+   "pagesDraft": [
+    29,
+    124
+   ],
+   "ranges": [],
+   "refs": []
+  }
+ ]
+}

@@ -1,0 +1,358 @@
+{
+ "id": "ifrs",
+ "code": "IFRS",
+ "name": "IFRS S1·S2 지속가능성 공시기준",
+ "kind": "공시기준",
+ "edition": "ISSB 2026 edition (S2는 2025.12 개정 반영)",
+ "issuer": "국제지속가능성기준위원회(ISSB)",
+ "status": "prep",
+ "note": "목차 나누기는 data/books의 기존 회차를 옮긴 것. 쪽수(pagesDraft)는 검수 전이라 화면에 쓰지 않는다. PDF를 넣으면 KSSB처럼 검수해서 ranges·map을 채운다.",
+ "docs": {
+  "ifrs-s1": {
+   "short": "S1",
+   "name": "IFRS S1 General Requirements for Disclosure of Sustainability-related Financial Information",
+   "file": "pdf/ifrs-s1.pdf",
+   "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2026/issued/issbs1.html"
+  },
+  "ifrs-s2": {
+   "short": "S2",
+   "name": "IFRS S2 Climate-related Disclosures",
+   "file": "pdf/ifrs-s2.pdf",
+   "url": "https://www.ifrs.org/content/dam/ifrs/publications/html-standards-issb/english/2026/issued/issbs2.html"
+  }
+ },
+ "parts": [
+  {
+   "id": "ifrs-s1",
+   "label": "S1 · 일반 요구사항"
+  },
+  {
+   "id": "ifrs-s2",
+   "label": "S2 · 기후 관련 공시"
+  }
+ ],
+ "items": [
+  {
+   "id": "s1-0",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "들어가며: S1은 모든 지속가능성 공시의 공통 규칙",
+   "map": "",
+   "rangeText": "머리말, 문단 E1, 승인문, KSSB 결론도출근거 BC10·BC143",
+   "pagesDraft": [
+    5,
+    46
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-1",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "목적과 적용범위",
+   "map": "",
+   "rangeText": "문단 1~9",
+   "pagesDraft": [
+    6,
+    7
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-2",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "개념적 기초 ① 공정한 표시",
+   "map": "",
+   "rangeText": "문단 10~16",
+   "pagesDraft": [
+    7,
+    8
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-3",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "개념적 기초 ② 중요성과 보고기업",
+   "map": "",
+   "rangeText": "문단 17~20 (+B13~B38)",
+   "pagesDraft": [
+    8,
+    32
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-4",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "연계된 정보",
+   "map": "",
+   "rangeText": "문단 21~24 (+B39~B44)",
+   "pagesDraft": [
+    8,
+    33
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-5",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "핵심 요소",
+   "map": "",
+   "rangeText": "문단 25~53 (31A·31B가 없다는 점, 문단 48 '산업 지표 포함' 등 차이 중심)",
+   "pagesDraft": [
+    9,
+    16
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-6",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "지침의 원천: SASB 기준을 '참조하고 적용가능성을 고려해야'",
+   "map": "",
+   "rangeText": "문단 54~59",
+   "pagesDraft": [
+    16,
+    18
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-7",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "공시 위치·보고시기·비교정보",
+   "map": "",
+   "rangeText": "문단 60~71",
+   "pagesDraft": [
+    18,
+    20
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-8",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "준수 문구, 판단, 불확실성, 오류",
+   "map": "",
+   "rangeText": "문단 72~86 (KSSB 73~87)",
+   "pagesDraft": [
+    20,
+    22
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-9",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "부록 C 지침의 원천, 부록 E 시행일·경과규정",
+   "map": "",
+   "rangeText": "부록 C (C1~C3), 부록 E (E1~E6)",
+   "pagesDraft": [
+    37,
+    45
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s1-10",
+   "doc": "ifrs-s1",
+   "part": "ifrs-s1",
+   "title": "KSSB 제1호와의 차이 총정리",
+   "map": "",
+   "rangeText": "이 책 s1-0~s1-9의 차이 + KSSB 결론도출근거 BC143 표",
+   "pagesDraft": [
+    5,
+    46
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-0",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "들어가며: ISSB, IFRS S2, 그리고 KSSB",
+   "map": "",
+   "rangeText": "머리말, 문단 C1, 2025년 개정 문단 C1A~C1B",
+   "pagesDraft": [
+    3,
+    45
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-1",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "목적과 적용범위",
+   "map": "",
+   "rangeText": "문단 1~4",
+   "pagesDraft": [
+    6,
+    6
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-2",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "거버넌스",
+   "map": "",
+   "rangeText": "문단 5~7",
+   "pagesDraft": [
+    6,
+    7
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-3",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "전략 ① 위험·기회와 기간범위",
+   "map": "",
+   "rangeText": "문단 8~12",
+   "pagesDraft": [
+    8,
+    9
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-4",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "전략 ② 사업모형·가치사슬과 전환계획",
+   "map": "",
+   "rangeText": "문단 13~14 (+TPT 기술 매핑)",
+   "pagesDraft": [
+    9,
+    10
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-5",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "전략 ③ 재무적 영향",
+   "map": "",
+   "rangeText": "문단 15~21",
+   "pagesDraft": [
+    10,
+    12
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-6",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "전략 ④ 기후 회복력",
+   "map": "",
+   "rangeText": "문단 22~23 (+B1~B18)",
+   "pagesDraft": [
+    12,
+    29
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-7",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "위험관리",
+   "map": "",
+   "rangeText": "문단 24~26",
+   "pagesDraft": [
+    14,
+    14
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-8",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "지표 ① 온실가스 배출량",
+   "map": "",
+   "rangeText": "문단 27~29(a) (+B19~B63, 2025년 개정 29A~29C·B21·B24·B62A)",
+   "pagesDraft": [
+    15,
+    40
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-9",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "지표 ② 나머지 산업전반 지표와 산업기반 지표",
+   "map": "",
+   "rangeText": "문단 29(b)~(g), 30~32 (+B64~B65)",
+   "pagesDraft": [
+    16,
+    41
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-10",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "목표",
+   "map": "",
+   "rangeText": "문단 33~37 (+B66~B71)",
+   "pagesDraft": [
+    17,
+    43
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "s2-11",
+   "doc": "ifrs-s2",
+   "part": "ifrs-s2",
+   "title": "시행일·경과규정과 KSSB와의 차이 총정리",
+   "map": "",
+   "rangeText": "부록 C (C1~C5, 2025년 개정 C1A~C1B·C4(b)·C6) + 전체 차이표",
+   "pagesDraft": [
+    44,
+    44
+   ],
+   "ranges": [],
+   "refs": []
+  }
+ ]
+}

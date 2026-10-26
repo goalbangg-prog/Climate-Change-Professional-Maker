@@ -1,0 +1,661 @@
+{
+ "id": "kssb",
+ "code": "KSSB",
+ "name": "KSSB 지속가능성 공시기준 제1·2호",
+ "kind": "공시기준",
+ "edition": "2026.2 의결본",
+ "issuer": "한국회계기준원 지속가능성기준위원회",
+ "docs": {
+  "kssb-1": {
+   "short": "제1호",
+   "name": "제1호 지속가능성 관련 재무정보 공시를 위한 일반 요구사항",
+   "file": "pdf/kssb-1.pdf",
+   "pages": 142,
+   "url": "https://www.kasb.or.kr/front/board/View3012.do?siteCd=002000000000000&gubun=3012&accstdSeq=3748&seq=&tab=A&bu=B&searchfield=TITLE&searchword=&categoryList=&searchfield2=ENACTMENT_DT&s_date_start=&s_date_end=",
+   "glossary": {
+    "label": "부록 A 용어의 정의",
+    "start": 30,
+    "end": 32
+   }
+  },
+  "kssb-2": {
+   "short": "제2호",
+   "name": "제2호 기후 관련 공시",
+   "file": "pdf/kssb-2.pdf",
+   "pages": 165,
+   "url": "https://www.kasb.or.kr/front/board/View3012.do?siteCd=002000000000000&gubun=3012&accstdSeq=3749&seq=&tab=A&bu=B&searchfield=TITLE&searchword=&categoryList=&searchfield2=ENACTMENT_DT&s_date_start=&s_date_end=",
+   "glossary": {
+    "label": "부록 A 용어의 정의",
+    "start": 25,
+    "end": 30
+   }
+  }
+ },
+ "parts": [
+  {
+   "id": "intro",
+   "label": "들어가며"
+  },
+  {
+   "id": "s1",
+   "label": "제1호 · 일반 요구사항"
+  },
+  {
+   "id": "s2",
+   "label": "제2호 · 기후 관련 공시"
+  }
+ ],
+ "items": [
+  {
+   "id": "k0",
+   "doc": "kssb-1",
+   "part": "intro",
+   "title": "들어가며: KSSB와 의무공시 일정",
+   "map": "기준서 밖의 일정(언제, 누구에게 의무가 되는지)과 기준서 안의 시행일 문단 E1을 나란히 놓는 출발점.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "부록",
+     "label": "부록 E 문단 E1",
+     "start": 59,
+     "end": 59
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k1-1",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "목적과 적용범위",
+   "map": "제1호 맨 앞. 이 기준이 누구를 위해, 어떤 정보를 공시하게 하는지 정한다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 1~9",
+     "start": 6,
+     "end": 7
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k1-2",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "공정한 표시",
+   "map": "개념적 기초의 첫 부분. 유용한 정보의 조건과 '공정하게 표시된 공시'의 뜻을 정한다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 10~16",
+     "start": 8,
+     "end": 9
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B1~B12",
+     "start": 33,
+     "end": 37,
+     "by": "문단 12"
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "부록",
+     "label": "부록 D 질적특성 D1~D33",
+     "start": 51,
+     "end": 58,
+     "by": "문단 10"
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k1-3",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "중요성과 보고기업",
+   "map": "개념적 기초의 둘째 부분. 무엇을 공시할지(중요성)와 누구에 대해 공시할지(보고기업)를 정한다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 17~20",
+     "start": 9,
+     "end": 10
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B13~B37",
+     "start": 37,
+     "end": 43,
+     "by": "문단 19"
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B38",
+     "start": 43,
+     "end": 43,
+     "by": "문단 20"
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k1-4",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "연계된 정보",
+   "map": "개념적 기초의 마지막 부분. 공시 안의 정보끼리, 그리고 재무제표와 어떻게 이어지는지 정한다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 21~24",
+     "start": 10,
+     "end": 10
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B39~B44",
+     "start": 44,
+     "end": 46,
+     "by": "문단 21"
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k1-5",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "핵심요소 ① 거버넌스와 전략의 틀",
+   "map": "핵심요소 네 개(거버넌스·전략·위험관리·지표 및 목표)가 시작되는 곳. 거버넌스와 전략 앞부분.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 25~33",
+     "start": 11,
+     "end": 15
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k1-6",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "핵심요소 ② 재무적 영향과 회복력",
+   "map": "전략의 뒷부분. 위험과 기회가 재무에 주는 영향과 회복력을 다룬다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 34~42",
+     "start": 15,
+     "end": 18
+    }
+   ],
+   "refs": [
+    {
+     "doc": "kssb-1",
+     "label": "적용지침 B8~B10",
+     "start": 35,
+     "end": 36,
+     "by": "문단 37"
+    }
+   ]
+  },
+  {
+   "id": "k1-7",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "핵심요소 ③ 위험관리, 지표 및 목표",
+   "map": "핵심요소의 나머지 둘. 위험관리 과정과 지표 및 목표를 다룬다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 43~53",
+     "start": 18,
+     "end": 22
+    }
+   ],
+   "refs": [
+    {
+     "doc": "kssb-1",
+     "label": "적용지침 B52",
+     "start": 48,
+     "end": 48,
+     "by": "문단 52"
+    }
+   ]
+  },
+  {
+   "id": "k1-8",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "지침의 원천과 공시 위치",
+   "map": "일반 요구사항의 시작. 기준서가 없는 주제에서 참고할 원천과 공시를 싣는 위치를 정한다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 54~63",
+     "start": 22,
+     "end": 24
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "부록",
+     "label": "부록 C",
+     "start": 50,
+     "end": 51,
+     "by": "문단 54~58"
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B45~B47",
+     "start": 46,
+     "end": 47,
+     "by": "문단 63"
+    }
+   ],
+   "refs": [
+    {
+     "doc": "kssb-1",
+     "label": "적용지침 B27",
+     "start": 40,
+     "end": 41,
+     "by": "문단 62"
+    }
+   ]
+  },
+  {
+   "id": "k1-9",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "보고시기, 비교정보, 준수 문구",
+   "map": "일반 요구사항의 중간. 언제 보고하고, 비교정보를 어떻게 주고, 준수를 어떻게 밝히는지 정한다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 64~74",
+     "start": 24,
+     "end": 27
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B48",
+     "start": 47,
+     "end": 47,
+     "by": "문단 70"
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B49~B54",
+     "start": 47,
+     "end": 49,
+     "by": "문단 71"
+    }
+   ],
+   "refs": [
+    {
+     "doc": "kssb-1",
+     "label": "적용지침 B33",
+     "start": 42,
+     "end": 42,
+     "by": "문단 74"
+    },
+    {
+     "doc": "kssb-1",
+     "label": "적용지침 B34~B37",
+     "start": 42,
+     "end": 43,
+     "by": "문단 74"
+    }
+   ]
+  },
+  {
+   "id": "k1-10",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "판단, 측정불확실성, 오류",
+   "map": "본문의 마지막. 판단과 추정, 불확실성, 오류 수정을 다룬다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "본문",
+     "label": "문단 75~87",
+     "start": 27,
+     "end": 29
+    },
+    {
+     "doc": "kssb-1",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B55~B59",
+     "start": 49,
+     "end": 49,
+     "by": "문단 87"
+    }
+   ],
+   "refs": [
+    {
+     "doc": "kssb-1",
+     "label": "적용지침 B11",
+     "start": 36,
+     "end": 36,
+     "by": "문단 76"
+    }
+   ]
+  },
+  {
+   "id": "k1-11",
+   "doc": "kssb-1",
+   "part": "s1",
+   "title": "시행일과 경과규정",
+   "map": "제1호의 끝. 언제부터 적용하는지와 처음 적용할 때의 완화, 자발적 적용을 정한다.",
+   "ranges": [
+    {
+     "doc": "kssb-1",
+     "kind": "부록",
+     "label": "부록 E·F",
+     "start": 59,
+     "end": 61
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k2-1",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "목적과 적용범위",
+   "map": "제2호 맨 앞. 어떤 기후 관련 위험과 기회가 대상인지 정한다.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 1~4",
+     "start": 5,
+     "end": 6
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k2-2",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "거버넌스",
+   "map": "핵심요소 첫째. 기후 위험과 기회를 누가 감독하고 관리하는지 공시하는 부분.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 5~7",
+     "start": 6,
+     "end": 7
+    }
+   ],
+   "refs": [
+    {
+     "doc": "kssb-1",
+     "label": "제1호 적용지침 B42",
+     "start": 45,
+     "end": 45,
+     "by": "문단 7"
+    }
+   ]
+  },
+  {
+   "id": "k2-3",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "전략 ① 위험·기회와 기간범위",
+   "map": "전략의 시작. 위험·기회를 기술하는 방법과 단기·중기·장기를 다룬다.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 8~10B",
+     "start": 8,
+     "end": 9
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k2-4",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "전략 ② 사업모형·가치사슬, 전략과 의사결정",
+   "map": "전략의 둘째 부분. 위험·기회가 사업모형, 가치사슬, 의사결정(전환계획)에 주는 영향.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 11~14",
+     "start": 9,
+     "end": 11
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k2-5",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "전략 ③ 재무적 영향",
+   "map": "전략의 셋째 부분. 재무상태·성과·현금흐름에 대한 영향을 다룬다.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 15~21",
+     "start": 11,
+     "end": 14
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k2-6",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "전략 ④ 기후 회복력과 시나리오 분석",
+   "map": "전략의 마지막. 기후 회복력과 시나리오 분석을 다룬다.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 22~23",
+     "start": 14,
+     "end": 16
+    },
+    {
+     "doc": "kssb-2",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B1~B18",
+     "start": 31,
+     "end": 38,
+     "by": "문단 22"
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k2-7",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "위험관리",
+   "map": "핵심요소 셋째. 기후 위험·기회를 찾고 평가하고 관리하는 과정.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 24~26",
+     "start": 16,
+     "end": 17
+    }
+   ],
+   "refs": [
+    {
+     "doc": "kssb-1",
+     "label": "제1호 적용지침 B42",
+     "start": 45,
+     "end": 45,
+     "by": "문단 26"
+    }
+   ]
+  },
+  {
+   "id": "k2-8",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "지표 ① 온실가스 배출량",
+   "map": "지표 및 목표의 시작. 산업전반 지표 중 첫째인 온실가스 배출량(Scope 1·2·3).",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 27~29⑴",
+     "start": 17,
+     "end": 20
+    },
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 29A~29C",
+     "start": 21,
+     "end": 21
+    },
+    {
+     "doc": "kssb-2",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B19~B57",
+     "start": 38,
+     "end": 50,
+     "by": "문단 29⑴"
+    },
+    {
+     "doc": "kssb-2",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B58~B63A",
+     "start": 50,
+     "end": 56,
+     "by": "문단 29⑴㈔"
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k2-9",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "지표 ② 나머지 산업전반 지표와 산업기반 지표",
+   "map": "지표의 나머지. 온실가스 외 산업전반 지표와 산업기반 지표.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 29⑵~32",
+     "start": 20,
+     "end": 22
+    },
+    {
+     "doc": "kssb-2",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B64~B65",
+     "start": 56,
+     "end": 56,
+     "by": "문단 31"
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k2-10",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "목표",
+   "map": "핵심요소의 마지막. 기후 목표와 그 진척을 공시하는 부분.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "본문",
+     "label": "문단 33~37",
+     "start": 22,
+     "end": 24
+    },
+    {
+     "doc": "kssb-2",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B66~B67",
+     "start": 57,
+     "end": 57,
+     "by": "문단 33"
+    },
+    {
+     "doc": "kssb-2",
+     "kind": "적용지침",
+     "label": "부록 B 적용지침 B68~B71",
+     "start": 57,
+     "end": 58,
+     "by": "문단 36"
+    }
+   ],
+   "refs": []
+  },
+  {
+   "id": "k2-11",
+   "doc": "kssb-2",
+   "part": "s2",
+   "title": "시행일·경과규정과 IFRS와의 차이",
+   "map": "제2호의 끝. 적용 시기와 완화 규정, 그리고 IFRS S2와 달라진 점의 정리.",
+   "ranges": [
+    {
+     "doc": "kssb-2",
+     "kind": "부록",
+     "label": "부록 C·D",
+     "start": 59,
+     "end": 61,
+     "by": "문단 54~58"
+    },
+    {
+     "doc": "kssb-2",
+     "kind": "결론도출근거",
+     "label": "결론도출근거 BC171~BC179",
+     "start": 158,
+     "end": 163
+    }
+   ],
+   "refs": []
+  }
+ ],
+ "checked": "2026-10-26 · 적용지침 제1호 B1~B59(59개)·제2호 B1~B71(73개) 전부 한 번씩 배정, 본문 지시 문단과 대조",
+ "status": "ready",
+ "schedule": [
+  {
+   "from": 1,
+   "to": 2,
+   "label": "들어가며 + 제1호 (12개)"
+  },
+  {
+   "from": 3,
+   "to": 4,
+   "label": "제2호 (11개)"
+  }
+ ]
+}

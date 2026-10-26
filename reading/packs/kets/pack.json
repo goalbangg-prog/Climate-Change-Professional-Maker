@@ -1,0 +1,316 @@
+{
+ "id": "kets",
+ "code": "K-ETS",
+ "name": "배출권거래제 배출량 보고·인증 지침 · 검증지침",
+ "kind": "고시",
+ "edition": "제2025-64호 · 제2025-165호",
+ "issuer": "기후에너지환경부 고시",
+ "status": "prep",
+ "note": "목차 나누기는 data/books의 기존 회차를 옮긴 것. 쪽수(pagesDraft)는 검수 전이라 화면에 쓰지 않는다. PDF를 넣으면 KSSB처럼 검수해서 ranges·map을 채운다.",
+ "docs": {
+  "mrv": {
+   "short": "보고·인증 지침",
+   "name": "온실가스 배출권거래제의 배출량 보고 및 인증에 관한 지침",
+   "file": "pdf/mrv.pdf",
+   "url": "https://www.law.go.kr/행정규칙/온실가스배출권거래제의배출량보고및인증에관한지침"
+  },
+  "ver": {
+   "short": "검증지침",
+   "name": "온실가스 배출권거래제 운영을 위한 검증지침",
+   "file": "pdf/ver.pdf",
+   "url": "https://www.law.go.kr/행정규칙/온실가스배출권거래제운영을위한검증지침"
+  }
+ },
+ "parts": [
+  {
+   "id": "mrv",
+   "label": "배출량 보고·인증 지침"
+  },
+  {
+   "id": "ver",
+   "label": "검증지침"
+  }
+ ],
+ "items": [
+  {
+   "id": "m-1",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "이 고시는 무엇이고, 명세서의 1년은 어떻게 돌아가나",
+   "map": "",
+   "rangeText": "제1~6조, 별표 1·2, 배출권거래법 제24조",
+   "pagesDraft": [
+    3,
+    7
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-2",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "산정 원칙과 절차, 산정 범위",
+   "map": "",
+   "rangeText": "제7~9조, 제18조, 별표 2·3",
+   "pagesDraft": [
+    7,
+    10
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-3",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "조직경계: 어디까지가 우리 사업장인가",
+   "map": "",
+   "rangeText": "제10조, 별표 4 (별표 21·22 개요)",
+   "pagesDraft": [
+    8,
+    8
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-4",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "산정등급(Tier): 시설규모와 최소 등급",
+   "map": "",
+   "rangeText": "제11조, 제14조, 제17조, 별표 5",
+   "pagesDraft": [
+    8,
+    9
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-5",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "산정식 읽기 ① 고정연소",
+   "map": "",
+   "rangeText": "별표 6의 1~3 (고체·기체·액체 연료)",
+   "pagesDraft": [
+    36,
+    54
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-6",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "산정식 읽기 ② 이동연소와 외부 전기·열",
+   "map": "",
+   "rangeText": "별표 6의 5(도로), 39(외부 전기), 40(외부 열)",
+   "pagesDraft": [
+    62,
+    72
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-7",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "산정식 읽기 ③ 공정배출 한 가지 깊게 (시멘트)",
+   "map": "",
+   "rangeText": "별표 6의 8 (시멘트 생산)",
+   "pagesDraft": [
+    82,
+    90
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-8",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "활동자료 수집과 모니터링 유형",
+   "map": "",
+   "rangeText": "제12조, 별표 8",
+   "pagesDraft": [
+    326,
+    339
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-9",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "불확도와 데이터 품질",
+   "map": "",
+   "rangeText": "제13~14조, 별표 9",
+   "pagesDraft": [
+    340,
+    347
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-10",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "배출계수: 기본값·국가 고유값·사업장 고유값, GWP",
+   "map": "",
+   "rangeText": "제15~16·22조, 별표 7·10~13, 참고 3",
+   "pagesDraft": [
+    9,
+    9
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-11",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "배출량 산정 계획(모니터링 계획)과 QC/QA",
+   "map": "",
+   "rangeText": "제23~27조, 별표 19·20, 별지 제10호",
+   "pagesDraft": [
+    11,
+    13
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "m-12",
+   "doc": "mrv",
+   "part": "mrv",
+   "title": "명세서 제출, 인증, 이의신청, 공개",
+   "map": "",
+   "rangeText": "제28~41조, 별표 23, 별지 제11호",
+   "pagesDraft": [
+    13,
+    16
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "v-1",
+   "doc": "ver",
+   "part": "ver",
+   "title": "검증이란 무엇이고 누가 하나",
+   "map": "",
+   "rangeText": "제1~8조, 별표 1",
+   "pagesDraft": [
+    1,
+    15
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "v-2",
+   "doc": "ver",
+   "part": "ver",
+   "title": "검증팀과 내부심의",
+   "map": "",
+   "rangeText": "제9~11조, 제18~19조, 별지 제1호",
+   "pagesDraft": [
+    3,
+    6
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "v-3",
+   "doc": "ver",
+   "part": "ver",
+   "title": "산정계획서 검증",
+   "map": "",
+   "rangeText": "제12조, 별표 2",
+   "pagesDraft": [
+    4,
+    28
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "v-4",
+   "doc": "ver",
+   "part": "ver",
+   "title": "배출량 검증 절차 ① 개요 파악·리스크 분석·검증계획",
+   "map": "",
+   "rangeText": "제13조, 별표 3 제1~2호",
+   "pagesDraft": [
+    4,
+    35
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "v-5",
+   "doc": "ver",
+   "part": "ver",
+   "title": "배출량 검증 절차 ② 문서검토·현장검증·중요성",
+   "map": "",
+   "rangeText": "별표 3 제3~5호",
+   "pagesDraft": [
+    36,
+    44
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "v-6",
+   "doc": "ver",
+   "part": "ver",
+   "title": "시정조치와 검증의견, 검증보고서",
+   "map": "",
+   "rangeText": "제15~17조, 제19조, 별지 제3호·제4호",
+   "pagesDraft": [
+    5,
+    110
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "v-7",
+   "doc": "ver",
+   "part": "ver",
+   "title": "검증기관과 검증심사원",
+   "map": "",
+   "rangeText": "제20~31조, 별표 6·7·8",
+   "pagesDraft": [
+    6,
+    74
+   ],
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "v-8",
+   "doc": "ver",
+   "part": "ver",
+   "title": "컨설턴트의 검증 대응 체크리스트 + KSSB 인증과의 관계",
+   "map": "",
+   "rangeText": "책 전체 정리, 기아·현대차 검증의견서, KSSB 교재 k0 연결",
+   "pagesDraft": [
+    2,
+    43
+   ],
+   "ranges": [],
+   "refs": []
+  }
+ ]
+}

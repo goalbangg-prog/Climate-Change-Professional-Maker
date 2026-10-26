@@ -1,0 +1,69 @@
+{
+ "categories": [
+  {
+   "id": "report",
+   "label": "지속가능경영보고",
+   "desc": "지속가능경영보고서 기획·작성, 이중 중대성 평가, 제3자 검증",
+   "candidates": [
+    "GRI 표준",
+    "SASB 기준"
+   ]
+  },
+  {
+   "id": "rating",
+   "label": "ESG 평가",
+   "desc": "평가 질의서 작성과 등급 개선",
+   "candidates": [
+    "CDP",
+    "EcoVadis",
+    "S&P Global CSA",
+    "KCGS"
+   ]
+  },
+  {
+   "id": "climate",
+   "label": "기후공시",
+   "desc": "공시 기준 분석·대응, 기후 리스크·시나리오 분석",
+   "candidates": [
+    "ESRS",
+    "TCFD 권고안"
+   ]
+  },
+  {
+   "id": "ghg",
+   "label": "온실가스관리",
+   "desc": "Scope 1·2·3 인벤토리 산정, 넷제로 목표와 감축 로드맵",
+   "candidates": [
+    "국가 온실가스 인벤토리",
+    "SBTi 넷제로 기준"
+   ]
+  }
+ ],
+ "packs": [
+  {
+   "id": "kssb",
+   "path": "packs/kssb/",
+   "category": "climate"
+  },
+  {
+   "id": "ifrs",
+   "path": "packs/ifrs/",
+   "category": "climate"
+  },
+  {
+   "id": "ghgp",
+   "path": "packs/ghgp/",
+   "category": "ghg"
+  },
+  {
+   "id": "kets",
+   "path": "packs/kets/",
+   "category": "ghg"
+  },
+  {
+   "id": "tms",
+   "path": "packs/tms/",
+   "category": "ghg"
+  }
+ ]
+}
