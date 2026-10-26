@@ -59,18 +59,29 @@ function shelf() {
       </section>`;
     }).join("")}
   </div>`;
+  bindToggles();
   document.querySelectorAll(".cats a").forEach(a => a.onclick = e => { e.preventDefault(); document.getElementById("cat-" + a.dataset.cat).scrollIntoView({ behavior: "smooth", block: "start" }); });
 }
+let OPEN_CARDS = new Set(); // 서재에서 목차를 펼친 확장팩
 function packCard(P) {
   const top = `<div class="pack-top">${badge(P, "lg")}<div><p class="kind-l">${esc(P.kind)} · ${esc(P.edition)}</p><h2>${esc(P.name)}</h2><p class="issuer">${esc(P.issuer)}</p></div></div>`;
+  const open = OPEN_CARDS.has(P.id);
+  const tog = `<button class="btn tog" type="button" data-tog="${P.id}" aria-expanded="${open}">${open ? "목차 접기 ▴" : "목차 펼치기 ▾"}</button>`;
+  if (open) return `<article class="pack open">${top}<div class="pack-body">${packBody(P)}</div><div class="pack-act">${tog}<a class="btn ghost" href="#/p/${P.id}">목차만 크게 보기</a></div></article>`;
   if (!isReady(P)) return `<article class="pack prep">${top}
     <p class="prep-note"><span class="pill">목차 준비됨</span>항목 ${P.items.length}개 · 원문 PDF와 쪽수 검수 전</p>
-    <div class="pack-act"><a class="btn" href="#/p/${P.id}">목차 보기</a></div></article>`;
+    <div class="pack-act">${tog}</div></article>`;
   const n = doneCount(P), t = P.items.length, nx = nextItem(P);
   return `<article class="pack">${top}
     <div class="prog"><div class="bar2"><i style="width:${n / t * 100}%"></i></div><span><b>${n}</b> / ${t} 항목</span></div>
-    <div class="pack-act"><a class="btn main" href="#/p/${P.id}/read/${nx.id}">이어 읽기 — ${esc(nx.title)}</a><a class="btn" href="#/p/${P.id}">목차 보기</a></div>
+    <div class="pack-act"><a class="btn main" href="#/p/${P.id}/read/${nx.id}">이어 읽기 — ${esc(nx.title)}</a>${tog}</div>
   </article>`;
+}
+function bindToggles(after) {
+  document.querySelectorAll("[data-tog]").forEach(b => b.onclick = () => {
+    const id = b.dataset.tog; OPEN_CARDS.has(id) ? OPEN_CARDS.delete(id) : OPEN_CARDS.add(id);
+    const card = b.closest(".pack"); card.outerHTML = packCard(PACKS[id]); bindToggles();
+  });
 }
 
 // ── 확장팩 첫 화면 (#/p/<id>): 이어 읽기 하나 + 전체 지도 ──
@@ -80,19 +91,13 @@ function weekInfo(P) {
   const week = Math.floor((Date.now() - new Date(st)) / 864e5 / 7) + 1;
   return { week, text: `${week}주차 · ${fmtDate(st)} 시작` };
 }
-function packHome(P) {
+// 목차 본문: 이어 읽기 칸 + 전체 지도. 첫 화면·서재 카드·머리줄 서랍에서 같이 쓴다.
+function packBody(P) {
   const ready = isReady(P), n = doneCount(P), t = P.items.length, nx = nextItem(P);
-  const cat = CATS.find(c => c.id === P.category) || {};
   const wk = weekInfo(P);
   const plan = (P.schedule || []).map(s => `<li class="${wk.week >= s.from && wk.week <= s.to ? "on" : ""}"><b>${s.from}~${s.to}주차</b>${esc(s.label)}</li>`).join("");
   const nxPart = P.parts.find(x => x.id === nx.part);
-  const fin = FLASH && FLASH.pack === P.id && !FLASH.to ? FLASH : null; FLASH = null;
-  $("#app").innerHTML = `<div class="view">
-    ${fin ? `<div class="flash" role="status">✓ ‘<b>${esc(fin.title)}</b>’까지 다 읽었어. ${n === t ? "이 기준서를 끝까지 읽었어!" : "아직 안 읽은 항목이 지도에 남아 있어."}</div>` : ""}
-    <p class="crumb"><a href="#/">서재</a> › ${esc(cat.label || "")}</p>
-    <div class="phead">${badge(P, "lg")}<div><h1 class="ptitle">${esc(P.name)}</h1>
-      <p class="pmeta">${esc(P.edition)} · ${esc(P.issuer)} · 원문 ${Object.values(P.docs).map(d => `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.short)} ↗</a>`).join(" ")}</p></div></div>
-    ${ready ? `<section class="hero">
+  return `${ready ? `<section class="hero">
       <div class="hero-main"><p class="hero-k">다음에 읽을 곳 · ${esc(nxPart ? nxPart.label : "")}</p>
         <h2>${esc(nx.title)}</h2><p class="hero-map">${esc(nx.map)}</p>
         <a class="btn main big" href="#/p/${P.id}/read/${nx.id}">이어 읽기 →</a></div>
@@ -108,15 +113,58 @@ function packHome(P) {
         return `<div class="apart"><div class="apart-h"><b>${esc(part.label)}</b><span>${ready ? `${d} / ${its.length}` : `${its.length}개`}</span></div>
           <div class="tiles">${its.map(it => {
             const no = P.items.indexOf(it) + 1, dn = isDone(P.id, it.id), isNext = ready && it.id === nx.id && !dn;
+            const here = CUR_ITEM && CUR_ITEM === P.id + "/" + it.id;
             const r0 = it.ranges[0];
             const sub = ready ? `${esc(short(P, r0.doc))} ${esc(r0.label)} · ${pages(r0)}${it.ranges.length > 1 ? ` 외 ${it.ranges.length - 1}곳` : ""}` : `${esc(it.rangeText || "")}`;
-            const stat = dn ? `<span class="tst ok">✓ ${fmtDate(recs(P.id)[it.id].doneAt)}</span>` : isNext ? `<span class="tst nx">다음</span>` : "";
+            const stat = here ? `<span class="tst here">지금 여기</span>` : dn ? `<span class="tst ok">✓ ${fmtDate(recs(P.id)[it.id].doneAt)}</span>` : isNext ? `<span class="tst nx">다음</span>` : "";
             const inner = `<span class="tno">${no}</span><span class="ttl">${esc(it.title)}</span><span class="tsub">${sub}</span>${stat}`;
-            return ready ? `<a class="tile ${dn ? "done" : ""} ${isNext ? "next" : ""}" href="#/p/${P.id}/read/${it.id}">${inner}</a>` : `<div class="tile off">${inner}</div>`;
+            return ready ? `<a class="tile ${dn ? "done" : ""} ${isNext ? "next" : ""} ${here ? "cur" : ""}" href="#/p/${P.id}/read/${it.id}">${inner}</a>` : `<div class="tile off">${inner}</div>`;
           }).join("")}</div></div>`;
       }).join("")}
-    </section></div>`;
+    </section>`;
 }
+function packHome(P) {
+  const n = doneCount(P), t = P.items.length;
+  const cat = CATS.find(c => c.id === P.category) || {};
+  const fin = FLASH && FLASH.pack === P.id && !FLASH.to ? FLASH : null; FLASH = null;
+  $("#app").innerHTML = `<div class="view">
+    ${fin ? `<div class="flash" role="status">✓ ‘<b>${esc(fin.title)}</b>’까지 다 읽었어. ${n === t ? "이 기준서를 끝까지 읽었어!" : "아직 안 읽은 항목이 지도에 남아 있어."}</div>` : ""}
+    <p class="crumb"><a href="#/">서재</a> › ${esc(cat.label || "")}</p>
+    <div class="phead">${badge(P, "lg")}<div><h1 class="ptitle">${esc(P.name)}</h1>
+      <p class="pmeta">${esc(P.edition)} · ${esc(P.issuer)} · 원문 ${Object.values(P.docs).map(d => `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.short)} ↗</a>`).join(" ")}</p></div></div>
+    ${packBody(P)}</div>`;
+}
+
+// ── 머리줄 '목차' 서랍: 어느 화면에서나 지금 읽는 확장팩의 목차를 연다 ──
+let CUR_ITEM = null; // 지금 읽고 있는 항목 (서랍에서 '지금 여기' 표시)
+function drawerPack() {
+  const seg = (location.hash || "#/").slice(2).split("/");
+  return (seg[0] === "p" && PACKS[seg[1]]) || PACKS[ORDER.find(id => isReady(PACKS[id]))] || PACKS[ORDER[0]];
+}
+function openDrawer() {
+  const P = drawerPack(); if (!P) return;
+  closeDrawer(true);
+  const d = document.createElement("div"); d.id = "drawer"; d.className = "drawer-wrap";
+  d.innerHTML = `<div class="drawer-bg" data-close></div>
+    <aside class="drawer" role="dialog" aria-modal="true" aria-label="${esc(P.code)} 목차">
+      <div class="dh">${badge(P)}<b>${esc(P.name)}</b><button class="dx" type="button" data-close aria-label="닫기">✕</button></div>
+      <div class="dbody">${packBody(P)}</div>
+      <div class="dfoot"><a class="linkbtn" href="#/p/${P.id}">목차만 크게 보기</a></div>
+    </aside>`;
+  document.body.appendChild(d); document.body.classList.add("noscroll");
+  d.querySelectorAll("[data-close]").forEach(x => x.onclick = () => closeDrawer());
+  d.querySelectorAll("a[href^='#/']").forEach(a => a.addEventListener("click", () => closeDrawer()));
+  requestAnimationFrame(() => d.classList.add("on"));
+  d.querySelector(".dx").focus();
+  $("#tocBtn").setAttribute("aria-expanded", "true");
+}
+function closeDrawer(now) {
+  const d = $("#drawer"); if (!d) return;
+  document.body.classList.remove("noscroll"); $("#tocBtn").setAttribute("aria-expanded", "false");
+  if (now) { d.remove(); return; }
+  d.classList.remove("on"); setTimeout(() => d.remove(), 220);
+}
+addEventListener("keydown", e => { if (e.key === "Escape") closeDrawer(); });
 
 // ── 오늘의 읽기 (#/p/<id>/read/<item>) ──
 // 1 지도 → 2 원문(다 읽었어요) → 3 내 정리·구조도 → 4 상황 문제 → 다음 항목. 완료 조건은 2단계까지(정의서 8번).
@@ -129,7 +177,7 @@ let FLASH = null;  // 방금 '다 읽었어요'를 누른 항목 (알림)
 function read(P, id, step) {
   const idx = P.items.findIndex(i => i.id === id);
   if (idx < 0) { location.hash = `#/p/${P.id}`; return; }
-  const key = P.id + "/" + id;
+  const key = P.id + "/" + id; CUR_ITEM = key;
   if (VIEW.key !== key) { VIEW = { key, step: 1, part: 0 }; PEEK = false; }
   if (step) VIEW.step = Math.min(Math.max(1, step), 4);
   const it = P.items[idx], r = recs(P.id)[id];
@@ -466,6 +514,7 @@ function showImport() {
 
 // ── 길 찾기: #/  #/p/<pack>  #/p/<pack>/read/<item>  #/notes ──
 function route() {
+  closeDrawer(true); CUR_ITEM = null; $("main").classList.remove("wide");
   $("main").classList.remove("wide");
   const seg = (location.hash || "#/").slice(2).split("/");
   const P = seg[0] === "p" ? PACKS[seg[1]] : null;
@@ -486,6 +535,7 @@ function route() {
       P.base = p.path; P.category = p.category; PACKS[P.id] = P; ORDER.push(P.id);
     }
     CATS = list.categories || [];
+    $("#tocBtn").onclick = () => $("#drawer") ? closeDrawer() : openDrawer();
     addEventListener("hashchange", route); route();
   } catch (e) {
     $("#app").innerHTML = `<div class="view temp"><h1>목차를 못 불러왔어</h1><p>파일을 직접 열면(file://) 브라우저가 막아. 폴더에서 <code>python3 -m http.server</code>를 켜고 열어 줘.</p></div>`;
