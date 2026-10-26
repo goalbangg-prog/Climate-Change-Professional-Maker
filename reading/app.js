@@ -16,9 +16,14 @@ function load() {
 }
 let S = load();
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
-const recs = p => ((S.packs[p] ||= { items: {} }).items);
-const rec = (p, id) => (recs(p)[id] ||= { done: false, doneAt: null, note: "", tree: "", cases: [] });
-const isDone = (p, id) => !!(S.packs[p] && S.packs[p].items[id] && S.packs[p].items[id].done);
+// 공개 기록: log/public.json (저장소에 올린 김수현의 기록). 내 기록이 없으면 이걸 보여 준다.
+let PUB = null, PUBMODE = false;
+const store = () => PUBMODE && PUB ? PUB : S;
+const recs = p => ((store().packs[p] ||= { items: {} }).items);
+const hasOwn = () => Object.values(S.packs).some(pk => Object.values(pk.items || {}).some(r => r && (r.done || r.note || r.tree || (r.cases || []).some(c => c.q || c.a))));
+// 쓰기는 늘 내 기록에. 공개 기록을 보다가 쓰기 시작하면 내 기록으로 바뀐다.
+const rec = (p, id) => { if (PUBMODE) { PUBMODE = false; pubBar(); } return ((S.packs[p] ||= { items: {} }).items[id] ||= { done: false, doneAt: null, note: "", tree: "", cases: [] }); };
+const isDone = (p, id) => { const st = store(); return !!(st.packs[p] && st.packs[p].items[id] && st.packs[p].items[id].done); };
 
 // ── 도우미 ──
 const pages = r => r.start === r.end ? `${r.start}쪽` : `${r.start}~${r.end}쪽`;
@@ -89,9 +94,9 @@ function packCard(P) {
 
 // ── 확장팩 첫 화면 (#/p/<id>): 이어 읽기 하나 + 전체 지도 ──
 function weekInfo(P) {
-  const st = S.packs[P.id] && S.packs[P.id].startedAt;
+  const st = store().packs[P.id] && store().packs[P.id].startedAt;
   if (!st) return { week: 0, text: "아직 시작 전" };
-  const week = Math.floor((Date.now() - new Date(st)) / 864e5 / 7) + 1;
+  const week = Math.max(1, Math.floor((Date.now() - new Date(st)) / 864e5 / 7) + 1);
   return { week, text: `${week}주차 · ${fmtDate(st)} 시작` };
 }
 // 목차 본문: 이어 읽기 칸 + 전체 지도. 첫 화면·서재 카드·머리줄 서랍에서 같이 쓴다.
@@ -242,6 +247,7 @@ function read(P, id, step) {
   const db = $("#doneBtn"); if (db) db.onclick = () => {
     const x = rec(P.id, id); x.done = true; x.doneAt = new Date().toISOString();
     if (!S.packs[P.id].startedAt) S.packs[P.id].startedAt = x.doneAt;
+    pubBar();
     save(); FLASH = { pack: P.id, at: key }; read(P, id, 3);
   };
   const un = $("#undo"); if (un) un.onclick = () => { const x = rec(P.id, id); x.done = false; x.doneAt = null; save(); read(P, id); };
@@ -277,7 +283,13 @@ function workLayout(P, it, inner, again) {
 }
 
 // ── 3단계: 내 정리 + 들여쓰기 구조도 ──
+function pubReadonly(P, it, again) {
+  workLayout(P, it, `<div class="pubro"><p>지금은 <b>김수현의 공개 기록</b>을 보고 있어서 쓸 수 없어.</p>
+    ${noteCard(P, it)}<button class="btn main" id="startOwn" type="button">내 기록으로 쓰기 시작</button></div>`, again);
+  $("#startOwn").onclick = () => { PUBMODE = false; pubBar(); again(); };
+}
 function stageWrite(P, it) {
+  if (PUBMODE) return pubReadonly(P, it, () => stageWrite(P, it));
   const x = rec(P.id, it.id);
   workLayout(P, it, `
     <div class="wgrid">
@@ -324,6 +336,7 @@ function drawTree(txt) {
 
 // ── 4단계: 상황 문제 ──
 function stageCases(P, it) {
+  if (PUBMODE) return pubReadonly(P, it, () => stageCases(P, it));
   const x = rec(P.id, it.id);
   if (!x.cases.length) x.cases.push({ q: "", a: "", ref: "" });
   workLayout(P, it, `
@@ -456,14 +469,22 @@ function notes() {
   const last = S.lastBackup ? fmtDate(S.lastBackup) : null;
   const count = ready.reduce((a, P) => a + P.items.filter(i => hasRec(recs(P.id)[i.id])).length, 0);
   $("#app").innerHTML = `<div class="view">
-    <p class="eyebrow">내 기록</p><h1 class="h1 sm">읽고 남긴 것</h1>
-    <section class="backup">
+    ${PUBMODE ? `<p class="eyebrow">공개 기록 · ${PUB.updated ? fmtDate(PUB.updated) + " 기준" : ""}</p><h1 class="h1 sm">${esc(PUB.owner || "")}이 읽고 남긴 것</h1>
+    <p class="lead">원문을 읽고 남긴 진도와 기록이야. 쉬운 설명이나 해설이 아니라, 읽은 사람이 직접 쓴 정리와 구조도만 담았어.</p>`
+    : `<p class="eyebrow">내 기록</p><h1 class="h1 sm">읽고 남긴 것</h1>
+    <section class="backup pubexp">
+      <div><b>공개용 기록</b><p>방문자(채용 담당자)에게 보여 줄 기록을 골라 파일로 받아. 받은 파일을 저장소의 <code>reading/log/public.json</code>으로 올리면 사이트에 공개돼.</p>
+        <p class="checks"><label><input type="checkbox" checked disabled> 진도와 읽은 날짜</label><label><input type="checkbox" id="pubNote" ${PUBOPT.note ? "checked" : ""}> 내 정리</label><label><input type="checkbox" id="pubTree" ${PUBOPT.tree ? "checked" : ""}> 구조도</label></p>
+        ${PUB ? `<p class="last">지금 공개된 기록: ${PUB.updated ? fmtDate(PUB.updated) : "날짜 없음"} 기준</p>` : ""}</div>
+      <div class="bk-act"><button class="btn main" id="pubExp" type="button">공개용 파일 받기</button>${PUB ? `<button class="btn" id="pubPrev" type="button">방문자 화면 미리 보기</button>` : ""}</div>
+    </section>`}
+    ${PUBMODE ? "" : `<section class="backup">
       <div><b>백업</b><p>기록은 이 브라우저에만 저장돼. 브라우저 기록을 지우면 사라지니까 가끔 파일로 받아 둬.</p>
         <p class="last ${last ? "" : "warn"}">${last ? `마지막 백업 ${last}` : "아직 백업한 적 없어"}</p></div>
       <div class="bk-act"><button class="btn main" id="exp" type="button">파일로 내보내기</button>
         <label class="btn" for="imp">파일 불러오기</label><input type="file" id="imp" accept="application/json,.json" hidden></div>
       <div id="impmsg" class="impmsg" role="status"></div>
-    </section>
+    </section>`}
     <div class="nf"><span>${count}개 항목에 기록이 있어</span>
       <div class="seg" role="group" aria-label="보기"><button type="button" data-f="rec" class="${NOTE_FILTER === "rec" ? "on" : ""}">기록 있는 것만</button><button type="button" data-f="all" class="${NOTE_FILTER === "all" ? "on" : ""}">전부</button></div></div>
     ${ready.map(P => {
@@ -473,7 +494,12 @@ function notes() {
     }).join("")}
   </div>`;
   document.querySelectorAll(".seg [data-f]").forEach(b => b.onclick = () => { NOTE_FILTER = b.dataset.f; notes(); });
+  if (PUBMODE) return;
   $("#exp").onclick = exportBackup;
+  $("#pubNote").onchange = e => { PUBOPT.note = e.target.checked; };
+  $("#pubTree").onchange = e => { PUBOPT.tree = e.target.checked; };
+  $("#pubExp").onclick = exportPublic;
+  const pv = $("#pubPrev"); if (pv) pv.onclick = () => { PUBMODE = true; pubBar(); location.hash = "#/"; };
   $("#imp").onchange = e => { const f = e.target.files[0]; if (f) readImport(f); e.target.value = ""; };
   if (IMPORT) showImport();
 }
@@ -486,6 +512,34 @@ function noteCard(P, it) {
     ${(r.tree || "").trim() ? `<div class="ncmp"><div><span class="wl">처음 지도</span><p>${esc(it.map)}</p></div><div><span class="wl">내가 그린 구조도</span>${drawTree(r.tree)}</div></div>` : ""}
     ${cs.length ? `<div class="ncases">${cs.map((c, i) => `<div class="nc"><p class="ncq"><b>상황 ${i + 1}</b> ${esc(c.q)}</p>${c.a ? `<p class="nca">${esc(c.a)}</p>` : ""}${c.ref ? `<p class="ncr">근거 ${esc(c.ref)}</p>` : ""}</div>`).join("")}</div>` : ""}
   </article>`;
+}
+
+let PUBOPT = { note: true, tree: true };
+function exportPublic() {
+  const out = { owner: "김수현", updated: new Date().toISOString(), packs: {} };
+  for (const [pid, pk] of Object.entries(S.packs)) {
+    const items = {};
+    for (const [id, r] of Object.entries(pk.items || {})) {
+      if (!r) continue;
+      const x = { done: !!r.done, doneAt: r.done ? r.doneAt : null };
+      if (PUBOPT.note && (r.note || "").trim()) x.note = r.note;
+      if (PUBOPT.tree && (r.tree || "").trim()) x.tree = r.tree;
+      if (x.done || x.note || x.tree) items[id] = x;
+    }
+    if (Object.keys(items).length) out.packs[pid] = { items, ...(pk.startedAt ? { startedAt: pk.startedAt } : {}) };
+  }
+  const blob = new Blob([JSON.stringify(out, null, 1)], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "public.json";
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+// 공개 기록을 보는 중이면 머리줄 아래 띠로 알린다
+function pubBar() {
+  let b = $("#pubbar");
+  if (!PUBMODE || !PUB) { if (b) b.remove(); return; }
+  if (!b) { b = document.createElement("div"); b.id = "pubbar"; b.className = "pubbar"; $(".bar").after(b); }
+  const own = hasOwn();
+  b.innerHTML = `<span><b>${esc(PUB.owner || "")}의 공개 기록</b>을 보고 있어${PUB.updated ? ` · ${fmtDate(PUB.updated)} 기준` : ""}. ${own ? "" : "직접 읽기 시작하면 네 기록이 이 브라우저에 따로 쌓여."}</span>${own ? `<button class="linkbtn" id="pubOff" type="button">내 기록으로 돌아가기</button>` : ""}`;
+  const off = $("#pubOff"); if (off) off.onclick = () => { PUBMODE = false; pubBar(); route(); };
 }
 
 function exportBackup() {
@@ -532,17 +586,75 @@ function showImport() {
   $("#impNo").onclick = () => { IMPORT = null; notes(); };
 }
 
+// ── 용어집 (#/terms): 네 분야로 나눈 용어, 원문 정의가 있으면 그 쪽을 바로 연다 ──
+let GLOSS = null, TQ = "", TCAT = "all", TOFF = false;
+async function loadGloss() { return GLOSS ||= (await (await fetch("glossary.json")).json()); }
+async function termsView() {
+  const G = await loadGloss();
+  const norm = s => String(s || "").toLowerCase().replace(/\s+/g, "").replace(/스코프/g, "scope");
+  const q = norm(TQ);
+  const list = G.terms.filter(t => (TCAT === "all" || t.cats.includes(TCAT)) && (!TOFF || t.official) && (!q || norm(t.t + t.en + t.d).includes(q)))
+    .sort((a, b) => { const s = t => !q ? 0 : norm(t.t).startsWith(q) ? 2 : norm(t.t).includes(q) ? 1 : 0; const g = t => /^[가-힣]/.test(t.t) ? 0 : /^[A-Za-z]/.test(t.t) ? 1 : 2; return (s(b) - s(a)) || (g(a) - g(b)) || a.t.localeCompare(b.t, "ko"); });
+  const cnt = c => G.terms.filter(t => c === "all" || t.cats.includes(c)).length;
+  const catName = id => (CATS.find(c => c.id === id) || {}).label || id;
+  $("#app").innerHTML = `<div class="view">
+    <p class="eyebrow">용어집</p><h1 class="h1 sm">기준서에 나오는 말</h1>
+    <p class="lead">네 분야로 나눈 전문용어 ${G.terms.length}개. <b>원문 정의</b>가 붙은 용어는 기준서의 공식 정의 쪽을 바로 열 수 있어.</p>
+    <div class="tbar">
+      <input class="tsearch" id="tq" type="search" placeholder="용어 검색 (예: 스코프 3, 중대성, CDP)" value="${esc(TQ)}" aria-label="용어 검색">
+      <label class="tonly"><input type="checkbox" id="toff" ${TOFF ? "checked" : ""}> 원문 정의 있는 것만</label>
+    </div>
+    <div class="tcats" role="group" aria-label="분야">${[["all", "전체"], ...CATS.map(c => [c.id, c.label])].map(([id, l]) => `<button type="button" data-c="${id}" class="${TCAT === id ? "on" : ""}">${esc(l)} <span>${cnt(id)}</span></button>`).join("")}</div>
+    <p class="tcount">${list.length}개${q ? ` · '${esc(TQ)}' 검색` : ""}</p>
+    <div class="tlist">${list.slice(0, 600).map(t => `<article class="term ${t.official ? "off" : ""}">
+      <div class="term-h"><h3>${esc(t.t)}</h3>${t.en ? `<span class="ten">${esc(t.en)}</span>` : ""}</div>
+      <p class="td">${esc(t.d)}</p>
+      <div class="tf">${t.cats.map(c => `<span class="tcat">${esc(catName(c))}</span>`).join("")}
+        ${t.official ? `<button class="tofb" type="button" data-pack="${t.official.pack}" data-doc="${t.official.doc}" data-page="${t.official.page}" data-t="${esc(t.t)}">원문 정의 · ${esc(t.official.label)}</button>` : ""}
+        ${t.item && PACKS[t.item.pack] && PACKS[t.item.pack].items.find(i => i.id === t.item.id) ? `<a class="titem" href="#/p/${t.item.pack}/read/${t.item.id}">나오는 곳: ${esc(PACKS[t.item.pack].items.find(i => i.id === t.item.id).title)}</a>` : `<span class="tfrom">${esc(t.from)}</span>`}
+      </div></article>`).join("")}</div>
+    ${list.length > 600 ? `<p class="tcount">검색어를 넣으면 나머지 ${list.length - 600}개도 찾을 수 있어.</p>` : ""}
+    <p class="tnote">${esc(G.note)}</p>
+  </div>`;
+  const qi = $("#tq"); let tm;
+  qi.oninput = e => { clearTimeout(tm); tm = setTimeout(() => { TQ = e.target.value; termsView().then(() => { const n = $("#tq"); n.focus(); n.setSelectionRange(n.value.length, n.value.length); }); }, 180); };
+  document.querySelectorAll(".tcats [data-c]").forEach(b => b.onclick = () => { TCAT = b.dataset.c; termsView(); });
+  $("#toff").onchange = e => { TOFF = e.target.checked; termsView(); };
+  document.querySelectorAll(".tofb").forEach(b => b.onclick = () => openPageModal(PACKS[b.dataset.pack], b.dataset.doc, +b.dataset.page, b.dataset.t));
+}
+// 원문 한 쪽을 크게 띄우는 창
+async function openPageModal(P, doc, page, title) {
+  const m = document.createElement("div"); m.className = "drawer-wrap pmodal"; m.id = "pmodal";
+  m.innerHTML = `<div class="drawer-bg" data-close></div><div class="pm" role="dialog" aria-modal="true" aria-label="${esc(title)} 원문 정의">
+    <div class="dh"><b>${esc(title)}</b><span class="pt">${esc(P.docs[doc].short)} ${page}쪽</span><a class="linkbtn" href="${fileOf(P, doc)}#page=${page}" target="_blank" rel="noopener">새 창 ↗</a><button class="dx" type="button" data-close aria-label="닫기">✕</button></div>
+    <div class="pm-body"><canvas></canvas></div><p class="src">출처: ${esc(P.issuer)}, ${esc(P.name)} ${esc(P.edition)}</p></div>`;
+  document.body.appendChild(m); document.body.classList.add("noscroll");
+  const close = () => { m.remove(); document.body.classList.remove("noscroll"); removeEventListener("keydown", esc_); };
+  const esc_ = e => { if (e.key === "Escape") close(); };
+  addEventListener("keydown", esc_);
+  m.querySelectorAll("[data-close]").forEach(x => x.onclick = close);
+  requestAnimationFrame(() => m.classList.add("on")); m.querySelector(".dx").focus();
+  try {
+    const pdf = await getPdf(fileOf(P, doc)), pg = await pdf.getPage(page), base = pg.getViewport({ scale: 1 });
+    const box = m.querySelector(".pm-body"), w = Math.min(box.clientWidth - 24, 900), dpr = Math.min(devicePixelRatio || 1, 2);
+    const vp = pg.getViewport({ scale: w / base.width * dpr }), c = box.querySelector("canvas");
+    c.width = vp.width; c.height = vp.height; c.style.width = w + "px";
+    await pg.render({ canvasContext: c.getContext("2d"), viewport: vp }).promise;
+  } catch (e) { m.querySelector(".pm-body").innerHTML = `<p class="gempty">원문을 불러오지 못했어.</p>`; }
+}
+
 // ── 길 찾기: #/  #/p/<pack>  #/p/<pack>/read/<item>  #/notes ──
 function route() {
   closeDrawer(true); CUR_ITEM = null; $("main").classList.remove("wide");
   const seg = (location.hash || "#/").slice(2).split("/");
   const P = seg[0] === "p" ? PACKS[seg[1]] : null;
-  document.querySelectorAll("[data-nav]").forEach(x => x.classList.toggle("on", x.dataset.nav === (seg[0] === "notes" ? "notes" : !seg[0] ? "shelf" : "")));
+  document.querySelectorAll("[data-nav]").forEach(x => x.classList.toggle("on", x.dataset.nav === (seg[0] === "notes" ? "notes" : seg[0] === "terms" ? "terms" : !seg[0] ? "shelf" : "")));
   $("#packnav").innerHTML = P ? `<span class="sep">/</span><span class="catn">${esc((CATS.find(c => c.id === P.category) || {}).label || "")}</span><span class="sep">/</span><a href="#/p/${P.id}">${badge(P, "sm")} ${esc(P.name)}</a>` : "";
   const tb = $("#tocBtn"); tb.hidden = !P; if (P) tb.textContent = `☰ ${P.code} 목차`;
   if (P && seg[2] === "read" && isReady(P)) read(P, seg[3]);
   else if (P) packHome(P);
   else if (seg[0] === "notes") notes();
+  else if (seg[0] === "terms") termsView();
   else shelf();
   scrollTo(0, 0);
 }
@@ -555,6 +667,8 @@ function route() {
       P.base = p.path; P.category = p.category; PACKS[P.id] = P; ORDER.push(P.id);
     }
     CATS = list.categories || [];
+    try { const r = await fetch("log/public.json", { cache: "no-cache" }); if (r.ok) { PUB = await r.json(); if (!PUB || typeof PUB.packs !== "object") PUB = null; } } catch (e) { PUB = null; }
+    PUBMODE = !!PUB && !hasOwn(); pubBar();
     $("#tocBtn").onclick = () => $("#drawer") ? closeDrawer() : openDrawer();
     addEventListener("hashchange", route); route();
   } catch (e) {
