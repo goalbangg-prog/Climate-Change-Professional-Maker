@@ -119,55 +119,157 @@ function packHome(P) {
 }
 
 // ── 오늘의 읽기 (#/p/<id>/read/<item>) ──
+// 1 지도 → 2 원문(다 읽었어요) → 3 내 정리·구조도 → 4 상황 문제 → 다음 항목. 완료 조건은 2단계까지(정의서 8번).
 const STEP_NAMES = ["지도", "원문", "내 정리", "상황 문제"];
-const READY_STEPS = 2; // 3·4단계는 다음 작업에서
 let VIEW = { key: null, step: 1, part: 0 };
 let SIDE_HIDDEN = false;
-let FLASH = null; // 방금 '다 읽었어요'를 누른 항목 (다음 화면에 알림)
+let PEEK = false;  // 3·4단계에서 원문 다시 보기
+let FLASH = null;  // 방금 '다 읽었어요'를 누른 항목 (알림)
 
 function read(P, id, step) {
   const idx = P.items.findIndex(i => i.id === id);
   if (idx < 0) { location.hash = `#/p/${P.id}`; return; }
   const key = P.id + "/" + id;
-  if (VIEW.key !== key) VIEW = { key, step: 1, part: 0 };
-  if (step) VIEW.step = Math.min(Math.max(1, step), READY_STEPS);
+  if (VIEW.key !== key) { VIEW = { key, step: 1, part: 0 }; PEEK = false; }
+  if (step) VIEW.step = Math.min(Math.max(1, step), 4);
   const it = P.items[idx], r = recs(P.id)[id];
   const part = P.parts.find(x => x.id === it.part);
   const nextIt = P.items[idx + 1];
-  const flash = FLASH && FLASH.pack === P.id && FLASH.to === id ? FLASH : null; FLASH = null;
+  const flash = FLASH && FLASH.pack === P.id && FLASH.at === key ? FLASH : null; FLASH = null;
+  const goNext = nextIt ? `#/p/${P.id}/read/${nextIt.id}` : `#/p/${P.id}`;
+  const foot = {
+    1: `<button class="btn main" id="fwd" type="button">원문 읽으러 가기 →</button>`,
+    2: r && r.done ? `<button class="btn main" id="fwd" type="button">내 정리로 →</button>` : `<button class="btn main" id="doneBtn" type="button">다 읽었어요 →</button>`,
+    3: `<button class="btn main" id="fwd" type="button">상황 문제로 →</button>`,
+    4: `<a class="btn main" href="${goNext}">${nextIt ? `다음 항목으로 → ${esc(nextIt.title)}` : "목차로 돌아가기"}</a>`,
+  }[VIEW.step];
+  const mid = {
+    1: "", 2: r && r.done ? `<button class="linkbtn" id="undo" type="button">읽음 취소</button>` : "다 읽으면 체크하고 내 정리로 넘어가.",
+    3: `<span class="saved" id="saved"></span> · <a class="linkbtn" href="${goNext}">정리 건너뛰고 다음 항목</a>`,
+    4: `<span class="saved" id="saved"></span>`,
+  }[VIEW.step];
   $("#app").innerHTML = `<div class="view">
-    ${flash ? `<div class="flash" role="status">✓ ‘<b>${esc(flash.title)}</b>’ 다 읽음으로 표시했어. 이어서 다음 항목이야. <button class="linkbtn" id="flashUndo" type="button">되돌리기</button></div>` : ""}
+    ${flash ? `<div class="flash" role="status">✓ ‘<b>${esc(it.title)}</b>’ 다 읽음으로 표시했어. 남길 게 있으면 정리하고, 없으면 건너뛰어도 돼. <button class="linkbtn" id="flashUndo" type="button">되돌리기</button></div>` : ""}
     <div class="rhead">
       <div><p class="crumb">${badge(P)} ${esc(part.label)} · ${idx + 1} / ${P.items.length}</p>
         <h1 class="rtitle">${esc(it.title)}${r && r.done ? `<span class="done-tag">✓ ${fmtDate(r.doneAt)} 다 읽음</span>` : ""}</h1></div>
       <ol class="steps" aria-label="단계">${STEP_NAMES.map((s, i) => {
-        const n = i + 1, cls = n === VIEW.step ? "on" : n < VIEW.step ? "past" : n > READY_STEPS ? "later" : "";
-        return `<li class="${cls}" ${n === VIEW.step ? 'aria-current="step"' : ""}><b>${n}</b>${s}</li>`;
+        const n = i + 1, cls = n === VIEW.step ? "on" : n < VIEW.step ? "past" : "";
+        return `<li class="${cls}"><button type="button" data-step="${n}" ${n === VIEW.step ? 'aria-current="step"' : ""}><b>${n}</b>${s}</button></li>`;
       }).join("")}</ol>
     </div>
     <section class="panel" id="stage"></section>
     <div class="foot">
       <button class="btn" id="prev" type="button" ${VIEW.step === 1 ? "disabled" : ""}>← 이전</button>
-      <span class="mid">${VIEW.step === 2 ? (r && r.done ? `<button class="linkbtn" id="undo" type="button">읽음 취소</button>` : "다 읽으면 다음 항목으로 넘어가. 내 정리와 상황 문제는 다음 작업에서 붙어.") : ""}</span>
-      ${VIEW.step === 1
-        ? `<button class="btn main" id="next" type="button">원문 읽으러 가기 →</button>`
-        : `<button class="btn main" id="doneBtn" type="button">${r && r.done ? (nextIt ? `다음 항목으로 → ${esc(nextIt.title)}` : "목차로 돌아가기") : (nextIt ? "다 읽었어요 · 다음 항목으로 →" : "다 읽었어요 · 마지막 항목")}</button>`}
+      <span class="mid">${mid}</span>
+      ${foot}
     </div></div>`;
-  $("main").classList.toggle("wide", VIEW.step === 2);
-  VIEW.step === 1 ? stageMap(P, it) : stagePdf(P, it);
+  $("main").classList.toggle("wide", VIEW.step >= 2);
+  ({ 1: stageMap, 2: stagePdf, 3: stageWrite, 4: stageCases })[VIEW.step](P, it);
+  document.querySelectorAll("[data-step]").forEach(b => b.onclick = () => read(P, id, +b.dataset.step));
   $("#prev").onclick = () => read(P, id, VIEW.step - 1);
-  const nx = $("#next"); if (nx) nx.onclick = () => read(P, id, 2);
+  const fw = $("#fwd"); if (fw) fw.onclick = () => read(P, id, VIEW.step + 1);
   const db = $("#doneBtn"); if (db) db.onclick = () => {
-    const x = rec(P.id, id);
-    if (!x.done) {
-      x.done = true; x.doneAt = new Date().toISOString();
-      if (!S.packs[P.id].startedAt) S.packs[P.id].startedAt = x.doneAt;
-      save(); FLASH = { pack: P.id, from: id, to: nextIt ? nextIt.id : null, title: it.title };
-    }
-    location.hash = nextIt ? `#/p/${P.id}/read/${nextIt.id}` : `#/p/${P.id}`;
+    const x = rec(P.id, id); x.done = true; x.doneAt = new Date().toISOString();
+    if (!S.packs[P.id].startedAt) S.packs[P.id].startedAt = x.doneAt;
+    save(); FLASH = { pack: P.id, at: key }; read(P, id, 3);
   };
   const un = $("#undo"); if (un) un.onclick = () => { const x = rec(P.id, id); x.done = false; x.doneAt = null; save(); read(P, id); };
-  const fu = $("#flashUndo"); if (fu) fu.onclick = () => { const x = rec(P.id, flash.from); x.done = false; x.doneAt = null; save(); location.hash = `#/p/${P.id}/read/${flash.from}`; };
+  const fu = $("#flashUndo"); if (fu) fu.onclick = () => { const x = rec(P.id, id); x.done = false; x.doneAt = null; save(); read(P, id, 2); };
+}
+
+// 입력 자동 저장 (0.4초 뒤)
+let SAVE_T = null;
+function autosave() {
+  clearTimeout(SAVE_T);
+  const el = $("#saved"); if (el) el.textContent = "저장 중…";
+  SAVE_T = setTimeout(() => { save(); const e = $("#saved"); if (e) e.textContent = `저장됨 ${new Date().toTimeString().slice(0, 5)}`; }, 400);
+}
+
+// 3·4단계 공통: 왼쪽 작업, 오른쪽 원문 다시 보기
+function workLayout(P, it, inner, again) {
+  const parts = it.ranges;
+  const cur = parts[VIEW.part] || parts[0];
+  $("#stage").innerHTML = `<div class="work ${PEEK ? "peek" : ""}">
+    <div class="work-main">${inner}</div>
+    ${PEEK ? `<div class="peekpane"><div class="pdftop"><span class="pt">원문 · ${esc(short(P, cur.doc))} ${esc(cur.label)}</span>
+      <select id="peekPart" aria-label="읽을 곳">${parts.map((p, i) => `<option value="${i}" ${i === VIEW.part ? "selected" : ""}>${esc(short(P, p.doc))} ${esc(p.label)} · ${pages(p)}</option>`).join("")}</select>
+      <button class="fold" id="peekClose" type="button">닫기</button></div><div class="pages" id="pages"></div></div>` : ""}
+  </div>`;
+  const tb = document.createElement("button"); tb.type = "button"; tb.className = "peekbtn"; tb.id = "peekBtn";
+  tb.textContent = PEEK ? "원문 닫기" : "원문 다시 보기"; $(".work-main").prepend(tb);
+  tb.onclick = () => { PEEK = !PEEK; again(); };
+  if (PEEK) {
+    $("#peekClose").onclick = () => { PEEK = false; again(); };
+    $("#peekPart").onchange = e => { VIEW.part = +e.target.value; again(); };
+    checkPdf(P, cur.doc).then(ok => ok ? renderPages(P, it, cur, again) : ($("#pages").innerHTML = `<p class="gempty">원문 PDF가 아직 없어.</p>`));
+  }
+}
+
+// ── 3단계: 내 정리 + 들여쓰기 구조도 ──
+function stageWrite(P, it) {
+  const x = rec(P.id, it.id);
+  workLayout(P, it, `
+    <div class="wgrid">
+      <label class="wbox"><span class="wl">내 정리 <small>길어도 괜찮아. 내 말로.</small></span>
+        <textarea id="note" rows="14" placeholder="이 항목이 무엇을 정하는지, 왜 그렇게 정했는지, 실무에서 어디에 쓰일지 내 말로 써 봐.">${esc(x.note)}</textarea></label>
+      <div class="wbox"><span class="wl">구조도 <small>스페이스 두 칸이 한 단계</small></span>
+        <div class="treebox"><textarea id="tree" rows="14" spellcheck="false" placeholder="${esc(treeHint(it))}">${esc(x.tree)}</textarea>
+        <div class="treeview" id="treeview" aria-label="구조도 그림"></div></div></div>
+    </div>`, () => stageWrite(P, it));
+  const draw = () => { $("#treeview").innerHTML = drawTree(rec(P.id, it.id).tree) || `<p class="tempty">왼쪽 칸에 들여쓰기로 쓰면 여기 그림이 생겨.</p>`; };
+  $("#note").oninput = e => { rec(P.id, it.id).note = e.target.value; autosave(); };
+  const t = $("#tree");
+  t.oninput = e => { rec(P.id, it.id).tree = e.target.value; autosave(); draw(); };
+  t.onkeydown = e => { // Tab = 스페이스 두 칸
+    if (e.key !== "Tab") return; e.preventDefault();
+    const s = t.selectionStart, v = t.value;
+    if (e.shiftKey) { const ls = v.lastIndexOf("\n", s - 1) + 1; if (v.slice(ls, ls + 2) === "  ") { t.value = v.slice(0, ls) + v.slice(ls + 2); t.selectionStart = t.selectionEnd = Math.max(ls, s - 2); } }
+    else { t.value = v.slice(0, s) + "  " + v.slice(t.selectionEnd); t.selectionStart = t.selectionEnd = s + 2; }
+    t.dispatchEvent(new Event("input"));
+  };
+  draw();
+}
+function treeHint(it) { return `${it.title}\n  첫째 갈래\n    세부 내용\n  둘째 갈래`; }
+
+// 들여쓰기 → 나무 (부모보다 두 단계 이상 깊게 쓰면 한 단계로 맞춘다)
+function parseTree(txt) {
+  const root = { t: "", c: [] }, stack = [{ n: root, d: -1 }];
+  String(txt || "").split("\n").forEach(line => {
+    if (!line.trim()) return;
+    const sp = line.replace(/\t/g, "  ").match(/^ */)[0].length;
+    let d = Math.floor(sp / 2);
+    while (stack.length > 1 && stack[stack.length - 1].d >= d) stack.pop();
+    d = Math.min(d, stack[stack.length - 1].d + 1);
+    const node = { t: line.trim().replace(/^[-*•]\s*/, ""), c: [] };
+    stack[stack.length - 1].n.c.push(node); stack.push({ n: node, d });
+  });
+  return root.c;
+}
+function drawTree(txt) {
+  const nodes = parseTree(txt); if (!nodes.length) return "";
+  const li = n => `<li><span>${esc(n.t)}</span>${n.c.length ? `<ul>${n.c.map(li).join("")}</ul>` : ""}</li>`;
+  return `<ul class="tree">${nodes.map(li).join("")}</ul>`;
+}
+
+// ── 4단계: 상황 문제 ──
+function stageCases(P, it) {
+  const x = rec(P.id, it.id);
+  if (!x.cases.length) x.cases.push({ q: "", a: "", ref: "" });
+  workLayout(P, it, `
+    <p class="whelp">다른 AI에게 이 항목으로 상황 문제를 받아서 붙여 넣어. 답은 내가 쓰고, <b>맞는지는 원문 문단을 찾아 내가 확인</b>해. 이 사이트는 채점하지 않아.</p>
+    <div class="cases">${x.cases.map((c, i) => `<div class="case" data-i="${i}">
+      <div class="case-h"><b>상황 ${i + 1}</b>${x.cases.length > 1 ? `<button class="linkbtn del" type="button" data-del="${i}">지우기</button>` : ""}</div>
+      <label><span class="wl">상황</span><textarea data-f="q" rows="3" placeholder="예: A사는 국내 사업장은 배출권거래제 지침으로, 해외 사업장은 GHG 프로토콜로 Scope 1·2를 쟀다. 어떻게 공시해야 하나?">${esc(c.q)}</textarea></label>
+      <label><span class="wl">내 답</span><textarea data-f="a" rows="4" placeholder="이 기준서에 따르면 …">${esc(c.a)}</textarea></label>
+      <label><span class="wl">근거 문단</span><input data-f="ref" value="${esc(c.ref)}" placeholder="예: 제2호 문단 29⑴㈒, 19쪽"></label>
+    </div>`).join("")}</div>
+    ${x.cases.length < 5 ? `<button class="btn" id="addCase" type="button">+ 상황 하나 더</button>` : ""}`, () => stageCases(P, it));
+  document.querySelectorAll(".case [data-f]").forEach(el => el.oninput = e => {
+    const i = +el.closest(".case").dataset.i; rec(P.id, it.id).cases[i][el.dataset.f] = e.target.value; autosave();
+  });
+  document.querySelectorAll("[data-del]").forEach(b => b.onclick = () => { rec(P.id, it.id).cases.splice(+b.dataset.del, 1); save(); stageCases(P, it); });
+  const ad = $("#addCase"); if (ad) ad.onclick = () => { rec(P.id, it.id).cases.push({ q: "", a: "", ref: "" }); save(); stageCases(P, it); };
 }
 
 function stageMap(P, it) {
@@ -241,7 +343,7 @@ async function stagePdf(P, it) {
   if (ok) renderPages(P, it, cur);
 }
 
-async function renderPages(P, it, cur) {
+async function renderPages(P, it, cur, redo = () => stagePdf(P, it)) {
   const box = $("#pages"); if (!box) return;
   let pdf;
   try { pdf = await getPdf(fileOf(P, cur.doc)); }
@@ -254,8 +356,8 @@ async function renderPages(P, it, cur) {
   box.innerHTML = `${from > 1 ? `<button class="more-pg" id="pgb" type="button">↑ 앞 쪽(${from - 1}쪽)도 보기</button>` : ""}
     ${list.map(n => `<figure class="sheet ${n >= cur.start && n <= cur.end ? "" : "outside"}" data-page="${n}" style="width:${width}px;aspect-ratio:${v1.width}/${v1.height}"><canvas></canvas><figcaption>${n}쪽${n >= cur.start && n <= cur.end ? "" : " · 범위 밖"}</figcaption></figure>`).join("")}
     ${to < pdf.numPages ? `<button class="more-pg" id="pga" type="button">↓ 다음 쪽(${to + 1}쪽)도 보기</button>` : ""}`;
-  const pb = $("#pgb"); if (pb) pb.onclick = () => { EXTRA.before++; stagePdf(P, it); };
-  const pa = $("#pga"); if (pa) pa.onclick = () => { EXTRA.after++; stagePdf(P, it); };
+  const pb = $("#pgb"); if (pb) pb.onclick = () => { EXTRA.before++; redo(); };
+  const pa = $("#pga"); if (pa) pa.onclick = () => { EXTRA.after++; redo(); };
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const draw = async fig => {
     if (fig.dataset.done) return; fig.dataset.done = 1;
@@ -275,8 +377,92 @@ async function renderPages(P, it, cur) {
   }
 }
 
-// ── 내 기록 (6단계에서 만든다) ──
-function notes() { $("#app").innerHTML = `<div class="view temp"><h1>내 기록</h1><p>6단계에서 만든다. 확장팩별로 모아 보게 될 거야.</p></div>`; }
+// ── 내 기록 (#/notes): 확장팩별로 모아 보기 + 파일 백업 ──
+const hasCase = c => c && (c.q || c.a || c.ref);
+const hasRec = r => r && (r.done || (r.note || "").trim() || (r.tree || "").trim() || (r.cases || []).some(hasCase));
+let NOTE_FILTER = "rec"; // rec: 기록 있는 것만, all: 전부
+let IMPORT = null;       // 불러오기 확인 대기 중인 데이터
+
+function notes() {
+  const ready = ORDER.map(id => PACKS[id]).filter(isReady);
+  const last = S.lastBackup ? fmtDate(S.lastBackup) : null;
+  const count = ready.reduce((a, P) => a + P.items.filter(i => hasRec(recs(P.id)[i.id])).length, 0);
+  $("#app").innerHTML = `<div class="view">
+    <p class="eyebrow">내 기록</p><h1 class="h1 sm">읽고 남긴 것</h1>
+    <section class="backup">
+      <div><b>백업</b><p>기록은 이 브라우저에만 저장돼. 브라우저 기록을 지우면 사라지니까 가끔 파일로 받아 둬.</p>
+        <p class="last ${last ? "" : "warn"}">${last ? `마지막 백업 ${last}` : "아직 백업한 적 없어"}</p></div>
+      <div class="bk-act"><button class="btn main" id="exp" type="button">파일로 내보내기</button>
+        <label class="btn" for="imp">파일 불러오기</label><input type="file" id="imp" accept="application/json,.json" hidden></div>
+      <div id="impmsg" class="impmsg" role="status"></div>
+    </section>
+    <div class="nf"><span>${count}개 항목에 기록이 있어</span>
+      <div class="seg" role="group" aria-label="보기"><button type="button" data-f="rec" class="${NOTE_FILTER === "rec" ? "on" : ""}">기록 있는 것만</button><button type="button" data-f="all" class="${NOTE_FILTER === "all" ? "on" : ""}">전부</button></div></div>
+    ${ready.map(P => {
+      const its = P.items.filter(i => NOTE_FILTER === "all" || hasRec(recs(P.id)[i.id]));
+      return `<section class="nsec"><div class="cat-h">${badge(P)}<h2>${esc(P.name)}</h2><p>${doneCount(P)} / ${P.items.length} 다 읽음</p></div>
+        ${its.length ? its.map(it => noteCard(P, it)).join("") : `<p class="gempty">아직 남긴 기록이 없어. 읽고 나서 정리하면 여기 모여.</p>`}</section>`;
+    }).join("")}
+  </div>`;
+  document.querySelectorAll(".seg [data-f]").forEach(b => b.onclick = () => { NOTE_FILTER = b.dataset.f; notes(); });
+  $("#exp").onclick = exportBackup;
+  $("#imp").onchange = e => { const f = e.target.files[0]; if (f) readImport(f); e.target.value = ""; };
+  if (IMPORT) showImport();
+}
+function noteCard(P, it) {
+  const r = recs(P.id)[it.id] || {}, cs = (r.cases || []).filter(hasCase);
+  const no = P.items.indexOf(it) + 1;
+  return `<article class="ncard ${hasRec(r) ? "" : "empty"}">
+    <div class="nh"><span class="tno">${no}</span><h3><a href="#/p/${P.id}/read/${it.id}">${esc(it.title)}</a></h3>${r.done ? `<span class="tst ok">✓ ${fmtDate(r.doneAt)}</span>` : `<span class="tst">안 읽음</span>`}</div>
+    ${(r.note || "").trim() ? `<div class="nnote">${esc(r.note.trim())}</div>` : ""}
+    ${(r.tree || "").trim() ? `<div class="ncmp"><div><span class="wl">처음 지도</span><p>${esc(it.map)}</p></div><div><span class="wl">내가 그린 구조도</span>${drawTree(r.tree)}</div></div>` : ""}
+    ${cs.length ? `<div class="ncases">${cs.map((c, i) => `<div class="nc"><p class="ncq"><b>상황 ${i + 1}</b> ${esc(c.q)}</p>${c.a ? `<p class="nca">${esc(c.a)}</p>` : ""}${c.ref ? `<p class="ncr">근거 ${esc(c.ref)}</p>` : ""}</div>`).join("")}</div>` : ""}
+  </article>`;
+}
+
+function exportBackup() {
+  S.lastBackup = new Date().toISOString(); save();
+  const blob = new Blob([JSON.stringify({ app: "원문 읽기", ...S }, null, 1)], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `원문읽기-백업-${S.lastBackup.slice(0, 10)}.json`; document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+  notes();
+}
+// 불러오기: 형식을 검사하고, 모르는 확장팩·항목은 버린다. 문제가 있으면 기존 기록을 건드리지 않는다.
+function cleanImport(o) {
+  if (!o || typeof o !== "object" || !o.packs || typeof o.packs !== "object") throw new Error("원문 읽기 백업 파일이 아니야.");
+  const out = { version: 1, packs: {} }; let n = 0, dropped = 0;
+  const str = v => typeof v === "string" ? v.slice(0, 50000) : "";
+  const iso = v => typeof v === "string" && !isNaN(Date.parse(v)) ? v : null;
+  for (const [pid, pv] of Object.entries(o.packs)) {
+    const P = PACKS[pid]; if (!P || !pv || typeof pv.items !== "object") { dropped++; continue; }
+    const ids = new Set(P.items.map(i => i.id)), items = {};
+    for (const [id, r] of Object.entries(pv.items || {})) {
+      if (!ids.has(id) || !r || typeof r !== "object") { dropped++; continue; }
+      items[id] = { done: r.done === true, doneAt: r.done === true ? iso(r.doneAt) || new Date().toISOString() : null, note: str(r.note), tree: str(r.tree),
+        cases: Array.isArray(r.cases) ? r.cases.slice(0, 5).map(c => ({ q: str(c && c.q), a: str(c && c.a), ref: str(c && c.ref) })) : [] };
+      n++;
+    }
+    out.packs[pid] = { items }; if (iso(pv.startedAt)) out.packs[pid].startedAt = pv.startedAt;
+  }
+  if (!n) throw new Error("불러올 기록이 없어.");
+  if (iso(o.lastBackup)) out.lastBackup = o.lastBackup;
+  return { data: out, n, dropped };
+}
+function readImport(f) {
+  const fr = new FileReader();
+  fr.onload = () => {
+    try { IMPORT = cleanImport(JSON.parse(fr.result)); IMPORT.name = f.name; showImport(); }
+    catch (e) { IMPORT = null; $("#impmsg").innerHTML = `<p class="bad">불러오지 못했어. ${esc(e.message && !/JSON|Unexpected/.test(e.message) ? e.message : "파일 형식이 맞지 않아.")} 지금 기록은 그대로야.</p>`; }
+  };
+  fr.readAsText(f);
+}
+function showImport() {
+  $("#impmsg").innerHTML = `<p><b>${esc(IMPORT.name)}</b> · 항목 ${IMPORT.n}개${IMPORT.dropped ? ` (알 수 없는 ${IMPORT.dropped}개는 뺐어)` : ""}. 지금 기록을 이 파일 내용으로 바꿀까?</p>
+    <div class="bk-act"><button class="btn main" id="impOk" type="button">바꾸기</button><button class="btn" id="impNo" type="button">그만두기</button></div>`;
+  $("#impOk").onclick = () => { S = IMPORT.data; IMPORT = null; save(); notes(); $("#impmsg").innerHTML = `<p class="good">불러왔어.</p>`; };
+  $("#impNo").onclick = () => { IMPORT = null; notes(); };
+}
 
 // ── 길 찾기: #/  #/p/<pack>  #/p/<pack>/read/<item>  #/notes ──
 function route() {
