@@ -20,7 +20,7 @@ function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e
 let PUB = null, PUBMODE = false;
 const store = () => PUBMODE && PUB ? PUB : S;
 const recs = p => ((store().packs[p] ||= { items: {} }).items);
-const hasOwn = () => Object.values(S.packs).some(pk => Object.values(pk.items || {}).some(r => r && (r.done || r.note || r.tree || (r.cases || []).some(c => c.q || c.a))));
+const hasOwn = () => Object.values(S.packs).some(pk => Object.values(pk.items || {}).some(r => r && (r.done || (Array.isArray(r.qs) && r.qs.some(q => q && (q.q || q.a))))));
 // 쓰기는 늘 내 기록에. 공개 기록을 보다가 쓰기 시작하면 내 기록으로 바뀐다.
 const rec = (p, id) => { if (PUBMODE) { PUBMODE = false; pubBar(); } return ((S.packs[p] ||= { items: {} }).items[id] ||= { done: false, doneAt: null, note: "", tree: "", cases: [] }); };
 const isDone = (p, id) => { const st = store(); return !!(st.packs[p] && st.packs[p].items[id] && st.packs[p].items[id].done); };
@@ -194,10 +194,10 @@ addEventListener("keydown", e => { if (e.key === "Escape") closeDrawer(); });
 
 // ── 오늘의 읽기 (#/p/<id>/read/<item>) ──
 // 1 지도 → 2 원문(다 읽었어요) → 3 내 정리·구조도 → 4 상황 문제 → 다음 항목. 완료 조건은 2단계까지(정의서 8번).
-const STEP_NAMES = ["지도", "원문", "내 정리", "상황 문제"];
+const STEP_NAMES = ["지도", "원문", "궁금한 점"];
 let VIEW = { key: null, step: 1, part: 0 };
 let SIDE_HIDDEN = false;
-let PEEK = false;  // 3·4단계에서 원문 다시 보기
+let PEEK = false;  // 3단계에서 원문 다시 보기
 let FLASH = null;  // 방금 '다 읽었어요'를 누른 항목 (알림)
 
 function read(P, id, step) {
@@ -205,7 +205,7 @@ function read(P, id, step) {
   if (idx < 0) { location.hash = `#/p/${P.id}`; return; }
   const key = P.id + "/" + id; CUR_ITEM = key;
   if (VIEW.key !== key) { VIEW = { key, step: 1, part: 0 }; PEEK = false; }
-  if (step) VIEW.step = Math.min(Math.max(1, step), 4);
+  if (step) VIEW.step = Math.min(Math.max(1, step), 3);
   const it = P.items[idx], r = recs(P.id)[id];
   const part = P.parts.find(x => x.id === it.part);
   const nextIt = P.items[idx + 1];
@@ -213,17 +213,15 @@ function read(P, id, step) {
   const goNext = nextIt ? `#/p/${P.id}/read/${nextIt.id}` : `#/p/${P.id}`;
   const foot = {
     1: `<button class="btn main" id="fwd" type="button">원문 읽으러 가기 →</button>`,
-    2: r && r.done ? `<button class="btn main" id="fwd" type="button">내 정리로 →</button>` : `<button class="btn main" id="doneBtn" type="button">다 읽었어요 →</button>`,
-    3: `<button class="btn main" id="fwd" type="button">상황 문제로 →</button>`,
-    4: `<a class="btn main" href="${goNext}">${nextIt ? `다음 항목으로 → ${esc(nextIt.title)}` : "목차로 돌아가기"}</a>`,
+    2: r && r.done ? `<button class="btn main" id="fwd" type="button">궁금한 점으로 →</button>` : `<button class="btn main" id="doneBtn" type="button">다 읽었어요 →</button>`,
+    3: `<a class="btn main" href="${goNext}">${nextIt ? `다음 항목으로 → ${esc(nextIt.title)}` : "목차로 돌아가기"}</a>`,
   }[VIEW.step];
   const mid = {
-    1: "", 2: r && r.done ? `<button class="linkbtn" id="undo" type="button">읽음 취소</button>` : "다 읽으면 체크하고 내 정리로 넘어가.",
-    3: `<span class="saved" id="saved"></span> · <a class="linkbtn" href="${goNext}">정리 건너뛰고 다음 항목</a>`,
-    4: `<span class="saved" id="saved"></span>`,
+    1: "", 2: r && r.done ? `<button class="linkbtn" id="undo" type="button">읽음 취소</button>` : "다 읽으면 체크해. 궁금한 점이 있으면 남기고, 없으면 바로 다음 항목으로.",
+    3: `<span class="saved" id="saved"></span>`,
   }[VIEW.step];
   $("#app").innerHTML = `<div class="view">
-    ${flash ? `<div class="flash" role="status">✓ ‘<b>${esc(it.title)}</b>’ 다 읽음으로 표시했어. 남길 게 있으면 정리하고, 없으면 건너뛰어도 돼. <button class="linkbtn" id="flashUndo" type="button">되돌리기</button></div>` : ""}
+    ${flash ? `<div class="flash" role="status">✓ ‘<b>${esc(it.title)}</b>’ 다 읽음으로 표시했어. 궁금한 점이 있으면 남기고, 없으면 다음 항목으로 가. <button class="linkbtn" id="flashUndo" type="button">되돌리기</button></div>` : ""}
     <div class="rhead">
       <div><p class="crumb">${badge(P)} ${esc(part.label)} · ${idx + 1} / ${P.items.length}</p>
         <h1 class="rtitle">${esc(it.title)}${r && r.done ? `<span class="done-tag">✓ ${fmtDate(r.doneAt)} 다 읽음</span>` : ""}</h1></div>
@@ -239,7 +237,7 @@ function read(P, id, step) {
       ${foot}
     </div></div>`;
   $("main").classList.toggle("wide", VIEW.step >= 2);
-  ({ 1: stageMap, 2: stagePdf, 3: stageWrite, 4: stageCases })[VIEW.step](P, it);
+  ({ 1: stageMap, 2: stagePdf, 3: stageQs })[VIEW.step](P, it);
   const tr = $("#trackBtn"); if (tr) tr.onclick = openDrawer;
   document.querySelectorAll("[data-step]").forEach(b => b.onclick = () => read(P, id, +b.dataset.step));
   $("#prev").onclick = () => read(P, id, VIEW.step - 1);
@@ -282,77 +280,36 @@ function workLayout(P, it, inner, again) {
   }
 }
 
-// ── 3단계: 내 정리 + 들여쓰기 구조도 ──
+// ── 3단계: 궁금한 점 (읽다 막힌 것을 남기고, 답을 찾으면 원문 근거와 함께 단다) ──
 function pubReadonly(P, it, again) {
-  workLayout(P, it, `<div class="pubro"><p>지금은 <b>김수현의 공개 기록</b>을 보고 있어서 쓸 수 없어.</p>
+  workLayout(P, it, `<div class="pubro"><p>지금은 <b>${esc((PUB && PUB.owner) || "")}의 공개 기록</b>을 보고 있어서 쓸 수 없어.</p>
     ${noteCard(P, it)}<button class="btn main" id="startOwn" type="button">내 기록으로 쓰기 시작</button></div>`, again);
   $("#startOwn").onclick = () => { PUBMODE = false; pubBar(); again(); };
 }
-function stageWrite(P, it) {
-  if (PUBMODE) return pubReadonly(P, it, () => stageWrite(P, it));
-  const x = rec(P.id, it.id);
+const qsOf = r => (r && Array.isArray(r.qs) ? r.qs : []);
+const hasQ = q => q && ((q.q || "").trim() || (q.a || "").trim());
+function stageQs(P, it) {
+  if (PUBMODE) return pubReadonly(P, it, () => stageQs(P, it));
+  const cur = qsOf(recs(P.id)[it.id]);
+  const rows = cur.length ? cur : [{ q: "", a: "", ref: "" }];
   workLayout(P, it, `
-    <div class="wgrid">
-      <label class="wbox"><span class="wl">내 정리 <small>길어도 괜찮아. 내 말로.</small></span>
-        <textarea id="note" rows="14" placeholder="이 항목이 무엇을 정하는지, 왜 그렇게 정했는지, 실무에서 어디에 쓰일지 내 말로 써 봐.">${esc(x.note)}</textarea></label>
-      <div class="wbox"><span class="wl">구조도 <small>스페이스 두 칸이 한 단계</small></span>
-        <div class="treebox"><textarea id="tree" rows="14" spellcheck="false" placeholder="${esc(treeHint(it))}">${esc(x.tree)}</textarea>
-        <div class="treeview" id="treeview" aria-label="구조도 그림"></div></div></div>
-    </div>`, () => stageWrite(P, it));
-  const draw = () => { $("#treeview").innerHTML = drawTree(rec(P.id, it.id).tree) || `<p class="tempty">왼쪽 칸에 들여쓰기로 쓰면 여기 그림이 생겨.</p>`; };
-  $("#note").oninput = e => { rec(P.id, it.id).note = e.target.value; autosave(); };
-  const t = $("#tree");
-  t.oninput = e => { rec(P.id, it.id).tree = e.target.value; autosave(); draw(); };
-  t.onkeydown = e => { // Tab = 스페이스 두 칸
-    if (e.key !== "Tab") return; e.preventDefault();
-    const s = t.selectionStart, v = t.value;
-    if (e.shiftKey) { const ls = v.lastIndexOf("\n", s - 1) + 1; if (v.slice(ls, ls + 2) === "  ") { t.value = v.slice(0, ls) + v.slice(ls + 2); t.selectionStart = t.selectionEnd = Math.max(ls, s - 2); } }
-    else { t.value = v.slice(0, s) + "  " + v.slice(t.selectionEnd); t.selectionStart = t.selectionEnd = s + 2; }
-    t.dispatchEvent(new Event("input"));
-  };
-  draw();
-}
-function treeHint(it) { return `${it.title}\n  첫째 갈래\n    세부 내용\n  둘째 갈래`; }
-
-// 들여쓰기 → 나무 (부모보다 두 단계 이상 깊게 쓰면 한 단계로 맞춘다)
-function parseTree(txt) {
-  const root = { t: "", c: [] }, stack = [{ n: root, d: -1 }];
-  String(txt || "").split("\n").forEach(line => {
-    if (!line.trim()) return;
-    const sp = line.replace(/\t/g, "  ").match(/^ */)[0].length;
-    let d = Math.floor(sp / 2);
-    while (stack.length > 1 && stack[stack.length - 1].d >= d) stack.pop();
-    d = Math.min(d, stack[stack.length - 1].d + 1);
-    const node = { t: line.trim().replace(/^[-*•]\s*/, ""), c: [] };
-    stack[stack.length - 1].n.c.push(node); stack.push({ n: node, d });
-  });
-  return root.c;
-}
-function drawTree(txt) {
-  const nodes = parseTree(txt); if (!nodes.length) return "";
-  const li = n => `<li><span>${esc(n.t)}</span>${n.c.length ? `<ul>${n.c.map(li).join("")}</ul>` : ""}</li>`;
-  return `<ul class="tree">${nodes.map(li).join("")}</ul>`;
-}
-
-// ── 4단계: 상황 문제 ──
-function stageCases(P, it) {
-  if (PUBMODE) return pubReadonly(P, it, () => stageCases(P, it));
-  const x = rec(P.id, it.id);
-  if (!x.cases.length) x.cases.push({ q: "", a: "", ref: "" });
-  workLayout(P, it, `
-    <p class="whelp">다른 AI에게 이 항목으로 상황 문제를 받아서 붙여 넣어. 답은 내가 쓰고, <b>맞는지는 원문 문단을 찾아 내가 확인</b>해. 이 사이트는 채점하지 않아.</p>
-    <div class="cases">${x.cases.map((c, i) => `<div class="case" data-i="${i}">
-      <div class="case-h"><b>상황 ${i + 1}</b>${x.cases.length > 1 ? `<button class="linkbtn del" type="button" data-del="${i}">지우기</button>` : ""}</div>
-      <label><span class="wl">상황</span><textarea data-f="q" rows="3" placeholder="예: A사는 국내 사업장은 배출권거래제 지침으로, 해외 사업장은 GHG 프로토콜로 Scope 1·2를 쟀다. 어떻게 공시해야 하나?">${esc(c.q)}</textarea></label>
-      <label><span class="wl">내 답</span><textarea data-f="a" rows="4" placeholder="이 기준서에 따르면 …">${esc(c.a)}</textarea></label>
-      <label><span class="wl">근거 문단</span><input data-f="ref" value="${esc(c.ref)}" placeholder="예: 제2호 문단 29⑴㈒, 19쪽"></label>
+    <p class="whelp">읽다가 막힌 문장, 뜻을 모르는 말, "왜 이렇게 정했지?" 싶은 것을 한 줄로 남겨. 답은 지금 몰라도 돼. 나중에 원문에서 찾으면 그때 답과 근거 문단을 달아.</p>
+    <div class="cases">${rows.map((c, i) => `<div class="case qcard ${(c.a || "").trim() ? "solved" : ""}" data-i="${i}">
+      <div class="case-h"><b>궁금한 점 ${i + 1}</b><span class="qst">${(c.a || "").trim() ? "답 찾음" : "아직 모름"}</span>${rows.length > 1 || hasQ(c) ? `<button class="linkbtn del" type="button" data-del="${i}">지우기</button>` : ""}</div>
+      <label><span class="wl">궁금한 점</span><textarea data-f="q" rows="2" placeholder="예: '실무적으로 적용할 수 없는'과 '과도한 원가나 노력 없이'는 어떻게 다르지?">${esc(c.q)}</textarea></label>
+      <label><span class="wl">찾은 답 <small>찾았을 때만</small></span><textarea data-f="a" rows="3" placeholder="원문에서 찾은 답을 내 말로">${esc(c.a)}</textarea></label>
+      <label><span class="wl">근거 문단</span><input data-f="ref" value="${esc(c.ref)}" placeholder="예: 제1호 문단 B10, 36쪽"></label>
     </div>`).join("")}</div>
-    ${x.cases.length < 5 ? `<button class="btn" id="addCase" type="button">+ 상황 하나 더</button>` : ""}`, () => stageCases(P, it));
-  document.querySelectorAll(".case [data-f]").forEach(el => el.oninput = e => {
-    const i = +el.closest(".case").dataset.i; rec(P.id, it.id).cases[i][el.dataset.f] = e.target.value; autosave();
+    ${rows.length < 10 ? `<button class="btn" id="addQ" type="button">+ 궁금한 점 하나 더</button>` : ""}`, () => stageQs(P, it));
+  const ensure = () => { const x = rec(P.id, it.id); if (!Array.isArray(x.qs)) x.qs = []; while (x.qs.length < rows.length) x.qs.push({ q: "", a: "", ref: "" }); return x.qs; };
+  document.querySelectorAll(".qcard [data-f]").forEach(el => el.oninput = e => {
+    const card = el.closest(".qcard"), i = +card.dataset.i, qs = ensure();
+    qs[i][el.dataset.f] = e.target.value; if (el.dataset.f === "q" && !qs[i].at) qs[i].at = new Date().toISOString();
+    const solved = !!(qs[i].a || "").trim(); card.classList.toggle("solved", solved); card.querySelector(".qst").textContent = solved ? "답 찾음" : "아직 모름";
+    autosave();
   });
-  document.querySelectorAll("[data-del]").forEach(b => b.onclick = () => { rec(P.id, it.id).cases.splice(+b.dataset.del, 1); save(); stageCases(P, it); });
-  const ad = $("#addCase"); if (ad) ad.onclick = () => { rec(P.id, it.id).cases.push({ q: "", a: "", ref: "" }); save(); stageCases(P, it); };
+  document.querySelectorAll("[data-del]").forEach(b => b.onclick = () => { const qs = ensure(); qs.splice(+b.dataset.del, 1); save(); stageQs(P, it); });
+  const ad = $("#addQ"); if (ad) ad.onclick = () => { ensure().push({ q: "", a: "", ref: "" }); save(); stageQs(P, it); };
 }
 
 function stageMap(P, it) {
@@ -460,7 +417,8 @@ async function renderPages(P, it, cur, redo = () => stagePdf(P, it)) {
 
 // ── 내 기록 (#/notes): 확장팩별로 모아 보기 + 파일 백업 ──
 const hasCase = c => c && (c.q || c.a || c.ref);
-const hasRec = r => r && (r.done || (r.note || "").trim() || (r.tree || "").trim() || (r.cases || []).some(hasCase));
+const hasQs = r => qsOf(r).some(hasQ);
+const hasRec = r => r && (r.done || hasQs(r));
 let NOTE_FILTER = "rec"; // rec: 기록 있는 것만, all: 전부
 let IMPORT = null;       // 불러오기 확인 대기 중인 데이터
 
@@ -470,11 +428,11 @@ function notes() {
   const count = ready.reduce((a, P) => a + P.items.filter(i => hasRec(recs(P.id)[i.id])).length, 0);
   $("#app").innerHTML = `<div class="view">
     ${PUBMODE ? `<p class="eyebrow">공개 기록 · ${PUB.updated ? fmtDate(PUB.updated) + " 기준" : ""}</p><h1 class="h1 sm">${esc(PUB.owner || "")}이 읽고 남긴 것</h1>
-    <p class="lead">원문을 읽고 남긴 진도와 기록이야. 쉬운 설명이나 해설이 아니라, 읽은 사람이 직접 쓴 정리와 구조도만 담았어.</p>`
+    <p class="lead">원문을 읽은 진도와 날짜, 그리고 읽으면서 생긴 궁금한 점과 원문에서 찾은 답이야. 모두 읽은 사람이 직접 남긴 기록이야.</p>`
     : `<p class="eyebrow">내 기록</p><h1 class="h1 sm">읽고 남긴 것</h1>
     <section class="backup pubexp">
       <div><b>공개용 기록</b><p>방문자(채용 담당자)에게 보여 줄 기록을 골라 파일로 받아. 받은 파일을 저장소의 <code>reading/log/public.json</code>으로 올리면 사이트에 공개돼.</p>
-        <p class="checks"><label><input type="checkbox" checked disabled> 진도와 읽은 날짜</label><label><input type="checkbox" id="pubNote" ${PUBOPT.note ? "checked" : ""}> 내 정리</label><label><input type="checkbox" id="pubTree" ${PUBOPT.tree ? "checked" : ""}> 구조도</label></p>
+        <p class="checks"><label><input type="checkbox" checked disabled> 진도와 읽은 날짜</label><label><input type="checkbox" id="pubQs" ${PUBOPT.qs ? "checked" : ""}> 궁금한 점과 찾은 답</label></p>
         ${PUB ? `<p class="last">지금 공개된 기록: ${PUB.updated ? fmtDate(PUB.updated) : "날짜 없음"} 기준</p>` : ""}</div>
       <div class="bk-act"><button class="btn main" id="pubExp" type="button">공개용 파일 받기</button>${PUB ? `<button class="btn" id="pubPrev" type="button">방문자 화면 미리 보기</button>` : ""}</div>
     </section>`}
@@ -490,31 +448,27 @@ function notes() {
     ${ready.map(P => {
       const its = P.items.filter(i => NOTE_FILTER === "all" || hasRec(recs(P.id)[i.id]));
       return `<section class="nsec"><div class="cat-h">${badge(P)}<h2>${esc(P.name)}</h2><p>${doneCount(P)} / ${P.items.length} 다 읽음</p></div>
-        ${its.length ? its.map(it => noteCard(P, it)).join("") : `<p class="gempty">아직 남긴 기록이 없어. 읽고 나서 정리하면 여기 모여.</p>`}</section>`;
+        ${its.length ? its.map(it => noteCard(P, it)).join("") : `<p class="gempty">아직 남긴 기록이 없어. 읽은 항목과 궁금한 점이 여기 모여.</p>`}</section>`;
     }).join("")}
   </div>`;
   document.querySelectorAll(".seg [data-f]").forEach(b => b.onclick = () => { NOTE_FILTER = b.dataset.f; notes(); });
   if (PUBMODE) return;
   $("#exp").onclick = exportBackup;
-  $("#pubNote").onchange = e => { PUBOPT.note = e.target.checked; };
-  $("#pubTree").onchange = e => { PUBOPT.tree = e.target.checked; };
+  $("#pubQs").onchange = e => { PUBOPT.qs = e.target.checked; };
   $("#pubExp").onclick = exportPublic;
   const pv = $("#pubPrev"); if (pv) pv.onclick = () => { PUBMODE = true; pubBar(); location.hash = "#/"; };
   $("#imp").onchange = e => { const f = e.target.files[0]; if (f) readImport(f); e.target.value = ""; };
   if (IMPORT) showImport();
 }
 function noteCard(P, it) {
-  const r = recs(P.id)[it.id] || {}, cs = (r.cases || []).filter(hasCase);
-  const no = P.items.indexOf(it) + 1;
+  const r = recs(P.id)[it.id] || {}, qs = qsOf(r).filter(hasQ);
+  const no = P.items.indexOf(it) + 1, solved = qs.filter(q => (q.a || "").trim()).length;
   return `<article class="ncard ${hasRec(r) ? "" : "empty"}">
-    <div class="nh"><span class="tno">${no}</span><h3><a href="#/p/${P.id}/read/${it.id}">${esc(it.title)}</a></h3>${r.done ? `<span class="tst ok">✓ ${fmtDate(r.doneAt)}</span>` : `<span class="tst">안 읽음</span>`}</div>
-    ${(r.note || "").trim() ? `<div class="nnote">${esc(r.note.trim())}</div>` : ""}
-    ${(r.tree || "").trim() ? `<div class="ncmp"><div><span class="wl">처음 지도</span><p>${esc(it.map)}</p></div><div><span class="wl">내가 그린 구조도</span>${drawTree(r.tree)}</div></div>` : ""}
-    ${cs.length ? `<div class="ncases">${cs.map((c, i) => `<div class="nc"><p class="ncq"><b>상황 ${i + 1}</b> ${esc(c.q)}</p>${c.a ? `<p class="nca">${esc(c.a)}</p>` : ""}${c.ref ? `<p class="ncr">근거 ${esc(c.ref)}</p>` : ""}</div>`).join("")}</div>` : ""}
+    <div class="nh"><span class="tno">${no}</span><h3><a href="#/p/${P.id}/read/${it.id}">${esc(it.title)}</a></h3>${qs.length ? `<span class="qsum">궁금한 점 ${qs.length} · 답 ${solved}</span>` : ""}${r.done ? `<span class="tst ok">✓ ${fmtDate(r.doneAt)}</span>` : `<span class="tst">안 읽음</span>`}</div>
+    ${qs.length ? `<div class="ncases">${qs.map(q => `<div class="nc ${(q.a || "").trim() ? "solved" : ""}"><p class="ncq"><b>Q</b> ${esc(q.q)}</p>${(q.a || "").trim() ? `<p class="nca"><b>A</b> ${esc(q.a)}</p>` : `<p class="ncr">아직 답을 못 찾았어</p>`}${q.ref ? `<p class="ncr">근거 ${esc(q.ref)}</p>` : ""}</div>`).join("")}</div>` : ""}
   </article>`;
 }
-
-let PUBOPT = { note: true, tree: true };
+let PUBOPT = { qs: true };
 function exportPublic() {
   const out = { owner: "김수현", updated: new Date().toISOString(), packs: {} };
   for (const [pid, pk] of Object.entries(S.packs)) {
@@ -522,9 +476,9 @@ function exportPublic() {
     for (const [id, r] of Object.entries(pk.items || {})) {
       if (!r) continue;
       const x = { done: !!r.done, doneAt: r.done ? r.doneAt : null };
-      if (PUBOPT.note && (r.note || "").trim()) x.note = r.note;
-      if (PUBOPT.tree && (r.tree || "").trim()) x.tree = r.tree;
-      if (x.done || x.note || x.tree) items[id] = x;
+      const qs = qsOf(r).filter(hasQ).map(q => ({ q: q.q || "", a: q.a || "", ref: q.ref || "" }));
+      if (PUBOPT.qs && qs.length) x.qs = qs;
+      if (x.done || x.qs) items[id] = x;
     }
     if (Object.keys(items).length) out.packs[pid] = { items, ...(pk.startedAt ? { startedAt: pk.startedAt } : {}) };
   }
@@ -562,7 +516,8 @@ function cleanImport(o) {
     for (const [id, r] of Object.entries(pv.items || {})) {
       if (!ids.has(id) || !r || typeof r !== "object") { dropped++; continue; }
       items[id] = { done: r.done === true, doneAt: r.done === true ? iso(r.doneAt) || new Date().toISOString() : null, note: str(r.note), tree: str(r.tree),
-        cases: Array.isArray(r.cases) ? r.cases.slice(0, 5).map(c => ({ q: str(c && c.q), a: str(c && c.a), ref: str(c && c.ref) })) : [] };
+        cases: Array.isArray(r.cases) ? r.cases.slice(0, 5).map(c => ({ q: str(c && c.q), a: str(c && c.a), ref: str(c && c.ref) })) : [],
+        qs: Array.isArray(r.qs) ? r.qs.slice(0, 30).map(c => ({ q: str(c && c.q), a: str(c && c.a), ref: str(c && c.ref), ...(iso(c && c.at) ? { at: c.at } : {}) })) : [] };
       n++;
     }
     out.packs[pid] = { items }; if (iso(pv.startedAt)) out.packs[pid].startedAt = pv.startedAt;
@@ -587,39 +542,37 @@ function showImport() {
 }
 
 // ── 용어집 (#/terms): 네 분야로 나눈 용어, 원문 정의가 있으면 그 쪽을 바로 연다 ──
-let GLOSS = null, TQ = "", TCAT = "all", TOFF = false;
+let GLOSS = null, TQ = "", TCAT = "all";
 async function loadGloss() { return GLOSS ||= (await (await fetch("glossary.json")).json()); }
 async function termsView() {
   const G = await loadGloss();
   const norm = s => String(s || "").toLowerCase().replace(/\s+/g, "").replace(/스코프/g, "scope");
   const q = norm(TQ);
-  const list = G.terms.filter(t => (TCAT === "all" || t.cats.includes(TCAT)) && (!TOFF || t.official) && (!q || norm(t.t + t.en + t.d).includes(q)))
-    .sort((a, b) => { const s = t => !q ? 0 : norm(t.t).startsWith(q) ? 2 : norm(t.t).includes(q) ? 1 : 0; const g = t => /^[가-힣]/.test(t.t) ? 0 : /^[A-Za-z]/.test(t.t) ? 1 : 2; return (s(b) - s(a)) || (g(a) - g(b)) || a.t.localeCompare(b.t, "ko"); });
+  const score = t => !q ? 0 : norm(t.t).startsWith(q) ? 3 : norm(t.t).includes(q) ? 2 : norm(t.en).includes(q) ? 1 : 0;
+  const list = G.terms.filter(t => (TCAT === "all" || t.cats.includes(TCAT)) && (!q || norm(t.t + t.en + t.def).includes(q)))
+    .sort((a, b) => (score(b) - score(a)) || a.t.localeCompare(b.t, "ko"));
   const cnt = c => G.terms.filter(t => c === "all" || t.cats.includes(c)).length;
-  const catName = id => (CATS.find(c => c.id === id) || {}).label || id;
+  const cat = CATS.find(c => c.id === TCAT);
+  const srcs = [...new Set(G.terms.map(t => t.src.label.split(" · ")[0]))];
   $("#app").innerHTML = `<div class="view">
-    <p class="eyebrow">용어집</p><h1 class="h1 sm">기준서에 나오는 말</h1>
-    <p class="lead">네 분야로 나눈 전문용어 ${G.terms.length}개. <b>원문 정의</b>가 붙은 용어는 기준서의 공식 정의 쪽을 바로 열 수 있어.</p>
-    <div class="tbar">
-      <input class="tsearch" id="tq" type="search" placeholder="용어 검색 (예: 스코프 3, 중대성, CDP)" value="${esc(TQ)}" aria-label="용어 검색">
-      <label class="tonly"><input type="checkbox" id="toff" ${TOFF ? "checked" : ""}> 원문 정의 있는 것만</label>
-    </div>
+    <p class="eyebrow">용어집</p><h1 class="h1 sm">기준서가 정의한 말</h1>
+    <p class="lead">기준서 원문의 <b>'용어의 정의'</b>만 모았어. 해설을 덧붙이지 않고 원문 문장 그대로 싣고, 정의가 실린 쪽을 바로 열 수 있게 했어.</p>
+    <p class="tsrc">지금 실린 출처 · ${srcs.map(s => `<span class="cand">${esc(s)}</span>`).join("")}</p>
+    <div class="tbar"><input class="tsearch" id="tq" type="search" placeholder="용어 검색 (예: 스코프 3, 중요한 정보, 탄소 크레딧)" value="${esc(TQ)}" aria-label="용어 검색"></div>
     <div class="tcats" role="group" aria-label="분야">${[["all", "전체"], ...CATS.map(c => [c.id, c.label])].map(([id, l]) => `<button type="button" data-c="${id}" class="${TCAT === id ? "on" : ""}">${esc(l)} <span>${cnt(id)}</span></button>`).join("")}</div>
     <p class="tcount">${list.length}개${q ? ` · '${esc(TQ)}' 검색` : ""}</p>
-    <div class="tlist">${list.slice(0, 600).map(t => `<article class="term ${t.official ? "off" : ""}">
+    ${list.length ? `<div class="tlist">${list.map(t => `<article class="term">
       <div class="term-h"><h3>${esc(t.t)}</h3>${t.en ? `<span class="ten">${esc(t.en)}</span>` : ""}</div>
-      <p class="td">${esc(t.d)}</p>
-      <div class="tf">${t.cats.map(c => `<span class="tcat">${esc(catName(c))}</span>`).join("")}
-        ${t.official ? `<button class="tofb" type="button" data-pack="${t.official.pack}" data-doc="${t.official.doc}" data-page="${t.official.page}" data-t="${esc(t.t)}">원문 정의 · ${esc(t.official.label)}</button>` : ""}
-        ${t.item && PACKS[t.item.pack] && PACKS[t.item.pack].items.find(i => i.id === t.item.id) ? `<a class="titem" href="#/p/${t.item.pack}/read/${t.item.id}">나오는 곳: ${esc(PACKS[t.item.pack].items.find(i => i.id === t.item.id).title)}</a>` : `<span class="tfrom">${esc(t.from)}</span>`}
-      </div></article>`).join("")}</div>
-    ${list.length > 600 ? `<p class="tcount">검색어를 넣으면 나머지 ${list.length - 600}개도 찾을 수 있어.</p>` : ""}
-    <p class="tnote">${esc(G.note)}</p>
+      <p class="tdef">${esc(t.def)}</p>
+      <div class="tf">${t.cats.map(c => `<span class="tcat">${esc((CATS.find(x => x.id === c) || {}).label || c)}</span>`).join("")}
+        <button class="tofb" type="button" data-pack="${t.src.pack}" data-doc="${t.src.doc}" data-page="${t.src.page}" data-t="${esc(t.t)}">원문 쪽 보기 · ${esc(t.src.label)}</button></div>
+    </article>`).join("")}</div>`
+    : `<div class="slot"><span class="code ghost">+</span><div><b>${cat && !q ? `${esc(cat.label)} 분야는 아직 원문 정의가 없어` : "찾는 용어가 없어"}</b><p>${cat && !q ? `이 분야 기준서를 검수해서 꽂으면 그 기준서의 '용어의 정의'가 여기 채워져. 후보 ${cat.candidates.map(x => `<span class="cand">${esc(x)}</span>`).join("")}` : "다른 말로 찾아 보거나 분야를 '전체'로 바꿔 봐."}</p></div></div>`}
+    <p class="tnote">${esc(G.note)}${G.checked ? ` (${esc(G.checked)})` : ""}</p>
   </div>`;
   const qi = $("#tq"); let tm;
   qi.oninput = e => { clearTimeout(tm); tm = setTimeout(() => { TQ = e.target.value; termsView().then(() => { const n = $("#tq"); n.focus(); n.setSelectionRange(n.value.length, n.value.length); }); }, 180); };
   document.querySelectorAll(".tcats [data-c]").forEach(b => b.onclick = () => { TCAT = b.dataset.c; termsView(); });
-  $("#toff").onchange = e => { TOFF = e.target.checked; termsView(); };
   document.querySelectorAll(".tofb").forEach(b => b.onclick = () => openPageModal(PACKS[b.dataset.pack], b.dataset.doc, +b.dataset.page, b.dataset.t));
 }
 // 원문 한 쪽을 크게 띄우는 창
