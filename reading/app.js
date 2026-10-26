@@ -86,7 +86,9 @@ function packHome(P) {
   const wk = weekInfo(P);
   const plan = (P.schedule || []).map(s => `<li class="${wk.week >= s.from && wk.week <= s.to ? "on" : ""}"><b>${s.from}~${s.to}주차</b>${esc(s.label)}</li>`).join("");
   const nxPart = P.parts.find(x => x.id === nx.part);
+  const fin = FLASH && FLASH.pack === P.id && !FLASH.to ? FLASH : null; FLASH = null;
   $("#app").innerHTML = `<div class="view">
+    ${fin ? `<div class="flash" role="status">✓ ‘<b>${esc(fin.title)}</b>’까지 다 읽었어. ${n === t ? "이 기준서를 끝까지 읽었어!" : "아직 안 읽은 항목이 지도에 남아 있어."}</div>` : ""}
     <p class="crumb"><a href="#/">서재</a> › ${esc(cat.label || "")}</p>
     <div class="phead">${badge(P, "lg")}<div><h1 class="ptitle">${esc(P.name)}</h1>
       <p class="pmeta">${esc(P.edition)} · ${esc(P.issuer)} · 원문 ${Object.values(P.docs).map(d => `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.short)} ↗</a>`).join(" ")}</p></div></div>
@@ -121,6 +123,7 @@ const STEP_NAMES = ["지도", "원문", "내 정리", "상황 문제"];
 const READY_STEPS = 2; // 3·4단계는 다음 작업에서
 let VIEW = { key: null, step: 1, part: 0 };
 let SIDE_HIDDEN = false;
+let FLASH = null; // 방금 '다 읽었어요'를 누른 항목 (다음 화면에 알림)
 
 function read(P, id, step) {
   const idx = P.items.findIndex(i => i.id === id);
@@ -130,7 +133,10 @@ function read(P, id, step) {
   if (step) VIEW.step = Math.min(Math.max(1, step), READY_STEPS);
   const it = P.items[idx], r = recs(P.id)[id];
   const part = P.parts.find(x => x.id === it.part);
+  const nextIt = P.items[idx + 1];
+  const flash = FLASH && FLASH.pack === P.id && FLASH.to === id ? FLASH : null; FLASH = null;
   $("#app").innerHTML = `<div class="view">
+    ${flash ? `<div class="flash" role="status">✓ ‘<b>${esc(flash.title)}</b>’ 다 읽음으로 표시했어. 이어서 다음 항목이야. <button class="linkbtn" id="flashUndo" type="button">되돌리기</button></div>` : ""}
     <div class="rhead">
       <div><p class="crumb">${badge(P)} ${esc(part.label)} · ${idx + 1} / ${P.items.length}</p>
         <h1 class="rtitle">${esc(it.title)}${r && r.done ? `<span class="done-tag">✓ ${fmtDate(r.doneAt)} 다 읽음</span>` : ""}</h1></div>
@@ -142,18 +148,26 @@ function read(P, id, step) {
     <section class="panel" id="stage"></section>
     <div class="foot">
       <button class="btn" id="prev" type="button" ${VIEW.step === 1 ? "disabled" : ""}>← 이전</button>
-      <span class="mid">${VIEW.step === 2 ? "다 읽으면 체크해 둬. 내 정리와 상황 문제는 다음 작업에서 붙어." : ""}</span>
+      <span class="mid">${VIEW.step === 2 ? (r && r.done ? `<button class="linkbtn" id="undo" type="button">읽음 취소</button>` : "다 읽으면 다음 항목으로 넘어가. 내 정리와 상황 문제는 다음 작업에서 붙어.") : ""}</span>
       ${VIEW.step === 1
         ? `<button class="btn main" id="next" type="button">원문 읽으러 가기 →</button>`
-        : `<button class="btn main ${r && r.done ? "ok" : ""}" id="doneBtn" type="button">${r && r.done ? "✓ 다 읽었어요 (취소하려면 누르기)" : "다 읽었어요"}</button>`}
+        : `<button class="btn main" id="doneBtn" type="button">${r && r.done ? (nextIt ? `다음 항목으로 → ${esc(nextIt.title)}` : "목차로 돌아가기") : (nextIt ? "다 읽었어요 · 다음 항목으로 →" : "다 읽었어요 · 마지막 항목")}</button>`}
     </div></div>`;
   $("main").classList.toggle("wide", VIEW.step === 2);
   VIEW.step === 1 ? stageMap(P, it) : stagePdf(P, it);
   $("#prev").onclick = () => read(P, id, VIEW.step - 1);
   const nx = $("#next"); if (nx) nx.onclick = () => read(P, id, 2);
   const db = $("#doneBtn"); if (db) db.onclick = () => {
-    const x = rec(P.id, id); x.done = !x.done; if (x.done && !S.packs[P.id].startedAt) S.packs[P.id].startedAt = new Date().toISOString(); x.doneAt = x.done ? new Date().toISOString() : null; save(); read(P, id);
+    const x = rec(P.id, id);
+    if (!x.done) {
+      x.done = true; x.doneAt = new Date().toISOString();
+      if (!S.packs[P.id].startedAt) S.packs[P.id].startedAt = x.doneAt;
+      save(); FLASH = { pack: P.id, from: id, to: nextIt ? nextIt.id : null, title: it.title };
+    }
+    location.hash = nextIt ? `#/p/${P.id}/read/${nextIt.id}` : `#/p/${P.id}`;
   };
+  const un = $("#undo"); if (un) un.onclick = () => { const x = rec(P.id, id); x.done = false; x.doneAt = null; save(); read(P, id); };
+  const fu = $("#flashUndo"); if (fu) fu.onclick = () => { const x = rec(P.id, flash.from); x.done = false; x.doneAt = null; save(); location.hash = `#/p/${P.id}/read/${flash.from}`; };
 }
 
 function stageMap(P, it) {
@@ -173,26 +187,92 @@ function stageMap(P, it) {
   </div>`;
 }
 
+// ── 원문 보기: pdf.js로 직접 그린다 (폭에 맞춰 크게, 오늘 범위의 쪽만) ──
+let PDFJS = null; const PDFDOCS = {};
+let ZOOM = (() => { try { return +localStorage.getItem("reading-zoom") || 1; } catch (e) { return 1; } })();
+let EXTRA = { key: null, before: 0, after: 0 };
+let GUIDE_OPEN = true;
+function loadPdfjs() {
+  return PDFJS ||= new Promise((res, rej) => {
+    const s = document.createElement("script"); s.src = "vendor/pdfjs/pdf.min.js";
+    s.onload = () => { pdfjsLib.GlobalWorkerOptions.workerSrc = "vendor/pdfjs/pdf.worker.min.js"; res(pdfjsLib); };
+    s.onerror = rej; document.head.appendChild(s);
+  });
+}
+function getPdf(url) { return PDFDOCS[url] ||= loadPdfjs().then(l => l.getDocument(url).promise); }
+
 async function stagePdf(P, it) {
   const parts = [...it.ranges.map(r => ({ ...r, ref: false })), ...it.refs.map(r => ({ ...r, ref: true }))];
   const cur = parts[VIEW.part] || parts[0];
   const doc = P.docs[cur.doc], gl = doc.glossary;
+  const ekey = VIEW.key + "/" + VIEW.part; if (EXTRA.key !== ekey) EXTRA = { key: ekey, before: 0, after: 0 };
+  const guide = (it.guide || []).filter(g => g.doc === cur.doc && g.page >= cur.start - EXTRA.before && g.page <= cur.end + EXTRA.after);
+  const isEn = doc.lang === "en";
   const ok = await checkPdf(P, cur.doc);
-  $("#stage").innerHTML = `<div class="reader ${SIDE_HIDDEN ? "hide-side" : ""}">
+  $("#stage").innerHTML = `<div class="reader ${SIDE_HIDDEN ? "hide-side" : ""} ${isEn && GUIDE_OPEN ? "with-guide" : ""}">
     <div class="side"><h3>읽을 곳</h3>
       ${parts.map((p, i) => p.ref ? "" : `<button class="part ${i === VIEW.part ? "on" : ""}" data-i="${i}" type="button"><span class="lb">${esc(short(P, p.doc))} ${esc(p.label)}</span><span class="pg">${pages(p)}</span></button>`).join("")}
       ${it.refs.length ? `<p class="sm">참고</p>${parts.map((p, i) => p.ref ? `<button class="ref" data-i="${i}" type="button">${esc(p.label)} · ${pages(p)}</button>` : "").join("")}` : ""}
       ${gl ? `<button class="gl" id="gloss" type="button">${esc(doc.short)} 용어 보기 (${pages(gl)})</button>` : ""}
     </div>
     <div class="pdfwrap">
-      <div class="pdftop"><button class="fold" id="fold" type="button">${SIDE_HIDDEN ? "목록 펴기 ›" : "‹ 목록 접기"}</button><span class="pt">${esc(doc.short)} ${esc(cur.label)} · ${pages(cur)}</span><a href="${pdfUrl(P, cur.doc, cur.start)}" target="_blank" rel="noopener">새 창으로 크게 보기 ↗</a></div>
-      ${ok ? `<iframe class="pdf" id="pdf" title="${esc(P.code)} ${esc(doc.short)} 원문" src="${pdfUrl(P, cur.doc, cur.start)}"></iframe>`
+      <div class="pdftop"><button class="fold" id="fold" type="button">${SIDE_HIDDEN ? "목록 펴기 ›" : "‹ 목록 접기"}</button>
+        <span class="pt">${esc(doc.short)} ${esc(cur.label)} · ${pages(cur)}</span>
+        <span class="zoom" role="group" aria-label="글씨 크기"><button type="button" id="zo" aria-label="작게">−</button><button type="button" id="zf" title="폭에 맞추기">${Math.round(ZOOM * 100)}%</button><button type="button" id="zi" aria-label="크게">+</button></span>
+        ${isEn ? `<button class="fold" id="gtog" type="button">${GUIDE_OPEN ? "길잡이 닫기" : "한국어 길잡이 열기"}</button>` : ""}
+        <a href="${fileOf(P, cur.doc)}#page=${cur.start}" target="_blank" rel="noopener">새 창 ↗</a></div>
+      ${ok ? `<div class="pages" id="pages" tabindex="0" aria-label="원문 쪽"></div>`
            : `<div class="missing"><div><p><b>원문 PDF가 아직 없어.</b></p><p>${esc(fileOf(P, cur.doc))} 자리에 파일을 넣어 줘.</p><p><a href="${esc(doc.url)}" target="_blank" rel="noopener">공식 원문 받기 ↗</a></p></div></div>`}
       <p class="src">출처: ${esc(P.issuer)}, ${esc(P.name)} ${esc(P.edition)} · <a href="${esc(doc.url)}" target="_blank" rel="noopener">공식 원문</a></p>
-    </div></div>`;
+    </div>
+    ${isEn && GUIDE_OPEN ? `<aside class="guide" id="guide"><div class="gh"><b>한국어 길잡이</b><span class="pill">AI 초안${it.guideChecked ? " · 원문 대조함" : " · 대조 전"}</span></div>
+      <p class="gnote">원문을 먼저 읽고, 막히는 문단만 열어 봐. 번역이 아니라 길잡이야.</p>
+      ${guide.length ? guide.map((g, i) => `<details class="gi" data-page="${g.page}" ${i === 0 ? "open" : ""}><summary><span class="gp">${g.page}쪽</span>${esc(g.label)}</summary>
+        ${g.terms && g.terms.length ? `<p class="gt">${g.terms.map(t => `<span><b>${esc(t[0])}</b> ${esc(t[1])}</span>`).join("")}</p>` : ""}<p class="gk">${esc(g.ko)}</p></details>`).join("")
+        : `<p class="gempty">이 범위의 길잡이는 아직 없어.</p>`}
+    </aside>` : ""}
+  </div>`;
   document.querySelectorAll("[data-i]").forEach(b => b.onclick = () => { VIEW.part = +b.dataset.i; stagePdf(P, it); });
   $("#fold").onclick = () => { SIDE_HIDDEN = !SIDE_HIDDEN; stagePdf(P, it); };
-  const g = $("#gloss"); if (g) g.onclick = () => { const f = $("#pdf"); if (f) f.src = pdfUrl(P, cur.doc, gl.start) + "&t=" + Date.now(); };
+  const gt = $("#gtog"); if (gt) gt.onclick = () => { GUIDE_OPEN = !GUIDE_OPEN; stagePdf(P, it); };
+  const setZoom = z => { ZOOM = Math.min(2.2, Math.max(0.6, Math.round(z * 100) / 100)); try { localStorage.setItem("reading-zoom", ZOOM); } catch (e) {} stagePdf(P, it); };
+  $("#zo").onclick = () => setZoom(ZOOM - 0.15); $("#zi").onclick = () => setZoom(ZOOM + 0.15); $("#zf").onclick = () => setZoom(1);
+  const g = $("#gloss"); if (g) g.onclick = () => window.open(`${fileOf(P, cur.doc)}#page=${gl.start}`, "_blank", "noopener");
+  if (ok) renderPages(P, it, cur);
+}
+
+async function renderPages(P, it, cur) {
+  const box = $("#pages"); if (!box) return;
+  let pdf;
+  try { pdf = await getPdf(fileOf(P, cur.doc)); }
+  catch (e) { box.outerHTML = `<iframe class="pdf" title="원문" src="${fileOf(P, cur.doc)}#page=${cur.start}"></iframe>`; return; }
+  if (!document.body.contains(box)) return;
+  const from = Math.max(1, cur.start - EXTRA.before), to = Math.min(pdf.numPages, cur.end + EXTRA.after);
+  const first = await pdf.getPage(from), v1 = first.getViewport({ scale: 1 });
+  const width = Math.max(280, box.clientWidth - 40) * ZOOM;
+  const list = []; for (let n = from; n <= to; n++) list.push(n);
+  box.innerHTML = `${from > 1 ? `<button class="more-pg" id="pgb" type="button">↑ 앞 쪽(${from - 1}쪽)도 보기</button>` : ""}
+    ${list.map(n => `<figure class="sheet ${n >= cur.start && n <= cur.end ? "" : "outside"}" data-page="${n}" style="width:${width}px;aspect-ratio:${v1.width}/${v1.height}"><canvas></canvas><figcaption>${n}쪽${n >= cur.start && n <= cur.end ? "" : " · 범위 밖"}</figcaption></figure>`).join("")}
+    ${to < pdf.numPages ? `<button class="more-pg" id="pga" type="button">↓ 다음 쪽(${to + 1}쪽)도 보기</button>` : ""}`;
+  const pb = $("#pgb"); if (pb) pb.onclick = () => { EXTRA.before++; stagePdf(P, it); };
+  const pa = $("#pga"); if (pa) pa.onclick = () => { EXTRA.after++; stagePdf(P, it); };
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const draw = async fig => {
+    if (fig.dataset.done) return; fig.dataset.done = 1;
+    const page = await pdf.getPage(+fig.dataset.page), base = page.getViewport({ scale: 1 });
+    const vp = page.getViewport({ scale: width / base.width * dpr });
+    const c = fig.querySelector("canvas"); c.width = vp.width; c.height = vp.height;
+    await page.render({ canvasContext: c.getContext("2d"), viewport: vp }).promise;
+  };
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) draw(e.target); }), { root: box, rootMargin: "600px 0px" });
+  box.querySelectorAll(".sheet").forEach(f => io.observe(f));
+  // 길잡이: 지금 보이는 쪽의 문단을 표시하고, 누르면 그 쪽으로
+  const gs = [...document.querySelectorAll(".gi")];
+  if (gs.length) {
+    const seen = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) gs.forEach(g => g.classList.toggle("here", g.dataset.page === e.target.dataset.page)); }), { root: box, threshold: 0.5 });
+    box.querySelectorAll(".sheet").forEach(f => seen.observe(f));
+    gs.forEach(g => g.querySelector("summary").addEventListener("click", () => { const f = box.querySelector(`.sheet[data-page="${g.dataset.page}"]`); if (f) box.scrollTo({ top: f.offsetTop - box.offsetTop - 12, behavior: "smooth" }); }));
+  }
 }
 
 // ── 내 기록 (6단계에서 만든다) ──
