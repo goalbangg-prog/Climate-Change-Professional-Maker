@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원문 독서 기록 · 김수현 (시안)</title>
+<meta name="description" content="기후·온실가스 컨설턴트 지원자 김수현이 기준 문서를 원문으로 읽은 기록">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* 색: 배경·글자 + 초록(주색·진행) · 노랑(발견) · 빨강(차이·주의). 그 밖의 색은 쓰지 않는다. */
+:root{--bg:#FBFAF7;--card:#FFFFFF;--muted:#F3F2EC;--line:#E8E6DF;--fg1:#1C1E1C;--fg2:#414541;--fg3:#767A75;--fg4:#A9ACA6;
+ --g:#2E7D32;--gl:#E9F3EA;--y:#F2C230;--yl:#FFF6D8;--r:#C0432E;--rl:#FBEAE6;
+ --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#141614;--card:#1B1E1B;--muted:#232623;--line:#2D312D;--fg1:#ECEEEA;--fg2:#C9CEC8;--fg3:#959B94;--fg4:#6B716A;--g:#7DC781;--gl:#1E2C1F;--y:#E5B92E;--yl:#30291A;--r:#E8907D;--rl:#36221E;color-scheme:dark}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg1);font-family:var(--font);font-size:16px;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit}h1,h2,h3,p{margin:0}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+header.top{border-bottom:1px solid var(--line);background:var(--card)}
+header.top .wrap{height:60px;display:flex;align-items:center;gap:28px}
+.who{font-weight:800;font-size:15px;text-decoration:none;white-space:nowrap}.who span{color:var(--fg3);font-weight:500;margin-left:6px}
+nav.menu{display:flex;gap:4px;margin-left:auto}nav.menu a{font-size:14px;color:var(--fg3);text-decoration:none;padding:6px 10px;border-radius:8px}nav.menu a.on{color:var(--fg1);font-weight:700;background:var(--muted)}
+.sample{background:var(--yl);color:var(--fg2);font-size:13px;text-align:center;padding:8px 16px}
+main.wrap{padding-top:44px;padding-bottom:90px}
+.view{animation:in .3s ease both}@keyframes in{from{opacity:0;transform:translateY(5px)}}
+.k{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--fg3)}
+.h1{font-size:34px;font-weight:800;letter-spacing:-.025em;line-height:1.3;margin:8px 0 10px}
+.lead{font-size:17px;color:var(--fg2);max-width:40em}
+.sec{margin-top:56px}.sh{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}.sh h2{font-size:20px;font-weight:800}.sh small{color:var(--fg3);font-size:13.5px}.sh a{margin-left:auto;font-size:13.5px;color:var(--g);text-decoration:none;font-weight:700}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:34px}
+.nums div{padding:20px 0 18px;border-left:1px solid var(--line);padding-left:20px}.nums div:first-child{border-left:0;padding-left:0}
+.nums b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.2}.nums b small{font-size:15px;color:var(--fg3);font-weight:600;margin-left:3px}.nums span{font-size:13px;color:var(--fg3)}
+/* 서가 */
+.shelf{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.doc{display:flex;flex-direction:column;gap:12px;padding:22px 22px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px;text-decoration:none;transition:border-color .2s,transform .2s}
+a.doc:hover{border-color:var(--g);transform:translateY(-2px)}
+.doc .top2{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.st{font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.st.done{background:var(--g);color:var(--card)}.st.ing{background:var(--gl);color:var(--g)}.st.plan{background:var(--muted);color:var(--fg3)}
+.doc h3{font-size:19px;font-weight:800;line-height:1.35}
+.doc .ed{font-size:13.5px;color:var(--fg3);line-height:1.5}
+.bar{height:5px;border-radius:3px;background:var(--muted);overflow:hidden}.bar i{display:block;height:100%;background:var(--g);border-radius:3px}
+.doc .meta{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--fg3)}.doc .meta b{color:var(--fg1);font-weight:700}
+.doc.plan{background:transparent;border-style:dashed}
+/* 발견 */
+.finds{display:grid;gap:14px}
+.find{padding:22px 24px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--y);border-radius:14px}
+.find .t{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}.find h3{font-size:18px;font-weight:800}
+.find p{margin-top:8px;color:var(--fg2);font-size:15.5px;max-width:44em}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch;margin-top:14px}
+.vs .s{padding:12px 14px;border-radius:10px;background:var(--muted);font-size:14px;line-height:1.6}.vs .s b{display:block;font-size:12.5px;color:var(--fg3);font-weight:700;margin-bottom:2px}
+.vs .ne{align-self:center;font-weight:800;color:var(--r);font-size:18px}
+.chk{margin-top:12px;font-size:14px;color:var(--fg2)}.chk b{color:var(--g)}
+.tag{font-size:12px;color:var(--fg3);background:var(--muted);border-radius:6px;padding:1px 8px}
+/* 문서 페이지 */
+.crumb{font-size:13.5px;color:var(--fg3)}.crumb a{text-decoration:none}
+.dhead{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:30px;align-items:start}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px;margin-top:18px}.facts dt{color:var(--fg3)}.facts dd{margin:0}
+.side{padding:20px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.side .big{font-size:40px;font-weight:800;line-height:1.1;letter-spacing:-.02em}.side .big small{font-size:16px;color:var(--fg3)}
+.side ul{margin:14px 0 0;padding:0;list-style:none;font-size:14px}.side li{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--line)}
+.log{display:flex;gap:6px;align-items:flex-end;height:74px;margin-top:10px}
+.log div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;color:var(--fg3)}
+.log i{display:block;width:100%;max-width:26px;border-radius:4px 4px 0 0;background:var(--g)}
+.part{font-size:13px;font-weight:800;color:var(--fg3);margin:26px 0 8px}
+.item{border-top:1px solid var(--line)}
+.item>button{width:100%;display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 4px;border:0;background:none;text-align:left}
+.item .ck{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:12px;color:var(--card)}
+.item.read .ck{background:var(--g);border-color:var(--g)}
+.item .tt{font-size:15.5px;font-weight:600}.item .tt small{display:block;font-size:12.5px;color:var(--fg3);font-weight:400}
+.item:not(.read) .tt{color:var(--fg3)}
+.cnt{display:flex;gap:6px}.cnt span{font-size:12px;padding:1px 8px;border-radius:999px;background:var(--muted);color:var(--fg2);white-space:nowrap}
+.cnt span.f{background:var(--yl)}
+.recs{padding:2px 4px 18px 46px;display:none;flex-direction:column;gap:10px}
+.item.open .recs{display:flex}
+.rec{padding:14px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.rec .rk{display:flex;gap:8px;align-items:center;font-size:12px;font-weight:700;color:var(--fg3)}.rec .rk em{font-style:normal;padding:0 8px;border-radius:999px;background:var(--gl);color:var(--g)}
+.rec .rk em.q{background:var(--muted);color:var(--fg2)}.rec .rk em.f{background:var(--yl);color:var(--fg1)}
+.rec p{margin-top:6px;font-size:15.5px;line-height:1.75}
+.rec .ans{margin-top:8px;padding-left:12px;border-left:2px solid var(--g);color:var(--fg2);font-size:15px}
+.rec .src{margin-top:8px;font-size:12.5px;color:var(--fg3)}.rec .src b{color:var(--fg2);font-weight:600}
+.rec time{margin-left:auto;font-weight:500;color:var(--fg4)}
+/* 기록 방법 */
+.how{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.how div{padding:20px;background:var(--card);border:1px solid var(--line);border-radius:14px}.how b{font-size:16px}.how p{margin-top:6px;color:var(--fg2);font-size:14.5px}
+.rules{margin:0;padding-left:20px;font-size:15.5px;line-height:1.9;color:var(--fg2)}
+footer{border-top:1px solid var(--line);padding:24px 0;font-size:13px;color:var(--fg3)}
+@media (max-width:760px){
+ header.top .wrap{gap:12px}.who span{display:none}nav.menu{overflow-x:auto}nav.menu a{padding:6px 8px;font-size:13.5px}
+ main.wrap{padding-top:30px;padding-bottom:70px}.h1{font-size:27px}.lead{font-size:16px}
+ .nums{grid-template-columns:repeat(2,1fr)}.nums div:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}.nums div:nth-child(4){border-top:1px solid var(--line)}
+ .sh{flex-wrap:wrap}.sh h2{white-space:nowrap}.sh small{display:none}.shelf,.how{grid-template-columns:1fr}.dhead{grid-template-columns:1fr}.vs{grid-template-columns:1fr}.vs .ne{justify-self:center}
+ .recs{padding-left:4px}.wrap{padding:0 18px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+ <a class="who" href="#/">김수현<span>원문 독서 기록</span></a>
+ <nav class="menu" id="menu"><a href="#/" data-v="">홈</a><a href="#/doc/kssb" data-v="doc">문서</a><a href="#/finds" data-v="finds">발견 노트</a><a href="#/how" data-v="how">기록 방법</a></nav>
+</div></header>
+<div class="sample">시안 · 화면 모양을 보기 위한 <b>예시 기록</b>입니다. 날짜·시간·진도·기록은 실제로 읽으면서 바뀝니다. 기록 내용은 원문에서 확인된 사실로만 썼습니다.</div>
+<main class="wrap" id="app"></main>
+<footer><div class="wrap">원문 파일과 기록 원본: github.com/goalbangg-prog/Climate-Change-Professional-Maker · 연락 goalbangg@naver.com</div></footer>
+<script>
+const D={"docs": [{"id": "kssb", "short": "KSSB 제1·2호", "kind": "공시기준", "name": "KSSB 지속가능성 공시기준 제1·2호", "edition": "2026.2 의결본", "issuer": "지속가능성기준위원회(KSSB)", "about": "한국의 지속가능성 공시기준. 제1호는 공시의 일반 원칙을, 제2호는 기후 관련 공시를 정한다. 목차를 23개 항목으로 나눠 순서대로 읽는다.", "links": [{"label": "제1호 원문", "url": "https://www.kasb.or.kr/front/board/View3012.do?siteCd=002000000000000&gubun=3012&accstdSeq=3748&seq=&tab=A&bu=B&searchfield=TITLE&searchword=&categoryList=&searchfield2=ENACTMENT_DT&s_date_start=&s_date_end="}, {"label": "제2호 원문", "url": "https://www.kasb.or.kr/front/board/View3012.do?siteCd=002000000000000&gubun=3012&accstdSeq=3749&seq=&tab=A&bu=B&searchfield=TITLE&searchword=&categoryList=&searchfield2=ENACTMENT_DT&s_date_start=&s_date_end="}], "secs": [{"id": "k0", "title": "들어가며: KSSB와 의무공시 일정", "vol": "제1호", "part": "들어가며", "pp": [59, 62]}, {"id": "k1-1", "title": "제1호 목적과 적용범위", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [6, 7]}, {"id": "k1-2", "title": "공정한 표시", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [8, 9]}, {"id": "k1-3", "title": "중요성과 보고기업", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [9, 43]}, {"id": "k1-4", "title": "연계된 정보", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [10, 46]}, {"id": "k1-5", "title": "핵심요소 ① 거버넌스와 전략의 틀", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [11, 15]}, {"id": "k1-6", "title": "핵심요소 ② 재무적 영향과 회복력", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [15, 18]}, {"id": "k1-7", "title": "핵심요소 ③ 위험관리, 지표 및 목표", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [18, 21]}, {"id": "k1-8", "title": "지침의 원천과 공시 위치", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [22, 50]}, {"id": "k1-9", "title": "보고시기, 비교정보, 준수 문구", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [24, 26]}, {"id": "k1-10", "title": "판단, 측정불확실성, 오류", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [27, 29]}, {"id": "k1-11", "title": "시행일과 경과규정", "vol": "제1호", "part": "제1호 · 일반 요구사항", "pp": [59, 61]}, {"id": "k2-1", "title": "제2호 목적과 적용범위", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [5, 6]}, {"id": "k2-2", "title": "거버넌스", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [6, 7]}, {"id": "k2-3", "title": "전략 ① 위험·기회와 기간범위", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [8, 9]}, {"id": "k2-4", "title": "전략 ② 사업모형·가치사슬, 전략과 의사결정(전환계획)", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [9, 11]}, {"id": "k2-5", "title": "전략 ③ 재무적 영향", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [11, 14]}, {"id": "k2-6", "title": "전략 ④ 기후 회복력과 시나리오 분석", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [14, 37]}, {"id": "k2-7", "title": "위험관리", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [16, 17]}, {"id": "k2-8", "title": "지표 ① 온실가스 배출량", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [17, 50]}, {"id": "k2-9", "title": "지표 ② 나머지 산업전반 지표와 산업기반 지표", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [17, 22]}, {"id": "k2-10", "title": "목표", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [22, 24]}, {"id": "k2-11", "title": "시행일·경과규정과 IFRS와의 차이 정리", "vol": "제2호", "part": "제2호 · 기후 관련 공시", "pp": [59, 163]}]}, {"id": "ets", "short": "배출권거래제 지침", "kind": "고시", "name": "배출량 보고·인증 지침 · 배출권거래제 검증지침", "edition": "제2025-64호 · 제2025-165호", "issuer": "기후에너지환경부 고시", "about": "배출권거래제 대상 업체가 배출량을 어떻게 재고, 명세서를 내고, 검증받는지 정한 고시 두 개.", "links": [{"label": "국가법령정보센터", "url": "https://www.law.go.kr/"}], "secs": [{"id": "m-1", "title": "이 고시는 무엇이고, 명세서의 1년은 어떻게 돌아가나", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [3, 7]}, {"id": "m-2", "title": "산정 원칙과 절차, 산정 범위", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [7, 10]}, {"id": "m-3", "title": "조직경계: 어디까지가 우리 사업장인가", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [8]}, {"id": "m-4", "title": "산정등급(Tier): 시설규모와 최소 등급", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [8, 9]}, {"id": "m-5", "title": "산정식 읽기 ① 고정연소", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [36, 54]}, {"id": "m-6", "title": "산정식 읽기 ② 이동연소와 외부 전기·열", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [62, 72]}, {"id": "m-7", "title": "산정식 읽기 ③ 공정배출 한 가지 깊게 (시멘트)", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [82, 90]}, {"id": "m-8", "title": "활동자료 수집과 모니터링 유형", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [326, 339]}, {"id": "m-9", "title": "불확도와 데이터 품질", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [340, 347]}, {"id": "m-10", "title": "배출계수: 기본값·국가 고유값·사업장 고유값, GWP", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [9]}, {"id": "m-11", "title": "배출량 산정 계획(모니터링 계획)과 QC/QA", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [11, 13]}, {"id": "m-12", "title": "명세서 제출, 인증, 이의신청, 공개", "vol": "보고·인증 지침", "part": "배출량 보고·인증 지침 (제2025-64호)", "pp": [13, 16]}, {"id": "v-1", "title": "검증이란 무엇이고 누가 하나", "vol": "검증지침", "part": "배출권거래제 검증지침 (제2025-165호)", "pp": [1, 15]}, {"id": "v-2", "title": "검증팀과 내부심의", "vol": "검증지침", "part": "배출권거래제 검증지침 (제2025-165호)", "pp": [3, 6]}, {"id": "v-3", "title": "산정계획서 검증", "vol": "검증지침", "part": "배출권거래제 검증지침 (제2025-165호)", "pp": [4, 28]}, {"id": "v-4", "title": "배출량 검증 절차 ① 개요 파악·리스크 분석·검증계획", "vol": "검증지침", "part": "배출권거래제 검증지침 (제2025-165호)", "pp": [4, 35]}, {"id": "v-5", "title": "배출량 검증 절차 ② 문서검토·현장검증·중요성", "vol": "검증지침", "part": "배출권거래제 검증지침 (제2025-165호)", "pp": [36, 44]}, {"id": "v-6", "title": "시정조치와 검증의견, 검증보고서", "vol": "검증지침", "part": "배출권거래제 검증지침 (제2025-165호)", "pp": [5, 110]}, {"id": "v-7", "title": "검증기관과 검증심사원", "vol": "검증지침", "part": "배출권거래제 검증지침 (제2025-165호)", "pp": [6, 74]}, {"id": "v-8", "title": "컨설턴트의 검증 대응 체크리스트 + KSSB 인증과의 관계", "vol": "검증지침", "part": "배출권거래제 검증지침 (제2025-165호)", "pp": [2, 43]}]}, {"id": "ghgp", "short": "GHG 프로토콜", "kind": "국제 표준", "name": "GHG 프로토콜 기업 회계 및 보고 표준", "edition": "2004 개정판", "issuer": "WRI · WBCSD", "why": "KSSB 제2호가 배출량 측정 기준으로 지정한 문서", "secs": []}, {"id": "inv", "short": "국가 인벤토리", "kind": "국가 보고서", "name": "국가 온실가스 인벤토리 보고서", "edition": "2024 (2025.1 공표)", "issuer": "온실가스종합정보센터", "why": "국가 단위 배출량과 배출계수의 출처", "secs": []}], "log": [{"doc": "kssb", "sec": "k0", "date": "2026-10-05", "min": 34}, {"doc": "kssb", "sec": "k1-1", "date": "2026-10-06", "min": 22}, {"doc": "kssb", "sec": "k1-2", "date": "2026-10-08", "min": 27}, {"doc": "kssb", "sec": "k1-3", "date": "2026-10-09", "min": 48}, {"doc": "kssb", "sec": "k1-4", "date": "2026-10-12", "min": 31}, {"doc": "kssb", "sec": "k2-1", "date": "2026-10-15", "min": 18}, {"doc": "kssb", "sec": "k2-8", "date": "2026-10-19", "min": 41}, {"doc": "kssb", "sec": "k2-8", "date": "2026-10-20", "min": 36}, {"doc": "ets", "sec": "m-1", "date": "2026-10-22", "min": 29}, {"doc": "ets", "sec": "m-2", "date": "2026-10-23", "min": 38}, {"doc": "ets", "sec": "m-3", "date": "2026-10-24", "min": 21}], "recs": [{"doc": "kssb", "sec": "k0", "kind": "요약", "date": "2026-10-05", "at": "제1호 59쪽 · 금융위원회 로드맵 최종안", "text": "공시 의무는 2028년(2027 회계연도)부터 자산 10조 원 이상 코스피 상장사에 시작된다. 기준서의 시행일과 의무공시 시기는 같은 말이 아니다. 시기는 금융위원회가 따로 정한다."}, {"doc": "kssb", "sec": "k0", "kind": "질문", "date": "2026-10-05", "at": "제1호 59쪽", "text": "공시한 내용은 어느 수준의 인증을 받아야 하나?", "ans": "기준서에는 없다. 인증 수준과 시기는 자본시장법령을 고칠 때 정한다고 되어 있어, 지금은 미해결로 둔다."}, {"doc": "kssb", "sec": "k1-3", "kind": "요약", "date": "2026-10-09", "at": "제1호 9·38쪽 (문단 18, B19)", "text": "정보가 중요한지는 기업이 판단한다. 정해진 비율(예: 5%) 같은 기준선은 없고, 크기와 성격을 함께 본다."}, {"doc": "kssb", "sec": "k1-3", "kind": "질문", "date": "2026-10-09", "at": "제1호 42쪽 (B33)", "text": "중요한 정보인데 법이 공개를 막으면?", "ans": "공개하지 않아도 된다. 다만 그런 이유로 뺀 정보가 있다는 점을 설명해야 한다(B33)."}, {"doc": "kssb", "sec": "k2-8", "kind": "요약", "date": "2026-10-19", "at": "제2호 18~19쪽 (문단 29⑴㈎·㈏·㈒·㈓)", "text": "배출량은 Scope 1·2·3을 tCO2e로 나눠 공시하고, GHG 프로토콜(2004)로 잰다. 측정 방법이 섞였을 때만 방법별로 나눈다. Scope 2는 지역기반이 필수, 시장기반은 선택이다."}, {"doc": "kssb", "sec": "k2-8", "kind": "질문", "date": "2026-10-20", "at": "제2호 127쪽 (BC105)", "text": "방법이 섞였으면 모든 방법으로 다시 재야 하나?", "ans": "아니다. 이미 쓴 방법별로 나눠 보여 주면 된다. 다시 측정하라는 뜻이 아니라고 결론도출근거에 적혀 있다."}, {"doc": "ets", "sec": "m-2", "kind": "요약", "date": "2026-10-23", "at": "보고·인증 지침 8쪽 (제9조)", "text": "명세서에서 산정하는 온실가스는 여섯 가지다. 사업장 단위로 배출시설과 배출활동을 빠짐없이 잡는 것이 산정 범위의 출발점이다."}], "finds": [{"id": "f1", "title": "온실가스는 여섯 가지인가, 일곱 가지인가", "tags": ["가스 범위"], "docs": ["kssb", "ets"], "secs": ["k2-8", "m-2"], "body": "배출권거래제 명세서는 여섯 가지 가스로 산정하는데, KSSB 제2호는 NF3까지 일곱 가지를 합친다. 명세서 숫자를 그대로 공시에 옮기면 범위가 하나 모자랄 수 있다.", "a": {"doc": "보고·인증 지침", "at": "제9조 · 8쪽", "says": "CO2, CH4, N2O, HFCs, PFCs, SF6 — 여섯 가지"}, "b": {"doc": "KSSB 제2호", "at": "B20·B21", "says": "여섯 가지에 NF3를 더한 일곱 가지"}, "check": "보고서에 '6대 온실가스'라고 쓰여 있으면 NF3 배출이 있는지, 공시에서 어떻게 다뤘는지 본다."}, {"id": "f2", "title": "기아 데이터표의 Scope 2는 시장기반 숫자다", "tags": ["Scope 2", "기업 보고서"], "docs": ["kssb"], "secs": ["k2-8"], "body": "기아 보고서 데이터표의 Scope 2 697.9천tCO2e는 검증의견서의 시장기반 합계(697,875)와 같다. 같은 의견서의 지역기반 합계는 861,732다. KSSB 제2호는 지역기반 공시가 필수다.", "a": {"doc": "KSSB 제2호", "at": "문단 29⑴㈓ · 19쪽", "says": "Scope 2는 지역기반으로 공시, 시장기반은 선택"}, "b": {"doc": "기아 지속가능경영보고서", "at": "130·156쪽", "says": "데이터표 697.9천 = 시장기반 697,875 (지역기반 861,732)"}, "check": "데이터표 숫자가 어느 계산법인지 먼저 확인하고, 지역기반 수치가 분명히 공시됐는지 본다."}, {"id": "f3", "title": "공시는 인증 수준이 미정, 명세서는 이미 합리적 보증", "tags": ["인증·검증"], "docs": ["kssb", "ets"], "secs": ["k0", "v-8"], "body": "KSSB 공시의 인증 수준과 시기는 아직 정해지지 않았다. 반면 배출권거래제 명세서는 이미 합리적 보증 수준으로 검증받는다. 같은 회사의 Scope 1·2라도 두 숫자가 거친 확인의 깊이가 다를 수 있다.", "a": {"doc": "KSSB 제1호", "at": "59쪽 · 들어가며", "says": "인증 수준·시기는 자본시장법령 개정 때 정함"}, "b": {"doc": "배출권거래제 검증지침", "at": "제2조 제15호", "says": "검증은 합리적 보증 수준"}, "check": "공시의 Scope 1·2가 명세서 검증 결과를 썼는지, 그 밖의 범위는 무엇으로 확인했는지 본다."}]};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fd=d=>{const x=new Date(d);return `${x.getMonth()+1}.${x.getDate()}`};
+const recsOf=(doc,sec)=>D.recs.filter(r=>r.doc===doc&&(!sec||r.sec===sec));
+const docStat=d=>{const read=d.secs.filter(s=>D.log.some(l=>l.doc===d.id&&l.sec===s.id));const mins=D.log.filter(l=>l.doc===d.id).reduce((a,l)=>a+l.min,0);const pages=new Set(read.flatMap(s=>s.pp.map(p=>s.vol+"-"+p)));return {read:read.length,tot:d.secs.length,mins,pages:pages.size,recs:recsOf(d.id).length,from:D.log.filter(l=>l.doc===d.id).map(l=>l.date).sort()[0],to:D.log.filter(l=>l.doc===d.id).map(l=>l.date).sort().pop()}};
+const status=st=>st.tot&&st.read>=st.tot?["done","완독"]:st.read?["ing","읽는 중"]:["plan","예정"];
+const hm=m=>m>=60?`${Math.floor(m/60)}시간 ${m%60}분`:`${m}분`;
+function findCard(f){return `<article class="find" id="${f.id}"><div class="t"><h3>${esc(f.title)}</h3>${f.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div><p>${esc(f.body)}</p>
+ <div class="vs"><div class="s"><b>${esc(f.a.doc)} · ${esc(f.a.at)}</b>${esc(f.a.says)}</div><span class="ne" aria-label="다름">≠</span><div class="s"><b>${esc(f.b.doc)} · ${esc(f.b.at)}</b>${esc(f.b.says)}</div></div>
+ <p class="chk"><b>실무에서 확인할 것</b> · ${esc(f.check)}</p></article>`}
+function home(){
+ const sts=D.docs.map(docStat);const done=sts.filter(s=>s.tot&&s.read>=s.tot).length,ing=sts.filter(s=>s.read&&s.read<s.tot).length;
+ const mins=sts.reduce((a,s)=>a+s.mins,0),pages=sts.reduce((a,s)=>a+s.pages,0),recs=D.recs.length+D.finds.length;
+ $("#app").innerHTML=`<div class="view"><span class="k">기후·온실가스 컨설턴트 지원자</span><h1 class="h1">기준 문서를 원문으로 읽고,<br>읽은 것을 기록합니다.</h1>
+  <p class="lead">KSSB, 배출권거래제 지침, GHG 프로토콜, 국가 온실가스 인벤토리 보고서를 원문으로 읽습니다. 모든 기록에는 원문 쪽수를 달아, 펴서 확인할 수 있게 했습니다.</p>
+  <div class="nums"><div><b>${done}<small>완독</small> ${ing}<small>읽는 중</small></b><span>문서 ${D.docs.length}종 중</span></div><div><b>${pages}<small>쪽</small></b><span>읽은 원문</span></div><div><b>${recs}<small>개</small></b><span>요약·질문·발견 기록</span></div><div><b>${hm(mins)}</b><span>읽은 시간 (자동 기록)</span></div></div>
+  <section class="sec"><div class="sh"><h2>서가</h2><small>읽는 순서대로</small></div><div class="shelf">${D.docs.map((d,i)=>{const st=sts[i];const [c,l]=status(st);const live=d.secs.length>0&&st.read;
+   return `<${live?"a":"div"} class="doc ${c==="plan"?"plan":""}" ${live?`href="#/doc/${d.id}"`:""}><div class="top2"><span class="k">${i+1}단계 · ${esc(d.kind)}</span><span class="st ${c}">${l}</span></div><h3>${esc(d.name)}</h3><p class="ed">${esc(d.edition)} · ${esc(d.issuer)}</p>
+   ${st.tot?`<div class="bar"><i style="width:${st.read/st.tot*100}%"></i></div><div class="meta"><span>목차 <b>${st.read}/${st.tot}</b></span><span>기록 <b>${st.recs}</b></span>${st.mins?`<span>${hm(st.mins)}</span>`:""}${st.from?`<span>${fd(st.from)} ~ ${fd(st.to)}</span>`:""}</div>`:`<div class="meta"><span>${esc(d.why)}</span></div>`}</${live?"a":"div"}>`}).join("")}</div></section>
+  <section class="sec"><div class="sh"><h2>대표 발견</h2><small>문서를 나란히 놓고 보니 달랐던 것</small><a href="#/finds">발견 노트 전체 →</a></div><div class="finds">${D.finds.slice(0,3).map(findCard).join("")}</div></section></div>`}
+let OPEN=new Set(["k2-8"]);
+function doc(id){
+ const d=D.docs.find(x=>x.id===id);if(!d||!d.secs.length)return home();const st=docStat(d);const [c,l]=status(st);
+ const days=[...new Set(D.log.filter(x=>x.doc===id).map(x=>x.date))].sort();const per=days.map(dt=>D.log.filter(x=>x.doc===id&&x.date===dt).reduce((a,x)=>a+x.min,0));const mx=Math.max(...per,1);let lp="";
+ $("#app").innerHTML=`<div class="view"><p class="crumb"><a href="#/">서가</a> › ${esc(d.short)}</p>
+  <div class="dhead" style="margin-top:12px"><div><span class="st ${c}">${l}</span><h1 class="h1">${esc(d.name)}</h1><p class="lead">${esc(d.about)}</p>
+   <dl class="facts"><dt>판본</dt><dd>${esc(d.edition)}</dd><dt>발행</dt><dd>${esc(d.issuer)}</dd><dt>원문</dt><dd>${d.links.map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)} ↗</a>`).join(" · ")}</dd><dt>읽은 기간</dt><dd>${st.from?fd(st.from)+" ~ "+fd(st.to):"-"}</dd></dl></div>
+   <aside class="side"><span class="k">진도</span><div class="big">${st.read}<small> / ${st.tot} 목차</small></div><div class="bar" style="margin-top:10px"><i style="width:${st.read/st.tot*100}%"></i></div>
+    <span class="k" style="display:block;margin-top:18px">날짜별 읽은 시간</span><div class="log">${days.map((dt,i)=>`<div><i style="height:${Math.max(6,per[i]/mx*54)}px" title="${per[i]}분"></i>${fd(dt)}</div>`).join("")}</div>
+    <ul><li><span>읽은 시간</span><b>${hm(st.mins)}</b></li><li><span>읽은 원문</span><b>${st.pages}쪽</b></li><li><span>요약</span><b>${recsOf(id).filter(r=>r.kind==="요약").length}</b></li><li><span>질문</span><b>${recsOf(id).filter(r=>r.kind==="질문").length}</b></li><li><span>발견</span><b>${D.finds.filter(f=>f.docs.includes(id)).length}</b></li></ul></aside></div>
+  <section class="sec"><div class="sh"><h2>목차별 기록</h2><small>항목을 누르면 내가 남긴 기록이 열린다</small></div>
+   ${d.secs.map(s=>{const h=s.part!==lp?`<p class="part">${esc(s.part)}</p>`:"";lp=s.part;const rd=D.log.some(x=>x.doc===id&&x.sec===s.id);const rs=recsOf(id,s.id);const fs=D.finds.filter(f=>f.secs.includes(s.id));
+    return h+`<div class="item ${rd?"read":""} ${OPEN.has(s.id)?"open":""}" data-s="${s.id}"><button type="button" aria-expanded="${OPEN.has(s.id)}"><span class="ck">${rd?"✓":""}</span><span class="tt">${esc(s.title)}<small>${esc(s.vol)} ${esc(s.pp.join("·"))}쪽</small></span><span class="cnt">${rs.filter(r=>r.kind==="요약").length?`<span>요약 ${rs.filter(r=>r.kind==="요약").length}</span>`:""}${rs.filter(r=>r.kind==="질문").length?`<span>질문 ${rs.filter(r=>r.kind==="질문").length}</span>`:""}${fs.length?`<span class="f">발견 ${fs.length}</span>`:""}</span></button>
+     <div class="recs">${rs.map(r=>`<div class="rec"><div class="rk"><em class="${r.kind==="질문"?"q":""}">${r.kind}</em><time>${fd(r.date)}</time></div><p>${esc(r.text)}</p>${r.ans?`<p class="ans">${esc(r.ans)}</p>`:""}<p class="src">원문 <b>${esc(r.at)}</b></p></div>`).join("")}${fs.map(f=>`<div class="rec"><div class="rk"><em class="f">발견</em></div><p><a href="#/finds" style="font-weight:700">${esc(f.title)} →</a></p></div>`).join("")}${!rs.length&&!fs.length?`<p style="color:var(--fg3);font-size:14px">${rd?"읽기 로그만 있고 기록은 아직 없다.":"아직 읽지 않았다."}</p>`:""}</div></div>`}).join("")}</section></div>`;
+ $$(".item>button").forEach(b=>b.onclick=()=>{const it=b.parentElement;const s=it.dataset.s;OPEN.has(s)?OPEN.delete(s):OPEN.add(s);it.classList.toggle("open");b.setAttribute("aria-expanded",it.classList.contains("open"))});
+}
+function finds(){$("#app").innerHTML=`<div class="view"><span class="k">발견 노트</span><h1 class="h1">문서를 나란히 놓고 보니</h1><p class="lead">한 문서만 읽어서는 보이지 않는 것들. 근거는 두 문서 이상의 원문 위치로 단다.</p><div class="finds sec" style="margin-top:30px">${D.finds.map(findCard).join("")}</div></div>`}
+function how(){$("#app").innerHTML=`<div class="view"><span class="k">기록 방법</span><h1 class="h1">이렇게 읽고 기록했습니다</h1>
+ <div class="how sec" style="margin-top:30px"><div><b>원문으로 읽는다</b><p>판본을 확인한 원문 파일을 기준으로 읽는다. 원문 파일은 저장소 data/sources/에 있다.</p></div><div><b>AI는 보조로만</b><p>읽을 때 AI가 만든 해설 원고를 옆에 두고 썼다. 이 화면의 요약·질문·발견은 내가 썼다.</p></div><div><b>시간은 자동으로</b><p>읽기 도구가 읽은 날짜와 시간을 기록한다. 손으로 고치지 않는다.</p></div><div><b>기록은 저장소에</b><p>기록은 JSON으로 저장소에 올린다. 커밋 이력이 언제 무엇을 썼는지 보여 준다.</p></div></div>
+ <section class="sec"><div class="sh"><h2>기록 규칙</h2></div><ol class="rules"><li>모든 기록에 원문 위치(문서·쪽, 필요하면 문단·조항)를 단다.</li><li>원문 인용은 한두 문장, 나머지는 내 말로 쓴다.</li><li>질문에는 원문에서 찾은 답을 달고, 못 찾으면 "미해결"로 남긴다.</li><li>발견에는 근거 문서를 두 개 이상 단다.</li><li>목차를 모두 읽고 요약했을 때만 "완독"이라고 쓴다.</li></ol></section></div>`}
+function route(){const [,v,a]=(location.hash||"#/").split("/");$$("#menu a").forEach(x=>x.classList.toggle("on",x.dataset.v===(v||"")));({"":home,doc:()=>doc(a||"kssb"),finds,how}[v||""]||home)();scrollTo(0,0)}
+addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
