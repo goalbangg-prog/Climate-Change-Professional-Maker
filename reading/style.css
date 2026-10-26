@@ -41,6 +41,7 @@ h1,h2,h3,p{margin:0}
 .bar nav a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--point-600);border-radius:2px}
 
 main{max-width:1040px;margin:0 auto;padding:32px 24px 80px}
+main.wide{max-width:1440px;padding-top:20px}
 .view{animation:fade .3s var(--ease) both}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}}
 .panel{margin-top:20px;background:var(--bg-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
@@ -105,7 +106,7 @@ main{max-width:1040px;margin:0 auto;padding:32px 24px 80px}
 .total{margin-top:14px;font-size:14px;color:var(--fg-3)}
 
 /* 2단계 원문 */
-.reader{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:calc(100vh - 240px);overflow:hidden;border-radius:var(--radius-lg)}
+.reader{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:calc(100vh - 240px);overflow:hidden;border-radius:var(--radius-lg)}
 .side{padding:20px 14px;border-right:1px solid var(--border-default);display:flex;flex-direction:column;gap:6px}
 .side h3{font-size:13px;color:var(--fg-3);font-weight:700;margin:0 8px 4px}
 .part{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;text-align:left;border:1px solid transparent;background:none;padding:11px 12px;border-radius:var(--radius-md)}
@@ -119,7 +120,12 @@ main{max-width:1040px;margin:0 auto;padding:32px 24px 80px}
 .pdfwrap{display:flex;flex-direction:column;min-width:0}
 .pdftop{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border-default);font-size:14px;color:var(--fg-2);font-weight:600}
 .pdftop a{color:var(--point-600);font-weight:600;font-size:13px;text-decoration:none;white-space:nowrap}
-.pdf{flex:1;width:100%;min-height:640px;border:0;background:#525659}
+.pdf{flex:1;width:100%;height:calc(100vh - 230px);min-height:620px;border:0;background:#525659}
+.reader.hide-side{grid-template-columns:minmax(0,1fr)}
+.reader.hide-side .side{display:none}
+.fold{border:1px solid var(--border-default);background:var(--bg-card);border-radius:8px;padding:3px 10px;font-size:12.5px;font-weight:600;color:var(--fg-3);white-space:nowrap}
+.fold:hover{border-color:var(--point-600);color:var(--point-600)}
+.pdftop .pt{margin-right:auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .src{padding:10px 18px;font-size:12.5px;color:var(--fg-3);border-top:1px solid var(--border-default)}
 .src a{color:var(--fg-3)}
 .missing{flex:1;display:grid;place-items:center;text-align:center;padding:40px;color:var(--fg-2);background:var(--bg-muted)}
@@ -243,7 +249,8 @@ a.tile:hover{border-color:var(--point-600);transform:translateY(-2px);box-shadow
   .reader{grid-template-columns:1fr}
   .side{border-right:0;border-bottom:1px solid var(--border-default)}
   .side .gl{margin-top:4px}
-  .pdf{min-height:70vh}
+  .pdf{min-height:70vh;height:70vh}
+  .fold{display:none}
   .foot{flex-wrap:wrap}.foot .mid{order:-1;width:100%}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

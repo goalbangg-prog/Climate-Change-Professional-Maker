@@ -24,7 +24,8 @@ const isDone = (p, id) => !!(S.packs[p] && S.packs[p].items[id] && S.packs[p].it
 const pages = r => r.start === r.end ? `${r.start}쪽` : `${r.start}~${r.end}쪽`;
 const short = (P, doc) => P.docs[doc].short;
 const fileOf = (P, doc) => P.base + P.docs[doc].file;
-const pdfUrl = (P, doc, page) => `${fileOf(P, doc)}#page=${page}`;
+// 크롬: view=FitH(폭 맞춤), navpanes=0(썸네일 숨김) / 파이어폭스: zoom=page-width, pagemode=none
+const pdfUrl = (P, doc, page) => `${fileOf(P, doc)}#page=${page}&zoom=page-width&view=FitH&navpanes=0&pagemode=none`;
 const doneCount = P => P.items.filter(i => isDone(P.id, i.id)).length;
 const nextItem = P => P.items.find(i => !isDone(P.id, i.id)) || P.items[P.items.length - 1];
 const fmtDate = iso => { const d = new Date(iso); return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`; };
@@ -119,6 +120,7 @@ function packHome(P) {
 const STEP_NAMES = ["지도", "원문", "내 정리", "상황 문제"];
 const READY_STEPS = 2; // 3·4단계는 다음 작업에서
 let VIEW = { key: null, step: 1, part: 0 };
+let SIDE_HIDDEN = false;
 
 function read(P, id, step) {
   const idx = P.items.findIndex(i => i.id === id);
@@ -145,6 +147,7 @@ function read(P, id, step) {
         ? `<button class="btn main" id="next" type="button">원문 읽으러 가기 →</button>`
         : `<button class="btn main ${r && r.done ? "ok" : ""}" id="doneBtn" type="button">${r && r.done ? "✓ 다 읽었어요 (취소하려면 누르기)" : "다 읽었어요"}</button>`}
     </div></div>`;
+  $("main").classList.toggle("wide", VIEW.step === 2);
   VIEW.step === 1 ? stageMap(P, it) : stagePdf(P, it);
   $("#prev").onclick = () => read(P, id, VIEW.step - 1);
   const nx = $("#next"); if (nx) nx.onclick = () => read(P, id, 2);
@@ -175,19 +178,20 @@ async function stagePdf(P, it) {
   const cur = parts[VIEW.part] || parts[0];
   const doc = P.docs[cur.doc], gl = doc.glossary;
   const ok = await checkPdf(P, cur.doc);
-  $("#stage").innerHTML = `<div class="reader">
+  $("#stage").innerHTML = `<div class="reader ${SIDE_HIDDEN ? "hide-side" : ""}">
     <div class="side"><h3>읽을 곳</h3>
       ${parts.map((p, i) => p.ref ? "" : `<button class="part ${i === VIEW.part ? "on" : ""}" data-i="${i}" type="button"><span class="lb">${esc(short(P, p.doc))} ${esc(p.label)}</span><span class="pg">${pages(p)}</span></button>`).join("")}
       ${it.refs.length ? `<p class="sm">참고</p>${parts.map((p, i) => p.ref ? `<button class="ref" data-i="${i}" type="button">${esc(p.label)} · ${pages(p)}</button>` : "").join("")}` : ""}
       ${gl ? `<button class="gl" id="gloss" type="button">${esc(doc.short)} 용어 보기 (${pages(gl)})</button>` : ""}
     </div>
     <div class="pdfwrap">
-      <div class="pdftop"><span>${esc(doc.short)} ${esc(cur.label)} · ${pages(cur)}</span><a href="${pdfUrl(P, cur.doc, cur.start)}" target="_blank" rel="noopener">새 창으로 크게 보기 ↗</a></div>
+      <div class="pdftop"><button class="fold" id="fold" type="button">${SIDE_HIDDEN ? "목록 펴기 ›" : "‹ 목록 접기"}</button><span class="pt">${esc(doc.short)} ${esc(cur.label)} · ${pages(cur)}</span><a href="${pdfUrl(P, cur.doc, cur.start)}" target="_blank" rel="noopener">새 창으로 크게 보기 ↗</a></div>
       ${ok ? `<iframe class="pdf" id="pdf" title="${esc(P.code)} ${esc(doc.short)} 원문" src="${pdfUrl(P, cur.doc, cur.start)}"></iframe>`
            : `<div class="missing"><div><p><b>원문 PDF가 아직 없어.</b></p><p>${esc(fileOf(P, cur.doc))} 자리에 파일을 넣어 줘.</p><p><a href="${esc(doc.url)}" target="_blank" rel="noopener">공식 원문 받기 ↗</a></p></div></div>`}
       <p class="src">출처: ${esc(P.issuer)}, ${esc(P.name)} ${esc(P.edition)} · <a href="${esc(doc.url)}" target="_blank" rel="noopener">공식 원문</a></p>
     </div></div>`;
   document.querySelectorAll("[data-i]").forEach(b => b.onclick = () => { VIEW.part = +b.dataset.i; stagePdf(P, it); });
+  $("#fold").onclick = () => { SIDE_HIDDEN = !SIDE_HIDDEN; stagePdf(P, it); };
   const g = $("#gloss"); if (g) g.onclick = () => { const f = $("#pdf"); if (f) f.src = pdfUrl(P, cur.doc, gl.start) + "&t=" + Date.now(); };
 }
 
@@ -196,6 +200,7 @@ function notes() { $("#app").innerHTML = `<div class="view temp"><h1>내 기록<
 
 // ── 길 찾기: #/  #/p/<pack>  #/p/<pack>/read/<item>  #/notes ──
 function route() {
+  $("main").classList.remove("wide");
   const seg = (location.hash || "#/").slice(2).split("/");
   const P = seg[0] === "p" ? PACKS[seg[1]] : null;
   document.querySelectorAll("[data-nav]").forEach(x => x.classList.toggle("on", x.dataset.nav === (seg[0] === "notes" ? "notes" : !seg[0] ? "shelf" : "")));
