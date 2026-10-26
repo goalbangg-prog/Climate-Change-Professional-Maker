@@ -382,7 +382,8 @@ body.noscroll{overflow:hidden}
 .dotmap{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end}
 .dotmap .grp{display:flex;flex-direction:column;gap:7px}
 .dotmap .grp span{font-size:11.5px;color:var(--fg-3);font-weight:600;text-align:left}
-.dotmap .dots{display:flex;gap:4px;flex-wrap:wrap}
+.dotmap .dots{display:flex;gap:4px 10px;flex-wrap:wrap}
+.dotmap .dots .dg{display:flex;gap:4px;font-size:0}
 .dotmap i{width:16px;height:16px;border-radius:5px;background:var(--bg-card);border:1px solid var(--border-default);display:block}
 .dotmap i.done{background:var(--point-300);border-color:var(--point-300)}
 .dotmap i.cur{background:var(--point-600);border-color:var(--point-600);box-shadow:0 0 0 3px var(--point-100)}
@@ -546,6 +547,43 @@ a.drow:hover{background:var(--bg-muted)}
   .pdf{min-height:70vh;height:70vh}
   .fold{display:none}
   .foot{flex-wrap:wrap}.foot .mid{order:-1;width:100%}
+}
+/* 목차: 원문 장 뼈대 + 카드 (정의서 v5 6번 '목차 화면'). 왼쪽 세로줄이 원문 목차의 흐름. */
+.spine{position:relative}
+.spine::before{content:"";position:absolute;left:5px;top:22px;bottom:22px;width:2px;background:var(--border-subtle);border-radius:0}
+.chap{position:relative;display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;padding:10px 0;border-radius:var(--radius-md)}
+.chead{position:relative;display:flex;flex-direction:column;gap:2px;padding:8px 0 0 26px}
+.chead b{font-size:15px;font-weight:800;color:var(--fg-1);line-height:1.4}
+.chead .paras{font-size:12.5px;color:var(--fg-3)}
+.chead .cprog{font-size:12px;color:var(--fg-4);font-weight:700}
+.sdot{position:absolute;left:0;top:13px;width:12px;height:12px;border-radius:50%;background:var(--bg-card);border:2px solid var(--border-strong)}
+.sdot.half{border-color:var(--point-600);background:linear-gradient(90deg,var(--point-600) 50%,var(--bg-card) 50%)}
+.sdot.full{border-color:var(--point-600);background:var(--point-600)}
+.pairs{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.pairs .pk{flex-basis:100%;font-size:11.5px;font-weight:700;color:var(--info-fg)}
+.pair{font:inherit;font-size:12px;font-weight:600;color:var(--info-fg);background:var(--info-bg);border:0;border-radius:var(--radius-pill);padding:2px 10px;text-decoration:none;cursor:pointer;line-height:1.6}
+.pair:hover{text-decoration:underline}
+.chap.ping{animation:ping 1.4s var(--ease)}
+@keyframes ping{0%,40%{background:var(--info-bg)}100%{background:transparent}}
+.tfoot{display:flex;align-items:center;gap:8px;margin-top:8px}
+.plen{flex:1;height:5px;border-radius:3px;background:var(--bg-muted);position:relative;overflow:hidden;max-width:120px}
+.plen i{position:absolute;inset:0 auto 0 0;background:var(--point-300);border-radius:3px}
+.plen.long i{background:var(--warn-fg)}
+.pnum{font-size:12px;color:var(--fg-3);white-space:nowrap;font-weight:600}
+.pnum.long{color:var(--warn-fg)}
+.tq{margin-left:auto;font-size:11.5px;font-weight:700;color:var(--info-fg);background:var(--info-bg);padding:0 8px;border-radius:var(--radius-pill);white-space:nowrap}
+.tile .tsub{margin-top:auto}
+.dch{display:flex;align-items:baseline;gap:8px;margin:12px 0 2px 10px;font-size:12.5px;color:var(--fg-3)}
+.dch b{font-size:13px;color:var(--fg-2);font-weight:700}
+.drow .dpg.long{color:var(--warn-fg);font-weight:700}
+.pairline{margin-top:12px;font-size:14px;color:var(--fg-3);padding:12px 16px;border-radius:var(--radius-md);background:var(--info-bg)}
+.pairline b{color:var(--info-fg)}
+.pairline a{color:var(--info-fg);font-weight:700}
+.dbody .chap{grid-template-columns:1fr;gap:8px}
+@media (max-width:820px){
+  .chap{grid-template-columns:1fr;gap:8px;padding:8px 0}
+  .chead{padding-top:4px}.sdot{top:9px}
+  .spine::before{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .packnav .catn{color:var(--fg-3);font-weight:500;white-space:nowrap}

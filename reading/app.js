@@ -36,6 +36,17 @@ const nextItem = P => P.items.find(i => !isDone(P.id, i.id)) || P.items[P.items.
 const fmtDate = iso => { const d = new Date(iso); return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`; };
 const isReady = P => P.status !== "prep";
 const badge = (P, cls = "") => `<span class="code ${cls}">${esc(P.code)}</span>`;
+// 원문 목차의 장(chapters). 없으면 part 하나를 장 하나로 본다.
+const chaptersOf = P => P.chapters || P.parts.map(p => ({ id: "p-" + p.id, part: p.id, label: p.label }));
+const chOf = it => it.ch || "p-" + it.part;
+const chItems = (P, c) => P.items.filter(i => chOf(i) === c.id);
+// 실제로 읽는 쪽 수: 범위끼리 겹치는 쪽은 한 번만 센다
+const pageCount = it => { const s = new Set(); (it.ranges || []).forEach(r => { for (let p = r.start; p <= r.end; p++) s.add(r.doc + ":" + p); }); return s.size; };
+const DAY_PAGES = 10; // 하루 분량(퇴근 후 30분~1시간)으로 보는 쪽 수
+const openQs = (P, it) => { const r = recs(P.id)[it.id]; return (r && Array.isArray(r.qs) ? r.qs : []).filter(q => q && (q.q || "").trim() && !(q.a || "").trim()).length; };
+// 연결: to는 장 id 또는 항목 id. 읽기로 갈 때는 그 장의 첫 항목.
+const linkItem = (P, to) => P.items.find(i => i.id === to) || P.items.find(i => chOf(i) === to);
+const lenBar = n => `<span class="plen ${n > DAY_PAGES ? "long" : ""}"><i style="width:${Math.min(n / 12, 1) * 100}%"></i></span><span class="pnum ${n > DAY_PAGES ? "long" : ""}">${n}쪽${n > DAY_PAGES ? " · 이틀" : ""}</span>`;
 
 async function checkPdf(P, doc) {
   const f = fileOf(P, doc);
@@ -67,8 +78,9 @@ function shelf() {
 }
 // 서재 맨 위: 지금 읽는 기준서 (목차 화면의 요약판)
 function dotMap(P, cur) {
-  return `<div class="dotmap">${P.parts.map(part => `<div class="grp"><span>${esc(part.label)}</span><div class="dots">${P.items.filter(x => x.part === part.id).map(x =>
-    `<i class="${x.id === cur ? "cur" : isDone(P.id, x.id) ? "done" : ""}" title="${esc(x.title)}"></i>`).join("")}</div></div>`).join("")}</div>`;
+  // 점은 원문 장마다 살짝 띄워서 묶는다
+  return `<div class="dotmap">${P.parts.map(part => `<div class="grp"><span>${esc(part.label)}</span><div class="dots">${chaptersOf(P).filter(c => c.part === part.id).map(c =>
+    `<span class="dg" title="${esc(c.label)}">${chItems(P, c).map(x => `<i class="${x.id === cur ? "cur" : isDone(P.id, x.id) ? "done" : ""}" title="${esc(x.title)}"></i>`).join("")}</span>`).join("")}</div></div>`).join("")}</div>`;
 }
 function nowCard() {
   const P = PACKS[ORDER.find(id => isReady(PACKS[id]))]; if (!P) return "";
@@ -118,18 +130,45 @@ function packBody(P) {
     <section class="atlas"><div class="sh"><h2>전체 지도</h2><span>${ready ? "누르면 그 항목을 읽어" : "항목 이름과 원문 범위"}</span></div>
       ${P.parts.map(part => {
         const its = P.items.filter(i => i.part === part.id), d = its.filter(i => isDone(P.id, i.id)).length;
+        const chs = chaptersOf(P).filter(c => c.part === part.id);
         return `<div class="apart"><div class="apart-h"><b>${esc(part.label)}</b><span>${ready ? `${d} / ${its.length}` : `${its.length}개`}</span></div>
-          <div class="tiles">${its.map(it => {
-            const no = P.items.indexOf(it) + 1, dn = isDone(P.id, it.id), isNext = ready && it.id === nx.id && !dn;
-            const here = CUR_ITEM && CUR_ITEM === P.id + "/" + it.id;
-            const r0 = it.ranges[0];
-            const sub = ready ? `${esc(short(P, r0.doc))} ${esc(r0.label)} · ${pages(r0)}${it.ranges.length > 1 ? ` 외 ${it.ranges.length - 1}곳` : ""}` : `${esc(it.rangeText || "")}`;
-            const stat = here ? `<span class="tst here">지금 여기</span>` : dn ? `<span class="tst ok">✓ ${fmtDate(recs(P.id)[it.id].doneAt)}</span>` : isNext ? `<span class="tst nx">다음</span>` : "";
-            const inner = `<span class="tno">${no}</span><span class="ttl">${esc(it.title)}</span><span class="tsub">${sub}</span>${stat}`;
-            return ready ? `<a class="tile ${dn ? "done" : ""} ${isNext ? "next" : ""} ${here ? "cur" : ""}" href="#/p/${P.id}/read/${it.id}">${inner}</a>` : `<div class="tile off">${inner}</div>`;
-          }).join("")}</div></div>`;
+          <div class="spine">${chs.map(c => chapterRow(P, c, ready, nx)).join("")}</div></div>`;
       }).join("")}
     </section>`;
+}
+// 장 한 줄: 왼쪽 뼈대(원문 장 제목·문단·연결) + 오른쪽 카드
+function chapterRow(P, c, ready, nx) {
+  const its = chItems(P, c), d = its.filter(i => isDone(P.id, i.id)).length;
+  const st = ready && its.length && d === its.length ? "full" : ready && d ? "half" : "";
+  const links = (c.links || []).map(l => {
+    const tc = chaptersOf(P).find(x => x.id === l.to);
+    return tc ? `<button type="button" class="pair" data-jump="${esc(tc.id)}">${esc(l.label)}</button>`
+      : ready ? `<a class="pair" href="#/p/${P.id}/read/${esc(l.to)}">${esc(l.label)}</a>` : `<span class="pair">${esc(l.label)}</span>`;
+  }).join("");
+  return `<div class="chap" id="ch-${esc(c.id)}">
+    <div class="chead"><i class="sdot ${st}"></i><b>${esc(c.label)}</b>${c.paras ? `<span class="paras">${esc(c.paras)}</span>` : ""}
+      ${ready && its.length > 1 ? `<span class="cprog">${d} / ${its.length}</span>` : ""}
+      ${links ? `<span class="pairs"><span class="pk">이어지는 곳</span>${links}</span>` : ""}</div>
+    <div class="tiles">${its.map(it => tile(P, it, ready, nx)).join("")}</div></div>`;
+}
+function tile(P, it, ready, nx) {
+  const no = P.items.indexOf(it) + 1, dn = isDone(P.id, it.id), isNext = ready && it.id === nx.id && !dn;
+  const here = CUR_ITEM && CUR_ITEM === P.id + "/" + it.id;
+  const r0 = it.ranges[0];
+  const sub = ready ? `${esc(short(P, r0.doc))} ${esc(r0.label)}${it.ranges.length > 1 ? ` 외 ${it.ranges.length - 1}곳` : ""}` : `${esc(it.rangeText || "")}`;
+  const stat = here ? `<span class="tst here">지금 여기</span>` : dn ? `<span class="tst ok">✓ ${fmtDate(recs(P.id)[it.id].doneAt)}</span>` : isNext ? `<span class="tst nx">다음</span>` : "";
+  const q = ready ? openQs(P, it) : 0;
+  const foot = ready ? `<span class="tfoot">${lenBar(pageCount(it))}${q ? `<span class="tq" title="답을 아직 못 찾은 궁금한 점">궁금 ${q}</span>` : ""}</span>` : "";
+  const inner = `<span class="tno">${no}</span><span class="ttl">${esc(it.title)}</span><span class="tsub">${sub}</span>${foot}${stat}`;
+  return ready ? `<a class="tile ${dn ? "done" : ""} ${isNext ? "next" : ""} ${here ? "cur" : ""}" href="#/p/${P.id}/read/${it.id}">${inner}</a>` : `<div class="tile off">${inner}</div>`;
+}
+// '이어지는 곳' 단추: 그 장으로 내려가서 잠깐 표시
+function bindJumps(root = document) {
+  root.querySelectorAll("[data-jump]").forEach(b => b.onclick = () => {
+    const el = document.getElementById("ch-" + b.dataset.jump); if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    el.classList.remove("ping"); void el.offsetWidth; el.classList.add("ping");
+  });
 }
 function packHome(P) {
   const n = doneCount(P), t = P.items.length;
@@ -141,6 +180,7 @@ function packHome(P) {
     <div class="phead">${badge(P, "lg")}<div><h1 class="ptitle">${esc(P.name)}</h1>
       <p class="pmeta">${esc(P.edition)} · ${esc(P.issuer)} · 원문 ${Object.values(P.docs).map(d => `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.short)} ↗</a>`).join(" ")}</p></div></div>
     ${packBody(P)}</div>`;
+  bindJumps();
 }
 
 // ── 머리줄 '목차' 서랍: 어느 화면에서나 지금 읽는 확장팩의 목차를 연다 ──
@@ -154,13 +194,16 @@ function drawerList(P) {
   return `<div class="dprog"><div class="bar2"><i style="width:${n / t * 100}%"></i></div><span><b>${n}</b> / ${t} 다 읽음</span></div>
     ${P.parts.map(part => {
       const its = P.items.filter(i => i.part === part.id), d = its.filter(i => isDone(P.id, i.id)).length;
+      const chs = chaptersOf(P).filter(c => c.part === part.id);
       return `<div class="dpart"><div class="apart-h"><b>${esc(part.label)}</b><span>${ready ? `${d} / ${its.length}` : `${its.length}개`}</span></div>
-        <ol class="dlist">${its.map(it => {
+        ${chs.map(c => `${P.chapters ? `<p class="dch"><b>${esc(c.label)}</b>${c.paras ? `<span>${esc(c.paras)}</span>` : ""}</p>` : ""}
+        <ol class="dlist">${chItems(P, c).map(it => {
           const no = P.items.indexOf(it) + 1, dn = isDone(P.id, it.id), here = CUR_ITEM === P.id + "/" + it.id, isNext = ready && !dn && it.id === nx.id;
-          const pg = ready ? pages(it.ranges[0]) : esc(it.rangeText || "");
-          const inner = `<span class="dm">${dn ? "✓" : here ? "●" : ""}</span><span class="dno">${no}</span><span class="dt">${esc(it.title)}</span>${here ? `<span class="tst here">지금 여기</span>` : isNext ? `<span class="tst nx">다음</span>` : `<span class="dpg">${pg}</span>`}`;
+          const n = ready ? pageCount(it) : 0;
+          const pg = ready ? `<span class="dpg ${n > DAY_PAGES ? "long" : ""}">${n}쪽</span>` : `<span class="dpg">${esc(it.rangeText || "")}</span>`;
+          const inner = `<span class="dm">${dn ? "✓" : here ? "●" : ""}</span><span class="dno">${no}</span><span class="dt">${esc(it.title)}</span>${here ? `<span class="tst here">지금 여기</span>` : isNext ? `<span class="tst nx">다음</span>` : pg}`;
           return `<li>${ready ? `<a class="drow ${dn ? "done" : ""} ${here ? "here" : ""}" href="#/p/${P.id}/read/${it.id}">${inner}</a>` : `<div class="drow off">${inner}</div>`}</li>`;
-        }).join("")}</ol></div>`;
+        }).join("")}</ol>`).join("")}</div>`;
     }).join("")}`;
 }
 function openDrawer() {
@@ -313,7 +356,9 @@ function stageQs(P, it) {
 }
 
 function stageMap(P, it) {
-  const total = it.ranges.reduce((a, r) => a + (r.end - r.start + 1), 0);
+  const total = pageCount(it);
+  const c = chaptersOf(P).find(x => x.id === chOf(it)) || {};
+  const pairs = (c.links || []).map(l => { const t = linkItem(P, l.to); return t ? `<a href="#/p/${P.id}/read/${t.id}">${esc(l.label)}</a>` : ""; }).filter(Boolean);
   $("#stage").innerHTML = `<div class="mapbox">
     <p class="where">${esc(P.code)} 전체에서 여기</p>
     <button class="track" id="trackBtn" type="button" aria-label="${esc(P.code)} 목차 열기">${dotMap(P, it.id).replace('class="dotmap"', 'class="dotmap in"')}<span class="track-go">목록으로 보기 ☰</span></button>
@@ -322,7 +367,8 @@ function stageMap(P, it) {
       ${it.ranges.map(r => `<div class="rrow"><span class="kind ${esc(r.kind)}">${esc(r.kind)}</span>
         <span class="lb">${esc(short(P, r.doc))} ${esc(r.label)}${r.by ? `<small>${esc(r.by)}이 이 부분을 가리킨다</small>` : ""}</span><span class="pg">${pages(r)}</span></div>`).join("")}
     </div>
-    <p class="total">모두 약 ${total}쪽</p>
+    <p class="total">모두 ${total}쪽${total > DAY_PAGES ? ` · 하루 분량(${DAY_PAGES}쪽)보다 길어서 이틀에 나눠 읽어도 돼` : ""}</p>
+    ${pairs.length ? `<p class="pairline"><b>이어지는 곳</b> · ${esc(c.label)}의 짝 · ${pairs.join(" · ")}</p>` : ""}
     ${it.refs.length ? `<p class="refs"><b>참고로 열어 볼 곳</b> · ${it.refs.map(r => `${esc(r.label)} (${pages(r)}, ${esc(r.by)})`).join(" · ")} — 다른 항목에서 읽는 부분이라 진도에는 넣지 않았어.</p>` : ""}
   </div>`;
 }
