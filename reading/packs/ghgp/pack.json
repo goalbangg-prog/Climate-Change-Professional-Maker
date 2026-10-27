@@ -3,16 +3,17 @@
  "code": "GHGP",
  "name": "GHG 프로토콜 (기업 표준 · Scope 2 지침 · Scope 3 표준)",
  "kind": "산정 표준",
- "edition": "기업 표준 2004 개정판 · Scope 2 2015 · Scope 3 2011",
+ "edition": "기업 표준 2004 개정판(한국어 번역 2025.6) · Scope 2 2015 · Scope 3 2011",
  "issuer": "WRI · WBCSD",
  "status": "prep",
  "note": "목차 나누기는 data/books의 기존 회차를 옮긴 것. 쪽수(pagesDraft)는 검수 전이라 화면에 쓰지 않는다. PDF를 넣으면 KSSB처럼 검수해서 ranges·map을 채운다.",
  "docs": {
   "ghgp-corp": {
    "short": "기업 표준",
-   "name": "The GHG Protocol Corporate Accounting and Reporting Standard (Revised Edition)",
+   "name": "GHG 프로토콜 기업 회계 및 보고 표준 (개정판) · 한국어 공식 번역본",
    "file": "pdf/ghgp-corp.pdf",
-   "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"
+   "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf",
+   "translation": "푸른아시아 공식 한국어 번역 (2025.6). 영어 원문 대신 이 번역본을 읽는다. url은 영어 원문."
   },
   "ghgp-s2": {
    "short": "Scope 2 지침",

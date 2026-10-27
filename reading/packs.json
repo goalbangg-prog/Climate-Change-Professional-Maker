@@ -64,6 +64,11 @@
    "id": "tms",
    "path": "packs/tms/",
    "category": "ghg"
+  },
+  {
+   "id": "law",
+   "path": "packs/law/",
+   "category": "ghg"
   }
  ]
 }
