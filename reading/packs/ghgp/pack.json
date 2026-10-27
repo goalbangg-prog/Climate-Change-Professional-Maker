@@ -1,260 +1,406 @@
 {
  "id": "ghgp",
  "code": "GHGP",
- "name": "GHG 프로토콜 (기업 표준 · Scope 2 지침)",
+ "name": "GHG 프로토콜 기업 회계 및 보고 표준 (개정판)",
  "kind": "산정 표준",
- "edition": "기업 표준 2004 개정판(한국어 번역 2025.6) · Scope 2 2015",
+ "edition": "2004 개정판 · 한국어 공식 번역 2025.6 (푸른아시아)",
  "issuer": "WRI · WBCSD",
- "status": "prep",
- "note": "목차 나누기는 data/books의 기존 회차를 옮긴 것. 쪽수(pagesDraft)는 검수 전이라 화면에 쓰지 않는다. PDF를 넣으면 KSSB처럼 검수해서 ranges·map을 채운다. Scope 3 표준은 2026-10-27 별도 확장팩(packs/s3)으로 옮겼다.",
+ "status": "ready",
+ "note": "푸른아시아 공식 한국어 번역본으로 읽는다. 번역 서문(4쪽)에 따르면 shall은 '~해야 한다', should는 '~한다', may는 '~할 수 있다'로 옮겼다. 쪽 번호는 PDF 쪽 순서이고 인쇄 쪽 번호보다 8이 크다. 장마다 원문 목차의 STANDARD/GUIDANCE 표시를 적었다. Scope 2 지침은 packs/s2로 분리.",
  "docs": {
   "ghgp-corp": {
    "short": "기업 표준",
-   "name": "GHG 프로토콜 기업 회계 및 보고 표준 (개정판) · 한국어 공식 번역본",
+   "name": "GHG 프로토콜 기업 온실가스 회계 및 보고 표준 (개정판) · 한국어 공식 번역본",
    "file": "pdf/ghgp-corp.pdf",
+   "pages": 122,
    "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf",
-   "translation": "푸른아시아 공식 한국어 번역 (2025.6). 영어 원문 대신 이 번역본을 읽는다. url은 영어 원문."
-  },
-  "ghgp-s2": {
-   "short": "Scope 2 지침",
-   "name": "GHG Protocol Scope 2 Guidance",
-   "file": "pdf/ghgp-s2.pdf",
-   "url": "https://ghgprotocol.org/sites/default/files/2023-03/Scope%202%20Guidance.pdf"
+   "translation": "푸른아시아 공식 한국어 번역 (2025.6). url은 영어 원문.",
+   "glossary": {
+    "label": "용어해설",
+    "start": 104,
+    "end": 110
+   }
   }
  },
- "parts": [
+ "schedule": [
   {
-   "id": "ghgp-corp",
-   "label": "기업 표준"
+   "from": 1,
+   "to": 1,
+   "label": "서문~6장 (7개)"
   },
   {
-   "id": "ghgp-s2",
-   "label": "Scope 2 지침"
+   "from": 2,
+   "to": 2,
+   "label": "7장~부록 (7개)"
+  }
+ ],
+ "parts": [
+  {
+   "id": "corp",
+   "label": "기업 표준"
+  }
+ ],
+ "chapters": [
+  {
+   "id": "c0",
+   "part": "corp",
+   "label": "서문",
+   "paras": "인쇄 2쪽"
+  },
+  {
+   "id": "c1",
+   "part": "corp",
+   "label": "1장 온실가스 산정 및 보고 원칙",
+   "paras": "표준 + 지침"
+  },
+  {
+   "id": "c2",
+   "part": "corp",
+   "label": "2장 사업 목적들과 인벤토리 설계",
+   "paras": "지침"
+  },
+  {
+   "id": "c3",
+   "part": "corp",
+   "label": "3장 조직 경계 설정",
+   "paras": "표준 + 지침"
+  },
+  {
+   "id": "c4",
+   "part": "corp",
+   "label": "4장 운영 경계 설정",
+   "paras": "표준 + 지침",
+   "links": [
+    {
+     "to": "c3",
+     "label": "3장 조직 경계"
+    },
+    {
+     "to": "c12",
+     "label": "부록 A 구매 전력"
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "part": "corp",
+   "label": "5장 시간 경과에 따른 배출량 추적",
+   "paras": "표준 + 지침",
+   "links": [
+    {
+     "to": "c3",
+     "label": "3장 조직 경계"
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "part": "corp",
+   "label": "6장 온실가스 배출원 규명 및 배출량 계산",
+   "paras": "지침"
+  },
+  {
+   "id": "c7",
+   "part": "corp",
+   "label": "7장 인벤토리 품질 관리",
+   "paras": "지침"
+  },
+  {
+   "id": "c8",
+   "part": "corp",
+   "label": "8장 온실가스 감축량 산정",
+   "paras": "지침"
+  },
+  {
+   "id": "c9",
+   "part": "corp",
+   "label": "9장 온실가스 배출량 보고",
+   "paras": "표준 + 지침",
+   "links": [
+    {
+     "to": "c3",
+     "label": "3장"
+    },
+    {
+     "to": "c4",
+     "label": "4장"
+    },
+    {
+     "to": "c5",
+     "label": "5장"
+    }
+   ]
+  },
+  {
+   "id": "c10",
+   "part": "corp",
+   "label": "10장 온실가스 배출량 검증",
+   "paras": "지침"
+  },
+  {
+   "id": "c11",
+   "part": "corp",
+   "label": "11장 온실가스 목표 설정",
+   "paras": "지침"
+  },
+  {
+   "id": "c12",
+   "part": "corp",
+   "label": "부록 A~D",
+   "paras": ""
   }
  ],
  "items": [
   {
+   "id": "pc-0",
+   "doc": "ghgp-corp",
+   "part": "corp",
+   "ch": "c0",
+   "title": "서문: GHG 프로토콜 이니셔티브와 이 표준",
+   "map": "서문. GHG 프로토콜 이니셔티브의 두 표준, 개정판에서 달라진 점, 온실가스 인벤토리의 사업 가치와 이 표준을 쓰는 사람을 소개한다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "서문",
+     "start": 10,
+     "end": 13
+    }
+   ],
+   "refs": []
+  },
+  {
    "id": "pc-1",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "GHG 프로토콜은 무엇이고 왜 모든 기준의 뿌리인가",
-   "map": "",
-   "rangeText": "Introduction (인쇄 2~5쪽)",
-   "pagesDraft": [
-    4,
-    7
+   "part": "corp",
+   "ch": "c1",
+   "title": "온실가스 산정 및 보고 원칙",
+   "map": "1장. 적합성·완전성·일관성·투명성·정확성의 다섯 원칙을 정한다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "1장",
+     "start": 14,
+     "end": 17
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
    "id": "pc-2",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "회계·보고 5원칙",
-   "map": "",
-   "rangeText": "Chapter 1 (인쇄 6~9쪽)",
-   "pagesDraft": [
-    8,
-    11
+   "part": "corp",
+   "ch": "c2",
+   "title": "사업 목적들과 인벤토리 설계",
+   "map": "2장. 기업이 온실가스 인벤토리를 만드는 사업 목적들과, 그 목적에 맞춰 인벤토리를 설계하는 방법을 다룬다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "2장",
+     "start": 18,
+     "end": 23
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
    "id": "pc-3",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "사업 목표와 인벤토리 설계",
-   "map": "",
-   "rangeText": "Chapter 2 (인쇄 10~15쪽)",
-   "pagesDraft": [
-    12,
-    17
+   "part": "corp",
+   "ch": "c3",
+   "title": "조직 경계 설정: 지분 할당·통제 접근법",
+   "map": "3장. 지분 할당 접근법과 통제 접근법(재무·운영 통제)으로 조직 경계를 정하는 방법을 정한다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "3장",
+     "start": 24,
+     "end": 31
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
    "id": "pc-4",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "조직 경계: 지분·재무통제·운영통제",
-   "map": "",
-   "rangeText": "Chapter 3 (인쇄 16~23쪽)",
-   "pagesDraft": [
-    18,
-    25
+   "part": "corp",
+   "ch": "c4",
+   "title": "운영 경계 설정: Scope 1·2·3",
+   "map": "4장. 직접·간접 배출을 Scope 1·2·3으로 나누어 운영 경계를 정하는 곳이다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "4장",
+     "start": 32,
+     "end": 41
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
    "id": "pc-5",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "운영 경계: Scope 1·2·3의 정의",
-   "map": "",
-   "rangeText": "Chapter 4 (인쇄 24~33쪽)",
-   "pagesDraft": [
-    26,
-    35
+   "part": "corp",
+   "ch": "c5",
+   "title": "시간 경과에 따른 배출량 추적: 기준연도와 재계산",
+   "map": "5장. 기준연도를 고르고, 구조 변화 등이 있을 때 기준연도 배출량을 재계산하는 기준을 정한다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "5장",
+     "start": 42,
+     "end": 47
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
    "id": "pc-6",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "시간에 따른 추적: 기준연도와 재산정",
-   "map": "",
-   "rangeText": "Chapter 5 (인쇄 34~39쪽)",
-   "pagesDraft": [
-    36,
-    41
+   "part": "corp",
+   "ch": "c6",
+   "title": "온실가스 배출원 규명 및 배출량 계산",
+   "map": "6장. 배출원을 찾고, 계산 방법과 활동 자료·배출계수를 골라 배출량을 계산하고 기업 수준으로 모으는 과정을 다룬다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "6장",
+     "start": 48,
+     "end": 55
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
    "id": "pc-7",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "배출량 식별과 계산",
-   "map": "",
-   "rangeText": "Chapter 6 (인쇄 40~47쪽)",
-   "pagesDraft": [
-    42,
-    49
+   "part": "corp",
+   "ch": "c7",
+   "title": "인벤토리 품질 관리",
+   "map": "7장. 인벤토리 품질 관리 체계와 불확도를 다룬다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "7장",
+     "start": 56,
+     "end": 65
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
    "id": "pc-8",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "인벤토리 품질 관리",
-   "map": "",
-   "rangeText": "Chapter 7 (인쇄 48~57쪽)",
-   "pagesDraft": [
-    50,
-    59
+   "part": "corp",
+   "ch": "c8",
+   "title": "온실가스 감축량 산정",
+   "map": "8장. 기업 수준의 감축량과 프로젝트 기반 감축·상쇄를 어떻게 산정하는지 다룬다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "8장",
+     "start": 66,
+     "end": 69
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
    "id": "pc-9",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "감축 회계와 보고",
-   "map": "",
-   "rangeText": "Chapter 8~9 (인쇄 58~67쪽)",
-   "pagesDraft": [
-    60,
-    69
+   "part": "corp",
+   "ch": "c9",
+   "title": "온실가스 배출량 보고",
+   "map": "9장. 공개 보고서에 반드시 담을 정보와 선택 정보를 정한다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "9장",
+     "start": 70,
+     "end": 75
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
    "id": "pc-10",
    "doc": "ghgp-corp",
-   "part": "ghgp-corp",
-   "title": "검증과 목표 설정, 그리고 한국에서의 적용",
-   "map": "",
-   "rangeText": "Chapter 10~11 (인쇄 68~85쪽)",
-   "pagesDraft": [
-    70,
-    87
+   "part": "corp",
+   "ch": "c10",
+   "title": "온실가스 배출량 검증",
+   "map": "10장. 검증의 의미와 목적, 중대성(materiality) 등 검증의 핵심 개념과 준비 방법을 다룬다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "10장",
+     "start": 76,
+     "end": 81
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
-   "id": "p2-1",
-   "doc": "ghgp-s2",
-   "part": "ghgp-s2",
-   "title": "왜 Scope 2를 두 번 세나 (이중 보고 요구)",
-   "map": "",
-   "rangeText": "Chapter 1~2 (인쇄 4~19쪽)",
-   "pagesDraft": [
-    6,
-    21
+   "id": "pc-11",
+   "doc": "ghgp-corp",
+   "part": "corp",
+   "ch": "c11",
+   "title": "온실가스 목표 설정 ① 단계 1~4",
+   "map": "11장의 앞부분. 목표 설정 단계 1~4(고위 경영진의 공약, 목표 유형, 목표 경계, 목표 기준 연도)를 다룬다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "11장 단계 1~4",
+     "start": 82,
+     "end": 87
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
-   "id": "p2-2",
-   "doc": "ghgp-s2",
-   "part": "ghgp-s2",
-   "title": "지역기반 방법과 배출계수 위계",
-   "map": "",
-   "rangeText": "Chapter 4(4.1.1·4.2), Chapter 6(6.3·6.7·6.10, 표 6.2·6.4·6.6)",
-   "pagesDraft": [
-    26,
-    59
+   "id": "pc-12",
+   "doc": "ghgp-corp",
+   "part": "corp",
+   "ch": "c11",
+   "title": "온실가스 목표 설정 ② 단계 5~10",
+   "map": "11장의 뒷부분. 목표 설정 단계 5~10(완료일, 이행 기간, 상쇄·크레디트, 이중 계산, 목표 수준, 진행상황 추적·보고)을 다룬다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "본문",
+     "label": "11장 단계 5~10",
+     "start": 88,
+     "end": 93
+    }
    ],
-   "ranges": [],
    "refs": []
   },
   {
-   "id": "p2-3",
-   "doc": "ghgp-s2",
-   "part": "ghgp-s2",
-   "title": "시장기반 방법과 계약 수단(REC, PPA, 공급자별 계수, 잔여 믹스)",
-   "map": "",
-   "rangeText": "Chapter 4(4.1.2), Chapter 6(6.2·6.4·6.6·6.11, 표 6.1·6.3·6.5)",
-   "pagesDraft": [
-    26,
-    59
+   "id": "pc-13",
+   "doc": "ghgp-corp",
+   "part": "corp",
+   "ch": "c12",
+   "title": "부록: 구매 전력, 탄소 격리, 온실가스 프로그램, 산업부문별 Scope",
+   "map": "부록 A~D. 구매 전력의 간접 배출량 산정, 대기로부터 격리된 탄소, 온실가스 프로그램 개요, 산업부문별 Scope 분류를 담는다.",
+   "ranges": [
+    {
+     "doc": "ghgp-corp",
+     "kind": "부록",
+     "label": "부록 A~D",
+     "start": 94,
+     "end": 102
+    }
    ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p2-4",
-   "doc": "ghgp-s2",
-   "part": "ghgp-s2",
-   "title": "품질 기준 8가지",
-   "map": "",
-   "rangeText": "Chapter 7 (7.5, 표 7.1)",
-   "pagesDraft": [
-    60,
-    67
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p2-5",
-   "doc": "ghgp-s2",
-   "part": "ghgp-s2",
-   "title": "보고와 공시 요구, 목표 설정에서의 쓰임",
-   "map": "",
-   "rangeText": "Chapter 7(7.1~7.4), Chapter 8, Chapter 9",
-   "pagesDraft": [
-    60,
-    79
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p2-6",
-   "doc": "ghgp-s2",
-   "part": "ghgp-s2",
-   "title": "한국에서의 적용: 국내 계수, K-RE100, 명세서와의 차이",
-   "map": "",
-   "rangeText": "지침 표 6.2·6.3, 7.4.1, 기준 8 + 국내 제도(배출량 보고·인증 지침 제18조, K-RE100, KSSB 제2호)",
-   "pagesDraft": [
-    49,
-    67
-   ],
-   "ranges": [],
    "refs": []
   }
  ]

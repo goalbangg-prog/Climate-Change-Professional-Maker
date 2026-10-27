@@ -51,13 +51,18 @@
    "category": "climate"
   },
   {
-   "id": "s3",
-   "path": "packs/s3/",
+   "id": "ghgp",
+   "path": "packs/ghgp/",
    "category": "ghg"
   },
   {
-   "id": "ghgp",
-   "path": "packs/ghgp/",
+   "id": "s2",
+   "path": "packs/s2/",
+   "category": "ghg"
+  },
+  {
+   "id": "s3",
+   "path": "packs/s3/",
    "category": "ghg"
   },
   {
