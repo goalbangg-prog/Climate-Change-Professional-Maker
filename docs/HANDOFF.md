@@ -1,4 +1,4 @@
-# 인수인계 · 원문 읽기 사이트
+# 인수인계 · Scope 0 · 기준서부터 (원문 읽기 사이트)
 
 작성 2026-10-26 · 새 대화에서 이 문서를 먼저 읽고 시작한다.
 
@@ -13,7 +13,7 @@ goalbangg-prog/Climate-Change-Professional-Maker 저장소의 docs/HANDOFF.md와
 
 ## 1. 이 사이트가 뭔지 (한 줄)
 
-김수현이 기후·온실가스 기준서를 **원문 PDF로 하나씩 읽는** 개인 읽기 공간. 채용 담당자에게는 진도와 기록이 공개된다.
+**Scope 0 · 기준서부터** — Scope 1·2·3을 세기 전에 규칙(기준서)부터 원문으로 익힌다는 뜻. 김수현이 기후·온실가스 기준서를 **원문 PDF로 하나씩 읽는** 개인 읽기 공간. 채용 담당자에게는 진도와 기록이 공개된다.
 
 - 사이트: https://goalbangg-prog.github.io/Climate-Change-Professional-Maker/reading/
 - 유일한 기준: `docs/DEFINITION-v5.md` (정의서). 정의서에 없는 기능은 **만들기 전에 묻는다.**

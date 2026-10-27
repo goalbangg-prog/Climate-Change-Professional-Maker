@@ -32,6 +32,7 @@ h1,h2,h3,p{margin:0}
 .brand .dot{width:22px;height:22px;border-radius:7px;background:var(--point-050);border:1px solid var(--point-100);position:relative}
 .brand .dot::after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--point-600)}
 .brand em{font-style:normal;color:var(--point-600)}
+.brand .sub{font-size:13px;font-weight:600;color:var(--fg-3);padding-left:8px;margin-left:2px;border-left:1px solid var(--border-strong)}
 .packnav{display:flex;align-items:center;gap:10px;min-width:0;font-size:14px;font-weight:600;color:var(--fg-2)}
 .packnav .sep{color:var(--border-strong)}
 .packnav a{text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

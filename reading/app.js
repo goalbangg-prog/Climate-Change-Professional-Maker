@@ -1,4 +1,4 @@
-// 원문 읽기 — 정의서 v5. 기준서 하나 = 확장팩 하나(packs/<id>/pack.json).
+// Scope 0 · 기준서부터 (원문 읽기) — 정의서 v5. 기준서 하나 = 확장팩 하나(packs/<id>/pack.json).
 // 새 기준서는 packs/에 폴더 하나와 packs.json 한 줄만 더하면 된다. 서버 없음, 기록은 localStorage.
 "use strict";
 const KEY = "reading-v1";
@@ -58,7 +58,7 @@ async function checkPdf(P, doc) {
 // ── 서재 (#/) ──
 function shelf() {
   $("#app").innerHTML = `<div class="view">
-    <p class="eyebrow">기후·온실가스 기준서</p>
+    <p class="eyebrow">Scope 0 · Scope 1·2·3을 세기 전에, 기준서부터</p>
     <h1 class="h1">기준서를 원문으로, 하나씩.</h1>
     <p class="lead">네 분야의 기준서를 한 권씩 끝까지 읽고 다음 권으로 넘어가.</p>
     ${nowCard()}
@@ -544,7 +544,7 @@ function pubBar() {
 
 function exportBackup() {
   S.lastBackup = new Date().toISOString(); save();
-  const blob = new Blob([JSON.stringify({ app: "원문 읽기", ...S }, null, 1)], { type: "application/json" });
+  const blob = new Blob([JSON.stringify({ app: "Scope 0 · 기준서부터", ...S }, null, 1)], { type: "application/json" });
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
   a.download = `원문읽기-백업-${S.lastBackup.slice(0, 10)}.json`; document.body.appendChild(a); a.click();
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
@@ -552,7 +552,7 @@ function exportBackup() {
 }
 // 불러오기: 형식을 검사하고, 모르는 확장팩·항목은 버린다. 문제가 있으면 기존 기록을 건드리지 않는다.
 function cleanImport(o) {
-  if (!o || typeof o !== "object" || !o.packs || typeof o.packs !== "object") throw new Error("원문 읽기 백업 파일이 아니야.");
+  if (!o || typeof o !== "object" || !o.packs || typeof o.packs !== "object") throw new Error("Scope 0 백업 파일이 아니야.");
   const out = { version: 1, packs: {} }; let n = 0, dropped = 0;
   const str = v => typeof v === "string" ? v.slice(0, 50000) : "";
   const iso = v => typeof v === "string" && !isNaN(Date.parse(v)) ? v : null;
