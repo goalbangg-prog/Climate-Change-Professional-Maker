@@ -58,22 +58,27 @@ async function checkPdf(P, doc) {
 
 // ── 서재 (#/) ──
 function shelf() {
+  // 기준서가 꽂힌 분야를 먼저, 빈 분야는 맨 아래 '준비 중인 분야'로 모은다
+  const count = c => ORDER.filter(id => PACKS[id].category === c.id).length;
+  const full = CATS.filter(c => count(c)), empty = CATS.filter(c => !count(c)), cats = [...full, ...empty];
   $("#app").innerHTML = `<div class="view">
     <p class="eyebrow">Scope 0 · Scope 1·2·3을 세기 전에, 기준서부터</p>
     <h1 class="h1">기준서를 원문으로, 하나씩.</h1>
     <p class="lead">네 분야의 기준서를 한 권씩 끝까지 읽고 다음 권으로 넘어가.</p>
     ${nowCard()}
-    <nav class="cats" aria-label="분야">${CATS.map(c => {
-      const n = ORDER.filter(id => PACKS[id].category === c.id).length;
-      return `<a href="#cat-${c.id}" data-cat="${c.id}" class="${n ? "has" : ""}"><b>${esc(c.label)}</b><span>${n ? `기준서 ${n}` : "준비 중"}</span></a>`;
+    <nav class="cats" aria-label="분야">${cats.map(c => {
+      const n = count(c);
+      return `<a href="#cat-${c.id}" data-cat="${c.id}" class="${n ? "has" : "empty"}"><b>${esc(c.label)}</b><span>${n ? `기준서 ${n}` : "준비 중"}</span></a>`;
     }).join("")}</nav>
-    ${CATS.map(c => {
+    ${full.map(c => {
       const ps = ORDER.filter(id => PACKS[id].category === c.id).map(id => PACKS[id]);
       return `<section class="cat" id="cat-${c.id}"><div class="cat-h"><h2>${esc(c.label)}</h2><p>${esc(c.desc)}</p></div>
-        ${ps.length ? `<div class="shelf">${ps.map(packCard).join("")}</div>${c.candidates.length ? `<p class="more">다음 후보 ${c.candidates.map(x => `<span class="cand">${esc(x)}</span>`).join("")}</p>` : ""}`
-          : `<div class="slot"><span class="code ghost">+</span><div><b>아직 꽂힌 기준서가 없어</b><p>후보 ${c.candidates.map(x => `<span class="cand">${esc(x)}</span>`).join("")}</p></div></div>`}
+        <div class="shelf">${ps.map(packCard).join("")}</div>${c.candidates.length ? `<p class="more">다음 후보 ${c.candidates.map(x => `<span class="cand">${esc(x)}</span>`).join("")}</p>` : ""}
       </section>`;
     }).join("")}
+    ${empty.length ? `<section class="cat soon"><div class="cat-h"><h2>준비 중인 분야</h2><p>원문이 정해지면 확장팩으로 꽂아.</p></div>
+      <div class="soonlist">${empty.map(c => `<div class="soonrow" id="cat-${c.id}"><div><b>${esc(c.label)}</b><span>${esc(c.desc)}</span></div>
+        <p>후보 ${c.candidates.map(x => `<span class="cand">${esc(x)}</span>`).join("")}</p></div>`).join("")}</div></section>` : ""}
   </div>`;
   document.querySelectorAll(".cats a").forEach(a => a.onclick = e => { e.preventDefault(); document.getElementById("cat-" + a.dataset.cat).scrollIntoView({ behavior: "smooth", block: "start" }); });
 }
