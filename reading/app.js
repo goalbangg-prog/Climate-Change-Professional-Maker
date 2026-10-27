@@ -35,7 +35,8 @@ const doneCount = P => P.items.filter(i => isDone(P.id, i.id)).length;
 const nextItem = P => P.items.find(i => !isDone(P.id, i.id)) || P.items[P.items.length - 1];
 const fmtDate = iso => { const d = new Date(iso); return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`; };
 const isReady = P => P.status !== "prep";
-const badge = (P, cls = "") => `<span class="code ${cls}">${esc(P.code)}</span>`;
+// 한글 약어가 길면(예: 목표관리) 큰 배지에서 글자를 줄인다
+const badge = (P, cls = "") => `<span class="code ${cls} ${/[가-힣]{4,}/.test(P.code) ? "wide" : ""}">${esc(P.code)}</span>`;
 // 원문 목차의 장(chapters). 없으면 part 하나를 장 하나로 본다.
 const chaptersOf = P => P.chapters || P.parts.map(p => ({ id: "p-" + p.id, part: p.id, label: p.label }));
 const chOf = it => it.ch || "p-" + it.part;
@@ -115,7 +116,7 @@ function weekInfo(P) {
 function packBody(P) {
   const ready = isReady(P), n = doneCount(P), t = P.items.length, nx = nextItem(P);
   const wk = weekInfo(P);
-  const plan = (P.schedule || []).map(s => `<li class="${wk.week >= s.from && wk.week <= s.to ? "on" : ""}"><b>${s.from}~${s.to}주차</b>${esc(s.label)}</li>`).join("");
+  const plan = (P.schedule || []).map(s => `<li class="${wk.week >= s.from && wk.week <= s.to ? "on" : ""}"><b>${s.from === s.to ? s.from : `${s.from}~${s.to}`}주차</b>${esc(s.label)}</li>`).join("");
   const nxPart = P.parts.find(x => x.id === nx.part);
   return `${ready ? `<section class="hero">
       <div class="hero-main"><p class="hero-k">다음에 읽을 곳 · ${esc(nxPart ? nxPart.label : "")}</p>

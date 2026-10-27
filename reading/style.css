@@ -21,9 +21,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 h1,h2,h3,p{margin:0}
 
 /* 확장팩 약어 배지 */
-.code{display:inline-grid;place-items:center;min-width:44px;height:22px;padding:0 7px;border-radius:6px;background:var(--point-100);color:var(--point-600);font-size:11.5px;font-weight:800;letter-spacing:.04em;vertical-align:1px}
+.code{white-space:nowrap;display:inline-grid;place-items:center;min-width:44px;height:22px;padding:0 7px;border-radius:6px;background:var(--point-100);color:var(--point-600);font-size:11.5px;font-weight:800;letter-spacing:.04em;vertical-align:1px}
 .code.sm{min-width:0;height:20px;font-size:11px}
 .code.lg{width:64px;height:64px;border-radius:var(--radius-md);font-size:15px;background:var(--point-600);color:#fff;flex:none}
+.code.lg.wide{font-size:12.5px;letter-spacing:-.04em;padding:0 4px}
 .code.ghost{width:64px;height:64px;border-radius:var(--radius-md);font-size:24px;font-weight:400;background:var(--bg-card);color:var(--fg-4);border:1px dashed var(--border-strong);flex:none}
 
 /* 머리줄 */
@@ -98,7 +99,7 @@ main.wide{max-width:1440px;padding-top:20px}
 .rrow{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 18px;border-radius:14px;background:var(--bg-card);border:1px solid var(--border-default)}
 .kind{font-size:12px;font-weight:700;padding:2px 10px;border-radius:var(--radius-pill);text-align:center;background:var(--bg-muted);color:var(--fg-3)}
 .kind.본문{background:var(--point-100);color:var(--point-600)}
-.kind.적용지침,.kind.부록,.kind.결론도출근거{background:var(--info-bg);color:var(--info-fg)}
+.kind.적용지침,.kind.부록,.kind.별표,.kind.결론도출근거{background:var(--info-bg);color:var(--info-fg)}
 .rrow .lb{font-weight:600;color:var(--fg-1)}
 .rrow .lb small{display:block;font-size:12.5px;color:var(--fg-3);font-weight:400}
 .rrow .pg{font-size:14px;color:var(--fg-3);white-space:nowrap}
