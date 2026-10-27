@@ -513,6 +513,7 @@ a.drow:hover{background:var(--bg-muted)}
   button.track{flex-direction:column;align-items:flex-start}
   .prog .go{display:none}
   .tocbtn{padding:5px 10px;font-size:13px}
+  .tocbtn .tcode{display:none}
   .bar nav{gap:14px}
   .dbody{padding:0 14px 20px}
   .dbody .tiles{grid-template-columns:1fr 1fr}

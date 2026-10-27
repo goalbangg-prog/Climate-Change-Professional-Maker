@@ -375,7 +375,7 @@ function stageMap(P, it) {
     </div>
     <p class="total">모두 ${total}쪽${total > DAY_PAGES ? ` · 하루 분량(${DAY_PAGES}쪽)보다 길어서 이틀에 나눠 읽어도 돼` : ""}</p>
     ${pairs.length ? `<p class="pairline"><b>이어지는 곳</b> · ${esc(c.label)}의 짝 · ${pairs.join(" · ")}</p>` : ""}
-    ${it.refs.length ? `<p class="refs"><b>참고로 열어 볼 곳</b> · ${it.refs.map(r => `${esc(r.label)} (${pages(r)}, ${esc(r.by)})`).join(" · ")} — 다른 항목에서 읽는 부분이라 진도에는 넣지 않았어.</p>` : ""}
+    ${it.refs.length ? `<p class="refs"><b>참고로 열어 볼 곳</b> · ${it.refs.map(r => `${esc(r.label)} (${pages(r)}, ${esc(r.by)})`).join(" · ")} — 참고로 여는 곳이라 진도에는 넣지 않았어.</p>` : ""}
   </div>`;
 }
 
@@ -655,7 +655,7 @@ function route() {
   const P = seg[0] === "p" ? PACKS[seg[1]] : null;
   document.querySelectorAll("[data-nav]").forEach(x => x.classList.toggle("on", x.dataset.nav === (seg[0] === "notes" ? "notes" : seg[0] === "terms" ? "terms" : !seg[0] ? "shelf" : "")));
   $("#packnav").innerHTML = P ? `<span class="sep">/</span><span class="catn">${esc((CATS.find(c => c.id === P.category) || {}).label || "")}</span><span class="sep">/</span><a href="#/p/${P.id}">${badge(P, "sm")} ${esc(P.name)}</a>` : "";
-  const tb = $("#tocBtn"); tb.hidden = !P; if (P) tb.textContent = `☰ ${P.code} 목차`;
+  const tb = $("#tocBtn"); tb.hidden = !P; if (P) { tb.innerHTML = `☰ <span class="tcode">${esc(P.code)}</span> 목차`; tb.setAttribute("aria-label", `${P.code} 목차`); }
   if (P && seg[2] === "read" && isReady(P)) read(P, seg[3]);
   else if (P) packHome(P);
   else if (seg[0] === "notes") notes();

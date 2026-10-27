@@ -1,12 +1,12 @@
 {
  "id": "ghgp",
  "code": "GHGP",
- "name": "GHG 프로토콜 (기업 표준 · Scope 2 지침 · Scope 3 표준)",
+ "name": "GHG 프로토콜 (기업 표준 · Scope 2 지침)",
  "kind": "산정 표준",
- "edition": "기업 표준 2004 개정판(한국어 번역 2025.6) · Scope 2 2015 · Scope 3 2011",
+ "edition": "기업 표준 2004 개정판(한국어 번역 2025.6) · Scope 2 2015",
  "issuer": "WRI · WBCSD",
  "status": "prep",
- "note": "목차 나누기는 data/books의 기존 회차를 옮긴 것. 쪽수(pagesDraft)는 검수 전이라 화면에 쓰지 않는다. PDF를 넣으면 KSSB처럼 검수해서 ranges·map을 채운다.",
+ "note": "목차 나누기는 data/books의 기존 회차를 옮긴 것. 쪽수(pagesDraft)는 검수 전이라 화면에 쓰지 않는다. PDF를 넣으면 KSSB처럼 검수해서 ranges·map을 채운다. Scope 3 표준은 2026-10-27 별도 확장팩(packs/s3)으로 옮겼다.",
  "docs": {
   "ghgp-corp": {
    "short": "기업 표준",
@@ -20,12 +20,6 @@
    "name": "GHG Protocol Scope 2 Guidance",
    "file": "pdf/ghgp-s2.pdf",
    "url": "https://ghgprotocol.org/sites/default/files/2023-03/Scope%202%20Guidance.pdf"
-  },
-  "ghgp-s3": {
-   "short": "Scope 3 표준",
-   "name": "Corporate Value Chain (Scope 3) Accounting and Reporting Standard",
-   "file": "pdf/ghgp-s3.pdf",
-   "url": "https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard_041613_2.pdf"
   }
  },
  "parts": [
@@ -36,10 +30,6 @@
   {
    "id": "ghgp-s2",
    "label": "Scope 2 지침"
-  },
-  {
-   "id": "ghgp-s3",
-   "label": "Scope 3 표준"
   }
  ],
  "items": [
@@ -263,132 +253,6 @@
    "pagesDraft": [
     49,
     67
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p3-1",
-   "doc": "ghgp-s3",
-   "part": "ghgp-s3",
-   "title": "Scope 3는 왜 필요하고 무엇을 요구하나",
-   "map": "",
-   "rangeText": "1~4장 (인쇄 3~25쪽)",
-   "pagesDraft": [
-    5,
-    27
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p3-2",
-   "doc": "ghgp-s3",
-   "part": "ghgp-s3",
-   "title": "경계 설정: 15개 카테고리와 포함·제외",
-   "map": "",
-   "rangeText": "5.1~5.4, 6장 (인쇄 27~63쪽)",
-   "pagesDraft": [
-    29,
-    65
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p3-3",
-   "doc": "ghgp-s3",
-   "part": "ghgp-s3",
-   "title": "업스트림 카테고리 1~8",
-   "map": "",
-   "rangeText": "5.5 카테고리 1~8, 부록 A (인쇄 38~47·124쪽), 산정 지침 1~8장",
-   "pagesDraft": [
-    40,
-    49
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p3-4",
-   "doc": "ghgp-s3",
-   "part": "ghgp-s3",
-   "title": "다운스트림 카테고리 9~15 (자동차: 11 판매 제품 사용 깊게)",
-   "map": "",
-   "rangeText": "5.5 카테고리 9~15, 5.6 (인쇄 47~56쪽), 산정 지침 11장(113~124쪽)·부록 B",
-   "pagesDraft": [
-    49,
-    58
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p3-5",
-   "doc": "ghgp-s3",
-   "part": "ghgp-s3",
-   "title": "데이터 수집과 데이터 품질",
-   "map": "",
-   "rangeText": "7장 (인쇄 65~85쪽)",
-   "pagesDraft": [
-    67,
-    87
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p3-6",
-   "doc": "ghgp-s3",
-   "part": "ghgp-s3",
-   "title": "배출량 할당과 산정 방법 선택",
-   "map": "",
-   "rangeText": "8장 (인쇄 87~97쪽), 산정 지침 서론(11~18쪽)",
-   "pagesDraft": [
-    89,
-    99
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p3-7",
-   "doc": "ghgp-s3",
-   "part": "ghgp-s3",
-   "title": "목표 설정과 추적, 기준연도 재산정",
-   "map": "",
-   "rangeText": "9장 (인쇄 99~111쪽)",
-   "pagesDraft": [
-    101,
-    113
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p3-8",
-   "doc": "ghgp-s3",
-   "part": "ghgp-s3",
-   "title": "보고와 보증",
-   "map": "",
-   "rangeText": "10~11장, 부록 B (인쇄 113~122·126쪽)",
-   "pagesDraft": [
-    115,
-    124
-   ],
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "p3-9",
-   "doc": "ghgp-s3",
-   "part": "ghgp-s3",
-   "title": "한국 자동차 회사의 Scope 3 읽기 (기아·현대차 실제 표)",
-   "map": "",
-   "rangeText": "보고서 대조: 기아 2026 보고서 130·155~156쪽, 현대차 2026 보고서 38~41·160쪽",
-   "pagesDraft": [
-    29,
-    124
    ],
    "ranges": [],
    "refs": []
