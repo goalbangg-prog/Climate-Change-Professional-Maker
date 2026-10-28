@@ -39,7 +39,7 @@ const nextItem = P => P.items.find(i => !isDone(P.id, i.id)) || P.items[P.items.
 const fmtDate = iso => { const d = new Date(iso); return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`; };
 const isReady = P => P.status !== "prep";
 // 한글 약어가 길면(예: 목표관리) 큰 배지에서 글자를 줄인다
-const badge = (P, cls = "") => `<span class="code ${cls} ${/[가-힣]{4,}/.test(P.code) ? "wide" : ""}">${esc(P.code)}</span>`;
+const badge = (P, cls = "") => `<span class="code ${cls} ${/[가-힣]{4,}/.test(P.code) || P.code.length > 6 ? "wide" : ""}">${esc(P.code)}</span>`;
 // 원문 목차의 장(chapters). 없으면 part 하나를 장 하나로 본다.
 const chaptersOf = P => P.chapters || P.parts.map(p => ({ id: "p-" + p.id, part: p.id, label: p.label }));
 const chOf = it => it.ch || "p-" + it.part;

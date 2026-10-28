@@ -66,6 +66,11 @@
    "category": "ghg"
   },
   {
+   "id": "iso14040",
+   "path": "packs/iso14040/",
+   "category": "ghg"
+  },
+  {
    "id": "kets",
    "path": "packs/kets/",
    "category": "ghg"
