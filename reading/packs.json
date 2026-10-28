@@ -43,9 +43,9 @@
    "label": "전과정평가(LCA)",
    "desc": "제품의 전과정 환경영향 평가, 제품 탄소발자국, 환경성적표지",
    "candidates": [
-    "KS I ISO 14044",
     "KS I ISO 14067 (제품 탄소발자국)",
-    "환경성적표지(EPD) 작성지침"
+    "환경성적표지(EPD) 작성지침",
+    "KS I ISO 14025 (환경성적표지)"
    ]
   }
  ],
@@ -78,6 +78,16 @@
   {
    "id": "iso14040",
    "path": "packs/iso14040/",
+   "category": "lca"
+  },
+  {
+   "id": "iso14044",
+   "path": "packs/iso14044/",
+   "category": "lca"
+  },
+  {
+   "id": "iso14027",
+   "path": "packs/iso14027/",
    "category": "lca"
   },
   {
