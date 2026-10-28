@@ -597,6 +597,21 @@ a.drow:hover{background:var(--bg-muted)}
   .chead{padding-top:4px}.sdot{top:9px}
   .spine::before{display:none}
 }
+/* 원문 링크형 (저작권 때문에 PDF 없이 공식 뷰어에서 읽는 문서) */
+.reader.linkmode{grid-template-columns:240px minmax(0,1fr)}
+.reader.linkmode.hide-side{grid-template-columns:minmax(0,1fr)}
+.linkpane{padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lcard{border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:28px 30px;background:var(--point-050);display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.lcard .lk{font-size:13px;font-weight:700;color:var(--point-600)}
+.lcard h3{font-size:22px;font-weight:800;color:var(--fg-1)}
+.lclauses{list-style:none;margin:0;padding:0;display:grid;gap:6px;width:100%}
+.lclauses li{display:flex;gap:12px;align-items:baseline;padding:10px 14px;border-radius:10px;background:var(--bg-card);border:1px solid var(--border-subtle)}
+.lclauses b{font-size:15.5px;color:var(--fg-1)}
+.lclauses span{font-size:13.5px;color:var(--fg-3)}
+.lhow{font-size:14px;color:var(--fg-2)}
+.lwhy{font-size:13.5px;color:var(--fg-3);line-height:1.7}
+.pnum.link{color:var(--info-fg)}
+@media (max-width:820px){.reader.linkmode{grid-template-columns:1fr}.linkpane{padding:16px}.lcard{padding:20px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .packnav .catn{color:var(--fg-3);font-weight:500;white-space:nowrap}
 .more{margin-top:12px;font-size:13.5px;color:var(--fg-3)}

@@ -26,7 +26,10 @@ const rec = (p, id) => { if (PUBMODE) { PUBMODE = false; pubBar(); } return ((S.
 const isDone = (p, id) => { const st = store(); return !!(st.packs[p] && st.packs[p].items[id] && st.packs[p].items[id].done); };
 
 // ── 도우미 ──
-const pages = r => r.start === r.end ? `${r.start}쪽` : `${r.start}~${r.end}쪽`;
+// 원문 링크형: 저작권 때문에 PDF를 올리지 않고 공식 뷰어에서 읽는 문서(docs.<doc>.external). 쪽 대신 조항으로 가리킨다.
+const isLink = r => r && r.start == null;
+const pages = r => isLink(r) ? "원문 링크" : r.start === r.end ? `${r.start}쪽` : `${r.start}~${r.end}쪽`;
+const isExt = (P, doc) => !!(P.docs[doc] && P.docs[doc].external);
 const short = (P, doc) => P.docs[doc].short;
 const fileOf = (P, doc) => P.base + P.docs[doc].file;
 // 크롬: view=FitH(폭 맞춤), navpanes=0(썸네일 숨김) / 파이어폭스: zoom=page-width, pagemode=none
@@ -42,7 +45,8 @@ const chaptersOf = P => P.chapters || P.parts.map(p => ({ id: "p-" + p.id, part:
 const chOf = it => it.ch || "p-" + it.part;
 const chItems = (P, c) => P.items.filter(i => chOf(i) === c.id);
 // 실제로 읽는 쪽 수: 범위끼리 겹치는 쪽은 한 번만 센다
-const pageCount = it => { const s = new Set(); (it.ranges || []).forEach(r => { for (let p = r.start; p <= r.end; p++) s.add(r.doc + ":" + p); }); return s.size; };
+const pageCount = it => { const s = new Set(); (it.ranges || []).forEach(r => { if (isLink(r)) return; for (let p = r.start; p <= r.end; p++) s.add(r.doc + ":" + p); }); return s.size; };
+const linkOnly = it => (it.ranges || []).length > 0 && it.ranges.every(isLink);
 const DAY_PAGES = 10; // 하루 분량(퇴근 후 30분~1시간)으로 보는 쪽 수
 const openQs = (P, it) => { const r = recs(P.id)[it.id]; return (r && Array.isArray(r.qs) ? r.qs : []).filter(q => q && (q.q || "").trim() && !(q.a || "").trim()).length; };
 // 연결: to는 장 id 또는 항목 id. 읽기로 갈 때는 그 장의 첫 항목.
@@ -164,7 +168,7 @@ function tile(P, it, ready, nx) {
   const sub = ready ? `${esc(short(P, r0.doc))} ${esc(r0.label)}${it.ranges.length > 1 ? ` 외 ${it.ranges.length - 1}곳` : ""}` : `${esc(it.rangeText || "")}`;
   const stat = here ? `<span class="tst here">지금 여기</span>` : dn ? `<span class="tst ok">✓ ${fmtDate(recs(P.id)[it.id].doneAt)}</span>` : isNext ? `<span class="tst nx">다음</span>` : "";
   const q = ready ? openQs(P, it) : 0;
-  const foot = ready ? `<span class="tfoot">${lenBar(pageCount(it))}${q ? `<span class="tq" title="답을 아직 못 찾은 궁금한 점">궁금 ${q}</span>` : ""}</span>` : "";
+  const foot = ready ? `<span class="tfoot">${linkOnly(it) ? `<span class="pnum link">공식 뷰어에서 읽기 ↗</span>` : lenBar(pageCount(it))}${q ? `<span class="tq" title="답을 아직 못 찾은 궁금한 점">궁금 ${q}</span>` : ""}</span>` : "";
   const inner = `<span class="tno">${no}</span><span class="ttl">${esc(it.title)}</span><span class="tsub">${sub}</span>${foot}${stat}`;
   return ready ? `<a class="tile ${dn ? "done" : ""} ${isNext ? "next" : ""} ${here ? "cur" : ""}" href="#/p/${P.id}/read/${it.id}">${inner}</a>` : `<div class="tile off">${inner}</div>`;
 }
@@ -206,7 +210,7 @@ function drawerList(P) {
         <ol class="dlist">${chItems(P, c).map(it => {
           const no = P.items.indexOf(it) + 1, dn = isDone(P.id, it.id), here = CUR_ITEM === P.id + "/" + it.id, isNext = ready && !dn && it.id === nx.id;
           const n = ready ? pageCount(it) : 0;
-          const pg = ready ? `<span class="dpg ${n > DAY_PAGES ? "long" : ""}">${n}쪽</span>` : `<span class="dpg">${esc(it.rangeText || "")}</span>`;
+          const pg = ready ? (linkOnly(it) ? `<span class="dpg">원문 링크</span>` : `<span class="dpg ${n > DAY_PAGES ? "long" : ""}">${n}쪽</span>`) : `<span class="dpg">${esc(it.rangeText || "")}</span>`;
           const inner = `<span class="dm">${dn ? "✓" : here ? "●" : ""}</span><span class="dno">${no}</span><span class="dt">${esc(it.title)}</span>${here ? `<span class="tst here">지금 여기</span>` : isNext ? `<span class="tst nx">다음</span>` : pg}`;
           return `<li>${ready ? `<a class="drow ${dn ? "done" : ""} ${here ? "here" : ""}" href="#/p/${P.id}/read/${it.id}">${inner}</a>` : `<div class="drow off">${inner}</div>`}</li>`;
         }).join("")}</ol>`).join("")}</div>`;
@@ -325,7 +329,8 @@ function workLayout(P, it, inner, again) {
   if (PEEK) {
     $("#peekClose").onclick = () => { PEEK = false; again(); };
     $("#peekPart").onchange = e => { VIEW.part = +e.target.value; again(); };
-    checkPdf(P, cur.doc).then(ok => ok ? renderPages(P, it, cur, again) : ($("#pages").innerHTML = `<p class="gempty">원문 PDF가 아직 없어.</p>`));
+    if (isExt(P, cur.doc)) $("#pages").innerHTML = `<div class="lcard" style="margin:16px"><p class="lk">원문 링크형</p><p>${esc(cur.label)}${cur.clauses ? ` · ${esc(cur.clauses)}` : ""}</p><a class="btn main" href="${esc(P.docs[cur.doc].url)}" target="_blank" rel="noopener">공식 뷰어에서 다시 보기 ↗</a></div>`;
+    else checkPdf(P, cur.doc).then(ok => ok ? renderPages(P, it, cur, again) : ($("#pages").innerHTML = `<p class="gempty">원문 PDF가 아직 없어.</p>`));
   }
 }
 
@@ -373,7 +378,7 @@ function stageMap(P, it) {
       ${it.ranges.map(r => `<div class="rrow"><span class="kind ${esc(r.kind)}">${esc(r.kind)}</span>
         <span class="lb">${esc(short(P, r.doc))} ${esc(r.label)}${r.by ? `<small>${esc(r.by)}이 이 부분을 가리킨다</small>` : ""}</span><span class="pg">${pages(r)}</span></div>`).join("")}
     </div>
-    <p class="total">모두 ${total}쪽${total > DAY_PAGES ? ` · 하루 분량(${DAY_PAGES}쪽)보다 길어서 이틀에 나눠 읽어도 돼` : ""}</p>
+    <p class="total">${linkOnly(it) ? "원문은 저작권 때문에 이 사이트에 올리지 않았어. 2단계에서 공식 뷰어를 열고 위 조항 번호로 찾아 읽어." : `모두 ${total}쪽`}${total > DAY_PAGES ? ` · 하루 분량(${DAY_PAGES}쪽)보다 길어서 이틀에 나눠 읽어도 돼` : ""}</p>
     ${pairs.length ? `<p class="pairline"><b>이어지는 곳</b> · ${esc(c.label)}의 짝 · ${pairs.join(" · ")}</p>` : ""}
     ${it.refs.length ? `<p class="refs"><b>참고로 열어 볼 곳</b> · ${it.refs.map(r => `${esc(r.label)} (${pages(r)}, ${esc(r.by)})`).join(" · ")} — 참고로 여는 곳이라 진도에는 넣지 않았어.</p>` : ""}
   </div>`;
@@ -396,6 +401,7 @@ function getPdf(url) { return PDFDOCS[url] ||= loadPdfjs().then(l => l.getDocume
 async function stagePdf(P, it) {
   const parts = [...it.ranges.map(r => ({ ...r, ref: false })), ...it.refs.map(r => ({ ...r, ref: true }))];
   const cur = parts[VIEW.part] || parts[0];
+  if (isExt(P, cur.doc)) return stageLink(P, it, parts, cur);
   const doc = P.docs[cur.doc], gl = doc.glossary;
   const ekey = VIEW.key + "/" + VIEW.part; if (EXTRA.key !== ekey) EXTRA = { key: ekey, before: 0, after: 0 };
   const guide = (it.guide || []).filter(g => g.doc === cur.doc && g.page >= cur.start - EXTRA.before && g.page <= cur.end + EXTRA.after);
@@ -431,6 +437,28 @@ async function stagePdf(P, it) {
   $("#zo").onclick = () => setZoom(ZOOM - 0.15); $("#zi").onclick = () => setZoom(ZOOM + 0.15); $("#zf").onclick = () => setZoom(1);
   const g = $("#gloss"); if (g) g.onclick = () => window.open(`${fileOf(P, cur.doc)}#page=${gl.start}`, "_blank", "noopener");
   if (ok) renderPages(P, it, cur);
+}
+
+// 원문 링크형 문서: 읽을 조항을 보여 주고 공식 뷰어를 새 창으로 연다
+function stageLink(P, it, parts, cur) {
+  const doc = P.docs[cur.doc];
+  const mine = parts.filter(p => !p.ref && p.doc === cur.doc);
+  $("#stage").innerHTML = `<div class="reader linkmode ${SIDE_HIDDEN ? "hide-side" : ""}">
+    <div class="side"><h3>읽을 곳</h3>
+      ${parts.map((p, i) => p.ref ? "" : `<button class="part ${i === VIEW.part ? "on" : ""}" data-i="${i}" type="button"><span class="lb">${esc(short(P, p.doc))} ${esc(p.label)}</span><span class="pg">${pages(p)}</span></button>`).join("")}
+      ${it.refs.length ? `<p class="sm">참고</p>${parts.map((p, i) => p.ref ? `<button class="ref" data-i="${i}" type="button">${esc(p.label)} · ${pages(p)}</button>` : "").join("")}` : ""}
+    </div>
+    <div class="linkpane"><div class="lcard">
+      <p class="lk">원문 링크형 · ${esc(doc.short)}</p>
+      <h3>공식 뷰어에서 이 조항을 읽어</h3>
+      <ul class="lclauses">${mine.map(p => `<li><b>${esc(p.label)}</b>${p.clauses ? `<span>${esc(p.clauses)}</span>` : ""}</li>`).join("")}</ul>
+      <a class="btn main big" href="${esc(doc.url)}" target="_blank" rel="noopener">공식 뷰어에서 읽기 ↗</a>
+      ${doc.how ? `<p class="lhow">${esc(doc.how)}</p>` : ""}
+      <p class="lwhy">이 기준서는 저작권이 있는 표준이라 원문을 이 사이트에 올리지 않았어. 읽고 나서 여기로 돌아와 '다 읽었어요'를 누르고, 궁금한 점은 3단계에 남겨.</p>
+    </div>
+    <p class="src">출처: ${esc(P.issuer)}, ${esc(doc.name)} · <a href="${esc(doc.url)}" target="_blank" rel="noopener">공식 뷰어</a></p></div>
+  </div>`;
+  document.querySelectorAll("[data-i]").forEach(b => b.onclick = () => { VIEW.part = +b.dataset.i; stagePdf(P, it); });
 }
 
 async function renderPages(P, it, cur, redo = () => stagePdf(P, it)) {
