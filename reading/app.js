@@ -68,7 +68,7 @@ function shelf() {
   $("#app").innerHTML = `<div class="view">
     <p class="eyebrow">Scope 0 · Scope 1·2·3을 세기 전에, 기준서부터</p>
     <h1 class="h1">기준서를 원문으로, 하나씩.</h1>
-    <p class="lead">네 분야의 기준서를 한 권씩 끝까지 읽고 다음 권으로 넘어가.</p>
+    <p class="lead">${CATS.length}개 분야의 기준서를 한 권씩 끝까지 읽고 다음 권으로 넘어가.</p>
     ${nowCard()}
     <nav class="cats" aria-label="분야">${cats.map(c => {
       const n = count(c);
@@ -621,7 +621,7 @@ function showImport() {
   $("#impNo").onclick = () => { IMPORT = null; notes(); };
 }
 
-// ── 용어집 (#/terms): 네 분야로 나눈 용어, 원문 정의가 있으면 그 쪽을 바로 연다 ──
+// ── 용어집 (#/terms): 분야별로 나눈 용어, 원문 정의가 있으면 그 쪽을 바로 연다 ──
 let GLOSS = null, TQ = "", TCAT = "all";
 async function loadGloss() { return GLOSS ||= (await (await fetch("glossary.json")).json()); }
 async function termsView() {

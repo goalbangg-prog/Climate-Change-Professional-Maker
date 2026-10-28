@@ -32,7 +32,7 @@ goalbangg-prog/Climate-Change-Professional-Maker 저장소의 docs/HANDOFF.md와
 ```
 reading/
   index.html, app.js, style.css    사이트 (서버 없음, 해시 주소)
-  packs.json                       분야 4개 + 꽂힌 확장팩 목록
+  packs.json                       분야 5개 + 꽂힌 확장팩 목록
   packs/<id>/pack.json             확장팩 하나 = 기준서 하나
   packs/<id>/pdf/<doc>.pdf         원문 PDF
   glossary.json                    용어집 (원문 정의만)

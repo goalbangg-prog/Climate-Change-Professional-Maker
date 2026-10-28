@@ -151,7 +151,7 @@ main.wide{max-width:1440px;padding-top:20px}
 .temp li a.done span{color:var(--point-600);font-weight:700}
 
 /* 분야 4개 */
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:32px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:32px}
 .cats a{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border:1px solid var(--border-default);border-radius:var(--radius-md);text-decoration:none;transition:border-color .2s var(--ease),transform .2s var(--ease)}
 .cats a:hover{border-color:var(--point-600);transform:translateY(-2px)}
 .cats a b{font-size:15.5px;color:var(--fg-1)}

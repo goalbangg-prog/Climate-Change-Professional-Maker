@@ -37,6 +37,16 @@
     "국가 온실가스 인벤토리",
     "SBTi 넷제로 기준"
    ]
+  },
+  {
+   "id": "lca",
+   "label": "전과정평가(LCA)",
+   "desc": "제품의 전과정 환경영향 평가, 제품 탄소발자국, 환경성적표지",
+   "candidates": [
+    "KS I ISO 14044",
+    "KS I ISO 14067 (제품 탄소발자국)",
+    "환경성적표지(EPD) 작성지침"
+   ]
   }
  ],
  "packs": [
@@ -68,7 +78,7 @@
   {
    "id": "iso14040",
    "path": "packs/iso14040/",
-   "category": "ghg"
+   "category": "lca"
   },
   {
    "id": "kets",
