@@ -47,6 +47,16 @@
     "환경성적표지(EPD) 작성지침",
     "KS I ISO 14025 (환경성적표지)"
    ]
+  },
+  {
+   "id": "eu",
+   "label": "EU 제품·무역 규제",
+   "desc": "EU 배터리·CBAM·에코디자인(DPP)·포장 규정 대응, 제품 탄소발자국과 공급망 정보 제공",
+   "candidates": [
+    "CSRD·ESRS E1",
+    "EU 공급망실사지침(CSDDD)",
+    "EU 산림전용 규정(EUDR)"
+   ]
   }
  ],
  "packs": [
@@ -104,6 +114,26 @@
    "id": "law",
    "path": "packs/law/",
    "category": "ghg"
+  },
+  {
+   "id": "eubat",
+   "path": "packs/eubat/",
+   "category": "eu"
+  },
+  {
+   "id": "cbam",
+   "path": "packs/cbam/",
+   "category": "eu"
+  },
+  {
+   "id": "espr",
+   "path": "packs/espr/",
+   "category": "eu"
+  },
+  {
+   "id": "ppwr",
+   "path": "packs/ppwr/",
+   "category": "eu"
   }
  ]
 }

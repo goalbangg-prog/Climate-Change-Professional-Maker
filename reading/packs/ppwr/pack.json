@@ -1,0 +1,217 @@
+{
+ "id": "ppwr",
+ "code": "PPWR",
+ "name": "EU 포장 및 포장폐기물 규정 (Regulation (EU) 2025/40)",
+ "kind": "EU 규정",
+ "edition": "Regulation (EU) 2025/40 · 2024.12.19 채택 · 2025.2.11 발효 · 2026.8.12 적용",
+ "issuer": "유럽연합 (EUR-Lex 공식 관보)",
+ "status": "prep",
+ "note": "EU 공식 법령. EUR-Lex의 영어판 PDF를 넣고 쪽수를 검수하면 읽을 수 있다. 목차는 EUR-Lex 본문의 장(CHAPTER) 구조에서 옮겼고, 조문 범위는 PDF로 다시 확인한다. 포장의 재활용 가능성·재생원료 함량·최소화·재사용 목표 등. 장 구조는 PDF 검수 때 확정한다.",
+ "docs": {
+  "ppwr": {
+   "short": "PPWR",
+   "name": "EU 포장 및 포장폐기물 규정 (Regulation (EU) 2025/40)",
+   "file": "pdf/ppwr.pdf",
+   "lang": "en",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32025R0040",
+   "html": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0040"
+  }
+ },
+ "schedule": [
+  {
+   "from": 1,
+   "to": 1,
+   "label": "CHAPTER I~IV (5개)"
+  },
+  {
+   "from": 2,
+   "to": 2,
+   "label": "CHAPTER V~부속서 (6개)"
+  }
+ ],
+ "parts": [
+  {
+   "id": "p",
+   "label": "PPWR"
+  }
+ ],
+ "chapters": [
+  {
+   "id": "c1",
+   "part": "p",
+   "label": "CHAPTER I General provisions",
+   "paras": "대상·범위·정의"
+  },
+  {
+   "id": "c2",
+   "part": "p",
+   "label": "CHAPTER II Sustainability requirements",
+   "paras": "유해물질·재활용 가능성·재생원료·최소화"
+  },
+  {
+   "id": "c3",
+   "part": "p",
+   "label": "CHAPTER III Labelling, marking and information requirements",
+   "paras": "라벨·표시·정보"
+  },
+  {
+   "id": "c4",
+   "part": "p",
+   "label": "CHAPTER IV Obligations of economic operators",
+   "paras": "사업자 의무"
+  },
+  {
+   "id": "c5",
+   "part": "p",
+   "label": "CHAPTER V Obligations of economic operators other than those in Chapter IV",
+   "paras": "재사용·리필 등 추가 의무"
+  },
+  {
+   "id": "c6",
+   "part": "p",
+   "label": "CHAPTER VI Conformity · Notification of bodies",
+   "paras": "적합성·평가기관"
+  },
+  {
+   "id": "c7",
+   "part": "p",
+   "label": "CHAPTER VII Management of packaging and packaging waste",
+   "paras": "포장폐기물 관리·생산자책임·수거·재활용 목표"
+  },
+  {
+   "id": "c8",
+   "part": "p",
+   "label": "CHAPTER VIII~ Safeguard procedures · Green public procurement · Delegated powers · Final provisions",
+   "paras": "세이프가드·공공조달·위임권·최종 조항"
+  },
+  {
+   "id": "cA",
+   "part": "p",
+   "label": "ANNEXES",
+   "paras": "부속서"
+  }
+ ],
+ "items": [
+  {
+   "id": "pw-1",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c1",
+   "title": "대상, 범위, 정의",
+   "map": "",
+   "rangeText": "CHAPTER I",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-2",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c2",
+   "title": "지속가능성 요구 ① 유해물질, 재활용 가능성",
+   "map": "",
+   "rangeText": "CHAPTER II 앞부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-3",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c2",
+   "title": "지속가능성 요구 ② 재생원료, 포장 최소화, 재사용 포장",
+   "map": "",
+   "rangeText": "CHAPTER II 뒷부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-4",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c3",
+   "title": "라벨·표시·정보 요구",
+   "map": "",
+   "rangeText": "CHAPTER III",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-5",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c4",
+   "title": "사업자의 의무",
+   "map": "",
+   "rangeText": "CHAPTER IV",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-6",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c5",
+   "title": "재사용·리필 등 추가 의무",
+   "map": "",
+   "rangeText": "CHAPTER V",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-7",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c6",
+   "title": "적합성과 평가기관 통지",
+   "map": "",
+   "rangeText": "CHAPTER VI",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-8",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c7",
+   "title": "포장폐기물 관리 ① 생산자책임·수거",
+   "map": "",
+   "rangeText": "CHAPTER VII 앞부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-9",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c7",
+   "title": "포장폐기물 관리 ② 재활용 목표·보고",
+   "map": "",
+   "rangeText": "CHAPTER VII 뒷부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-10",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c8",
+   "title": "세이프가드, 공공조달, 위임권, 최종 조항",
+   "map": "",
+   "rangeText": "CHAPTER VIII~",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "pw-11",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "cA",
+   "title": "부속서",
+   "map": "",
+   "rangeText": "ANNEXES",
+   "ranges": [],
+   "refs": []
+  }
+ ]
+}

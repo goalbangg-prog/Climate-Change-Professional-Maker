@@ -1,0 +1,285 @@
+{
+ "id": "eubat",
+ "code": "배터리법",
+ "name": "EU 배터리 규정 (Regulation (EU) 2023/1542 · 배터리와 폐배터리)",
+ "kind": "EU 규정",
+ "edition": "Regulation (EU) 2023/1542 · 2023.7.12 채택 · 2023.8.17 발효",
+ "issuer": "유럽연합 (EUR-Lex 공식 관보)",
+ "status": "prep",
+ "note": "EU 공식 법령. EUR-Lex의 영어판 PDF를 넣고 쪽수를 검수하면 읽을 수 있다. 목차는 EUR-Lex 본문의 장(CHAPTER) 구조에서 옮겼고, 조문 범위는 PDF로 다시 확인한다. 전과정 탄소발자국(제7조)·배터리 여권(제77조) 등 LCA·공시 실무와 직접 닿는 조문이 많다.",
+ "docs": {
+  "eubat": {
+   "short": "배터리법",
+   "name": "EU 배터리 규정 (Regulation (EU) 2023/1542 · 배터리와 폐배터리)",
+   "file": "pdf/eubat.pdf",
+   "lang": "en",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1542",
+   "html": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R1542"
+  }
+ },
+ "schedule": [
+  {
+   "from": 1,
+   "to": 2,
+   "label": "CHAPTER I~VII (8개)"
+  },
+  {
+   "from": 3,
+   "to": 3,
+   "label": "CHAPTER VIII~부속서 (7개)"
+  }
+ ],
+ "parts": [
+  {
+   "id": "p",
+   "label": "배터리 규정"
+  }
+ ],
+ "chapters": [
+  {
+   "id": "c1",
+   "part": "p",
+   "label": "CHAPTER I General provisions",
+   "paras": "Articles 1~3 · 대상·범위·정의"
+  },
+  {
+   "id": "c2",
+   "part": "p",
+   "label": "CHAPTER II Sustainability and safety requirements",
+   "paras": "탄소발자국·재활용 원료·성능·내구성 등"
+  },
+  {
+   "id": "c3",
+   "part": "p",
+   "label": "CHAPTER III Labelling, marking and information requirements",
+   "paras": "라벨·표시·정보 제공"
+  },
+  {
+   "id": "c4",
+   "part": "p",
+   "label": "CHAPTER IV Conformity of batteries",
+   "paras": "적합성 평가"
+  },
+  {
+   "id": "c5",
+   "part": "p",
+   "label": "CHAPTER V Notification of conformity assessment bodies",
+   "paras": "적합성 평가기관 통지"
+  },
+  {
+   "id": "c6",
+   "part": "p",
+   "label": "CHAPTER VI Obligations of economic operators",
+   "paras": "제조자·수입자·유통자 의무"
+  },
+  {
+   "id": "c7",
+   "part": "p",
+   "label": "CHAPTER VII Due diligence obligations",
+   "paras": "배터리 공급망 실사"
+  },
+  {
+   "id": "c8",
+   "part": "p",
+   "label": "CHAPTER VIII Management of waste batteries",
+   "paras": "폐배터리 관리"
+  },
+  {
+   "id": "c9",
+   "part": "p",
+   "label": "CHAPTER IX Digital battery passport",
+   "paras": "배터리 여권",
+   "links": [
+    {
+     "to": "c2",
+     "label": "CHAPTER II 탄소발자국"
+    }
+   ]
+  },
+  {
+   "id": "c10",
+   "part": "p",
+   "label": "CHAPTER X Union market surveillance and procedures",
+   "paras": "시장 감시"
+  },
+  {
+   "id": "c11",
+   "part": "p",
+   "label": "CHAPTER XI~XIII Green public procurement · Delegated powers · Amendments",
+   "paras": "공공조달·위임권·개정·경과규정"
+  },
+  {
+   "id": "cA",
+   "part": "p",
+   "label": "ANNEXES",
+   "paras": "부속서 (탄소발자국 산정·여권 정보 등)"
+  }
+ ],
+ "items": [
+  {
+   "id": "b-1",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c1",
+   "title": "대상, 범위, 정의",
+   "map": "",
+   "rangeText": "CHAPTER I · Articles 1~3",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-2",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c2",
+   "title": "지속가능성·안전 요구 ① 유해물질, 탄소발자국",
+   "map": "",
+   "rangeText": "CHAPTER II 앞부분 (Article 7 탄소발자국 포함)",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-3",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c2",
+   "title": "지속가능성·안전 요구 ② 재활용 원료, 성능, 내구성, 탈착·교체",
+   "map": "",
+   "rangeText": "CHAPTER II 뒷부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-4",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c3",
+   "title": "라벨·표시·정보 요구",
+   "map": "",
+   "rangeText": "CHAPTER III",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-5",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c4",
+   "title": "배터리의 적합성",
+   "map": "",
+   "rangeText": "CHAPTER IV",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-6",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c5",
+   "title": "적합성 평가기관의 통지",
+   "map": "",
+   "rangeText": "CHAPTER V",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-7",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c6",
+   "title": "사업자의 의무",
+   "map": "",
+   "rangeText": "CHAPTER VI",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-8",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c7",
+   "title": "공급망 실사 의무",
+   "map": "",
+   "rangeText": "CHAPTER VII",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-9",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c8",
+   "title": "폐배터리 관리 ① 수거·처리",
+   "map": "",
+   "rangeText": "CHAPTER VIII 앞부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-10",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c8",
+   "title": "폐배터리 관리 ② 재활용 효율·회수 목표·보고",
+   "map": "",
+   "rangeText": "CHAPTER VIII 뒷부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-11",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c9",
+   "title": "배터리 여권",
+   "map": "",
+   "rangeText": "CHAPTER IX (Article 77~)",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-12",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c10",
+   "title": "시장 감시와 절차",
+   "map": "",
+   "rangeText": "CHAPTER X",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-13",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "c11",
+   "title": "공공조달, 위임권, 개정, 경과규정",
+   "map": "",
+   "rangeText": "CHAPTER XI~XIII",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-14",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "cA",
+   "title": "부속서 ① 탄소발자국·재활용 원료 관련",
+   "map": "",
+   "rangeText": "ANNEXES (탄소발자국 산정 관련 부속서)",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "b-15",
+   "doc": "eubat",
+   "part": "p",
+   "ch": "cA",
+   "title": "부속서 ② 여권 정보·라벨·적합성 절차 관련",
+   "map": "",
+   "rangeText": "ANNEXES (나머지)",
+   "ranges": [],
+   "refs": []
+  }
+ ]
+}

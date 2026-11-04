@@ -1,0 +1,240 @@
+{
+ "id": "espr",
+ "code": "DPP·ESPR",
+ "name": "EU 지속가능제품 에코디자인 규정 (Regulation (EU) 2024/1781 · 디지털 제품 여권 포함)",
+ "kind": "EU 규정",
+ "edition": "Regulation (EU) 2024/1781 · 2024.6.13 채택 · 2024.7.18 발효",
+ "issuer": "유럽연합 (EUR-Lex 공식 관보)",
+ "status": "prep",
+ "note": "EU 공식 법령. EUR-Lex의 영어판 PDF를 넣고 쪽수를 검수하면 읽을 수 있다. 목차는 EUR-Lex 본문의 장(CHAPTER) 구조에서 옮겼고, 조문 범위는 PDF로 다시 확인한다. 디지털 제품 여권(DPP)은 별도 법이 아니라 이 규정의 CHAPTER III다. 사용자가 'DPP'로 부른 것을 이 확장팩으로 둔다.",
+ "docs": {
+  "espr": {
+   "short": "DPP·ESPR",
+   "name": "EU 지속가능제품 에코디자인 규정 (Regulation (EU) 2024/1781 · 디지털 제품 여권 포함)",
+   "file": "pdf/espr.pdf",
+   "lang": "en",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1781",
+   "html": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1781"
+  }
+ },
+ "schedule": [
+  {
+   "from": 1,
+   "to": 1,
+   "label": "CHAPTER I~III (5개)"
+  },
+  {
+   "from": 2,
+   "to": 2,
+   "label": "CHAPTER IV~부속서 (7개)"
+  }
+ ],
+ "parts": [
+  {
+   "id": "p",
+   "label": "ESPR"
+  }
+ ],
+ "chapters": [
+  {
+   "id": "c1",
+   "part": "p",
+   "label": "CHAPTER I General provisions",
+   "paras": "대상·범위·정의"
+  },
+  {
+   "id": "c2",
+   "part": "p",
+   "label": "CHAPTER II Ecodesign requirements",
+   "paras": "에코디자인 요구(성능·정보 요구)"
+  },
+  {
+   "id": "c3",
+   "part": "p",
+   "label": "CHAPTER III Digital product passport",
+   "paras": "디지털 제품 여권",
+   "links": [
+    {
+     "to": "c2",
+     "label": "CHAPTER II 정보 요구"
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "part": "p",
+   "label": "CHAPTER IV Labels",
+   "paras": "라벨"
+  },
+  {
+   "id": "c5",
+   "part": "p",
+   "label": "CHAPTER V Priorities, planning and consultation",
+   "paras": "우선순위·작업계획"
+  },
+  {
+   "id": "c6",
+   "part": "p",
+   "label": "CHAPTER VI Destruction of unsold consumer products",
+   "paras": "미판매 소비재 폐기"
+  },
+  {
+   "id": "c7",
+   "part": "p",
+   "label": "CHAPTER VII Obligations of economic operators",
+   "paras": "사업자 의무"
+  },
+  {
+   "id": "c8",
+   "part": "p",
+   "label": "CHAPTER VIII~XI Conformity · Notification of bodies · Incentives · Market surveillance",
+   "paras": "적합성·평가기관·인센티브·시장감시"
+  },
+  {
+   "id": "c9",
+   "part": "p",
+   "label": "CHAPTER XII~ Delegated powers · Final provisions",
+   "paras": "위임권·최종 조항"
+  },
+  {
+   "id": "cA",
+   "part": "p",
+   "label": "ANNEXES",
+   "paras": "부속서 (제품 파라미터·정보 요구 등)"
+  }
+ ],
+ "items": [
+  {
+   "id": "e-1",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c1",
+   "title": "대상, 범위, 정의",
+   "map": "",
+   "rangeText": "CHAPTER I",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-2",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c2",
+   "title": "에코디자인 요구 ① 일반 원칙과 제품 파라미터",
+   "map": "",
+   "rangeText": "CHAPTER II 앞부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-3",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c2",
+   "title": "에코디자인 요구 ② 성능 요구와 정보 요구",
+   "map": "",
+   "rangeText": "CHAPTER II 뒷부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-4",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c3",
+   "title": "디지털 제품 여권 ① 일반 요구와 내용",
+   "map": "",
+   "rangeText": "CHAPTER III 앞부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-5",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c3",
+   "title": "디지털 제품 여권 ② 기술 설계, 등록부, 세관 통제",
+   "map": "",
+   "rangeText": "CHAPTER III 뒷부분",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-6",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c4",
+   "title": "라벨",
+   "map": "",
+   "rangeText": "CHAPTER IV",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-7",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c5",
+   "title": "우선순위, 작업계획, 협의",
+   "map": "",
+   "rangeText": "CHAPTER V",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-8",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c6",
+   "title": "미판매 소비재의 폐기",
+   "map": "",
+   "rangeText": "CHAPTER VI",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-9",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c7",
+   "title": "사업자의 의무",
+   "map": "",
+   "rangeText": "CHAPTER VII",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-10",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c8",
+   "title": "적합성, 평가기관 통지, 인센티브, 시장감시",
+   "map": "",
+   "rangeText": "CHAPTER VIII~XI",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-11",
+   "doc": "espr",
+   "part": "p",
+   "ch": "c9",
+   "title": "위임권과 최종 조항",
+   "map": "",
+   "rangeText": "CHAPTER XII~",
+   "ranges": [],
+   "refs": []
+  },
+  {
+   "id": "e-12",
+   "doc": "espr",
+   "part": "p",
+   "ch": "cA",
+   "title": "부속서",
+   "map": "",
+   "rangeText": "ANNEXES",
+   "ranges": [],
+   "refs": []
+  }
+ ]
+}
