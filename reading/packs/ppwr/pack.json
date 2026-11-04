@@ -5,8 +5,8 @@
  "kind": "EU 규정",
  "edition": "Regulation (EU) 2025/40 · 2024.12.19 채택 · 2025.2.11 발효 · 2026.8.12 적용",
  "issuer": "유럽연합 (EUR-Lex 공식 관보)",
- "status": "prep",
- "note": "EU 공식 법령. EUR-Lex의 영어판 PDF를 넣고 쪽수를 검수하면 읽을 수 있다. 목차는 EUR-Lex 본문의 장(CHAPTER) 구조에서 옮겼고, 조문 범위는 PDF로 다시 확인한다. 포장의 재활용 가능성·재생원료 함량·최소화·재사용 목표 등. 장 구조는 PDF 검수 때 확정한다.",
+ "status": "ready",
+ "note": "EU 공식 법령. EUR-Lex의 영어판 PDF를 넣고 쪽수를 검수하면 읽을 수 있다. 2026-11-04 EUR-Lex PDF(124쪽)로 검수. 장별 조문 범위는 PDF에서 확인. 쪽 번호는 PDF 쪽 순서.",
  "docs": {
   "ppwr": {
    "short": "PPWR",
@@ -14,19 +14,20 @@
    "file": "pdf/ppwr.pdf",
    "lang": "en",
    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32025R0040",
-   "html": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0040"
+   "html": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0040",
+   "pages": 119
   }
  },
  "schedule": [
   {
    "from": 1,
    "to": 1,
-   "label": "CHAPTER I~IV (5개)"
+   "label": "CHAPTER I~V (6개)"
   },
   {
    "from": 2,
    "to": 2,
-   "label": "CHAPTER V~부속서 (6개)"
+   "label": "CHAPTER VI~부속서 (7개)"
   }
  ],
  "parts": [
@@ -40,178 +41,345 @@
    "id": "c1",
    "part": "p",
    "label": "CHAPTER I General provisions",
-   "paras": "대상·범위·정의"
+   "paras": "Articles 1~4"
   },
   {
    "id": "c2",
    "part": "p",
    "label": "CHAPTER II Sustainability requirements",
-   "paras": "유해물질·재활용 가능성·재생원료·최소화"
+   "paras": "Articles 5~11",
+   "links": [
+    {
+     "to": "cA1",
+     "label": "ANNEX II 재활용 가능성"
+    },
+    {
+     "to": "cA1",
+     "label": "ANNEX IV 최소화 평가"
+    }
+   ]
   },
   {
    "id": "c3",
    "part": "p",
    "label": "CHAPTER III Labelling, marking and information requirements",
-   "paras": "라벨·표시·정보"
+   "paras": "Articles 12~14"
   },
   {
    "id": "c4",
    "part": "p",
-   "label": "CHAPTER IV Obligations of economic operators",
-   "paras": "사업자 의무"
+   "label": "CHAPTER IV General obligations",
+   "paras": "Articles 15~23"
   },
   {
    "id": "c5",
    "part": "p",
-   "label": "CHAPTER V Obligations of economic operators other than those in Chapter IV",
-   "paras": "재사용·리필 등 추가 의무"
+   "label": "CHAPTER V Obligations to reduce packaging and packaging waste",
+   "paras": "Articles 24~33",
+   "links": [
+    {
+     "to": "cA2",
+     "label": "ANNEX V·VI 포장 형태 제한·재사용"
+    }
+   ]
   },
   {
    "id": "c6",
    "part": "p",
-   "label": "CHAPTER VI Conformity · Notification of bodies",
-   "paras": "적합성·평가기관"
-  },
-  {
-   "id": "c7",
-   "part": "p",
-   "label": "CHAPTER VII Management of packaging and packaging waste",
-   "paras": "포장폐기물 관리·생산자책임·수거·재활용 목표"
+   "label": "CHAPTER VI~VII Plastic carrier bags · Conformity",
+   "paras": "Articles 34~39"
   },
   {
    "id": "c8",
    "part": "p",
-   "label": "CHAPTER VIII~ Safeguard procedures · Green public procurement · Delegated powers · Final provisions",
-   "paras": "세이프가드·공공조달·위임권·최종 조항"
+   "label": "CHAPTER VIII Management of packaging and packaging waste",
+   "paras": "Articles 40~57"
   },
   {
-   "id": "cA",
+   "id": "c9",
    "part": "p",
-   "label": "ANNEXES",
+   "label": "CHAPTER IX~XIII Safeguard · Procurement · Delegation · Amendments · Final",
+   "paras": "Articles 58~71"
+  },
+  {
+   "id": "cA1",
+   "part": "p",
+   "label": "ANNEX I~IV 포장 예시 · 재활용 가능성 · 퇴비화 · 최소화 평가",
+   "paras": "부속서"
+  },
+  {
+   "id": "cA2",
+   "part": "p",
+   "label": "ANNEX V~VIII 포장 형태 제한 · 재사용 체계 · 적합성 절차 · 적합성 선언",
+   "paras": "부속서"
+  },
+  {
+   "id": "cA3",
+   "part": "p",
+   "label": "ANNEX IX~XIII 등록·보고 정보 · 보증금 반환 · 이행계획 · 데이터베이스 · 대조표",
    "paras": "부속서"
   }
  ],
  "items": [
   {
-   "id": "pw-1",
+   "id": "ppwr-1",
    "doc": "ppwr",
    "part": "p",
    "ch": "c1",
-   "title": "대상, 범위, 정의",
-   "map": "",
-   "rangeText": "CHAPTER I",
-   "ranges": [],
-   "refs": []
+   "title": "대상, 범위, 정의, 자유 이동",
+   "map": "CHAPTER I. 대상(Article 1), 범위(Article 2), 정의(Article 3), 역내 자유 이동(Article 4)을 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 1~4",
+     "start": 30,
+     "end": 38
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "pw-2",
+   "id": "ppwr-2",
    "doc": "ppwr",
    "part": "p",
    "ch": "c2",
-   "title": "지속가능성 요구 ① 유해물질, 재활용 가능성",
-   "map": "",
-   "rangeText": "CHAPTER II 앞부분",
-   "ranges": [],
-   "refs": []
+   "title": "지속가능성 요구 ① 유해물질, 재활용 가능 포장",
+   "map": "CHAPTER II 앞부분. 포장 속 우려 물질(Article 5)과 재활용 가능한 포장(Article 6)을 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 5~6",
+     "start": 38,
+     "end": 43
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "pw-3",
+   "id": "ppwr-3",
    "doc": "ppwr",
    "part": "p",
    "ch": "c2",
-   "title": "지속가능성 요구 ② 재생원료, 포장 최소화, 재사용 포장",
-   "map": "",
-   "rangeText": "CHAPTER II 뒷부분",
-   "ranges": [],
-   "refs": []
+   "title": "지속가능성 요구 ② 플라스틱 재생원료, 바이오 플라스틱, 퇴비화, 포장 최소화, 재사용 포장",
+   "map": "CHAPTER II 뒷부분. 플라스틱 포장의 재생원료 최소 함량(Article 7), 바이오 기반 원료(Article 8), 퇴비화 포장(Article 9), 포장 최소화(Article 10), 재사용 포장(Article 11)을 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 7~11",
+     "start": 43,
+     "end": 48
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "pw-4",
+   "id": "ppwr-4",
    "doc": "ppwr",
    "part": "p",
    "ch": "c3",
    "title": "라벨·표시·정보 요구",
-   "map": "",
-   "rangeText": "CHAPTER III",
-   "ranges": [],
-   "refs": []
+   "map": "CHAPTER III. 포장 라벨(Article 12), 폐기물 수거함 표시(Article 13), 환경 주장(Article 14)을 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 12~14",
+     "start": 48,
+     "end": 51
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "pw-5",
+   "id": "ppwr-5",
    "doc": "ppwr",
    "part": "p",
    "ch": "c4",
-   "title": "사업자의 의무",
-   "map": "",
-   "rangeText": "CHAPTER IV",
-   "ranges": [],
-   "refs": []
+   "title": "사업자의 일반 의무",
+   "map": "CHAPTER IV. 제조자·공급자·권한 대리인·수입자·유통자·풀필먼트·온라인 플랫폼의 의무와 사업자 식별(Article 15~23)을 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 15~23",
+     "start": 51,
+     "end": 56
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "pw-6",
+   "id": "ppwr-6",
    "doc": "ppwr",
    "part": "p",
    "ch": "c5",
-   "title": "재사용·리필 등 추가 의무",
-   "map": "",
-   "rangeText": "CHAPTER V",
-   "ranges": [],
-   "refs": []
+   "title": "포장·포장폐기물 감축 의무: 과잉 포장, 포장 형태 제한, 재사용 목표, 리필",
+   "map": "CHAPTER V. 과잉 포장 제한(Article 24), 특정 포장 형태의 사용 제한(Article 25), 재사용 체계 요건(Article 27)과 재사용·리필 의무·목표(Article 28~33)를 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 24~33",
+     "start": 56,
+     "end": 64
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "pw-7",
+   "id": "ppwr-7",
    "doc": "ppwr",
    "part": "p",
    "ch": "c6",
-   "title": "적합성과 평가기관 통지",
-   "map": "",
-   "rangeText": "CHAPTER VI",
-   "ranges": [],
-   "refs": []
+   "title": "플라스틱 봉투, 포장의 적합성",
+   "map": "CHAPTER VI~VII. 플라스틱 봉투(Article 34), 적합성 평가·선언·추정(Article 35~39)을 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 34~39",
+     "start": 64,
+     "end": 66
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "pw-8",
-   "doc": "ppwr",
-   "part": "p",
-   "ch": "c7",
-   "title": "포장폐기물 관리 ① 생산자책임·수거",
-   "map": "",
-   "rangeText": "CHAPTER VII 앞부분",
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "pw-9",
-   "doc": "ppwr",
-   "part": "p",
-   "ch": "c7",
-   "title": "포장폐기물 관리 ② 재활용 목표·보고",
-   "map": "",
-   "rangeText": "CHAPTER VII 뒷부분",
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "pw-10",
+   "id": "ppwr-8",
    "doc": "ppwr",
    "part": "p",
    "ch": "c8",
-   "title": "세이프가드, 공공조달, 위임권, 최종 조항",
-   "map": "",
-   "rangeText": "CHAPTER VIII~",
-   "ranges": [],
-   "refs": []
+   "title": "포장폐기물 관리 ① 생산자 등록·확대 생산자 책임·수거",
+   "map": "CHAPTER VIII 앞부분. 생산자(Article 40~41), 생산자 책임 조직·등록(Article 42~44), 확대 생산자 책임(Article 45~46), 수거 체계(Article 47~49)를 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 40~49",
+     "start": 66,
+     "end": 75
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "pw-11",
+   "id": "ppwr-9",
    "doc": "ppwr",
    "part": "p",
-   "ch": "cA",
-   "title": "부속서",
-   "map": "",
-   "rangeText": "ANNEXES",
-   "ranges": [],
-   "refs": []
+   "ch": "c8",
+   "title": "포장폐기물 관리 ② 보증금 반환 체계, 재사용·재활용 목표, 보고",
+   "map": "CHAPTER VIII 뒷부분. 보증금 반환 체계(Article 50), 재사용·리필 체계(Article 51), 재활용 목표와 이행계획(Article 52~53), 재활용률 계산과 데이터·보고(Article 54~57)를 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 50~57",
+     "start": 75,
+     "end": 82
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
+  },
+  {
+   "id": "ppwr-10",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "c9",
+   "title": "세이프가드, 공공조달, 위임권, 개정, 최종 조항",
+   "map": "CHAPTER IX~XIII. 세이프가드 절차(Article 58~62), 녹색 공공조달(Article 63), 위임권·위원회(Article 64~65), 다른 법령 개정(Article 66~67), 벌칙·평가·폐지·발효(Article 68~71)를 정한다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "본문",
+     "label": "Articles 58~71",
+     "start": 82,
+     "end": 91
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
+  },
+  {
+   "id": "ppwr-11",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "cA1",
+   "title": "부속서 I~IV: 포장 예시 목록, 재활용 가능성 평가, 퇴비화 포장, 최소화 평가 방법",
+   "map": "부속서 I은 포장 정의에 드는 품목 예시, II는 재활용 가능성 평가 범주와 파라미터, III은 퇴비화 포장, IV는 포장 최소화 평가 방법이다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "부록",
+     "label": "ANNEX I~IV",
+     "start": 91,
+     "end": 102
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
+  },
+  {
+   "id": "ppwr-12",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "cA2",
+   "title": "부속서 V~VIII: 포장 형태 사용 제한, 재사용 체계·리필 요건, 적합성 절차, 적합성 선언",
+   "map": "부속서 V는 사용이 제한되는 포장 형태, VI은 재사용 체계와 리필 스테이션 요건, VII은 적합성 평가 절차, VIII은 EU 적합성 선언 양식이다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "부록",
+     "label": "ANNEX V~VIII",
+     "start": 102,
+     "end": 109
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
+  },
+  {
+   "id": "ppwr-13",
+   "doc": "ppwr",
+   "part": "p",
+   "ch": "cA3",
+   "title": "부속서 IX~XIII: 등록·보고 정보, 보증금 반환 최소 요건, 이행계획, 회원국 데이터베이스, 대조표",
+   "map": "부속서 IX는 생산자 등록·보고 정보, X는 보증금 반환 체계 최소 요건, XI은 이행계획, XII는 회원국 데이터베이스에 담을 데이터, XIII은 대조표다.",
+   "ranges": [
+    {
+     "doc": "ppwr",
+     "kind": "부록",
+     "label": "ANNEX IX~XIII",
+     "start": 109,
+     "end": 119
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   }
  ]
 }

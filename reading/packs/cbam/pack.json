@@ -5,8 +5,8 @@
  "kind": "EU 규정",
  "edition": "Regulation (EU) 2023/956 · 2023.5.10 채택 · 2023.10.1 전환기간 시작 · 2026.1.1 본격 시행",
  "issuer": "유럽연합 (EUR-Lex 공식 관보)",
- "status": "prep",
- "note": "EU 공식 법령. EUR-Lex의 영어판 PDF를 넣고 쪽수를 검수하면 읽을 수 있다. 목차는 EUR-Lex 본문의 장(CHAPTER) 구조에서 옮겼고, 조문 범위는 PDF로 다시 확인한다. 장별 조문 범위(I 1~3, II 4~10, III 11~19, IV 20~24, V 25, VI 26~27, VII 28~29)는 2026-11-04 EUR-Lex 본문에서 확인했다. 내재배출량 산정(부속서 IV)이 온실가스 실무의 핵심이다.",
+ "status": "ready",
+ "note": "EU 공식 법령. EUR-Lex의 영어판 PDF를 넣고 쪽수를 검수하면 읽을 수 있다. 2026-11-04 EUR-Lex PDF(53쪽)로 검수. 장별 조문 범위는 PDF에서 확인(I 1~3 · II 4~10 · III 11~19 · IV 20~24 · V 25 · VI 26~27 · VII 28~29 · VIII 30 · IX 31 · X 32~35 · XI 36). 쪽 번호는 PDF 쪽 순서.",
  "docs": {
   "cbam": {
    "short": "CBAM",
@@ -14,7 +14,8 @@
    "file": "pdf/cbam.pdf",
    "lang": "en",
    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R0956",
-   "html": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0956"
+   "html": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0956",
+   "pages": 52
   }
  },
  "schedule": [
@@ -26,7 +27,7 @@
   {
    "from": 2,
    "to": 2,
-   "label": "CHAPTER V~부속서 (5개)"
+   "label": "CHAPTER V~부속서 (4개)"
   }
  ],
  "parts": [
@@ -46,10 +47,10 @@
    "id": "c2",
    "part": "p",
    "label": "CHAPTER II Obligations and rights of authorised CBAM declarants",
-   "paras": "Articles 4~10 · 신고·내재배출량·검증",
+   "paras": "Articles 4~10",
    "links": [
     {
-     "to": "cA",
+     "to": "cA2",
      "label": "ANNEX IV 내재배출량 산정"
     }
    ]
@@ -69,138 +70,214 @@
   {
    "id": "c5",
    "part": "p",
-   "label": "CHAPTER V Rules applicable to the importation of goods",
-   "paras": "Article 25"
+   "label": "CHAPTER V~VII Importation · Enforcement · Delegation",
+   "paras": "Articles 25~29"
   },
   {
    "id": "c6",
    "part": "p",
-   "label": "CHAPTER VI~VII Enforcement · Delegation and committee",
-   "paras": "Articles 26~29"
+   "label": "CHAPTER VIII~XI Reporting · ETS coordination · Transitional · Final",
+   "paras": "Articles 30~36"
   },
   {
-   "id": "c7",
+   "id": "cA1",
    "part": "p",
-   "label": "CHAPTER VIII~ Reporting and review · Final provisions",
-   "paras": "Article 30~ · 전환기간(Article 32~)"
+   "label": "ANNEX I~III 대상 품목·간접배출 제외 품목·대상 외 국가",
+   "paras": "부속서"
   },
   {
-   "id": "cA",
+   "id": "cA2",
    "part": "p",
-   "label": "ANNEXES I~IV",
-   "paras": "대상 품목·대상국·산정 방법 등"
+   "label": "ANNEX IV~VI 내재배출량 산정·기록·검증",
+   "paras": "부속서",
+   "links": [
+    {
+     "to": "c2",
+     "label": "Article 7 내재배출량"
+    }
+   ]
   }
  ],
  "items": [
   {
-   "id": "cb-1",
+   "id": "cbam-1",
    "doc": "cbam",
    "part": "p",
    "ch": "c1",
    "title": "대상, 범위, 정의",
-   "map": "",
-   "rangeText": "CHAPTER I · Articles 1~3",
-   "ranges": [],
-   "refs": []
+   "map": "CHAPTER I. 이 규정이 무엇을 정하고(Article 1), 어떤 수입품에 적용되며(Article 2), 뒤에서 쓰는 용어를 어떻게 정의하는지(Article 3) 정한다.",
+   "ranges": [
+    {
+     "doc": "cbam",
+     "kind": "본문",
+     "label": "Articles 1~3",
+     "start": 13,
+     "end": 17
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "cb-2",
+   "id": "cbam-2",
    "doc": "cbam",
    "part": "p",
    "ch": "c2",
-   "title": "승인 CBAM 신고인 ① 승인 신청과 CBAM 신고",
-   "map": "",
-   "rangeText": "Articles 4~6",
-   "ranges": [],
-   "refs": []
+   "title": "승인 CBAM 신고인 ① 신고 의무, 승인 신청",
+   "map": "CHAPTER II 앞부분. 수입품의 CBAM 신고 의무(Article 4), 승인 신청(Article 5), CBAM 신고서(Article 6)를 정한다.",
+   "ranges": [
+    {
+     "doc": "cbam",
+     "kind": "본문",
+     "label": "Articles 4~6",
+     "start": 17,
+     "end": 19
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "cb-3",
+   "id": "cbam-3",
    "doc": "cbam",
    "part": "p",
    "ch": "c2",
-   "title": "승인 CBAM 신고인 ② 내재배출량 산정, 검증, 원산지 탄소가격",
-   "map": "",
-   "rangeText": "Articles 7~10",
-   "ranges": [],
-   "refs": []
+   "title": "승인 CBAM 신고인 ② 내재배출량 산정, 검증, 원산지 탄소가격, 사업장 등록",
+   "map": "CHAPTER II 뒷부분. 내재배출량 산정(Article 7), 검증(Article 8), 원산지에서 낸 탄소가격의 공제(Article 9), 제3국 사업장 등록(Article 10)을 정한다.",
+   "ranges": [
+    {
+     "doc": "cbam",
+     "kind": "본문",
+     "label": "Articles 7~10",
+     "start": 19,
+     "end": 22
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "cb-4",
+   "id": "cbam-4",
    "doc": "cbam",
    "part": "p",
    "ch": "c3",
-   "title": "관할당국과 CBAM 등록부",
-   "map": "",
-   "rangeText": "Articles 11~19",
-   "ranges": [],
-   "refs": []
+   "title": "관할당국, CBAM 등록부, 승인 절차",
+   "map": "CHAPTER III. 각국 관할당국(Article 11~13), CBAM 등록부(Article 14), 위험 분석과 승인 절차·보증·검토(Article 15~19)를 정한다.",
+   "ranges": [
+    {
+     "doc": "cbam",
+     "kind": "본문",
+     "label": "Articles 11~19",
+     "start": 22,
+     "end": 27
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "cb-5",
+   "id": "cbam-5",
    "doc": "cbam",
    "part": "p",
    "ch": "c4",
-   "title": "CBAM 인증서: 판매, 제출, 재매입, 소각",
-   "map": "",
-   "rangeText": "Articles 20~24",
-   "ranges": [],
-   "refs": []
+   "title": "CBAM 인증서: 판매, 가격, 제출, 재매입, 소각",
+   "map": "CHAPTER IV. 인증서의 판매(Article 20)와 가격(Article 21), 제출(Article 22), 재매입(Article 23), 소각(Article 24)을 정한다.",
+   "ranges": [
+    {
+     "doc": "cbam",
+     "kind": "본문",
+     "label": "Articles 20~24",
+     "start": 27,
+     "end": 30
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "cb-6",
+   "id": "cbam-6",
    "doc": "cbam",
    "part": "p",
    "ch": "c5",
-   "title": "수입 규칙",
-   "map": "",
-   "rangeText": "Article 25",
-   "ranges": [],
-   "refs": []
+   "title": "수입 규칙, 집행, 위임권과 위원회",
+   "map": "CHAPTER V~VII. 세관과의 관계(Article 25), 벌칙과 우회 방지(Article 26~27), 위임권 행사와 위원회 절차(Article 28~29)를 정한다.",
+   "ranges": [
+    {
+     "doc": "cbam",
+     "kind": "본문",
+     "label": "Articles 25~29",
+     "start": 30,
+     "end": 33
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "cb-7",
+   "id": "cbam-7",
    "doc": "cbam",
    "part": "p",
    "ch": "c6",
-   "title": "집행, 위임권, 위원회 절차",
-   "map": "",
-   "rangeText": "Articles 26~29",
-   "ranges": [],
-   "refs": []
+   "title": "보고·검토, EU ETS 무상할당과의 조정, 전환기간, 최종 조항",
+   "map": "CHAPTER VIII~XI. 위원회의 보고와 검토(Article 30), 무상할당과의 조정(Article 31), 2023.10~2025.12 전환기간의 보고 의무(Article 32~35), 발효와 적용(Article 36)을 정한다.",
+   "ranges": [
+    {
+     "doc": "cbam",
+     "kind": "본문",
+     "label": "Articles 30~36",
+     "start": 33,
+     "end": 39
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "cb-8",
+   "id": "cbam-8",
    "doc": "cbam",
    "part": "p",
-   "ch": "c7",
-   "title": "보고·검토와 최종 조항, 전환기간",
-   "map": "",
-   "rangeText": "Article 30~",
-   "ranges": [],
-   "refs": []
+   "ch": "cA1",
+   "title": "부속서 I~III: 대상 품목과 온실가스, 직접배출만 세는 품목, 대상 외 국가",
+   "map": "부속서 I은 대상 품목(CN 코드)과 해당 온실가스, 부속서 II는 간접배출을 세지 않는 품목, 부속서 III은 이 규정 적용 밖의 국가·영토를 적는다.",
+   "ranges": [
+    {
+     "doc": "cbam",
+     "kind": "부록",
+     "label": "ANNEX I~III",
+     "start": 39,
+     "end": 47
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "cb-9",
+   "id": "cbam-9",
    "doc": "cbam",
    "part": "p",
-   "ch": "cA",
-   "title": "부속서 I~III: 대상 품목과 온실가스, 대상 국가",
-   "map": "",
-   "rangeText": "ANNEX I~III",
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "cb-10",
-   "doc": "cbam",
-   "part": "p",
-   "ch": "cA",
-   "title": "부속서 IV: 내재배출량 산정 방법",
-   "map": "",
-   "rangeText": "ANNEX IV",
-   "ranges": [],
-   "refs": []
+   "ch": "cA2",
+   "title": "부속서 IV~VI: 내재배출량 산정 방법, 기록 요건, 검증 원칙",
+   "map": "부속서 IV는 전환기간과 본격 시행기의 내재배출량 산정 방법, 부속서 V는 산정에 쓴 정보의 기록 요건, 부속서 VI은 검증 원칙과 검증 보고서 내용을 정한다.",
+   "ranges": [
+    {
+     "doc": "cbam",
+     "kind": "부록",
+     "label": "ANNEX IV~VI",
+     "start": 47,
+     "end": 52
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   }
  ]
 }

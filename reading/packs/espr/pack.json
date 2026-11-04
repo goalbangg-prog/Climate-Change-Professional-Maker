@@ -5,8 +5,8 @@
  "kind": "EU 규정",
  "edition": "Regulation (EU) 2024/1781 · 2024.6.13 채택 · 2024.7.18 발효",
  "issuer": "유럽연합 (EUR-Lex 공식 관보)",
- "status": "prep",
- "note": "EU 공식 법령. EUR-Lex의 영어판 PDF를 넣고 쪽수를 검수하면 읽을 수 있다. 목차는 EUR-Lex 본문의 장(CHAPTER) 구조에서 옮겼고, 조문 범위는 PDF로 다시 확인한다. 디지털 제품 여권(DPP)은 별도 법이 아니라 이 규정의 CHAPTER III다. 사용자가 'DPP'로 부른 것을 이 확장팩으로 둔다.",
+ "status": "ready",
+ "note": "EU 공식 법령. EUR-Lex의 영어판 PDF를 넣고 쪽수를 검수하면 읽을 수 있다. 2026-11-04 EUR-Lex PDF(89쪽)로 검수. 장별 조문 범위는 PDF에서 확인. 쪽 번호는 PDF 쪽 순서. DPP는 CHAPTER III(Article 9~15)와 ANNEX III.",
  "docs": {
   "espr": {
    "short": "DPP·ESPR",
@@ -14,19 +14,20 @@
    "file": "pdf/espr.pdf",
    "lang": "en",
    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1781",
-   "html": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1781"
+   "html": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1781",
+   "pages": 88
   }
  },
  "schedule": [
   {
    "from": 1,
    "to": 1,
-   "label": "CHAPTER I~III (5개)"
+   "label": "CHAPTER I~V (6개)"
   },
   {
    "from": 2,
    "to": 2,
-   "label": "CHAPTER IV~부속서 (7개)"
+   "label": "CHAPTER VI~부속서 (6개)"
   }
  ],
  "parts": [
@@ -40,201 +41,319 @@
    "id": "c1",
    "part": "p",
    "label": "CHAPTER I General provisions",
-   "paras": "대상·범위·정의"
+   "paras": "Articles 1~3"
   },
   {
    "id": "c2",
    "part": "p",
    "label": "CHAPTER II Ecodesign requirements",
-   "paras": "에코디자인 요구(성능·정보 요구)"
+   "paras": "Articles 4~8",
+   "links": [
+    {
+     "to": "cA1",
+     "label": "ANNEX I 제품 파라미터"
+    }
+   ]
   },
   {
    "id": "c3",
    "part": "p",
    "label": "CHAPTER III Digital product passport",
-   "paras": "디지털 제품 여권",
+   "paras": "Articles 9~15",
    "links": [
     {
+     "to": "cA1",
+     "label": "ANNEX III 디지털 제품 여권"
+    },
+    {
      "to": "c2",
-     "label": "CHAPTER II 정보 요구"
+     "label": "Article 7 정보 요구"
     }
    ]
   },
   {
    "id": "c4",
    "part": "p",
-   "label": "CHAPTER IV Labels",
-   "paras": "라벨"
-  },
-  {
-   "id": "c5",
-   "part": "p",
-   "label": "CHAPTER V Priorities, planning and consultation",
-   "paras": "우선순위·작업계획"
+   "label": "CHAPTER IV~V Labels · Prioritisation, planning and consultation",
+   "paras": "Articles 16~22"
   },
   {
    "id": "c6",
    "part": "p",
    "label": "CHAPTER VI Destruction of unsold consumer products",
-   "paras": "미판매 소비재 폐기"
+   "paras": "Articles 23~26"
   },
   {
    "id": "c7",
    "part": "p",
    "label": "CHAPTER VII Obligations of economic operators",
-   "paras": "사업자 의무"
+   "paras": "Articles 27~38"
   },
   {
    "id": "c8",
    "part": "p",
-   "label": "CHAPTER VIII~XI Conformity · Notification of bodies · Incentives · Market surveillance",
-   "paras": "적합성·평가기관·인센티브·시장감시"
+   "label": "CHAPTER VIII~IX Conformity · Notification of bodies",
+   "paras": "Articles 39~63"
   },
   {
-   "id": "c9",
+   "id": "c10",
    "part": "p",
-   "label": "CHAPTER XII~ Delegated powers · Final provisions",
-   "paras": "위임권·최종 조항"
+   "label": "CHAPTER X~XIV Incentives · Market surveillance · Safeguard · Delegation · Final",
+   "paras": "Articles 64~80"
   },
   {
-   "id": "cA",
+   "id": "cA1",
    "part": "p",
-   "label": "ANNEXES",
-   "paras": "부속서 (제품 파라미터·정보 요구 등)"
+   "label": "ANNEX I~III 제품 파라미터 · 성능 요구 절차 · 디지털 제품 여권",
+   "paras": "부속서"
+  },
+  {
+   "id": "cA2",
+   "part": "p",
+   "label": "ANNEX IV~VIII 내부 생산 통제 · 적합성 선언 · 자율규제 · 폐기 금지 소비재 · 대조표",
+   "paras": "부속서"
   }
  ],
  "items": [
   {
-   "id": "e-1",
+   "id": "espr-1",
    "doc": "espr",
    "part": "p",
    "ch": "c1",
    "title": "대상, 범위, 정의",
-   "map": "",
-   "rangeText": "CHAPTER I",
-   "ranges": [],
-   "refs": []
+   "map": "CHAPTER I. 대상(Article 1), 적용 범위(Article 2), 정의(Article 3)를 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 1~3",
+     "start": 26,
+     "end": 31
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-2",
+   "id": "espr-2",
    "doc": "espr",
    "part": "p",
    "ch": "c2",
-   "title": "에코디자인 요구 ① 일반 원칙과 제품 파라미터",
-   "map": "",
-   "rangeText": "CHAPTER II 앞부분",
-   "ranges": [],
-   "refs": []
+   "title": "에코디자인 요구 ① 위임법령, 일반 원칙, 성능 요구",
+   "map": "CHAPTER II 앞부분. 위임법령으로 요구를 정하는 권한(Article 4), 에코디자인 요구의 일반 원칙(Article 5), 성능 요구(Article 6)를 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 4~6",
+     "start": 31,
+     "end": 36
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-3",
+   "id": "espr-3",
    "doc": "espr",
    "part": "p",
    "ch": "c2",
-   "title": "에코디자인 요구 ② 성능 요구와 정보 요구",
-   "map": "",
-   "rangeText": "CHAPTER II 뒷부분",
-   "ranges": [],
-   "refs": []
+   "title": "에코디자인 요구 ② 정보 요구, 위임법령의 내용",
+   "map": "CHAPTER II 뒷부분. 정보 요구(Article 7)와 위임법령에 담을 내용(Article 8)을 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 7~8",
+     "start": 36,
+     "end": 39
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-4",
+   "id": "espr-4",
    "doc": "espr",
    "part": "p",
    "ch": "c3",
-   "title": "디지털 제품 여권 ① 일반 요구와 내용",
-   "map": "",
-   "rangeText": "CHAPTER III 앞부분",
-   "ranges": [],
-   "refs": []
+   "title": "디지털 제품 여권 ① 일반 요구, 내용, 기술 설계",
+   "map": "CHAPTER III 앞부분. 여권의 일반 요구(Article 9), 담을 내용과 접근(Article 10), 기술 설계와 운영(Article 11)을 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 9~11",
+     "start": 39,
+     "end": 41
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-5",
+   "id": "espr-5",
    "doc": "espr",
    "part": "p",
    "ch": "c3",
-   "title": "디지털 제품 여권 ② 기술 설계, 등록부, 세관 통제",
-   "map": "",
-   "rangeText": "CHAPTER III 뒷부분",
-   "ranges": [],
-   "refs": []
+   "title": "디지털 제품 여권 ② 고유 식별자 등록부, 세관 통제, 서비스 제공자",
+   "map": "CHAPTER III 뒷부분. 등록부(Article 12), 세관 통제(Article 13), 여권 서비스 제공자(Article 14), 적용 전 경과 조치(Article 15)를 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 12~15",
+     "start": 41,
+     "end": 44
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-6",
+   "id": "espr-6",
    "doc": "espr",
    "part": "p",
    "ch": "c4",
-   "title": "라벨",
-   "map": "",
-   "rangeText": "CHAPTER IV",
-   "ranges": [],
-   "refs": []
+   "title": "라벨, 우선순위와 작업계획, 협의",
+   "map": "CHAPTER IV~V. 라벨(Article 16~17), 우선순위와 작업계획(Article 18), 자율규제 조치와 중소기업 지원, 에코디자인 포럼·협의(Article 19~22)를 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 16~22",
+     "start": 44,
+     "end": 49
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-7",
-   "doc": "espr",
-   "part": "p",
-   "ch": "c5",
-   "title": "우선순위, 작업계획, 협의",
-   "map": "",
-   "rangeText": "CHAPTER V",
-   "ranges": [],
-   "refs": []
-  },
-  {
-   "id": "e-8",
+   "id": "espr-7",
    "doc": "espr",
    "part": "p",
    "ch": "c6",
    "title": "미판매 소비재의 폐기",
-   "map": "",
-   "rangeText": "CHAPTER VI",
-   "ranges": [],
-   "refs": []
+   "map": "CHAPTER VI. 폐기 금지의 일반 원칙과 공개 의무(Article 23~26)를 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 23~26",
+     "start": 49,
+     "end": 51
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-9",
+   "id": "espr-8",
    "doc": "espr",
    "part": "p",
    "ch": "c7",
    "title": "사업자의 의무",
-   "map": "",
-   "rangeText": "CHAPTER VII",
-   "ranges": [],
-   "refs": []
+   "map": "CHAPTER VII. 제조자·권한 대리인·수입자·유통자·딜러·온라인 플랫폼 등의 의무(Article 27~38)를 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 27~38",
+     "start": 51,
+     "end": 59
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-10",
+   "id": "espr-9",
    "doc": "espr",
    "part": "p",
    "ch": "c8",
-   "title": "적합성, 평가기관 통지, 인센티브, 시장감시",
-   "map": "",
-   "rangeText": "CHAPTER VIII~XI",
-   "ranges": [],
-   "refs": []
+   "title": "제품의 적합성과 평가기관 통지",
+   "map": "CHAPTER VIII~IX. 시험·측정·적합성 추정·절차·선언·CE 표시(Article 39~47)와 통지 당국·평가기관 요건·절차(Article 48~63)를 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 39~63",
+     "start": 59,
+     "end": 70
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-11",
+   "id": "espr-10",
    "doc": "espr",
    "part": "p",
-   "ch": "c9",
-   "title": "위임권과 최종 조항",
-   "map": "",
-   "rangeText": "CHAPTER XII~",
-   "ranges": [],
-   "refs": []
+   "ch": "c10",
+   "title": "인센티브, 시장 감시, 세이프가드, 위임권, 최종 조항",
+   "map": "CHAPTER X~XIV. 인센티브와 공공조달(Article 64~65), 시장 감시(Article 66~68), 세이프가드(Article 69~71), 위임권·위원회(Article 72~73), 벌칙·평가·폐지·발효(Article 74~80)를 정한다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "본문",
+     "label": "Articles 64~80",
+     "start": 70,
+     "end": 79
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   },
   {
-   "id": "e-12",
+   "id": "espr-11",
    "doc": "espr",
    "part": "p",
-   "ch": "cA",
-   "title": "부속서",
-   "map": "",
-   "rangeText": "ANNEXES",
-   "ranges": [],
-   "refs": []
+   "ch": "cA1",
+   "title": "부속서 I~III: 제품 파라미터, 성능 요구 설정 절차, 디지털 제품 여권",
+   "map": "부속서 I은 에코디자인에 쓰는 제품 파라미터 목록, II는 성능 요구를 정하는 절차, III은 디지털 제품 여권에 담을 정보 항목이다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "부록",
+     "label": "ANNEX I~III",
+     "start": 79,
+     "end": 83
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
+  },
+  {
+   "id": "espr-12",
+   "doc": "espr",
+   "part": "p",
+   "ch": "cA2",
+   "title": "부속서 IV~VIII: 내부 생산 통제, 적합성 선언, 자율규제 기준, 폐기 금지 소비재, 대조표",
+   "map": "부속서 IV는 내부 생산 통제 절차, V는 EU 적합성 선언, VI은 자율규제 조치 기준, VII은 폐기가 금지되는 소비재 목록, VIII은 대조표다.",
+   "ranges": [
+    {
+     "doc": "espr",
+     "kind": "부록",
+     "label": "ANNEX IV~VIII",
+     "start": 83,
+     "end": 88
+    }
+   ],
+   "refs": [],
+   "guide": [],
+   "guideChecked": false
   }
  ]
 }
