@@ -20,7 +20,8 @@ function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e
 let PUB = null, PUBMODE = false;
 const store = () => PUBMODE && PUB ? PUB : S;
 const recs = p => ((store().packs[p] ||= { items: {} }).items);
-const hasOwn = () => Object.values(S.packs).some(pk => Object.values(pk.items || {}).some(r => r && (r.done || (Array.isArray(r.qs) && r.qs.some(q => q && (q.q || q.a))))));
+// 내 기록이 있는가: 다 읽었어요·궁금한 점이 하나라도 있거나, 읽기 화면을 직접 연 적이 있으면(S.last) 내 기록으로 본다
+const hasOwn = () => !!S.last || Object.values(S.packs).some(pk => Object.values(pk.items || {}).some(r => r && (r.done || (Array.isArray(r.qs) && r.qs.some(q => q && (q.q || q.a))))));
 // 쓰기는 늘 내 기록에. 공개 기록을 보다가 쓰기 시작하면 내 기록으로 바뀐다.
 const rec = (p, id) => { if (PUBMODE) { PUBMODE = false; pubBar(); } return ((S.packs[p] ||= { items: {} }).items[id] ||= { done: false, doneAt: null, note: "", tree: "", cases: [] }); };
 const isDone = (p, id) => { const st = store(); return !!(st.packs[p] && st.packs[p].items[id] && st.packs[p].items[id].done); };
@@ -38,6 +39,17 @@ const doneCount = P => P.items.filter(i => isDone(P.id, i.id)).length;
 const nextItem = P => P.items.find(i => !isDone(P.id, i.id)) || P.items[P.items.length - 1];
 const fmtDate = iso => { const d = new Date(iso); return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`; };
 const isReady = P => P.status !== "prep";
+// 지금 읽는 기준서: 가장 최근에 '다 읽었어요'를 누르거나 읽기 화면을 연 확장팩. 기록이 없으면 서재 첫 번째.
+function nowPack() {
+  const st = store(); let best = null, at = 0;
+  for (const [pid, pk] of Object.entries(st.packs || {})) {
+    if (!PACKS[pid] || !isReady(PACKS[pid])) continue;
+    for (const r of Object.values(pk.items || {})) { const t = r && r.doneAt ? Date.parse(r.doneAt) || 0 : 0; if (t > at) { at = t; best = pid; } }
+  }
+  const l = !PUBMODE && S.last;
+  if (l && PACKS[l.pack] && isReady(PACKS[l.pack]) && (Date.parse(l.at) || 0) >= at) best = l.pack;
+  return PACKS[best] || PACKS[ORDER.find(id => isReady(PACKS[id]))];
+}
 // 한글 약어가 길면(예: 목표관리) 큰 배지에서 글자를 줄인다
 const badge = (P, cls = "") => `<span class="code ${cls} ${/[가-힣]{4,}/.test(P.code) || P.code.length > 6 ? "wide" : ""}">${esc(P.code)}</span>`;
 // 원문 목차의 장(chapters). 없으면 part 하나를 장 하나로 본다.
@@ -93,7 +105,7 @@ function dotMap(P, cur) {
     `<span class="dg" title="${esc(c.label)}">${chItems(P, c).map(x => `<i class="${x.id === cur ? "cur" : isDone(P.id, x.id) ? "done" : ""}" title="${esc(x.title)}"></i>`).join("")}</span>`).join("")}</div></div>`).join("")}</div>`;
 }
 function nowCard() {
-  const P = PACKS[ORDER.find(id => isReady(PACKS[id]))]; if (!P) return "";
+  const P = nowPack(); if (!P) return "";
   const n = doneCount(P), t = P.items.length, nx = nextItem(P), wk = weekInfo(P);
   return `<section class="nowcard" aria-label="지금 읽는 기준서">
     <div class="nc-main"><p class="hero-k">지금 읽는 기준서 · ${badge(P)} ${esc(P.name)}</p>
@@ -257,7 +269,10 @@ function read(P, id, step) {
   const idx = P.items.findIndex(i => i.id === id);
   if (idx < 0) { location.hash = `#/p/${P.id}`; return; }
   const key = P.id + "/" + id; CUR_ITEM = key;
-  if (VIEW.key !== key) { VIEW = { key, step: 1, part: 0 }; PEEK = false; }
+  if (VIEW.key !== key) {
+    VIEW = { key, step: 1, part: 0 }; PEEK = false; S.last = { pack: P.id, at: new Date().toISOString() }; save();
+    if (PUBMODE) { PUBMODE = false; pubBar(); } // 읽기 화면을 열면 "직접 읽기 시작"으로 보고 공개 기록에서 내 기록으로 넘어간다
+  }
   if (step) VIEW.step = Math.min(Math.max(1, step), 3);
   const it = P.items[idx], r = recs(P.id)[id];
   const part = P.parts.find(x => x.id === it.part);
