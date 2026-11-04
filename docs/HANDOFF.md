@@ -32,7 +32,7 @@ goalbangg-prog/Climate-Change-Professional-Maker 저장소의 docs/HANDOFF.md와
 ```
 reading/
   index.html, app.js, style.css    사이트 (서버 없음, 해시 주소)
-  packs.json                       분야 5개 + 꽂힌 확장팩 목록
+  packs.json                       분야 6개 + 꽂힌 확장팩 목록
   packs/<id>/pack.json             확장팩 하나 = 기준서 하나
   packs/<id>/pdf/<doc>.pdf         원문 PDF
   glossary.json                    용어집 (원문 정의만)
@@ -123,6 +123,8 @@ Playwright(파이썬)로 1440px·390px 캡처. Pretendard(jsdelivr)는 막혀 �
 7. 지속가능경영보고·ESG 평가 분야는 원문이 정해지면(GRI, CDP 질의서 등) 확장팩으로 만든다.
 
 ## 8. 알아 둘 것
+
+- **EU 규정 4종 (packs/eubat·cbam·espr·ppwr)** 2026-11-04: 분야 'EU 제품·무역 규제'에 목차 준비로 꽂음. EU 공식 법령이라 EUR-Lex 영어판 PDF를 그대로 올려도 된다(저작권 자유). 작업 공간에서는 EUR-Lex를 못 받으므로 사용자가 PDF를 보내면 검수한다. 장(CHAPTER) 구조 중 CBAM만 본문에서 조문 범위를 확인했고(I 1~3 · II 4~10 · III 11~19 · IV 20~24 · V 25 · VI 26~27 · VII 28~29), 나머지는 PDF로 확정한다. DPP는 별도 법이 아니라 ESPR의 CHAPTER III다.
 
 - **ISO 14040 (packs/iso14040)** 2026-10-28: 원문 링크형 10항목. 목차·인쇄 쪽은 사용자가 보낸 뷰어 목차 화면에서 옮김. 공식 뷰어 주소(streamdocsId)가 바뀌면 `docs.iso14040.url`만 고친다. **ISO 14044(12항목)·ISO/TS 14027(10항목)**도 같은 방식(2026-10-28). 이 둘은 뷰어 주소를 아직 못 받아 `https://www.standard.go.kr/` + 검색 안내(`how`)로 둠.
 

@@ -62,7 +62,7 @@
 ```
 reading/
   index.html, app.js, style.css    사이트 (서버 없음, 해시 주소)
-  packs.json                       분야 5개 + 꽂힌 확장팩 목록
+  packs.json                       분야 6개 + 꽂힌 확장팩 목록
   packs/<id>/pack.json             확장팩 하나 = 기준서 하나 (원문 장 뼈대 · 항목 · 쪽 범위 · 지도 · 길잡이)
   packs/<id>/pdf/*.pdf             원문 PDF
   glossary.json                    용어집 (원문 정의만)
