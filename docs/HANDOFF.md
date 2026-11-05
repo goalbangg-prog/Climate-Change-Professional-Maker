@@ -124,6 +124,7 @@ Playwright(파이썬)로 1440px·390px 캡처. Pretendard(jsdelivr)는 막혀 �
 
 ## 8. 알아 둘 것
 
+- **첫 로딩(2026-11-05):** 확장팩 15개를 `Promise.all`로 한꺼번에 받고, 길잡이는 `packs/<id>/guide.json`({항목id:[칸]})으로 떼어 그 확장팩의 읽기 화면을 처음 열 때 `loadGuide(P)`가 받는다(`pack.json`의 `guideFile`). pack.json 합계 1MB→150KB. 왕복 250ms 기준 서재 표시 5.5초→1.4초. `merge_guides.py --apply`도 guide.json에 쓴다. 글꼴 @import는 style.css에서 빼고 index.html `<link>`+preconnect로.
 - **한국어 길잡이 전면 작성(2026-11-05):** 영어 원문이 있는 확장팩 7종 전부에 길잡이가 있다 — s3 163 · ifrs 151(S1 69·S2 82) · s2 93 · eubat 98 · cbam 59 · espr 83 · ppwr 94 = 741칸. 쓰는 방법: 쪽별 `pdftotext -layout` 텍스트 + 항목 목록(id·쪽 범위) + 브리프(`scratchpad/eu/GUIDE-BRIEF.md`, `ghg/GUIDE-BRIEF-S2.md`, `ifrs/GUIDE-BRIEF.md` 형식)를 서브에이전트에게 주고 `{항목id:[칸]}` JSON으로 받은 뒤 `merge_guides.py`(쪽 범위 안인지·필드·terms 형식·바깥 제도 언급 검사)로 `items[].guide`에 넣는다. 모두 `guideChecked:false`(원문 대조 전). IFRS 길잡이의 한국어 용어는 KSSB 제1·2호 번역어에 맞췄다(의사결정기구·계약 상품·집약도 목표·총익스포저·경영보고서).
 - **IFRS S1·S2(packs/ifrs)** 2026-11-05 ISSB 2026 edition PDF(S1 46쪽·S2 48쪽, 저장소에 넣음)로 검수해 읽기 가능. 문단→쪽 대응표는 `scratchpad/ifrs/paramap.json`(쪽 첫머리의 문단 번호를 긁은 것). 항목은 KSSB와 같은 틀 25개. 예전 'KSSB와의 차이' 항목은 원문에 없어 뺐다. 부록 A(용어의 정의)는 항목이 아니다.
 - **Scope 2 지침(packs/s2)** 2026-11-05 원문 PDF(120쪽, 인쇄 쪽+2)로 검수해 읽기 가능, Chapter 1~11 + 부록 A·B + 용어집으로 12항목. 예전 '한국에서의 적용' 항목은 뺐다.

@@ -413,12 +413,19 @@ function loadPdfjs() {
 }
 function getPdf(url) { return PDFDOCS[url] ||= loadPdfjs().then(l => l.getDocument(url).promise); }
 
+// 길잡이는 확장팩마다 guide.json({항목id:[칸]})에 따로 두고, 그 확장팩의 읽기 화면을 처음 열 때 한 번만 받는다
+async function loadGuide(P) {
+  if (!P.guideFile || P._guide) return;
+  try { P._guide = await (await fetch(P.base + P.guideFile)).json(); } catch (e) { P._guide = {}; }
+  P.items.forEach(i => { i.guide = P._guide[i.id] || []; });
+}
 async function stagePdf(P, it) {
   const parts = [...it.ranges.map(r => ({ ...r, ref: false })), ...it.refs.map(r => ({ ...r, ref: true }))];
   const cur = parts[VIEW.part] || parts[0];
   if (isExt(P, cur.doc)) return stageLink(P, it, parts, cur);
   const doc = P.docs[cur.doc], gl = doc.glossary;
   const ekey = VIEW.key + "/" + VIEW.part; if (EXTRA.key !== ekey) EXTRA = { key: ekey, before: 0, after: 0 };
+  await loadGuide(P);
   const guide = (it.guide || []).filter(g => g.doc === cur.doc && g.page >= cur.start - EXTRA.before && g.page <= cur.end + EXTRA.after);
   const isEn = doc.lang === "en";
   const ok = await checkPdf(P, cur.doc);
@@ -710,12 +717,12 @@ function route() {
 (async () => {
   try {
     const list = await (await fetch("packs.json")).json();
-    for (const p of list.packs) {
-      const P = await (await fetch(p.path + "pack.json")).json();
-      P.base = p.path; P.category = p.category; PACKS[P.id] = P; ORDER.push(P.id);
-    }
+    // 확장팩 15개와 공개 기록을 한꺼번에 받는다(차례로 받으면 왕복 시간이 15번 더해진다). 길잡이는 읽기 화면을 열 때 따로 받는다.
+    const pubReq = fetch("log/public.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : null).catch(() => null);
+    const packs = await Promise.all(list.packs.map(p => fetch(p.path + "pack.json").then(r => r.json()).then(P => { P.base = p.path; P.category = p.category; return P; })));
+    for (const P of packs) { PACKS[P.id] = P; ORDER.push(P.id); }
     CATS = list.categories || [];
-    try { const r = await fetch("log/public.json", { cache: "no-cache" }); if (r.ok) { PUB = await r.json(); if (!PUB || typeof PUB.packs !== "object") PUB = null; } } catch (e) { PUB = null; }
+    PUB = await pubReq; if (!PUB || typeof PUB.packs !== "object") PUB = null;
     PUBMODE = !!PUB && !hasOwn(); pubBar();
     $("#tocBtn").onclick = () => $("#drawer") ? closeDrawer() : openDrawer();
     addEventListener("hashchange", route); route();

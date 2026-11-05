@@ -1,7 +1,6 @@
 /* 톤: 딥 포레스트 — 2026-11-05 시안 A 채택 (미드나이트는 눈이 아파 하루 만에 되돌림).
    밝은 바탕에 진한 초록 포인트, 큰 제목만 세리프(Noto Serif KR).
    색: 글자 + 초록(주색) · 파랑(정보·적용지침) · 주황갈색(주의). 확장팩마다 색을 바꾸지 않고 약어 배지로 구분한다. */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&display=swap');
 :root{
   --bg-page:#FAFBFA;--bg-card:#FFFFFF;--bg-muted:#F1F4F2;
   --point-600:#1B5E3C;--point-300:#8FC9A8;--point-100:#DCEBE1;--point-050:#EEF5F0;--on-point:#FFFFFF;--point-hover:#174F33;
@@ -16,6 +15,7 @@
   --ease:cubic-bezier(.4,0,.2,1);
   --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
 }
+.loading{color:var(--fg-3);padding:60px 0;text-align:center}
 /* 세리프 제목 */
 .h1,.ptitle,.rtitle,.hero-main h2,.nc-main h2,.pack h2,.cat-h h2,.sh h2{font-family:var(--serif);font-weight:900;letter-spacing:-.01em}
 *{box-sizing:border-box}
